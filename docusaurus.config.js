@@ -21,82 +21,82 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        { to: "blog", label: "Blog", position: "right" },
+        { to: 'blog', label: 'Blog', position: 'right' },
         {
-          to: "clients",
-          label: "Clients",
-          position: "right",
+          to: 'clients',
+          label: 'Clients',
+          position: 'right',
         },
         {
-          to: "downloads",
-          label: "Downloads",
-          position: "right",
+          to: 'downloads',
+          label: 'Downloads',
+          position: 'right',
         },
         {
-          to: "contribute",
-          label: "Contribute",
-          position: "right",
+          to: 'contribute',
+          label: 'Contribute',
+          position: 'right',
         },
         {
           type: 'doc',
           docId: 'intro',
-          label: "Documentation",
-          position: "right",
+          label: 'Documentation',
+          position: 'right',
         },
         {
-          to: "contact",
-          label: "Contact",
-          position: "right",
+          to: 'contact',
+          label: 'Contact',
+          position: 'right',
         },
       ],
     },
     footer: {
       links: [
         {
-          title: "Docs",
+          title: 'Docs',
           items: [
             {
-              label: "Getting Started",
-              to: "/docs/intro",
+              label: 'Getting Started',
+              to: '/docs/intro',
             },
             {
-              label: "Developer Documentation",
-              href: "https://developer.jellyfin.org",
+              label: 'Developer Documentation',
+              href: 'https://developer.jellyfin.org',
             },
           ],
         },
         {
-          title: "Community",
+          title: 'Community',
           items: [
             {
-              label: "Matrix",
-              href: "https://matrix.to/#/+jellyfin:matrix.org",
+              label: 'Matrix',
+              href: 'https://matrix.to/#/+jellyfin:matrix.org',
             },
             {
-              label: "Discord",
-              href: "https://discord.gg/zHBxVSXdBV",
+              label: 'Discord',
+              href: 'https://discord.gg/zHBxVSXdBV',
             },
             {
-              label: "Reddit",
-              href: "https://reddit.com/r/jellyfin",
+              label: 'Reddit',
+              href: 'https://reddit.com/r/jellyfin',
             },
           ],
         },
         {
-          title: "More",
+          title: 'More',
           items: [
             {
-              label: "Blog",
-              to: "blog",
+              label: 'Blog',
+              to: 'blog',
             },
             {
-              label: "Check us out on GitHub",
-              href: "https://github.com/jellyfin",
+              label: 'Check us out on GitHub',
+              href: 'https://github.com/jellyfin',
             },
           ],
         },
       ],
-      copyright: `Site content is licensed <a href="http://creativecommons.org/licenses/by-nd/4.0/">CC-BY-ND-4.0</a>`,
+      copyright: `Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`,
     },
   },
   presets: [
