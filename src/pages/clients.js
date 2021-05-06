@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 
-export default function MyReactPage() {
+export default function Clients() {
   return (
     <Layout>
       <h1>Downloads</h1>
