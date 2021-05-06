@@ -38,7 +38,8 @@ module.exports = {
           position: "right",
         },
         {
-          to: "docs/",
+          type: 'doc',
+          docId: 'intro',
           label: "Documentation",
           position: "right",
         },
@@ -56,7 +57,7 @@ module.exports = {
           items: [
             {
               label: "Getting Started",
-              to: "https://jellyfin.org/docs/",
+              to: "/docs/intro",
             },
             {
               label: "Developer Documentation",
