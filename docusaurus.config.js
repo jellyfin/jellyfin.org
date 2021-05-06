@@ -10,71 +10,92 @@ module.exports = {
   organizationName: 'jellyfin',
   projectName: 'jellyfin.org',
   themeConfig: {
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false
+    },
     navbar: {
-      title: 'My Site',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Jellyfin logo',
         src: 'img/logo.svg',
       },
       items: [
+        { to: "blog", label: "Blog", position: "right" },
         {
-          type: 'doc',
-          docId: 'intro',
-          position: 'left',
-          label: 'Tutorial',
+          to: "clients",
+          label: "Clients",
+          position: "right",
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
+          to: "downloads",
+          label: "Downloads",
+          position: "right",
+        },
+        {
+          to: "contribute",
+          label: "Contribute",
+          position: "right",
+        },
+        {
+          to: "docs/",
+          label: "Documentation",
+          position: "right",
+        },
+        {
+          to: "contact",
+          label: "Contact",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: "Docs",
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: "Getting Started",
+              to: "https://jellyfin.org/docs/",
+            },
+            {
+              label: "Developer Documentation",
+              href: "https://developer.jellyfin.org",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: "Matrix",
+              href: "https://matrix.to/#/+jellyfin:matrix.org",
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: "Discord",
+              href: "https://discord.gg/zHBxVSXdBV",
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              label: "Reddit",
+              href: "https://reddit.com/r/jellyfin",
             },
           ],
         },
         {
-          title: 'More',
+          title: "More",
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: "Blog",
+              to: "blog",
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: "Check us out on GitHub",
+              href: "https://github.com/jellyfin",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Site content is licensed <a href="http://creativecommons.org/licenses/by-nd/4.0/">CC-BY-ND-4.0</a>`,
     },
   },
   presets: [
