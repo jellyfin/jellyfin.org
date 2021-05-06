@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 export default function Contribute() {
   return (
     <Layout>
-      <h1>Clients</h1>
+      <h1>Contribute</h1>
       <p>Placeholder page</p>
     </Layout>
   );
