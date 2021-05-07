@@ -1,0 +1,13 @@
+.cta {
+    background: linear-gradient(to left,#3E2247,#003C50);
+    color: #fff;
+    padding: 48pt 0;
+    text-align: center;
+}
+
+.cta-sub {
+    opacity: .85;
+    max-width: 58ch;
+    margin: 16pt auto 24pt;
+}
+

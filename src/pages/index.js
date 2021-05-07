@@ -1,24 +1,30 @@
 import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
+import FreeSoftware from '../components/FreeSoftware';
+import BuiltByVolunteers from '../components/BuiltByVolunteers';
+import MoreClients from '../components/MoreClients';
+import CallToAction from '../components/CallToAction';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
+    <header className={clsx('hero')}>
+      <div className="hero-overlay hero-overlay--gradient"></div>
+      <div className="hero-mask"></div>
+      <div className="hero-inner">
+        <div className="container">
+          <div className="hero-content">
+            <div className="hero-content-inner">
+              <h1 className="hero-title">The Free Software Media System</h1>
+              <p className="hero-text">Jellyfin is the volunteer-built media solution that puts <em>you</em> in control of your media. Stream to any device from your own server, with no strings attached. Your media, your server, your way.</p>
+              <a href="https://demo.jellyfin.org/stable" className="button button--secondary button--outline">See it in Action</a>
+              <a href="/downloads" className="button button button--primary margin-horiz--md">Download Now</a>
+              <a href="" className="button button--secondary button--outline scroll">Learn More</a>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -34,6 +40,10 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <FreeSoftware />
+        <BuiltByVolunteers />
+        <MoreClients />
+        <CallToAction />
       </main>
     </Layout>
   );
