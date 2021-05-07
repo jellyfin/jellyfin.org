@@ -2,7 +2,7 @@
 module.exports = {
   title: 'Jellyfin',
   tagline: 'The Free Software Media System',
-  url: 'https://jellyfin.org/',
+  url: 'https://next.jellyfin.org/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
