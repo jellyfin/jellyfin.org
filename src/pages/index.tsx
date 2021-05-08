@@ -11,7 +11,6 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero')}>
       <div className="hero-overlay hero-overlay--gradient"></div>
-      <div className="hero-mask"></div>
       <div className="hero-inner">
         <div className="container">
           <div className="hero-content">
