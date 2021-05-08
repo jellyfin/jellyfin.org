@@ -1,7 +1,13 @@
 import React from 'react';
 import Web from '../../static/img/web.svg';
 import Desktop from '../../static/img/monitor.svg';
-import { Android, Apple, Roku, Amazon, Kodi } from '@icons-pack/react-simple-icons';
+import {
+  Android,
+  Apple,
+  Roku,
+  Amazon,
+  Kodi
+} from '@icons-pack/react-simple-icons';
 import Plus from '../../static/img/plus-thick.svg';
 
 export default function MoreClients() {
@@ -11,7 +17,11 @@ export default function MoreClients() {
         <div className="row">
           <div className="col col--12 display--flex flex-direction--column align-items--center">
             <h1>More clients than you can count</h1>
-            <div>With a large array of official and third-party clients, Jellyfin is available on every platform. Your media is ready to follow you, wherever you go.</div>
+            <div>
+              With a large array of official and third-party clients, Jellyfin
+              is available on every platform. Your media is ready to follow you,
+              wherever you go.
+            </div>
 
             <div className="display--flex flex-wrap--wrap align-items--center fill--white margin-top--md">
               <div className="display--flex flex-direction--column align-items--center client-icon-block margin-top--md">
