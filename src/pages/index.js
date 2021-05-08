@@ -29,8 +29,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`The Free Software Media System`}
+      description="The volunteer-built media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

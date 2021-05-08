@@ -10,6 +10,12 @@ module.exports = {
   organizationName: 'jellyfin',
   projectName: 'jellyfin.org',
   themeConfig: {
+    image: 'img/social.png',
+    metadatas: [
+      { name: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:site', content: '@jellyfin' }
+    ],
     colorMode: {
       defaultMode: 'light',
       disableSwitch: true,
