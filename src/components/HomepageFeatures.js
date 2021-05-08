@@ -4,40 +4,73 @@ import styles from './HomepageFeatures.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Movies',
+    Svg: require('../../static/img/undraw_home_cinema.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Enjoy your entire movie collection, easy to browse and with beautiful artwork.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Shows',
+    Svg: require('../../static/img/undraw_Video_streaming_re.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Watch your favorite shows, automatically sorted by season and ready to binge.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
+    title: 'Music',
+    Svg: require('../../static/img/undraw_compose_music.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Listen to music, your artists and your playlists, at home or on the go.
       </>
     ),
   },
+  {
+    title: 'Live TV & DVR',
+    Svg: require('../../static/img/undraw_game_day.svg').default,
+    description: (
+      <>
+        Watch TV and set automatic recordings to expand your library.
+      </>
+    ),
+  },
+  {
+    title: 'Books',
+    Svg: require('../../static/img/undraw_book_lover.svg').default,
+    description: (
+      <>
+        Read your books, comics, and magazines.
+      </>
+    ),
+  },
+  {
+    title: 'Photos',
+    Svg: require('../../static/img/undraw_group_selfie.svg').default,
+    description: (
+      <>
+        Organize your photos and share memories with your friends and family.
+      </>
+    ),
+  },
+  {
+    title: 'SyncPlay',
+    Svg: require('../../static/img/undraw_real_time_collaboration.svg').default,
+    description: (
+      <>
+        Sharing a movie night remotely has never been so easy.
+      </>
+    ),
+  }
 ];
 
 function Feature({Svg, title, description}) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--3')}>
       <div className="text--center">
         <Svg className={styles.featureSvg} alt={title} />
       </div>
@@ -51,9 +84,9 @@ function Feature({Svg, title, description}) {
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
+    <section className={`${styles.features} landing-section padding-vert--xl`}>
+      <div className="container--fluid">
+        <div className="row row-justify--center padding-horiz--sm">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
