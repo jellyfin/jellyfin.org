@@ -44,7 +44,7 @@ const FeatureList = [
     Svg: require('../../static/img/undraw_book_lover.svg').default,
     description: (
       <>
-        Store, manage and read your books, comics and magazines.
+        Read your books, comics, and magazines.
       </>
     ),
   },
@@ -62,7 +62,7 @@ const FeatureList = [
     Svg: require('../../static/img/undraw_real_time_collaboration.svg').default,
     description: (
       <>
-        Sharing a movie night with has never been so easy.
+        Sharing a movie night remotely has never been so easy.
       </>
     ),
   }
