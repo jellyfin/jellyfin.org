@@ -8,18 +8,20 @@ const FeatureList = [
     Svg: require('../../static/img/undraw_home_cinema.svg').default,
     description: (
       <>
-        Enjoy your entire movie collection, easy to browse and with beautiful artwork.
+        Enjoy your entire movie collection, easy to browse and with beautiful
+        artwork.
       </>
-    ),
+    )
   },
   {
     title: 'Shows',
     Svg: require('../../static/img/undraw_Video_streaming_re.svg').default,
     description: (
       <>
-        Watch your favorite shows, automatically sorted by season and ready to binge.
+        Watch your favorite shows, automatically sorted by season and ready to
+        binge.
       </>
-    ),
+    )
   },
   {
     title: 'Music',
@@ -28,47 +30,44 @@ const FeatureList = [
       <>
         Listen to music, your artists and your playlists, at home or on the go.
       </>
-    ),
+    )
   },
   {
     title: 'Live TV & DVR',
     Svg: require('../../static/img/undraw_game_day.svg').default,
     description: (
-      <>
-        Watch TV and set automatic recordings to expand your library.
-      </>
-    ),
+      <>Watch TV and set automatic recordings to expand your library.</>
+    )
   },
   {
     title: 'Books',
     Svg: require('../../static/img/undraw_book_lover.svg').default,
-    description: (
-      <>
-        Read your books, comics, and magazines.
-      </>
-    ),
+    description: <>Read your books, comics, and magazines.</>
   },
   {
     title: 'Photos',
     Svg: require('../../static/img/undraw_group_selfie.svg').default,
     description: (
-      <>
-        Organize your photos and share memories with your friends and family.
-      </>
-    ),
+      <>Organize your photos and share memories with your friends and family.</>
+    )
   },
   {
     title: 'SyncPlay',
     Svg: require('../../static/img/undraw_real_time_collaboration.svg').default,
-    description: (
-      <>
-        Sharing a movie night remotely has never been so easy.
-      </>
-    ),
+    description: <>Sharing a movie night remotely has never been so easy.</>
   }
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({
+  Svg,
+  title,
+  description
+}: {
+  Svg: any;
+  title: string;
+  description: JSX.Element;
+  key: number;
+}) {
   return (
     <div className={clsx('col col--3')}>
       <div className="text--center">

@@ -1,10 +1,10 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 
-export default function Contribute() {
+export default function Contact() {
   return (
     <Layout>
-      <h1>Contribute</h1>
+      <h1>Contact</h1>
       <p>Placeholder page</p>
     </Layout>
   );

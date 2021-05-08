@@ -1,10 +1,10 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 
-export default function Clients() {
+export default function Downloads() {
   return (
     <Layout>
-      <h1>Clients</h1>
+      <h1>Downloads</h1>
       <p>Placeholder page</p>
     </Layout>
   );
