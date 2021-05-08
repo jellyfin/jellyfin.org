@@ -13,36 +13,36 @@ export default function MoreClients() {
             <h1>More clients than you can count</h1>
             <div>With a large array of official and third-party clients, Jellyfin is available on every platform. Your media is ready to follow you, wherever you go.</div>
 
-            <div className="display--flex flex-wrap--wrap align-items--center fill--white margin-top--lg">
-              <div className="display--flex flex-direction--column align-items--center client-icon-block">
+            <div className="display--flex flex-wrap--wrap align-items--center fill--white margin-top--md">
+              <div className="display--flex flex-direction--column align-items--center client-icon-block margin-top--md">
                 <Web />
                 <span className="margin-top--sm">Web</span>
               </div>
-              <div className="display--flex flex-direction--column align-items--center client-icon-block">
+              <div className="display--flex flex-direction--column align-items--center client-icon-block margin-top--md">
                 <Desktop />
                 <span className="margin-top--sm">Desktop</span>
               </div>
-              <div className="display--flex flex-direction--column align-items--center client-icon-block">
+              <div className="display--flex flex-direction--column align-items--center client-icon-block margin-top--md">
                 <Android color="#ffffff" size={48} />
                 <span className="margin-top--sm">Android</span>
               </div>
-              <div className="display--flex flex-direction--column align-items--center client-icon-block">
+              <div className="display--flex flex-direction--column align-items--center client-icon-block margin-top--md">
                 <Apple color="#ffffff" size={48} />
                 <span className="margin-top--sm">Apple</span>
               </div>
-              <div className="display--flex flex-direction--column align-items--center client-icon-block">
+              <div className="display--flex flex-direction--column align-items--center client-icon-block margin-top--md">
                 <Roku color="#ffffff" size={48} />
                 <span className="margin-top--sm">Roku</span>
               </div>
-              <div className="display--flex flex-direction--column align-items--center client-icon-block">
+              <div className="display--flex flex-direction--column align-items--center client-icon-block margin-top--md">
                 <Kodi color="#ffffff" size={48} />
                 <span className="margin-top--sm">Kodi</span>
               </div>
-              <div className="display--flex flex-direction--column align-items--center client-icon-block">
+              <div className="display--flex flex-direction--column align-items--center client-icon-block margin-top--md">
                 <Amazon color="#ffffff" size={48} />
                 <span className="margin-top--sm">Amazon</span>
               </div>
-              <div className="display--flex flex-direction--column align-items--center client-icon-block">
+              <div className="display--flex flex-direction--column align-items--center client-icon-block margin-top--md">
                 <Plus />
                 <span className="margin-top--sm">And more</span>
               </div>
