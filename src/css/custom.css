@@ -55,10 +55,6 @@ h2 {
 .hero {
   position: relative;
   width: 100%;
-  background-image: url(/img/background.jpg);
-  background-size: cover;
-  background-position: 50%;
-  background-repeat: no-repeat;
   color: #fff;
   padding: 0;
 }
@@ -77,19 +73,7 @@ h2 {
 }
 
 .hero-overlay--gradient {
-  background: linear-gradient(to right,#3E2247,#003C50);
-}
-
-.hero-mask {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9IjA2NzE0Yjk3LWFlYzgtNGI3ZS1iZjNkLTFlMjBmOTVmNjEyZSIgeTE9IjgwOS41IiB4Mj0iOTU4IiB5Mj0iODA5LjUiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSwgMCwgMCwgLTEsIDAsIDEwODIpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iLjA1Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHRpdGxlPmhlcm88L3RpdGxlPjxyZWN0IGlkPSIwNTY3MDk1Yi0yY2Y3LTQ0MDctYjhhYi1lYzJhYmU1MmQ4MzAiIGRhdGEtbmFtZT0iJmx0O1BhdGg+IiB5PSI1NDUiIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjUzNSIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjA1IiBzdHlsZT0iaXNvbGF0aW9uOmlzb2xhdGUiLz48cG9seWdvbiBpZD0iODJjYTlhNjEtYTBhMS00OWNjLTk4MDUtYTM1MzNjNjkzYmFkIiBkYXRhLW5hbWU9IiZsdDtQYXRoPiIgcG9pbnRzPSI5NTggNTQ1IDAgNTQ1IDAgMCA3NzAuOTYgMCA5NTggNTQ1IiBmaWxsPSJ1cmwoIzA2NzE0Yjk3LWFlYzgtNGI3ZS1iZjNkLTFlMjBmOTVmNjEyZSkiLz48L3N2Zz4=);
-  background-size: cover;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  opacity: .66;
-  z-index: 2;
+  background: linear-gradient(220deg,#3E2247,#003C50);
 }
 
 .hero-inner {
@@ -109,7 +93,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(90vh - 50px);
+  min-height: 500px;
   padding: calc(92px)0;
   overflow: auto;
 }
