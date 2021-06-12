@@ -27,10 +27,19 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        { to: 'blog', label: 'Blog', position: 'right' },
+        {
+          to: 'features',
+          label: 'Features',
+          position: 'right',
+        },
         {
           to: 'clients',
           label: 'Clients',
+          position: 'right',
+        },
+        {
+          to: 'plugins',
+          label: 'Plugins',
           position: 'right',
         },
         {
@@ -43,9 +52,10 @@ module.exports = {
           label: 'Contribute',
           position: 'right',
         },
+        { to: 'blog', label: 'Blog', position: 'right' },
         {
           type: 'doc',
-          docId: 'intro',
+          docId: 'getting-started',
           label: 'Documentation',
           position: 'right',
         },
@@ -63,7 +73,7 @@ module.exports = {
           items: [
             {
               label: 'Getting Started',
-              to: '/docs/intro',
+              to: '/docs/getting-started',
             },
             {
               label: 'Developer Documentation',
@@ -74,6 +84,10 @@ module.exports = {
         {
           title: 'Community',
           items: [
+            {
+              label: 'Community Standards',
+              to: 'community-standards',
+            },
             {
               label: 'Matrix',
               href: 'https://matrix.to/#/+jellyfin:matrix.org',
@@ -92,8 +106,16 @@ module.exports = {
           title: 'More',
           items: [
             {
+              label: 'Getting Help',
+              to: 'getting-help',
+            },
+            {
               label: 'Blog',
               to: 'blog',
+            },
+            {
+              label: 'FAQ',
+              to: 'faq',
             },
             {
               label: 'Check us out on GitHub',
