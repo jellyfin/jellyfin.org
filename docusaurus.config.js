@@ -4,7 +4,7 @@ module.exports = {
   tagline: 'The Free Software Media System',
   url: 'http://next.jellyfin.org',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'jellyfin',
@@ -24,47 +24,47 @@ module.exports = {
     navbar: {
       logo: {
         alt: 'Jellyfin logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.svg'
       },
       items: [
         {
           to: 'features',
           label: 'Features',
-          position: 'right',
+          position: 'right'
         },
         {
           to: 'clients',
           label: 'Clients',
-          position: 'right',
+          position: 'right'
         },
         {
           to: 'plugins',
           label: 'Plugins',
-          position: 'right',
+          position: 'right'
         },
         {
           to: 'downloads',
           label: 'Downloads',
-          position: 'right',
+          position: 'right'
         },
         {
           to: 'contribute',
           label: 'Contribute',
-          position: 'right',
+          position: 'right'
         },
         { to: 'blog', label: 'Blog', position: 'right' },
         {
           type: 'doc',
           docId: 'getting-started',
           label: 'Documentation',
-          position: 'right',
+          position: 'right'
         },
         {
           to: 'contact',
           label: 'Contact',
-          position: 'right',
-        },
-      ],
+          position: 'right'
+        }
+      ]
     },
     footer: {
       links: [
@@ -73,59 +73,59 @@ module.exports = {
           items: [
             {
               label: 'Getting Started',
-              to: '/docs/getting-started',
+              to: '/docs/getting-started'
             },
             {
               label: 'Developer Documentation',
-              href: 'https://developer.jellyfin.org',
-            },
-          ],
+              href: 'https://developer.jellyfin.org'
+            }
+          ]
         },
         {
           title: 'Community',
           items: [
             {
               label: 'Community Standards',
-              to: 'community-standards',
+              to: 'community-standards'
             },
             {
               label: 'Matrix',
-              href: 'https://matrix.to/#/+jellyfin:matrix.org',
+              href: 'https://matrix.to/#/+jellyfin:matrix.org'
             },
             {
               label: 'Discord',
-              href: 'https://discord.gg/zHBxVSXdBV',
+              href: 'https://discord.gg/zHBxVSXdBV'
             },
             {
               label: 'Reddit',
-              href: 'https://reddit.com/r/jellyfin',
-            },
-          ],
+              href: 'https://reddit.com/r/jellyfin'
+            }
+          ]
         },
         {
           title: 'More',
           items: [
             {
               label: 'Getting Help',
-              to: 'getting-help',
+              to: 'getting-help'
             },
             {
               label: 'Blog',
-              to: 'blog',
+              to: 'blog'
             },
             {
               label: 'FAQ',
-              to: 'faq',
+              to: 'faq'
             },
             {
               label: 'Check us out on GitHub',
-              href: 'https://github.com/jellyfin',
-            },
-          ],
-        },
+              href: 'https://github.com/jellyfin'
+            }
+          ]
+        }
       ],
-      copyright: `Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`,
-    },
+      copyright: `Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
+    }
   },
   presets: [
     [
@@ -134,16 +134,15 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/jellyfin/jellyfin.org/edit/master/',
+          editUrl: 'https://github.com/jellyfin/jellyfin.org/edit/master/'
         },
         blog: {
-          showReadingTime: true,
+          showReadingTime: true
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      },
-    ],
-  ],
+          customCss: require.resolve('./src/css/custom.css')
+        }
+      }
+    ]
+  ]
 };

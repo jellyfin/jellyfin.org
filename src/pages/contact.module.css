@@ -1,0 +1,66 @@
+.contact-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1em;
+  user-select: none;
+}
+
+a.contact-card {
+  color: white;
+}
+
+.contact-card {
+  border-radius: 15px;
+}
+
+.reddit {
+  background-color: #ff4500;
+}
+
+.element {
+  background-color: #0dbd8b;
+}
+
+.discord {
+  background-color: #5865f2;
+}
+
+.telegram {
+  background-color: #26a5e4;
+}
+
+.twitter {
+  background-color: #1da1f2;
+}
+
+.libera {
+  background-color: #ff55dd;
+}
+
+.libera-icon {
+  width: 48px;
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: bold;
+}
+
+.facebook {
+  background-color: #1877f2;
+}
+
+.github {
+  background-color: #181717;
+}
+
+.weblate {
+  background-color: #2eccaa;
+}
+
+.jellyfin {
+  background-color: #00a4dc;
+}
+
+.open-collective {
+  background-color: #7fadf2;
+}
