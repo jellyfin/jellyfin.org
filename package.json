@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.75",
-    "@docusaurus/preset-classic": "2.0.0-alpha.75",
+    "@docusaurus/preset-classic": "2.0.0-beta.3",
     "@icons-pack/react-simple-icons": "^4.4.0",
     "@img-comparison-slider/react": "^3.0.4",
     "@mdx-js/react": "^1.6.21",
