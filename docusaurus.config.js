@@ -11,6 +11,14 @@ module.exports = {
   projectName: 'jellyfin.org',
   themeConfig: {
     image: 'img/social.png',
+    announcementBar: {
+      id: 'work_in_progress', // Any value that will identify this message.
+      content:
+        'This new version of Jellyfin.org is currently being built. <a target="_blank" rel="noopener noreferrer" href="https://github.com/jellyfin/jellyfin.org">Get involved!</a>',
+      backgroundColor: '#b71c1c',
+      textColor: '#ffffff',
+      isCloseable: false
+    },
     metadatas: [
       { name: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
