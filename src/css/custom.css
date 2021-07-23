@@ -5,31 +5,36 @@
  * work well for content-centric websites.
  */
 
- html {
+html {
   font-size: 15px;
   line-height: 1.7;
   font-weight: 400;
   text-rendering: optimizeLegibility;
-  -moz-font-feature-settings: "liga" on;
-  font-feature-settings: "liga";
+  -moz-font-feature-settings: 'liga' on;
+  font-feature-settings: 'liga';
 }
 
 :root {
-  --ifm-font-color-base: #ffffff;
+  --grey-50: #333c44;
   --ifm-button-color: #ffffff;
   --ifm-button-border-radius: 30px;
-  --ifm-color-primary: #007CA6;
-  --ifm-color-primary-dark: #00749b;
-  --ifm-color-primary-darker: #006b90;
-  --ifm-color-primary-darkest: #006385;
-  --ifm-color-primary-light: #008dbd;
-  --ifm-color-primary-lighter: #009ed4;
-  --ifm-color-primary-lightest: #00afeb;
+  --ifm-color-primary: #9d37c2;
+  --ifm-color-primary-dark: #8d32af;
+  --ifm-color-primary-darker: #7e2c9b;
+  --ifm-color-primary-darkest: #6e2788;
+  --ifm-color-primary-light: #a74bc8;
+  --ifm-color-primary-lighter: #b15fce;
+  --ifm-color-primary-lightest: #ba73d4;
   --ifm-code-font-size: 95%;
   --ifm-navbar-background-color: #000b25;
-  --ifm-background-color: #000b25 !important;
-  --ifm-footer-background-color: #333c44;
-  --ifm-font-family-base: "Noto Sans", sans-serif;
+  --ifm-navbar-link-color: #ffffff;
+  --ifm-navbar-height: 105px;
+  --ifm-navbar-padding-vertical: 20px;
+  --ifm-navbar-padding-horizontal: 180px;
+  --ifm-footer-background-color: var(--grey-50);
+  --ifm-footer-title-color: #ffffff;
+  --ifm-footer-color: #ffffff;
+  --ifm-font-family-base: 'Noto Sans', sans-serif;
   --ifm-h1-font-size: 2.074em;
   --ifm-h2-font-size: 1.728em;
   --ifm-footer-link-color: #ffffff;
@@ -43,6 +48,14 @@ h1 {
 h2 {
   font-weight: 300;
   line-height: 1.35;
+}
+
+.navbar__brand {
+  height: 3.5rem;
+}
+
+.button--lg {
+  --ifm-button-size-multiplier: 1.5;
 }
 
 .docusaurus-highlight-code-line {
@@ -67,13 +80,18 @@ h2 {
   position: absolute;
   height: 100%;
   width: 100%;
-  opacity: .9;
+  opacity: 1;
   z-index: 1;
   background-color: #3e2247;
 }
 
 .hero-overlay--gradient {
-  background: linear-gradient(220deg,#3E2247,#003C50);
+  background: rgb(45, 62, 194);
+  background: linear-gradient(
+    90deg,
+    rgba(45, 62, 194, 1) 0%,
+    rgba(126, 45, 194, 1) 100%
+  );
 }
 
 .hero-inner {
@@ -93,24 +111,24 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 500px;
-  padding: calc(92px)0;
+  padding: 155px 0 80px 0;
   overflow: auto;
 }
 
 .hero-content-inner {
   width: 100%;
-  max-width: 600px;
   text-align: center;
 }
 
 .hero-title {
+  font-size: 3.583rem;
+  font-weight: 600;
   color: #fff;
   margin-bottom: 1.25em;
 }
 
 .hero-text {
-  opacity: .85;
+  opacity: 0.85;
   line-height: 1.7;
   text-align: left;
   font-size: 1.1em;
@@ -119,24 +137,6 @@ h2 {
 
 .row-justify--center {
   justify-content: center;
-}
-
-.landing-section {
-  padding:24pt 0
-}
-
-.landing-section:first-child {
-  border-top:1px solid #eee;
-}
-
-.landing-section:nth-child(even) {
-  background-color:#172138;
-  border-top:1px solid #eee;
-  border-bottom:1px solid #eee
-}
-
-.landing-section:last-child {
-  border-bottom:1px solid #eee
 }
 
 .display--flex {
@@ -155,10 +155,33 @@ h2 {
   align-items: center;
 }
 
-.fill--white {
-  fill: var(--ifm-font-color-base);
+.align-items--start {
+  align-items: flex-start;
 }
 
 .client-icon-block {
   width: 7em;
+}
+
+.text--white {
+  color: white !important;
+}
+
+.position--relative {
+  position: relative !important;
+}
+
+/* TODO: Maybe do this in the component directly? */
+.transparent-navbar .navbar {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.transparent-navbar .main-wrapper {
+  margin-top: -105px;
+}
+
+/* TODO: Maybe do this in the component directly? */
+.transparent-navbar .navbar--fixed-top {
+  position: initial;
 }

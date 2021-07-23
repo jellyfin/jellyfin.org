@@ -1,80 +1,73 @@
 import React from 'react';
-import clsx from 'clsx';
+import Icon from '@mdi/react';
+import {
+  mdiPlayCircle,
+  mdiTelevision,
+  mdiLock,
+  mdiCurrencyUsdOff
+} from '@mdi/js';
 import styles from './HomepageFeatures.module.css';
 
 const FeatureList = [
   {
-    title: 'Movies',
-    Svg: require('../../static/img/undraw_home_cinema.svg').default,
+    title: 'Your Media',
+    path: mdiPlayCircle,
     description: (
       <>
-        Enjoy your entire movie collection, easy to browse and with beautiful
-        artwork.
-      </>
-    )
-  },
-  {
-    title: 'Shows',
-    Svg: require('../../static/img/undraw_Video_streaming_re.svg').default,
-    description: (
-      <>
-        Watch your favorite shows, automatically sorted by season and ready to
-        binge.
-      </>
-    )
-  },
-  {
-    title: 'Music',
-    Svg: require('../../static/img/undraw_compose_music.svg').default,
-    description: (
-      <>
-        Listen to music, your artists and your playlists, at home or on the go.
+        Enjoy your entire collection of movies, shows, music, photos and books
+        in an easy to use and beautiful interface.
       </>
     )
   },
   {
     title: 'Live TV & DVR',
-    Svg: require('../../static/img/undraw_game_day.svg').default,
+    path: mdiTelevision,
     description: (
-      <>Watch TV and set automatic recordings to expand your library.</>
+      <>
+        Watch your favorite sports and TV shows live, or record them to catch up
+        later.
+      </>
     )
   },
   {
-    title: 'Books',
-    Svg: require('../../static/img/undraw_book_lover.svg').default,
-    description: <>Read your books, comics, and magazines.</>
-  },
-  {
-    title: 'Photos',
-    Svg: require('../../static/img/undraw_group_selfie.svg').default,
+    title: 'No Fees',
+    path: mdiCurrencyUsdOff,
     description: (
-      <>Organize your photos and share memories with your friends and family.</>
+      <>
+        It iss all fully free, without any hidden cost. We will never ask you
+        for a single cent or hide features behind a subscription.
+      </>
     )
   },
   {
-    title: 'SyncPlay',
-    Svg: require('../../static/img/undraw_real_time_collaboration.svg').default,
-    description: <>Sharing a movie night remotely has never been so easy.</>
+    title: 'Privacy Focused',
+    path: mdiLock,
+    description: (
+      <>
+        Jellyfin is built around privacy-first. You are control of everything
+        and it never calls home.
+      </>
+    )
   }
 ];
 
 function Feature({
-  Svg,
+  path,
   title,
   description
 }: {
-  Svg: any;
+  path: any;
   title: string;
   description: JSX.Element;
   key: number;
 }) {
   return (
-    <div className={clsx('col col--3')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+    <div className="col col--3 padding--lg">
+      <div className="">
+        <Icon path={path} className={styles['feature-svg']} />
       </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
+      <div className="margin-top--md">
+        <h3 className={styles['feature-title']}>{title}</h3>
         <p>{description}</p>
       </div>
     </div>
@@ -83,7 +76,7 @@ function Feature({
 
 export default function HomepageFeatures() {
   return (
-    <section className={`${styles.features} landing-section padding-vert--xl`}>
+    <section className={`${styles.features}`}>
       <div className="container--fluid">
         <div className="row row-justify--center padding-horiz--sm">
           {FeatureList.map((props, idx) => (

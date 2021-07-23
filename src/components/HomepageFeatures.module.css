@@ -3,11 +3,17 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
   width: 100%;
+  background-color: #293036;
+  color: #ffffff;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.feature-svg {
+  height: 64px;
+  width: 64px;
+}
+
+.feature-title {
+  font-size: 1.728rem;
+  font-weight: 800;
 }

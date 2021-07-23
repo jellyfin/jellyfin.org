@@ -1,13 +1,15 @@
 .cta {
-    background: linear-gradient(to left,#3E2247,#003C50);
-    color: #fff;
-    padding: 48pt 0;
-    text-align: center;
+  background: rgb(251, 182, 23);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 182, 23, 1) 0%,
+    rgba(251, 235, 23, 1) 100%
+  );
+  text-align: center;
 }
 
-.cta-sub {
-    opacity: .85;
-    max-width: 58ch;
-    margin: 16pt auto 24pt;
+.section-title {
+  font-size: 2.488rem;
+  font-weight: 800;
+  line-break: strict;
 }
-

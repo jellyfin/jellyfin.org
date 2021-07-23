@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '../components/HomepageFeatures';
@@ -16,25 +16,19 @@ function HomepageHeader() {
           <div className="hero-content">
             <div className="hero-content-inner">
               <h1 className="hero-title">The Free Software Media System</h1>
-              <p className="hero-text">
-                Jellyfin is the volunteer-built media solution that puts{' '}
-                <em>you</em> in control of your media. Stream to any device from
-                your own server, with no strings attached. Your media, your
-                server, your way.
-              </p>
               <a
                 href="https://demo.jellyfin.org/stable"
-                className="button button--secondary button--outline"
+                className="button button--lg button--secondary button--outline text--white"
               >
                 See it in Action
               </a>
               <a
                 href="/downloads"
-                className="button button button--primary margin-horiz--md"
+                className="button button--lg button--primary margin-horiz--md"
               >
                 Download Now
               </a>
-              <button className="button button--secondary button--outline scroll">
+              <button className="button button--lg button--secondary button--outline text--white scroll">
                 Learn More
               </button>
             </div>
@@ -46,6 +40,16 @@ function HomepageHeader() {
 }
 
 export default function Home() {
+  useEffect(() => {
+    // Set up
+    document.body.classList.add('transparent-navbar');
+
+    // Clean up
+    return () => {
+      document.body.classList.remove('transparent-navbar');
+    };
+  }, []);
+
   return (
     <Layout
       title={`The Free Software Media System`}
