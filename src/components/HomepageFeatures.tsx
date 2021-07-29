@@ -34,8 +34,10 @@ const FeatureList = [
     path: mdiCurrencyUsdOff,
     description: (
       <>
-        It iss all fully free, without any hidden cost. We will never ask you
-        for a single cent or hide features behind a subscription.
+        It iss all fully free, without any hidden cost.
+        <br />
+        We will never ask you for a single cent or hide features behind a
+        subscription.
       </>
     )
   },
@@ -44,8 +46,9 @@ const FeatureList = [
     path: mdiLock,
     description: (
       <>
-        Jellyfin is built around privacy-first. You are control of everything
-        and it never calls home.
+        Jellyfin is built around privacy-first.
+        <br />
+        You are control of everything and it never calls home.
       </>
     )
   }
@@ -62,13 +65,11 @@ function Feature({
   key: number;
 }) {
   return (
-    <div className="col col--3 padding--lg">
-      <div className="">
-        <Icon path={path} className={styles['feature-svg']} />
-      </div>
-      <div className="margin-top--md">
+    <div className="col col--3 padding--lg display--flex flex-direction--column align-items--center">
+      <Icon path={path} className={styles['feature-svg']} />
+      <div className="margin-top--md display--flex flex-direction--column align-items--center">
         <h3 className={styles['feature-title']}>{title}</h3>
-        <p>{description}</p>
+        <p className="text--center padding-horiz--md">{description}</p>
       </div>
     </div>
   );

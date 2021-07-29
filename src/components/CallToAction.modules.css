@@ -1,10 +1,11 @@
 .cta {
-  background: rgb(251, 182, 23);
+  background: rgb(45, 62, 194);
   background: linear-gradient(
-    90deg,
-    rgba(251, 182, 23, 1) 0%,
-    rgba(251, 235, 23, 1) 100%
+    270deg,
+    rgba(45, 62, 194, 1) 0%,
+    rgba(126, 45, 194, 1) 100%
   );
+  color: white;
   text-align: center;
 }
 

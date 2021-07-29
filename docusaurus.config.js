@@ -148,9 +148,14 @@ module.exports = {
           showReadingTime: true
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css')
+          customCss: [
+            require.resolve('./src/css/custom.css'),
+            require.resolve('swiper/swiper.scss'),
+            require.resolve('swiper/components/effect-fade/effect-fade.scss')
+          ]
         }
       }
     ]
-  ]
+  ],
+  plugins: ['docusaurus-plugin-sass']
 };
