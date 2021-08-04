@@ -1,24 +1,25 @@
 import React from 'react';
-import styles from './CallToAction.modules.css';
+import Button from './Button';
 
-export default function CallToAction() {
+const CallToAction = () => {
   return (
-    <div className={styles.cta}>
-      <div className="container">
-        <div className="cta-inner">
-          <h2 className="cta-title">Get Started Now</h2>
-          <p className="cta-sub">
+    <section className="w-full py-20 bg-gradient-to-r from-jellyfin-purple-300 to-jellyfin-blue-300 text-white">
+      <div className="container mx-auto">
+        <div className="flex flex-col flex-grow-0 items-center justify-center mx-4 lg:mx-0">
+          <h2 className="font-black text-center text-5xl mb-6">
+            Get Started Now
+          </h2>
+          <p className="mb-14 font-bold text-xl text-center">
             Check out our Getting Started guide to download and set up your
             server today.
           </p>
-          <a
-            href="/downloads"
-            className="button button--primary button--lg margin-top--lg"
-          >
+          <Button variant="primary" href="/downloads">
             Download Jellyfin
-          </a>
+          </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default CallToAction;

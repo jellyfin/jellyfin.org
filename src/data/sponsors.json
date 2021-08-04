@@ -1,0 +1,17 @@
+[
+  {
+    "name": "JetBrains",
+    "logo": "../images/sponsors/jetbrains.svg",
+    "link": "https://www.jetbrains.com"
+  },
+  {
+    "name": "DigitalOcean",
+    "logo": "../images/sponsors/digitalocean.svg",
+    "link": "https://www.digitalocean.com"
+  },
+  {
+    "name": "BrowserStack",
+    "logo": "../images/sponsors/browserstack.svg",
+    "link": "https://www.browserstack.com"
+  }
+]

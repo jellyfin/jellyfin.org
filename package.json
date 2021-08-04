@@ -1,62 +1,57 @@
 {
-  "name": "jellyfin-org",
-  "version": "0.0.0",
+  "name": "jellyfin",
+  "version": "1.0.0",
   "private": true,
+  "description": "Jellyfin",
+  "author": "MrTimscampi",
+  "keywords": [
+    "gatsby"
+  ],
   "scripts": {
-    "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "lint": "eslint --ext .ts,.js,.json,.jsx,.tsx ."
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint:js": "eslint --ext .tsx,.ts ."
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.3",
-    "@docusaurus/preset-classic": "^2.0.0-beta.3",
+    "@fontsource/lato": "^4.5.0",
+    "@fontsource/quicksand": "^4.5.0",
+    "@headlessui/react": "^1.4.0",
     "@icons-pack/react-simple-icons": "^4.6.1",
-    "@img-comparison-slider/react": "^7.1.1",
-    "@mdx-js/react": "^1.6.21",
-    "@svgr/webpack": "^5.5.0",
-    "clsx": "^1.1.1",
-    "file-loader": "^6.2.0",
+    "@mdi/js": "^5.9.55",
+    "@mdi/react": "^1.5.0",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "gatsby": "^3.10.2",
+    "gatsby-plugin-image": "^1.10.1",
+    "gatsby-plugin-manifest": "^3.10.0",
+    "gatsby-plugin-mdx": "^2.10.1",
+    "gatsby-plugin-postcss": "^4.10.0",
+    "gatsby-plugin-prettier-eslint": "^1.0.6",
+    "gatsby-plugin-react-helmet": "^4.10.0",
+    "gatsby-plugin-sass": "^4.10.0",
+    "gatsby-plugin-sharp": "^3.10.2",
+    "gatsby-plugin-sitemap": "^4.6.0",
+    "gatsby-source-filesystem": "^3.10.0",
+    "gatsby-transformer-json": "^3.10.0",
+    "gatsby-transformer-sharp": "^3.10.0",
+    "postcss": "^8.3.6",
+    "prettier": "^2.3.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "url-loader": "^4.1.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "react-helmet": "^6.1.0",
+    "sass": "^1.37.0",
+    "swiper": "^6.8.0",
+    "tailwindcss": "^2.2.7"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-alpha.75",
-    "@tsconfig/docusaurus": "^1.0.2",
-    "@types/react": "^17.0.14",
-    "@types/react-helmet": "^6.1.2",
-    "@types/react-router-dom": "^5.1.8",
-    "@typescript-eslint/eslint-plugin": "^4.22.1",
-    "@typescript-eslint/parser": "^4.22.1",
-    "eslint": "^7.31.0",
+    "autoprefixer": "^10.3.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "2.3.2",
-    "typescript": "^4.2.4",
-    "typescript-plugin-css-modules": "^3.2.0"
+    "eslint-config-react-app": "^6.0.0",
+    "typescript": "^4.3.5"
   }
 }

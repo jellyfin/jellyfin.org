@@ -1,33 +1,47 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import Svg from '../../static/img/icon-transparent.svg';
-import styles from './FreeSoftware.modules.css';
+import Button from './Button';
 
-export default function FreeSoftware() {
+const FreeSoftware = () => {
   return (
-    <section className="landing-section padding-vert--xl">
-      <div className="container">
-        <div className="row">
-          <div className="col col--6">
-            <Svg className={styles.logo} />
-            <h1>Your media, your server, your way</h1>
-            <div className="margin-bottom--sm">
-              <b>Jellyfin is fully self-hosted and fully open source.</b>
-            </div>
-            <div>
-              We don&apos;t do tracking or paid plans. There is no forced
-              connection to a remote server. You are in control from start to
-              finish.
-            </div>
-          </div>
-          <div className="col col--6 padding--lg">
-            <img
+    <section className="w-full py-24">
+      <div className="container mx-auto">
+        <div className="flex flex-col lg:flex-row gap-6 mx-4 lg:mx-24 lg:flex-grow-0">
+          <div className="p-4 order-1 lg:order-2">
+            <StaticImage
               alt="Jellyfin home screen"
-              className="shadow--md"
-              src={require('../../static/img/home-10.7.png').default}
+              className="shadow-lg lg:max-w-5xl"
+              src="../images/home-10.7.png"
             />
+          </div>
+          <div className="order-2 lg:order-1 lg:max-w-7xl flex flex-col items-start justify-center">
+            <h2 className="font-black text-5xl mb-6">
+              Your media,
+              <br />
+              your server,
+              <br />
+              <span className="text-transparent decoration-clone bg-clip-text bg-gradient-to-r from-jellyfin-purple-300 to-jellyfin-blue-300">
+                your way
+              </span>
+            </h2>
+            <div className="mb-4 font-bold text-2xl">
+              Jellyfin is fully self-hosted and fully open source.
+            </div>
+            <div className="mb-6 text-lg">
+              We don&apos;t do tracking or paid plans.
+              <br />
+              There is no forced connection to a remote server.
+              <br />
+              You are in control from start to finish.
+            </div>
+            <Button variant="primary" href="/contribute">
+              Get Started
+            </Button>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default FreeSoftware;

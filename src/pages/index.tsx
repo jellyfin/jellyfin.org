@@ -1,64 +1,75 @@
 import React from 'react';
-import clsx from 'clsx';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '../components/HomepageFeatures';
+import { graphql } from 'gatsby';
+import HeroCarousel from '../components/HeroCarousel';
+import { LandingPage } from '../components/Layout';
+import Button from '../components/Button';
+import Header from '../components/Header';
+import Features from '../components/Feature';
 import FreeSoftware from '../components/FreeSoftware';
-import BuiltByVolunteers from '../components/BuiltByVolunteers';
-import MoreClients from '../components/MoreClients';
+import Footer from '../components/Footer';
+import Sponsors from '../components/Sponsors';
+import Volunteers from '../components/Volunteers';
+import Clients from '../components/Clients';
+import Providers from '../components/Providers';
 import CallToAction from '../components/CallToAction';
 
-function HomepageHeader() {
+export const query = graphql`
+  query HeroSlides {
+    allHeroJson {
+      nodes {
+        alt
+        image {
+          childImageSharp {
+            fluid {
+              srcWebp
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+const IndexPage = ({ data }) => {
   return (
-    <header className={clsx('hero')}>
-      <div className="hero-overlay hero-overlay--gradient"></div>
-      <div className="hero-inner">
-        <div className="container">
-          <div className="hero-content">
-            <div className="hero-content-inner">
-              <h1 className="hero-title">The Free Software Media System</h1>
-              <p className="hero-text">
-                Jellyfin is the volunteer-built media solution that puts{' '}
-                <em>you</em> in control of your media. Stream to any device from
-                your own server, with no strings attached. Your media, your
-                server, your way.
-              </p>
-              <a
+    <LandingPage>
+      <Header mainClasses={'z-10'} />
+      <HeroCarousel header={true} slides={data.allHeroJson.nodes}>
+        <div className="flex flex-col w-full items-center">
+          <div className="relative w-full px-6 pt-32 pb-10 lg:pt-64 lg:pb-48 z-20 flex flex-col items-center justify-center">
+            <h1 className="text-white text-center text-4xl font-extrabold mb-14 lg:mb-6 lg:text-6xl">
+              The Free Software Media System
+            </h1>
+            <div className="flex flex-col md:flex-row gap-2">
+              <Button
+                external
+                variant="primary-outline"
                 href="https://demo.jellyfin.org/stable"
-                className="button button--secondary button--outline"
               >
                 See it in Action
-              </a>
-              <a
-                href="/downloads"
-                className="button button button--primary margin-horiz--md"
-              >
+              </Button>
+              <Button variant="primary" href="/downloads">
                 Download Now
-              </a>
-              <button className="button button--secondary button--outline scroll">
+              </Button>
+              <Button variant="primary-outline" href="#">
                 Learn More
-              </button>
+              </Button>
             </div>
           </div>
+          <Features />
         </div>
-      </div>
-    </header>
-  );
-}
-
-export default function Home() {
-  return (
-    <Layout
-      title={`The Free Software Media System`}
-      description="The volunteer-built media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached."
-    >
-      <HomepageHeader />
+      </HeroCarousel>
       <main>
-        <HomepageFeatures />
         <FreeSoftware />
-        <BuiltByVolunteers />
-        <MoreClients />
+        <Volunteers />
+        <Providers />
+        <Sponsors />
+        <Clients />
         <CallToAction />
       </main>
-    </Layout>
+      <Footer />
+    </LandingPage>
   );
-}
+};
+
+export default IndexPage;
