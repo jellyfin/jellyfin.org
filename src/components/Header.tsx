@@ -5,7 +5,7 @@ import Icon from '@mdi/react';
 import { mdiClose, mdiMenu } from '@mdi/js';
 import { Transition } from '@headlessui/react';
 
-const Header = ({ mainClasses = 'bg-grey-700' }) => {
+const Header = ({ mainClasses = 'bg-gray-700' }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
   const data = useStaticQuery(graphql`
@@ -52,19 +52,20 @@ const Header = ({ mainClasses = 'bg-grey-700' }) => {
                   title="Home"
                   alt="Jellyfin Logo"
                   objectFit="contain"
+                  placeholder={'none'}
                 />
               </Link>
             </div>
             <div className="hidden lg:block lg:ml-auto">
               <div className="ml-5 lg:ml-10 flex items-baseline gap-5">
                 {data.allMenuJson.nodes.map((item, index) => (
-                  <a
+                  <Link
                     className="transition-colors font-bold text-white hover:text-primary-100"
                     key={item.url}
-                    href={item.url}
+                    to={item.url}
                   >
                     {item.title}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -74,13 +75,13 @@ const Header = ({ mainClasses = 'bg-grey-700' }) => {
           <div className="lg:hidden" id="mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {data.allMenuJson.nodes.map((item, index) => (
-                <a
-                  href={item.url}
-                  key={item.url}
+                <Link
                   className="text-gray-200 hover:text-primary-100 block px-3 py-2 font-medium"
+                  key={item.url}
+                  to={item.url}
                 >
                   {item.title}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

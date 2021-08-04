@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="relative bg-gray-700 text-white">
+    <div className="relative bg-gray-700 text-white mt-auto">
       <div className="container mx-auto py-16 lg:py-20 px-6 lg:px-0 flex flex-wrap gap-2 lg:gap-0 justify-between">
         <div className="text-center md:text-left w-full md:w-2/5 mb-10 px-4 md:mb-0">
           <div className="flex items-center justify-center md:justify-start">
@@ -13,6 +13,7 @@ const Footer = () => {
               title="Home"
               alt="Jellyfin Logo"
               objectFit="contain"
+              placeholder={'none'}
             />
           </div>
           <p className="mt-4 max-w-xs font-medium text-sm mx-auto md:mx-0 md:mr-4">

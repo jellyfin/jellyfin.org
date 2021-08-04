@@ -42,7 +42,7 @@ const Providers = () => {
               databases online, or go fully offline with native support for Kodi
               NFO files.
             </div>
-            <Button variant="primary" href="/contribute">
+            <Button variant="primary" href="/plugins">
               Browse our Plugins
             </Button>
           </div>

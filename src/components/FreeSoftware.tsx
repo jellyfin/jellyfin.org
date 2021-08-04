@@ -12,6 +12,7 @@ const FreeSoftware = () => {
               alt="Jellyfin home screen"
               className="shadow-lg lg:max-w-5xl"
               src="../images/home-10.7.png"
+              placeholder="blurred"
             />
           </div>
           <div className="order-2 lg:order-1 lg:max-w-7xl flex flex-col items-start justify-center">
