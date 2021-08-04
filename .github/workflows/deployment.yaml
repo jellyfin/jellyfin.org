@@ -1,10 +1,13 @@
 name: Deploy
 
 on:
-  pull_request:
-    branches: [master]
   push:
-    branches: [master]
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
 
 jobs:
   gh-release:
@@ -26,7 +29,7 @@ jobs:
             ${{ runner.os }}-node-
       - name: Build website
         run: |
-          npm ci
+          npm ci --no-audit
           npm run build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
