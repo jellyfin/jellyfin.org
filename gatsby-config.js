@@ -1,36 +1,70 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "Jellyfin",
+    siteUrl: 'https://jellyfin.org',
+    title: 'Jellyfin'
   },
   plugins: [
-    "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
+    'gatsby-plugin-sass',
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-image',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: "src/images/icon.png",
-      },
+        icon: 'src/images/icon.png'
+      }
     },
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-mdx',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-json',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "images",
-        path: "./src/images/",
+        name: 'data',
+        path: './src/data/'
       },
-      __key: "images",
+      __key: 'data'
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        name: 'images',
+        path: './src/images/'
       },
-      __key: "pages",
+      __key: 'images'
     },
-  ],
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: './src/pages/'
+      },
+      __key: 'pages'
+    },
+    {
+      resolve: 'gatsby-plugin-prettier-eslint',
+      options: {
+        prettier: {
+          patterns: [
+            // the pattern "**/*.{js,jsx,ts,tsx}" is not used because we will rely on `eslint --fix`
+            '**/*.{css,scss,less}',
+            '**/*.{json,json5}',
+            '**/*.{graphql}',
+            '**/*.{md,mdx}',
+            '**/*.{html}',
+            '**/*.{yaml,yml}'
+          ]
+        },
+        eslint: {
+          patterns: '**/*.{js,jsx,ts,tsx}',
+          customOptions: {
+            fix: true,
+            cache: true
+          }
+        }
+      }
+    }
+  ]
 };

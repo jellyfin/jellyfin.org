@@ -1,0 +1,38 @@
+[
+  {
+    "name": "TheMovieDB",
+    "logo": "../images/providers/themoviedb.svg",
+    "width": "max-w-xs",
+    "height": "h-12"
+  },
+  {
+    "name": "Fanart.tv",
+    "logo": "../images/providers/fanart.svg",
+    "width": "max-w-xs",
+    "height": "h-14"
+  },
+  {
+    "name": "MusicBrainz",
+    "logo": "../images/providers/musicbrainz.svg",
+    "width": "max-w-xs",
+    "height": "h-12"
+  },
+  {
+    "name": "aniDB",
+    "logo": "../images/providers/anidb.svg",
+    "width": "max-w-xs",
+    "height": "h-8"
+  },
+  {
+    "name": "TheTVDB",
+    "logo": "../images/providers/tvdb.svg",
+    "width": "max-w-xs",
+    "height": "h-16"
+  },
+  {
+    "name": "ComicVine",
+    "logo": "../images/providers/comicvine.svg",
+    "width": "max-w-xs",
+    "height": "h-20"
+  }
+]
