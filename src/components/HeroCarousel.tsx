@@ -1,10 +1,8 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/swiper.scss';
-import 'swiper/components/effect-fade/effect-fade.scss';
-
 import SwiperCore, { Autoplay, EffectFade } from 'swiper/core';
+import { GatsbyImage } from 'gatsby-plugin-image';
 SwiperCore.use([Autoplay, EffectFade]);
 
 const HeroCarousel = ({
@@ -40,17 +38,17 @@ const HeroCarousel = ({
               {slides.map((element, alt) => (
                 <div className="absolute inset-0 z-0">
                   <SwiperSlide key={alt}>
-                    <img
+                    <GatsbyImage
                       className="h-full w-full object-cover"
                       alt={element.alt}
-                      src={element.image.childImageSharp.fluid.srcWebp}
+                      image={element.image.childImageSharp.gatsbyImageData}
                     />
                   </SwiperSlide>
                 </div>
               ))}
             </Swiper>
           </div>
-          <div className="absolute h-full w-full inset-0 bg-gray-700 opacity-60 z-10"></div>
+          <div className="absolute h-full w-full inset-0 bg-gray-700 opacity-50 z-10"></div>
           {children}
         </div>
       </div>

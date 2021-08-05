@@ -42,6 +42,7 @@ const Clients = () => {
             <StaticImage
               alt="Jellyfin clients on TV, desktop, tablet and phone"
               src="../images/devices-2021-08-04.png"
+              placeholder="blurred"
             />
           </div>
         </div>

@@ -12,3 +12,29 @@
     @apply font-sans-title;
   }
 }
+
+.plugin-changelog {
+  @apply mb-3;
+}
+
+.plugin-changelog:last-child {
+  @apply mb-0;
+}
+
+.plugin-changelog h3 {
+  @apply text-lg;
+  @apply font-bold;
+}
+
+.plugin-changelog ul {
+  @apply mb-2;
+}
+
+.plugin-changelog ul:last-child {
+  @apply mb-0;
+}
+
+.plugin-changelog li {
+  @apply list-inside;
+  @apply list-disc;
+}

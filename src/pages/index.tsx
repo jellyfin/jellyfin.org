@@ -20,9 +20,7 @@ export const query = graphql`
         alt
         image {
           childImageSharp {
-            fluid {
-              srcWebp
-            }
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
       }
@@ -40,7 +38,7 @@ const IndexPage = ({ data }) => {
             <h1 className="text-white text-center text-4xl font-extrabold mb-14 lg:mb-6 lg:text-6xl">
               The Free Software Media System
             </h1>
-            <div className="flex flex-col md:flex-row gap-2">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-2">
               <Button
                 external
                 variant="primary-outline"

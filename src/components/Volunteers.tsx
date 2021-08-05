@@ -1,9 +1,16 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import Button from './Button';
 
 const Volunteers = () => {
-  const members = 45;
-  const contributors = 1000;
+  const data = useStaticQuery(graphql`
+    query Contributors {
+      dataJson {
+        members
+        contributors
+      }
+    }
+  `);
 
   return (
     <section className="w-full py-24 text-white bg-gradient-to-r from-jellyfin-pink-500 to-jellyfin-orange-500">
@@ -11,12 +18,14 @@ const Volunteers = () => {
         <div className="flex flex-col justify-center items-center lg:flex-row gap-6 mx-4 lg:mx-24">
           <div className="flex flex-col lg:w-80 justify-center mb-12 lg:mb-0">
             <div className="flex flex-col items-center mb-8">
-              <span className="text-5xl font-extrabold mb-4">{members}</span>
+              <span className="text-5xl font-extrabold mb-4">
+                {data.dataJson.members}
+              </span>
               <span className="text-4xl font-bold">Members</span>
             </div>
             <div className="flex flex-col items-center">
               <span className="text-5xl font-extrabold mb-4">
-                {contributors}+
+                {data.dataJson.contributors}+
               </span>
               <span className="text-4xl font-bold">Contributors</span>
             </div>
