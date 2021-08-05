@@ -5,9 +5,20 @@ import Button from './Button';
 const Volunteers = () => {
   const data = useStaticQuery(graphql`
     query Contributors {
-      dataJson {
-        members
-        contributors
+      github {
+        organization(login: "jellyfin") {
+          membersWithRole {
+            totalCount
+          }
+          repositories(first: 100) {
+            totalCount
+            nodes {
+              collaborators {
+                totalCount
+              }
+            }
+          }
+        }
       }
     }
   `);
@@ -19,15 +30,24 @@ const Volunteers = () => {
           <div className="flex flex-col lg:w-80 justify-center mb-12 lg:mb-0">
             <div className="flex flex-col items-center mb-8">
               <span className="text-5xl font-extrabold mb-4">
-                {data.dataJson.members}
+                {data.github.organization.membersWithRole.totalCount}
               </span>
               <span className="text-4xl font-bold">Members</span>
             </div>
             <div className="flex flex-col items-center">
               <span className="text-5xl font-extrabold mb-4">
-                {data.dataJson.contributors}+
+                {data.github.organization.repositories.nodes
+                  .map((repository) => repository.collaborators.totalCount)
+                  .reduce((acc, cur) => acc + cur)}
+                +
               </span>
               <span className="text-4xl font-bold">Contributors</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-5xl font-extrabold mb-4">
+                {data.github.organization.repositories.totalCount}
+              </span>
+              <span className="text-4xl font-bold">Repositories</span>
             </div>
           </div>
           <div className="flex flex-col lg:max-w-xl flex-grow-0 items-start justify-center">
