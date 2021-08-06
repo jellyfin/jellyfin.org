@@ -24,6 +24,7 @@
     "@mdi/react": "^1.5.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@octokit/graphql-schema": "^10.59.0",
     "@types/lodash-es": "^4.17.4",
     "gatsby": "^3.10.2",
     "gatsby-plugin-image": "^1.10.1",

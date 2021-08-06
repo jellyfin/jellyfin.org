@@ -1,4 +1,4 @@
-const fs = require(`fs`);
+const { schema } = require('@octokit/graphql-schema');
 const fetch = require(`node-fetch`);
 const { buildClientSchema } = require(`graphql`);
 const { createHttpLink } = require(`apollo-link-http`);
@@ -85,8 +85,7 @@ module.exports = {
             fetch
           }),
         createSchema: async () => {
-          const json = JSON.parse(fs.readFileSync(`${__dirname}/github.json`));
-          return buildClientSchema(json.data);
+          return buildClientSchema(schema.json);
         }
       }
     },
