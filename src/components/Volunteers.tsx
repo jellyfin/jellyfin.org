@@ -30,13 +30,13 @@ const Volunteers = () => {
           <div className="flex flex-col lg:w-80 justify-center mb-12 lg:mb-0">
             <div className="flex flex-col items-center mb-8">
               <span className="text-5xl font-extrabold mb-4">
-                {data.github.organization.membersWithRole.totalCount}
+                {data.github?.organization?.membersWithRole?.totalCount}
               </span>
               <span className="text-4xl font-bold">Members</span>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center mb-8">
               <span className="text-5xl font-extrabold mb-4">
-                {data.github.organization.repositories.nodes
+                {data.github?.organization?.repositories?.nodes
                   .map((repository) => repository.collaborators.totalCount)
                   .reduce((acc, cur) => acc + cur)}
                 +
@@ -45,7 +45,7 @@ const Volunteers = () => {
             </div>
             <div className="flex flex-col items-center">
               <span className="text-5xl font-extrabold mb-4">
-                {data.github.organization.repositories.totalCount}
+                {data.github?.organization?.repositories?.totalCount}
               </span>
               <span className="text-4xl font-bold">Repositories</span>
             </div>
