@@ -12,6 +12,7 @@ export const query = graphql`
       nodes {
         category
         imageUrl
+        imageURL
         pluginPath: gatsbyPath(filePath: "/plugins/{pluginsJson.name}")
         name
         overview
@@ -33,8 +34,12 @@ const PluginCategory = ({ name, plugins }) => {
         {plugins.map((plugin) => (
           <Link key={plugin.name} to={plugin.pluginPath}>
             <div className="bg-gray-100 shadow-md hover:shadow-lg transition-shadow">
-              {plugin.imageUrl ? (
-                <img alt={plugin.name} src={plugin.imageUrl} />
+              {('imageUrl' in plugin && plugin.imageUrl) ||
+              ('imageURL' in plugin && plugin.imageURL) ? (
+                <img
+                  alt={plugin.name}
+                  src={plugin?.imageUrl || plugin?.imageURL}
+                />
               ) : (
                 <StaticImage
                   alt="No image found"

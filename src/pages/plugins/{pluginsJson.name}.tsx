@@ -12,6 +12,7 @@ export const query = graphql`
       category
       description
       imageUrl
+      imageURL
       name
       overview
       owner
@@ -31,11 +32,12 @@ const PluginDetails = ({ data, location }) => {
         <header className="bg-gray-700 text-white">
           <div className="container mx-auto flex flex-col p-2 lg:p-4">
             <div className="flex gap-4">
-              {data.pluginsJson.imageUrl ? (
+              {('imageUrl' in data.pluginsJson && data.pluginsJson.imageUrl) ||
+              ('imageURL' in data.pluginsJson && data.pluginsJson.imageURL) ? (
                 <img
                   alt={data.pluginsJson.name}
                   className="w-96 shadow-lg"
-                  src={data.pluginsJson.imageUrl}
+                  src={data.pluginsJson?.imageUrl || data.pluginsJson?.imageURL}
                 />
               ) : (
                 <StaticImage
