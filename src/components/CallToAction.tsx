@@ -14,7 +14,7 @@ const CallToAction = () => {
             server today.
           </p>
           <Button variant="primary" href="/downloads">
-            Download Jellyfin
+            Read the Guide
           </Button>
         </div>
       </div>
