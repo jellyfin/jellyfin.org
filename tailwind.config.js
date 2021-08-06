@@ -53,13 +53,16 @@ module.exports = {
           500: '#c24085'
         },
         'jellyfin-orange': {
-          500: '#d64949'
+          500: '#d64949',
+          600: '#eba4a4'
         },
         'jellyfin-purple': {
-          300: '#7e2dc2'
+          300: '#7e2dc2',
+          600: '#a56cd4'
         },
         'jellyfin-blue': {
-          300: '#2d3ec2'
+          300: '#2d3ec2',
+          100: '#6c78d4'
         }
       }
     }
