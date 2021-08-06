@@ -89,6 +89,13 @@ module.exports = {
           return buildClientSchema(json.data);
         }
       }
+    },
+    {
+      resolve: 'gatsby-source-remote-file',
+      options: {
+        url: 'https://repo.jellyfin.org/releases/plugin/manifest-stable.json',
+        name: 'plugins'
+      }
     }
   ]
 };
