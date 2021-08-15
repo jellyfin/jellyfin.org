@@ -30,7 +30,10 @@ const Volunteers = () => {
           <div className="flex flex-col lg:w-80 justify-center mb-12 lg:mb-0">
             <div className="flex flex-col items-center mb-8">
               <span className="text-5xl font-extrabold mb-4">
-                {data.github?.organization?.membersWithRole?.totalCount}
+                {
+                  // Remove jellyfin-bot from the count
+                  data.github?.organization?.membersWithRole?.totalCount - 1
+                }
               </span>
               <span className="text-4xl font-bold">Members</span>
             </div>
