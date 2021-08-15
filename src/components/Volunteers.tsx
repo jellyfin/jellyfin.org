@@ -10,7 +10,7 @@ const Volunteers = () => {
           membersWithRole {
             totalCount
           }
-          repositories(first: 100) {
+          repositories(first: 100, privacy: PUBLIC) {
             totalCount
             nodes {
               collaborators {
