@@ -45,9 +45,13 @@ module.exports = {
       },
       colors: {
         primary: {
+          10: '#faebff',
+          25: '#eccdf7',
+          50: '#dc9df2',
           100: '#ba73d4',
           500: '#9d37c2',
-          700: '#7e2c9b'
+          700: '#7e2c9b',
+          900: '#260033'
         },
         'jellyfin-pink': {
           500: '#c24085'
