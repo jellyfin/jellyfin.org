@@ -1,0 +1,45 @@
+[
+  {
+    "name": "General",
+    "items": [
+      {
+        "question": "What is Jellyfin?",
+        "answer": ["Lorem Ipsum with **mardown**. *nice*."]
+      },
+      {
+        "question": "What are the minimum requirements to run a Jellyfin server?",
+        "answer": ["Lorem Ipsum with **mardown**. *nice*."]
+      },
+      {
+        "question": "Which devices can I use to consume content from a Jellyfin server?",
+        "answer": ["Lorem Ipsum with **mardown**. *nice*."]
+      }
+    ]
+  },
+  {
+    "name": "Features",
+    "items": [
+      {
+        "question": "I am waiting for feature X, when will it release?",
+        "answer": ["Lorem Ipsum with **mardown**. *nice*."]
+      },
+      {
+        "question": "Where can I request features?",
+        "answer": ["Lorem Ipsum with **mardown**. *nice*."]
+      }
+    ]
+  },
+  {
+    "name": "Clients",
+    "items": [
+      {
+        "question": "Does X client support this feature?",
+        "answer": ["Lorem Ipsum with **mardown**. *nice*."]
+      },
+      {
+        "question": "Does X client support this media format?",
+        "answer": ["Lorem Ipsum with **mardown**. *nice*."]
+      }
+    ]
+  }
+]

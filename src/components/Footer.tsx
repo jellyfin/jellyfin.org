@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
@@ -104,12 +105,12 @@ const Footer = () => {
               </a>
             </li>
             <li className="mt-3">
-              <a
+              <Link
                 className="border-b-2 border-transparent hocus:text-primary-500 hocus:border-primary-500 pb-1 transition-colors text-gray-100 hover:text-primary-100"
-                href="#"
+                to="/faq"
               >
                 FAQ
-              </a>
+              </Link>
             </li>
             <li className="mt-3">
               <a
