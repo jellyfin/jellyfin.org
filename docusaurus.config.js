@@ -60,7 +60,7 @@ module.exports = {
           label: 'Contribute',
           position: 'right'
         },
-        { to: 'blog', label: 'Blog', position: 'right' },
+        { to: 'posts', label: 'Blog', position: 'right' },
         {
           type: 'doc',
           docId: 'getting-started',
@@ -119,7 +119,7 @@ module.exports = {
             },
             {
               label: 'Blog',
-              to: 'blog'
+              to: 'posts'
             },
             {
               label: 'FAQ',
@@ -145,6 +145,7 @@ module.exports = {
           editUrl: 'https://github.com/jellyfin/jellyfin.org/edit/master/'
         },
         blog: {
+          routeBasePath: 'posts',
           showReadingTime: true
         },
         theme: {
