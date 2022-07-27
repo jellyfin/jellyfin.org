@@ -19,7 +19,7 @@ module.exports = {
       textColor: '#ffffff',
       isCloseable: false
     },
-    metadatas: [
+    metadata: [
       { name: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:site', content: '@jellyfin' }
