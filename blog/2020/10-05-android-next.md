@@ -1,6 +1,6 @@
 ---
 title: 'Android Developers Rejoice'
-subtitle: 'We have a brand new web wrapper for Android sans Cordova!'
+description: 'We have a brand new web wrapper for Android sans Cordova!'
 authors: dkanada
 date: 2020-10-05
 slug: android-next

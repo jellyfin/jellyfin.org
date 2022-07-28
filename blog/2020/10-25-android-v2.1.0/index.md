@@ -1,6 +1,6 @@
 ---
 title: 'Android v2.1.0 - Jellyfin in your car!'
-subtitle: 'Listen to your music while driving with the new Android update'
+description: 'Listen to your music while driving with the new Android update'
 authors: nielsvanvelzen
 date: 2020-10-25
 slug: android-v2.1.0

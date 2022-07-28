@@ -1,6 +1,6 @@
 ---
 title: 'The Jellyfin CDN: Mirrorbits for the masses'
-subtitle: 'How Jellyfin distributes binary packages'
+description: 'How Jellyfin distributes binary packages'
 authors: joshuaboniface
 date: 2021-04-12
 slug: mirrorbits-cdn

@@ -1,6 +1,6 @@
 ---
 title: 'Updating our iOS App'
-subtitle: 'Framework updates and minimum system requirements'
+description: 'Framework updates and minimum system requirements'
 authors: anthonylavado
 date: 2022-06-08
 slug: ios-update-150

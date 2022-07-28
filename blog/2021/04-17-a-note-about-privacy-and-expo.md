@@ -1,6 +1,6 @@
 ---
 title: 'A Note About Privacy and Expo for iOS'
-subtitle: 'Providing transparency to the community'
+description: 'Providing transparency to the community'
 authors: anthonylavado
 date: 2021-04-17
 slug: a-note-about-privacy-and-expo

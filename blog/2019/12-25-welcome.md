@@ -1,6 +1,6 @@
 ---
 title: "Welcome to the New Website!"
-subtitle: "Static pages built with Hugo, and more communication."
+description: "Static pages built with Hugo, and more communication."
 authors: anthonylavado
 date: 2019-12-25
 slug: welcome

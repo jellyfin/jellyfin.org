@@ -1,6 +1,6 @@
 ---
 title: "Introducing Jellyfin Media Player"
-subtitle: "A new user friendly MPV-based desktop client"
+description: "A new user friendly MPV-based desktop client"
 authors: iwalton3
 date: 2021-04-18
 slug: client-jmp

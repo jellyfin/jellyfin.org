@@ -1,6 +1,6 @@
 ---
 title: "Packaging Updates for 10.6.0"
-subtitle: "Some backend packaging changes are here: what you should know"
+description: "Some backend packaging changes are here: what you should know"
 authors: joshuaboniface
 date: 2020-06-21
 slug: packaging-updates

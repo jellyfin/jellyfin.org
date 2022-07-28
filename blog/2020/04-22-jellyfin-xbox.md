@@ -1,6 +1,6 @@
 ---
 title: "Jellyfin: Now on Xbox One (UPDATED)"
-subtitle: "Bet you didn't see this one coming!"
+description: "Bet you didn't see this one coming!"
 authors: anthonylavado
 date: 2020-04-22
 slug: jellyfin-xbox

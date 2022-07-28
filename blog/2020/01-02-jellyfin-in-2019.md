@@ -1,6 +1,6 @@
 ---
 title: "Jellyfin in 2019"
-subtitle: "Reflections on our first year"
+description: "Reflections on our first year"
 authors: joshuaboniface
 date: 2020-01-02
 slug: jellyfin-in-2019

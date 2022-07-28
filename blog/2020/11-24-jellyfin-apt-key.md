@@ -1,6 +1,6 @@
 ---
 title: 'Please refresh your Jellyfin Apt key on Debian/Ubuntu'
-subtitle: 'Our old key is expiring December 15th, read on to find out how to update'
+description: 'Our old key is expiring December 15th, read on to find out how to update'
 authors: joshuaboniface
 date: 2020-11-24
 slug: jellyfin-apt-key
