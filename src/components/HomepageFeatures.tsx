@@ -5,7 +5,7 @@ import styles from './HomepageFeatures.module.css';
 const FeatureList = [
   {
     title: 'Movies',
-    Svg: require('../../static/img/undraw_home_cinema.svg').default,
+    Svg: require('/static/images/illustrations/undraw_home_cinema.svg').default,
     description: (
       <>
         Enjoy your entire movie collection, easy to browse and with beautiful
@@ -15,7 +15,7 @@ const FeatureList = [
   },
   {
     title: 'Shows',
-    Svg: require('../../static/img/undraw_Video_streaming_re.svg').default,
+    Svg: require('/static/images/illustrations/undraw_Video_streaming_re.svg').default,
     description: (
       <>
         Watch your favorite shows, automatically sorted by season and ready to
@@ -25,7 +25,7 @@ const FeatureList = [
   },
   {
     title: 'Music',
-    Svg: require('../../static/img/undraw_compose_music.svg').default,
+    Svg: require('/static/images/illustrations/undraw_compose_music.svg').default,
     description: (
       <>
         Listen to music, your artists and your playlists, at home or on the go.
@@ -34,26 +34,26 @@ const FeatureList = [
   },
   {
     title: 'Live TV & DVR',
-    Svg: require('../../static/img/undraw_game_day.svg').default,
+    Svg: require('/static/images/illustrations/undraw_game_day.svg').default,
     description: (
       <>Watch TV and set automatic recordings to expand your library.</>
     )
   },
   {
     title: 'Books',
-    Svg: require('../../static/img/undraw_book_lover.svg').default,
+    Svg: require('/static/images/illustrations/undraw_book_lover.svg').default,
     description: <>Read your books, comics, and magazines.</>
   },
   {
     title: 'Photos',
-    Svg: require('../../static/img/undraw_group_selfie.svg').default,
+    Svg: require('/static/images/illustrations/undraw_group_selfie.svg').default,
     description: (
       <>Organize your photos and share memories with your friends and family.</>
     )
   },
   {
     title: 'SyncPlay',
-    Svg: require('../../static/img/undraw_real_time_collaboration.svg').default,
+    Svg: require('/static/images/illustrations/undraw_real_time_collaboration.svg').default,
     description: <>Sharing a movie night remotely has never been so easy.</>
   }
 ];

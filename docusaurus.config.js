@@ -6,11 +6,11 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'images/favicon.ico',
   organizationName: 'jellyfin',
   projectName: 'jellyfin.org',
   themeConfig: {
-    image: 'img/social.png',
+    image: 'images/social.png',
     announcementBar: {
       id: 'work_in_progress', // Any value that will identify this message.
       content:
@@ -32,7 +32,7 @@ module.exports = {
     navbar: {
       logo: {
         alt: 'Jellyfin logo',
-        src: 'img/logo.svg'
+        src: 'images/logo.svg'
       },
       items: [
         {
