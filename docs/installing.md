@@ -156,8 +156,10 @@ Steps to run Jellyfin using Podman are almost identical to Docker steps:
    ```sh
    dnf install -y podman
    ```
+
 Installing
    podman volume create jellyfin-cache
+
    ```
 
    Or create two directories on the host and use bind mounts:
@@ -868,28 +870,28 @@ You  need to replace the `<uid>:<gid>` placeholder below with the correct values
 
 For [Synology](https://www.synology.com/en-us/dsm), Jellyfin is installed using Docker.
 
-![Installing ynology](/img/docs/install-synology-1.png)
+![Installing ynology](/images/docs/install-synology-1.png)
 
-![Installing Synology](/img/docs/install-synology-2.png)
+![Installing Synology](/images/docs/install-synology-2.png)
 
-![Installing Synology](/img/docs/install-synology-3.png)
+![Installing Synology](/images/docs/install-synology-3.png)
 
 Create the container.
 
-![Installing Synology](/img/docs/install-synology-4.png)
+![Installing Synology](/images/docs/install-synology-4.png)
 
-![Installing Synology](/img/docs/install-synology-5.png)
+![Installing Synology](/images/docs/install-synology-5.png)
 
 Use Advanced Settings to add mount points to your media and config.
 
-![Installing Synology](/img/docs/install-synology-6.png)
+![Installing Synology](/images/docs/install-synology-6.png)
 
-![Installing Synology](/img/docs/install-synology-7.png)
+![Installing Synology](/images/docs/install-synology-7.png)
 
 Host Mode is required for HdHR and DLNA. Use bridge mode if running multiple instances.
 
-![Installing Synology](/img/docs/install-synology-8.png)
+![Installing Synology](/images/docs/install-synology-8.png)
 
-![Installing Synology](/img/docs/install-synology-9.png)
+![Installing Synology](/images/docs/install-synology-9.png)
 
 Browse to `http://SERVER_IP:8096` to access the web client.
