@@ -1,0 +1,91 @@
+---
+title: Android TV v0.13
+description: That was quick
+authors: nielsvanvelzen
+date: 2022-03-17
+slug: android-tv-13
+---
+
+<!-- markdownlint-disable MD033 MD036 -->
+
+We're back with another release for Android TV and Fire TV users containing a lot of bugfixes!
+
+<!--truncate-->
+
+As promised in the previous release post, the time between updates is getting shorter. We aim for future updates to happen significantly more frequently than the two years between 0.11 and 0.12. Today's update brings some new features and greatly improves playback of videos. Let's get started with the player changes.
+
+## Playback changes
+
+Most changes in this release are related to playing video files, the so called playback code. A lot of changes were made, both bugfixes and new features! The full list is, as always, available in the [changelog](https://github.com/jellyfin/jellyfin-androidtv/releases/tag/v0.13.0). The most notable changes are listed below.
+
+## Transcoding updates
+
+A lot of issues with video are caused by the way the app transcodes video. We've tweaked the transcoding behavior and found a lot of issues were fixed with those tweaks, issues like the video ending early or unexpectedly rewinding itself. Unfortunately these changes triggered some issues in Jellyfin 10.7 and we had to limit these changes to servers running Jellyfin 10.8. We recommend updating as soon as a stable server release is ready.
+
+Additionally, we've added support for more audio codecs. The added codecs include Dolby Digital, Digital Plus and TrueHD, as well as DTS and Linear PCM audio, all commonly found on DVDs and Blu-rays, but also a more universal AAC support. This change is comparable with the audio codec changes in the last release of our mobile app.
+
+### Version selection
+
+A much requested feature was the ability to add a version selector. We've now added this function. A new button is now shown on the details page for a movie/episode/video that can be used to select which version to play.
+
+![Screenshot of the new version selection](versionselection.png)
+
+### Speed control
+
+It's now possible to change the speed of playback. You can slow down or speed up a video. The set speed is remembered so the next video plays at the same speed, until you restart the app or manually change it back. Speed control is not available for Live TV.
+
+![Screenshot of the new speed controls](speedcontrol.png)
+
+### Subtitle preferences
+
+Not everyone enjoyed the default <span style={{ background:"#000", color: "#fff", padding: "4px" }}>subtitle styling</span> in the previous version, so now there are a few options to change it. It's now possible to change the size of the subtitles and to toggle between a black background or text outline. These preferences work for all text based subtitles. Image based subtitles like SubStation Alpha and VobSub still use their own styling.
+
+## Search & Screen saver
+
+You can now use the search function on Android TV to search in your Jellyfin libraries. This feature is supported for Android TV devices that do not use Google TV (like the new Chromecast). To get started, just search for a movie and press the "Available on Jellyfin" button.
+
+Additionally, we've added a screen saver that highlights your media. To enable it go to your system settings, open the screen saver category, and select the Jellyfin screen saver. On some devices this function may be called "Daydream". The screen saver shows random series and movies with their backdrop.
+
+## Updated preferences
+
+The app has quite a lot of preferences. To make it easier to find the correct preference we've divided them into a few categories and re-ordered all of them.
+
+Some new preferences were added too. We've added subtitle preferences (see above), the ability to (finally) change the home sections from within the app. And the licenses of third party libraries are now shown in the about section.
+
+<img src={require("./newprefs.png").default} alt="Screenshot of the new preference categories" style={{ maxHeight: "500px" }} />
+
+## Contributors
+
+Like all releases, we couldn't do it without our contributors and your donations! Jellyfin is made entirely by volunteers that don't get paid for their work. A big shout-out to the following contributors that made this release possible:
+
+**Jellyfin Team**
+
+- [@nielsvanvelzen](https://github.com/nielsvanvelzen) - Donate via [GitHub sponsors](https://github.com/sponsors/nielsvanvelzen)
+- [@mueslimak3r](https://github.com/mueslimak3r) - Donate via [GitHub sponsors](https://github.com/sponsors/mueslimak3r)
+- [@thornbill](https://github.com/thornbill) - Donate via [GitHub sponsors](https://github.com/sponsors/thornbill)
+- [@h1dden-da3m0n](https://github.com/h1dden-da3m0n)
+
+**Other contributors**
+
+- [@DavidFair](https://github.com/DavidFair)
+- [@ElegyD](https://github.com/ElegyD)
+- [@siankatabg](https://github.com/siankatabg)
+- [@koying](https://github.com/koying)
+- [@danieladov](https://github.com/danieladov)
+
+## Changelog
+
+Full changelog with all pull requests available on [GitHub](https://github.com/jellyfin/jellyfin-androidtv/releases/tag/v0.13.0).
+
+## Download Now
+
+<a className="margin-right--md" href="https://play.google.com/store/apps/details?id=org.jellyfin.androidtv">
+  <img width="153" alt='Jellyfin for Android TV on Google Play' src="/images/store-icons/google-play.png" />
+</a>
+
+<a href="https://www.amazon.com/gp/product/B07TX7Z725">
+  <img width="153" alt="Jellyfin for Fire TV at Amazon App Store" src="/images/store-icons/amazon.png" />
+</a>
+
+Direct downloads are always available from [our repository](https://repo.jellyfin.org/releases/client/androidtv/).
+You can also join our [beta program on Google Play](https://play.google.com/apps/testing/org.jellyfin.androidtv) to test new versions.

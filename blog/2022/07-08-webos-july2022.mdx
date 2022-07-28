@@ -1,0 +1,47 @@
+---
+title: "Jellyfin for webOS - July 2022 Update"
+description: "Now on the Big Screen"
+authors: anthonylavado
+date: 2022-07-08
+slug: webos-july2022
+---
+
+Finally, the big day is here. Jellyfin is now available on select LG Smart TVs.
+
+<!--truncate-->
+
+## Download
+
+First, let's get the download links out of the way. The current release on the store will install on LG TVs with webOS 6+, which should be any fully updated TV from 2021 or newer.
+
+For webOS 2/3/4/5:
+
+* Download the [latest release](https://github.com/jellyfin/jellyfin-webos/releases/latest)
+* Install using Developer Mode (or other process)
+
+For newer TVs (2021+):
+
+<p className="text--center">
+  <a href="https://us.lgappstv.com/main/tvapp/detail?appId=1030579"><img alt="Enjoy on LG Smart TV" width="200" src="https://repo.jellyfin.org/releases/other/lg-badge/LG_BADGE_greyborders_817x242.png"/></a>
+</p>
+
+:::info
+
+The Content Store version is currently only available for webOS 6+.
+
+:::
+
+## What's Next?
+
+We hope to bring this to more versions of webOS soon. There is one small bug to fix for webOS 5.x, and then we can resubmit with that update. Since the main QA testing work has been performed by LG, this process should be much faster. As time goes on, more enhancements and fixes will follow. It's hard to determine exactly how far back we'll successfully be able to support. We'll try our best to get as far back as webOS 3.x, but I am less optimistic about webOS 2.x and 1.x. If we get to 3.x, that brings us as far back as TVs from 2016 (running [Chromium 38](https://developer.chrome.com/docs/native-client/sdk/release-notes/#chrome-pepper-38-15-august-2014) from 2014!). You can see what versions of the browser are included in older webOS versions in [LG's Documentation](https://webostv.developer.lge.com/discover/specifications/web-engine/).
+
+If you want to follow along on our journey, you can have a look at the Issues listing on our [webOS Repository](https://github.com/jellyfin/jellyfin-webos/issues). I just have one request - don't comment unnecessarily. If you want to stay updated with a particular issue, there is a handy "Subscribe" button on the side that will email you updates.
+
+It's important to note that the app itself is a wrapper around our server's web interface, so when you keep your Jellyfin server up to date, you automatically get a lot of the fixes right away. While the TV app will directly get occasional fixes, we don't anticipate having to update it very often. If you want to follow along with fixes to the web interface, just have a look at our [jellyfin-web repository](https://github.com/jellyfin/jellyfin-web).
+
+Thank you for your patience with us so far. After this, there's still more work to be done. That's what happens when you're the person in charge of App Publishing to Google, Apple, Amazon, LG, Samsung, Microsoft, and Roku. I hope you enjoy this start, and we're gonna keep working to bring it to more of you.
+
+Thanks,
+Anthony
+
+_Your friendly neighbourhood Core Team member, App Publisher, Community/Social/Dev Relations manager, and macOS/Windows Tray maintainer!_
