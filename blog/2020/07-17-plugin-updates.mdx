@@ -1,0 +1,103 @@
+---
+title: "Plugin Repositories"
+subtitle: "Install Plugins from Anywhere!"
+authors: dkanada
+date: 2020-07-17
+slug: plugin-updates
+---
+
+There have been several changes to plugins for the new release.
+Here's a quick post going over the biggest updates for developers and users alike.
+<!--truncate-->
+The most noticable change for everyone is that third party plugin repositories are now available!
+You can access the current list at Dashboard -> Plugins -> Repositories, and items can be added or removed as desired.
+Even the official repository can be removed if you'd prefer to avoid external calls to our server.
+
+# Manifest
+
+For developers, the only required change is a JSON manifest at *any* location with versions that point to binary releases at *any* location.
+We don't require any specific method for hosting these files, as that would go against the ideals of the project.
+The official repository uses nginx for the manifest and GitHub Releases for the binaries, but you could potentially host the manifest on GitHub as well.
+Here's an example manifest with all the properties.
+Please note that the GUID must be unique (both in the manifest and the plugin itself) if you want to avoid conflicts with other plugins.
+
+```json
+[
+    {
+        "category": "Metadata",
+        "guid": "a4df60c5-6ab4-412a-8f79-2cab93fb2bc5",
+        "name": "Anime",
+        "description": "This plugin supports several different metadata providers and options for organizing your collection.",
+        "owner": "jellyfin",
+        "overview": "Manage Your Anime in Jellyfin",
+        "versions": [
+            {
+                "checksum": "ad6db5175f4732308b5dd166f79a1c2d",
+                "changelog": "bug fixes and improvements",
+                "targetAbi": "10.6.0.0",
+                "sourceUrl": "https://repo.jellyfin.org/releases/other/whats-this-plugin.zip.gif",
+                "timestamp": "2020-03-27 06:02:58",
+                "version": "1.0.3.0"
+            }
+        ]
+    }
+]
+```
+
+The official repository manifest for <a href="https://repo.jellyfin.org/releases/plugin/manifest-stable.json">stable plugins</a> can be used for more examples.
+You can also find the <a href="https://repo.jellyfin.org/releases/plugin/manifest.json">deprecated manifest</a> on the same domain for the old format.
+However, all new plugin updates (on the official repository) will go to the new manifest, so older verions of Jellyfin won't receive plugin updates.
+Plugins do have <a href="https://jellyfin.org/docs/plugin-api/MediaBrowser.Model.Updates.html">official documentation</a> on our DocFX instance.
+Please be aware that our documentation is still a work in progress, since a lot of the C# code still has very little information for tools like this.
+Things are improving thanks to the diligent server team though, who have been slowly adding information throughout the codebase.
+
+# Tools
+
+One excellent tool that might help with repository management is <a href="https://github.com/oddstr13/jellyfin-plugin-repository-manager">jellyfin-plugin-repository-manager</a> by Oddstr13, a frequent contributor.
+He did mention that his tool works much better with nginx than GitHub releases, but feel free to check it out!
+Another useful tool might be the <a href="https://github.com/jellyfin/jellyfin-build">jellyfin-build</a> repository, which used to be the method used for updates on the official repository.
+We'll probably be migrating to the repository manager linked above though, since most of the other build systems have moved to Azure.
+
+# Code
+
+There are always a few changes to the ABI you might want to know about if you maintain a plugin.
+I'll include the most important ones for 10.6.0 here to hopefully reduce any issues with the update.
+
+The first batch comes from the HTML for settings on the web client, which has been going through an overhaul lately.
+One of the long term goals we have is deprecating jQuery entirely, since it's not 2008 anymore and better tools have come along.
+That does mean plugin pages will have to migrate off it at some point, but we haven't made the full transition yet, don't worry.
+Although jQuery will stick around a bit longer, we did remove two custom scripts in the web source that...extended the functionality a bit.
+There was one for <a href="https://github.com/jellyfin/jellyfin-web/blob/release-10.5.z/src/legacy/selectmenu.js">select menus</a> and yet another for <a href="https://github.com/jellyfin/jellyfin-web/blob/release-10.5.z/src/legacy/fnchecked.js">checkbox</a> elements.
+I can only assume the goal was compatibility with older browsers or clients at the time, but we've been pushing extremely hard to modernize the web client.
+That means avoiding abandoned libraries, ancient JavaScript practices, and definitely custom extensions for dependencies we don't even want in the code.
+The easiest fix for this change is to migrate from jQuery to vanilla JavaScript for checkboxes and select menus in the HTML source.
+
+There were also several changes to the C# ABI that might affect your plugin.
+The most troublesome is probably the ILogger tweaks, which were made to improve the server logs by appending the class name to every line.
+You'll also find quite a few changes caused by the new database migration (Jellyfin.Data is the new namespace for these objects) and a few unrelated items.
+
+```sh
+IExternalID.Name -> IExternalID.ProviderName
+MediaBrowser.Controller.Entities.User -> Jellyfin.Data.Entities.User
+MetadataProviders -> MetadataProvider
+CompressionMethod -> CompressionMethods
+RequestContentBytes = request -> RequestContent = Encoding.UTF8.GetString(request)
+User.Name -> User.Username
+item.GetDisplayExtras() -> item.GetExtras(BaseItem.DisplayExtraTypes)
+user.RootFolder -> libraryManager.GetUserRootFolder()
+```
+
+# Future
+
+Third party repositories are the first step in a larger plan to vastly increase plugin usage within the codebase.
+They will allow anyone to maintain their own plugin and push updates as quickly as they want, without having to deal with a centralized system.
+It also gives users the power to reduce their reliance on an internet connection by allowing all repositories to be removed at will.
+
+We understand some of these changes might be annoying to update within your plugin, but hopefully that will also see an improvement very soon.
+The next goal (now that more than one repository can be used at the same time) will be an unstable repository for plugins.
+This will fix the long-standing request for better plugin support on the unstable version, which has been a blocker for many users.
+It will also have the side effect of requiring an unstable NuGet repository for the C# ABI, thus helping third party plugin developers test their plugins against any changes to the ABI before a server update has landed.
+
+If you develop a plugin (or client) and would like to be included in our mailing list for third party developers, please contact us through Matrix or send an email to get the details.
+The main goal here is excellent support for plugins and unofficial clients, so if you have any suggestions definitely contact us on one of our public forums.
+Hopefully, the C# ABI will stabilize over time and huge changes will become more infrequent so we can focus on making plugins as great as possible!
