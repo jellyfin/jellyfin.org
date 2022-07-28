@@ -1,5 +1,5 @@
 import React from 'react';
-import Svg from '../../static/img/icon-transparent.svg';
+import Svg from '../../static/images/icon-transparent.svg';
 import styles from './FreeSoftware.modules.css';
 
 export default function FreeSoftware() {
@@ -23,7 +23,7 @@ export default function FreeSoftware() {
             <img
               alt="Jellyfin home screen"
               className="shadow--md"
-              src={require('../../static/img/home-10.7.png').default}
+              src={require('/static/images/screenshots/home-10.7.png').default}
             />
           </div>
         </div>

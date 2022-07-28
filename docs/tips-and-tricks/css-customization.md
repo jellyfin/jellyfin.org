@@ -11,7 +11,7 @@ In `Dashboard > General`, the "Custom CSS" field can be used to override current
 
 If you have little or no experience with CSS, various resources and tutorials can be found online. Using the tweaks and examples below makes it quite easy to get started with making your own changes to your Jellyfin instance.
 
-![Screenshot of the 'Custom CSS' setting in the administrator dashboard of the web client](/img/docs/custom-css-customcssfield.png)
+![Screenshot of the 'Custom CSS' setting in the administrator dashboard of the web client](/images/docs/custom-css-customcssfield.png)
 
 ## General Information About CSS
 
@@ -67,7 +67,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ### Indicators Without Tweak
 
-![Screenshot of the default watched indicators](/img/docs/custom-css-normalwatched.png)
+![Screenshot of the default watched indicators](/images/docs/custom-css-normalwatched.png)
 
 ### Green Indicators
 
@@ -75,7 +75,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 .playedIndicator { background: #5dd000; }
 ```
 
-![Screenshot of watched indicators with a custom green color applied](/img/docs/custom-css-greenwatched.png)
+![Screenshot of watched indicators with a custom green color applied](/images/docs/custom-css-greenwatched.png)
 
 ### Transparent And Dark Indicators
 
@@ -84,7 +84,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 .playedIndicator {background: #00000058;}
 ```
 
-![Screenshot of watched indicators with a custom transparent color applied](/img/docs/custom-css-transparentwatched.png)
+![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
 
 ### Remove Home Icon from Header
 
@@ -195,7 +195,7 @@ Enlarges the tab buttons, suggested, genres, etc. By default they are really tin
 
 **The enlarged tab buttons and transparent menu look like this:**
 
-![Screenshot of enlarged tab buttons and transparent menu](/img/docs/custom-css-transparenttopbarenlargedtabs.png)
+![Screenshot of enlarged tab buttons and transparent menu](/images/docs/custom-css-transparenttopbarenlargedtabs.png)
 
 ### Minimalistic Login Page
 
@@ -214,7 +214,7 @@ This looks even better together with the transparent top menu!
 #loginPage .raised.cancel.block.btnForgotPassword.emby-button {display: none}
 ```
 
-![Screenshot of the minimalistic login page](/img/docs/custom-css-minimallogin.png)
+![Screenshot of the minimalistic login page](/images/docs/custom-css-minimallogin.png)
 
 ### Stylized Episode Previews
 
@@ -227,7 +227,7 @@ The episode previews in season view are sized based on horizontal resolution. Th
 .secondary.listItem-overview.listItemBodyText {height: 61px; margin: 0;}
 ```
 
-![Screenshot of a TV show page with stylized episode previews](/img/docs/custom-css-episodepreview.png)
+![Screenshot of a TV show page with stylized episode previews](/images/docs/custom-css-episodepreview.png)
 
 ### Stylized and Smaller Cast & Crew Info
 
@@ -253,7 +253,7 @@ This will drastically change the style of cast info into something very similar 
 #castContent .cardOverlayButton.cardOverlayButton-hover.itemAction.paper-icon-button-light {margin:auto;}
 ```
 
-![Screenshot of stylized and smaller Cast & Crew info](/img/docs/custom-css-stylizedcast.png)
+![Screenshot of stylized and smaller Cast & Crew info](/images/docs/custom-css-stylizedcast.png)
 
 ### Pictureless Cast & Crew
 
@@ -273,7 +273,7 @@ div.personCard > :first-child > :first-child { display: none; }
 .itemDetailPage .textActionButton { text-align: left; }
 ```
 
-![Screenshot of Pictureless Cast & Crew info](/img/docs/custom-css-nopicturecast.png)
+![Screenshot of Pictureless Cast & Crew info](/images/docs/custom-css-nopicturecast.png)
 
 ### Custom Background Color
 
@@ -298,7 +298,7 @@ This modifies the colors of the cast, search and user buttons in the top right.
 .headerRight { color: yellow; }
 ```
 
-![Screenshot of a custom yellow color for the icon buttons in the top right of the screen](/img/docs/custom-css-rightheader.png)
+![Screenshot of a custom yellow color for the icon buttons in the top right of the screen](/images/docs/custom-css-rightheader.png)
 
 ### Console Panel Custom Color
 
@@ -308,7 +308,7 @@ Modifies the color of the left menu panel.
 .mainDrawer-scrollContainer { color: yellow; }
 ```
 
-![Screenshot of a custom yellow color on the left menu panel](/img/docs/custom-css-consolepanel.png)
+![Screenshot of a custom yellow color on the left menu panel](/images/docs/custom-css-consolepanel.png)
 
 ### General Page Custom Color
 
@@ -316,7 +316,7 @@ Modifies the color of the left menu panel.
 .dashboardGeneralForm { color: yellow; }
 ```
 
-![Screenshot of a custom yellow color on the General Page](/img/docs/custom-css-generalcolor.png)
+![Screenshot of a custom yellow color on the General Page](/images/docs/custom-css-generalcolor.png)
 
 ### Custom Border Color
 
@@ -332,7 +332,7 @@ This will affect the border color of highlighted (selected) text fields and drop
 .emby-input:focus, .emby-textarea:focus, .emby-select-withcolor { border-color: #ffffff !important; }
 ```
 
-![Screenshot of a custom red border color](/img/docs/custom-css-bordercolor.png)
+![Screenshot of a custom red border color](/images/docs/custom-css-bordercolor.png)
 
 ### Full Header Tweak
 
@@ -340,7 +340,7 @@ This will affect the border color of highlighted (selected) text fields and drop
 .skinHeader, .mainDrawer, .emby-input, .emby-textarea, .emby-select, .navMenuOption-selected, .cardBox, .paperList { background: #ff9475; }
 ```
 
-![Screenshot of the full header tweak](/img/docs/custom-css-full-header-mod.png)
+![Screenshot of the full header tweak](/images/docs/custom-css-full-header-mod.png)
 
 ### Disable Image Carousel for Libraries
 
@@ -383,7 +383,7 @@ This will make it so libraries and media fit neatly onto the homepage with no le
 
 An example of a color theme.
 
-![Screenshot of the "Hotdogs and Catsup" color theme](/img/docs/custom-css-hotdog-and-catsup.png)
+![Screenshot of the "Hotdogs and Catsup" color theme](/images/docs/custom-css-hotdog-and-catsup.png)
 
 ```css
 .skinHeader, .mainDrawer, .emby-input, .emby-textarea, .emby-select, .navMenuOption-selected, .cardBox, .paperList {
@@ -423,7 +423,7 @@ An example of a color theme.
 
 ### Floating Now Playing Controls
 
-![Screenshot of the floating "Now Playing" controls](/img/docs/custom-css-floatingnowplaying.png)
+![Screenshot of the floating "Now Playing" controls](/images/docs/custom-css-floatingnowplaying.png)
 
 ```css
 /* fixed height for the bottom row */
