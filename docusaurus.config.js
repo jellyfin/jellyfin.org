@@ -31,7 +31,7 @@ module.exports = {
     },
     navbar: {
       logo: {
-        alt: 'Jellyfin logo',
+        alt: 'Jellyfin Logo',
         src: 'images/logo.svg'
       },
       items: [
@@ -65,62 +65,29 @@ module.exports = {
       ]
     },
     footer: {
+      logo: {
+        alt: 'Jellyfin Logo',
+        src: 'images/logo.svg',
+        width: 240,
+        height: 80
+      },
       links: [
         {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Getting Started',
-              to: '/docs/getting-started'
-            },
-            {
-              label: 'Developer Documentation',
-              href: 'https://developer.jellyfin.org'
-            }
-          ]
+          label: 'Documentation',
+          to: '/docs/getting-started'
         },
         {
-          title: 'Community',
-          items: [
-            {
-              label: 'Community Standards',
-              to: 'community-standards'
-            },
-            {
-              label: 'Matrix',
-              href: 'https://matrix.to/#/+jellyfin:matrix.org'
-            },
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/zHBxVSXdBV'
-            },
-            {
-              label: 'Reddit',
-              href: 'https://reddit.com/r/jellyfin'
-            }
-          ]
+          label: 'Feature Requests',
+          to: 'https://features.jellyfin.org'
         },
         {
-          title: 'More',
-          items: [
-            {
-              label: 'Getting Help',
-              to: 'getting-help'
-            },
-            {
-              label: 'Blog',
-              to: 'posts'
-            },
-            {
-              label: 'FAQ',
-              to: 'faq'
-            },
-            {
-              label: 'Check us out on GitHub',
-              href: 'https://github.com/jellyfin'
-            }
-          ]
-        }
+          label: 'Contribute',
+          to: '/contribute'
+        },
+        {
+          label: 'Contact',
+          to: '/contact'
+        },
       ],
       copyright: `Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
     }
