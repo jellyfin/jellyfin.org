@@ -35,19 +35,10 @@ module.exports = {
         src: 'images/logo.svg'
       },
       items: [
-        {
-          to: 'features',
-          label: 'Features',
-          position: 'right'
-        },
+        { to: 'posts', label: 'Blog', position: 'right' },
         {
           to: 'clients',
           label: 'Clients',
-          position: 'right'
-        },
-        {
-          to: 'plugins',
-          label: 'Plugins',
           position: 'right'
         },
         {
@@ -60,7 +51,6 @@ module.exports = {
           label: 'Contribute',
           position: 'right'
         },
-        { to: 'posts', label: 'Blog', position: 'right' },
         {
           type: 'doc',
           docId: 'getting-started',
