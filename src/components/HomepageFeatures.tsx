@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import styles from './HomepageFeatures.module.css';
 
 const FeatureList = [
@@ -69,7 +68,7 @@ function Feature({
   key: number;
 }) {
   return (
-    <div className={clsx('col col--3')}>
+    <div className="col col--3">
       <div className="text--center">
         <Svg className={styles.featureSvg} alt={title} />
       </div>
