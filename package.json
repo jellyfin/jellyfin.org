@@ -17,8 +17,8 @@
     "lint": "eslint --ext .ts,.js,.json,.jsx,.tsx ."
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-rc.1",
-    "@docusaurus/preset-classic": "^2.0.0-rc.1",
+    "@docusaurus/core": "2.0.0-rc.1",
+    "@docusaurus/preset-classic": "2.0.0-rc.1",
     "@icons-pack/react-simple-icons": "4.6.1",
     "@img-comparison-slider/react": "7.1.1",
     "@mdx-js/react": "1.6.22",
@@ -42,8 +42,8 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-rc.1",
-    "@tsconfig/docusaurus": "^1.0.2",
+    "@docusaurus/module-type-aliases": "2.0.0-rc.1",
+    "@tsconfig/docusaurus": "1.0.2",
     "@types/react": "^17.0.14",
     "@types/react-helmet": "^6.1.2",
     "@types/react-router-dom": "^5.1.8",
