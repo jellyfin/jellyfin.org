@@ -7,7 +7,7 @@ export default function Contribute() {
   return (
     <Layout title='How to Contribute'>
       <Hero title='How to Contribute'>
-        <p className='hero-text'>
+        <p className='hero__text'>
           Jellyfin is a community project run by volunteers.
           We&apos;re always looking for additional help.
         </p>
