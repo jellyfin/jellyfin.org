@@ -48,7 +48,7 @@ export default function Downloads() {
   return (
     <Layout title='Downloads'>
       <Hero title='Downloads'>
-        <p className='hero-text'>
+        <p className='hero__text'>
           You can download the latest releases of Jellyfin Server below!
         </p>
       </Hero>
