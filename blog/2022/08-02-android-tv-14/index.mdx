@@ -1,0 +1,109 @@
+---
+title: Android TV version 0.14
+description: Quick, connect!
+authors: nielsvanvelzen
+date: 2022-08-02
+slug: android-tv-14
+---
+
+<!-- markdownlint-disable MD033 MD036 -->
+
+Introducing Quick Connect, external trailers, improved crash reporting and more.
+
+<!--more-->
+
+I'm excited to announce the newest version of Jellyfin for Android TV. A lot of changes made it into the app this development cycle, including some exciting new features. We fixed a bunch of issues reported by our community and welcomed some new [contributors](#contributors) that helped out on this update. In this post I'll talk about our most significant changes. A complete list of all changes is available in the [changelog](#changelog).
+
+Enjoy this update and I'll see you with the next one!
+
+\- Niels
+
+## Minimum server version changed to 10.8
+
+Server requirements changed a bit. With this release, only version 10.8 or newer is supported. By dropping support for 10.7 we were able to add new features like Quick Connect and a new crash reporting implementation. As always we advise you to use the latest version of Jellyfin to get the latest bugfixes, features and security updates.
+
+Go to the [download](https://jellyfin.org/downloads/) page or read the [installing](https://jellyfin.org/docs/general/administration/installing.html) documentation to start updating.
+
+## Improved login
+
+It's now a lot easier to get started with Jellyfin on your television using Quick Connect. With it, you no longer need to enter a password and instead will be prompted to open Jellyfin on another device, like your phone or computer, to enter a 6 digit code. This way of authentication is an alternative to passwords while keeping your server secure.
+
+Another big change in the login section of the app are the redesigned screens for adding a server or user. These screens are now easier to read and use with bigger text and a better alignment for the on-screen keyboard. Google TV users will now see the keyboard on the right side of the television screen. This makes it possible to see connections errors without closing the keyboard.
+
+![Screenshot of the new login design](login-1.png)
+
+## Support for external trailers
+
+The newly added support for external trailers allows the playback of trailers from YouTube, Vimeo and other video services. Previously only local trailers could be played. This feature is only available when a browser or video service app is installed to open the trailer.
+
+Unfortunately this feature has some limitations. Some popular apps, like YouTube, don't make it easy to go back to the Jellyfin app. And in some television platforms you might see an error telling you there is no app to open the trailer. If this happens you should check if the YouTube/Vimeo/other app is installed. For an optimal experience we recommend using local trailers that play inside the Jellyfin app.
+
+## Changes to the Live TV guide
+
+The Live TV guide got some long awaited fixes and design tweaks. These include, but are not limited to:
+
+- Fixed the incorrect sizing of channel images in some places
+- Fixed an issue where the guide could have some sizing problems with many channels
+- Fixed the "null" text when information was missing in a some places
+- Fixed guide sorting not always working
+- Removed the category images causing contrast issues
+- Restyled some buttons to use theme colors
+- Restyled the filter and options popups to the same design as other parts of the app
+
+## Improved browsing grid
+
+To make it easier to see a lot of items or just a few we have added two new image sizes in the grid view: smallest and extra large. Together with this change the sizing is now based on the actual size of your device, fixing some bugs on 4K displays. This might change the size you're used to a bit. We also fixed some issues with the vertical layout and now consider it a stable feature!
+
+## New crash reporting
+
+Back in 2020 with version 0.11 we added a crash reporting utility. This function helped us fix a lot of issues with the app. The crash reporting relied on a third-party service to collect the reports. We kept tight control of who could access this data, but never liked this approach as it did use a third-party service we have no control over. In this update the crash reporting code was rewritten and now sends all reports to your own Jellyfin server. The crash reports use a new format that makes it more readable for both the user and developers and includes details to identify and fix bugs even faster.
+
+Crash reporting is now turned on by default. When the app crashes it will send a report to the last server you used. On fresh installations the report is queued until connecting to a server.
+
+## Markdown support for item & server descriptions
+
+The support for basic HTML elements in item descriptions is extended to now also support Markdown. The same HTML and Markdown support is also added to server descriptions. With this change you can easily use **bold**, _italic_ or ~~strikethrough~~ text.
+
+## Rewrite of WebSocket code
+
+We've seen a lot of issues with WebSockets in the past. This was partially caused by outdated code in the app. This part of the app is now rewritten to use an up-to-date library via our own SDK. In our testing the connections are more stable and it allows us to add more code that relies on this connection in the future, like instant updates of items on the home screen and SyncPlay.
+
+Visit our [networking](https://jellyfin.org/docs/general/networking/index.html) documentation if you're using a reverse proxy and still have connection issues.
+
+## Contributors
+
+Jellyfin apps are developed by our great contributors and we couldn't do it without them. Everyone is a volunteer that doesn't get paid by any organizations, so consider donating if you appreciate their work. A big shout-out to all contributors that made this release possible:
+
+**Jellyfin Team**
+
+- [@nielsvanvelzen](https://github.com/nielsvanvelzen) - Sponsor via [GitHub sponsors](https://github.com/sponsors/nielsvanvelzen)
+- [@thornbill](https://github.com/thornbill) - Sponsor via [GitHub sponsors](https://github.com/sponsors/thornbill)
+- [@mueslimak3r](https://github.com/mueslimak3r) - Sponsor via [GitHub sponsors](https://github.com/sponsors/mueslimak3r)
+- [@AndreasGB](https://github.com/AndreasGB)
+- [@crobibero](https://github.com/crobibero)
+
+**Other contributors**
+
+- [@Andy2244](https://github.com/Andy2244)
+- [@DavidFair](https://github.com/DavidFair)
+- [@tim-vk](https://github.com/tim-vk)
+- [@ghostbuster84](https://github.com/ghostbuster84)
+- [@Fallenbagel](https://github.com/Fallenbagel)
+- [@dspencer001](https://github.com/dspencer001)
+
+## Changelog
+
+The complete changelog, with all pull requests merged for this release, is available on [GitHub](https://github.com/jellyfin/jellyfin-androidtv/releases/tag/v0.14.0).
+
+## Download now
+
+<a className='margin-right--md' href='https://play.google.com/store/apps/details?id=org.jellyfin.androidtv'>
+  <img width='153' alt='Jellyfin for Android TV on Google Play' src='/images/store-icons/google-play.png' />
+</a>
+
+<a href='https://www.amazon.com/gp/product/B07TX7Z725'>
+  <img width='153' alt='Jellyfin for Fire TV at Amazon App Store' src='/images/store-icons/amazon.png' />
+</a>
+
+Direct downloads are available for side-loading at [our repository](https://repo.jellyfin.org/releases/client/androidtv/) or in the [GitHub release](https://github.com/jellyfin/jellyfin-androidtv/releases/tag/v0.14.0).
+You can also join our [beta program on Google Play](https://play.google.com/apps/testing/org.jellyfin.androidtv) to test new versions before they're released.
