@@ -87,7 +87,7 @@ module.exports = {
         {
           label: 'Contact',
           to: '/contact'
-        },
+        }
       ],
       copyright: `Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
     }

@@ -4,16 +4,12 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import './Hero.css';
 
 type HeroProps = {
-  children?: ReactNode,
-  title: string,
-  large?: boolean
-}
+  children?: ReactNode;
+  title: string;
+  large?: boolean;
+};
 
-const Hero: FunctionComponent<HeroProps> = ({
-  children,
-  title,
-  large = false
-}: HeroProps) => (
+const Hero: FunctionComponent<HeroProps> = ({ children, title, large = false }: HeroProps) => (
   <header className={clsx('hero', { 'hero--large': large })}>
     <div className='hero__overlay hero__overlay--gradient'></div>
     <div className='hero__inner'>
