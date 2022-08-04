@@ -29,7 +29,9 @@
   --ifm-code-background: #292d3e; /* match code blocks */
   --ifm-navbar-background-color: #000b25;
   --ifm-background-color: #000b25 !important;
+  --ifm-card-background-color: #172138;
   --ifm-footer-background-color: #333c44;
+  --ifm-pills-color-background-active: #172138;
   --ifm-font-family-base: "Noto Sans", sans-serif;
   --ifm-h1-font-size: 2.074em;
   --ifm-h2-font-size: 1.728em;

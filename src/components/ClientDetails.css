@@ -1,0 +1,80 @@
+/* stylelint-disable docusaurus/copyright-header */
+
+.client__header {
+  display: flex;
+  align-items: center;
+}
+
+.client__header__start {
+  flex-grow: 1;
+  display: flex;
+}
+
+.client__header__start h3 {
+  margin-bottom: 0;
+}
+
+.client__header__start__badges {
+  margin-left: 1rem;
+}
+
+.client__footer {
+  display: flex;
+}
+
+.client__platform-icon {
+  margin-left: 1rem;
+}
+
+.client__footer .button {
+  margin-left: 1rem;
+}
+
+.client__footer .button:first-of-type {
+  margin-left: 0;
+}
+
+@media (max-width: 420px) {
+  .client__header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .client__platform-icon {
+    margin-top: 0.5rem;
+  }
+
+  .client__platform-icon:first-of-type {
+    margin-left: 0;
+  }
+
+  .card__body {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .client__header__start {
+    flex-direction: column;
+  }
+
+  .client__header__start__badges {
+    margin-top: 0.5rem;
+  }
+
+  .client__header__start__badges:first-of-type {
+    margin-left: 0;
+  }
+
+  .client__footer {
+    flex-direction: column;
+  }
+
+  .client__footer .button {
+    margin: 1rem 0 0;
+  }
+
+  .client__footer .button:first-of-type {
+    margin-top: 0;
+  }
+}
