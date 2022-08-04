@@ -9,7 +9,7 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "globals": {
     "JSX": "readonly"
