@@ -41,12 +41,9 @@ export default function ContributorGuide() {
     <>
       <div>
         <button
-          className={clsx(
-            'button',
-            'button--secondary',
-            'margin-right--md',
-            { 'button--active': contributorOption === ContributorOption.Code }
-          )}
+          className={clsx('button', 'button--secondary', 'margin-right--md', {
+            'button--active': contributorOption === ContributorOption.Code
+          })}
           onClick={() => {
             setContributorOption(ContributorOption.Code);
             setOtherOption(null);
@@ -55,12 +52,9 @@ export default function ContributorGuide() {
           Code
         </button>
         <button
-          className={clsx(
-            'button',
-            'button--secondary',
-            'margin-right--md',
-            { 'button--active': contributorOption === ContributorOption.Translations }
-          )}
+          className={clsx('button', 'button--secondary', 'margin-right--md', {
+            'button--active': contributorOption === ContributorOption.Translations
+          })}
           onClick={() => {
             setContributorOption(ContributorOption.Translations);
             setCodeOption(null);
@@ -72,11 +66,9 @@ export default function ContributorGuide() {
           Translations
         </button>
         <button
-          className={clsx(
-            'button',
-            'button--secondary',
-            { 'button--active': contributorOption === ContributorOption.Other }
-          )}
+          className={clsx('button', 'button--secondary', {
+            'button--active': contributorOption === ContributorOption.Other
+          })}
           onClick={() => {
             setContributorOption(ContributorOption.Other);
             setCodeOption(null);
@@ -95,13 +87,9 @@ export default function ContributorGuide() {
           </div>
           <div>
             <button
-              className={clsx(
-                'button',
-                'button--secondary',
-                'margin-right--md',
-                'margin-top--md',
-                { 'button--active': codeOption === CodeOption.CSharp }
-              )}
+              className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                'button--active': codeOption === CodeOption.CSharp
+              })}
               onClick={() => {
                 if (codeOption !== CodeOption.CSharp) {
                   setCodeLanguageOption(null);
@@ -112,13 +100,9 @@ export default function ContributorGuide() {
               C#
             </button>
             <button
-              className={clsx(
-                'button',
-                'button--secondary',
-                'margin-right--md',
-                'margin-top--md',
-                { 'button--active': codeOption === CodeOption.JavaScript }
-              )}
+              className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                'button--active': codeOption === CodeOption.JavaScript
+              })}
               onClick={() => {
                 if (codeOption !== CodeOption.JavaScript) {
                   setCodeLanguageOption(null);
@@ -130,13 +114,9 @@ export default function ContributorGuide() {
               JavaScript
             </button>
             <button
-              className={clsx(
-                'button',
-                'button--secondary',
-                'margin-right--md',
-                'margin-top--md',
-                { 'button--active': codeOption === CodeOption.Other }
-              )}
+              className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                'button--active': codeOption === CodeOption.Other
+              })}
               onClick={() => {
                 setCodeOption(CodeOption.Other);
                 setCodeLanguageOption(null);
@@ -150,18 +130,14 @@ export default function ContributorGuide() {
           {codeOption === CodeOption.CSharp && (
             <>
               <div className='margin-top--md'>
-                The main core of Jellyfin as well as its plugins are written in C#.
-                You have a couple options to get started.
+                The main core of Jellyfin as well as its plugins are written in C#. You have a couple options to get
+                started.
               </div>
               <div>
                 <button
-                  className={clsx(
-                    'button',
-                    'button--secondary',
-                    'margin-right--md',
-                    'margin-top--md',
-                    { 'button--active': codeLanguageOption === CodeLanguageOption.Bug }
-                  )}
+                  className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                    'button--active': codeLanguageOption === CodeLanguageOption.Bug
+                  })}
                   onClick={() => {
                     setCodeLanguageOption(CodeLanguageOption.Bug);
                     setCSharpFeatureOption(null);
@@ -170,13 +146,9 @@ export default function ContributorGuide() {
                   Fix Bugs
                 </button>
                 <button
-                  className={clsx(
-                    'button',
-                    'button--secondary',
-                    'margin-right--md',
-                    'margin-top--md',
-                    { 'button--active': codeLanguageOption === CodeLanguageOption.Feature }
-                  )}
+                  className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                    'button--active': codeLanguageOption === CodeLanguageOption.Feature
+                  })}
                   onClick={() => {
                     setCodeLanguageOption(CodeLanguageOption.Feature);
                   }}
@@ -188,28 +160,26 @@ export default function ContributorGuide() {
               {codeLanguageOption === CodeLanguageOption.Bug && (
                 <div className='margin-top--md'>
                   <p>
-                    There are always bugs to fix in Jellyfin.
-                    If you want to find an existing bug to fix, head over to
-                    the <a href='https://github.com/jellyfin/jellyfin/issues?q=is%3Aissue+is%3Aopen+label%3Abug'>
+                    There are always bugs to fix in Jellyfin. If you want to find an existing bug to fix, head over to
+                    the{' '}
+                    <a href='https://github.com/jellyfin/jellyfin/issues?q=is%3Aissue+is%3Aopen+label%3Abug'>
                       open Bug Issues page
-                    </a> on GitHub, and find one that interests you.
-                    If you find a bug that affects you already, it&apos;s a good candidate to fix as you should be
-                    quickly able to test it; otherwise, the bug report should list steps to reproduce the bug.
+                    </a>{' '}
+                    on GitHub, and find one that interests you. If you find a bug that affects you already, it&apos;s a
+                    good candidate to fix as you should be quickly able to test it; otherwise, the bug report should
+                    list steps to reproduce the bug.
                   </p>
                   <p>
-                    Once you&apos;ve found a bug you&apos;d like to fix, head over to
-                    the <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin
-                    hacking.
-                    Development documentation can be found on the <a href='/docs'>Documentation page</a>.
-                    When the fix is ready, feel free to propose it to other users in the issue to get them to help
-                    test as well.
+                    Once you&apos;ve found a bug you&apos;d like to fix, head over to the{' '}
+                    <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin hacking.
+                    Development documentation can be found on the <a href='/docs'>Documentation page</a>. When the fix
+                    is ready, feel free to propose it to other users in the issue to get them to help test as well.
                   </p>
                   <p>
                     You should always develop bugfixes on a dedicated Git branch within your own Fork of Jellyfin (the
-                    fork+branch model).
-                    Once your bugfix is ready, submit a Pull Request on GitHub from your feature branch to the Master
-                    branch of the project.
-                    It will be reviewed and, when it passes review, accepted into Jellyfin.
+                    fork+branch model). Once your bugfix is ready, submit a Pull Request on GitHub from your feature
+                    branch to the Master branch of the project. It will be reviewed and, when it passes review, accepted
+                    into Jellyfin.
                   </p>
                 </div>
               )}
@@ -222,26 +192,22 @@ export default function ContributorGuide() {
                       complexity and scope of the feature.
                     </p>
                     <p>
-                      First, check out our <a href='https://features.jellyfin.org'>Feature Requests tracker</a> and
-                      find something that looks interesting or useful to you.
-                      Please comment on the issue to indicate that you are working on it in order to let everyone know.
+                      First, check out our <a href='https://features.jellyfin.org'>Feature Requests tracker</a> and find
+                      something that looks interesting or useful to you. Please comment on the issue to indicate that
+                      you are working on it in order to let everyone know.
                     </p>
                     <p className='margin--none'>
-                      Most well-requested features will have a tag; as a C# developer, those tagged
-                      as <b>&ldquo;Server&rdquo;</b> or <b>&ldquo;Plugin&rdquo;</b> are of the most interest to you.
-                      Select the option below based on the tag on the feature.
+                      Most well-requested features will have a tag; as a C# developer, those tagged as{' '}
+                      <b>&ldquo;Server&rdquo;</b> or <b>&ldquo;Plugin&rdquo;</b> are of the most interest to you. Select
+                      the option below based on the tag on the feature.
                     </p>
                   </div>
 
                   <div>
                     <button
-                      className={clsx(
-                        'button',
-                        'button--secondary',
-                        'margin-right--md',
-                        'margin-top--md',
-                        { 'button--active': cSharpFeatureOption === CSharpFeatureOption.Server }
-                      )}
+                      className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                        'button--active': cSharpFeatureOption === CSharpFeatureOption.Server
+                      })}
                       onClick={() => {
                         setCSharpFeatureOption(CSharpFeatureOption.Server);
                       }}
@@ -249,13 +215,9 @@ export default function ContributorGuide() {
                       Server
                     </button>
                     <button
-                      className={clsx(
-                        'button',
-                        'button--secondary',
-                        'margin-right--md',
-                        'margin-top--md',
-                        { 'button--active': cSharpFeatureOption === CSharpFeatureOption.Plugin }
-                      )}
+                      className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                        'button--active': cSharpFeatureOption === CSharpFeatureOption.Plugin
+                      })}
                       onClick={() => {
                         setCSharpFeatureOption(CSharpFeatureOption.Plugin);
                       }}
@@ -267,18 +229,16 @@ export default function ContributorGuide() {
                   {cSharpFeatureOption === CSharpFeatureOption.Server && (
                     <div className='margin-top--md'>
                       <p>
-                        Features of this type should be implemented directly into the core server itself.
-                        Once you&apos;ve found a feature you want to implement, head over to
-                        the <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin
-                        hacking.
+                        Features of this type should be implemented directly into the core server itself. Once
+                        you&apos;ve found a feature you want to implement, head over to the{' '}
+                        <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin hacking.
                         Development documentation can be found on the <a href='/docs'>Documentation page</a>.
                       </p>
                       <p>
                         You should always develop features on a dedicated Git branch within your own Fork of Jellyfin
-                        (the fork+branch model).
-                        Once your feature is ready, submit a Pull Request on GitHub from your feature branch to the
-                        Master branch of the project.
-                        It will be reviewed and, if it passes review, accepted into Jellyfin.
+                        (the fork+branch model). Once your feature is ready, submit a Pull Request on GitHub from your
+                        feature branch to the Master branch of the project. It will be reviewed and, if it passes
+                        review, accepted into Jellyfin.
                       </p>
                     </div>
                   )}
@@ -286,31 +246,25 @@ export default function ContributorGuide() {
                   {cSharpFeatureOption === CSharpFeatureOption.Plugin && (
                     <div className='margin-top--md'>
                       <p>
-                        Features of this type should be implemented as external plugins.
-                        Plugins help extend the functionality of Jellyfin without integrating the code into the main
-                        core.
-                        This lets users select the features they want and install them dynamically, without
-                        complicating the server as a whole.
-                        For developers, they also help keep the code clean and focused on the functionality, without
-                        worrying about the backend.
+                        Features of this type should be implemented as external plugins. Plugins help extend the
+                        functionality of Jellyfin without integrating the code into the main core. This lets users
+                        select the features they want and install them dynamically, without complicating the server as a
+                        whole. For developers, they also help keep the code clean and focused on the functionality,
+                        without worrying about the backend.
                       </p>
                       <p>
-                        Once you&apos;ve found a feature you want to implement with a plugin, check out
-                        the <a href='https://github.com/jellyfin/jellyfin-plugin-template'>
-                          Plugin Template repository
-                        </a> and clone this repository into a new project.
-                        Official plugins are named &ldquo;jellyfin-plugin-mycoolname&rdquo;.
-                        You can use this template to get you started on writing the plugin.
-                        You may also want to consult the <a href='/docs/plugin-api/index.html'>
-                          Jellyfin API documentation
-                        </a> to help learn the interfaces available.
+                        Once you&apos;ve found a feature you want to implement with a plugin, check out the{' '}
+                        <a href='https://github.com/jellyfin/jellyfin-plugin-template'>Plugin Template repository</a>{' '}
+                        and clone this repository into a new project. Official plugins are named
+                        &ldquo;jellyfin-plugin-mycoolname&rdquo;. You can use this template to get you started on
+                        writing the plugin. You may also want to consult the{' '}
+                        <a href='/docs/plugin-api/index.html'>Jellyfin API documentation</a> to help learn the
+                        interfaces available.
                       </p>
                       <p>
                         Once your plugin is working as expected, and all information filled out, publish your code to
-                        GitHub and <a href='https://matrix.to/#/#jellyfin-dev:matrix.org'>
-                          contact the team on Matrix
-                        </a>.
-                        If your plugin passes our evaluation, we will add it to the official plugin catalogue, and can
+                        GitHub and <a href='https://matrix.to/#/#jellyfin-dev:matrix.org'>contact the team on Matrix</a>
+                        . If your plugin passes our evaluation, we will add it to the official plugin catalogue, and can
                         optionally transfer ownership of the plugin to the Jellyfin organization on GitHub.
                       </p>
                     </div>
@@ -323,18 +277,14 @@ export default function ContributorGuide() {
           {codeOption === CodeOption.JavaScript && (
             <>
               <div className='margin-top--md'>
-                The primary Jellyfin web client is written primarily in Javascript.
-                You have a couple options to get started.
+                The primary Jellyfin web client is written primarily in Javascript. You have a couple options to get
+                started.
               </div>
               <div>
                 <button
-                  className={clsx(
-                    'button',
-                    'button--secondary',
-                    'margin-right--md',
-                    'margin-top--md',
-                    { 'button--active': codeLanguageOption === CodeLanguageOption.Bug }
-                  )}
+                  className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                    'button--active': codeLanguageOption === CodeLanguageOption.Bug
+                  })}
                   onClick={() => {
                     setCodeLanguageOption(CodeLanguageOption.Bug);
                   }}
@@ -342,13 +292,9 @@ export default function ContributorGuide() {
                   Fix Bugs
                 </button>
                 <button
-                  className={clsx(
-                    'button',
-                    'button--secondary',
-                    'margin-right--md',
-                    'margin-top--md',
-                    { 'button--active': codeLanguageOption === CodeLanguageOption.Feature }
-                  )}
+                  className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                    'button--active': codeLanguageOption === CodeLanguageOption.Feature
+                  })}
                   onClick={() => {
                     setCodeLanguageOption(CodeLanguageOption.Feature);
                   }}
@@ -356,13 +302,9 @@ export default function ContributorGuide() {
                   Implement a Feature
                 </button>
                 <button
-                  className={clsx(
-                    'button',
-                    'button--secondary',
-                    'margin-right--md',
-                    'margin-top--md',
-                    { 'button--active': codeLanguageOption === CodeLanguageOption.Modernize }
-                  )}
+                  className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                    'button--active': codeLanguageOption === CodeLanguageOption.Modernize
+                  })}
                   onClick={() => {
                     setCodeLanguageOption(CodeLanguageOption.Modernize);
                   }}
@@ -375,25 +317,26 @@ export default function ContributorGuide() {
                 <div className='margin-top--md'>
                   <p>
                     There are always bugs to fix in Jellyfin. If you want to find an existing bug to fix, head over to
-                    the <a href='https://github.com/jellyfin/jellyfin-web/issues?q=is%3Aissue+is%3Aopen+label%3Abug'>
+                    the{' '}
+                    <a href='https://github.com/jellyfin/jellyfin-web/issues?q=is%3Aissue+is%3Aopen+label%3Abug'>
                       open Bug Issues page
-                    </a> on GitHub, and find one that interests you.
-                    If you find a bug that affects you already, it&apos;s a good candidate to fix as you should be
-                    quickly able to test it; otherwise, the bug report should list steps to reproduce the bug.
+                    </a>{' '}
+                    on GitHub, and find one that interests you. If you find a bug that affects you already, it&apos;s a
+                    good candidate to fix as you should be quickly able to test it; otherwise, the bug report should
+                    list steps to reproduce the bug.
                   </p>
                   <p>
-                    Once you&apos;ve found a bug you&apos;d like to fix, head over to
-                    the <a href='https://github.com/jellyfin/jellyfin-web'>GitHub page</a> for the web client and begin
-                    hacking.
-                    Development documentation can be found on the <a href='/docs'>Documentation page</a>.
-                    When the fix is ready, feel free to propose it to other users in the issue to get them to help test
-                    as well.
+                    Once you&apos;ve found a bug you&apos;d like to fix, head over to the{' '}
+                    <a href='https://github.com/jellyfin/jellyfin-web'>GitHub page</a> for the web client and begin
+                    hacking. Development documentation can be found on the <a href='/docs'>Documentation page</a>. When
+                    the fix is ready, feel free to propose it to other users in the issue to get them to help test as
+                    well.
                   </p>
                   <p>
-                    You should always develop bugfixes on a dedicated Git branch within your own Fork of
-                    Jellyfin&apos;s web client (the fork+branch model).
-                    Once your bugfix is ready, submit a Pull Request on GitHub from your feature branch to the Master
-                    branch of the project. It will be reviewed and, if it passes review, accepted into Jellyfin.
+                    You should always develop bugfixes on a dedicated Git branch within your own Fork of Jellyfin&apos;s
+                    web client (the fork+branch model). Once your bugfix is ready, submit a Pull Request on GitHub from
+                    your feature branch to the Master branch of the project. It will be reviewed and, if it passes
+                    review, accepted into Jellyfin.
                   </p>
                 </div>
               )}
@@ -402,35 +345,32 @@ export default function ContributorGuide() {
                 <div className='margin-top--md'>
                   <p>
                     First, check out our <a href='https://features.jellyfin.org'>Feature Requests tracker</a> and find
-                    something that looks interesting or useful to you.
-                    Please comment on the issue to indicate that you are working on it in order to let everyone know.
+                    something that looks interesting or useful to you. Please comment on the issue to indicate that you
+                    are working on it in order to let everyone know.
                   </p>
                   <p>
-                    Most well-requested features will have a tag; as a Javascript developer, those tagged
-                    as <b>&ldquo;Web UI&rdquo;</b> are of the most interest to you.
+                    Most well-requested features will have a tag; as a Javascript developer, those tagged as{' '}
+                    <b>&ldquo;Web UI&rdquo;</b> are of the most interest to you.
                   </p>
                   <p>
-                    Once you&apos;ve found a feature you&apos;d like to implement, head over to
-                    the <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin
-                    hacking.
+                    Once you&apos;ve found a feature you&apos;d like to implement, head over to the{' '}
+                    <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin hacking.
                     Development documentation can be found on the <a href='/docs'>Documentation page</a>.
                   </p>
                   <p>
-                    You should always develop features on a dedicated Git branch within your own Fork of
-                    Jellyfin&apos;s web client (the fork+branch model).
-                    Once your feature is ready, submit a Pull Request on GitHub from your feature branch to the Master
-                    branch of the project.
-                    It will be reviewed and, if it passes review, accepted into Jellyfin.
+                    You should always develop features on a dedicated Git branch within your own Fork of Jellyfin&apos;s
+                    web client (the fork+branch model). Once your feature is ready, submit a Pull Request on GitHub from
+                    your feature branch to the Master branch of the project. It will be reviewed and, if it passes
+                    review, accepted into Jellyfin.
                   </p>
                 </div>
               )}
 
               {codeLanguageOption === CodeLanguageOption.Modernize && (
                 <div className='margin-top--md'>
-                  Jellyfin&apos;s web client is being rewritten.
-                  We&apos;re currently converting it to TypeScript and React.
-                  Head over to the <a href='https://github.com/jellyfin/jellyfin-web/'>project page</a> on GitHub for
-                  more information.
+                  Jellyfin&apos;s web client is being rewritten. We&apos;re currently converting it to TypeScript and
+                  React. Head over to the <a href='https://github.com/jellyfin/jellyfin-web/'>project page</a> on GitHub
+                  for more information.
                 </div>
               )}
             </>
@@ -439,21 +379,18 @@ export default function ContributorGuide() {
           {codeOption === CodeOption.Other && (
             <div className='margin-top--md'>
               <p>
-                Jellyfin has several other sub-projects that use various languages.
-                If any of these suit you, head over to the relevant project page and begin hacking.
+                Jellyfin has several other sub-projects that use various languages. If any of these suit you, head over
+                to the relevant project page and begin hacking.
               </p>
               <ul>
                 <li>
-                  <b>Kotlin/Java:</b> The <a
-                    href='https://github.com/jellyfin/jellyfin-androidtv'
-                  >Android TV</a> and <a
-                    href='https://github.com/jellyfin/jellyfin-android'
-                  >Android</a> apps are written in Kotlin and Java for some legacy code.
+                  <b>Kotlin/Java:</b> The <a href='https://github.com/jellyfin/jellyfin-androidtv'>Android TV</a> and{' '}
+                  <a href='https://github.com/jellyfin/jellyfin-android'>Android</a> apps are written in Kotlin and Java
+                  for some legacy code.
                 </li>
                 <li>
-                  <b>Python:</b> The <a
-                    href='https://github.com/jellyfin/jellyfin-kodi'
-                  >Kodi</a> client is written in Python.
+                  <b>Python:</b> The <a href='https://github.com/jellyfin/jellyfin-kodi'>Kodi</a> client is written in
+                  Python.
                 </li>
                 <li>
                   <b>BrightScript:</b> The <a href='https://github.com/jellyfin/jellyfin-roku'>Roku</a> client is
@@ -472,8 +409,7 @@ export default function ContributorGuide() {
       {contributorOption === ContributorOption.Translations && (
         <div className='margin-top--md'>
           Check our our <a href='https://translate.jellyfin.org/'>Weblate instance</a> and start helping to translate
-          strings to other languages!
-          Logging in will require a <a href='https://github.com'>GitHub</a> account.
+          strings to other languages! Logging in will require a <a href='https://github.com'>GitHub</a> account.
         </div>
       )}
 
@@ -485,13 +421,9 @@ export default function ContributorGuide() {
           </div>
           <div>
             <button
-              className={clsx(
-                'button',
-                'button--secondary',
-                'margin-right--md',
-                'margin-top--md',
-                { 'button--active': otherOption === OtherOption.Documentation }
-              )}
+              className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                'button--active': otherOption === OtherOption.Documentation
+              })}
               onClick={() => {
                 setOtherOption(OtherOption.Documentation);
               }}
@@ -499,13 +431,9 @@ export default function ContributorGuide() {
               Write Documentation
             </button>
             <button
-              className={clsx(
-                'button',
-                'button--secondary',
-                'margin-right--md',
-                'margin-top--md',
-                { 'button--active': otherOption === OtherOption.Troubleshoot }
-              )}
+              className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                'button--active': otherOption === OtherOption.Troubleshoot
+              })}
               onClick={() => {
                 setOtherOption(OtherOption.Troubleshoot);
               }}
@@ -513,13 +441,9 @@ export default function ContributorGuide() {
               Help People Troubleshoot
             </button>
             <button
-              className={clsx(
-                'button',
-                'button--secondary',
-                'margin-right--md',
-                'margin-top--md',
-                { 'button--active': otherOption === OtherOption.Donation }
-              )}
+              className={clsx('button', 'button--secondary', 'margin-right--md', 'margin-top--md', {
+                'button--active': otherOption === OtherOption.Donation
+              })}
               onClick={() => {
                 setOtherOption(OtherOption.Donation);
               }}
@@ -530,42 +454,36 @@ export default function ContributorGuide() {
 
           {otherOption === OtherOption.Documentation && (
             <div className='margin-top--md'>
-              Documentation is simultaneously very important, but very neglected in a lot of projects.
-              We want to be different, and you can help!
-              If you come across anything that you think should be documented, such as how to do things, configuration
-              steps, or just general helpful pointers, we welcome contributions
-              to <a href='https://github.com/jellyfin/jellyfin-docs'>our Documentation Repository</a>,
-              visible <a href='/docs'>here</a>.
+              Documentation is simultaneously very important, but very neglected in a lot of projects. We want to be
+              different, and you can help! If you come across anything that you think should be documented, such as how
+              to do things, configuration steps, or just general helpful pointers, we welcome contributions to{' '}
+              <a href='https://github.com/jellyfin/jellyfin-docs'>our Documentation Repository</a>, visible{' '}
+              <a href='/docs'>here</a>.
             </div>
           )}
 
           {otherOption === OtherOption.Troubleshoot && (
             <div className='margin-top--md'>
               We have a large and diverse userbase, with so many features that the combinations and configurations are
-              almost endless. But as a volunteer-run project, the contributors can often be limited in the help they
-              can provide. If you are well-versed in Jellyfin&apos;s operation, we welcome you to try to help
-              troubleshoot problems your fellow users are having.
-              Troubleshooting generally occurs in our <a href='https://matrix.to/#/#jellyfin:matrix.org'>
-                main
-              </a> and <a href='https://matrix.to/#/#jellyfin-troubleshooting:matrix.org'>
-                troubleshooting
-              </a> Matrix rooms and on <a href='https://reddit.com/r/jellyfin'>
-                our Reddit Subreddit
-              </a>.
-              Hanging around those places and helping your fellow users, in a kind, courteous, and respectful manner,
-              earns our eternal gratitude!
+              almost endless. But as a volunteer-run project, the contributors can often be limited in the help they can
+              provide. If you are well-versed in Jellyfin&apos;s operation, we welcome you to try to help troubleshoot
+              problems your fellow users are having. Troubleshooting generally occurs in our{' '}
+              <a href='https://matrix.to/#/#jellyfin:matrix.org'>main</a> and{' '}
+              <a href='https://matrix.to/#/#jellyfin-troubleshooting:matrix.org'>troubleshooting</a> Matrix rooms and on{' '}
+              <a href='https://reddit.com/r/jellyfin'>our Reddit Subreddit</a>. Hanging around those places and helping
+              your fellow users, in a kind, courteous, and respectful manner, earns our eternal gratitude!
             </div>
           )}
 
           {otherOption === OtherOption.Donation && (
             <div className='margin-top--md'>
               As a project, we generally don&apos;t like asking for donations - we&apos;re entirely volunteer-run and
-              intend to keep Jellyfin free as in beer, as well as free as in speech, forever.
-              We do not wish, support, nor intend donations to privilege any user&apos;s voice or priorities.
-              That said, if you do want to help us cover some operating expenses like our VPS hosting, domains,
-              developer licences, metadata API keys, and other incidental expenses, check out
-              our <a href='https://opencollective.com/jellyfin'>OpenCollective page</a> to donate.
-              Our entire budget as well as all expenses are publicly visible there.
+              intend to keep Jellyfin free as in beer, as well as free as in speech, forever. We do not wish, support,
+              nor intend donations to privilege any user&apos;s voice or priorities. That said, if you do want to help
+              us cover some operating expenses like our VPS hosting, domains, developer licences, metadata API keys, and
+              other incidental expenses, check out our{' '}
+              <a href='https://opencollective.com/jellyfin'>OpenCollective page</a> to donate. Our entire budget as well
+              as all expenses are publicly visible there.
             </div>
           )}
         </>

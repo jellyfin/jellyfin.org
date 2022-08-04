@@ -23,148 +23,144 @@ import styles from './contact.module.css';
 export default function Contact() {
   return (
     <Layout>
-      <div className="container margin-bottom--lg">
+      <div className='container margin-bottom--lg'>
         <h1>Contact</h1>
         <h2>Chat</h2>
-        <div className="row">
-          <div className="col col--12">
+        <div className='row'>
+          <div className='col col--12'>
             <p>
-              The Jellyfin team and community are active on several messaging
-              platforms.
+              The Jellyfin team and community are active on several messaging platforms.
               <br />
-              While Element is our main avenue of communication, it is bridged
-              to Discord and Libera Chat for convenience.
+              While Element is our main avenue of communication, it is bridged to Discord and Libera Chat for
+              convenience.
             </p>
             <div className={styles['contact-grid']}>
               <a
                 className={`${styles.element} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="https://matrix.to/#/#jellyfin:matrix.org"
+                href='https://matrix.to/#/#jellyfin:matrix.org'
               >
-                <Element className="margin--md" size={48} />
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">Element</h2>
+                <Element className='margin--md' size={48} />
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>Element</h2>
                   <span>#jellyfin:matrix.org</span>
                 </div>
               </a>
               <a
                 className={`${styles.discord} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="https://discord.gg/zHBxVSXdBV"
+                href='https://discord.gg/zHBxVSXdBV'
               >
-                <Discord className="margin--md" size={48} />
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">Discord</h2>
+                <Discord className='margin--md' size={48} />
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>Discord</h2>
                   <span>discord.gg/zHBxVSXdBV</span>
                 </div>
               </a>
               <a
                 className={`${styles.libera} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="ircs://irc.libera.chat:6697/#jellyfin"
+                href='ircs://irc.libera.chat:6697/#jellyfin'
               >
                 <span className={`${styles['libera-icon']} margin--md`}>#</span>
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">Libera Chat</h2>
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>Libera Chat</h2>
                   <span>#jellyfin</span>
                 </div>
               </a>
               <a
                 className={`${styles.telegram} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="https://t.me/jellyfinchat"
+                href='https://t.me/jellyfinchat'
               >
-                <Telegram className="margin--md" size={48} />
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">Telegram</h2>
+                <Telegram className='margin--md' size={48} />
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>Telegram</h2>
                   <span>@JellyfinChat</span>
                 </div>
               </a>
             </div>
           </div>
         </div>
-        <h2 className="margin-top--md">Social</h2>
-        <div className="row">
-          <div className="col col--12">
+        <h2 className='margin-top--md'>Social</h2>
+        <div className='row'>
+          <div className='col col--12'>
             <p>
-              If you want to follow Jellyfin news and engage the community, we
-              are active on several social media platforms.
+              If you want to follow Jellyfin news and engage the community, we are active on several social media
+              platforms.
             </p>
             <div className={styles['contact-grid']}>
               <a
                 className={`${styles.reddit} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="https://www.reddit.com/r/jellyfin"
+                href='https://www.reddit.com/r/jellyfin'
               >
-                <Reddit className="margin--md" size={48} />
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">Reddit</h2>
+                <Reddit className='margin--md' size={48} />
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>Reddit</h2>
                   <span>/r/jellyfin</span>
                 </div>
               </a>
               <a
                 className={`${styles.twitter} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="https://www.twitter.com/jellyfin"
+                href='https://www.twitter.com/jellyfin'
               >
-                <Twitter className="margin--md" size={48} />
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">Twitter</h2>
+                <Twitter className='margin--md' size={48} />
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>Twitter</h2>
                   <span>@Jellyfin</span>
                 </div>
               </a>
               <a
                 className={`${styles.facebook} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="https://www.facebook.com/jellyfin.media/"
+                href='https://www.facebook.com/jellyfin.media/'
               >
-                <Facebook className="margin--md" size={48} />
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">Facebook</h2>
+                <Facebook className='margin--md' size={48} />
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>Facebook</h2>
                   <span>jellyfin.media</span>
                 </div>
               </a>
             </div>
           </div>
         </div>
-        <h2 className="margin-top--md">Other</h2>
-        <div className="row">
-          <div className="col col--12">
-            <p>
-              The following platforms allow you to contribute to, and to
-              support, Jellyfin.
-            </p>
+        <h2 className='margin-top--md'>Other</h2>
+        <div className='row'>
+          <div className='col col--12'>
+            <p>The following platforms allow you to contribute to, and to support, Jellyfin.</p>
             <div className={styles['contact-grid']}>
               <a
                 className={`${styles.github} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="https://github.com/jellyfin"
+                href='https://github.com/jellyfin'
               >
-                <Github className="margin--md" size={48} />
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">GitHub</h2>
+                <Github className='margin--md' size={48} />
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>GitHub</h2>
                   <span>Jellyfin</span>
                 </div>
               </a>
               <a
                 className={`${styles.weblate} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="https://translate.jellyfin.org/"
+                href='https://translate.jellyfin.org/'
               >
-                <Weblate className="margin--md" size={48} />
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">Weblate</h2>
+                <Weblate className='margin--md' size={48} />
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>Weblate</h2>
                   <span>Translate</span>
                 </div>
               </a>
               <a
                 className={`${styles.jellyfin} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="https://features.jellyfin.org/"
+                href='https://features.jellyfin.org/'
               >
-                <Jellyfin className="margin--md" size={48} />
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">Fider</h2>
+                <Jellyfin className='margin--md' size={48} />
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>Fider</h2>
                   <span>Request features</span>
                 </div>
               </a>
               <a
                 className={`${styles['open-collective']} ${styles['contact-card']} display--flex padding--md shadow--md`}
-                href="https://features.jellyfin.org/"
+                href='https://features.jellyfin.org/'
               >
-                <Opencollective className="margin--md" size={48} />
-                <div className="display--flex flex-direction--column row-justify--center">
-                  <h2 className="margin-bottom--none">Open Collective</h2>
+                <Opencollective className='margin--md' size={48} />
+                <div className='display--flex flex-direction--column row-justify--center'>
+                  <h2 className='margin-bottom--none'>Open Collective</h2>
                   <span>Help finance infrastructure</span>
                 </div>
               </a>

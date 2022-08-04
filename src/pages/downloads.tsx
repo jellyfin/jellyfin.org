@@ -48,37 +48,32 @@ export default function Downloads() {
   return (
     <Layout title='Downloads'>
       <Hero title='Downloads'>
-        <p className='hero__text'>
-          You can download the latest releases of Jellyfin Server below!
-        </p>
+        <p className='hero__text'>You can download the latest releases of Jellyfin Server below!</p>
       </Hero>
 
       <main className='margin-vert--lg'>
         <section className='container'>
           <h2>Stable or Unstable?</h2>
           <p>
-            Generally, if you&apos;re a new user or value stability use the stable version.
-            It won&apos;t change very often.
-            If you want to help test the latest improvements and features and can handle some occasional breakage, use
-            the unstable version.
-            Always back up your existing configuration before testing unstable releases.
+            Generally, if you&apos;re a new user or value stability use the stable version. It won&apos;t change very
+            often. If you want to help test the latest improvements and features and can handle some occasional
+            breakage, use the unstable version. Always back up your existing configuration before testing unstable
+            releases.
           </p>
 
           <h3>
             Docker
-            <span className="badge badge--success margin-left--sm">Official</span>
+            <span className='badge badge--success margin-left--sm'>Official</span>
           </h3>
           <p>
-            Run Jellyfin in Docker.
-            Example commands store data in <code>/srv/jellyfin</code> and assume your media is stored
-            under <code>/media</code>.
+            Run Jellyfin in Docker. Example commands store data in <code>/srv/jellyfin</code> and assume your media is
+            stored under <code>/media</code>.
           </p>
           <p>
             <button
-              className={clsx(
-                'button button--primary margin-right--md margin-bottom--md',
-                { 'button--active': installOption === InstallOption.DockerStable }
-              )}
+              className={clsx('button button--primary margin-right--md margin-bottom--md', {
+                'button--active': installOption === InstallOption.DockerStable
+              })}
               onClick={() => {
                 setInstallOption(InstallOption.DockerStable);
               }}
@@ -86,10 +81,9 @@ export default function Downloads() {
               Stable
             </button>
             <button
-              className={clsx(
-                'button button--secondary margin-right--md margin-bottom--md',
-                { 'button--active': installOption === InstallOption.DockerUnstable }
-              )}
+              className={clsx('button button--secondary margin-right--md margin-bottom--md', {
+                'button--active': installOption === InstallOption.DockerUnstable
+              })}
               onClick={() => {
                 setInstallOption(InstallOption.DockerUnstable);
               }}
@@ -103,24 +97,27 @@ export default function Downloads() {
               Docker Hub
             </a>
             {installOption === InstallOption.DockerStable && (
-              <pre><code>{InstallInstructions.Docker.Stable}</code></pre>
+              <pre>
+                <code>{InstallInstructions.Docker.Stable}</code>
+              </pre>
             )}
             {installOption === InstallOption.DockerUnstable && (
-              <pre><code>{InstallInstructions.Docker.Unstable}</code></pre>
+              <pre>
+                <code>{InstallInstructions.Docker.Unstable}</code>
+              </pre>
             )}
           </p>
 
           <h3>
             Debian and Ubuntu
-            <span className="badge badge--success margin-left--sm">Official</span>
+            <span className='badge badge--success margin-left--sm'>Official</span>
           </h3>
           <p>Install Jellyfin via our Apt repository or via manual archives (.deb).</p>
           <p>
             <button
-              className={clsx(
-                'button button--primary margin-right--md margin-bottom--md',
-                { 'button--active': installOption === InstallOption.DebianStable }
-              )}
+              className={clsx('button button--primary margin-right--md margin-bottom--md', {
+                'button--active': installOption === InstallOption.DebianStable
+              })}
               onClick={() => {
                 setInstallOption(InstallOption.DebianStable);
               }}
@@ -128,10 +125,9 @@ export default function Downloads() {
               Stable
             </button>
             <button
-              className={clsx(
-                'button button--secondary margin-right--md margin-bottom--md',
-                { 'button--active': installOption === InstallOption.DebianUnstable }
-              )}
+              className={clsx('button button--secondary margin-right--md margin-bottom--md', {
+                'button--active': installOption === InstallOption.DebianUnstable
+              })}
               onClick={() => {
                 setInstallOption(InstallOption.DebianUnstable);
               }}
@@ -151,24 +147,27 @@ export default function Downloads() {
               All Ubuntu Versions
             </a>
             {installOption === InstallOption.DebianStable && (
-              <pre><code>{InstallInstructions.Debian.Stable}</code></pre>
+              <pre>
+                <code>{InstallInstructions.Debian.Stable}</code>
+              </pre>
             )}
             {installOption === InstallOption.DebianUnstable && (
-              <pre><code>{InstallInstructions.Debian.Unstable}</code></pre>
+              <pre>
+                <code>{InstallInstructions.Debian.Unstable}</code>
+              </pre>
             )}
           </p>
 
           <h3>
             Arch Linux
-            <span className="badge badge--info margin-left--sm">Community</span>
+            <span className='badge badge--info margin-left--sm'>Community</span>
           </h3>
           <p>Install Jellyfin via the Arch User Repository.</p>
           <p>
             <button
-              className={clsx(
-                'button button--primary margin-right--md margin-bottom--md',
-                { 'button--active': installOption === InstallOption.ArchStable }
-              )}
+              className={clsx('button button--primary margin-right--md margin-bottom--md', {
+                'button--active': installOption === InstallOption.ArchStable
+              })}
               onClick={() => {
                 setInstallOption(InstallOption.ArchStable);
               }}
@@ -176,10 +175,9 @@ export default function Downloads() {
               Stable
             </button>
             <button
-              className={clsx(
-                'button button--secondary margin-right--md margin-bottom--md',
-                { 'button--active': installOption === InstallOption.ArchUnstable }
-              )}
+              className={clsx('button button--secondary margin-right--md margin-bottom--md', {
+                'button--active': installOption === InstallOption.ArchUnstable
+              })}
               onClick={() => {
                 setInstallOption(InstallOption.ArchUnstable);
               }}
@@ -193,66 +191,62 @@ export default function Downloads() {
               AUR
             </a>
             {installOption === InstallOption.ArchStable && (
-              <pre><code>{InstallInstructions.Arch.Stable}</code></pre>
+              <pre>
+                <code>{InstallInstructions.Arch.Stable}</code>
+              </pre>
             )}
             {installOption === InstallOption.ArchUnstable && (
-              <pre><code>{InstallInstructions.Arch.Unstable}</code></pre>
+              <pre>
+                <code>{InstallInstructions.Arch.Unstable}</code>
+              </pre>
             )}
           </p>
           {installOption === InstallOption.ArchStable && (
             <>
               <p>
-                <b>Note:</b> The third command should give you output similar
-                to <code>deb [arch=(architecture)] https://repo.jellyfin.org/(distribution) (release) main</code>.
-                We support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for
-                architectures, <code>debian</code> and <code>ubuntu</code> for
-                distributions, <code>buster</code> and <code>bullseye</code> for Debian releases
-                and <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu
-                releases.
-                If you see something different in your output, you might need to manually modify it.
-                Use the closest equivalent Debian or Ubuntu version instead.
+                <b>Note:</b> The third command should give you output similar to{' '}
+                <code>deb [arch=(architecture)] https://repo.jellyfin.org/(distribution) (release) main</code>. We
+                support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures,{' '}
+                <code>debian</code> and <code>ubuntu</code> for distributions, <code>buster</code> and{' '}
+                <code>bullseye</code> for Debian releases and <code>bionic</code>, <code>focal</code>,{' '}
+                <code>impish</code> and <code>jammy</code> for Ubuntu releases. If you see something different in your
+                output, you might need to manually modify it. Use the closest equivalent Debian or Ubuntu version
+                instead.
               </p>
               <p>
-                Once installed, Jellyfin will be running as a service.
-                Manage it with <code>{
-                  'sudo systemctl {action} jellyfin.service'
-                }</code> or <code>{
-                  'sudo service jellyfin {action}'
-                }</code>.
+                Once installed, Jellyfin will be running as a service. Manage it with{' '}
+                <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
+                <code>{'sudo service jellyfin {action}'}</code>.
               </p>
             </>
           )}
           {installOption === InstallOption.ArchUnstable && (
             <>
               <p>
-                <b>Note:</b> The third command should give you output similar
-                to <code>deb [arch=(architecture)] https://repo.jellyfin.org/(distribution) (release) main</code>.
-                We support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for
-                architectures, <code>debian</code> and <code>ubuntu</code> for
-                distributions, <code>buster</code> and <code>bullseye</code> for Debian releases
-                and <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu
-                releases.
-                If you see something different in your output, you might need to manually modify it.
-                Use the closest equivalent Debian or Ubuntu version instead.
+                <b>Note:</b> The third command should give you output similar to{' '}
+                <code>deb [arch=(architecture)] https://repo.jellyfin.org/(distribution) (release) main</code>. We
+                support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures,{' '}
+                <code>debian</code> and <code>ubuntu</code> for distributions, <code>buster</code> and{' '}
+                <code>bullseye</code> for Debian releases and <code>bionic</code>, <code>focal</code>,{' '}
+                <code>impish</code> and <code>jammy</code> for Ubuntu releases. If you see something different in your
+                output, you might need to manually modify it. Use the closest equivalent Debian or Ubuntu version
+                instead.
               </p>
               <p>
-                <b>Note:</b> Both the <code>main</code> and <code>unstable</code> are needed as
-                the <code>jellyfin-ffmpeg</code> package is only in the <code>main</code> component.
+                <b>Note:</b> Both the <code>main</code> and <code>unstable</code> are needed as the{' '}
+                <code>jellyfin-ffmpeg</code> package is only in the <code>main</code> component.
               </p>
               <p>
-                Once installed, Jellyfin will be running as a service.
-                Manage it with <code>{
-                  'sudo systemctl {action} jellyfin.service'
-                }</code> or <code>{
-                  'sudo service jellyfin {action}'
-                }</code>.
+                Once installed, Jellyfin will be running as a service. Manage it with{' '}
+                <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
+                <code>{'sudo service jellyfin {action}'}</code>.
               </p>
             </>
           )}
 
           <h3>
             Fedora and CentOS
-            <span className="badge badge--info margin-left--sm">Community</span>
+            <span className='badge badge--info margin-left--sm'>Community</span>
           </h3>
           <p>RPM archives for both Fedora and CentOS are provided.</p>
           <p>
@@ -284,7 +278,7 @@ export default function Downloads() {
 
           <h3>
             Generic Linux
-            <span className="badge badge--success margin-left--sm">Official</span>
+            <span className='badge badge--success margin-left--sm'>Official</span>
           </h3>
           <p>Linux self-contained binary TAR archives (.tar.gz) are provided.</p>
           <p>
@@ -310,7 +304,7 @@ export default function Downloads() {
 
           <h3>
             MacOS
-            <span className="badge badge--success margin-left--sm">Official</span>
+            <span className='badge badge--success margin-left--sm'>Official</span>
           </h3>
           <p>Both installers (.dmg) and manual ZIP archives (.tar.gz) are provided.</p>
           <p>
@@ -336,7 +330,7 @@ export default function Downloads() {
 
           <h3>
             Windows
-            <span className="badge badge--success margin-left--sm">Official</span>
+            <span className='badge badge--success margin-left--sm'>Official</span>
           </h3>
           <p>Both installers (.exe) and manual ZIP archives (.zip) are provided.</p>
           <p>
@@ -366,7 +360,7 @@ export default function Downloads() {
 
           <h3>
             Portable
-            <span className="badge badge--success margin-left--sm">Official</span>
+            <span className='badge badge--success margin-left--sm'>Official</span>
           </h3>
           <p>The portable version can be run on any system with a .NET Core runtime.</p>
           <p>

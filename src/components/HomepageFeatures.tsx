@@ -5,38 +5,22 @@ const FeatureList = [
   {
     title: 'Movies',
     Svg: require('/static/images/illustrations/undraw_home_cinema.svg').default,
-    description: (
-      <>
-        Enjoy your entire movie collection, easy to browse and with beautiful
-        artwork.
-      </>
-    )
+    description: <>Enjoy your entire movie collection, easy to browse and with beautiful artwork.</>
   },
   {
     title: 'Shows',
     Svg: require('/static/images/illustrations/undraw_Video_streaming_re.svg').default,
-    description: (
-      <>
-        Watch your favorite shows, automatically sorted by season and ready to
-        binge.
-      </>
-    )
+    description: <>Watch your favorite shows, automatically sorted by season and ready to binge.</>
   },
   {
     title: 'Music',
     Svg: require('/static/images/illustrations/undraw_compose_music.svg').default,
-    description: (
-      <>
-        Listen to music, your artists and your playlists, at home or on the go.
-      </>
-    )
+    description: <>Listen to music, your artists and your playlists, at home or on the go.</>
   },
   {
     title: 'Live TV & DVR',
     Svg: require('/static/images/illustrations/undraw_game_day.svg').default,
-    description: (
-      <>Watch TV and set automatic recordings to expand your library.</>
-    )
+    description: <>Watch TV and set automatic recordings to expand your library.</>
   },
   {
     title: 'Books',
@@ -46,9 +30,7 @@ const FeatureList = [
   {
     title: 'Photos',
     Svg: require('/static/images/illustrations/undraw_group_selfie.svg').default,
-    description: (
-      <>Organize your photos and share memories with your friends and family.</>
-    )
+    description: <>Organize your photos and share memories with your friends and family.</>
   },
   {
     title: 'SyncPlay',
@@ -57,22 +39,13 @@ const FeatureList = [
   }
 ];
 
-function Feature({
-  Svg,
-  title,
-  description
-}: {
-  Svg: any;
-  title: string;
-  description: JSX.Element;
-  key: number;
-}) {
+function Feature({ Svg, title, description }: { Svg: any; title: string; description: JSX.Element; key: number }) {
   return (
-    <div className="col col--3">
-      <div className="text--center">
+    <div className='col col--3'>
+      <div className='text--center'>
         <Svg className={styles.featureSvg} alt={title} />
       </div>
-      <div className="text--center padding-horiz--md">
+      <div className='text--center padding-horiz--md'>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
@@ -83,8 +56,8 @@ function Feature({
 export default function HomepageFeatures() {
   return (
     <section className={`${styles.features} landing-section padding-vert--xl`}>
-      <div className="container--fluid">
-        <div className="row row-justify--center padding-horiz--sm">
+      <div className='container--fluid'>
+        <div className='row row-justify--center padding-horiz--sm'>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

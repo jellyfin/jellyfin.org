@@ -1,4 +1,4 @@
-name: documentation
+name: build
 
 on:
   pull_request:
@@ -7,31 +7,34 @@ on:
     branches: [master]
 
 jobs:
-  checks:
+  test-build:
     if: github.event_name != 'push'
+    name: Test Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
       - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3.4.1
         with:
-          node-version: "16.x"
-      - name: Test Build
+          node-version: 16
+      - name: Run build
         run: |
           npm ci
           npm run build
+
   gh-release:
     if: github.event_name != 'pull_request'
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
       - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3.4.1
         with:
-          node-version: "16.x"
-      - name: Build docusaurus
+          node-version: 16
+      - name: Run build
         run: |
           npm ci
           npm run build
-      - name: Deploy to Github Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305 # tag=v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
