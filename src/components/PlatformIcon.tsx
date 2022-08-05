@@ -1,4 +1,14 @@
-import { Amazonfiretv, Android, Appletv, Discord, Ios, Kodi, Lg, Roku, Sailfishos } from '@icons-pack/react-simple-icons';
+import {
+  Amazonfiretv,
+  Android,
+  Appletv,
+  Discord,
+  Ios,
+  Kodi,
+  Lg,
+  Roku,
+  Sailfishos
+} from '@icons-pack/react-simple-icons';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -11,9 +21,9 @@ const PlatformIcon = ({
   size,
   className = ''
 }: {
-  platform: Platform,
-  size: string | number,
-  className?: string
+  platform: Platform;
+  size: string | number;
+  className?: string;
 }) => {
   className = clsx(className, 'fill--white');
 

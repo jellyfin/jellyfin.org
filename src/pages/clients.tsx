@@ -6,10 +6,10 @@ import ClientDetails from '../components/ClientDetails';
 import { Clients, DeviceType, Platform } from '../data/clients';
 
 type ClientFilter = {
-  recommended: boolean,
-  deviceType?: DeviceType,
-  platform?: Platform
-}
+  recommended: boolean;
+  deviceType?: DeviceType;
+  platform?: Platform;
+};
 
 export default function Plugins() {
   const [filter, setFilter] = useState<ClientFilter>({
@@ -28,8 +28,10 @@ export default function Plugins() {
               role='button'
               tabIndex={0}
               className={clsx('pills__item', { 'pills__item--active': filter.recommended })}
-              onClick={() => { setFilter({ ...filter, recommended: true }); }}
-              onKeyUp={keyEvent => {
+              onClick={() => {
+                setFilter({ ...filter, recommended: true });
+              }}
+              onKeyUp={(keyEvent) => {
                 if (keyEvent.key === 'Enter') {
                   setFilter({ ...filter, recommended: true });
                 }
@@ -42,8 +44,10 @@ export default function Plugins() {
               role='button'
               tabIndex={0}
               className={clsx('pills__item', { 'pills__item--active': !filter.recommended })}
-              onClick={() => { setFilter({ ...filter, recommended: false }); }}
-              onKeyUp={keyEvent => {
+              onClick={() => {
+                setFilter({ ...filter, recommended: false });
+              }}
+              onKeyUp={(keyEvent) => {
                 if (keyEvent.key === 'Enter') {
                   setFilter({ ...filter, recommended: false });
                 }
@@ -53,27 +57,25 @@ export default function Plugins() {
             </li>
           </ul>
 
-          {
-            Clients.filter(client => {
-              let result = true;
+          {Clients.filter((client) => {
+            let result = true;
 
-              if (filter.recommended) {
-                result = result && !!client.recommended;
-              }
+            if (filter.recommended) {
+              result = result && !!client.recommended;
+            }
 
-              if (typeof filter.deviceType !== 'undefined') {
-                result = result && client.deviceTypes.includes(filter.deviceType);
-              }
+            if (typeof filter.deviceType !== 'undefined') {
+              result = result && client.deviceTypes.includes(filter.deviceType);
+            }
 
-              if (typeof filter.platform !== 'undefined') {
-                result = result && client.platforms.includes(filter.platform);
-              }
+            if (typeof filter.platform !== 'undefined') {
+              result = result && client.platforms.includes(filter.platform);
+            }
 
-              return result;
-            }).map(client => (
-              <ClientDetails key={client.id} client={client} />
-            ))
-          }
+            return result;
+          }).map((client) => (
+            <ClientDetails key={client.id} client={client} />
+          ))}
         </section>
       </main>
     </Layout>

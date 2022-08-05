@@ -30,23 +30,23 @@ export enum Platform {
 }
 
 type Link = {
-  id: string,
-  name: string,
-  url: string
-}
+  id: string;
+  name: string;
+  url: string;
+};
 
 export type Client = {
-  id: string,
-  name: string,
-  description: string,
-  clientType: ClientType,
-  deviceTypes: Array<DeviceType>,
-  licenseType: LicenseType,
-  platforms: Array<Platform>,
-  primaryLinks: Array<Link>,
-  secondaryLinks?: Array<Link>,
-  recommended?: boolean
-}
+  id: string;
+  name: string;
+  description: string;
+  clientType: ClientType;
+  deviceTypes: Array<DeviceType>;
+  licenseType: LicenseType;
+  platforms: Array<Platform>;
+  primaryLinks: Array<Link>;
+  secondaryLinks?: Array<Link>;
+  recommended?: boolean;
+};
 
 export const Clients: Array<Client> = [
   {
@@ -57,20 +57,25 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
-    primaryLinks: [{
-      id: 'flathub',
-      name: 'Flathub (Linux)',
-      url: 'https://flathub.org/apps/details/com.github.iwalton3.jellyfin-media-player'
-    }, {
-      id: 'gh-downloads',
-      name: 'GitHub Downloads',
-      url: 'https://github.com/jellyfin/jellyfin-media-player/releases'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jellyfin/jellyfin-media-player'
-    }],
+    primaryLinks: [
+      {
+        id: 'flathub',
+        name: 'Flathub (Linux)',
+        url: 'https://flathub.org/apps/details/com.github.iwalton3.jellyfin-media-player'
+      },
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/jellyfin/jellyfin-media-player/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-media-player'
+      }
+    ],
     recommended: true
   },
   {
@@ -81,20 +86,25 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
-    primaryLinks: [{
-      id: 'flathub',
-      name: 'Flathub (Linux)',
-      url: 'https://flathub.org/apps/details/com.github.iwalton3.jellyfin-mpv-shim'
-    }, {
-      id: 'gh-downloads',
-      name: 'GitHub Downloads',
-      url: 'https://github.com/jellyfin/jellyfin-mpv-shim/releases'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jellyfin/jellyfin-mpv-shim'
-    }]
+    primaryLinks: [
+      {
+        id: 'flathub',
+        name: 'Flathub (Linux)',
+        url: 'https://flathub.org/apps/details/com.github.iwalton3.jellyfin-mpv-shim'
+      },
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/jellyfin/jellyfin-mpv-shim/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-mpv-shim'
+      }
+    ]
   },
   {
     id: 'jellyamp',
@@ -104,16 +114,20 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
-    primaryLinks: [{
-      id: 'gh-downloads',
-      name: 'GitHub Downloads',
-      url: 'https://github.com/m0ngr31/jellyamp/releases'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/m0ngr31/jellyamp'
-    }]
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/m0ngr31/jellyamp/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/m0ngr31/jellyamp'
+      }
+    ]
   },
   {
     id: 'preserve',
@@ -123,20 +137,25 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Browser, Platform.Desktop],
-    primaryLinks: [{
-      id: 'browser',
-      name: 'Open in Browser',
-      url: 'https://preserveplayer.com/'
-    }, {
-      id: 'gl-downloads',
-      name: 'GitLab Downloads',
-      url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
-    }],
-    secondaryLinks: [{
-      id: 'gitlab',
-      name: 'GitLab',
-      url: 'https://gitlab.com/tonyfinn/preserve'
-    }]
+    primaryLinks: [
+      {
+        id: 'browser',
+        name: 'Open in Browser',
+        url: 'https://preserveplayer.com/'
+      },
+      {
+        id: 'gl-downloads',
+        name: 'GitLab Downloads',
+        url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'gitlab',
+        name: 'GitLab',
+        url: 'https://gitlab.com/tonyfinn/preserve'
+      }
+    ]
   },
   {
     id: 'sonixd',
@@ -146,62 +165,77 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
-    primaryLinks: [{
-      id: 'install',
-      name: 'Installation Guide',
-      url: 'https://github.com/jeffvli/sonixd#install'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jeffvli/sonixd'
-    }]
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/jeffvli/sonixd#install'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jeffvli/sonixd'
+      }
+    ]
   },
   {
     id: 'tauon-music-box',
     name: 'Tauon Music Box',
-    description: 'A modern streamlined music player for desktop with a minimal interface that\'s packed with features!',
+    description: "A modern streamlined music player for desktop with a minimal interface that's packed with features!",
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
-    primaryLinks: [{
-      id: 'flathub',
-      name: 'Flathub (Linux)',
-      url: 'https://flathub.org/apps/details/com.github.taiko2k.tauonmb'
-    }, {
-      id: 'install',
-      name: 'Installation Guide',
-      url: 'https://github.com/Taiko2k/TauonMusicBox#download-and-install-dizzy'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/Taiko2k/TauonMusicBox'
-    }, {
-      id: 'tauon',
-      name: 'Website',
-      url: 'https://tauonmusicbox.rocks'
-    }]
+    primaryLinks: [
+      {
+        id: 'flathub',
+        name: 'Flathub (Linux)',
+        url: 'https://flathub.org/apps/details/com.github.taiko2k.tauonmb'
+      },
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/Taiko2k/TauonMusicBox#download-and-install-dizzy'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/Taiko2k/TauonMusicBox'
+      },
+      {
+        id: 'tauon',
+        name: 'Website',
+        url: 'https://tauonmusicbox.rocks'
+      }
+    ]
   },
   {
     id: 'jellycon',
     name: 'JellyCon',
-    description: 'A lightweight Kodi add-on that lets you browse and play media files directly from your Jellyfin server within the Kodi interface.',
+    description:
+      'A lightweight Kodi add-on that lets you browse and play media files directly from your Jellyfin server within the Kodi interface.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop, DeviceType.Mobile, DeviceType.TV],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Kodi],
-    primaryLinks: [{
-      id: 'install',
-      name: 'Installation Guide',
-      url: 'https://github.com/jellyfin/jellycon#installation'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jellyfin/jellycon'
-    }],
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/jellyfin/jellycon#installation'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellycon'
+      }
+    ],
     recommended: true
   },
   {
@@ -212,16 +246,20 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Desktop, DeviceType.Mobile, DeviceType.TV],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Kodi],
-    primaryLinks: [{
-      id: 'install',
-      name: 'Installation Guide',
-      url: 'https://docs.jellyfin.org/general/clients/kodi.html'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jellyfin/jellyfin-kodi'
-    }]
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://docs.jellyfin.org/general/clients/kodi.html'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-kodi'
+      }
+    ]
   },
   {
     id: 'jellyfin-android',
@@ -231,24 +269,30 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android],
-    primaryLinks: [{
-      id: 'fdroid',
-      name: 'F-Droid',
-      url: 'https://f-droid.org/en/packages/org.jellyfin.mobile/'
-    }, {
-      id: 'amazon-store',
-      name: 'Amazon Appstore',
-      url: 'https://www.amazon.com/gp/aw/d/B081RFTTQ9'
-    }, {
-      id: 'play-store',
-      name: 'Play Store',
-      url: 'https://play.google.com/store/apps/details?id=org.jellyfin.mobile'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jellyfin/jellyfin-android'
-    }],
+    primaryLinks: [
+      {
+        id: 'fdroid',
+        name: 'F-Droid',
+        url: 'https://f-droid.org/en/packages/org.jellyfin.mobile/'
+      },
+      {
+        id: 'amazon-store',
+        name: 'Amazon Appstore',
+        url: 'https://www.amazon.com/gp/aw/d/B081RFTTQ9'
+      },
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=org.jellyfin.mobile'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-android'
+      }
+    ],
     recommended: true
   },
   {
@@ -259,63 +303,79 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.IOS],
-    primaryLinks: [{
-      id: 'apple-store',
-      name: 'App Store',
-      url: 'https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jellyfin/jellyfin-expo'
-    }],
+    primaryLinks: [
+      {
+        id: 'apple-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-expo'
+      }
+    ],
     recommended: true
   },
   {
     id: 'findroid',
     name: 'Findroid',
-    description: 'A third-party Android application for Jellyfin that provides a native user interface to browse and play movies and series.',
+    description:
+      'A third-party Android application for Jellyfin that provides a native user interface to browse and play movies and series.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android],
-    primaryLinks: [{
-      id: 'izzy-fdroid',
-      name: 'IzzyOnDroid',
-      url: 'https://apt.izzysoft.de/fdroid/index/apk/dev.jdtech.jellyfin'
-    }, {
-      id: 'play-store',
-      name: 'Play Store',
-      url: 'https://play.google.com/store/apps/details?id=dev.jdtech.jellyfin'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jarnedemeulemeester/findroid'
-    }]
+    primaryLinks: [
+      {
+        id: 'izzy-fdroid',
+        name: 'IzzyOnDroid',
+        url: 'https://apt.izzysoft.de/fdroid/index/apk/dev.jdtech.jellyfin'
+      },
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=dev.jdtech.jellyfin'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jarnedemeulemeester/findroid'
+      }
+    ]
   },
   {
     id: 'gelli',
     name: 'Gelli',
-    description: 'A native music player for Android devices with transcoding support, gapless playback, favorites, playlists, and many other features.',
+    description:
+      'A native music player for Android devices with transcoding support, gapless playback, favorites, playlists, and many other features.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android],
-    primaryLinks: [{
-      id: 'gh-downloads',
-      name: 'GitHub Downloads',
-      url: 'https://github.com/dkanada/gelli/releases'
-    }, {
-      id: 'fdroid',
-      name: 'F-Droid',
-      url: 'https://f-droid.org/packages/com.dkanada.gramophone/'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/dkanada/gelli'
-    }]
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/dkanada/gelli/releases'
+      },
+      {
+        id: 'fdroid',
+        name: 'F-Droid',
+        url: 'https://f-droid.org/packages/com.dkanada.gramophone/'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/dkanada/gelli'
+      }
+    ]
   },
   {
     id: 'finamp',
@@ -325,24 +385,30 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android, Platform.IOS],
-    primaryLinks: [{
-      id: 'fdroid',
-      name: 'F-Droid',
-      url: 'https://f-droid.org/packages/com.unicornsonlsd.finamp/'
-    }, {
-      id: 'play-store',
-      name: 'Play Store',
-      url: 'https://play.google.com/store/apps/details?id=com.unicornsonlsd.finamp'
-    }, {
-      id: 'app-store',
-      name: 'App Store',
-      url: 'https://apps.apple.com/us/app/finamp/id1574922594'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/UnicornsOnLSD/finamp'
-    }]
+    primaryLinks: [
+      {
+        id: 'fdroid',
+        name: 'F-Droid',
+        url: 'https://f-droid.org/packages/com.unicornsonlsd.finamp/'
+      },
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=com.unicornsonlsd.finamp'
+      },
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/finamp/id1574922594'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/UnicornsOnLSD/finamp'
+      }
+    ]
   },
   {
     id: 'sailfin',
@@ -352,16 +418,20 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.SailfishOS],
-    primaryLinks: [{
-      id: 'open-repos',
-      name: 'OpenRepos',
-      url: 'https://openrepos.net/content/ahappyhuman/sailfin'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/heartfin/harbour-sailfin'
-    }]
+    primaryLinks: [
+      {
+        id: 'open-repos',
+        name: 'OpenRepos',
+        url: 'https://openrepos.net/content/ahappyhuman/sailfin'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/heartfin/harbour-sailfin'
+      }
+    ]
   },
   {
     id: 'yatse',
@@ -371,16 +441,20 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.Proprietary,
     platforms: [Platform.Android],
-    primaryLinks: [{
-      id: 'play-store',
-      name: 'Play Store',
-      url: 'https://play.google.com/store/apps/details?id=org.leetzone.android.yatsewidgetfree'
-    }],
-    secondaryLinks: [{
-      id: 'yatse',
-      name: 'Website',
-      url: 'https://yatse.tv/'
-    }]
+    primaryLinks: [
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=org.leetzone.android.yatsewidgetfree'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'yatse',
+        name: 'Website',
+        url: 'https://yatse.tv/'
+      }
+    ]
   },
   {
     id: 'jellyfin-androidtv',
@@ -390,20 +464,25 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.TV],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.AndroidTV, Platform.FireOS],
-    primaryLinks: [{
-      id: 'amazon-store',
-      name: 'Amazon Appstore',
-      url: 'https://www.amazon.com/gp/aw/d/B07TX7Z725'
-    }, {
-      id: 'play-store',
-      name: 'Play Store',
-      url: 'https://play.google.com/store/apps/details?id=org.jellyfin.androidtv'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jellyfin/jellyfin-androidtv'
-    }],
+    primaryLinks: [
+      {
+        id: 'amazon-store',
+        name: 'Amazon Appstore',
+        url: 'https://www.amazon.com/gp/aw/d/B07TX7Z725'
+      },
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=org.jellyfin.androidtv'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-androidtv'
+      }
+    ],
     recommended: true
   },
   {
@@ -414,16 +493,20 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.TV],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Roku],
-    primaryLinks: [{
-      id: 'roku-store',
-      name: 'Channel Store',
-      url: 'https://channelstore.roku.com/details/592369/jellyfin'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jellyfin/jellyfin-roku'
-    }],
+    primaryLinks: [
+      {
+        id: 'roku-store',
+        name: 'Channel Store',
+        url: 'https://channelstore.roku.com/details/592369/jellyfin'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-roku'
+      }
+    ],
     recommended: true
   },
   {
@@ -434,20 +517,25 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.TV],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.WebOS],
-    primaryLinks: [{
-      id: 'jf-blog',
-      name: 'Older webOS Versions',
-      url: '/posts/webos-july2022'
-    }, {
-      id: 'lg-store',
-      name: 'Content Store - webOS 6+',
-      url: 'https://us.lgappstv.com/main/tvapp/detail?appId=1030579'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jellyfin/jellyfin-webos'
-    }],
+    primaryLinks: [
+      {
+        id: 'jf-blog',
+        name: 'Older webOS Versions',
+        url: '/posts/webos-july2022'
+      },
+      {
+        id: 'lg-store',
+        name: 'Content Store - webOS 6+',
+        url: 'https://us.lgappstv.com/main/tvapp/detail?appId=1030579'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-webos'
+      }
+    ],
     recommended: true
   },
   {
@@ -458,16 +546,20 @@ export const Clients: Array<Client> = [
     deviceTypes: [DeviceType.Mobile, DeviceType.TV],
     licenseType: LicenseType.Proprietary,
     platforms: [Platform.IOS, Platform.TVOS],
-    primaryLinks: [{
-      id: 'apple-store',
-      name: 'App Store',
-      url: 'https://apps.apple.com/app/id1136220934?mt=8'
-    }],
-    secondaryLinks: [{
-      id: 'website',
-      name: 'Website',
-      url: 'https://firecore.com/infuse'
-    }],
+    primaryLinks: [
+      {
+        id: 'apple-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/app/id1136220934?mt=8'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://firecore.com/infuse'
+      }
+    ],
     recommended: true
   },
   {
@@ -478,16 +570,20 @@ export const Clients: Array<Client> = [
     deviceTypes: [],
     licenseType: LicenseType.OpenSource,
     platforms: [],
-    primaryLinks: [{
-      id: 'install',
-      name: 'Installation Guide',
-      url: 'https://jellyfin.org/docs/general/clients/mopidy.html'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/jellyfin/mopidy-jellyfin'
-    }]
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://jellyfin.org/docs/general/clients/mopidy.html'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/mopidy-jellyfin'
+      }
+    ]
   },
   {
     id: 'volumio',
@@ -497,11 +593,13 @@ export const Clients: Array<Client> = [
     deviceTypes: [],
     licenseType: LicenseType.OpenSource,
     platforms: [],
-    primaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/patrickkfkan/volumio-jellyfin'
-    }]
+    primaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/patrickkfkan/volumio-jellyfin'
+      }
+    ]
   },
   {
     id: 'discord-music',
@@ -511,16 +609,20 @@ export const Clients: Array<Client> = [
     deviceTypes: [],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Discord],
-    primaryLinks: [{
-      id: 'install',
-      name: 'Installation Guide',
-      url: 'https://github.com/kgt1/jellyfin-discord-music-bot#getting-started'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/kgt1/jellyfin-discord-music-bot'
-    }]
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/kgt1/jellyfin-discord-music-bot#getting-started'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/kgt1/jellyfin-discord-music-bot'
+      }
+    ]
   },
   {
     id: 'jellycli',
@@ -530,16 +632,20 @@ export const Clients: Array<Client> = [
     deviceTypes: [],
     licenseType: LicenseType.OpenSource,
     platforms: [],
-    primaryLinks: [{
-      id: 'gh-downloads',
-      name: 'GitHub Downloads',
-      url: 'https://github.com/tryffel/jellycli/releases'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/tryffel/jellycli'
-    }]
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/tryffel/jellycli/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/tryffel/jellycli'
+      }
+    ]
   },
   {
     id: 'jftui',
@@ -549,16 +655,20 @@ export const Clients: Array<Client> = [
     deviceTypes: [],
     licenseType: LicenseType.OpenSource,
     platforms: [],
-    primaryLinks: [{
-      id: 'install',
-      name: 'Installation Guide',
-      url: 'https://github.com/Aanok/jftui#installation'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/Aanok/jftui'
-    }]
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/Aanok/jftui#installation'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/Aanok/jftui'
+      }
+    ]
   },
   {
     id: 'web-scrobbler',
@@ -568,19 +678,24 @@ export const Clients: Array<Client> = [
     deviceTypes: [],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Browser],
-    primaryLinks: [{
-      id: 'install',
-      name: 'Installation Guide',
-      url: 'https://github.com/web-scrobbler/web-scrobbler#installation'
-    }],
-    secondaryLinks: [{
-      id: 'github',
-      name: 'GitHub',
-      url: 'https://github.com/web-scrobbler/web-scrobbler'
-    }, {
-      id: 'website',
-      name: 'Website',
-      url: 'https://web-scrobbler.com'
-    }]
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/web-scrobbler/web-scrobbler#installation'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/web-scrobbler/web-scrobbler'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://web-scrobbler.com'
+      }
+    ]
   }
 ];
