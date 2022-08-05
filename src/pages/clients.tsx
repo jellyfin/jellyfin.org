@@ -1,8 +1,8 @@
 import Layout from '@theme/Layout';
-import clsx from 'clsx';
 import React, { useState } from 'react';
 
 import ClientDetails from '../components/ClientDetails';
+import Pill from '../components/Pill';
 import { Clients, DeviceType, Platform } from '../data/clients';
 
 type ClientFilter = {
@@ -23,38 +23,22 @@ export default function Plugins() {
       <main className='margin-vert--lg'>
         <section className='container'>
           <ul className='pills'>
-            <li
-              // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-              role='button'
-              tabIndex={0}
-              className={clsx('pills__item', { 'pills__item--active': filter.recommended })}
+            <Pill
+              active={filter.recommended}
               onClick={() => {
                 setFilter({ ...filter, recommended: true });
               }}
-              onKeyUp={(keyEvent) => {
-                if (keyEvent.key === 'Enter') {
-                  setFilter({ ...filter, recommended: true });
-                }
-              }}
             >
               Recommended Clients
-            </li>
-            <li
-              // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-              role='button'
-              tabIndex={0}
-              className={clsx('pills__item', { 'pills__item--active': !filter.recommended })}
+            </Pill>
+            <Pill
+              active={!filter.recommended}
               onClick={() => {
                 setFilter({ ...filter, recommended: false });
               }}
-              onKeyUp={(keyEvent) => {
-                if (keyEvent.key === 'Enter') {
-                  setFilter({ ...filter, recommended: false });
-                }
-              }}
             >
               All Clients
-            </li>
+            </Pill>
           </ul>
 
           {Clients.filter((client) => {
