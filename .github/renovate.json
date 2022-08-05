@@ -1,7 +1,13 @@
 {
-	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": [
-		"github>jellyfin/.github//renovate-presets/nodejs",
-		":semanticCommitsDisabled"
-	]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>jellyfin/.github//renovate-presets/nodejs", ":semanticCommitsDisabled"],
+  "packageRules": [
+    {
+      "description": "Disable major updates for React",
+      "matchPackagePrefixes": ["react"],
+      "matchPackageNames": ["@types/react", "@types/react-helmet", "@types/react-router-dom"],
+      "matchUpdateTypes": "major",
+      "enabled": false
+    }
+  ]
 }
