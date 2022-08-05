@@ -56,7 +56,7 @@ function Feature({ Svg, title, description }: { Svg: any; title: string; descrip
 export default function HomepageFeatures() {
   return (
     <section className={`${styles.features} landing-section padding-vert--xl`}>
-      <div className='container--fluid'>
+      <div className='container'>
         <div className='row row-justify--center padding-horiz--sm'>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
