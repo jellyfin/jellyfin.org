@@ -4,11 +4,12 @@ import './DetailsCard.css';
 
 type DetailsCardProps = {
   title: string;
-  description: string;
+  description: ReactNode;
   badges?: ReactNode;
   icons?: ReactNode;
   primaryButtons?: Array<ReactNode>;
   secondaryButtons?: Array<ReactNode>;
+  footerDetails?: ReactNode;
 };
 
 const DetailsCard: FunctionComponent<DetailsCardProps> = ({
@@ -17,7 +18,8 @@ const DetailsCard: FunctionComponent<DetailsCardProps> = ({
   badges = [],
   icons = [],
   primaryButtons = [],
-  secondaryButtons = []
+  secondaryButtons = [],
+  footerDetails
 }) => (
   <div className='card details-card margin-bottom--md'>
     <div className='card__header details-card__header'>
@@ -28,10 +30,19 @@ const DetailsCard: FunctionComponent<DetailsCardProps> = ({
       <div className='details-card__icons'>{icons}</div>
     </div>
     <div className='card__body padding-top--sm'>{description}</div>
-    <div className='card__footer details-card__footer'>
-      {secondaryButtons}
-      <div style={{ flexGrow: 1 }} />
-      {primaryButtons}
+    <div className='card__footer details-card__footer container'>
+      <div className='row'>
+        <div className='details-card__footer__buttons col'>
+          {secondaryButtons}
+          <div style={{ flex: 1 }} />
+          {primaryButtons}
+        </div>
+      </div>
+      {footerDetails && (
+        <div className='row'>
+          <div className='col'>{footerDetails}</div>
+        </div>
+      )}
     </div>
   </div>
 );
