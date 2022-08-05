@@ -1,0 +1,39 @@
+import React, { FunctionComponent, ReactNode } from 'react';
+
+import './DetailsCard.css';
+
+type DetailsCardProps = {
+  title: string;
+  description: string;
+  badges?: ReactNode;
+  icons?: ReactNode;
+  primaryButtons?: Array<ReactNode>;
+  secondaryButtons?: Array<ReactNode>;
+};
+
+const DetailsCard: FunctionComponent<DetailsCardProps> = ({
+  title,
+  description,
+  badges = [],
+  icons = [],
+  primaryButtons = [],
+  secondaryButtons = []
+}) => (
+  <div className='card details-card margin-bottom--md'>
+    <div className='card__header details-card__header'>
+      <div className='details-card__header__start'>
+        <h3>{title}</h3>
+        <div className='details-card__header__start__badges'>{badges}</div>
+      </div>
+      <div className='details-card__icons'>{icons}</div>
+    </div>
+    <div className='card__body padding-top--sm'>{description}</div>
+    <div className='card__footer details-card__footer'>
+      {secondaryButtons}
+      <div style={{ flexGrow: 1 }} />
+      {primaryButtons}
+    </div>
+  </div>
+);
+
+export default DetailsCard;
