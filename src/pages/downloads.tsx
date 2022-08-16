@@ -51,16 +51,16 @@ export default function DownloadsPage() {
               macOS
             </Pill>
             <Pill
-              active={osType === OsType.Other}
+              active={osType === OsType.Docker}
               onClick={() => {
-                setOsType(OsType.Other);
+                setOsType(OsType.Docker);
               }}
             >
-              Other
+              Docker
             </Pill>
           </ul>
 
-          {Downloads.filter((download) => download.osType === osType).map((download) => (
+          {Downloads.filter((download) => download.osTypes.includes(osType)).map((download) => (
             <DownloadDetails
               key={download.id}
               download={download}

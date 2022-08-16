@@ -8,10 +8,10 @@ export enum DownloadStatus {
 }
 
 export enum OsType {
+  Docker,
   Linux,
   MacOS,
-  Windows,
-  Other
+  Windows
 }
 
 export type Button = {
@@ -25,7 +25,7 @@ export type Download = {
   id: string;
   name: string;
   description: ReactNode;
-  osType: OsType;
+  osTypes: Array<OsType>;
   status: DownloadStatus;
   platforms: Array<Platform>;
   stableButtons: Array<Button>;
@@ -37,7 +37,7 @@ export const Downloads: Array<Download> = [
   {
     id: 'debian',
     name: 'Debian and Ubuntu',
-    osType: OsType.Linux,
+    osTypes: [OsType.Linux],
     status: DownloadStatus.Official,
     platforms: [Platform.Debian, Platform.Ubuntu],
     description: 'Install Jellyfin via our Apt repository or via manual archives (.deb).',
@@ -89,7 +89,7 @@ sudo apt install jellyfin`}
   {
     id: 'arch',
     name: 'Arch Linux',
-    osType: OsType.Linux,
+    osTypes: [OsType.Linux],
     status: DownloadStatus.Community,
     platforms: [Platform.Arch],
     description: 'Install Jellyfin via the Arch User Repository.',
@@ -168,7 +168,7 @@ makepkg -si`}
   {
     id: 'fedora',
     name: 'Fedora and CentOS',
-    osType: OsType.Linux,
+    osTypes: [OsType.Linux],
     status: DownloadStatus.Community,
     platforms: [Platform.Fedora, Platform.CentOS],
     description: 'RPM archives for both Fedora and CentOS are provided.',
@@ -192,7 +192,7 @@ makepkg -si`}
   {
     id: 'generic-linux',
     name: 'Generic Linux',
-    osType: OsType.Linux,
+    osTypes: [OsType.Linux],
     status: DownloadStatus.Official,
     platforms: [Platform.Linux],
     description: 'Linux self-contained binary TAR archives (.tar.gz) are provided.',
@@ -203,7 +203,7 @@ makepkg -si`}
   {
     id: 'windows',
     name: 'Windows',
-    osType: OsType.Windows,
+    osTypes: [OsType.Windows],
     status: DownloadStatus.Official,
     platforms: [Platform.Windows],
     description: 'Both installers (.exe) and manual ZIP archives (.zip) are provided.',
@@ -216,7 +216,7 @@ makepkg -si`}
   {
     id: 'macos',
     name: 'MacOS',
-    osType: OsType.MacOS,
+    osTypes: [OsType.MacOS],
     status: DownloadStatus.Official,
     platforms: [Platform.MacOS],
     description: 'Both installers (.dmg) and manual ZIP archives (.tar.gz) are provided.',
@@ -227,7 +227,7 @@ makepkg -si`}
   {
     id: 'docker',
     name: 'Docker',
-    osType: OsType.Other,
+    osTypes: [OsType.Docker],
     status: DownloadStatus.Official,
     platforms: [Platform.Docker],
     description: (
@@ -265,7 +265,7 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
   {
     id: 'portable',
     name: 'Portable',
-    osType: OsType.Other,
+    osTypes: [OsType.Linux, OsType.MacOS, OsType.Windows],
     status: DownloadStatus.Official,
     platforms: [Platform.DotNet],
     description: 'The portable version can be run on any system with a .NET Core runtime.',
