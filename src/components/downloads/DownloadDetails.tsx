@@ -68,7 +68,7 @@ const DownloadDetails = ({ download, activeButton, setActiveButton }: DownloadDe
       <PlatformIcon key={`${platform}-${index}`} platform={platform} size={36} />
     ))}
     primaryButtons={[
-      ...(download.unstableButtons || []).map((button) => (
+      ...download.unstableButtons.map((button) => (
         <DownloadButton
           key={button.id}
           name={button.name || 'Unstable'}
@@ -96,7 +96,7 @@ const DownloadDetails = ({ download, activeButton, setActiveButton }: DownloadDe
       <DownloadButton key={button.id} name={button.name || 'All Versions'} url={button.url} outline />
     ))}
     footerDetails={
-      [...download.stableButtons, ...(download.unstableButtons || []), ...download.otherButtons].find(
+      [...download.stableButtons, ...download.unstableButtons, ...download.otherButtons].find(
         (button) => button.id === activeButton
       )?.details
     }

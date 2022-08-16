@@ -29,7 +29,7 @@ export type Download = {
   status: DownloadStatus;
   platforms: Array<Platform>;
   stableButtons: Array<Button>;
-  unstableButtons?: Array<Button>;
+  unstableButtons: Array<Button>;
   otherButtons: Array<Button>;
 };
 
@@ -176,6 +176,7 @@ makepkg -si`}
       { id: 'fedora-stable-link', name: 'Stable Fedora', url: 'https://repo.jellyfin.org/releases/server/fedora' },
       { id: 'centos-stable-link', name: 'Stable CentOS', url: 'https://repo.jellyfin.org/releases/server/centos' }
     ],
+    unstableButtons: [],
     otherButtons: [
       {
         id: 'fedora-all-link',
