@@ -7,6 +7,10 @@ export enum DownloadStatus {
   Community
 }
 
+export enum Feature {
+  CustomFfmpeg
+}
+
 export enum OsType {
   Docker,
   Linux,
@@ -27,6 +31,7 @@ export type Download = {
   description: ReactNode;
   osTypes: Array<OsType>;
   status: DownloadStatus;
+  features: Array<Feature>;
   platforms: Array<Platform>;
   stableButtons: Array<Button>;
   unstableButtons: Array<Button>;
@@ -39,6 +44,7 @@ export const Downloads: Array<Download> = [
     name: 'Debian and Ubuntu',
     osTypes: [OsType.Linux],
     status: DownloadStatus.Official,
+    features: [Feature.CustomFfmpeg],
     platforms: [Platform.Debian, Platform.Ubuntu],
     description: 'Install Jellyfin via our Apt repository or via manual archives (.deb).',
     stableButtons: [
@@ -93,6 +99,7 @@ sudo apt install jellyfin`}
     name: 'Arch Linux',
     osTypes: [OsType.Linux],
     status: DownloadStatus.Community,
+    features: [Feature.CustomFfmpeg],
     platforms: [Platform.Arch],
     description: 'Install Jellyfin via the Arch User Repository.',
     stableButtons: [
@@ -174,6 +181,7 @@ makepkg -si`}
     name: 'Fedora and CentOS',
     osTypes: [OsType.Linux],
     status: DownloadStatus.Community,
+    features: [],
     platforms: [Platform.Fedora, Platform.CentOS],
     description: 'RPM archives for both Fedora and CentOS are provided.',
     stableButtons: [
@@ -218,6 +226,7 @@ makepkg -si`}
     name: 'Generic Linux',
     osTypes: [OsType.Linux],
     status: DownloadStatus.Official,
+    features: [],
     platforms: [Platform.Linux],
     description: 'Linux self-contained binary TAR archives (.tar.gz) are provided.',
     stableButtons: [{ id: 'linux-stable-link', url: 'https://repo.jellyfin.org/releases/server/linux/stable' }],
@@ -229,6 +238,7 @@ makepkg -si`}
     name: 'Windows',
     osTypes: [OsType.Windows],
     status: DownloadStatus.Official,
+    features: [Feature.CustomFfmpeg],
     platforms: [Platform.Windows],
     description: 'Both installers (.exe) and manual ZIP archives (.zip) are provided.',
     stableButtons: [{ id: 'windows-stable-link', url: 'https://repo.jellyfin.org/releases/server/windows/stable' }],
@@ -242,6 +252,7 @@ makepkg -si`}
     name: 'MacOS',
     osTypes: [OsType.MacOS],
     status: DownloadStatus.Official,
+    features: [Feature.CustomFfmpeg],
     platforms: [Platform.MacOS],
     description: 'Both installers (.dmg) and manual ZIP archives (.tar.gz) are provided.',
     stableButtons: [{ id: 'macos-stable-link', url: 'https://repo.jellyfin.org/releases/server/macos/stable' }],
@@ -253,6 +264,7 @@ makepkg -si`}
     name: 'Docker',
     osTypes: [OsType.Docker],
     status: DownloadStatus.Official,
+    features: [Feature.CustomFfmpeg],
     platforms: [Platform.Docker],
     description: (
       <>
@@ -293,6 +305,7 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
     name: 'Portable',
     osTypes: [OsType.Linux, OsType.MacOS, OsType.Windows],
     status: DownloadStatus.Official,
+    features: [],
     platforms: [Platform.DotNet],
     description: 'The portable version can be run on any system with a .NET Core runtime.',
     stableButtons: [{ id: 'portable-stable-link', url: 'https://repo.jellyfin.org/releases/server/portable/stable' }],

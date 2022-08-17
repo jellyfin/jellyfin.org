@@ -5,20 +5,20 @@
  * work well for content-centric websites.
  */
 
- html {
+html {
   font-size: 15px;
   line-height: 1.7;
   font-weight: 400;
   text-rendering: optimizeLegibility;
-  -moz-font-feature-settings: "liga" on;
-  font-feature-settings: "liga";
+  -moz-font-feature-settings: 'liga' on;
+  font-feature-settings: 'liga';
 }
 
 :root {
   --ifm-font-color-base: #ffffff;
   --ifm-button-color: #ffffff;
   --ifm-button-border-radius: 30px;
-  --ifm-color-primary: #007CA6;
+  --ifm-color-primary: #007ca6;
   --ifm-color-primary-dark: #00749b;
   --ifm-color-primary-darker: #006b90;
   --ifm-color-primary-darkest: #006385;
@@ -32,7 +32,7 @@
   --ifm-card-background-color: #172138;
   --ifm-footer-background-color: #333c44;
   --ifm-pills-color-background-active: #172138;
-  --ifm-font-family-base: "Noto Sans", sans-serif;
+  --ifm-font-family-base: 'Noto Sans', sans-serif;
   --ifm-h1-font-size: 2.074em;
   --ifm-h2-font-size: 1.728em;
   --ifm-footer-link-color: #ffffff;
@@ -48,6 +48,11 @@ h2 {
   line-height: 1.35;
 }
 
+/* The default text color for this badge is very low contrast */
+.badge--warning {
+  color: var(--ifm-color-black);
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;
@@ -60,21 +65,21 @@ h2 {
 }
 
 .landing-section {
-  padding:24pt 0
+  padding: 24pt 0;
 }
 
 .landing-section:first-child {
-  border-top:1px solid #eee;
+  border-top: 1px solid #eee;
 }
 
 .landing-section:nth-child(even) {
-  background-color:#172138;
-  border-top:1px solid #eee;
-  border-bottom:1px solid #eee
+  background-color: #172138;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .landing-section:last-child {
-  border-bottom:1px solid #eee
+  border-bottom: 1px solid #eee;
 }
 
 .display--flex {

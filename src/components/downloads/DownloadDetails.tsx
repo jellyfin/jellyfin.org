@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 import clsx from 'clsx';
 
 import DetailsCard from '../common/DetailsCard';
-import { Download, DownloadStatus } from '../../data/downloads';
+import { Download, DownloadStatus, Feature } from '../../data/downloads';
 import PlatformIcon from '../PlatformIcon';
 
 type DownloadButtonProps = {
@@ -53,6 +53,21 @@ const StatusBadge = ({ status }: { status: DownloadStatus }) => {
   }
 };
 
+const FfmpegBadge = ({ features }: { features: Array<Feature> }) => {
+  if (!features.includes(Feature.CustomFfmpeg)) {
+    return (
+      <span
+        className='badge badge--warning margin-right--sm'
+        title='Jellyfin&#39;s custom build of ffmpeg is not available for this platform. Some features like tonemapping may
+    not work correctly without this.'
+      >
+        Custom ffmpeg Unavailable
+      </span>
+    );
+  }
+  return null;
+};
+
 type DownloadDetailsProps = {
   download: Download;
   isStableLinks: boolean;
@@ -64,7 +79,12 @@ const DownloadDetails = ({ download, isStableLinks, activeButton, setActiveButto
   <DetailsCard
     title={download.name}
     description={download.description}
-    badges={<StatusBadge status={download.status} />}
+    badges={
+      <>
+        <StatusBadge status={download.status} />
+        <FfmpegBadge features={download.features} />
+      </>
+    }
     icons={download.platforms.map((platform, index) => (
       <PlatformIcon key={`${platform}-${index}`} platform={platform} size={36} />
     ))}
