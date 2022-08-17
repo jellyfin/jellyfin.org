@@ -50,7 +50,10 @@ const StatusBadge = ({ status }: { status: DownloadStatus }) => {
     return <span className='badge badge--primary margin-right--sm'>Official</span>;
   } else if (status === DownloadStatus.Community) {
     return <span className='badge badge--secondary margin-right--sm'>Community</span>;
+  } else if (status === DownloadStatus.OsPackage) {
+    return <span className='badge badge--info margin-right--sm'>OS Package</span>;
   }
+  return null;
 };
 
 const FfmpegBadge = ({ features }: { features: Array<Feature> }) => {
@@ -88,17 +91,21 @@ const DownloadDetails = ({ download, isStableLinks, activeButton, setActiveButto
     icons={download.platforms.map((platform, index) => (
       <PlatformIcon key={`${platform}-${index}`} platform={platform} size={36} />
     ))}
-    primaryButtons={(isStableLinks ? download.stableButtons : download.unstableButtons).map((button) => (
-      <DownloadButton
-        key={button.id}
-        name={button.name || 'Downloads'}
-        url={button.url}
-        onClick={() => {
-          setActiveButton(button.id);
-        }}
-        active={activeButton === button.id}
-      />
-    ))}
+    primaryButtons={
+      !isStableLinks && download.unstableButtons.length === 0
+        ? ['Unstable Unavailable']
+        : (isStableLinks ? download.stableButtons : download.unstableButtons).map((button) => (
+            <DownloadButton
+              key={button.id}
+              name={button.name || 'Downloads'}
+              url={button.url}
+              onClick={() => {
+                setActiveButton(button.id);
+              }}
+              active={activeButton === button.id}
+            />
+          ))
+    }
     secondaryButtons={download.otherButtons.map((button) => (
       <DownloadButton key={button.id} name={button.name || 'All Versions'} url={button.url} outline />
     ))}

@@ -10,6 +10,7 @@ import {
   Docker,
   Dotnet,
   Fedora,
+  Gentoo,
   Ios,
   Kodi,
   Lg,
@@ -72,6 +73,9 @@ const PlatformIcon = ({
 
     case Platform.FireOS:
       return <Amazonfiretv size={size} className={className} />;
+
+    case Platform.Gentoo:
+      return <Gentoo size={size} className={className} />;
 
     case Platform.IOS:
       return <Ios size={size} className={className} />;

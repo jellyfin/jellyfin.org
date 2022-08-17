@@ -20,6 +20,7 @@ const enum Platform {
   Docker,
   DotNet,
   Fedora,
+  Gentoo,
   Linux,
   MacOS,
   Ubuntu,

@@ -49,6 +49,7 @@ h2 {
 }
 
 /* The default text color for this badge is very low contrast */
+.badge--info,
 .badge--warning {
   color: var(--ifm-color-black);
 }

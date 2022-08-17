@@ -4,7 +4,8 @@ import Platform from './platform';
 
 export enum DownloadStatus {
   Official,
-  Community
+  Community,
+  OsPackage
 }
 
 export enum Feature {
@@ -52,7 +53,7 @@ export const Downloads: Array<Download> = [
         id: 'debian-stable-button',
         name: 'Install Instructions',
         details: (
-          <pre style={{ marginBottom: 0 }}>
+          <pre className='margin-bottom--none'>
             <code>
               {`sudo apt install curl gnupg
 curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/jellyfin.gpg
@@ -69,7 +70,7 @@ sudo apt install jellyfin`}
         id: 'debian-unstable-button',
         name: 'Install Instructions',
         details: (
-          <pre style={{ marginBottom: 0 }}>
+          <pre className='margin-bottom--none'>
             <code>
               {`sudo apt install curl gnupg
 curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | gpg --dearmor -o /etc/apt/trusted.gpg.d/jellyfin.gpg
@@ -124,7 +125,7 @@ makepkg -si`}
               releases. If you see something different in your output, you might need to manually modify it. Use the
               closest equivalent Debian or Ubuntu version instead.
             </p>
-            <p style={{ marginBottom: 0 }}>
+            <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
               <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
               <code>{'sudo service jellyfin {action}'}</code>.
@@ -159,7 +160,7 @@ makepkg -si`}
               <b>Note:</b> Both the <code>main</code> and <code>unstable</code> are needed as the{' '}
               <code>jellyfin-ffmpeg</code> package is only in the <code>main</code> component.
             </p>
-            <p style={{ marginBottom: 0 }}>
+            <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
               <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
               <code>{'sudo service jellyfin {action}'}</code>.
@@ -222,6 +223,35 @@ makepkg -si`}
     ]
   },
   {
+    id: 'gentoo',
+    name: 'Gentoo Linux',
+    osTypes: [OsType.Linux],
+    status: DownloadStatus.OsPackage,
+    features: [],
+    platforms: [Platform.Gentoo],
+    description: 'Install Jellyfin via the Gentoo Repository.',
+    stableButtons: [
+      {
+        id: 'gentoo-stable-button',
+        name: 'Install Instructions',
+        details: (
+          <>
+            <pre>
+              <code>emerge www-apps/jellyfin</code>
+            </pre>
+            <p className='margin-bottom--none'>
+              Once installed, Jellyfin will be running as a service. Manage it with{' '}
+              <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
+              <code>{'sudo rc-service jellyfin {action}'}</code>
+            </p>
+          </>
+        )
+      }
+    ],
+    unstableButtons: [],
+    otherButtons: []
+  },
+  {
     id: 'generic-linux',
     name: 'Generic Linux',
     osTypes: [OsType.Linux],
@@ -277,7 +307,7 @@ makepkg -si`}
         id: 'docker-stable-button',
         name: 'Install Instructions',
         details: (
-          <pre style={{ marginBottom: 0 }}>
+          <pre className='margin-bottom--none'>
             <code>{`docker pull jellyfin/jellyfin:latest
 mkdir -p /srv/jellyfin/{config,cache}
 docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /media:/media --net=host jellyfin/jellyfin:latest`}</code>
@@ -290,7 +320,7 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
         id: 'docker-unstable-button',
         name: 'Install Instructions',
         details: (
-          <pre style={{ marginBottom: 0 }}>
+          <pre className='margin-bottom--none'>
             <code>{`docker pull jellyfin/jellyfin:unstable
 mkdir -p /srv/jellyfin/{config,cache}
 docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /media:/media --net=host jellyfin/jellyfin:unstable`}</code>
