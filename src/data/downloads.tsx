@@ -44,6 +44,7 @@ export const Downloads: Array<Download> = [
     stableButtons: [
       {
         id: 'debian-stable-button',
+        name: 'Install Instructions',
         details: (
           <pre style={{ marginBottom: 0 }}>
             <code>
@@ -60,6 +61,7 @@ sudo apt install jellyfin`}
     unstableButtons: [
       {
         id: 'debian-unstable-button',
+        name: 'Install Instructions',
         details: (
           <pre style={{ marginBottom: 0 }}>
             <code>
@@ -96,6 +98,7 @@ sudo apt install jellyfin`}
     stableButtons: [
       {
         id: 'arch-stable-button',
+        name: 'Install Instructions',
         details: (
           <>
             <pre>
@@ -126,6 +129,7 @@ makepkg -si`}
     unstableButtons: [
       {
         id: 'arch-unstable-button',
+        name: 'Install Instructions',
         details: (
           <>
             <pre>
@@ -173,10 +177,29 @@ makepkg -si`}
     platforms: [Platform.Fedora, Platform.CentOS],
     description: 'RPM archives for both Fedora and CentOS are provided.',
     stableButtons: [
-      { id: 'fedora-stable-link', name: 'Stable Fedora', url: 'https://repo.jellyfin.org/releases/server/fedora' },
-      { id: 'centos-stable-link', name: 'Stable CentOS', url: 'https://repo.jellyfin.org/releases/server/centos' }
+      {
+        id: 'fedora-stable-link',
+        name: 'Fedora Downloads',
+        url: 'https://repo.jellyfin.org/releases/server/fedora/stable'
+      },
+      {
+        id: 'centos-stable-link',
+        name: 'CentOS Downloads',
+        url: 'https://repo.jellyfin.org/releases/server/centos/stable'
+      }
     ],
-    unstableButtons: [],
+    unstableButtons: [
+      {
+        id: 'fedora-unstable-link',
+        name: 'Fedora Downloads',
+        url: 'https://repo.jellyfin.org/releases/server/fedora/unstable'
+      },
+      {
+        id: 'centos-unstable-link',
+        name: 'CentOS Downloads',
+        url: 'https://repo.jellyfin.org/releases/server/centos/unstable'
+      }
+    ],
     otherButtons: [
       {
         id: 'fedora-all-link',
@@ -240,6 +263,7 @@ makepkg -si`}
     stableButtons: [
       {
         id: 'docker-stable-button',
+        name: 'Install Instructions',
         details: (
           <pre style={{ marginBottom: 0 }}>
             <code>{`docker pull jellyfin/jellyfin:latest
@@ -252,6 +276,7 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
     unstableButtons: [
       {
         id: 'docker-unstable-button',
+        name: 'Install Instructions',
         details: (
           <pre style={{ marginBottom: 0 }}>
             <code>{`docker pull jellyfin/jellyfin:unstable

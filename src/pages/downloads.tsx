@@ -8,6 +8,8 @@ import { Downloads, OsType } from '../data/downloads';
 
 export default function DownloadsPage() {
   const [osType, setOsType] = useState<OsType>(OsType.Linux);
+  const [isStableLinks, setIsStableLinks] = useState<boolean>(true);
+  const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
   const [activeButton, setActiveButton] = useState<string>();
 
   return (
@@ -16,54 +18,102 @@ export default function DownloadsPage() {
 
       <main className='margin-vert--lg'>
         <section className='container'>
-          <Admonition type='tip' title='Stable or Unstable?'>
-            <p>
-              Generally, if you&apos;re a new user or value stability use the stable version. It won&apos;t change very
-              often. If you want to help test the latest improvements and features and can handle some occasional
-              breakage, use the unstable version. Always back up your existing configuration before testing unstable
-              releases.
-            </p>
-          </Admonition>
+          <div className='row margin-bottom--md'>
+            <div className='col'>
+              <ul className='pills margin-bottom--none' style={{ overflowX: 'auto' }}>
+                <Pill
+                  active={osType === OsType.Linux}
+                  onClick={() => {
+                    setOsType(OsType.Linux);
+                  }}
+                >
+                  Linux
+                </Pill>
+                <Pill
+                  active={osType === OsType.Windows}
+                  onClick={() => {
+                    setOsType(OsType.Windows);
+                  }}
+                >
+                  Windows
+                </Pill>
+                <Pill
+                  active={osType === OsType.MacOS}
+                  onClick={() => {
+                    setOsType(OsType.MacOS);
+                  }}
+                >
+                  macOS
+                </Pill>
+                <Pill
+                  active={osType === OsType.Docker}
+                  onClick={() => {
+                    setOsType(OsType.Docker);
+                  }}
+                >
+                  Docker
+                </Pill>
+              </ul>
+            </div>
 
-          <ul className='pills' style={{ overflowX: 'auto' }}>
-            <Pill
-              active={osType === OsType.Linux}
-              onClick={() => {
-                setOsType(OsType.Linux);
-              }}
-            >
-              Linux
-            </Pill>
-            <Pill
-              active={osType === OsType.Windows}
-              onClick={() => {
-                setOsType(OsType.Windows);
-              }}
-            >
-              Windows
-            </Pill>
-            <Pill
-              active={osType === OsType.MacOS}
-              onClick={() => {
-                setOsType(OsType.MacOS);
-              }}
-            >
-              macOS
-            </Pill>
-            <Pill
-              active={osType === OsType.Docker}
-              onClick={() => {
-                setOsType(OsType.Docker);
-              }}
-            >
-              Docker
-            </Pill>
-          </ul>
+            <div className='col' style={{ textAlign: 'right' }}>
+              <button
+                className='button button--link'
+                onClick={() => {
+                  setIsStableHelpVisible(!isStableHelpVisible);
+                }}
+                style={{
+                  verticalAlign: 'baseline'
+                }}
+              >
+                Help?
+              </button>
+
+              <input
+                type='radio'
+                id='download-type--unstable'
+                name='download-type'
+                checked={!isStableLinks}
+                value='unstable'
+                onChange={() => {
+                  setIsStableLinks(false);
+                  setActiveButton(null);
+                }}
+              />
+              <label htmlFor='download-type--unstable' className='margin-right--md'>
+                Unstable
+              </label>
+              <input
+                type='radio'
+                id='download-type--stable'
+                name='download-type'
+                checked={isStableLinks}
+                value='stable'
+                onChange={() => {
+                  setIsStableLinks(true);
+                  setActiveButton(null);
+                }}
+              />
+              <label htmlFor='download-type--stable'>Stable</label>
+            </div>
+          </div>
+
+          {isStableHelpVisible && (
+            <Admonition type='tip' title='Stable or Unstable?'>
+              <p>
+                Generally, if you&apos;re a new user or value stability use the stable version. It won&apos;t change
+                very often. If you want to help test the latest improvements and features and can handle some occasional
+                breakage, use the unstable version. Always back up your existing configuration before testing unstable
+                releases.
+              </p>
+            </Admonition>
+          )}
 
           {Downloads.filter((download) => download.osTypes.includes(osType)).map((download) => (
             <DownloadDetails
               key={download.id}
               download={download}
+              isStableLinks={isStableLinks}
               activeButton={activeButton}
               setActiveButton={setActiveButton}
             />

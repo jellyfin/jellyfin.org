@@ -55,11 +55,12 @@ const StatusBadge = ({ status }: { status: DownloadStatus }) => {
 
 type DownloadDetailsProps = {
   download: Download;
+  isStableLinks: boolean;
   activeButton?: string;
   setActiveButton: Dispatch<SetStateAction<string>>;
 };
 
-const DownloadDetails = ({ download, activeButton, setActiveButton }: DownloadDetailsProps) => (
+const DownloadDetails = ({ download, isStableLinks, activeButton, setActiveButton }: DownloadDetailsProps) => (
   <DetailsCard
     title={download.name}
     description={download.description}
@@ -67,31 +68,17 @@ const DownloadDetails = ({ download, activeButton, setActiveButton }: DownloadDe
     icons={download.platforms.map((platform, index) => (
       <PlatformIcon key={`${platform}-${index}`} platform={platform} size={36} />
     ))}
-    primaryButtons={[
-      ...download.unstableButtons.map((button) => (
-        <DownloadButton
-          key={button.id}
-          name={button.name || 'Unstable'}
-          url={button.url}
-          onClick={() => {
-            setActiveButton(button.id);
-          }}
-          active={activeButton === button.id}
-          primary={false}
-        />
-      )),
-      ...download.stableButtons.map((button) => (
-        <DownloadButton
-          key={button.id}
-          name={button.name || 'Stable'}
-          url={button.url}
-          onClick={() => {
-            setActiveButton(button.id);
-          }}
-          active={activeButton === button.id}
-        />
-      ))
-    ]}
+    primaryButtons={(isStableLinks ? download.stableButtons : download.unstableButtons).map((button) => (
+      <DownloadButton
+        key={button.id}
+        name={button.name || 'Downloads'}
+        url={button.url}
+        onClick={() => {
+          setActiveButton(button.id);
+        }}
+        active={activeButton === button.id}
+      />
+    ))}
     secondaryButtons={download.otherButtons.map((button) => (
       <DownloadButton key={button.id} name={button.name || 'All Versions'} url={button.url} outline />
     ))}
