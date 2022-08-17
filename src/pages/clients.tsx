@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 
 import ClientDetails from '../components/ClientDetails';
 import Pill from '../components/Pill';
-import { Clients, DeviceType, Platform } from '../data/clients';
+import { Clients, DeviceType } from '../data/clients';
+import Platform from '../data/platform';
 
 type ClientFilter = {
   recommended: boolean;

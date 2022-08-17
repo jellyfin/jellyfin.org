@@ -1,3 +1,5 @@
+import Platform from './platform';
+
 export enum ClientType {
   Official,
   ThirdParty
@@ -12,21 +14,6 @@ export enum DeviceType {
 export enum LicenseType {
   OpenSource,
   Proprietary
-}
-
-export enum Platform {
-  Android,
-  AndroidTV,
-  Browser,
-  Desktop,
-  Discord,
-  FireOS,
-  IOS,
-  Kodi,
-  Roku,
-  SailfishOS,
-  TVOS,
-  WebOS
 }
 
 type Link = {

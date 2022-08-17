@@ -1,9 +1,8 @@
 import React from 'react';
 
+import DetailsCard from './common/DetailsCard';
 import PlatformIcon from './PlatformIcon';
 import { Client, ClientType, LicenseType } from '../data/clients';
-
-import './ClientDetails.css';
 
 const ClientTypeBadge = ({ clientType }: { clientType: ClientType }) => {
   if (clientType === ClientType.Official) {
@@ -22,36 +21,29 @@ const LicenseTypeBadge = ({ licenseType }: { licenseType: LicenseType }) => {
 };
 
 const ClientDetails = ({ client }: { client: Client }) => (
-  <div className='card client margin-bottom--md'>
-    <div className='card__header client__header'>
-      <div className='client__header__start'>
-        <h3>{client.name}</h3>
-        <div className='client__header__start__badges'>
-          <ClientTypeBadge clientType={client.clientType} />
-          <LicenseTypeBadge licenseType={client.licenseType} />
-        </div>
-      </div>
-      <div>
-        {client.platforms.map((platform, index) => (
-          <PlatformIcon key={`${platform}-${index}`} platform={platform} size={36} className='client__platform-icon' />
-        ))}
-      </div>
-    </div>
-    <div className='card__body padding-top--sm'>{client.description}</div>
-    <div className='card__footer client__footer'>
-      {client.secondaryLinks?.map(({ id, url, name }) => (
-        <a key={id} href={url} className='button button--outline button--primary'>
-          {name}
-        </a>
-      ))}
-      <div style={{ flexGrow: 1 }} />
-      {client.primaryLinks.map(({ id, url, name }) => (
-        <a key={id} href={url} className='button button--primary'>
-          {name}
-        </a>
-      ))}
-    </div>
-  </div>
+  <DetailsCard
+    title={client.name}
+    description={client.description}
+    badges={
+      <>
+        <ClientTypeBadge clientType={client.clientType} />
+        <LicenseTypeBadge licenseType={client.licenseType} />
+      </>
+    }
+    icons={client.platforms.map((platform, index) => (
+      <PlatformIcon key={`${platform}-${index}`} platform={platform} size={36} className='client__platform-icon' />
+    ))}
+    primaryButtons={client.primaryLinks.map(({ id, url, name }) => (
+      <a key={id} href={url} className='button button--primary'>
+        {name}
+      </a>
+    ))}
+    secondaryButtons={client.secondaryLinks?.map(({ id, url, name }) => (
+      <a key={id} href={url} className='button button--outline button--primary'>
+        {name}
+      </a>
+    ))}
+  />
 );
 
 export default ClientDetails;
