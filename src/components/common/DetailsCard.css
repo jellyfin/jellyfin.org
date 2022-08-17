@@ -18,6 +18,10 @@
   margin-left: 1rem;
 }
 
+.details-card__header__start__badges .badge {
+  vertical-align: top;
+}
+
 .details-card__footer__buttons {
   display: flex;
   overflow-x: auto;
