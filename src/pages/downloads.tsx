@@ -69,32 +69,26 @@ export default function DownloadsPage() {
                 Help?
               </button>
 
-              <input
-                type='radio'
-                id='download-type--unstable'
-                name='download-type'
-                checked={!isStableLinks}
-                value='unstable'
-                onChange={() => {
-                  setIsStableLinks(false);
-                  setActiveButton(null);
-                }}
-              />
-              <label htmlFor='download-type--unstable' className='margin-right--md'>
-                Unstable
-              </label>
-              <input
-                type='radio'
-                id='download-type--stable'
-                name='download-type'
-                checked={isStableLinks}
-                value='stable'
-                onChange={() => {
-                  setIsStableLinks(true);
-                  setActiveButton(null);
-                }}
-              />
-              <label htmlFor='download-type--stable'>Stable</label>
+              <ul className='pills margin-bottom--none' style={{ display: 'inline-flex' }}>
+                <Pill
+                  active={!isStableLinks}
+                  onClick={() => {
+                    setIsStableLinks(false);
+                    setActiveButton(null);
+                  }}
+                >
+                  Unstable
+                </Pill>
+                <Pill
+                  active={isStableLinks}
+                  onClick={() => {
+                    setIsStableLinks(true);
+                    setActiveButton(null);
+                  }}
+                >
+                  Stable
+                </Pill>
+              </ul>
             </div>
           </div>
 
