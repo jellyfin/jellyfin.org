@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "2.0.1",
+    "@docusaurus/plugin-client-redirects": "2.0.1",
     "@docusaurus/preset-classic": "2.0.1",
     "@icons-pack/react-simple-icons": "5.3.0",
     "@img-comparison-slider/react": "7.7.0",
