@@ -11,7 +11,7 @@ In `Dashboard > General`, the "Custom CSS" field can be used to override current
 
 If you have little or no experience with CSS, various resources and tutorials can be found online. Using the tweaks and examples below makes it quite easy to get started with making your own changes to your Jellyfin instance.
 
-![Screenshot of the 'Custom CSS' setting in the administrator dashboard of the web client](~/images/custom-css-customcssfield.png)
+![Screenshot of the 'Custom CSS' setting in the administrator dashboard of the web client](/images/docs/custom-css-customcssfield.png)
 
 ## General Information About CSS
 
@@ -23,18 +23,18 @@ CSS supports multiple color formats, but typically the hex color codes are used 
 
 Some examples of hex color codes:
 
-* Green: `#5dd000`
-* Blue: `#0000d0`
-* Red: `#d00000`
-* Transparent Black: `#00000058`
+- Green: `#5dd000`
+- Blue: `#0000d0`
+- Red: `#d00000`
+- Transparent Black: `#00000058`
 
 Go [here](https://htmlcolorcodes.com/color-picker) for a hex color chart to get a code for any given color.
 
 If you are looking for a more standard and less specific color, typing the literal name of colors suits that purpose well. For example, to get the color "yellow" you can simply write "yellow", this will use a preset yellow color.
 
-`yellow` Yellow <br>
-`red` Red <br>
-`aquamarine` Aquamarine <br>
+`yellow` Yellow <br />
+`red` Red <br />
+`aquamarine` Aquamarine <br />
 `lightseagreen` Light Sea Green
 
 Go [here](https://www.w3schools.com/colors/colors_names.asp) for a list of color names supported.
@@ -54,7 +54,11 @@ CSS can be "chained" together to modify different sections together at the same 
 "Border Color" tweak:
 
 ```css
-.emby-input, .emby-textarea, .emby-select { border-color: #d00000; }
+.emby-input,
+.emby-textarea,
+.emby-select {
+  border-color: #d00000;
+}
 ```
 
 ## Tweak List
@@ -67,24 +71,28 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ### Indicators Without Tweak
 
-![Screenshot of the default watched indicators](~/images/custom-css-normalwatched.png)
+![Screenshot of the default watched indicators](/images/docs/custom-css-normalwatched.png)
 
 ### Green Indicators
 
 ```css
-.playedIndicator { background: #5dd000; }
+.playedIndicator {
+  background: #5dd000;
+}
 ```
 
-![Screenshot of watched indicators with a custom green color applied](~/images/custom-css-greenwatched.png)
+![Screenshot of watched indicators with a custom green color applied](/images/docs/custom-css-greenwatched.png)
 
 ### Transparent And Dark Indicators
 
 ```css
 /* Make watched icon dark and transparent */
-.playedIndicator {background: #00000058;}
+.playedIndicator {
+  background: #00000058;
+}
 ```
 
-![Screenshot of watched indicators with a custom transparent color applied](~/images/custom-css-transparentwatched.png)
+![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
 
 ### Display external links in mobile layout
 
@@ -93,93 +101,157 @@ To enable the external links again, add the following snippet:
 
 ```css
 .layout-mobile .itemExternalLinks {
-    display: block !important;
+  display: block !important;
 }
 ```
 
 ### Hide Home Icon from Header
 
 ```css
-.headerHomeButton { display: none; }
+.headerHomeButton {
+  display: none;
+}
 
-.headerButton.headerButtonRight.headerUserButton.paper-icon-button-light { display: none; }
+.headerButton.headerButtonRight.headerUserButton.paper-icon-button-light {
+  display: none;
+}
 ```
 
 ### Hide Cast Icon from Header
 
 ```css
-.headerCastButton { display: none; }
+.headerCastButton {
+  display: none;
+}
 ```
 
 ### Hide Sync Icon from Header
 
 ```css
-.headerSyncButton { display: none; }
+.headerSyncButton {
+  display: none;
+}
 ```
 
 ### Hide User Settings from Header
 
 ```css
-.material-icons.person { display: none; }
+.material-icons.person {
+  display: none;
+}
 ```
 
 ### Hide Live TV Channel Listings
 
 ```css
-.guideChannelNumber { display: none; }
+.guideChannelNumber {
+  display: none;
+}
 ```
 
 ### Reduce Live TV Channel Width
 
 ```css
-.channelsContainer { max-width: 8em; }
+.channelsContainer {
+  max-width: 8em;
+}
 ```
 
 ### Hide Cast & Crew
 
 ```css
-#castCollapsible { display: none; }
+#castCollapsible {
+  display: none;
+}
 ```
 
 ### Hide More Like This
 
 ```css
-#similarCollapsible { display: none; }
+#similarCollapsible {
+  display: none;
+}
 ```
 
 ### Hide Next Up
 
 ```css
-div.nextUpSection { display: none; }
+div.nextUpSection {
+  display: none;
+}
 ```
 
 ### Hide Star Ratings
 
 ```css
-div.starRatingContainer { display: none; }
+div.starRatingContainer {
+  display: none;
+}
 ```
 
 ### Replace "Latest Movies" text with Custom Text such as "Recently Added Movies"
 
 ```css
-#homeTab > div > div.section2 > div:nth-child(1) > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left > a > h2 {display: none;}
-#homeTab > div > div.section2 > div:nth-child(1) > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left > a > span {display: none;}
-#homeTab > div > div.section2 > div:nth-child(1) > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left > a:after {
-content: 'Recently Added Movies ›';
-font-size: 24px;
-font-weight: normal;
+#homeTab
+  > div
+  > div.section2
+  > div:nth-child(1)
+  > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left
+  > a
+  > h2 {
+  display: none;
+}
+#homeTab
+  > div
+  > div.section2
+  > div:nth-child(1)
+  > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left
+  > a
+  > span {
+  display: none;
+}
+#homeTab
+  > div
+  > div.section2
+  > div:nth-child(1)
+  > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left
+  > a:after {
+  content: 'Recently Added Movies ›';
+  font-size: 24px;
+  font-weight: normal;
 }
 ```
 
 ### Replace Latest TV Shows text with Custom Text such as "Recently Added TV Shows"
 
 ```css
-#homeTab > div > div.section2 > div:nth-child(2) > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left > a > h2 {display: none;}
-#homeTab > div > div.section2 > div:nth-child(2) > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left > a > span {display: none;}
-#homeTab > div > div.section2 > div:nth-child(2) > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left > a:after {
-content: 'Recently Added TV Shows ›';
-font-size: 24px;
-font-weight: normal;
+#homeTab
+  > div
+  > div.section2
+  > div:nth-child(2)
+  > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left
+  > a
+  > h2 {
+  display: none;
+}
+#homeTab
+  > div
+  > div.section2
+  > div:nth-child(2)
+  > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left
+  > a
+  > span {
+  display: none;
+}
+#homeTab
+  > div
+  > div.section2
+  > div:nth-child(2)
+  > div.sectionTitleContainer.sectionTitleContainer-cards.padded-left
+  > a:after {
+  content: 'Recently Added TV Shows ›';
+  font-size: 24px;
+  font-weight: normal;
 }
 ```
 
@@ -187,7 +259,7 @@ font-weight: normal;
 
 ```css
 #loginPage {
-  background: url("https://i.ytimg.com/vi/avCWDDox1nE/maxresdefault.jpg");
+  background: url('https://i.ytimg.com/vi/avCWDDox1nE/maxresdefault.jpg');
   background-size: cover;
 }
 ```
@@ -195,11 +267,13 @@ font-weight: normal;
 ### Background Image on Homepage
 
 ```css
-.backdropImage { display: none; }
+.backdropImage {
+  display: none;
+}
 
 .backgroundContainer {
   background-color: rgba(0, 0, 0, 0);
-  background-image: url("https://i.ytimg.com/vi/avCWDDox1nE/maxresdefault.jpg");
+  background-image: url('https://i.ytimg.com/vi/avCWDDox1nE/maxresdefault.jpg');
   filter: blur(10px);
   background-size: cover;
 }
@@ -210,8 +284,14 @@ font-weight: normal;
 ### Transparent Top Menu
 
 ```css
-.skinHeader.focuscontainer-x.skinHeader-withBackground.skinHeader-blurred {background:none; background-color:rgba(0, 0, 0, 0);}
-.skinHeader.focuscontainer-x.skinHeader-withBackground.skinHeader-blurred.noHomeButtonHeader {background:none; background-color:rgba(0, 0, 0, 0);}
+.skinHeader.focuscontainer-x.skinHeader-withBackground.skinHeader-blurred {
+  background: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+.skinHeader.focuscontainer-x.skinHeader-withBackground.skinHeader-blurred.noHomeButtonHeader {
+  background: none;
+  background-color: rgba(0, 0, 0, 0);
+}
 ```
 
 ### Image Edge Rounded
@@ -229,14 +309,22 @@ Enlarges the tab buttons, suggested, genres, etc. By default they are really tin
 
 ```css
 /* Adjust both "size-adjust" and "size" to modify size */
-.headerTabs.sectionTabs {text-size-adjust: 110%;  font-size: 110%;}
-.pageTitle {margin-top: auto; margin-bottom: auto;}
-.emby-tab-button {padding: 1.75em 1.7em;}
+.headerTabs.sectionTabs {
+  text-size-adjust: 110%;
+  font-size: 110%;
+}
+.pageTitle {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.emby-tab-button {
+  padding: 1.75em 1.7em;
+}
 ```
 
 **The enlarged tab buttons and transparent menu look like this:**
 
-![Screenshot of enlarged tab buttons and transparent menu](~/images/custom-css-transparenttopbarenlargedtabs.png)
+![Screenshot of enlarged tab buttons and transparent menu](/images/docs/custom-css-transparenttopbarenlargedtabs.png)
 
 ### Minimalistic Login Page
 
@@ -244,31 +332,49 @@ This looks even better together with the transparent top menu!
 
 ```css
 /* Narrow the login form */
-#loginPage .readOnlyContent, #loginPage form {max-width: 22em;}
+#loginPage .readOnlyContent,
+#loginPage form {
+  max-width: 22em;
+}
 
 /* Hide "please login" text, margin is to prevent login form moving too far up */
-#loginPage h1 {display: none}
-#loginPage .padded-left.padded-right.padded-bottom-page {margin-top: 50px}
+#loginPage h1 {
+  display: none;
+}
+#loginPage .padded-left.padded-right.padded-bottom-page {
+  margin-top: 50px;
+}
 
 /* Hide "manual" and "forgot" buttons */
-#loginPage .raised.cancel.block.btnManual.emby-button {display: none}
-#loginPage .raised.cancel.block.btnForgotPassword.emby-button {display: none}
+#loginPage .raised.cancel.block.btnManual.emby-button {
+  display: none;
+}
+#loginPage .raised.cancel.block.btnForgotPassword.emby-button {
+  display: none;
+}
 ```
 
-![Screenshot of the minimalistic login page](~/images/custom-css-minimallogin.png)
+![Screenshot of the minimalistic login page](/images/docs/custom-css-minimallogin.png)
 
 ### Stylized Episode Previews
 
-The episode previews in season view are sized based on horizontal resolution. This leads to a lot of wasted space on the episode summary and a high vertical page, which  requires a lot of scrolling. This code reduces the height of episode entries, which solves both problems.
+The episode previews in season view are sized based on horizontal resolution. This leads to a lot of wasted space on the episode summary and a high vertical page, which requires a lot of scrolling. This code reduces the height of episode entries, which solves both problems.
 
 ```css
 /* Size episode preview images in a more compact way */
-.listItemImage.listItemImage-large.itemAction.lazy {height: 110px;}
-.listItem-content {height: 115px;}
-.secondary.listItem-overview.listItemBodyText {height: 61px; margin: 0;}
+.listItemImage.listItemImage-large.itemAction.lazy {
+  height: 110px;
+}
+.listItem-content {
+  height: 115px;
+}
+.secondary.listItem-overview.listItemBodyText {
+  height: 61px;
+  margin: 0;
+}
 ```
 
-![Screenshot of a TV show page with stylized episode previews](~/images/custom-css-episodepreview.png)
+![Screenshot of a TV show page with stylized episode previews](/images/docs/custom-css-episodepreview.png)
 
 ### Stylized and Smaller Cast & Crew Info
 
@@ -294,32 +400,53 @@ This will drastically change the style of cast info into something very similar 
 #castContent .cardOverlayButton.cardOverlayButton-hover.itemAction.paper-icon-button-light {margin:auto;}
 ```
 
-![Screenshot of stylized and smaller Cast & Crew info](~/images/custom-css-stylizedcast.png)
+![Screenshot of stylized and smaller Cast & Crew info](/images/docs/custom-css-stylizedcast.png)
 
 ### Pictureless Cast & Crew
 
 ```css
-#castContent .card.overflowPortraitCard { width: 4.2cm; font-size: 90%; }
+#castContent .card.overflowPortraitCard {
+  width: 4.2cm;
+  font-size: 90%;
+}
 
-#castContent .personCard { width: auto; }
+#castContent .personCard {
+  width: auto;
+}
 
-#castContent .personCard .cardBox { margin-bottom: 0px; margin-right: 0px; }
+#castContent .personCard .cardBox {
+  margin-bottom: 0px;
+  margin-right: 0px;
+}
 
-#castContent { flex-wrap: wrap; max-height: 9.75em; }
+#castContent {
+  flex-wrap: wrap;
+  max-height: 9.75em;
+}
 
-div.personCard > :first-child > :first-child { display: none; }
+div.personCard > :first-child > :first-child {
+  display: none;
+}
 
-.itemDetailPage .cardText { text-align: left; }
+.itemDetailPage .cardText {
+  text-align: left;
+}
 
-.itemDetailPage .textActionButton { text-align: left; }
+.itemDetailPage .textActionButton {
+  text-align: left;
+}
 ```
 
-![Screenshot of Pictureless Cast & Crew info](~/images/custom-css-nopicturecast.png)
+![Screenshot of Pictureless Cast & Crew info](/images/docs/custom-css-nopicturecast.png)
 
 ### Custom Background Color
 
 ```css
-.backgroundContainer, .dialog, html { background-color: #0fd0d0; }
+.backgroundContainer,
+.dialog,
+html {
+  background-color: #0fd0d0;
+}
 ```
 
 ### Darken the Background
@@ -328,7 +455,10 @@ This darkens the background on Blue Radiance and Purple Haze, edit the percentag
 
 ```css
 /* Darken background, only works with blue radiance */
-.backgroundContainer {background-color: #000000; filter: brightness(50%);}
+.backgroundContainer {
+  background-color: #000000;
+  filter: brightness(50%);
+}
 ```
 
 ### Right Header Color
@@ -336,52 +466,75 @@ This darkens the background on Blue Radiance and Purple Haze, edit the percentag
 This modifies the colors of the cast, search and user buttons in the top right.
 
 ```css
-.headerRight { color: yellow; }
+.headerRight {
+  color: yellow;
+}
 ```
 
-![Screenshot of a custom yellow color for the icon buttons in the top right of the screen](~/images/custom-css-rightheader.png)
+![Screenshot of a custom yellow color for the icon buttons in the top right of the screen](/images/docs/custom-css-rightheader.png)
 
 ### Console Panel Custom Color
 
 Modifies the color of the left menu panel.
 
 ```css
-.mainDrawer-scrollContainer { color: yellow; }
+.mainDrawer-scrollContainer {
+  color: yellow;
+}
 ```
 
-![Screenshot of a custom yellow color on the left menu panel](~/images/custom-css-consolepanel.png)
+![Screenshot of a custom yellow color on the left menu panel](/images/docs/custom-css-consolepanel.png)
 
 ### General Page Custom Color
 
 ```css
-.dashboardGeneralForm { color: yellow; }
+.dashboardGeneralForm {
+  color: yellow;
+}
 ```
 
-![Screenshot of a custom yellow color on the General Page](~/images/custom-css-generalcolor.png)
+![Screenshot of a custom yellow color on the General Page](/images/docs/custom-css-generalcolor.png)
 
 ### Custom Border Color
 
 This will change the border color for text fields and drop-down menus.
 
 ```css
-.emby-input, .emby-textarea, .emby-select { border-color: #d00000; }
+.emby-input,
+.emby-textarea,
+.emby-select {
+  border-color: #d00000;
+}
 ```
 
 This will affect the border color of highlighted (selected) text fields and drop-down menus.
 
 ```css
-.emby-input:focus, .emby-textarea:focus, .emby-select-withcolor { border-color: #ffffff !important; }
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select-withcolor {
+  border-color: #ffffff !important;
+}
 ```
 
-![Screenshot of a custom red border color](~/images/custom-css-bordercolor.png)
+![Screenshot of a custom red border color](/images/docs/custom-css-bordercolor.png)
 
 ### Full Header Tweak
 
 ```css
-.skinHeader, .mainDrawer, .emby-input, .emby-textarea, .emby-select, .navMenuOption-selected, .cardBox, .paperList { background: #ff9475; }
+.skinHeader,
+.mainDrawer,
+.emby-input,
+.emby-textarea,
+.emby-select,
+.navMenuOption-selected,
+.cardBox,
+.paperList {
+  background: #ff9475;
+}
 ```
 
-![Screenshot of the full header tweak](~/images/custom-css-full-header-mod.png)
+![Screenshot of the full header tweak](/images/docs/custom-css-full-header-mod.png)
 
 ### Disable Image Carousel for Libraries
 
@@ -405,18 +558,18 @@ This will make it so libraries and media fit neatly onto the homepage with no le
 
 ```css
 .emby-scrollbuttons {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    justify-content: space-between;
-    pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  justify-content: space-between;
+  pointer-events: none;
 }
 
 .emby-scrollbuttons-button {
-    pointer-events: initial;
+  pointer-events: initial;
 }
 ```
 
@@ -424,47 +577,57 @@ This will make it so libraries and media fit neatly onto the homepage with no le
 
 An example of a color theme.
 
-![Screenshot of the "Hotdogs and Catsup" color theme](~/images/custom-css-hotdog-and-catsup.png)
+![Screenshot of the "Hotdogs and Catsup" color theme](/images/docs/custom-css-hotdog-and-catsup.png)
 
 ```css
-.skinHeader, .mainDrawer, .emby-input, .emby-textarea, .emby-select, .navMenuOption-selected, .cardBox, .paperList {
-    background: #ff9475;
+.skinHeader,
+.mainDrawer,
+.emby-input,
+.emby-textarea,
+.emby-select,
+.navMenuOption-selected,
+.cardBox,
+.paperList {
+  background: #ff9475;
 }
 
-.emby-input, .emby-textarea, .emby-select {
-    border-color: #fdbe7d;
+.emby-input,
+.emby-textarea,
+.emby-select {
+  border-color: #fdbe7d;
 }
 
-.backgroundContainer.withBackdrop, .backdropContainer, .backgroundContainer {
-    background: #fdbe7d;
+.backgroundContainer.withBackdrop,
+.backdropContainer,
+.backgroundContainer {
+  background: #fdbe7d;
 }
 
 #myPreferencesMenuPage .listItemBodyText,
-.emby-tab-button[data-index="0"],
+.emby-tab-button[data-index='0'],
 #myPreferencesMenuPage > div > div > div > a:nth-child(odd),
 .button-submit,
 .mainAnimatedPage *:nth-child(odd),
 .dashboardGeneralForm *:nth-child(odd),
 .mainDrawer-scrollContainer *:nth-child(odd),
 .headerRight *:nth-child(odd) {
-    color: red;
+  color: red;
 }
 
 #myPreferencesMenuPage .listItemIcon,
-.emby-tab-button[data-index="1"],
+.emby-tab-button[data-index='1'],
 #myPreferencesMenuPage > div > div > div > a:nth-child(even),
 .mainAnimatedPage *:nth-child(even),
 .dashboardGeneralForm *:nth-child(even),
 .mainDrawer-scrollContainer *:nth-child(even),
-.headerRight *:nth-child(even)
-.cancel {
-    color: yellow;
+.headerRight *:nth-child(even) .cancel {
+  color: yellow;
 }
 ```
 
 ### Floating Now Playing Controls
 
-![Screenshot of the floating "Now Playing" controls](~/images/custom-css-floatingnowplaying.png)
+![Screenshot of the floating "Now Playing" controls](/images/docs/custom-css-floatingnowplaying.png)
 
 ```css
 /* fixed height for the bottom row */
@@ -560,19 +723,19 @@ An example of a color theme.
 You can choose between Material Icons (Icon Pack used by Jellyfin) and Fontawesome icons.
 Material Icons:
 
-* Outlined:
+- Outlined:
 
   ```css
   @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css");
   ```
 
-* Rounded:
+- Rounded:
 
   ```css
   @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
   ```
 
-* Sharp:
+- Sharp:
 
   ```css
   @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css");
@@ -580,25 +743,25 @@ Material Icons:
 
 Fontawesome Icons:
 
-* Solid:
+- Solid:
 
   ```css
   @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css");
   ```
 
-* Regular:
+- Regular:
 
   ```css
   @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css");
   ```
 
-* Light:
+- Light:
 
   ```css
   @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css");
   ```
 
-* duotone:
+- duotone:
 
   ```css
   @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css");
@@ -612,21 +775,21 @@ Some links to places where custom CSS has been discussed and shared!
 
 Keep in mind that these posts may have been made under previous versions of Jellyfin. Some of these tweaks listed in these guides may not work anymore!
 
-* [Custom CSS Guide](https://www.reddit.com/r/jellyfin/comments/fgmu6k/custom_css_updated_for_1050)
-* ["But wait, there is more Custom CSS!"](https://www.reddit.com/r/jellyfin/comments/htrfrx/but_wait_there_is_more_custom_css)
-* [Customizable Plug n' Play CSS for Jellyfin](https://www.reddit.com/r/jellyfin/comments/g9gmjj/customizable_plug_n_play_css_for_jellyfin)
-* [Easy Jellyfin custom CSS](https://www.reddit.com/r/jellyfin/comments/crxqk5/easy_jellyfin_custom_css)
-* [Custom CSS - updated for 10.5.0](https://www.reddit.com/r/jellyfin/comments/fgmu6k/custom_css_updated_for_1050)
-* [Sharing even more custom CSS (and some fixes to previous stuff)](https://www.reddit.com/r/jellyfin/comments/bvnt65/sharing_even_more_custom_css_and_some_fixes_to)
-* [Posting my Jellyfin Custom CSS](https://www.reddit.com/r/jellyfin/comments/p13yqg/posting_my_jellyfin_custom_css/)
+- [Custom CSS Guide](https://www.reddit.com/r/jellyfin/comments/fgmu6k/custom_css_updated_for_1050)
+- ["But wait, there is more Custom CSS!"](https://www.reddit.com/r/jellyfin/comments/htrfrx/but_wait_there_is_more_custom_css)
+- [Customizable Plug n' Play CSS for Jellyfin](https://www.reddit.com/r/jellyfin/comments/g9gmjj/customizable_plug_n_play_css_for_jellyfin)
+- [Easy Jellyfin custom CSS](https://www.reddit.com/r/jellyfin/comments/crxqk5/easy_jellyfin_custom_css)
+- [Custom CSS - updated for 10.5.0](https://www.reddit.com/r/jellyfin/comments/fgmu6k/custom_css_updated_for_1050)
+- [Sharing even more custom CSS (and some fixes to previous stuff)](https://www.reddit.com/r/jellyfin/comments/bvnt65/sharing_even_more_custom_css_and_some_fixes_to)
+- [Posting my Jellyfin Custom CSS](https://www.reddit.com/r/jellyfin/comments/p13yqg/posting_my_jellyfin_custom_css/)
 
 ### Community Themes
 
-* [Monochromic - A custom theme for Jellyfin mediaserver created using CSS overrides](https://github.com/CTalvio/Monochromic)
-* [Kaleidochromic - Yet another custom theme for Jellyfin mediaserver created using CSS overrides, built on top of Monochromic](https://github.com/CTalvio/Kaleidochromic)
-* [Novachromic - A light theme, built on top of Monochromic](https://github.com/CTalvio/Novachromic)
-* [JellySkin - Vibrant Jellyfin theme with a lot a animations](https://github.com/prayag17/JellySkin)
-* [JellyFlix - The Best Netflix Clone for Jellyfin](https://github.com/prayag17/JellyFlix)
-* [Jellyfin Netflix Dark - The Best Netflix Dark Theme for Jellyfin Around!](https://github.com/DevilsDesigns/Jellyfin-Netflix-Dark)
-* [Dark and Green - A Emby like night mode skin](https://github.com/mbcooper83/jellyfin-css-darkandgreen)
-* [Hint of Green](https://github.com/looi-wh/HintOfGreenCSS)
+- [Monochromic - A custom theme for Jellyfin mediaserver created using CSS overrides](https://github.com/CTalvio/Monochromic)
+- [Kaleidochromic - Yet another custom theme for Jellyfin mediaserver created using CSS overrides, built on top of Monochromic](https://github.com/CTalvio/Kaleidochromic)
+- [Novachromic - A light theme, built on top of Monochromic](https://github.com/CTalvio/Novachromic)
+- [JellySkin - Vibrant Jellyfin theme with a lot a animations](https://github.com/prayag17/JellySkin)
+- [JellyFlix - The Best Netflix Clone for Jellyfin](https://github.com/prayag17/JellyFlix)
+- [Jellyfin Netflix Dark - The Best Netflix Dark Theme for Jellyfin Around!](https://github.com/DevilsDesigns/Jellyfin-Netflix-Dark)
+- [Dark and Green - A Emby like night mode skin](https://github.com/mbcooper83/jellyfin-css-darkandgreen)
+- [Hint of Green](https://github.com/looi-wh/HintOfGreenCSS)

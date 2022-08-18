@@ -12,7 +12,7 @@ Jellyfin supports Post Processing of recorded Live TV shows. This can be used to
 > [!NOTE]
 > There are several different ways to set up your post-processing script, and this largely will need to be changed to your individual use case.
 >
->Described below is one way to do post processing, there may be other ways (other ways may be more efficient, too) to run your post-processor.
+> Described below is one way to do post processing, there may be other ways (other ways may be more efficient, too) to run your post-processor.
 
 Mess around with this to change to your needs. Search around, post questions to the [Jellyfin Reddit Forum](https://www.reddit.com/r/jellyfin) or elsewhere, and others may be able to help. Logging is your friend! Make sure your script(s) logs adequately to a file or elsewhere in order to troubleshoot any issues you may encounter, as any output to stdout/stderror will not be seen in the Jellyfin logs.
 
@@ -26,13 +26,13 @@ Set "Post-processing application" to your shell script which calls your actual p
 
 Set "Post-processor command line arguments" to `"{path}"`.
 
-![Live TV post process DVR Settings](~/images/live-tv-post-process_dvr-settings.png)
+![Live TV post process DVR Settings](/images/docs/live-tv-post-process_dvr-settings.png)
 
 With the settings above, the server executes this command when running the post processor:
 
-````bash
+```bash
 "/path/to/run_post_process.sh" "\"/path/to/LiveTV/Shows/Series/Season/Episode.ts\""
-````
+```
 
 ## Run Post Processor Shell Script (to be run directly by Jellyfin Server)
 
@@ -48,12 +48,12 @@ In the sample script below:
 
 [GitHub Gist link to `run_post_processor.sh`](https://gist.github.com/AndrewBreyen/0fc36c868486d48583a369b657e22c69)
 
-````bash
+```bash
 #!/bin/sh
 exec > "/path/to/logging/directory/logs/$(date +"%Y-%m-%d_%H-%M-%S")-run_post_process-sh.log" 2>&1
 echo $1
 /usr/local/bin/python3 /path/to/record_post_process.py "$1"
-````
+```
 
 ## Post Processor Python Script (to be run by `run_post_processor.sh`)
 

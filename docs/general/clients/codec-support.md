@@ -13,16 +13,16 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 [Test your browser's compatibility for any codec profile.](https://cconcolato.github.io/media-mime-support/)
 
-| Sorted by efficency (excluding bit depth) | Chrome | Edge | Firefox | Safari | Android | Android TV | iOS | SwiftFin (iOS) | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | [Desktop](https://docs.jellyfin.org/general/clients/index.html#jellyfin-desktop) |
-|-|-|-|-|-|-|-|-|-|-|-|-|
-| [MPEG-4 Part 2/SP](https://en.wikipedia.org/wiki/DivX) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
-| [MPEG-4 Part 2/ASP](https://en.wikipedia.org/wiki/MPEG-4_Part_2#Advanced_Simple_Profile_(ASP)) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |  | ✅ | ✅ |
-| [H.264 8Bit](https://caniuse.com/#feat=mpeg4 "H264 Browser Support Reference") | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [H.264 10Bit](https://caniuse.com/#feat=mpeg4 "H264 Browser Support Reference") | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ |
-| [H.265 8Bit](https://caniuse.com/#feat=hevc "HEVC Browser Support Reference") | ❌ | ✅<sup>7</sup> | ❌ | 🔶<sup>1</sup> | 🔶<sup>2</sup> | ✅<sup>5</sup> | 🔶<sup>1</sup> | ✅<sup>6</sup> | ✅ | ✅ | ✅ |
-| [H.265 10Bit](https://caniuse.com/#feat=hevc "HEVC Browser Support Reference") | ❌ | ✅<sup>7</sup> | ❌ | 🔶<sup>1</sup> | 🔶<sup>2</sup> | 🔶<sup>5</sup> | 🔶<sup>1</sup> | ✅<sup>6</sup> | ✅ | ✅ | ✅ |
-| [VP9](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#VP9 "V9 Browser Support Reference") | ✅ | ✅ | ✅ | ❌ | ✅<sup>3</sup> | 🔶<sup>3</sup> | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [AV1](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#AV1 "AV1 Browser Support Reference") | ✅ | ✅ | ✅ | ❌ | ✅ | 🔶<sup>4</sup> | ❌ | ❌ | ✅ | ✅ | ✅ |
+| Sorted by efficency (excluding bit depth)                                                                          | Chrome | Edge           | Firefox | Safari         | Android        | Android TV     | iOS            | SwiftFin (iOS) | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | [Desktop](https://docs.jellyfin.org/general/clients/index.html#jellyfin-desktop) |
+| ------------------------------------------------------------------------------------------------------------------ | ------ | -------------- | ------- | -------------- | -------------- | -------------- | -------------- | -------------- | ------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------------- |
+| [MPEG-4 Part 2/SP](https://en.wikipedia.org/wiki/DivX)                                                             | ❌     | ❌             | ❌      | ❌             | ❌             | ❌             | ❌             | ✅             | ✅                                                                              | ✅   | ✅                                                                               |
+| [MPEG-4 Part 2/ASP](<https://en.wikipedia.org/wiki/MPEG-4_Part_2#Advanced_Simple_Profile_(ASP)>)                   | ❌     | ❌             | ❌      | ❌             | ❌             | ❌             | ❌             | ✅             |                                                                                 | ✅   | ✅                                                                               |
+| [H.264 8Bit](https://caniuse.com/#feat=mpeg4 'H264 Browser Support Reference')                                     | ✅     | ✅             | ✅      | ✅             | ✅             | ✅             | ✅             | ✅             | ✅                                                                              | ✅   | ✅                                                                               |
+| [H.264 10Bit](https://caniuse.com/#feat=mpeg4 'H264 Browser Support Reference')                                    | ✅     | ✅             | ❌      | ❌             | ✅             | ✅             | ❌             | ✅             | ❌                                                                              | ✅   | ✅                                                                               |
+| [H.265 8Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                      | ❌     | ✅<sup>7</sup> | ❌      | 🔶<sup>1</sup> | 🔶<sup>2</sup> | ✅<sup>5</sup> | 🔶<sup>1</sup> | ✅<sup>6</sup> | ✅                                                                              | ✅   | ✅                                                                               |
+| [H.265 10Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                     | ❌     | ✅<sup>7</sup> | ❌      | 🔶<sup>1</sup> | 🔶<sup>2</sup> | 🔶<sup>5</sup> | 🔶<sup>1</sup> | ✅<sup>6</sup> | ✅                                                                              | ✅   | ✅                                                                               |
+| [VP9](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#VP9 'V9 Browser Support Reference')  | ✅     | ✅             | ✅      | ❌             | ✅<sup>3</sup> | 🔶<sup>3</sup> | ❌             | ❌             | ✅                                                                              | ✅   | ✅                                                                               |
+| [AV1](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#AV1 'AV1 Browser Support Reference') | ✅     | ✅             | ✅      | ❌             | ✅             | 🔶<sup>4</sup> | ❌             | ❌             | ✅                                                                              | ✅   | ✅                                                                               |
 
 <sup>1</sup>HEVC is only supported in MP4, M4V, and MOV containers.
 
@@ -40,11 +40,11 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
 
-|[MPEG-2<br>Part 2](https://en.wikipedia.org/wiki/H.262/MPEG-2_Part_2)|[MPEG-4<br>Part-2](https://en.wikipedia.org/wiki/MPEG-4_Part_2)<sup>1</sup>|[MPEG-4<br>Part-10](https://en.wikipedia.org/wiki/Advanced_Video_Coding)|[MPEG-4<br>Part-14](https://en.wikipedia.org/wiki/MPEG-4_Part_14)|[MPEG-H<br>Part 2](https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding)|
-|:---:|:---:|:---:|:---:|:---:|
-|H.262|MPEG-4 SP/ASP|H.264|MP4 Container<sup>2</sup>|H.265|
-|MPEG-2 Video|DivX|MPEG-4 AVC||HEVC|
-|DVD-Video|DX50||||
+| [MPEG-2<br />Part 2](https://en.wikipedia.org/wiki/H.262/MPEG-2_Part_2) | [MPEG-4<br />Part-2](https://en.wikipedia.org/wiki/MPEG-4_Part_2)<sup>1</sup> | [MPEG-4<br />Part-10](https://en.wikipedia.org/wiki/Advanced_Video_Coding) | [MPEG-4<br />Part-14](https://en.wikipedia.org/wiki/MPEG-4_Part_14) | [MPEG-H<br />Part 2](https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding) |
+| :---------------------------------------------------------------------: | :---------------------------------------------------------------------------: | :------------------------------------------------------------------------: | :-----------------------------------------------------------------: | :------------------------------------------------------------------------------: |
+|                                  H.262                                  |                                 MPEG-4 SP/ASP                                 |                                   H.264                                    |                      MP4 Container<sup>2</sup>                      |                                      H.265                                       |
+|                              MPEG-2 Video                               |                                     DivX                                      |                                 MPEG-4 AVC                                 |                                                                     |                                       HEVC                                       |
+|                                DVD-Video                                |                                     DX50                                      |                                                                            |                                                                     |                                                                                  |
 
 <sup>1</sup>[MPEG-4 Part-2 vs Part-10](https://www.afterdawn.com/glossary/term.cfm/mpeg_4_part_10)
 
@@ -54,23 +54,23 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 If the audio codec is unsupported or incompatible (such as playing a 5.1 channel stream on a stereo device), the audio codec must be transcoded. This is not nearly as intensive as video transcoding.
 
-||Chrome|Edge|Firefox|Safari|Android|Android TV|iOS|SwiftFin (iOS) |Roku|Kodi|Desktop|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|FLAC|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|MP3|🔶<sup>1</sup>|✅|🔶|✅|✅|✅|✅|✅|✅|✅|✅|
-|AAC|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[AC3](https://www.loc.gov/preservation/digital/formats/fdd/fdd000209.shtml)|✅|✅|❌|✅|✅|✅|✅|✅||✅|✅|
-|[EAC3](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)<sup>2</sup>|✅|✅|✅|✅|✅|✅|✅|✅||✅|✅|
-|VORBIS<sup>3</sup>|✅|✅|✅|❌|✅|❌|❌|✅|✅|✅|✅|
-|DTS<sup>4</sup>|❌|❌|❌|❌|✅|✅|❌|✅|✅<sup>6</sup>|✅|✅|
-|OPUS|✅|✅|✅|🔶<sup>5</sup>|✅|✅|🔶<sup>5</sup>|✅|✅|✅|✅|
+|                                                                             |     Chrome     | Edge | Firefox |     Safari     | Android | Android TV |      iOS       | SwiftFin (iOS) |      Roku      | Kodi | Desktop |
+| :-------------------------------------------------------------------------: | :------------: | :--: | :-----: | :------------: | :-----: | :--------: | :------------: | :------------: | :------------: | :--: | :-----: |
+|                                    FLAC                                     |       ✅       |  ✅  |   ✅    |       ✅       |   ✅    |     ✅     |       ✅       |       ✅       |       ✅       |  ✅  |   ✅    |
+|                                     MP3                                     | 🔶<sup>1</sup> |  ✅  |   🔶    |       ✅       |   ✅    |     ✅     |       ✅       |       ✅       |       ✅       |  ✅  |   ✅    |
+|                                     AAC                                     |       ✅       |  ✅  |   ✅    |       ✅       |   ✅    |     ✅     |       ✅       |       ✅       |       ✅       |  ✅  |   ✅    |
+| [AC3](https://www.loc.gov/preservation/digital/formats/fdd/fdd000209.shtml) |       ✅       |  ✅  |   ❌    |       ✅       |   ✅    |     ✅     |       ✅       |       ✅       |                |  ✅  |   ✅    |
+|    [EAC3](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)<sup>2</sup>     |       ✅       |  ✅  |   ✅    |       ✅       |   ✅    |     ✅     |       ✅       |       ✅       |                |  ✅  |   ✅    |
+|                             VORBIS<sup>3</sup>                              |       ✅       |  ✅  |   ✅    |       ❌       |   ✅    |     ❌     |       ❌       |       ✅       |       ✅       |  ✅  |   ✅    |
+|                               DTS<sup>4</sup>                               |       ❌       |  ❌  |   ❌    |       ❌       |   ✅    |     ✅     |       ❌       |       ✅       | ✅<sup>6</sup> |  ✅  |   ✅    |
+|                                    OPUS                                     |       ✅       |  ✅  |   ✅    | 🔶<sup>5</sup> |   ✅    |     ✅     | 🔶<sup>5</sup> |       ✅       |       ✅       |  ✅  |   ✅    |
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/Moving_Picture_Experts_Group#External_links)
 
-|[MPEG-1](https://en.wikipedia.org/wiki/MPEG-1)|[MPEG-2](https://en.wikipedia.org/wiki/MPEG-2)|
-|:---:|:---:|
-|[MP2 (layer 2)](https://en.wikipedia.org/wiki/MPEG-1_Audio_Layer_II)|[AAC (Part 7)](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)|
-|[MP3 (layer 3)](https://en.wikipedia.org/wiki/MP3)||
+|            [MPEG-1](https://en.wikipedia.org/wiki/MPEG-1)            |           [MPEG-2](https://en.wikipedia.org/wiki/MPEG-2)            |
+| :------------------------------------------------------------------: | :-----------------------------------------------------------------: |
+| [MP2 (layer 2)](https://en.wikipedia.org/wiki/MPEG-1_Audio_Layer_II) | [AAC (Part 7)](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) |
+|          [MP3 (layer 3)](https://en.wikipedia.org/wiki/MP3)          |                                                                     |
 
 <sup>1</sup>MP3 Mono is incorrectly reported as unsupported and will transcode to AAC.
 
@@ -92,15 +92,15 @@ Subtiles can be a subtle issue for transcoding. Containers have a limited number
 
 Here is a [breakdown](https://www.afterdawn.com/guides/archive/subtitle_formats_explained.cfm) of common subtitle formats.
 
-||Format|TS|MP4|MKV|AVI|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|[SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip)|Text|❌|🔶|✅|🔶|
-|[WebVTT (VTT)](https://en.wikipedia.org/wiki/WebVTT)<sup>1</sup>|Text|❌|❌|✅|🔶|
-|ASS/SSA|Formatted Text|❌|❌|✅|🔶|
-|VobSub<sup>2</sup>|Picture|✅|✅|✅|🔶|
-|MP4TT/TXTT|XML|❌|✅|❌|❌|
-|PGSSUB|Picture|❌|❌|✅|❌|
-|EIA-608/708<sup>3</sup>|Embedded|✅|✅|✅|❌|
+|                                                                  |     Format     | TS  | MP4 | MKV | AVI |
+| :--------------------------------------------------------------: | :------------: | :-: | :-: | :-: | :-: |
+|    [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip)     |      Text      | ❌  | 🔶  | ✅  | 🔶  |
+| [WebVTT (VTT)](https://en.wikipedia.org/wiki/WebVTT)<sup>1</sup> |      Text      | ❌  | ❌  | ✅  | 🔶  |
+|                             ASS/SSA                              | Formatted Text | ❌  | ❌  | ✅  | 🔶  |
+|                        VobSub<sup>2</sup>                        |    Picture     | ✅  | ✅  | ✅  | 🔶  |
+|                            MP4TT/TXTT                            |      XML       | ❌  | ✅  | ❌  | ❌  |
+|                              PGSSUB                              |    Picture     | ❌  | ❌  | ✅  | ❌  |
+|                     EIA-608/708<sup>3</sup>                      |    Embedded    | ✅  | ✅  | ✅  | ❌  |
 
 <sup>1</sup>VTT are supported in an [HLS Stream](https://helpx.adobe.com/adobe-media-server/dev/webvtt-subtitles-captions.html).
 
@@ -150,13 +150,13 @@ ffmpeg -f lavfi -i "movie=Ronin (1998).ts[out+subcc]" -map 0:1  "Ronin (1998).sr
 
 If the container is unsupported, this will result in remuxing. The video and audio codec will remain intact, but wrapped in a supported container. This is the least intensive process. Most video containers will be remuxed to use the HLS streaming protocol and TS containers. Remuxing shouldn't be a concern even for an RPi3.
 
-||Chrome|Edge|Firefox|Safari|Android|Android TV|Kodi|Roku|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)<sup>1</sup>|✅|✅|✅|✅|✅|✅|✅|✅|
-|[MKV](https://en.wikipedia.org/wiki/Matroska)<sup>2, 3</sup>|❌|✅|❌|❌|✅|✅|✅|✅|
-|[WebM](https://en.wikipedia.org/wiki/WebM)<sup>3, 5</sup>|✅|✅|✅|❌|✅|✅|✅|✅|
-|[TS](https://en.wikipedia.org/wiki/MPEG_transport_stream)<sup>4</sup>|✅|✅|✅|✅|✅|✅|✅|✅|
-|[OGG](https://en.wikipedia.org/wiki/Ogg)<sup>5</sup>|✅|✅|✅|❌|✅|✅|✅|✅|
+|                                                                       | Chrome | Edge | Firefox | Safari | Android | Android TV | Kodi | Roku |
+| :-------------------------------------------------------------------: | :----: | :--: | :-----: | :----: | :-----: | :--------: | :--: | :--: |
+|    [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)<sup>1</sup>    |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
+|     [MKV](https://en.wikipedia.org/wiki/Matroska)<sup>2, 3</sup>      |   ❌   |  ✅  |   ❌    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
+|       [WebM](https://en.wikipedia.org/wiki/WebM)<sup>3, 5</sup>       |   ✅   |  ✅  |   ✅    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
+| [TS](https://en.wikipedia.org/wiki/MPEG_transport_stream)<sup>4</sup> |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
+|         [OGG](https://en.wikipedia.org/wiki/Ogg)<sup>5</sup>          |   ✅   |  ✅  |   ✅    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
 
 <sup>1</sup>MP4 containers are one of the few containers that will not remux.
 
