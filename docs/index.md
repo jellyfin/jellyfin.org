@@ -1,6 +1,6 @@
 ---
-uid: home
-title: Home
+uid: intro
+title: Introduction
 ---
 
 # Welcome to the Jellyfin Documentation
