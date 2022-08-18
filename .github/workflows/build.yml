@@ -35,7 +35,6 @@ jobs:
           npm ci
           npm run build
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305 # tag=v3.8.0
+        uses: actions/upload-pages-artifact@v1.0.3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          path: ./build
