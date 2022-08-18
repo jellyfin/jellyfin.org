@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Getting Help
 
-If you are having trouble using or configuring Jellyfin, there are several ways to get help. Please ensure you read our [Community Standards](xref:community-standards) before interacting in any of the following locations.
+If you are having trouble using or configuring Jellyfin, there are several ways to get help. Please ensure you read our [Community Standards](/docs/general/community-standards) before interacting in any of the following locations.
 
 - The Jellyfin [Matrix channels](https://matrix.to/#/#jellyfinorg:matrix.org): For chat and real-time discussions.
 

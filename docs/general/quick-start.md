@@ -6,9 +6,9 @@ sidebar_position: 0
 
 # Quick Start
 
-1. Install Jellyfin on [your system](xref:admin-installing) with the installation method for your platform.
+1. Install Jellyfin on [your system](/docs/general/administration/installing) with the installation method for your platform.
 
-1. Edit the [web configuration](xref:clients-web-config) and adjust the options to fit your desired privacy level.
+1. Edit the [web configuration](/docs/general/clients/web-config) and adjust the options to fit your desired privacy level.
 
    - Our defaults sacrifice some absolute self-hosting for often requested features.
    - If this is concerning, please review the documentation and edit accordingly.

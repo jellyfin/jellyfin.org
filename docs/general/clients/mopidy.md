@@ -9,36 +9,36 @@ The Mopidy Jellyfin extension is available to install from [PyPi](https://pypi.o
 
 ## General
 
-For general use computers, such as workstations or laptops, it's recommended to install Mopidy extensions in user mode.  Installing python packages from pip using sudo or root permissions can lead to conflicts with your package manager in the future.
+For general use computers, such as workstations or laptops, it's recommended to install Mopidy extensions in user mode. Installing python packages from pip using sudo or root permissions can lead to conflicts with your package manager in the future.
 
 1. Install Mopidy using your method of choice using the [official documentation](https://docs.mopidy.com/en/latest/installation/)
 
 2. Install the Jellyfin extension for Mopidy:
 
-    ```sh
-    pip3 install --user mopidy-jellyfin
-    ```
+   ```sh
+   pip3 install --user mopidy-jellyfin
+   ```
 
 3. (Optional) Install other mopidy related packages:
 
-    ```sh
-    pip3 install --user mopidy-mpd mopidy-musicbox-webclient
-    ```
+   ```sh
+   pip3 install --user mopidy-mpd mopidy-musicbox-webclient
+   ```
 
 4. Configure your `mopidy.conf` located at `$HOME/.config/mopidy/mopidy.conf`
-    See [Config File](xref:clients-mopidy#config-file)
+   See [Config File](/docs/general/clients/mopidy#config-file)
 
 5. There may be a need to install extra `gstreamer` codecs if they're not already on your system, but these are highly variable and depend on your hardware and distro
 
 6. Start the program by running `mopidy` from a terminal
 
-7. See [Usage](xref:clients-mopidy#usage)
+7. See [Usage](/docs/general/clients/mopidy#usage)
 
 ## Raspberry Pi (Remote Controlled Speakers)
 
 Utilizing a Raspberry Pi (or other small form factor computer) it's possible to use Mopidy to build a set of standalone smart speakers connected to your Jellyfin server.
 
-1. Grab the latest [raspbian image](https://www.raspberrypi.org/downloads/raspbian/).  Unless you have a need for a GUI, the 'Lite' image is plenty for this project.
+1. Grab the latest [raspbian image](https://www.raspberrypi.org/downloads/raspbian/). Unless you have a need for a GUI, the 'Lite' image is plenty for this project.
 
 2. Install the image to the SD card (See the [official documentation](https://www.raspberrypi.org/documentation/installation/installing-images/README.md))
 
@@ -46,26 +46,26 @@ Utilizing a Raspberry Pi (or other small form factor computer) it's possible to 
 
 4. Install required OS packages:
 
-    ```sh
-    sudo apt install mopidy mopidy-mpd gstreamer1.0-plugins-bad python3-pip
-    ```
+   ```sh
+   sudo apt install mopidy mopidy-mpd gstreamer1.0-plugins-bad python3-pip
+   ```
 
 5. Install the Jellyfin extension and any other Mopidy related packages you may want:
 
-    ```sh
-    sudo pip3 install mopidy-jellyfin mopidy-musicbox-webclient
-    ```
+   ```sh
+   sudo pip3 install mopidy-jellyfin mopidy-musicbox-webclient
+   ```
 
 6. Configure your `mopidy.conf` located at `/etc/mopidy/mopidy.conf`:
-    See [Config File](xref:clients-mopidy#config-file)
+   See [Config File](/docs/general/clients/mopidy#config-file)
 
 7. Enable and start the mopidy service:
 
-    ```sh
-    sudo systemctl enable --now mopidy
-    ```
+   ```sh
+   sudo systemctl enable --now mopidy
+   ```
 
-8. See [Usage](xref:clients-mopidy#usage)
+8. See [Usage](/docs/general/clients/mopidy#usage)
 
 ## Config File
 
@@ -81,9 +81,9 @@ albumartistsort = False (Optional: will default to True if left undefined)
 album_format = {ProductionYear} - {Name} (Optional: will default to "{Name}" if left undefined)
 ```
 
-* `libraries` determines what is populated into Mopidy's internal library (view by Artists/Album/etc).  Using the file browser will show all music or book libraries in the Jellyfin server
-* `albumartistsort` changes whether the media library populates based on "Artist" or "Album Artist" metadata
-* `album_format` can be used to change the display format of music albums when using the file browser view.  Currently the only really usable fields are ProductionYear and Name
+- `libraries` determines what is populated into Mopidy's internal library (view by Artists/Album/etc). Using the file browser will show all music or book libraries in the Jellyfin server
+- `albumartistsort` changes whether the media library populates based on "Artist" or "Album Artist" metadata
+- `album_format` can be used to change the display format of music albums when using the file browser view. Currently the only really usable fields are ProductionYear and Name
 
 Other options that may be useful to include:
 
@@ -106,7 +106,7 @@ Be aware that Mopidy provides no security on open ports, so if you'll be running
 
 ## Usage
 
-Once Mopidy is running, you can connect and control it with your client of choice.  MPD clients will connect using port 6600 by default.  Tested MPD clients include [ncmpcpp](https://github.com/arybczak/ncmpcpp) and [M.A.L.P](https://play.google.com/store/apps/details?id=org.gateshipone.malp).  Web clients can be reached at `http://localhost:6680`, or `http://$IP_ADDRESS:6680` if this is a remote system.
+Once Mopidy is running, you can connect and control it with your client of choice. MPD clients will connect using port 6600 by default. Tested MPD clients include [ncmpcpp](https://github.com/arybczak/ncmpcpp) and [M.A.L.P](https://play.google.com/store/apps/details?id=org.gateshipone.malp). Web clients can be reached at `http://localhost:6680`, or `http://$IP_ADDRESS:6680` if this is a remote system.
 
 ## Upgrading
 

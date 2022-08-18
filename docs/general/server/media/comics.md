@@ -25,7 +25,7 @@ Series_Name (SeriesYear) #IssueNum (of Count) (PubYear).ext
 - Count = Total number of issues
 - PubYear = Publication year of the issue
 - SeriesYear = Start year of the series
-- .ext = file extension, e.g. `.cbz` or `.cbr`. For a list of supported file extensions, please refer to the [section on books](xref:server-media-books).
+- .ext = file extension, e.g. `.cbz` or `.cbr`. For a list of supported file extensions, please refer to the [section on books](/docs/general/server/media/books).
 
 Take a look at the following example:
 
@@ -42,7 +42,7 @@ Placing comics into a subfolder allows the placement of a `ComicInfo.xml` file f
 
 ## Local Metadata for "Comic Book Archive's"
 
-Should your files **not** correspond to either `.cbz` or `.cbr` files, please refer to the [section on books](xref:server-media-books) to see what is supported.
+Should your files **not** correspond to either `.cbz` or `.cbr` files, please refer to the [section on books](/docs/general/server/media/books) to see what is supported.
 
 The following metadata formats are supported:
 

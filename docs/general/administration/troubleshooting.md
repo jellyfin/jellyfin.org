@@ -21,7 +21,7 @@ If you created the file with a password, then you will have to enter that value 
 
 If you can access the server locally but not outside of your LAN, then you likely have an issue with the router configuration.
 Check the port forwarding settings on your router to ensure the server is visible from outside your local network.
-You can also enable the "Enable automatic port mapping" option on the  **Networking** page of the server settings to have the server attempt to configure port forwarding on the router automatically if your router supports it.
+You can also enable the "Enable automatic port mapping" option on the **Networking** page of the server settings to have the server attempt to configure port forwarding on the router automatically if your router supports it.
 
 If there are no logs at all relating to web traffic, even over a LAN connection, then the server hasn't been reached at all yet.
 This would indicate either an incorrect address or an issue somewhere else on the network.
@@ -33,11 +33,11 @@ Go to the Jellyfin configuration directory, find the `logging.default.json` file
 
 ```json
 {
-    "Serilog": {
-        "MinimumLevel": {
-            "Default": "Debug"
-        }
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Debug"
     }
+  }
 }
 ```
 
@@ -88,7 +88,7 @@ rm -Rfv ~/.local/share/jellyfin
 When the admin account is locked out and the Forgot Password feature is not working, you have to unlock the user manually.
 To do that, you need to find the `jellyfin.db` file on your system.
 The default location on Linux is: `/var/lib/jellyfin/data/`.
-For paths in other environments, see [server paths](xref:admin-configuration#server-paths).
+For paths in other environments, see [server paths](/docs/general/administration/configuration#server-paths).
 
 ### Linux CLI
 

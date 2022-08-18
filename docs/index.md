@@ -19,45 +19,45 @@ title: Introduction
 
 Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it. We welcome anyone who is interested in joining us in our quest!
 
-You can find a list of all available clients [here](xref:clients-index). For more information please see our [about page](xref:about) or the [FAQ](xref:faq). If you are looking for help, check out [this page](xref:getting-help) for all the different communication channels we use.
+You can find a list of all available clients [here](/clients). For more information please see our [about page](/docs/general/about) or the [FAQ](/docs/general/faq). If you are looking for help, check out [this page](/docs/general/getting-help) for all the different communication channels we use.
 
 Note: Jellyfin is a fast moving project that is in its early stages, and this documentation as well as the code may change frequently. Please check back often and don't hesitate to contact us via our Matrix channels or the subreddit!
 
 ## Getting Started
 
-Want to get starting using Jellyfin right now? Check out the pages below for how to [install Jellyfin](xref:admin-installing) on your machine.
+Want to get starting using Jellyfin right now? Check out the pages below for how to [install Jellyfin](/docs/general/administration/installing) on your machine.
 
-- [Arch](xref:admin-installing#arch-linux)
-- [Debian](xref:admin-installing#debian)
-- [Ubuntu](xref:admin-installing#ubuntu)
-- [Fedora](xref:admin-installing#fedora)
-- [CentOS](xref:admin-installing#centos)
-- [Docker](xref:admin-installing#docker)
-- [unRaid](xref:admin-installing#unraid-docker)
-- [Kubernetes](xref:admin-installing#kubernetes)
-- [Windows](xref:admin-installing#windows-x86x64)
-- [MacOS](xref:admin-installing#macos)
-- [Generic Linux](xref:admin-installing#linux-generic-amd64)
-- [Portable DLL](xref:admin-installing#portable-dll)
+- [Arch](/docs/general/administration/installing#arch-linux)
+- [Debian](/docs/general/administration/installing#debian)
+- [Ubuntu](/docs/general/administration/installing#ubuntu)
+- [Fedora](/docs/general/administration/installing#fedora)
+- [CentOS](/docs/general/administration/installing#centos)
+- [Docker](/docs/general/administration/installing#docker)
+- [unRaid](/docs/general/administration/installing#unraid-docker)
+- [Kubernetes](/docs/general/administration/installing#kubernetes)
+- [Windows](/docs/general/administration/installing#windows-x86x64)
+- [MacOS](/docs/general/administration/installing#macos)
+- [Generic Linux](/docs/general/administration/installing#linux-generic-amd64)
+- [Portable DLL](/docs/general/administration/installing#portable-dll)
 
-Alternatively, Jellyfin may be built directly from the [source code](xref:admin-building).
+Alternatively, Jellyfin may be built directly from the [source code](/docs/general/administration/building).
 
 ## Administrator Documentation
 
 Want to know more about administering a Jellyfin server? Check out these pages!
 
-- [Quick-Start Guide](xref:quick-start): What to do after you've installed Jellyfin to get it up and running.
-- [Migrating](xref:admin-migrate): How to migrate Jellyfin.
-- [Plugins](xref:server-plugins-index): How to install and manage plugins.
-- [Networking](xref:network-index): Networking settings and troubleshooting.
-- [Monitoring](xref:monitoring): Integration with external monitoring software.
-- [Hardware Acceleration](xref:admin-hardware-acceleration): Improve transcoding performance on supported hardware.
+- [Quick-Start Guide](/docs/general/quick-start): What to do after you've installed Jellyfin to get it up and running.
+- [Migrating](/docs/general/administration/migrate): How to migrate Jellyfin.
+- [Plugins](/docs/general/server/plugins): How to install and manage plugins.
+- [Networking](/docs/general/networking): Networking settings and troubleshooting.
+- [Monitoring](/docs/general/networking/monitoring): Integration with external monitoring software.
+- [Hardware Acceleration](/docs/general/administration/hardware-acceleration): Improve transcoding performance on supported hardware.
 
 ## Contributing to Jellyfin
 
 Want to help out? Check out the pages below for how to contribute.
 
-- [Contribution Guide](xref:contrib-index): General information on contributing to Jellyfin.
+- [Contribution Guide](/docs/general/contributing): General information on contributing to Jellyfin.
 - [Plugin Guide](https://github.com/jellyfin/jellyfin-plugin-template): Documentation and resources to get started writing a plugin to extend Jellyfin functionality.
-- [Reporting Bugs](xref:contrib-issues#reporting-bugs): How to use our issue tracker on GitHub to report bugs.
-- [Requesting Features](xref:contrib-issues#requesting-features): How to use our issue tracker on GitHub to request new features or enhancements.
+- [Reporting Bugs](/docs/general/contributing/issues#reporting-bugs): How to use our issue tracker on GitHub to report bugs.
+- [Requesting Features](/docs/general/contributing/issues#requesting-features): How to use our issue tracker on GitHub to request new features or enhancements.

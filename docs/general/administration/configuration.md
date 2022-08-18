@@ -8,7 +8,7 @@ title: Configuration
 There are several entry points available for administrators to manage the configuration of their server. This section aims to outline all those configuration methods, explain what options are available, and what each option does.
 
 > [!NOTE]
-> The configuration options here are distinct from the [runtime settings](xref:server-settings) available from the Administrator Dashboard in the web client. The configuration options here are generally meant to be static and set before starting the server.
+> The configuration options here are distinct from the [runtime settings](/docs/general/server/settings) available from the Administrator Dashboard in the web client. The configuration options here are generally meant to be static and set before starting the server.
 
 ## Command Line Options
 
@@ -81,19 +81,19 @@ The main server configuration is built upon the ASP .NET [configuration framewor
 4. **Environment variables**: The [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#environment-variables) provided by Microsoft explains how to set these configuration options via environment variables. Jellyfin uses its own custom `JELLYFIN_` prefix for these variables. For example, to set a value for the `HttpListenerHost:DefaultRedirectPath` setting, you would set a value for the `JELLYFIN_HttpListenerHost__DefaultRedirectPath` environment variable.
 5. **Command line options**: Certain command line options are loaded into the configuration system and have the highest priority. The following command line options are mapped to associated configuration options.
 
-    - `--nowebclient` sets the `hostwebclient` configuration setting to false
-    - `--plugin-manifest-url` sets a value for the `InstallationManager:PluginManifestUrl` configuration setting
+   - `--nowebclient` sets the `hostwebclient` configuration setting to false
+   - `--plugin-manifest-url` sets a value for the `InstallationManager:PluginManifestUrl` configuration setting
 
 ### Main Configuration Options
 
 This section lists all the configuration options available and explains their function.
 
-|Key|Default Value|Description|
-|---|-------------|-----------|
-|`hostwebclient`|`True`|Set to `True` if the server should host the web client.|
-|`HttpListenerHost:DefaultRedirectPath`|`"web/index.html"` if `hostwebclient` is true; `"swagger/index.html"` if `hostwebclient` is false|The default redirect path to use for requests where the URL base prefix is invalid or missing|
-|`InstallationManager:PluginManifestUrl`|`"https://repo.jellyfin.org/releases/plugin/manifest.json"`|The URL for the plugin repository JSON manifest.|
-|`FFmpeg:probesize`|`"1G"`|Value to set for the FFmpeg `probesize` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.|
-|`FFmpeg:analyzeduration`|`"200M"`|The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.|
-|`playlists:allowDuplicates`|`True`|Whether playlists should allow duplicate items or automatically filter out duplicates.|
-|`PublishedServerUrl`|Server Url based on primary IP address|The Server URL to publish in udp Auto Discovery response.|
+| Key                                     | Default Value                                                                                     | Description                                                                                                                                                             |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hostwebclient`                         | `True`                                                                                            | Set to `True` if the server should host the web client.                                                                                                                 |
+| `HttpListenerHost:DefaultRedirectPath`  | `"web/index.html"` if `hostwebclient` is true; `"swagger/index.html"` if `hostwebclient` is false | The default redirect path to use for requests where the URL base prefix is invalid or missing                                                                           |
+| `InstallationManager:PluginManifestUrl` | `"https://repo.jellyfin.org/releases/plugin/manifest.json"`                                       | The URL for the plugin repository JSON manifest.                                                                                                                        |
+| `FFmpeg:probesize`                      | `"1G"`                                                                                            | Value to set for the FFmpeg `probesize` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.           |
+| `FFmpeg:analyzeduration`                | `"200M"`                                                                                          | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
+| `playlists:allowDuplicates`             | `True`                                                                                            | Whether playlists should allow duplicate items or automatically filter out duplicates.                                                                                  |
+| `PublishedServerUrl`                    | Server Url based on primary IP address                                                            | The Server URL to publish in udp Auto Discovery response.                                                                                                               |

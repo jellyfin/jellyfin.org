@@ -22,10 +22,10 @@ This document aims to provide an administrator with knowledge on what ports Jell
 
 #### Static Ports
 
-* 8096/tcp is used by default for HTTP traffic. You can change this in the dashboard.
-* 8920/tcp is used by default for HTTPS traffic. You can change this in the dashboard.
-* 1900/udp is used for service auto-discovery. This is not configurable.
-* 7359/udp is also used for auto-discovery. This is not configurable.
+- 8096/tcp is used by default for HTTP traffic. You can change this in the dashboard.
+- 8920/tcp is used by default for HTTPS traffic. You can change this in the dashboard.
+- 1900/udp is used for service auto-discovery. This is not configurable.
+- 7359/udp is also used for auto-discovery. This is not configurable.
 
 **HTTP Traffic:** 8096
 
@@ -75,7 +75,7 @@ openssl pkcs12 -export -out jellyfin.pfx -inkey privkey.pem -in /usr/local/etc/l
 
 ## Running Jellyfin Behind a Reverse Proxy
 
-It's possible to run Jellyfin behind another server acting as a reverse proxy.  With a reverse proxy setup, this server handles all network traffic and proxies it back to Jellyfin. This provides the benefits of using DNS names and not having to remember port numbers, as well as easier integration and management of SSL certificates.
+It's possible to run Jellyfin behind another server acting as a reverse proxy. With a reverse proxy setup, this server handles all network traffic and proxies it back to Jellyfin. This provides the benefits of using DNS names and not having to remember port numbers, as well as easier integration and management of SSL certificates.
 
 > [!WARNING]
 > In order for a reverse proxy to have the maximum benefit, you should have a publically routable IP address and a domain with DNS set up correctly.
@@ -88,21 +88,21 @@ It's possible to run Jellyfin behind another server acting as a reverse proxy.  
 
 Some popular options for reverse proxy systems are [Apache](https://httpd.apache.org), [Caddy](https://caddyserver.com), [Haproxy](https://www.haproxy.com), [Nginx](https://www.nginx.com) and [Traefik](https://traefik.io).
 
-* [Apache](xref:network-reverse-proxy-apache)
-* [Caddy](xref:network-reverse-proxy-caddy)
-* [HAProxy](xref:network-reverse-proxy-haproxy)
-* [Nginx](xref:network-reverse-proxy-nginx)
-* [Traefik](xref:network-reverse-proxy-traefik)
+- [Apache](/docs/general/networking/apache)
+- [Caddy](/docs/general/networking/caddy)
+- [HAProxy](/docs/general/networking/haproxy)
+- [Nginx](/docs/general/networking/nginx)
+- [Traefik](/docs/general/networking/traefik)
 
 While not a reverse proxy, Let's Encrypt can be used independently or with a reverse proxy to provide SSL certificates.
 
-* [Let's Encrypt](xref:network-letsencrypt)
+- [Let's Encrypt](/docs/general/networking/letsencrypt)
 
 When following this guide, be sure to replace the following variables with your information.
 
-* `DOMAIN_NAME`: Your public domain name to access Jellyfin on (e.g. jellyfin.example.com)
-* `example.com`: The domain name Jellyfin services will run under (e.g. example.com)
-* `SERVER_IP_ADDRESS`: The IP address of your Jellyfin server (if the reverse proxy is on the same server use 127.0.0.1)
+- `DOMAIN_NAME`: Your public domain name to access Jellyfin on (e.g. jellyfin.example.com)
+- `example.com`: The domain name Jellyfin services will run under (e.g. example.com)
+- `SERVER_IP_ADDRESS`: The IP address of your Jellyfin server (if the reverse proxy is on the same server use 127.0.0.1)
 
 In addition, the examples are configured for use with Let's Encrypt certificates. If you have a certificate from another source, change the SSL configuration from `/etc/letsencrypt/DOMAIN_NAME/` to the location of your certificate and key.
 
@@ -110,7 +110,7 @@ Ports 80 and 443 (pointing to the proxy server) need to be opened on your router
 
 ### Known Proxies
 
-Add the IP address/hostname of your reverse proxy to the `Known Proxies` (under Admin Dashboard -> Networking).  This is a comma separated list of IP addresses/hostnames of known proxies used when connecting to your Jellyfin instance and is required to make proper use of X-Forwarded-For headers. Requires a server restart after saving.
+Add the IP address/hostname of your reverse proxy to the `Known Proxies` (under Admin Dashboard -> Networking). This is a comma separated list of IP addresses/hostnames of known proxies used when connecting to your Jellyfin instance and is required to make proper use of X-Forwarded-For headers. Requires a server restart after saving.
 
 ### Base URL
 
@@ -129,7 +129,7 @@ There are three main caveats to this setting.
 
 1. When setting a new Base URL (i.e. from `/` to `/baseurl`) or changing a Base URL (i.e. from `/baseurl` to `/newbaseurl`), the Jellyfin web server will automatically handle redirects to avoid displaying users invalid pages. For instance, accessing a server with a Base URL of `/jellyfin` on the `/` path will automatically append the `/jellyfin` Base URL. However, entirely removing a Base URL (i.e. from `/baseurl` to `/`, an empty value in the configuration) will not - all URLs with the old Base URL path will become invalid and throw 404 errors. This should be kept in mind when removing an existing Base URL.
 
-2. Client applications generally, for now, do not handle the Base URL redirects implicitly. Therefore, for instance in the Android app, the `Host` setting *must* include the BaseURL as well (e.g. `http://myserver:8096/baseurl`), or the connection will fail.
+2. Client applications generally, for now, do not handle the Base URL redirects implicitly. Therefore, for instance in the Android app, the `Host` setting _must_ include the BaseURL as well (e.g. `http://myserver:8096/baseurl`), or the connection will fail.
 
 3. Any reverse proxy configurations must be updated to handle a new Base URL. Generally, passing `/` back to the Jellyfin instance will work fine in all cases and the paths will be normalized, and this is the standard configuration in our examples. Keep this in mind however when doing more advanced routing.
 

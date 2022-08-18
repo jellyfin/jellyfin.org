@@ -87,7 +87,7 @@ services:
 > We have found many subtle bugs due to the inconsistent database schemas that result from trying to do this, and strongly recommend that all Jellyfin users migrating from Emby start with a fresh database and library scan.
 
 The original procedure is provided below for reference however we cannot support it nor guarantee that a system upgraded in this way will work properly, if at all.
-If anyone is interested in writing a database migration script which will correct the deficiencies in the existing database and properly import them into Jellyfin, [we would welcome it however](xref:contrib-index)!
+If anyone is interested in writing a database migration script which will correct the deficiencies in the existing database and properly import them into Jellyfin, [we would welcome it however](/docs/general/contributing)!
 
 > [!WARNING]
 > While it is technically possible to migrate existing configuration of Emby version 3.5.2 or earlier, due to subtle and weird bugs reported after such attempts we do not recommend this migration.
@@ -119,7 +119,7 @@ This procedure is written for Debian-based Linux distributions, but can be trans
    sudo apt purge emby-server
    ```
 
-5. Install the `jellyfin` package using the [installaton instructions](xref:admin-installing).
+5. Install the `jellyfin` package using the [installaton instructions](/docs/general/administration/installing).
 
 6. Stop the `jellyfin` daemon:
 

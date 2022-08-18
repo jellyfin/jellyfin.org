@@ -12,20 +12,20 @@ This page details how our repositories are organized, how to get started editing
 There are many projects within the [organization](https://github.com/jellyfin) to browse through for contributions.
 Summarized here are the two biggest ones, one for backend devs and another for frontend devs.
 
-* [Jellyfin Server](https://github.com/jellyfin/jellyfin): The server portion, built using .NET 6 and C#.
-* [Jellyfin Web](https://github.com/jellyfin/jellyfin-web): The main client application built for browsers, but also used in some of our other clients that are just wrappers.
+- [Jellyfin Server](https://github.com/jellyfin/jellyfin): The server portion, built using .NET 6 and C#.
+- [Jellyfin Web](https://github.com/jellyfin/jellyfin-web): The main client application built for browsers, but also used in some of our other clients that are just wrappers.
 
-Note that each of the repositories also has its own documentation on how to get started with that project, generally found in the repository README. You can also view the organization [source tree](xref:contrib-source-tree) to see how some of the bigger projects are structured.
+Note that each of the repositories also has its own documentation on how to get started with that project, generally found in the repository README. You can also view the organization [source tree](/docs/general/contributing/source-tree) to see how some of the bigger projects are structured.
 
 The best way to get going on some actual development is to look through the [issues list](https://github.com/jellyfin/jellyfin/issues) of the associated repository, find an issue you would like to work on, and start hacking! Issues are triaged regularly by the administrative team, and labels assigned that should help you find issues within your skill-set. Once you start working on an issue, please comment on it stating your intent to work on the issue, to avoid unnecessary duplication of work.
 
 ### Major Issue Types
 
-A list of issue types can be found on the [issue guidelines](xref:contrib-issues#issue-labels) section.
+A list of issue types can be found on the [issue guidelines](/docs/general/contributing/issues#issue-labels) section.
 
 ### What if there isn't an issue?
 
-If there isn't already an issue dealing with the changes you want to make, please [create an issue](xref:contrib-issues) to track it first, then ensure your PR(s) reference the issue in question. This is especially useful for bugs that are found and then fixed by the author, so both the original issue and the fix can be documented and tracked in detail.
+If there isn't already an issue dealing with the changes you want to make, please [create an issue](/docs/general/contributing/issues) to track it first, then ensure your PR(s) reference the issue in question. This is especially useful for bugs that are found and then fixed by the author, so both the original issue and the fix can be documented and tracked in detail.
 
 ## How should you make changes?
 
@@ -43,16 +43,16 @@ The first step is to set up a copy of the Git repository of the project you want
 
 2. Clone your fork to your local machine and enter the directory:
 
-    ```sh
-    git clone git@github.com:yourusername/projectname.git
-    cd projectname/
-    ```
+   ```sh
+   git clone git@github.com:yourusername/projectname.git
+   cd projectname/
+   ```
 
 3. Add the "upstream" remote, which allows you to pull down changes from the main project easily:
 
-    ```sh
-    git remote add upstream git@github.com:jellyfin/projectname.git
-    ```
+   ```sh
+   git remote add upstream git@github.com:jellyfin/projectname.git
+   ```
 
 4. To get the `Jellyfin.Server` project to run successfully, checkout both the [server](https://github.com/jellyfin/jellyfin), as well as the [web client](https://github.com/jellyfin/jellyfin-web) project.
 
@@ -68,16 +68,16 @@ Once you have your repository, you can get to work.
 
 1. Rebase your local branches against upstream `master` so you are working off the latest changes:
 
-    ```sh
-    git fetch --all
-    git rebase upstream/master
-    ```
+   ```sh
+   git fetch --all
+   git rebase upstream/master
+   ```
 
 1. Create a local feature branch off of `master` to make your changes:
 
-    ```sh
-    git checkout -b my-feature master
-    ```
+   ```sh
+   git checkout -b my-feature master
+   ```
 
 1. Make your changes and commits to this local feature branch.
 
@@ -85,26 +85,26 @@ Once you have your repository, you can get to work.
 
 1. Push up your local feature branch to your GitHub fork:
 
-    ```sh
-    git push --set-upstream origin my-feature
-    ```
+   ```sh
+   git push --set-upstream origin my-feature
+   ```
 
 1. On GitHub, create a new PR against the upstream `master` branch following the advice below.
 
 1. Once your PR is merged, ensure you keep your local branches up-to-date:
 
-    ```sh
-    git fetch --all
-    git checkout master
-    git rebase upstream/master
-    git push -u origin master
-    ```
+   ```sh
+   git fetch --all
+   git checkout master
+   git rebase upstream/master
+   git push -u origin master
+   ```
 
 1. Delete your local feature branch if you no longer need it:
 
-    ```sh
-    git branch -d my-feature
-    ```
+   ```sh
+   git branch -d my-feature
+   ```
 
 ### CONTRIBUTORS.md
 
@@ -128,47 +128,46 @@ To test someone else's pull request, you must import the changes to your local r
 
 1. Fetch the changes in a pull request and link them to a new local branch:
 
-    ```sh
-    git fetch upstream pull/<PR_ID>/head:my-testing-branch
-    ```
+   ```sh
+   git fetch upstream pull/<PR_ID>/head:my-testing-branch
+   ```
 
-    > [!NOTE]
-    > `<PR_ID>` is pull request number on GitHub.
+   > [!NOTE] > `<PR_ID>` is pull request number on GitHub.
 
 1. Checkout the new local branch:
 
-    ```sh
-    git checkout my-testing-branch
-    ```
+   ```sh
+   git checkout my-testing-branch
+   ```
 
 1. Perform any testing or build required to test, then return to master and delete the branch:
 
-    ```sh
-    git checkout master
-    git branch -D my-testing-branch
-    ```
+   ```sh
+   git checkout master
+   git branch -D my-testing-branch
+   ```
 
 ## Pull Request Guidelines
 
 When submitting a new PR, please ensure you do the following things. If you haven't, please read [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) as it is a great resource for writing useful commit messages.
 
-* Before submitting a PR, squash "junk" commits together to keep the overall history clean. A single commit should cover a single significant change: avoid squashing all your changes together, especially for large PRs that touch many files, but also don't leave "fixed this", "whoops typo" commits in your branch history as this is needless clutter in the final history of the project.
+- Before submitting a PR, squash "junk" commits together to keep the overall history clean. A single commit should cover a single significant change: avoid squashing all your changes together, especially for large PRs that touch many files, but also don't leave "fixed this", "whoops typo" commits in your branch history as this is needless clutter in the final history of the project.
 
-* Write a good title that quickly describes what has been changed. For example, "Add LDAP support to Jellyfin". As mentioned in [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/), always use the imperative mood, and keep the title short but descriptive. The title will eventually be a changelog entry, so please try to use proper capitalization but no punctuation; note that the Core team may alter titles to better conform to this standard before merging.
+- Write a good title that quickly describes what has been changed. For example, "Add LDAP support to Jellyfin". As mentioned in [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/), always use the imperative mood, and keep the title short but descriptive. The title will eventually be a changelog entry, so please try to use proper capitalization but no punctuation; note that the Core team may alter titles to better conform to this standard before merging.
 
-* For anything but the most trivial changes that can be described fully in the (short) title, follow the PR template and write a PR body to describe, in as much detail as possible:
+- For anything but the most trivial changes that can be described fully in the (short) title, follow the PR template and write a PR body to describe, in as much detail as possible:
 
   1. Why the changes are being made. Reference specific issues with keywords (`fixes`, `closes`, `addresses`, etc.) if at all possible.
 
   2. How you approached the issue (if applicable) and briefly describe the changes, especially for large PRs.
 
-* If your pull request isn't finished yet please mark it as a "draft" when you open it. While this tag is in place, the pull request won't be merged, and reviews should remain as comments only. Once you're happy with the final state of your PR, please remove this tag; forgetting to do so might result in your PR being unintentionally ignored as still under active development! Inactive WIPs may occasionally elicit pings from the team inquiring on the status, and closed if there is no response.
+- If your pull request isn't finished yet please mark it as a "draft" when you open it. While this tag is in place, the pull request won't be merged, and reviews should remain as comments only. Once you're happy with the final state of your PR, please remove this tag; forgetting to do so might result in your PR being unintentionally ignored as still under active development! Inactive WIPs may occasionally elicit pings from the team inquiring on the status, and closed if there is no response.
 
-* Avoid rebasing and force-pushing to large or complex pull requests if at all possible, and especially after reviews. It forces unnecessary reviews to verify the changes are still okay and build properly.
+- Avoid rebasing and force-pushing to large or complex pull requests if at all possible, and especially after reviews. It forces unnecessary reviews to verify the changes are still okay and build properly.
 
-* Expect review and discussion. If you can't back up your changes with a good description and through review, please reconsider whether it should be done at all. All PRs to `dev` require at least one approving review from an administrative team member, however we welcome and encourage reviews from any contributor, especially if it's in an area you are knowledgeable about. More eyes are always better.
+- Expect review and discussion. If you can't back up your changes with a good description and through review, please reconsider whether it should be done at all. All PRs to `dev` require at least one approving review from an administrative team member, however we welcome and encourage reviews from any contributor, especially if it's in an area you are knowledgeable about. More eyes are always better.
 
-* All PRs require review by at least two team members before being merged into `master`, though reviews from any contributor are welcome! After the second team member review the PR may be merged immediately, or more review or feedback requested explicitly from other contributors if required.
+- All PRs require review by at least two team members before being merged into `master`, though reviews from any contributor are welcome! After the second team member review the PR may be merged immediately, or more review or feedback requested explicitly from other contributors if required.
 
 ## Building and Testing Inside a Docker Container
 
@@ -195,8 +194,7 @@ kill -15 $(pidof jellyfin)
 
 First, complete the steps above to setup your container to build the master branch.
 
-> [!NOTE]
-> `<PR_ID>` is pull request number on GitHub.
+> [!NOTE] > `<PR_ID>` is pull request number on GitHub.
 
 ```sh
 docker exec -ti jftest bash

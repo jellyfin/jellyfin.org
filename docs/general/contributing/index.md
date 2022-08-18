@@ -13,13 +13,13 @@ Even if you can't contribute code, you can still help Jellyfin! The two main thi
 
 We use GitHub extensively to track open issues, new enhancements or features, and other aspects of development.
 
-Please see the [getting help](xref:getting-help) page for help with troubleshooting and finding bugs, and the [documentation on issues](xref:contrib-issues) for more information on how to submit good issues.
+Please see the [getting help](/docs/general/getting-help) page for help with troubleshooting and finding bugs, and the [documentation on issues](/docs/general/contributing/issues) for more information on how to submit good issues.
 
 ## Developing Code
 
 The entire project consists of a C# core server, a Javascript web client, and a number of other clients written in various languages and frameworks. If you have experience with these languages, we're always grateful for any contributions you might want to make!
 
-For general guidelines on how the project works, including how to set up your development copy, make changes, and guidelines on Pull Requests (PRs), please see the [documentation on contributing code](xref:contrib-development). Jellyfin follows a "fork and PR" methodology; if you're not familiar with this, please see the [relevant section](xref:contrib-development#set-up-your-copy-of-the-repo).
+For general guidelines on how the project works, including how to set up your development copy, make changes, and guidelines on Pull Requests (PRs), please see the [documentation on contributing code](/docs/general/contributing/development). Jellyfin follows a "fork and PR" methodology; if you're not familiar with this, please see the [relevant section](/docs/general/contributing/development#set-up-your-copy-of-the-repo).
 
 ## Adding To Documentation
 
@@ -31,4 +31,4 @@ If you're interested in helping to translate Jellyfin into your local language, 
 
 ## Testing
 
-Testing is the easiest way to contribute. Simply use Jellyfin, and if you run into problems, [let us know](xref:getting-help). This is the most common way we uncover bugs, through a user doing something we hadn't thought about. If the issue does end up being related to the code, a [bug issue](xref:contrib-issues#reporting-bugs) can then be opened.
+Testing is the easiest way to contribute. Simply use Jellyfin, and if you run into problems, [let us know](/docs/general/getting-help). This is the most common way we uncover bugs, through a user doing something we hadn't thought about. If the issue does end up being related to the code, a [bug issue](/docs/general/contributing/issues#reporting-bugs) can then be opened.

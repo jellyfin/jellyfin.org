@@ -8,7 +8,7 @@ title: Clients
 Clients connect your devices to your Jellyfin server and let you view your content on any supported device. You can find a list of clients below with their current development status.
 
 > [!NOTE]
-> If you are interested in helping out, please see our [contribution guide](xref:contrib-index) and feel free to contact us for more information!
+> If you are interested in helping out, please see our [contribution guide](/docs/general/contributing) and feel free to contact us for more information!
 >
 > If they aren't on this page, some clients can be found at the [jellyfin-archive organization on GitHub](https://github.com/jellyfin-archive).
 
@@ -330,7 +330,7 @@ Kodi thick client for Jellyfin. This add-on syncs your Jellyfin metadata into Ko
 **Links:**
 
 - [GitHub](https://github.com/jellyfin/jellyfin-kodi)
-- [Installing](xref:clients-kodi)
+- [Installing](/docs/general/clients/kodi)
 
 ### JellyCon
 
@@ -341,7 +341,7 @@ Kodi thin client for Jellyfin. This add-on is fully dynamic and allows for fast 
 **Links:**
 
 - [GitHub](https://github.com/jellyfin/jellycon)
-- [Installing](xref:clients-kodi)
+- [Installing](/docs/general/clients/kodi)
 
 ## LG WebOS
 
@@ -366,7 +366,7 @@ An official plugin for Mopidy that uses Jellyfin as a backend.
 **Links:**
 
 - [GitHub](https://github.com/jellyfin/mopidy-jellyfin)
-- [Installing](xref:clients-mopidy)
+- [Installing](/docs/general/clients/mopidy)
 
 ## Samsung TV
 

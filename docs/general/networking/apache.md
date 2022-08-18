@@ -66,12 +66,12 @@ sudo a2enmod proxy proxy_http ssl proxy_wstunnel remoteip http2
 
 When connecting to server from a client application, enter `http(s)://DOMAIN_NAME/jellyfin` in the address field.
 
-Set the [base URL](xref:network-index#base-url) field in the Jellyfin server.  This can be done by navigating to the Admin Dashboard -> Networking -> Base URL in the web client.  Fill in this box with `/jellyfin` and click Save.  The server will need to be restarted before this change takes effect.
+Set the [base URL](/docs/general/networking#base-url) field in the Jellyfin server. This can be done by navigating to the Admin Dashboard -> Networking -> Base URL in the web client. Fill in this box with `/jellyfin` and click Save. The server will need to be restarted before this change takes effect.
 
 > [!WARNING]
 > HTTP is insecure. The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet you should setup HTTPS. [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/).
 
-The following configuration can be saved in ```/etc/httpd/conf/extra/jellyfin.conf``` and included in your vhost.
+The following configuration can be saved in `/etc/httpd/conf/extra/jellyfin.conf` and included in your vhost.
 
 ```conf
 # Jellyfin hosted on http(s)://DOMAIN_NAME/jellyfin

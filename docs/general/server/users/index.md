@@ -31,4 +31,4 @@ If you disable a user they will be kicked off the server immediately and unable 
 
 ## Advanced Overview
 
-For more in-depth information on all user settings, see [Managing Users](xref:server-users-managing).
+For more in-depth information on all user settings, see [Managing Users](/docs/general/server/users/adding-managing-users).

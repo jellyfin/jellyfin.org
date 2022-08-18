@@ -15,12 +15,12 @@ Many plugins are available in a repository hosted on our servers, which can be e
 
 **Note to Windows Users:**
 Due to currently unresolved permission issues on Jellyfin Windows installs it is not possible to update and/or uninstall plugins from the UI.
-To update and/or uninstall plugins you must stop Jellyfin, navigate to the local *plugins folder* and delete the `.dll` files for the plugins you want to update and/or uninstall.
+To update and/or uninstall plugins you must stop Jellyfin, navigate to the local _plugins folder_ and delete the `.dll` files for the plugins you want to update and/or uninstall.
 
-The *plugins folder* is located in different locations depending on your install:
+The _plugins folder_ is located in different locations depending on your install:
 
-* `%UserProfile%\AppData\Local\jellyfin\plugins` for direct installs
-* `%ProgramData%\Jellyfin\Server\plugins` for tray installs
+- `%UserProfile%\AppData\Local\jellyfin\plugins` for direct installs
+- `%ProgramData%\Jellyfin\Server\plugins` for tray installs
 
 After that start Jellyfin back up, and reinstall each plugin you want to update using the above method from the catalog.
 Plugin settings should be retained if you do not delete the `.xml` files from the `<direct or tray path>\plugins\configurations` folder.
@@ -59,7 +59,7 @@ Provides metadata support from [Anilist](https://anilist.co/).
 
 **Link:**
 
-* [Github](https://github.com/jellyfin/jellyfin-plugin-anilist)
+- [Github](https://github.com/jellyfin/jellyfin-plugin-anilist)
 
 ##### Anidb
 
@@ -71,7 +71,7 @@ Provides metadata support from [Anidb](https://anidb.net/).
 
 **Link:**
 
-* [Github](https://github.com/jellyfin/jellyfin-plugin-anidb)
+- [Github](https://github.com/jellyfin/jellyfin-plugin-anidb)
 
 ##### Anisearch
 
@@ -83,7 +83,7 @@ Provides metadata support from [Anisearch](https://www.anisearch.com/).
 
 **Link:**
 
-* [Github](https://github.com/jellyfin/jellyfin-plugin-anisearch)
+- [Github](https://github.com/jellyfin/jellyfin-plugin-anisearch)
 
 ##### Bookshelf
 
@@ -95,7 +95,7 @@ Supports several different metadata providers and options for organizing your co
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-bookshelf)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-bookshelf)
 
 ##### Kitsu
 
@@ -105,7 +105,7 @@ Supports several different metadata providers and options for organizing your co
 
 Provides metadata support from [Kitsu](https://kitsu.io/).
 
-* [Github](https://github.com/jellyfin/jellyfin-plugin-kitsu)
+- [Github](https://github.com/jellyfin/jellyfin-plugin-kitsu)
 
 #### Fanart
 
@@ -117,7 +117,7 @@ Scrape poster images for movies, shows, and artists in your library from [fanart
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-fanart)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-fanart)
 
 #### Kodi Sync Queue
 
@@ -129,7 +129,7 @@ Helps keep Jellyfin for Kodi in sync with the library without needing to run per
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-kodisyncqueue)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-kodisyncqueue)
 
 #### LDAP
 
@@ -141,7 +141,7 @@ Authenticate your Jellyfin users against an LDAP database, and optionally create
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-ldapauth)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-ldapauth)
 
 #### NextPVR
 
@@ -153,9 +153,9 @@ Provides access to Live TV, Program Guide, and Recordings from [NextPVR](https:/
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-nextpvr)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-nextpvr)
 
-#### [Open Subtitles](xref:server-plugins-open-subtitles)
+#### [Open Subtitles](/docs/general/server/plugins/open-subtitles)
 
 [![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-opensubtitles.svg)](https://github.com/jellyfin/jellyfin-plugin-opensubtitles)
 [![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-opensubtitles.svg)](https://github.com/jellyfin/jellyfin-plugin-opensubtitles)
@@ -165,7 +165,7 @@ Download subtitles from the internet to use with your media files from [Open Sub
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-opensubtitles)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-opensubtitles)
 
 #### Playback Reporting
 
@@ -177,7 +177,7 @@ Collect and show user playback statistics, such as total time watched, media wat
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-playbackreporting)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-playbackreporting)
 
 #### Reports
 
@@ -189,7 +189,7 @@ Generate reports of your media library.
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-reports)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-reports)
 
 #### TMDb Box Sets
 
@@ -201,7 +201,7 @@ Automatically create movie box sets based on TMDb collections. Configerable mini
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-tmdbboxsets)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-tmdbboxsets)
 
 #### Trakt
 
@@ -213,7 +213,7 @@ Record your watched media with [Trakt](https://trakt.tv).
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-trakt)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-trakt)
 
 #### TVHeadend
 
@@ -221,11 +221,11 @@ Record your watched media with [Trakt](https://trakt.tv).
 [![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-tvheadend.svg)](https://github.com/jellyfin/jellyfin-plugin-tvheadend)
 [![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-tvheadend.svg)](https://github.com/jellyfin/jellyfin-plugin-tvheadend)
 
-Manage TVHeadEnd from Jellyfin. Click [here](xref:server-plugins-tvheadend) for plugin support.
+Manage TVHeadEnd from Jellyfin. Click [here](/docs/general/server/plugins/tvheadend) for plugin support.
 
 **Links:**
 
-* [GitHub](https://github.com/jellyfin/jellyfin-plugin-tvheadend)
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-tvheadend)
 
 ### 3rd-Party Plugins
 
@@ -235,7 +235,7 @@ Takes your tuners in TVHeadEnd and emulates a HDHomeRun, in order to connect to 
 
 **Links:**
 
-* [GitHub](https://github.com/TheJF/antennas)
+- [GitHub](https://github.com/TheJF/antennas)
 
 #### Merge Versions
 
@@ -243,7 +243,7 @@ Automatically group every repeated movie.
 
 **Links:**
 
-* [GitHub](https://github.com/danieladov/jellyfin-plugin-mergeversions)
+- [GitHub](https://github.com/danieladov/jellyfin-plugin-mergeversions)
 
 #### Skin Manager
 
@@ -251,7 +251,7 @@ Download and manage the most popular skins.
 
 **Links:**
 
-* [GitHub](https://github.com/danieladov/jellyfin-plugin-skin-manager)
+- [GitHub](https://github.com/danieladov/jellyfin-plugin-skin-manager)
 
 #### Intros
 
@@ -259,7 +259,7 @@ Download flashy intros from prerolls.video for your movies.
 
 **Links:**
 
-* [GitHub](https://github.com/dkanada/jellyfin-plugin-intros)
+- [GitHub](https://github.com/dkanada/jellyfin-plugin-intros)
 
 #### YouTube Metadata
 
@@ -267,7 +267,7 @@ Downloads metadata of YouTube videos with a YouTube API key.
 
 **Links:**
 
-* [GitHub](https://github.com/ankenyr/jellyfin-youtube-metadata-plugin)
+- [GitHub](https://github.com/ankenyr/jellyfin-youtube-metadata-plugin)
 
 #### Last.FM
 
@@ -275,7 +275,7 @@ Enables audio scrobbling to Last.FM as well as a metadata fetcher source.
 
 **Links:**
 
-* [GitHub](https://github.com/jesseward/jellyfin-plugin-lastfm)
+- [GitHub](https://github.com/jesseward/jellyfin-plugin-lastfm)
 
 #### Kinopoisk metadata plugin
 
@@ -283,7 +283,7 @@ Fetches metadata from <https://kinopoisk.ru>. This site is popular in the Russia
 
 **Links:**
 
-* [GitHub](https://github.com/LinFor/jellyfin-plugin-kinopoisk)
+- [GitHub](https://github.com/LinFor/jellyfin-plugin-kinopoisk)
 
 #### Shokofin
 
@@ -291,7 +291,7 @@ A plugin to integrate your Shoko database with the Jellyfin media server.
 
 **Links:**
 
-* [GitHub](https://github.com/ShokoAnime/Shokofin)
+- [GitHub](https://github.com/ShokoAnime/Shokofin)
 
 #### Ani-Sync
 
@@ -299,7 +299,7 @@ Ani-Sync lets you synchorinze/scrobble your Jellyfin Anime watch progress to pop
 
 **Links:**
 
-* [GitHub](https://github.com/vosmiic/jellyfin-ani-sync)
+- [GitHub](https://github.com/vosmiic/jellyfin-ani-sync)
 
 ## Repositories
 
@@ -307,59 +307,59 @@ Ani-Sync lets you synchorinze/scrobble your Jellyfin Anime watch progress to pop
 
 #### Default Repository
 
-* Manifest
-  * [https://repo.jellyfin.org/releases/plugin/manifest-stable.json](https://repo.jellyfin.org/releases/plugin/manifest-stable.json)
+- Manifest
+  - [https://repo.jellyfin.org/releases/plugin/manifest-stable.json](https://repo.jellyfin.org/releases/plugin/manifest-stable.json)
 
 ### 3rd-Party Plugin Repositories
 
 #### dkanada's Repo
 
-* Manifest
-  * [https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json](https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json)
-* Included Plugins
-  * [Intros](https://github.com/dkanada/jellyfin-plugin-intros)
+- Manifest
+  - [https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json](https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json)
+- Included Plugins
+  - [Intros](https://github.com/dkanada/jellyfin-plugin-intros)
 
 #### danieladov's Repo
 
-* Manifest
-  * [https://raw.githubusercontent.com/danieladov/JellyfinPluginManifest/master/manifest.json](https://raw.githubusercontent.com/danieladov/JellyfinPluginManifest/master/manifest.json)
-* Included Plugins
-  * [Merge Versions](https://github.com/danieladov/jellyfin-plugin-mergeversions)
-  * [Skin Manager](https://github.com/danieladov/jellyfin-plugin-skin-manager)
-  * [Theme Songs](https://github.com/danieladov/jellyfin-plugin-themesongs)
+- Manifest
+  - [https://raw.githubusercontent.com/danieladov/JellyfinPluginManifest/master/manifest.json](https://raw.githubusercontent.com/danieladov/JellyfinPluginManifest/master/manifest.json)
+- Included Plugins
+  - [Merge Versions](https://github.com/danieladov/jellyfin-plugin-mergeversions)
+  - [Skin Manager](https://github.com/danieladov/jellyfin-plugin-skin-manager)
+  - [Theme Songs](https://github.com/danieladov/jellyfin-plugin-themesongs)
 
 #### k-matti's Repo
 
-* Manifest
-  * [https://raw.githubusercontent.com/k-matti/jellyfin-plugin-repository/master/manifest.json](https://raw.githubusercontent.com/k-matti/jellyfin-plugin-repository/master/manifest.json)
-* Included Plugins
-  * [SMS Notifications](https://github.com/k-matti/jellyfin-plugin-sms)
-  * [NapiSub](https://github.com/k-matti/jellyfin-plugin-napi)
+- Manifest
+  - [https://raw.githubusercontent.com/k-matti/jellyfin-plugin-repository/master/manifest.json](https://raw.githubusercontent.com/k-matti/jellyfin-plugin-repository/master/manifest.json)
+- Included Plugins
+  - [SMS Notifications](https://github.com/k-matti/jellyfin-plugin-sms)
+  - [NapiSub](https://github.com/k-matti/jellyfin-plugin-napi)
 
 #### LinFor's Repo
 
-* Manifest
-  * [https://raw.githubusercontent.com/LinFor/jellyfin-plugin-kinopoisk/master/dist/manifest.json](https://raw.githubusercontent.com/LinFor/jellyfin-plugin-kinopoisk/master/dist/manifest.json)
-* Included Plugins
-  * [Kinopoisk metadata plugin](https://github.com/LinFor/jellyfin-plugin-kinopoisk)
+- Manifest
+  - [https://raw.githubusercontent.com/LinFor/jellyfin-plugin-kinopoisk/master/dist/manifest.json](https://raw.githubusercontent.com/LinFor/jellyfin-plugin-kinopoisk/master/dist/manifest.json)
+- Included Plugins
+  - [Kinopoisk metadata plugin](https://github.com/LinFor/jellyfin-plugin-kinopoisk)
 
 #### ShokoAnime's Repo
 
-* Manifest
-  * [https://raw.githubusercontent.com/ShokoAnime/Shokofin/master/manifest.json](https://raw.githubusercontent.com/ShokoAnime/Shokofin/master/manifest.json)
-* Included Plugins
-  * [Shokofin](https://github.com/ShokoAnime/Shokofin)
+- Manifest
+  - [https://raw.githubusercontent.com/ShokoAnime/Shokofin/master/manifest.json](https://raw.githubusercontent.com/ShokoAnime/Shokofin/master/manifest.json)
+- Included Plugins
+  - [Shokofin](https://github.com/ShokoAnime/Shokofin)
 
 #### 9p4's Single-Sign-On (SSO) Repo
 
-* Manifest
-  * [https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json](https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json)
-* Included Plugins
-  * [9p4's Single Sign On Plugin](https://github.com/9p4/jellyfin-plugin-sso)
+- Manifest
+  - [https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json](https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json)
+- Included Plugins
+  - [9p4's Single Sign On Plugin](https://github.com/9p4/jellyfin-plugin-sso)
 
 #### Ani-Sync Repo
 
-* Manifest
-  * [https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json](https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json)
-* Included Plugins
-  * [Ani-Sync](https://github.com/vosmiic/jellyfin-ani-sync)
+- Manifest
+  - [https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json](https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json)
+- Included Plugins
+  - [Ani-Sync](https://github.com/vosmiic/jellyfin-ani-sync)
