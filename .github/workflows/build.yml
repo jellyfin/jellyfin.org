@@ -20,14 +20,14 @@ jobs:
       - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3.4.1
         with:
           node-version: 16
-      - uses: actions/configure-pages@v1
+      - uses: actions/configure-pages@f71d3d08f0abfe9cbb23e527dc9f633beabf97bc # tag=v1
       - name: Run build
         run: |
           npm ci
           npm run build
       - name: Upload artifact
         if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@f4e69017a716d2d729b620cba1f4016257fedec6 # tag=v1
         with:
           path: ./build
 
@@ -42,4 +42,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@e490850a64fea2143eb618fcd4453e397842ae0c # tag=v1
