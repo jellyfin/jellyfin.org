@@ -5,7 +5,7 @@ title: Caddy
 
 # Caddy
 
-"[Caddy](https://caddyserver.com/), sometimes clarified as the Caddy web server, is an open source, HTTP/2-enabled web server written in Go. It uses the Go standard library for its HTTP functionality." - [Wikipedia](https://en.wikipedia.org/wiki/Caddy_(web_server))
+"[Caddy](https://caddyserver.com/), sometimes clarified as the Caddy web server, is an open source, HTTP/2-enabled web server written in Go. It uses the Go standard library for its HTTP functionality." - [Wikipedia](<https://en.wikipedia.org/wiki/Caddy_(web_server)>)
 
 You can reverse proxy to Jellyfin either with or without a config file, and either method offers automatic HTTPS if you want to use your public domain name.
 
@@ -61,7 +61,7 @@ You can serve Jellyfin only at a particular base path and not proxy all other re
 
 To do this, first configure Jellyfin to use a base path.
 If you already have access to the web interface, go to `Admin > Networking` and enter a path like `/jellyfin` in the Base URL field.
-If not, you may instead go to `<Configuration Directory>/network.xml` and modify the value of `<BaseUrl>` according to your needs. For information on the directory location, please consult the [configuration documentation](https://jellyfin.org/docs/general/administration/configuration.html#configuration-directory).
+If not, you may instead go to `<Configuration Directory>/network.xml` and modify the value of `<BaseUrl>` according to your needs. For information on the directory location, please consult the [configuration documentation](/docs/general/administration/configuration#configuration-directory).
 You might have to restart the Jellyfin server for this to take effect.
 Then simply give the `reverse_proxy` directive a path matcher.
 

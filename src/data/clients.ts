@@ -237,7 +237,7 @@ export const Clients: Array<Client> = [
       {
         id: 'install',
         name: 'Installation Guide',
-        url: 'https://docs.jellyfin.org/general/clients/kodi.html'
+        url: '/docs/general/clients/kodi'
       }
     ],
     secondaryLinks: [
@@ -561,7 +561,7 @@ export const Clients: Array<Client> = [
       {
         id: 'install',
         name: 'Installation Guide',
-        url: 'https://jellyfin.org/docs/general/clients/mopidy.html'
+        url: '/docs/general/clients/mopidy'
       }
     ],
     secondaryLinks: [

@@ -7,7 +7,7 @@ title: Migrating
 
 It is possible to migrate your system to another system by using environment variables.
 It's possible to do this via the command line or by using Docker environment variables.
-To read more, see the [Configuration](https://jellyfin.org/docs/general/administration/configuration.html) page.
+To read more, see the [Configuration](/docs/general/administration/configuration) page.
 
 ## Watched Status Migration
 
@@ -29,9 +29,9 @@ It's possible to use the data of a local install in the official docker image by
 To guarantee proper permissions, get the `uid` and `gid` of the local user Jellyfin runs as (on a default install this is the `jellyfin` system user).
 You can do this by running the following command:
 
-   ```sh
-      id jellyfin
-   ```
+```sh
+   id jellyfin
+```
 
 You need to replace the `<uid>:<gid>` placeholder below with the correct values.
 
@@ -40,45 +40,45 @@ You need to replace the `<uid>:<gid>` placeholder below with the correct values.
 
 ### Using docker cli
 
-   ```sh
-   docker run -d \
-       --user <uid>:<gid> \
-       -e JELLYFIN_CACHE_DIR=/var/cache/jellyfin \
-       -e JELLYFIN_CONFIG_DIR=/etc/jellyfin \
-       -e JELLYFIN_DATA_DIR=/var/lib/jellyfin \
-       -e JELLYFIN_LOG_DIR=/var/log/jellyfin \
-       --mount type=bind,source=/etc/jellyfin,target=/etc/jellyfin \
-       --mount type=bind,source=/var/cache/jellyfin,target=/var/cache/jellyfin \
-       --mount type=bind,source=/var/lib/jellyfin,target=/var/lib/jellyfin \
-       --mount type=bind,source=/var/log/jellyfin,target=/var/log/jellyfin \
-       --mount type=bind,source=</path/to/media>,target=</path/to/media> \
-       --net=host \
-       --restart=unless-stopped \
-       jellyfin/jellyfin
-   ```
+```sh
+docker run -d \
+    --user <uid>:<gid> \
+    -e JELLYFIN_CACHE_DIR=/var/cache/jellyfin \
+    -e JELLYFIN_CONFIG_DIR=/etc/jellyfin \
+    -e JELLYFIN_DATA_DIR=/var/lib/jellyfin \
+    -e JELLYFIN_LOG_DIR=/var/log/jellyfin \
+    --mount type=bind,source=/etc/jellyfin,target=/etc/jellyfin \
+    --mount type=bind,source=/var/cache/jellyfin,target=/var/cache/jellyfin \
+    --mount type=bind,source=/var/lib/jellyfin,target=/var/lib/jellyfin \
+    --mount type=bind,source=/var/log/jellyfin,target=/var/log/jellyfin \
+    --mount type=bind,source=</path/to/media>,target=</path/to/media> \
+    --net=host \
+    --restart=unless-stopped \
+    jellyfin/jellyfin
+```
 
 ### Using docker-compose yaml
 
-   ```yml
-   version: "3"
-   services:
-     jellyfin:
-       image: jellyfin/jellyfin
-       user: <uid>:<gid>
-       network_mode: "host"
-       restart: "unless-stopped"
-       environment:
-         - JELLYFIN_CACHE_DIR=/var/cache/jellyfin
-         - JELLYFIN_CONFIG_DIR=/etc/jellyfin
-         - JELLYFIN_DATA_DIR=/var/lib/jellyfin
-         - JELLYFIN_LOG_DIR=/var/log/jellyfin
-       volumes:
-         - /etc/jellyfin:/etc/jellyfin
-         - /var/cache/jellyfin:/var/cache/jellyfin
-         - /var/lib/jellyfin:/var/lib/jellyfin
-         - /var/log/jellyfin:/var/log/jellyfin
-         - <path-to-media>:<path-to-media>
-   ```
+```yml
+version: '3'
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    user: <uid>:<gid>
+    network_mode: 'host'
+    restart: 'unless-stopped'
+    environment:
+      - JELLYFIN_CACHE_DIR=/var/cache/jellyfin
+      - JELLYFIN_CONFIG_DIR=/etc/jellyfin
+      - JELLYFIN_DATA_DIR=/var/lib/jellyfin
+      - JELLYFIN_LOG_DIR=/var/log/jellyfin
+    volumes:
+      - /etc/jellyfin:/etc/jellyfin
+      - /var/cache/jellyfin:/var/cache/jellyfin
+      - /var/lib/jellyfin:/var/lib/jellyfin
+      - /var/log/jellyfin:/var/log/jellyfin
+      - <path-to-media>:<path-to-media>
+```
 
 ## Migrating From Emby 3.5.2 to Jellyfin
 
@@ -147,6 +147,6 @@ This procedure is written for Debian-based Linux distributions, but can be trans
 
 10. Start the `jellyfin` daemon:
 
-   ```sh
-   sudo service jellyfin start
-   ```
+```sh
+sudo service jellyfin start
+```
