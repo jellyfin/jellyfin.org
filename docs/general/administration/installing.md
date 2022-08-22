@@ -22,8 +22,11 @@ These images are based on Debian and [built directly from the Jellyfin source co
 
 Additionally the [LinuxServer.io](https://www.linuxserver.io/) project and [hotio](https://github.com/hotio) distribute images based on Ubuntu and the official Jellyfin Ubuntu binary packages, see [here](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile) and [here](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile) to see their Dockerfile.
 
-> [!Note]
-> For ARM hardware and RPi, it is recommended to use the LinuxServer.io or hotio image since hardware acceleration support is not yet available on the native image.
+:::note
+
+For ARM hardware and RPi, it is recommended to use the LinuxServer.io or hotio image since hardware acceleration support is not yet available on the native image.
+
+:::
 
 ### Docker
 
@@ -57,9 +60,12 @@ The basic steps to create and run a Jellyfin container using Docker are as follo
 
 4. Create and run a container in one of the following ways.
 
-> [!Note]
-> The default network mode for Docker is bridge mode. Bridge mode will be used if host mode is omitted.
-> Using host networking (`--net=host`) is optional but required in order to use DLNA.
+:::note
+
+The default network mode for Docker is bridge mode. Bridge mode will be used if host mode is omitted.
+Using host networking (`--net=host`) is optional but required in order to use DLNA.
+
+:::
 
 **Using Docker command line interface:**
 
@@ -85,9 +91,12 @@ Multiple media libraries can be bind mounted if needed:
 ...etc
 ```
 
-> [!Note]
-> There is currently an [issue](https://github.com/docker/for-linux/issues/788) with read-only mounts in Docker.
-> If there are submounts within the main mount, the submounts are read-write capable.
+:::note
+
+There is currently an [issue](https://github.com/docker/for-linux/issues/788) with read-only mounts in Docker.
+If there are submounts within the main mount, the submounts are read-write capable.
+
+:::
 
 **Using Docker Compose:**
 
@@ -287,13 +296,19 @@ Any issues or feature requests related to deployment on Cloudron should be filed
 
 Windows installers and builds in ZIP archive format are available [here](https://jellyfin.org/downloads/#windows).
 
-> [!WARNING]
-> If you installed a version prior to 10.4.0 using a PowerShell script, you will need to manually remove the service using the command `nssm remove Jellyfin` and uninstall the server by remove all the files manually.
-> Also one might need to move the data files to the correct location, or point the installer at the old location.
+:::caution
 
-> [!WARNING]
-> The Basic Install is the recommended way to run the Jellyfin Server.
-> Using the Advanced/Service mode may experience FFmpeg hardware acceleration issues, and is only for advanced users.
+If you installed a version prior to 10.4.0 using a PowerShell script, you will need to manually remove the service using the command `nssm remove Jellyfin` and uninstall the server by remove all the files manually.
+Also one might need to move the data files to the correct location, or point the installer at the old location.
+
+:::
+
+:::caution
+
+The Basic Install is the recommended way to run the Jellyfin Server.
+Using the Advanced/Service mode may experience FFmpeg hardware acceleration issues, and is only for advanced users.
+
+:::
 
 ### Install using Installer (x64)
 
@@ -477,8 +492,11 @@ sudo mkdir data cache config log
 
 If you are not running a Debian derivative, install `ffmpeg` through your OS's package manager, and skip this section.
 
-> [!WARNING]
-> Not being able to use `jellyfin-ffmpeg` will most likely break hardware acceleration and tonemapping.
+:::caution
+
+Not being able to use `jellyfin-ffmpeg` will most likely break hardware acceleration and tonemapping.
+
+:::
 
 If you are running Debian or a derivative, you should [download](https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/) and install an `ffmpeg` release built specifically for Jellyfin.
 Be sure to download the latest release that matches your OS (4.4.1-1 for Debian Bullseye assumed below).
@@ -587,8 +605,11 @@ Fedora builds in RPM package format are available [here](https://jellyfin.org/do
    sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
    ```
 
-   > [!NOTE]
-   > You do not need to manually install ffmpeg, it will be installed by the jellyfin server package as a dependency
+   :::note
+
+   You do not need to manually install ffmpeg, it will be installed by the jellyfin server package as a dependency
+
+   :::
 
 2. Install the jellyfin server
 
@@ -618,12 +639,15 @@ Fedora builds in RPM package format are available [here](https://jellyfin.org/do
    sudo firewall-cmd --permanent --add-service=jellyfin
    ```
 
-   > [!NOTE]
-   > This will open the following ports
-   > 8096 TCP used by default for HTTP traffic, you can change this in the dashboard
-   > 8920 TCP used by default for HTTPS traffic, you can change this in the dashboard
-   > 1900 UDP used for service auto-discovery, this is not configurable
-   > 7359 UDP used for auto-discovery, this is not configurable
+   :::note
+
+   This will open the following ports
+   8096 TCP used by default for HTTP traffic, you can change this in the dashboard
+   8920 TCP used by default for HTTPS traffic, you can change this in the dashboard
+   1900 UDP used for service auto-discovery, this is not configurable
+   7359 UDP used for auto-discovery, this is not configurable
+
+   :::
 
 6. Reboot your machine
 
@@ -648,8 +672,11 @@ You can also build [Jellyfin's version](https://github.com/jellyfin/jellyfin-ffm
 The Jellyfin team provides a Debian repository for installation on Debian Buster/Bullseye.
 Supported architectures are `amd64`, `arm64`, and `armhf`.
 
-> [!NOTE]
-> Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
+:::note
+
+Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
+
+:::
 
 Steps 1 to 3 can also be replaced by:
 
@@ -676,8 +703,11 @@ sudo extrepo enable jellyfin
    echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/debian $( lsb_release -c -s ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
    ```
 
-   > [!NOTE]
-   > Supported releases are `buster` and `bullseye`.
+   :::note
+
+   Supported releases are `buster` and `bullseye`.
+
+   :::
 
 4. Update APT repositories:
 
@@ -703,8 +733,11 @@ sudo extrepo enable jellyfin
 
 Raw Debian packages, including old versions, are available [here](https://jellyfin.org/downloads/#debian).
 
-> [!NOTE]
-> The repository is the preferred way to obtain Jellyfin on Debian, as it contains several dependencies as well.
+:::note
+
+The repository is the preferred way to obtain Jellyfin on Debian, as it contains several dependencies as well.
+
+:::
 
 1. Download the desired `jellyfin` and `jellyfin-ffmpeg` `.deb` packages from the repository.
 
@@ -749,8 +782,11 @@ If you encounter errors about the `ubuntu` release not being found and you previ
 The Jellyfin team provides an Ubuntu repository for installation on Ubuntu Xenial, Bionic, Cosmic, Disco, Eoan, and Focal. Supported architectures are `amd64`, `arm64`, and `armhf`.
 Only `amd64` is supported on Ubuntu Xenial.
 
-> [!NOTE]
-> Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
+:::note
+
+Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
+
+:::
 
 1. Install HTTPS transport for APT if you haven't already:
 
@@ -764,9 +800,12 @@ Only `amd64` is supported on Ubuntu Xenial.
    sudo add-apt-repository universe
    ```
 
-   > [!NOTE]
-   > If the above command fails you will need to install the following package `software-properties-common`.
-   > This can be achieved with the following command `sudo apt-get install software-properties-common`
+   :::note
+
+   If the above command fails you will need to install the following package `software-properties-common`.
+   This can be achieved with the following command `sudo apt-get install software-properties-common`
+
+   :::
 
 3. Import the GPG signing key (signed by the Jellyfin Team):
 
@@ -780,8 +819,11 @@ Only `amd64` is supported on Ubuntu Xenial.
    echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/ubuntu $( lsb_release -c -s ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
    ```
 
-   > [!NOTE]
-   > Supported releases are `bionic`, `cosmic`, `disco`, `eoan`, and `focal`.
+   :::note
+
+   Supported releases are `bionic`, `cosmic`, `disco`, `eoan`, and `focal`.
+
+   :::
 
 5. Update APT repositories:
 
@@ -807,8 +849,11 @@ Only `amd64` is supported on Ubuntu Xenial.
 
 Raw Ubuntu packages, including old versions, are available [here](https://jellyfin.org/downloads/#ubuntu).
 
-> [!NOTE]
-> The repository is the preferred way to install Jellyfin on Ubuntu, as it contains several dependencies as well.
+:::note
+
+The repository is the preferred way to install Jellyfin on Ubuntu, as it contains several dependencies as well.
+
+:::
 
 1. Enable the Universe repository to obtain all the FFMpeg dependencies, and update repositories:
 

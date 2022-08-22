@@ -9,11 +9,17 @@ title: Nginx
 
 ## Nginx from a subdomain (jellyfin.example.org)
 
-> [!WARNING]
-> HTTP is insecure. The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet you should setup HTTPS. [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/). Using only HTTP will expose passwords and API keys.
+:::caution
 
-> [!TIP]
-> The default X-Frame-Options header may cause issues with the webOS app, causing it to remain stuck at a black screen. If enabled, the default Content Security Policy may also cause issues.
+HTTP is insecure. The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet you should setup HTTPS. [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/). Using only HTTP will expose passwords and API keys.
+
+:::
+
+:::tip
+
+The default X-Frame-Options header may cause issues with the webOS app, causing it to remain stuck at a black screen. If enabled, the default Content Security Policy may also cause issues.
+
+:::
 
 Create the file `/etc/nginx/conf.d/jellyfin.conf` which will forward requests to Jellyfin.
 
@@ -120,8 +126,11 @@ Set the [base URL](/docs/general/networking#base-url) field in the Jellyfin serv
 
 ### HTTP config example
 
-> [!WARNING]
-> HTTP is insecure. The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet you should setup HTTPS (see below for HTTPS configuration example). [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/).
+:::caution
+
+HTTP is insecure. The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet you should setup HTTPS (see below for HTTPS configuration example). [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/).
+
+:::
 
 ```conf
 # Jellyfin hosted on http://DOMAIN_NAME/jellyfin

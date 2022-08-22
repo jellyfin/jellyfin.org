@@ -8,8 +8,11 @@ title: External files
 Audio and subtitles will usually be embedded within your video container file (e.g. mkv), but the server also supports loading audio and subtitle streams from external files.
 The server supports reading either single files or containers like mka (Matroska Audio) or mks (Matroska Subtitle) with one or more streams.
 
-> [!Note]
-> External audio files and containers are supported on Jellyfin 10.8 and later.
+:::note
+
+External audio files and containers are supported on Jellyfin 10.8 and later.
+
+:::
 
 ## Naming
 
@@ -50,5 +53,8 @@ Any arbitrary text not parsable to a language or flag will be combined and used 
         Film.English Commentary.en.mp3
 ```
 
-> [!Note]
-> The last file will parse to an English mp3 audio stream with the title `English Commentary`.
+:::note
+
+The last file will parse to an English mp3 audio stream with the title `English Commentary`.
+
+:::

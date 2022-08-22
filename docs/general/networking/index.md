@@ -13,8 +13,11 @@ Many clients will automatically discover servers running on the same LAN and dis
 
 HTTP and HTTPS are the primary means of connecting to the server. If using a self-signed certificate for HTTPS, some clients may not work such as Chromecast or Roku.
 
-> [!WARNING]
-> In order for Chromecast to work on a non-public routable connection, 8.8.8.8 must be blocked on the Chromecast's Gateway. Blocking 8.8.8.8 on your router is the easiest solution to this problem.
+:::caution
+
+In order for Chromecast to work on a non-public routable connection, 8.8.8.8 must be blocked on the Chromecast's Gateway. Blocking 8.8.8.8 on your router is the easiest solution to this problem.
+
+:::
 
 ### Port Bindings
 
@@ -77,14 +80,20 @@ openssl pkcs12 -export -out jellyfin.pfx -inkey privkey.pem -in /usr/local/etc/l
 
 It's possible to run Jellyfin behind another server acting as a reverse proxy. With a reverse proxy setup, this server handles all network traffic and proxies it back to Jellyfin. This provides the benefits of using DNS names and not having to remember port numbers, as well as easier integration and management of SSL certificates.
 
-> [!WARNING]
-> In order for a reverse proxy to have the maximum benefit, you should have a publically routable IP address and a domain with DNS set up correctly.
-> These examples assume you want to run Jellyfin under a sub-domain (e.g. jellyfin.example.com), but are easily adapted for the root domain if desired.
+:::caution
 
-> [!WARNING]
-> Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g <code>api_key</code> parameter), so logging the full request
-> path can expose secrets to your logfile. We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
-> The nginx documentation below includes an example how to censor sensitive information from a logfile.
+In order for a reverse proxy to have the maximum benefit, you should have a publically routable IP address and a domain with DNS set up correctly.
+These examples assume you want to run Jellyfin under a sub-domain (e.g. jellyfin.example.com), but are easily adapted for the root domain if desired.
+
+:::
+
+:::caution
+
+Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g `api_key` parameter), so logging the full request path can expose secrets to your logfile.
+We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
+The nginx documentation below includes an example how to censor sensitive information from a logfile.
+
+:::
 
 Some popular options for reverse proxy systems are [Apache](https://httpd.apache.org), [Caddy](https://caddyserver.com), [Haproxy](https://www.haproxy.com), [Nginx](https://www.nginx.com) and [Traefik](https://traefik.io).
 
@@ -116,8 +125,11 @@ Add the IP address/hostname of your reverse proxy to the `Known Proxies` (under 
 
 Running Jellyfin with a path (e.g. `https://example.com/jellyfin`) is supported by the Android and web clients.
 
-> [!WARNING]
-> Base URL is known to break HDHomeRun, DLNA, Sonarr, Radarr, Chromecast, and MrMC.
+:::caution
+
+Base URL is known to break HDHomeRun, DLNA, Sonarr, Radarr, Chromecast, and MrMC.
+
+:::
 
 The Base URL setting in the **Networking** page is an advanced setting used to specify the URL prefix that your Jellyfin instance can be accessed at. In effect, it adds this URL fragment to the start of any URL path. For instance, if you have a Jellyfin server at `http://myserver` and access its main page `http://myserver/web/index.html`, setting a Base URL of `/jellyfin` will alter this main page to `http://myserver/jellyfin/web/index.html`. This can be useful if administrators want to access multiple Jellyfin instances under a single domain name, or if the Jellyfin instance lives only at a subpath to another domain with other services listening on `/`.
 

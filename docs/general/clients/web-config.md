@@ -23,8 +23,11 @@ Overriding the default `config.json` can be done with an additional volume param
 --volume /path/to/config/web-config.json:/jellyfin/jellyfin-web/config.json
 ```
 
-> [!NOTE]
-> If the config.json file doesn't exist on the first run, Docker will map it to a directory instead of a file, which won't work.
+:::caution
+
+If the config.json file doesn't exist on the first run, Docker will map it to a directory instead of a file, which won't work.
+
+:::
 
 ## Customizations
 

@@ -9,10 +9,13 @@ title: Live TV Post Processing
 
 Jellyfin supports Post Processing of recorded Live TV shows. This can be used to transcode the recording to a specific format that does not require transcoding on the fly when playing back, extract subtitles, remove commercials, and more.
 
-> [!NOTE]
-> There are several different ways to set up your post-processing script, and this largely will need to be changed to your individual use case.
->
-> Described below is one way to do post processing, there may be other ways (other ways may be more efficient, too) to run your post-processor.
+:::note
+
+There are several different ways to set up your post-processing script, and this largely will need to be changed to your individual use case.
+
+Described below is one way to do post processing, there may be other ways (other ways may be more efficient, too) to run your post-processor.
+
+:::
 
 Mess around with this to change to your needs. Search around, post questions to the [Jellyfin Reddit Forum](https://www.reddit.com/r/jellyfin) or elsewhere, and others may be able to help. Logging is your friend! Make sure your script(s) logs adequately to a file or elsewhere in order to troubleshoot any issues you may encounter, as any output to stdout/stderror will not be seen in the Jellyfin logs.
 

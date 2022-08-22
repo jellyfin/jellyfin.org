@@ -7,8 +7,11 @@ title: Configuration
 
 There are several entry points available for administrators to manage the configuration of their server. This section aims to outline all those configuration methods, explain what options are available, and what each option does.
 
-> [!NOTE]
-> The configuration options here are distinct from the [runtime settings](/docs/general/server/settings) available from the Administrator Dashboard in the web client. The configuration options here are generally meant to be static and set before starting the server.
+:::note
+
+The configuration options here are distinct from the [runtime settings](/docs/general/server/settings) available from the Administrator Dashboard in the web client. The configuration options here are generally meant to be static and set before starting the server.
+
+:::
 
 ## Command Line Options
 
@@ -56,8 +59,11 @@ This is the directory containing the built files from a [web client](https://git
 2. Environment variable `$JELLYFIN_WEB_DIR`, if specified
 3. `<Binary Directory>/jellyfin-web`, where `<Binary Directory>` is the directory containing the Jellyfin executable
 
-> [!NOTE]
-> This setting is only used when the server is configured to host the web client. See the `hostwebclient` option in the [Main Configuration Options](#main-configuration-options) section below for additional details.
+:::note
+
+This setting is only used when the server is configured to host the web client. See the `hostwebclient` option in the [Main Configuration Options](#main-configuration-options) section below for additional details.
+
+:::
 
 ### Log Directory
 
@@ -75,8 +81,11 @@ The main server configuration is built upon the ASP .NET [configuration framewor
 2. **Default logging configuration file** (`logging.default.json`): This file should not be modified manually by users. It is reserved by the server to be overwritten with new settings on each new release.
 3. **System-specific logging configuration file** (`logging.json`): This is the file you should change if you want to have a custom logging setup. Jellyfin uses the [Serilog](https://serilog.net/) logging framework, and you can read about the configuration options available in their [documentation](https://github.com/serilog/serilog-settings-configuration).
 
-   > [!NOTE]
-   > This file can be changed at runtime, which will automatically reload the configuration and apply the changes immediately.
+   :::note
+
+   This file can be changed at runtime, which will automatically reload the configuration and apply the changes immediately.
+
+   :::
 
 4. **Environment variables**: The [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#environment-variables) provided by Microsoft explains how to set these configuration options via environment variables. Jellyfin uses its own custom `JELLYFIN_` prefix for these variables. For example, to set a value for the `HttpListenerHost:DefaultRedirectPath` setting, you would set a value for the `JELLYFIN_HttpListenerHost__DefaultRedirectPath` environment variable.
 5. **Command line options**: Certain command line options are loaded into the configuration system and have the highest priority. The following command line options are mapped to associated configuration options.

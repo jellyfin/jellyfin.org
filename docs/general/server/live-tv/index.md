@@ -18,8 +18,11 @@ Jellyfin has support for the following tuners:
 
 HDHomeRun is a special case because they will usually get detected automatically by the server. Otherwise you can manually add tuners by navigating to **Live TV** in the settings and adding one there.
 
-> [!NOTE]
-> Docker users using HDHomeRun devices should set networking to host mode as Jellyfin needs to connect to a changing UDP port.
+:::note
+
+Docker users using HDHomeRun devices should set networking to host mode as Jellyfin needs to connect to a changing UDP port.
+
+:::
 
 M3U allows you to add IPTV channel playlists which you can view and record.
 

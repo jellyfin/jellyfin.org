@@ -132,7 +132,11 @@ To test someone else's pull request, you must import the changes to your local r
    git fetch upstream pull/<PR_ID>/head:my-testing-branch
    ```
 
-   > [!NOTE] > `<PR_ID>` is pull request number on GitHub.
+   :::note
+
+   `<PR_ID>` is pull request number on GitHub.
+
+   :::
 
 1. Checkout the new local branch:
 
@@ -173,8 +177,11 @@ When submitting a new PR, please ensure you do the following things. If you have
 
 We need to install all development dependencies and pull down the code inside the container before we can compile and run.
 
-> [!NOTE]
-> Run each command on a separate line. The container we'll test in is named `jftest`. Within Docker, anytime the entrypoint executable is terminated, the session restarts, so just exec into it again to continue. This is also why we explicitly kill it to reload the new version.
+:::note
+
+Run each command on a separate line. The container we'll test in is named `jftest`. Within Docker, anytime the entrypoint executable is terminated, the session restarts, so just exec into it again to continue. This is also why we explicitly kill it to reload the new version.
+
+:::
 
 ### Master Branch
 
@@ -194,7 +201,11 @@ kill -15 $(pidof jellyfin)
 
 First, complete the steps above to setup your container to build the master branch.
 
-> [!NOTE] > `<PR_ID>` is pull request number on GitHub.
+:::note
+
+`<PR_ID>` is pull request number on GitHub.
+
+:::
 
 ```sh
 docker exec -ti jftest bash

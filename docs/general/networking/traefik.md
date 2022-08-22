@@ -9,8 +9,11 @@ title: Traefik v1.x
 
 Create docker-compose.yml, traefik.toml and acme.json in the **same** directory or change their paths in the volume section.
 
-> [!NOTE]
-> Ensure you enable Basic Auth protection for Traefik or disable its Dashboard. Otherwise your Dashboard will be accessible from the internet.
+:::note
+
+Ensure you enable Basic Auth protection for Traefik or disable its Dashboard. Otherwise your Dashboard will be accessible from the internet.
+
+:::
 
 ```bash
 sudo apt install apache2-utils
@@ -46,32 +49,32 @@ services:
       - ./traefik.toml:/traefik.toml
       - ./acme.json:/acme.json
     labels:
-      traefik.enable: "true"
+      traefik.enable: 'true'
       traefik.backend: traefik
       traefik.docker.network: traefik
       traefik.port: 8080
       traefik.frontend.rule: Host:traefik.example.com,
       traefik.frontend.entryPoints: https
-      traefik.frontend.passHostHeader: "true"
-      traefik.frontend.headers.SSLForceHost: "true"
+      traefik.frontend.passHostHeader: 'true'
+      traefik.frontend.headers.SSLForceHost: 'true'
       traefik.frontend.headers.SSLHost: traefik.example.com
-      traefik.frontend.headers.SSLRedirect: "true"
-      traefik.frontend.headers.browserXSSFilter: "true"
-      traefik.frontend.headers.contentTypeNosniff: "true"
-      traefik.frontend.headers.forceSTSHeader: "true"
+      traefik.frontend.headers.SSLRedirect: 'true'
+      traefik.frontend.headers.browserXSSFilter: 'true'
+      traefik.frontend.headers.contentTypeNosniff: 'true'
+      traefik.frontend.headers.forceSTSHeader: 'true'
       traefik.frontend.headers.STSSeconds: 315360000
-      traefik.frontend.headers.STSIncludeSubdomains: "true"
-      traefik.frontend.headers.STSPreload: "true"
+      traefik.frontend.headers.STSIncludeSubdomains: 'true'
+      traefik.frontend.headers.STSPreload: 'true'
       traefik.frontend.headers.customResponseHeaders: X-Robots-Tag:noindex,nofollow,nosnippet,noarchive,notranslate,noimageindex
-      traefik.frontend.headers.frameDeny: "true"
+      traefik.frontend.headers.frameDeny: 'true'
       traefik.frontend.headers.customFrameOptionsValue: 'allow-from https://example.com'
-#     traefik.frontend.auth.basic.users: xxx:xxx
+    #     traefik.frontend.auth.basic.users: xxx:xxx
     restart: unless-stopped
 
   jellyfin:
     image: jellyfin/jellyfin
     container_name: jellyfin
-    network_mode: "host"
+    network_mode: 'host'
     volumes:
       - /path/to/config:/config
       - /path/to/cache:/cache
@@ -81,8 +84,11 @@ services:
 
 This TOML file can't support environment variables, so don't attempt to use variables.
 
-> [!WARNING]
-> Due to a [bug](https://github.com/containous/traefik/issues/5559) in Traefik, you cannot dynamically route to containers when network_mode=host, so we have created a static route to the docker host (172.17.0.1:8096) in `traefik.toml`. Using host networking (or macvlan) is required to use DLNA or an HdHomeRun as it supports multicast networking.
+:::caution
+
+Due to a [bug](https://github.com/containous/traefik/issues/5559) in Traefik, you cannot dynamically route to containers when network_mode=host, so we have created a static route to the docker host (172.17.0.1:8096) in `traefik.toml`. Using host networking (or macvlan) is required to use DLNA or an HdHomeRun as it supports multicast networking.
+
+:::
 
 ### traefik.toml
 
@@ -166,8 +172,11 @@ touch acme.json
 chmod 600 acme.json
 ```
 
-> [!WARNING]
-> Change example.com to your domain name and update the acme.json file with your email address. Let's Encrypt does not require a valid email but example.com will be flagged as fake.
+:::caution
+
+Change example.com to your domain name and update the acme.json file with your email address. Let's Encrypt does not require a valid email but example.com will be flagged as fake.
+
+:::
 
 Launch the Traefik and Jellyfin services.
 

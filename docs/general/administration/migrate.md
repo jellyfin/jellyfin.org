@@ -22,9 +22,12 @@ This can be done from Plex, Emby or another Jellyfin instance.
 
 It's possible to use the data of a local install in the official docker image by mapping files and folders to the same locations and configuring the image accordingly.
 
-> [!Note]
-> You need to have exactly matching paths for your files inside the docker container!
-> This means that if your media is stored at `/media/raid/` this path needs to be accessible at `/media/raid/` inside the docker container too - the configurations below do include examples.
+:::note
+
+You need to have exactly matching paths for your files inside the docker container!
+This means that if your media is stored at `/media/raid/` this path needs to be accessible at `/media/raid/` inside the docker container too - the configurations below do include examples.
+
+:::
 
 To guarantee proper permissions, get the `uid` and `gid` of the local user Jellyfin runs as (on a default install this is the `jellyfin` system user).
 You can do this by running the following command:
@@ -35,8 +38,11 @@ You can do this by running the following command:
 
 You need to replace the `<uid>:<gid>` placeholder below with the correct values.
 
-> [!NOTE]
-> To properly map the folders for your install, go to `Dashboard > Paths`.
+:::note
+
+To properly map the folders for your install, go to `Dashboard > Paths`.
+
+:::
 
 ### Using docker cli
 
@@ -82,17 +88,23 @@ services:
 
 ## Migrating From Emby 3.5.2 to Jellyfin
 
-> [!IMPORTANT]
-> Direct database migration from Emby (of any version) to Jellyfin is NOT SUPPORTED.
-> We have found many subtle bugs due to the inconsistent database schemas that result from trying to do this, and strongly recommend that all Jellyfin users migrating from Emby start with a fresh database and library scan.
+:::info
+
+Direct database migration from Emby (of any version) to Jellyfin is NOT SUPPORTED.
+We have found many subtle bugs due to the inconsistent database schemas that result from trying to do this, and strongly recommend that all Jellyfin users migrating from Emby start with a fresh database and library scan.
+
+:::
 
 The original procedure is provided below for reference however we cannot support it nor guarantee that a system upgraded in this way will work properly, if at all.
 If anyone is interested in writing a database migration script which will correct the deficiencies in the existing database and properly import them into Jellyfin, [we would welcome it however](/docs/general/contributing)!
 
-> [!WARNING]
-> While it is technically possible to migrate existing configuration of Emby version 3.5.2 or earlier, due to subtle and weird bugs reported after such attempts we do not recommend this migration.
-> Emby versions 3.5.3 or 3.6+ cannot be migrated.
-> Thus we recommend creating a new Jellyfin configuration and rebuilding your library instead.
+:::caution
+
+While it is technically possible to migrate existing configuration of Emby version 3.5.2 or earlier, due to subtle and weird bugs reported after such attempts we do not recommend this migration.
+Emby versions 3.5.3 or 3.6+ cannot be migrated.
+Thus we recommend creating a new Jellyfin configuration and rebuilding your library instead.
+
+:::
 
 Windows users may take advantage of the `install-jellyfin.ps1` script in the [Jellyfin repository](https://github.com/jellyfin/jellyfin) which includes an automatic upgrade option.
 

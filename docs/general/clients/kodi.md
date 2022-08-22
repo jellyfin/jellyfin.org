@@ -42,12 +42,18 @@ The installation method for the repository varies depending on what kind of devi
 
 ## Jellyfin for Kodi
 
-> [!TIP]
-> It's highly recommended to install the `Kodi Sync Queue` plugin into the Jellyfin server as well.
-> This will keep your media libraries up to date without waiting for a periodic re-sync from Kodi.
+:::tip
 
-> [!CAUTION]
-> Remote Kodi databases, like MySQL, are not supported. A local SQLite database is required (this is the default).
+It's highly recommended to install the `Kodi Sync Queue` plugin into the Jellyfin server as well.
+This will keep your media libraries up to date without waiting for a periodic re-sync from Kodi.
+
+:::
+
+:::caution
+
+Remote Kodi databases, like MySQL, are not supported. A local SQLite database is required (this is the default).
+
+:::
 
 ### Jellyfin for Kodi Overview
 
@@ -131,8 +137,11 @@ If an error occurs during syncing, enable debug logging in the Jellyfin add-on i
 
 The Jellyfin for Kodi add-on doesn't natively handle multiple user accounts. Fortunately, Kodi has a built in method of handling this called profiles. Information about this can be found on the Profiles page of the [Kodi Wiki](https://kodi.wiki/view/Profiles). Once profiles have been created, you must install the Jellyfin add-on and go through the installation steps above for each user profile. When you switch Kodi profiles, you will also switch Jellyfin users. You can tell Kodi to bring you to a profile login screen during startup by going to the Profiles section inside of the Settings page and checking the box for "Show login screen on startup."
 
-> [!NOTE]
-> Kodi's default skin does not display all unicode characters. To display unicode characters the skin's font must be changed.
+:::tip
+
+Kodi's default skin does not display all unicode characters. To display unicode characters the skin's font must be changed.
+
+:::
 
 ### Multiple Clients
 

@@ -26,8 +26,11 @@ For storage, a moderate size library database can grow anywhere from 10 to 100 G
 
 A popular choice for cloud storage has been the program [rclone](https://rclone.org/downloads/). It is supported on most Operating Systems. To facilitate combining local and cloud filesystems, rclone can be paired with another program such as [mergerfs](https://github.com/trapexit/mergerfs). For cloud storage, it is recommended to disable image extraction as this requires downloading the entire file to perform this task.
 
-> [!NOTE]
-> The image extractor can't be [turned off](https://github.com/jellyfin/jellyfin/issues/2355) in Jellyfin at the moment which is causing [performance issues](https://github.com/jellyfin/jellyfin/issues/2600).
+:::note
+
+The image extractor can't be [turned off](https://github.com/jellyfin/jellyfin/issues/2355) in Jellyfin at the moment which is causing [performance issues](https://github.com/jellyfin/jellyfin/issues/2600).
+
+:::
 
 - animostiy22's [repo](https://github.com/animosity22/homescripts) about rclone and mergerfs.
 - animosity22's [rclone config](https://github.com/animosity22/homescripts/blob/master/systemd/rclone.service).

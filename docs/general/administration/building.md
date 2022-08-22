@@ -64,8 +64,11 @@ All package builds begin with these two steps:
 
 4. The resulting archives can be found at `../bin/<platform>`.
 
-> [!NOTE]
-> This will very likely be split out into a separate repository at some point in the future.
+:::note
+
+This will very likely be split out into a separate repository at some point in the future.
+
+:::
 
 ## Windows
 
@@ -114,5 +117,8 @@ All package builds begin with these two steps:
      %APPDATA%\Jellyfin-Server\jellyfin.exe
      ```
 
-> [!NOTE]
-> This will very likely be split out into a separate repository at some point in the future.
+:::note
+
+This will very likely be split out into a separate repository at some point in the future.
+
+:::

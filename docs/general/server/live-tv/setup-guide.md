@@ -52,10 +52,13 @@ This tuner allows you to add IPTV channel to Jellyfin by using the appropriate M
 
 - Auto-loop live streams is sometimes necessary for some IPTV channels. Turn this on only if your streams are not playing correctly
 
-> [!NOTE]
-> Here is a list of legal samples to use to test connectivity.
->
-> [LegalStream Live News Playlist](https://raw.githubusercontent.com/notanewbie/LegalStream/master/packages/news/live.m3u8)
+:::note
+
+Here is a list of legal samples to use to test connectivity.
+
+[LegalStream Live News Playlist](https://raw.githubusercontent.com/notanewbie/LegalStream/master/packages/news/live.m3u8)
+
+:::
 
 ## Adding Guide Data
 
