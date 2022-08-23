@@ -1,17 +1,34 @@
-# Website
+<h1 align="center">jellyfin.org</h1>
+<h3 align="center">Part of the <a href="https://jellyfin.org">Jellyfin Project</a></h3>
+
+---
+
+<p align="center">
+<img alt="Logo Banner" src="https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/banner-logo-solid.svg?sanitize=true"/>
+</p>
+
+The next generation of the official Jellyfin website.
+
+This version of the website is currently viewable at [next.jellyfin.org](http://next.jellyfin.org).
+The goal of this project is to combine all website on jellyfin.org in a single codebase and improve the documentation site experience.
+
+This project includes a combination of content from:
+
+- [jellyfin-blog](https://github.com/jellyfin/jellyfin-blog) &mdash; The current source for the main website and blog content built using Hugo.
+- [jellyfin-docs](https://github.com/jellyfin/jellyfin-docs) &mdash; The current source for the documentation content built using DocFX.
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
 ## Installation
 
 ```console
-yarn install
+npm install
 ```
 
 ## Local Development
 
 ```console
-yarn start
+npm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -19,15 +36,7 @@ This command starts a local development server and opens up a browser window. Mo
 ## Build
 
 ```console
-yarn build
+npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
