@@ -32,7 +32,7 @@ jobs:
         run: |
           npm ci --no-audit
           npm run build
-          npm run serve
+          npm run serve &
 
       - name: Test URL
         run: curl --fail --location --silent --output /dev/null ${{ matrix.url }}
