@@ -1,0 +1,38 @@
+name: test
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+jobs:
+  web-urls:
+    name: Test URLs linked to by jellyfin-web
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        url:
+          - /docs/general/administration/hardware-acceleration.html
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3.4.1
+        with:
+          node-version: 16
+          check-latest: true
+          cache: npm
+
+      - name: Build and start test server
+        run: |
+          npm ci --no-audit
+          npm run build
+          npm run serve
+
+      - name: Test URL
+        run: curl --fail --location --silent --output /dev/null ${{ matrix.url }}
