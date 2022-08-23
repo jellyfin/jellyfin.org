@@ -186,7 +186,6 @@ Broadwell or newer generation is required for QSV on Linux, otherwise you have t
 
 - [Official list of supported codecs for recent Intel Graphics Cards](https://www.intel.com/content/www/us/en/develop/documentation/media-capabilities-of-intel-hardware/top.html).
 - [Intel QSV Benchmarks on Linux](https://www.intel.com/content/www/us/en/architecture-and-technology/quick-sync-video/quick-sync-video-installation.html)
-- [Collection of useful links and information](https://github.com/Artiume/jellyfin-docs/blob/master/general/wiki/main.md)
 
 ---
 
