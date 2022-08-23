@@ -21,8 +21,8 @@ export default function Contribute() {
           </p>
           <p>
             Before contributing, please read over our{' '}
-            <a href='https://jellyfin.org/docs/general/community-standards.html'>Community&nbsp;Standards</a> and&nbsp;
-            <a href='https://jellyfin.org/docs/general/contributing/index.html'>Contributing&nbsp;Guide</a>.
+            <a href='/docs/general/community-standards'>Community&nbsp;Standards</a> and&nbsp;
+            <a href='/docs/general/contributing'>Contributing&nbsp;Guide</a>.
           </p>
         </section>
 

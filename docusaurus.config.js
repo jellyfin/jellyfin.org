@@ -53,7 +53,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          docId: 'getting-started',
+          docId: 'index',
           label: 'Documentation',
           position: 'right'
         },
@@ -74,7 +74,7 @@ module.exports = {
       links: [
         {
           label: 'Documentation',
-          to: '/docs/getting-started'
+          to: '/docs'
         },
         {
           label: 'Feature Requests',
