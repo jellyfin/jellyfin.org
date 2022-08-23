@@ -35,4 +35,4 @@ jobs:
           npm run serve &
 
       - name: Test URL
-        run: curl --fail --location --silent --output /dev/null ${{ matrix.url }}
+        run: curl --fail --location --silent --output /dev/null http://localhost:3000${{ matrix.url }}
