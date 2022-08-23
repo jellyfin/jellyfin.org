@@ -457,7 +457,7 @@ export default function ContributorGuide() {
               Documentation is simultaneously very important, but very neglected in a lot of projects. We want to be
               different, and you can help! If you come across anything that you think should be documented, such as how
               to do things, configuration steps, or just general helpful pointers, we welcome contributions to{' '}
-              <a href='https://github.com/jellyfin/jellyfin-docs'>our Documentation Repository</a>, visible{' '}
+              <a href='https://github.com/jellyfin/jellyfin.org'>our Documentation Repository</a>, visible{' '}
               <a href='/docs'>here</a>.
             </div>
           )}
