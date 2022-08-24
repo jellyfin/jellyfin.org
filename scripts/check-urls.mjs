@@ -40,8 +40,8 @@ await Promise.allSettled(
 );
 
 if (failures.length === 0) {
-  console.log('All URLs successful');
+  console.log('🚀 All URLs successful');
 } else {
-  console.error('The following errors were encountered', failures);
+  console.error(['❌ The following URLs failed', ...failures.map((failure) => `${HOST}${failure.url}`)].join('\n'));
   process.exit(1);
 }

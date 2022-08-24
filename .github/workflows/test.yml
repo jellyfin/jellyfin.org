@@ -7,9 +7,17 @@ on:
     branches: [master]
 
 jobs:
-  web-urls:
-    name: Test URLs linked to by jellyfin-web
+  test-urls:
+    name: Test URLs
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        command:
+          - test:blog-urls
+          - test:docs-urls
+          - test:web-urls
 
     steps:
       - name: Check out Git repository
@@ -29,4 +37,4 @@ jobs:
           npm run serve &
 
       - name: Test URL
-        run: npm run test:web-urls
+        run: npm run ${{ matrix.command }}
