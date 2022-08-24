@@ -6,18 +6,19 @@
  */
 
 html {
-  font-size: 15px;
-  line-height: 1.7;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
   -moz-font-feature-settings: 'liga' on;
   font-feature-settings: 'liga';
 }
 
 :root {
+  /* base font */
+  --ifm-font-family-base: 'Noto Sans', sans-serif;
+  --ifm-line-height-base: 1.7;
   --ifm-font-color-base: #ffffff;
-  --ifm-button-color: #ffffff;
-  --ifm-button-border-radius: 30px;
+  /* headings */
+  --ifm-h1-font-size: 2.074em;
+  --ifm-h2-font-size: 1.728em;
+  /* custom colors */
   --ifm-color-primary: #007ca6;
   --ifm-color-primary-dark: #00749b;
   --ifm-color-primary-darker: #006b90;
@@ -25,17 +26,20 @@ html {
   --ifm-color-primary-light: #008dbd;
   --ifm-color-primary-lighter: #009ed4;
   --ifm-color-primary-lightest: #00afeb;
+  --ifm-background-color: #000b25 !important;
+  /* buttons */
+  --ifm-button-color: #ffffff;
+  --ifm-button-border-radius: 30px;
+  /* cards */
+  --ifm-card-background-color: #172138;
+  /* code blocks */
   --ifm-code-font-size: 95%;
   --ifm-code-background: #292d3e; /* match code blocks */
-  --ifm-navbar-background-color: #000b25;
-  --ifm-background-color: #000b25 !important;
-  --ifm-card-background-color: #172138;
+  /* footer */
   --ifm-footer-background-color: #333c44;
-  --ifm-pills-color-background-active: #172138;
-  --ifm-font-family-base: 'Noto Sans', sans-serif;
-  --ifm-h1-font-size: 2.074em;
-  --ifm-h2-font-size: 1.728em;
   --ifm-footer-link-color: #ffffff;
+  /* navbar */
+  --ifm-navbar-background-color: #000b25;
 }
 
 h1 {
