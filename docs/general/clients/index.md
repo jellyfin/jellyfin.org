@@ -15,7 +15,7 @@ If they aren't on this page, some clients can be found at the [jellyfin-archive 
 
 :::
 
-Do you have a client that interfaces with Jellyfin and want to see it listed here? Please [submit a pull request](https://github.com/jellyfin/jellyfin-docs)!
+Do you have a client that interfaces with Jellyfin and want to see it listed here? Please [submit a pull request](https://github.com/jellyfin/jellyfin.org)!
 
 ## Browsers
 

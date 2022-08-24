@@ -23,7 +23,7 @@ For general guidelines on how the project works, including how to set up your de
 
 ## Adding To Documentation
 
-Documentation is incredibly helpful! All these docs are written using [DocFX](https://dotnet.github.io/docfx/). You can find the raw markdown in the [documentation repository](https://github.com/jellyfin/jellyfin-docs). Pull requests are welcome!
+Documentation is incredibly helpful! All these docs are written using [Docusaurus](https://docusaurus.io/docs/markdown-features). You can find the raw markdown in the [documentation repository](https://github.com/jellyfin/jellyfin.org). Pull requests are welcome!
 
 ## Translating
 
