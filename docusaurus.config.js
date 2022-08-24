@@ -25,7 +25,7 @@ module.exports = {
       { name: 'twitter:site', content: '@jellyfin' }
     ],
     colorMode: {
-      defaultMode: 'light',
+      defaultMode: 'dark',
       disableSwitch: true,
       respectPrefersColorScheme: false
     },
