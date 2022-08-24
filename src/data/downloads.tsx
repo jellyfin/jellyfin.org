@@ -47,7 +47,7 @@ export const Downloads: Array<Download> = [
     status: DownloadStatus.Official,
     features: [Feature.CustomFfmpeg],
     platforms: [Platform.Debian, Platform.Ubuntu],
-    description: 'Install Jellyfin via our Apt repository or via manual archives (.deb).',
+    description: 'Install Jellyfin via our APT repository or via manual archives (.deb).',
     stableButtons: [
       {
         id: 'debian-stable-button',
@@ -181,7 +181,7 @@ makepkg -si`}
     id: 'fedora',
     name: 'Fedora and CentOS',
     osTypes: [OsType.Linux],
-    status: DownloadStatus.Community,
+    status: DownloadStatus.Official,
     features: [],
     platforms: [Platform.Fedora, Platform.CentOS],
     description: 'RPM archives for both Fedora and CentOS are provided.',
