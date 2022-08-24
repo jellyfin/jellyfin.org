@@ -11,13 +11,6 @@ jobs:
     name: Test URLs linked to by jellyfin-web
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: true
-      matrix:
-        url:
-          - /docs/getting-started # FIXME: This should be removed. Just testing an existing URL.
-          - /docs/general/administration/hardware-acceleration.html
-
     steps:
       - name: Check out Git repository
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
@@ -36,4 +29,4 @@ jobs:
           npm run serve &
 
       - name: Test URL
-        run: curl --fail --location --silent --output /dev/null http://localhost:3000${{ matrix.url }}
+        run: npm run test:web-urls
