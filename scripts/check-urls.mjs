@@ -5,6 +5,11 @@ import path from 'node:path';
 // 1xx, 2xx, and 3xx http status do not indicate errors
 const isErrorStatus = (status) => Math.floor(status / 100) > 3;
 
+// HACK: URLs containing periods are not handled correctly by the docusaurus test server currently. The following URLs
+// return 404s even though they exist and work as expected on GH Pages.
+const isProblematicUrl = (url) =>
+  ['/posts/roku-v1.5.0/', '/posts/android-v2.4.0/', '/posts/android-v2.3.0/', '/posts/android-v2.1.0/'].includes(url);
+
 // A path parameter is required to provide a JSON file containing a list of URLs to check
 const [, , pathArg] = process.argv;
 if (!pathArg) {
@@ -18,6 +23,7 @@ const HOST = process.env.CHECK_URL_HOST || 'http://localhost:3000';
 
 // List of any failed requests
 const failures = [];
+const warnings = [];
 
 await Promise.allSettled(
   urls.map(async (url) => {
@@ -27,11 +33,15 @@ await Promise.allSettled(
       const response = await fetch(`${HOST}${url}`);
 
       if (isErrorStatus(response.status)) {
-        failures.push({
-          url,
-          error: new Error(`HTTP Error: ${response.status} ${response.statusText}`),
-          response
-        });
+        if (response.status === 404 && isProblematicUrl(url)) {
+          warnings.push({ url, response });
+        } else {
+          failures.push({
+            url,
+            error: new Error(`HTTP Error: ${response.status} ${response.statusText}`),
+            response
+          });
+        }
       }
     } catch (error) {
       failures.push({ url, error });
@@ -39,9 +49,20 @@ await Promise.allSettled(
   })
 );
 
-if (failures.length === 0) {
-  console.log('🚀 All URLs successful');
-} else {
+if (warnings.length > 0) {
+  console.warn(
+    [
+      '⚠ The following URLs returned 404s, but should have succeeded',
+      ...warnings.map((warning) => `${HOST}${warning.url}`)
+    ].join('\n')
+  );
+}
+
+if (failures.length > 0) {
   console.error(['❌ The following URLs failed', ...failures.map((failure) => `${HOST}${failure.url}`)].join('\n'));
   process.exit(1);
+}
+
+if (warnings.length === 0) {
+  console.log('🚀 All URLs successful');
 }
