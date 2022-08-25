@@ -115,7 +115,13 @@ module.exports = {
     [
       '@docusaurus/plugin-client-redirects',
       {
-        fromExtensions: ['html']
+        fromExtensions: ['html'],
+        redirects: [
+          {
+            from: ['/categories', '/tags'],
+            to: '/posts'
+          }
+        ]
       }
     ]
   ]
