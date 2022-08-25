@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import DetailsCard from '../common/DetailsCard';
 import { Download, DownloadStatus, Feature } from '../../data/downloads';
-import PlatformIcon from '../PlatformIcon';
+import PlatformIcon from '../common/PlatformIcon';
 
 type DownloadButtonProps = {
   name: string;

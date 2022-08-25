@@ -1,5 +1,5 @@
 import React from 'react';
-import Svg from '../../static/images/icon-transparent.svg';
+import Svg from '../../../static/images/icon-transparent.svg';
 import styles from './FreeSoftware.modules.css';
 
 export default function FreeSoftware() {

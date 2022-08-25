@@ -1,5 +1,5 @@
 import React from 'react';
-import Svg from '../../static/images/icons/people.svg';
+import Svg from '../../../static/images/icons/people.svg';
 import styles from './BuiltByVolunteers.modules.css';
 
 export default function BuiltByVolunteers() {

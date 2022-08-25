@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Admonition from '@theme-original/Admonition';
 
-import Pill from '../components/Pill';
+import Pill from '../components/common/Pill';
 import DownloadDetails from '../components/downloads/DownloadDetails';
 import { Downloads, OsType } from '../data/downloads';
 

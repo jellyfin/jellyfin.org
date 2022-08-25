@@ -1,8 +1,8 @@
 import Layout from '@theme/Layout';
 import React, { useState } from 'react';
 
-import ClientDetails from '../components/ClientDetails';
-import Pill from '../components/Pill';
+import ClientDetails from '../components/clients/ClientDetails';
+import Pill from '../components/common/Pill';
 import { Clients, DeviceType } from '../data/clients';
 import Platform from '../data/platform';
 
