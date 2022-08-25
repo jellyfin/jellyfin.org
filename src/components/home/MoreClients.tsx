@@ -1,8 +1,8 @@
 import React from 'react';
-import Web from '../../static/images/icons/web.svg';
-import Desktop from '../../static/images/icons/monitor.svg';
+import Web from '../../../static/images/icons/web.svg';
+import Desktop from '../../../static/images/icons/monitor.svg';
 import { Android, Apple, Roku, Amazon, Kodi } from '@icons-pack/react-simple-icons';
-import Plus from '../../static/images/icons/plus-thick.svg';
+import Plus from '../../../static/images/icons/plus-thick.svg';
 
 export default function MoreClients() {
   return (

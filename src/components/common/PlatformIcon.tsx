@@ -23,9 +23,9 @@ import {
 import clsx from 'clsx';
 import React from 'react';
 
-import Platform from '../data/platform';
-import Desktop from '../../static/images/icons/monitor.svg';
-import Web from '../../static/images/icons/web.svg';
+import Platform from '../../data/platform';
+import Desktop from '../../../static/images/icons/monitor.svg';
+import Web from '../../../static/images/icons/web.svg';
 
 const PlatformIcon = ({
   platform,

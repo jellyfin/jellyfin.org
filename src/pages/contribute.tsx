@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import ContributorGuide from '../components/ContributorGuide';
-import Hero from '../components/Hero';
+import ContributorGuide from '../components/contribute/ContributorGuide';
+import Hero from '../components/common/Hero';
 
 export default function Contribute() {
   return (

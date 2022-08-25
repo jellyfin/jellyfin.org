@@ -1,8 +1,8 @@
 import React from 'react';
 
-import DetailsCard from './common/DetailsCard';
-import PlatformIcon from './PlatformIcon';
-import { Client, ClientType, LicenseType } from '../data/clients';
+import DetailsCard from '../common/DetailsCard';
+import PlatformIcon from '../common/PlatformIcon';
+import { Client, ClientType, LicenseType } from '../../data/clients';
 
 const ClientTypeBadge = ({ clientType }: { clientType: ClientType }) => {
   if (clientType === ClientType.Official) {
