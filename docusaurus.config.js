@@ -124,5 +124,14 @@ module.exports = {
         ]
       }
     ]
+  ],
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        blogRouteBasePath: '/posts'
+      }
+    ]
   ]
 };
