@@ -106,7 +106,7 @@ module.exports = {
           showReadingTime: true
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css')
+          customCss: [require.resolve('@fontsource/noto-sans/index.css'), require.resolve('./src/css/custom.css')]
         }
       }
     ]
