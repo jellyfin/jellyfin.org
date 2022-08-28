@@ -24,6 +24,7 @@
     "@docusaurus/core": "2.0.1",
     "@docusaurus/plugin-client-redirects": "2.0.1",
     "@docusaurus/preset-classic": "2.0.1",
+    "@fontsource/noto-sans": "4.5.11",
     "@icons-pack/react-simple-icons": "5.4.0",
     "@img-comparison-slider/react": "7.7.0",
     "@mdx-js/react": "1.6.22",
