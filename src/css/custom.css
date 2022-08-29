@@ -67,6 +67,13 @@ mark {
   color: var(--ifm-color-black);
 }
 
+a.pills__item {
+  text-decoration: none;
+}
+a.pills__item:not(.pills__item--active) {
+  color: var(--ifm-font-color-base);
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;
