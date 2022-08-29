@@ -446,7 +446,7 @@ export const Clients: Array<Client> = [
   {
     id: 'jellyfin-androidtv',
     name: 'Jellyfin for Android TV',
-    description: 'The official Jellyfin app for Android TV devices.',
+    description: 'The official Jellyfin app for Android TV and Fire TV devices.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.TV],
     licenseType: LicenseType.OpenSource,
