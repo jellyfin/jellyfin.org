@@ -124,5 +124,16 @@ module.exports = {
         ]
       }
     ]
+  ],
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        indexPages: true,
+        blogRouteBasePath: '/posts',
+        ignoreFiles: ['andtv-privacy']
+      }
+    ]
   ]
 };
