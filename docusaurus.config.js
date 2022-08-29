@@ -130,7 +130,9 @@ module.exports = {
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         hashed: true,
-        blogRouteBasePath: '/posts'
+        indexPages: true,
+        blogRouteBasePath: '/posts',
+        ignoreFiles: ['andtv-privacy']
       }
     ]
   ]
