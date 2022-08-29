@@ -1,13 +1,14 @@
+import Link from '@docusaurus/Link';
+import clsx from 'clsx';
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Admonition from '@theme-original/Admonition';
 
-import Pill from '../components/common/Pill';
-import DownloadDetails from '../components/downloads/DownloadDetails';
-import { Downloads, OsType } from '../data/downloads';
+import Pill from '../../components/common/Pill';
+import DownloadDetails from '../../components/downloads/DownloadDetails';
+import { Downloads, OsType } from '../../data/downloads';
 
-export default function DownloadsPage() {
-  const [osType, setOsType] = useState<OsType>(OsType.Linux);
+export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsType }) {
   const [isStableLinks, setIsStableLinks] = useState<boolean>(true);
   const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
   const [activeButton, setActiveButton] = useState<string>();
@@ -20,40 +21,32 @@ export default function DownloadsPage() {
         <section className='container'>
           <div className='row margin-bottom--md'>
             <div className='col'>
-              <ul className='pills margin-bottom--none' style={{ overflowX: 'auto' }}>
-                <Pill
-                  active={osType === OsType.Linux}
-                  onClick={() => {
-                    setOsType(OsType.Linux);
-                  }}
+              <div className='pills' style={{ overflowX: 'auto' }}>
+                <Link
+                  to='/downloads'
+                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Linux })}
                 >
                   Linux
-                </Pill>
-                <Pill
-                  active={osType === OsType.Windows}
-                  onClick={() => {
-                    setOsType(OsType.Windows);
-                  }}
+                </Link>
+                <Link
+                  to='/downloads/windows'
+                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Windows })}
                 >
                   Windows
-                </Pill>
-                <Pill
-                  active={osType === OsType.MacOS}
-                  onClick={() => {
-                    setOsType(OsType.MacOS);
-                  }}
+                </Link>
+                <Link
+                  to='/downloads/macos'
+                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.MacOS })}
                 >
-                  macOS
-                </Pill>
-                <Pill
-                  active={osType === OsType.Docker}
-                  onClick={() => {
-                    setOsType(OsType.Docker);
-                  }}
+                  MacOS
+                </Link>
+                <Link
+                  to='/downloads/docker'
+                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Docker })}
                 >
                   Docker
-                </Pill>
-              </ul>
+                </Link>
+              </div>
             </div>
 
             <div className='col' style={{ textAlign: 'right' }}>
