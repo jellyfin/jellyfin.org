@@ -1,10 +1,11 @@
+import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
+import clsx from 'clsx';
 import React, { useState } from 'react';
 
-import ClientDetails from '../components/clients/ClientDetails';
-import Pill from '../components/common/Pill';
-import { Clients, DeviceType } from '../data/clients';
-import Platform from '../data/platform';
+import ClientDetails from '../../components/clients/ClientDetails';
+import { Clients, DeviceType } from '../../data/clients';
+import Platform from '../../data/platform';
 
 type ClientFilter = {
   recommended: boolean;
@@ -12,9 +13,9 @@ type ClientFilter = {
   platform?: Platform;
 };
 
-export default function Plugins() {
-  const [filter, setFilter] = useState<ClientFilter>({
-    recommended: true
+export default function ClientsPage({ recommended = true }: { recommended?: boolean }) {
+  const [filter] = useState<ClientFilter>({
+    recommended
   });
 
   return (
@@ -23,24 +24,14 @@ export default function Plugins() {
 
       <main className='margin-vert--lg'>
         <section className='container'>
-          <ul className='pills'>
-            <Pill
-              active={filter.recommended}
-              onClick={() => {
-                setFilter({ ...filter, recommended: true });
-              }}
-            >
+          <div className='pills margin-bottom--md'>
+            <Link to='/clients' className={clsx('pills__item', { 'pills__item--active': filter.recommended })}>
               Recommended Clients
-            </Pill>
-            <Pill
-              active={!filter.recommended}
-              onClick={() => {
-                setFilter({ ...filter, recommended: false });
-              }}
-            >
+            </Link>
+            <Link to='/clients/all' className={clsx('pills__item', { 'pills__item--active': !filter.recommended })}>
               All Clients
-            </Pill>
-          </ul>
+            </Link>
+          </div>
 
           {Clients.filter((client) => {
             let result = true;
