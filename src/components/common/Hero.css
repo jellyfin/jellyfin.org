@@ -66,3 +66,16 @@
   text-align: center;
   margin-bottom: 0;
 }
+
+.hero__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (max-width: 526px) {
+  .hero__buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

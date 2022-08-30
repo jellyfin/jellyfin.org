@@ -19,12 +19,14 @@ export default function Home() {
           Jellyfin is the volunteer-built media solution that puts <em>you</em> in control of your media. Stream to any
           device from your own server, with no strings attached. Your media, your server, your way.
         </p>
-        <a href='https://demo.jellyfin.org/stable' className='button button--lg button--secondary button--outline'>
-          See it in Action
-        </a>
-        <a href='/downloads' className='button button--lg button--primary margin-left--md'>
-          Download Now
-        </a>
+        <div className='hero__buttons'>
+          <a href='https://demo.jellyfin.org/stable' className='button button--lg button--secondary button--outline'>
+            See it in Action
+          </a>
+          <a href='/downloads' className='button button--lg button--primary'>
+            Download Now
+          </a>
+        </div>
       </Hero>
       <main>
         <HomepageFeatures />
