@@ -1,3 +1,4 @@
+import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import React, { useState } from 'react';
 
@@ -172,8 +173,8 @@ export default function ContributorGuide() {
                   <p>
                     Once you&apos;ve found a bug you&apos;d like to fix, head over to the{' '}
                     <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin hacking.
-                    Development documentation can be found on the <a href='/docs'>Documentation page</a>. When the fix
-                    is ready, feel free to propose it to other users in the issue to get them to help test as well.
+                    Development documentation can be found on the <Link to='/docs'>Documentation page</Link>. When the
+                    fix is ready, feel free to propose it to other users in the issue to get them to help test as well.
                   </p>
                   <p>
                     You should always develop bugfixes on a dedicated Git branch within your own Fork of Jellyfin (the
@@ -232,7 +233,7 @@ export default function ContributorGuide() {
                         Features of this type should be implemented directly into the core server itself. Once
                         you&apos;ve found a feature you want to implement, head over to the{' '}
                         <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin hacking.
-                        Development documentation can be found on the <a href='/docs'>Documentation page</a>.
+                        Development documentation can be found on the <Link to='/docs'>Documentation page</Link>.
                       </p>
                       <p>
                         You should always develop features on a dedicated Git branch within your own Fork of Jellyfin
@@ -257,9 +258,11 @@ export default function ContributorGuide() {
                         <a href='https://github.com/jellyfin/jellyfin-plugin-template'>Plugin Template repository</a>{' '}
                         and clone this repository into a new project. Official plugins are named
                         &ldquo;jellyfin-plugin-mycoolname&rdquo;. You can use this template to get you started on
-                        writing the plugin. You may also want to consult the{' '}
+                        writing the plugin.
+                        {/* FIXME: The plugin-api docs need a new home */}
+                        {/* You may also want to consult the{' '}
                         <a href='/docs/plugin-api/index.html'>Jellyfin API documentation</a> to help learn the
-                        interfaces available.
+                        interfaces available. */}
                       </p>
                       <p>
                         Once your plugin is working as expected, and all information filled out, publish your code to
@@ -328,9 +331,9 @@ export default function ContributorGuide() {
                   <p>
                     Once you&apos;ve found a bug you&apos;d like to fix, head over to the{' '}
                     <a href='https://github.com/jellyfin/jellyfin-web'>GitHub page</a> for the web client and begin
-                    hacking. Development documentation can be found on the <a href='/docs'>Documentation page</a>. When
-                    the fix is ready, feel free to propose it to other users in the issue to get them to help test as
-                    well.
+                    hacking. Development documentation can be found on the <Link to='/docs'>Documentation page</Link>.
+                    When the fix is ready, feel free to propose it to other users in the issue to get them to help test
+                    as well.
                   </p>
                   <p>
                     You should always develop bugfixes on a dedicated Git branch within your own Fork of Jellyfin&apos;s
@@ -355,7 +358,7 @@ export default function ContributorGuide() {
                   <p>
                     Once you&apos;ve found a feature you&apos;d like to implement, head over to the{' '}
                     <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin hacking.
-                    Development documentation can be found on the <a href='/docs'>Documentation page</a>.
+                    Development documentation can be found on the <Link to='/docs'>Documentation page</Link>.
                   </p>
                   <p>
                     You should always develop features on a dedicated Git branch within your own Fork of Jellyfin&apos;s
@@ -458,7 +461,7 @@ export default function ContributorGuide() {
               different, and you can help! If you come across anything that you think should be documented, such as how
               to do things, configuration steps, or just general helpful pointers, we welcome contributions to{' '}
               <a href='https://github.com/jellyfin/jellyfin.org'>our Documentation Repository</a>, visible{' '}
-              <a href='/docs'>here</a>.
+              <Link to='/docs'>here</Link>.
             </div>
           )}
 

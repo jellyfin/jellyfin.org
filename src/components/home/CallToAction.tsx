@@ -1,4 +1,6 @@
+import Link from '@docusaurus/Link';
 import React from 'react';
+
 import styles from './CallToAction.modules.css';
 
 export default function CallToAction() {
@@ -9,9 +11,9 @@ export default function CallToAction() {
         <p className={styles['cta-sub']}>
           Check out our Getting Started guide to download and set up your server today.
         </p>
-        <a href='/downloads' className='button button--primary button--lg margin-top--lg'>
+        <Link to='/downloads' className='button button--primary button--lg margin-top--lg'>
           Download Jellyfin
-        </a>
+        </Link>
       </div>
     </div>
   );
