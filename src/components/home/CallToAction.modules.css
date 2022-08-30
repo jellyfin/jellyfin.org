@@ -1,13 +1,11 @@
 .cta {
-    background: linear-gradient(to left,#3E2247,#003C50);
-    color: #fff;
-    padding: 48pt 0;
-    text-align: center;
+  background: linear-gradient(to left, var(--jf-gradient-color-secondary-dark), var(--jf-gradient-color-primary-dark));
+  color: #fff;
+  padding: 4rem 0;
+  text-align: center;
 }
 
 .cta-sub {
-    opacity: .85;
-    max-width: 58ch;
-    margin: 16pt auto 24pt;
+  opacity: 0.85;
+  margin: 0;
 }
-

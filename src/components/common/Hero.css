@@ -1,7 +1,6 @@
 .hero {
   position: relative;
   width: 100%;
-  color: #fff;
   padding: 0;
 }
 
@@ -13,13 +12,13 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  opacity: .9;
+  opacity: 0.9;
   z-index: 1;
-  background-color: #3e2247;
+  background-color: var(--jf-gradient-color-secondary-dark);
 }
 
 .hero__overlay--gradient {
-  background: linear-gradient(220deg,#3E2247,#003C50);
+  background: linear-gradient(220deg, var(--jf-gradient-color-secondary-dark), var(--jf-gradient-color-primary-dark));
 }
 
 .hero__inner {
@@ -56,14 +55,14 @@
 }
 
 .hero__title {
-  color: #fff;
-  margin-bottom: 1.25em;
+  font-size: var(--ifm-h1-font-size);
+  margin-bottom: 2rem;
 }
 
 .hero__text {
-  opacity: .85;
+  opacity: 0.85;
   line-height: 1.7;
-  text-align: left;
   font-size: 1.1em;
   text-align: center;
+  margin-bottom: 0;
 }
