@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
+
 import ContributorGuide from '../components/contribute/ContributorGuide';
 import Hero from '../components/common/Hero';
 
@@ -21,8 +23,8 @@ export default function Contribute() {
           </p>
           <p>
             Before contributing, please read over our{' '}
-            <a href='/docs/general/community-standards'>Community&nbsp;Standards</a> and&nbsp;
-            <a href='/docs/general/contributing'>Contributing&nbsp;Guide</a>.
+            <Link to='/docs/general/community-standards'>Community&nbsp;Standards</Link> and&nbsp;
+            <Link to='/docs/general/contributing'>Contributing&nbsp;Guide</Link>.
           </p>
         </section>
 

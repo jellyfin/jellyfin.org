@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 
 import HomepageFeatures from '../components/home/HomepageFeatures';
@@ -23,9 +24,9 @@ export default function Home() {
           <a href='https://demo.jellyfin.org/stable' className='button button--lg button--secondary button--outline'>
             See it in Action
           </a>
-          <a href='/downloads' className='button button--lg button--primary'>
+          <Link to='/downloads' className='button button--lg button--primary'>
             Download Now
-          </a>
+          </Link>
         </div>
       </Hero>
       <main>
