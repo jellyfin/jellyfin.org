@@ -1,0 +1,19 @@
+.stable-links-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.stable-links {
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 996px) {
+  .stable-links-container {
+    flex-direction: row;
+  }
+
+  .stable-links {
+    flex-direction: row;
+  }
+}

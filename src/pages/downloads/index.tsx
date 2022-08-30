@@ -8,6 +8,8 @@ import Pill from '../../components/common/Pill';
 import DownloadDetails from '../../components/downloads/DownloadDetails';
 import { Downloads, OsType } from '../../data/downloads';
 
+import styles from './index.module.css';
+
 export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsType }) {
   const [isStableLinks, setIsStableLinks] = useState<boolean>(true);
   const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
@@ -19,8 +21,8 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
 
       <main className='margin-vert--lg'>
         <section className='container'>
-          <div className='row margin-bottom--md'>
-            <div className='col'>
+          <div className='row'>
+            <div className='col margin-bottom--md'>
               <div className='pills' style={{ overflowX: 'auto' }}>
                 <Link
                   to='/downloads'
@@ -49,7 +51,28 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
               </div>
             </div>
 
-            <div className='col' style={{ textAlign: 'right' }}>
+            <div className={clsx('col', 'margin-bottom--md', styles['stable-links-container'])}>
+              <ul className={clsx('pills', 'margin-bottom--none', styles['stable-links'])}>
+                <Pill
+                  active={isStableLinks}
+                  onClick={() => {
+                    setIsStableLinks(true);
+                    setActiveButton(null);
+                  }}
+                >
+                  Stable
+                </Pill>
+                <Pill
+                  active={!isStableLinks}
+                  onClick={() => {
+                    setIsStableLinks(false);
+                    setActiveButton(null);
+                  }}
+                >
+                  Unstable
+                </Pill>
+              </ul>
+
               <button
                 className='button button--link'
                 onClick={() => {
@@ -61,27 +84,6 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
               >
                 Help?
               </button>
-
-              <ul className='pills margin-bottom--none' style={{ display: 'inline-flex' }}>
-                <Pill
-                  active={!isStableLinks}
-                  onClick={() => {
-                    setIsStableLinks(false);
-                    setActiveButton(null);
-                  }}
-                >
-                  Unstable
-                </Pill>
-                <Pill
-                  active={isStableLinks}
-                  onClick={() => {
-                    setIsStableLinks(true);
-                    setActiveButton(null);
-                  }}
-                >
-                  Stable
-                </Pill>
-              </ul>
             </div>
           </div>
 
