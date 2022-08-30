@@ -89,7 +89,11 @@ module.exports = {
           to: '/contact'
         }
       ],
-      copyright: `Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
+      copyright: `<a href="https://github.com/jellyfin/jellyfin/releases/latest">
+<img alt="Current Release" src="https://img.shields.io/github/release/jellyfin/jellyfin.svg"/>
+</a>
+<br/>
+Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
     }
   },
   presets: [

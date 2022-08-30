@@ -15,9 +15,14 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
 
   return (
     <Layout title='Downloads'>
-      <h1 className='text--center'>Downloads</h1>
+      <h1 className='text--center margin-bottom--sm'>Downloads</h1>
+      <div className='text--center'>
+        <a href='https://github.com/jellyfin/jellyfin/releases/latest'>
+          <img alt='Current Release' src='https://img.shields.io/github/release/jellyfin/jellyfin.svg' />
+        </a>
+      </div>
 
-      <main className='margin-vert--lg'>
+      <main className='margin-top--md margin-bottom--lg'>
         <section className='container'>
           <div className='row margin-bottom--md'>
             <div className='col'>
