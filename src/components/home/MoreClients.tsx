@@ -1,12 +1,16 @@
+import clsx from 'clsx';
 import React from 'react';
-import Web from '../../../static/images/icons/web.svg';
-import Desktop from '../../../static/images/icons/monitor.svg';
 import { Android, Apple, Roku, Amazon, Kodi } from '@icons-pack/react-simple-icons';
+
+import Desktop from '../../../static/images/icons/monitor.svg';
 import Plus from '../../../static/images/icons/plus-thick.svg';
+import Web from '../../../static/images/icons/web.svg';
+
+import styles from './LandingSection.module.css';
 
 export default function MoreClients() {
   return (
-    <section className='landing-section padding-vert--xl'>
+    <section className={clsx(styles['landing-section'], 'padding-vert--xl')}>
       <div className='container'>
         <div className='row'>
           <div className='col col--12 display--flex flex-direction--column align-items--center'>

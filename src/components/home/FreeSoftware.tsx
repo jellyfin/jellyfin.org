@@ -1,10 +1,13 @@
+import clsx from 'clsx';
 import React from 'react';
+
 import Svg from '../../../static/images/icon-transparent.svg';
-import styles from './FreeSoftware.modules.css';
+
+import styles from './LandingSection.module.css';
 
 export default function FreeSoftware() {
   return (
-    <section className='landing-section padding-vert--xl'>
+    <section className={clsx(styles['landing-section'], 'padding-vert--xl')}>
       <div className='container'>
         <div className='row'>
           <div className='col col--6'>
