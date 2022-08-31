@@ -1,6 +1,9 @@
+import clsx from 'clsx';
 import React from 'react';
+
 import Svg from '../../../static/images/icons/people.svg';
-import styles from './BuiltByVolunteers.modules.css';
+
+import styles from './LandingSection.module.css';
 
 export default function BuiltByVolunteers() {
   // When updating members count here, substract one to account for jellyfin-bot.
@@ -8,7 +11,7 @@ export default function BuiltByVolunteers() {
   const contributors = 1000;
 
   return (
-    <section className='landing-section padding-vert--xl'>
+    <section className={clsx(styles['landing-section'], 'padding-vert--xl')}>
       <div className='container'>
         <div className='row'>
           <div className='col col--6 padding--lg'>
