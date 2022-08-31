@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { ComponentType, HTMLProps, ReactNode } from 'react';
+import { Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
 import styles from './HomepageFeatures.module.css';
 
-const FeatureList = [
+type Feature = {
+  title: string;
+  description: ReactNode;
+  Svg: ComponentType<HTMLProps<HTMLElement & SVGElement>>;
+};
+
+const FeatureList: Feature[] = [
   {
     title: 'Movies',
     Svg: require('/static/images/illustrations/undraw_home_cinema.svg').default,
@@ -39,17 +50,17 @@ const FeatureList = [
   }
 ];
 
-function Feature({ Svg, title, description }: { Svg: any; title: string; description: JSX.Element; key: number }) {
+function FeatureCard({ Svg, title, description }: Feature) {
   return (
-    <div className='col col--3'>
+    <>
       <div className='text--center'>
-        <Svg className={styles.featureSvg} alt={title} />
+        <Svg className={styles.featureSvg} title={title} />
       </div>
       <div className='text--center padding-horiz--md'>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -57,10 +68,32 @@ export default function HomepageFeatures() {
   return (
     <section className={`${styles.features} landing-section padding-vert--xl`}>
       <div className='container'>
-        <div className='row row-justify--center padding-horiz--sm'>
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+        <div className='row row--center text--center'>
+          <div className='col col--8'>
+            <h2>What is Jellyfin?</h2>
+            <p>
+              Jellyfin enables you to collect, manage, and stream your media. Run the Jellyfin server on your system and
+              gain access to the leading free-software entertainment system, bells <em>and</em> whistles included.
+            </p>
+          </div>
+        </div>
+        <div className='row row--center padding-horiz--sm'>
+          {FeatureList.map((feature) => (
+            <div key={`column-${feature.title}`} className='col col--3 hidden--mobile'>
+              <SwiperSlide>
+                <FeatureCard {...feature} />
+              </SwiperSlide>
+            </div>
           ))}
+          <div className='col hidden--desktop'>
+            <Swiper navigation modules={[Navigation]}>
+              {FeatureList.map((feature) => (
+                <SwiperSlide key={`slide-${feature.title}`}>
+                  <FeatureCard {...feature} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
     </section>
