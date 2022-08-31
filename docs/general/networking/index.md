@@ -52,7 +52,7 @@ Live TV devices will often use a random UDP port for HDHomeRun devices. The serv
 
 ### Monitoring Endpoints
 
-See @monitoring for details on the monitoring endpoints that Jellyfin provides.
+See [monitoring](/docs/general/networking/monitoring) for details on the monitoring endpoints that Jellyfin provides.
 
 ## Self-Signed Certificate
 
