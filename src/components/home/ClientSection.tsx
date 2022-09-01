@@ -16,7 +16,7 @@ export default function ClientSection() {
       <div className='container text--center'>
         <div className='row row--center'>
           <div className='col col--8'>
-            <h2>Your media, wherever you are</h2>
+            <h2>Your media, wherever you&nbsp;are</h2>
             <p>
               With a large array of official and third-party clients, Jellyfin is available on most popular platforms.
               Your media is ready to follow you, wherever you go.
