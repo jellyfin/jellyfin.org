@@ -112,10 +112,6 @@ a.pills__item:not(.pills__item--active) {
   fill: var(--ifm-font-color-base);
 }
 
-.client-icon-block {
-  width: 7em;
-}
-
 @media (max-width: 996px) {
   .hidden--mobile {
     display: none;

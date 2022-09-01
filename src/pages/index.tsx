@@ -5,7 +5,7 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '../components/home/HomepageFeatures';
 import FreeSoftware from '../components/home/FreeSoftware';
 import BuiltByVolunteers from '../components/home/BuiltByVolunteers';
-import MoreClients from '../components/home/MoreClients';
+import ClientSection from '../components/home/ClientSection';
 import CallToAction from '../components/home/CallToAction';
 import Hero from '../components/common/Hero';
 
@@ -31,9 +31,9 @@ export default function Home() {
       </Hero>
       <main>
         <HomepageFeatures />
+        <ClientSection />
         <FreeSoftware />
         <BuiltByVolunteers />
-        <MoreClients />
         <CallToAction />
       </main>
     </Layout>
