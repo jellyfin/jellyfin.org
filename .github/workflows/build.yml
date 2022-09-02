@@ -27,7 +27,7 @@ jobs:
           npm run build
       - name: Upload artifact
         if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@f4e69017a716d2d729b620cba1f4016257fedec6 # tag=v1
+        uses: actions/upload-pages-artifact@a597aecd27af1cf14095ccaa29169358e3d91e28 # tag=v1
         with:
           path: ./build
 
