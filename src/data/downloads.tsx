@@ -53,15 +53,31 @@ export const Downloads: Array<Download> = [
         id: 'debian-stable-button',
         name: 'Install Instructions',
         details: (
-          <pre className='margin-bottom--none'>
-            <code>
-              {`sudo apt install curl gnupg
+          <>
+            <pre>
+              <code>
+                {`sudo apt install curl gnupg
 curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/jellyfin.gpg
 echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release ) $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
 sudo apt update
 sudo apt install jellyfin`}
-            </code>
-          </pre>
+              </code>
+            </pre>
+            <p>
+              <b>Note:</b> The third command should give you output similar to{' '}
+              <code>deb [arch=(architecture)] https://repo.jellyfin.org/(distribution) (release) main</code>. We support{' '}
+              <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures, <code>debian</code> and{' '}
+              <code>ubuntu</code> for distributions, <code>buster</code> and <code>bullseye</code> for Debian releases
+              and <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu
+              releases. If you see something different in your output, you might need to manually modify it. Use the
+              closest equivalent Debian or Ubuntu version instead.
+            </p>
+            <p className='margin-bottom--none'>
+              Once installed, Jellyfin will be running as a service. Manage it with{' '}
+              <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
+              <code>{'sudo service jellyfin {action}'}</code>.
+            </p>
+          </>
         )
       }
     ],
@@ -70,15 +86,35 @@ sudo apt install jellyfin`}
         id: 'debian-unstable-button',
         name: 'Install Instructions',
         details: (
-          <pre className='margin-bottom--none'>
-            <code>
-              {`sudo apt install curl gnupg
+          <>
+            <pre>
+              <code>
+                {`sudo apt install curl gnupg
 curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | gpg --dearmor -o /etc/apt/trusted.gpg.d/jellyfin.gpg
 echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release ) $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release ) main unstable" | sudo tee /etc/apt/sources.list.d/jellyfin.list
 sudo apt update
 sudo apt install jellyfin`}
-            </code>
-          </pre>
+              </code>
+            </pre>
+            <p>
+              <b>Note:</b> The third command should give you output similar to{' '}
+              <code>deb [arch=(architecture)] https://repo.jellyfin.org/(distribution) (release) main</code>. We support{' '}
+              <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures, <code>debian</code> and{' '}
+              <code>ubuntu</code> for distributions, <code>buster</code> and <code>bullseye</code> for Debian releases
+              and <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu
+              releases. If you see something different in your output, you might need to manually modify it. Use the
+              closest equivalent Debian or Ubuntu version instead.
+            </p>
+            <p>
+              <b>Note:</b> Both the <code>main</code> and <code>unstable</code> are needed as the{' '}
+              <code>jellyfin-ffmpeg</code> package is only in the <code>main</code> component.
+            </p>
+            <p className='margin-bottom--none'>
+              Once installed, Jellyfin will be running as a service. Manage it with{' '}
+              <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
+              <code>{'sudo service jellyfin {action}'}</code>.
+            </p>
+          </>
         )
       }
     ],
@@ -108,29 +144,13 @@ sudo apt install jellyfin`}
         id: 'arch-stable-button',
         name: 'Install Instructions',
         details: (
-          <>
-            <pre>
-              <code>
-                {`git clone https://aur.archlinux.org/jellyfin.git
+          <pre className='margin-bottom--none'>
+            <code>
+              {`git clone https://aur.archlinux.org/jellyfin.git
 cd jellyfin
 makepkg -si`}
-              </code>
-            </pre>
-            <p>
-              <b>Note:</b> The third command should give you output similar to{' '}
-              <code>deb [arch=(architecture)] https://repo.jellyfin.org/(distribution) (release) main</code>. We support{' '}
-              <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures, <code>debian</code> and{' '}
-              <code>ubuntu</code> for distributions, <code>buster</code> and <code>bullseye</code> for Debian releases
-              and <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu
-              releases. If you see something different in your output, you might need to manually modify it. Use the
-              closest equivalent Debian or Ubuntu version instead.
-            </p>
-            <p className='margin-bottom--none'>
-              Once installed, Jellyfin will be running as a service. Manage it with{' '}
-              <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
-              <code>{'sudo service jellyfin {action}'}</code>.
-            </p>
-          </>
+            </code>
+          </pre>
         )
       }
     ],
@@ -139,33 +159,13 @@ makepkg -si`}
         id: 'arch-unstable-button',
         name: 'Install Instructions',
         details: (
-          <>
-            <pre>
-              <code>
-                {`git clone https://aur.archlinux.org/jellyfin-git.git
+          <pre className='margin-bottom--none'>
+            <code>
+              {`git clone https://aur.archlinux.org/jellyfin-git.git
 cd jellyfin-git
 makepkg -si`}
-              </code>
-            </pre>
-            <p>
-              <b>Note:</b> The third command should give you output similar to{' '}
-              <code>deb [arch=(architecture)] https://repo.jellyfin.org/(distribution) (release) main</code>. We support{' '}
-              <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures, <code>debian</code> and{' '}
-              <code>ubuntu</code> for distributions, <code>buster</code> and <code>bullseye</code> for Debian releases
-              and <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu
-              releases. If you see something different in your output, you might need to manually modify it. Use the
-              closest equivalent Debian or Ubuntu version instead.
-            </p>
-            <p>
-              <b>Note:</b> Both the <code>main</code> and <code>unstable</code> are needed as the{' '}
-              <code>jellyfin-ffmpeg</code> package is only in the <code>main</code> component.
-            </p>
-            <p className='margin-bottom--none'>
-              Once installed, Jellyfin will be running as a service. Manage it with{' '}
-              <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
-              <code>{'sudo service jellyfin {action}'}</code>.
-            </p>
-          </>
+            </code>
+          </pre>
         )
       }
     ],
