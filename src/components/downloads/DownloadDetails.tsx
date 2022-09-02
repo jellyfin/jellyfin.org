@@ -100,7 +100,11 @@ const DownloadDetails = ({ download, isStableLinks, activeButton, setActiveButto
               name={button.name || 'Downloads'}
               url={button.url}
               onClick={() => {
-                setActiveButton(button.id);
+                if (activeButton === button.id) {
+                  setActiveButton(null);
+                } else {
+                  setActiveButton(button.id);
+                }
               }}
               active={activeButton === button.id}
             />
