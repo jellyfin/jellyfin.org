@@ -57,7 +57,7 @@ const StatusBadge = ({ status }: { status: DownloadStatus }) => {
 };
 
 const FfmpegBadge = ({ features }: { features: Array<Feature> }) => {
-  if (!features.includes(Feature.CustomFfmpeg)) {
+  if (!features.includes(Feature.CustomFFmpeg)) {
     return (
       <span
         className='badge badge--warning margin-right--sm'

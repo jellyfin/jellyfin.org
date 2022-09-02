@@ -9,7 +9,7 @@ export enum DownloadStatus {
 }
 
 export enum Feature {
-  CustomFfmpeg
+  CustomFFmpeg
 }
 
 export enum OsType {
@@ -45,7 +45,7 @@ export const Downloads: Array<Download> = [
     name: 'Debian and Ubuntu',
     osTypes: [OsType.Linux],
     status: DownloadStatus.Official,
-    features: [Feature.CustomFfmpeg],
+    features: [Feature.CustomFFmpeg],
     platforms: [Platform.Debian, Platform.Ubuntu],
     description: 'Install Jellyfin via our APT repository or via manual archives (.deb).',
     stableButtons: [
@@ -100,7 +100,7 @@ sudo apt install jellyfin`}
     name: 'Arch Linux',
     osTypes: [OsType.Linux],
     status: DownloadStatus.Community,
-    features: [Feature.CustomFfmpeg],
+    features: [Feature.CustomFFmpeg],
     platforms: [Platform.Arch],
     description: 'Install Jellyfin via the Arch User Repository.',
     stableButtons: [
@@ -268,7 +268,7 @@ makepkg -si`}
     name: 'Windows',
     osTypes: [OsType.Windows],
     status: DownloadStatus.Official,
-    features: [Feature.CustomFfmpeg],
+    features: [Feature.CustomFFmpeg],
     platforms: [Platform.Windows],
     description: 'Both installers (.exe) and manual ZIP archives (.zip) are provided.',
     stableButtons: [{ id: 'windows-stable-link', url: 'https://repo.jellyfin.org/releases/server/windows/stable' }],
@@ -282,7 +282,7 @@ makepkg -si`}
     name: 'MacOS',
     osTypes: [OsType.MacOS],
     status: DownloadStatus.Official,
-    features: [Feature.CustomFfmpeg],
+    features: [Feature.CustomFFmpeg],
     platforms: [Platform.MacOS],
     description: 'Both installers (.dmg) and manual ZIP archives (.tar.gz) are provided.',
     stableButtons: [{ id: 'macos-stable-link', url: 'https://repo.jellyfin.org/releases/server/macos/stable' }],
@@ -294,7 +294,7 @@ makepkg -si`}
     name: 'Docker',
     osTypes: [OsType.Docker],
     status: DownloadStatus.Official,
-    features: [Feature.CustomFfmpeg],
+    features: [Feature.CustomFFmpeg],
     platforms: [Platform.Docker],
     description: (
       <>
