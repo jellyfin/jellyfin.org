@@ -57,7 +57,7 @@ const StatusBadge = ({ status }: { status: DownloadStatus }) => {
 };
 
 const FfmpegBadge = ({ features }: { features: Array<Feature> }) => {
-  if (!features.includes(Feature.CustomFfmpeg)) {
+  if (!features.includes(Feature.CustomFFmpeg)) {
     return (
       <span
         className='badge badge--warning margin-right--sm'
@@ -100,7 +100,11 @@ const DownloadDetails = ({ download, isStableLinks, activeButton, setActiveButto
               name={button.name || 'Downloads'}
               url={button.url}
               onClick={() => {
-                setActiveButton(button.id);
+                if (activeButton === button.id) {
+                  setActiveButton(null);
+                } else {
+                  setActiveButton(button.id);
+                }
               }}
               active={activeButton === button.id}
             />

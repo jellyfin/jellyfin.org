@@ -9,7 +9,7 @@ export enum DownloadStatus {
 }
 
 export enum Feature {
-  CustomFfmpeg
+  CustomFFmpeg
 }
 
 export enum OsType {
@@ -45,7 +45,7 @@ export const Downloads: Array<Download> = [
     name: 'Debian and Ubuntu',
     osTypes: [OsType.Linux],
     status: DownloadStatus.Official,
-    features: [Feature.CustomFfmpeg],
+    features: [Feature.CustomFFmpeg],
     platforms: [Platform.Debian, Platform.Ubuntu],
     description: 'Install Jellyfin via our APT repository or via manual archives (.deb).',
     stableButtons: [
@@ -53,67 +53,14 @@ export const Downloads: Array<Download> = [
         id: 'debian-stable-button',
         name: 'Install Instructions',
         details: (
-          <pre className='margin-bottom--none'>
-            <code>
-              {`sudo apt install curl gnupg
+          <>
+            <pre>
+              <code>
+                {`sudo apt install curl gnupg
 curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/jellyfin.gpg
 echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release ) $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
 sudo apt update
 sudo apt install jellyfin`}
-            </code>
-          </pre>
-        )
-      }
-    ],
-    unstableButtons: [
-      {
-        id: 'debian-unstable-button',
-        name: 'Install Instructions',
-        details: (
-          <pre className='margin-bottom--none'>
-            <code>
-              {`sudo apt install curl gnupg
-curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | gpg --dearmor -o /etc/apt/trusted.gpg.d/jellyfin.gpg
-echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release ) $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release ) main unstable" | sudo tee /etc/apt/sources.list.d/jellyfin.list
-sudo apt update
-sudo apt install jellyfin`}
-            </code>
-          </pre>
-        )
-      }
-    ],
-    otherButtons: [
-      {
-        id: 'debian-all-link',
-        name: 'All Debian Versions',
-        url: 'https://repo.jellyfin.org/releases/server/debian/versions'
-      },
-      {
-        id: 'ubuntu-all-link',
-        name: 'All Ubuntu Versions',
-        url: 'https://repo.jellyfin.org/releases/server/ubuntu/versions'
-      }
-    ]
-  },
-  {
-    id: 'arch',
-    name: 'Arch Linux',
-    osTypes: [OsType.Linux],
-    status: DownloadStatus.Community,
-    features: [Feature.CustomFfmpeg],
-    platforms: [Platform.Arch],
-    description: 'Install Jellyfin via the Arch User Repository.',
-    stableButtons: [
-      {
-        id: 'arch-stable-button',
-        name: 'Install Instructions',
-        details: (
-          <>
-            <pre>
-              <code>
-                {`git clone https://aur.archlinux.org/jellyfin.git
-cd jellyfin
-makepkg -si`}
               </code>
             </pre>
             <p>
@@ -136,15 +83,17 @@ makepkg -si`}
     ],
     unstableButtons: [
       {
-        id: 'arch-unstable-button',
+        id: 'debian-unstable-button',
         name: 'Install Instructions',
         details: (
           <>
             <pre>
               <code>
-                {`git clone https://aur.archlinux.org/jellyfin-git.git
-cd jellyfin-git
-makepkg -si`}
+                {`sudo apt install curl gnupg
+curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | gpg --dearmor -o /etc/apt/trusted.gpg.d/jellyfin.gpg
+echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release ) $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release ) main unstable" | sudo tee /etc/apt/sources.list.d/jellyfin.list
+sudo apt update
+sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
@@ -166,6 +115,57 @@ makepkg -si`}
               <code>{'sudo service jellyfin {action}'}</code>.
             </p>
           </>
+        )
+      }
+    ],
+    otherButtons: [
+      {
+        id: 'debian-all-link',
+        name: 'All Debian Versions',
+        url: 'https://repo.jellyfin.org/releases/server/debian/versions'
+      },
+      {
+        id: 'ubuntu-all-link',
+        name: 'All Ubuntu Versions',
+        url: 'https://repo.jellyfin.org/releases/server/ubuntu/versions'
+      }
+    ]
+  },
+  {
+    id: 'arch',
+    name: 'Arch Linux',
+    osTypes: [OsType.Linux],
+    status: DownloadStatus.Community,
+    features: [Feature.CustomFFmpeg],
+    platforms: [Platform.Arch],
+    description: 'Install Jellyfin via the Arch User Repository.',
+    stableButtons: [
+      {
+        id: 'arch-stable-button',
+        name: 'Install Instructions',
+        details: (
+          <pre className='margin-bottom--none'>
+            <code>
+              {`git clone https://aur.archlinux.org/jellyfin.git
+cd jellyfin
+makepkg -si`}
+            </code>
+          </pre>
+        )
+      }
+    ],
+    unstableButtons: [
+      {
+        id: 'arch-unstable-button',
+        name: 'Install Instructions',
+        details: (
+          <pre className='margin-bottom--none'>
+            <code>
+              {`git clone https://aur.archlinux.org/jellyfin-git.git
+cd jellyfin-git
+makepkg -si`}
+            </code>
+          </pre>
         )
       }
     ],
@@ -268,7 +268,7 @@ makepkg -si`}
     name: 'Windows',
     osTypes: [OsType.Windows],
     status: DownloadStatus.Official,
-    features: [Feature.CustomFfmpeg],
+    features: [Feature.CustomFFmpeg],
     platforms: [Platform.Windows],
     description: 'Both installers (.exe) and manual ZIP archives (.zip) are provided.',
     stableButtons: [{ id: 'windows-stable-link', url: 'https://repo.jellyfin.org/releases/server/windows/stable' }],
@@ -282,7 +282,7 @@ makepkg -si`}
     name: 'MacOS',
     osTypes: [OsType.MacOS],
     status: DownloadStatus.Official,
-    features: [Feature.CustomFfmpeg],
+    features: [Feature.CustomFFmpeg],
     platforms: [Platform.MacOS],
     description: 'Both installers (.dmg) and manual ZIP archives (.tar.gz) are provided.',
     stableButtons: [{ id: 'macos-stable-link', url: 'https://repo.jellyfin.org/releases/server/macos/stable' }],
@@ -294,7 +294,7 @@ makepkg -si`}
     name: 'Docker',
     osTypes: [OsType.Docker],
     status: DownloadStatus.Official,
-    features: [Feature.CustomFfmpeg],
+    features: [Feature.CustomFFmpeg],
     platforms: [Platform.Docker],
     description: (
       <>
