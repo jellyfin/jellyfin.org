@@ -4,7 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import landingSectionStyles from './LandingSection.module.css';
 import styles from './HomepageFeatures.module.css';
+import clsx from 'clsx';
 
 type Feature = {
   title: string;
@@ -66,7 +68,7 @@ function FeatureCard({ Svg, title, description }: Feature) {
 
 export default function HomepageFeatures() {
   return (
-    <section className={`${styles.features} landing-section padding-vert--xl`}>
+    <section className={clsx(styles.features, landingSectionStyles['landing-section'], 'padding-vert--xl')}>
       <div className='container'>
         <div className='row row--center text--center'>
           <div className='col col--8'>
