@@ -15,11 +15,13 @@ You can find our main repository on [GitHub](https://github.com/jellyfin/jellyfi
 
 ## Core Team
 
-[Joshua Boniface (joshuaboniface)](https://github.com/joshuaboniface)<br/>
-[Anthony Lavado (anthonylavado)](https://github.com/anthonylavado)<br/>
-[Andrew Rabert (nvllsvm)](https://github.com/nvllsvm)<br/>
-[Bond-009](https://github.com/Bond-009)<br/>
-[dkanada](https://github.com/dkanada)<br/>
-[Claus Vium (cvium)](https://github.com/cvium)<br/>
-[Bill Thornton (thornbill)](https://github.com/thornbill)<br/>
-[Cody Robibero](https://github.com/crobibero)<br/>
+| Person | Contact |
+|---|---|
+| Joshua Boniface (Project Leader) | [GitHub](https://github.com/joshuaboniface) [Matrix](https://matrix.to/#/@joshuaboniface:bonifacelabs.ca) [Reddit](https://www.reddit.com/user/djbon2112) [Email](mailto:joshua@boniface.me) |
+| Anthony Lavado | [GitHub](https://github.com/anthonylavado) |
+| Andrew Rabert  | [GitHub](https://github.com/nvllsvm) |
+| Bond-009 | [GitHub](https://github.com/Bond-009) |
+| dkanada | [GitHub](https://github.com/dkanada) |
+| Claus Vium | [GitHub](https://github.com/cvium) |
+| Bill Thornton | [GitHub](https://github.com/thornbill) |
+| Cody Robibero | [GitHub](https://github.com/crobibero) |
