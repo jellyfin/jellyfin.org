@@ -37,7 +37,7 @@ Disputes are inevitable, including violations of the rules above. When these occ
 
 - Before any other resolution step, we trust the community to police itself. If you see a community member violating these community standards, please let them know, and link them to this document. Do not respond in kind (e.g. respond to a flame with a flame). Most disagreements can be solved with education and discussion. If you have been linked to this document by another user, do not dwell on this point: alter your behaviour as appropriate and move on.
 
-- If the issue cannot be resolved between the contributors, any complaints, instances of explicit rulebreaking, or unresolvable disagreements with other community members may be directed towards the Core Team or the Project Leader directly. You may do so through email (`team [at] jellyfin.org`) or on Matrix via a direct message. Please include details and context as appropriate. See the [about page](xref:about) for the list of Core Team members and ways to contact them.
+- If the issue cannot be resolved between the contributors, any complaints, instances of explicit rulebreaking, or unresolvable disagreements with other community members may be directed towards the Core Team or the Project Leader directly. You may do so through email (`team [at] jellyfin.org`) or on Matrix via a direct message. Please include details and context as appropriate. See the [about page](/docs/general/about) for the list of Core Team members and ways to contact them.
 
 - The team will review the complaint and decide on an action, including but not limited to: informal private guidance, informal private warnings, formal public warnings, temporary ban(s) from the various platforms, or permanent ban(s).
 
