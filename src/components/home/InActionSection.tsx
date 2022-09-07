@@ -58,7 +58,7 @@ export default function InActionSection() {
                 <SwiperSlide key={`slide-${id}`}>
                   <figure>
                     <img src={url} alt={alt} />
-                    <figcaption>{caption}</figcaption>
+                    <figcaption className='text--center'>{caption}</figcaption>
                   </figure>
                 </SwiperSlide>
               ))}
