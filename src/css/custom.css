@@ -112,6 +112,12 @@ a.pills__item:not(.pills__item--active) {
   fill: var(--ifm-font-color-base);
 }
 
+/* To toggle the visibility of an image using the path fragment */
+[data-theme='light'] img[src$='#gh-dark-mode-only'],
+[data-theme='dark'] img[src$='#gh-light-mode-only'] {
+  display: none;
+}
+
 @media (max-width: 996px) {
   .hidden--mobile {
     display: none;
