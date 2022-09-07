@@ -8,6 +8,7 @@ import BuiltByVolunteers from '../components/home/BuiltByVolunteers';
 import ClientSection from '../components/home/ClientSection';
 import CallToAction from '../components/home/CallToAction';
 import Hero from '../components/common/Hero';
+import InActionSection from '../components/home/InActionSection';
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
       <main>
         <HomepageFeatures />
         <ClientSection />
+        <InActionSection />
         <FreeSoftware />
         <BuiltByVolunteers />
         <CallToAction />
