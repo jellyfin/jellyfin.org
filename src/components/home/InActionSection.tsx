@@ -14,22 +14,29 @@ import clsx from 'clsx';
 
 const screenshots = [
   {
-    title: 'Home Screen',
+    id: 'home-screen',
+    caption:
+      'The home screen highlights your media library. The sections can be customized to each user’s individual preferences.',
     url: HomeImageUrl,
     alt: 'Jellyfin Home Screen'
   },
   {
-    title: 'Movie Library Screen',
+    id: 'library-screen',
+    caption:
+      'The library screen lists your media with options to filter and sort so you can find exactly what you are looking for.',
     url: LibraryImageUrl,
     alt: 'Jellyfin Movie Library Screen'
   },
   {
-    title: 'Movie Details Screen',
+    id: 'details-screen',
+    caption: 'The details screen displays all the information about your media.',
     url: DetailsImageUrl,
     alt: 'Jellyfin Movie Details Screen'
   },
   {
-    title: 'Video Playback Screen',
+    id: 'video-osd',
+    caption:
+      'The playback screen gives you the controls you need to play or cast your media or start a SyncPlay session with friends or family.',
     url: PlaybackImageUrl,
     alt: 'Jellyfin Video Playback Screen'
   }
@@ -47,12 +54,12 @@ export default function InActionSection() {
         <div className='row row--center'>
           <div className='col col--10 padding--none'>
             <Swiper navigation modules={[Navigation]}>
-              {screenshots.map(({ title, url, alt }) => (
-                <SwiperSlide key={`slide-${title}`}>
-                  <img src={url} alt={alt} />
-                  <div className='text--center'>
-                    <small>{title}</small>
-                  </div>
+              {screenshots.map(({ id, caption, url, alt }) => (
+                <SwiperSlide key={`slide-${id}`}>
+                  <figure>
+                    <img src={url} alt={alt} />
+                    <figcaption>{caption}</figcaption>
+                  </figure>
                 </SwiperSlide>
               ))}
             </Swiper>
