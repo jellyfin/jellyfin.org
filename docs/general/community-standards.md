@@ -47,7 +47,7 @@ Disputes are inevitable, including violations of the rules above. When these occ
 
 ## Questions or Comments
 
-Questions or comments regarding these standards should be forwarded to the [Project Leader](https://matrix.to/#/@joshuaboniface:bonifacelabs.ca) or [Core Team](xref:about).
+Questions or comments regarding these standards should be forwarded to the [Project Leader](https://matrix.to/#/@joshuaboniface:bonifacelabs.ca) or [Core Team](/docs/general/about).
 
 ## Changelog
 
