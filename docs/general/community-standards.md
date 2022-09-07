@@ -53,5 +53,5 @@ Questions or comments regarding these standards should be forwarded to the [Proj
 
 This document represents official Jellyfin project policy. Any changes to this document require a changelog entry here and approval by a Project Leader.
 
-2020-09-14, Joshua Boniface: Initial version of the community standards document. Based *very* loosely on several CoCs including the Contributor Covenant, and various Forum rules I've read and written over the years.
-2022-09-03, Joshua Boniface: Update header and footer sections; reduce redundant wording; make rules clearer.
+* 2020-09-14, Joshua Boniface: Initial version of the community standards document. Based *very* loosely on several CoCs including the Contributor Covenant, and various Forum rules I've read and written over the years.
+* 2022-09-03, Joshua Boniface: Update header and footer sections; reduce redundant wording; make rules clearer.
