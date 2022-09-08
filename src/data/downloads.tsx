@@ -57,20 +57,28 @@ export const Downloads: Array<Download> = [
             <pre>
               <code>
                 {`sudo apt install curl gnupg
-curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/jellyfin.gpg
-echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release ) $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
+sudo mkdir /etc/apt/keyrings
+curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
+Types: deb
+URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
+Suites: $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )
+Components: main
+Arch: $( dpkg --print-architecture )
+Signed-By: /etc/apt/keyrings/jellyfin.gpg
+EOF
 sudo apt update
 sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b> The third command should give you output similar to{' '}
-              <code>deb [arch=(architecture)] https://repo.jellyfin.org/(distribution) (release) main</code>. We support{' '}
-              <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures, <code>debian</code> and{' '}
-              <code>ubuntu</code> for distributions, <code>buster</code> and <code>bullseye</code> for Debian releases
-              and <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu
-              releases. If you see something different in your output, you might need to manually modify it. Use the
-              closest equivalent Debian or Ubuntu version instead.
+              <b>Note:</b> The third command will output the Jellyfin APT repository configuration for your system. We
+              support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures (
+              <code>Arch:</code>), <code>debian</code> and <code>ubuntu</code> for distributions (the text after the
+              final slash in <code>URIs:</code>), <code>buster</code> and <code>bullseye</code> for Debian releases and{' '}
+              <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu releases (
+              <code>Suites:</code>). If you see something different in your output, you might need to manually modify
+              it. Use the closest equivalent Debian or Ubuntu version, instead.
             </p>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
@@ -90,24 +98,32 @@ sudo apt install jellyfin`}
             <pre>
               <code>
                 {`sudo apt install curl gnupg
-curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | gpg --dearmor -o /etc/apt/trusted.gpg.d/jellyfin.gpg
-echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release ) $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release ) main unstable" | sudo tee /etc/apt/sources.list.d/jellyfin.list
+sudo mkdir /etc/apt/keyrings
+curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
+Types: deb
+URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
+Suites: $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )
+Components: main unstable
+Arch: $( dpkg --print-architecture )
+Signed-By: /etc/apt/keyrings/jellyfin.gpg
+EOF
 sudo apt update
 sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b> The third command should give you output similar to{' '}
-              <code>deb [arch=(architecture)] https://repo.jellyfin.org/(distribution) (release) main</code>. We support{' '}
-              <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures, <code>debian</code> and{' '}
-              <code>ubuntu</code> for distributions, <code>buster</code> and <code>bullseye</code> for Debian releases
-              and <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu
-              releases. If you see something different in your output, you might need to manually modify it. Use the
-              closest equivalent Debian or Ubuntu version instead.
+              <b>Note:</b> The third command will output the Jellyfin APT repository configuration for your system. We
+              support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures (
+              <code>Arch:</code>), <code>debian</code> and <code>ubuntu</code> for distributions (the text after the
+              final slash in <code>URIs:</code>), <code>buster</code> and <code>bullseye</code> for Debian releases and{' '}
+              <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu releases (
+              <code>Suites:</code>). If you see something different in your output, you might need to manually modify
+              it. Use the closest equivalent Debian or Ubuntu version, instead.
             </p>
             <p>
-              <b>Note:</b> Both the <code>main</code> and <code>unstable</code> are needed as the{' '}
-              <code>jellyfin-ffmpeg</code> package is only in the <code>main</code> component.
+              <b>Note:</b> Both the <code>main</code> and <code>unstable</code> are needed in <code>Components:</code>{' '}
+              as the <code>jellyfin-ffmpeg</code> package is only in the <code>main</code> component.
             </p>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
