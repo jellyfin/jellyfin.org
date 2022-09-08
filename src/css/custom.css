@@ -113,8 +113,8 @@ a.pills__item:not(.pills__item--active) {
 }
 
 /* To toggle the visibility of an image using the path fragment */
-[data-theme='light'] img[src$='#gh-dark-mode-only'],
-[data-theme='dark'] img[src$='#gh-light-mode-only'] {
+[data-theme='light'] img[src$='#hidden--light-mode'],
+[data-theme='dark'] img[src$='#hidden--dark-mode'] {
   display: none;
 }
 
