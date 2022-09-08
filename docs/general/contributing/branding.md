@@ -40,7 +40,10 @@ All iconography and other resources can be found in the [jellyfin-ux](https://gi
 
 When using the full version of the logo, the text should only be placed to the right of the icon.
 
-![The logo should have the text placed on the right of the icon.](/images/docs/branding-logo-yes-side.png) ![The logo should never have the text placed below the icon.](/images/docs/branding-logo-no-below.png)
+![The logo should have the text placed on the right of the icon.](/images/docs/branding-logo-yes-side.png#hidden--dark-mode)
+![The logo should have the text placed on the right of the icon.](/images/docs/branding-logo-dark-theme-yes-side.png#hidden--light-mode)
+![The logo should never have the text placed below the icon.](/images/docs/branding-logo-no-below.png#hidden--dark-mode)
+![The logo should never have the text placed below the icon.](/images/docs/branding-logo-dark-theme-no-below.png#hidden--light-mode)
 
 The design for the logo uses a gradient for the infill, and if the non-transparent logo is chosen there is an optional background color.
 
