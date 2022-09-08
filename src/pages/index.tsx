@@ -3,10 +3,9 @@ import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 
 import HomepageFeatures from '../components/home/HomepageFeatures';
-import FreeSoftware from '../components/home/FreeSoftware';
-import BuiltByVolunteers from '../components/home/BuiltByVolunteers';
 import ClientSection from '../components/home/ClientSection';
 import CallToAction from '../components/home/CallToAction';
+import FreedomSection from '../components/home/FreedomSection';
 import Hero from '../components/common/Hero';
 import InActionSection from '../components/home/InActionSection';
 
@@ -34,8 +33,7 @@ export default function Home() {
         <HomepageFeatures />
         <ClientSection />
         <InActionSection />
-        <FreeSoftware />
-        <BuiltByVolunteers />
+        <FreedomSection />
         <CallToAction />
       </main>
     </Layout>
