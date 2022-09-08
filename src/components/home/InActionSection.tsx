@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigation } from 'swiper';
+import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import HomeImageUrl from '../../../static/images/screenshots/home/10.8-home.png';
@@ -8,7 +8,7 @@ import DetailsImageUrl from '../../../static/images/screenshots/home/10.8-detail
 import PlaybackImageUrl from '../../../static/images/screenshots/home/10.8-playback.png';
 
 import 'swiper/css';
-import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import landingSectionStyles from './LandingSection.module.css';
 import clsx from 'clsx';
 
@@ -53,10 +53,10 @@ export default function InActionSection() {
         </div>
         <div className='row row--center'>
           <div className='col col--10 padding--none'>
-            <Swiper navigation modules={[Navigation]}>
+            <Swiper pagination modules={[Pagination]} className='swiper-pagination--below'>
               {screenshots.map(({ id, caption, url, alt }) => (
                 <SwiperSlide key={`slide-${id}`}>
-                  <figure>
+                  <figure className='margin--none'>
                     <img src={url} alt={alt} />
                     <figcaption className='text--center'>{caption}</figcaption>
                   </figure>

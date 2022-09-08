@@ -110,7 +110,11 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
           showReadingTime: true
         },
         theme: {
-          customCss: [require.resolve('@fontsource/noto-sans/index.css'), require.resolve('./src/css/custom.css')]
+          customCss: [
+            require.resolve('@fontsource/noto-sans/index.css'),
+            require.resolve('./src/css/custom.css'),
+            require.resolve('./src/css/swiper.css')
+          ]
         }
       }
     ]
