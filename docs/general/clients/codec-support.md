@@ -24,19 +24,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 | [VP9](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#VP9 'V9 Browser Support Reference')  | ✅     | ✅             | ✅      | ❌             | ✅<sup>3</sup> | 🔶<sup>3</sup> | ❌             | ❌             | ✅                                                                              | ✅   | ✅                                                           |
 | [AV1](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#AV1 'AV1 Browser Support Reference') | ✅     | ✅             | ✅      | ❌             | ✅             | 🔶<sup>4</sup> | ❌             | ❌             | ✅                                                                              | ✅   | ✅                                                           |
 
-<sup>1</sup>HEVC is only supported in MP4, M4V, and MOV containers.
-
-<sup>2</sup>Android playback is currently broken. Client reports that HEVC is supported and attempts to Direct Stream.
-
-<sup>3</sup>May be (partially) dependent on Hardware support (can be compensated with CPU decoding on Android). Most new Android phones in the higher price range and many "4K" Android TV devices have VP9 hardware decoding support. Refer to you manufacturer for supported codecs.
-
-<sup>4</sup>Needs atleast Android TV 10
-
-<sup>5</sup>As of [version 0.12](https://github.com/jellyfin/jellyfin-androidtv/pull/671), HEVC is enabled on all devices running Android 5.0+, but early generations of the Amazon Fire may not work yet. 10Bit may be supported depending on your device. Before Client 0.12, HEVC support was enabled on specific devices.
-
-<sup>6</sup>HEVC decoding is supported on Apple devices with the A8X chip or newer and at least iOS 14
-
-<sup>7</sup>HEVC decoding is only supported on Windows 10 with the HEVC Video Extension from the Microsoft [store](https://www.microsoft.com/store/productId/9NMZLZ57R3T7).
+¹HEVC is only supported in MP4, M4V, and MOV containers.² Android playback is currently broken. Client reports that HEVC is supported and attempts to Direct Stream.³ May be (partially) dependent on Hardware support (can be compensated with CPU decoding on Android). Most new Android phones in the higher price range and many "4K" Android TV devices have VP9 hardware decoding support. Refer to you manufacturer for supported codecs.⁴ Needs atleast Android TV 10⁵ As of [version 0.12](https://github.com/jellyfin/jellyfin-androidtv/pull/671), HEVC is enabled on all devices running Android 5.0+, but early generations of the Amazon Fire may not work yet. 10Bit may be supported depending on your device. Before Client 0.12, HEVC support was enabled on specific devices.⁶HEVC decoding is supported on Apple devices with the A8X chip or newer and at least iOS 14 ⁷HEVC decoding is only supported on Windows 10 with the HEVC Video Extension from the Microsoft [store](https://www.microsoft.com/store/productId/9NMZLZ57R3T7).
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
 
@@ -46,9 +34,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 |                              MPEG-2 Video                               |                                     DivX                                      |                                 MPEG-4 AVC                                 |                                                                     |                                       HEVC                                       |
 |                                DVD-Video                                |                                     DX50                                      |                                                                            |                                                                     |                                                                                  |
 
-<sup>1</sup>[MPEG-4 Part-2 vs Part-10](https://www.afterdawn.com/glossary/term.cfm/mpeg_4_part_10)
-
-<sup>2</sup>[MPEG-4 Part 17: MP4TT Subtitles](https://en.wikipedia.org/wiki/MPEG-4_Part_17)
+¹[MPEG-4 Part-2 vs Part-10](https://www.afterdawn.com/glossary/term.cfm/mpeg_4_part_10) ²[MPEG-4 Part 17: MP4TT Subtitles](https://en.wikipedia.org/wiki/MPEG-4_Part_17)
 
 ## [Audio Compatibility](https://en.wikipedia.org/wiki/Comparison_of_video_container_formats#Audio_coding_formats_support "Wikipedia's audio codec tables")
 
@@ -102,11 +88,7 @@ Here is a [breakdown](https://www.afterdawn.com/guides/archive/subtitle_formats_
 |                              PGSSUB                              |    Picture     | ❌  | ❌  | ✅  | ❌  |
 |                     EIA-608/708<sup>3</sup>                      |    Embedded    | ✅  | ✅  | ✅  | ❌  |
 
-<sup>1</sup>VTT are supported in an [HLS Stream](https://helpx.adobe.com/adobe-media-server/dev/webvtt-subtitles-captions.html).
-
-<sup>2</sup>DVB-SUB [(SUB + IDX)](https://forum.videohelp.com/threads/261451-Difference-between-SUB-and-IDX-file) is another name for VobSub files.
-
-<sup>3</sup>EIA-608/708 subtitles are embedded in private channels (channel 21) in a MPEG video codec. EIA-608 are standard CC subtitles with the black bar background, while EIA-708 are typically SDH.
+¹are supported in an [HLS Stream](https://helpx.adobe.com/adobe-media-server/dev/webvtt-subtitles-captions.html).²DVB-SUB [(SUB + IDX)](https://forum.videohelp.com/threads/261451-Difference-between-SUB-and-IDX-file) is another name for VobSub files.³EIA-608/708 subtitles are embedded in private channels (channel 21) in a MPEG video codec. EIA-608 are standard CC subtitles with the black bar background, while EIA-708 are typically SDH.
 
 ### Types of Subtitles
 
@@ -158,12 +140,4 @@ If the container is unsupported, this will result in remuxing. The video and aud
 | [TS](https://en.wikipedia.org/wiki/MPEG_transport_stream)<sup>4</sup> |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
 |         [OGG](https://en.wikipedia.org/wiki/Ogg)<sup>5</sup>          |   ✅   |  ✅  |   ✅    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
 
-<sup>1</sup>MP4 containers are one of the few containers that will not remux.
-
-<sup>2</sup>MKV containers can hold nearly any codec, but are not compatible with streaming in Firefox and will remux.
-
-<sup>3</sup>MKV containers are improperly labeled as WebM in Firefox during playback.
-
-<sup>4</sup>TS is one of the primary containers for streaming for Jellyfin.
-
-<sup>5</sup>WebM and OGG have limited codec support (by design), refer to [this](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#WebM) for WebM and [this](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#Ogg) for OGG.
+¹ MP4 containers are one of the few containers that will not remux.² MKV containers can hold nearly any codec, but are not compatible with streaming in Firefox and will remux.³ MKV containers are improperly labeled as WebM in Firefox during playback.⁴ TS is one of the primary containers for streaming for Jellyfin.⁵ WebM and OGG have limited codec support (by design), refer to [this](https://developer.mozilla.org/en-us/docs/web/media/formats/containers#webm) for WebM and [this](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#Ogg) for OGG.
