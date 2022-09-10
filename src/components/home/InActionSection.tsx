@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pagination } from 'swiper';
+import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import HomeImageUrl from '../../../static/images/screenshots/home/10.8-home.png';
@@ -53,7 +53,12 @@ export default function InActionSection() {
         </div>
         <div className='row row--center'>
           <div className='col col--10 padding--none'>
-            <Swiper pagination modules={[Pagination]} className='swiper-pagination--below'>
+            <Swiper
+              autoplay
+              pagination={{ clickable: true }}
+              modules={[Autoplay, Pagination]}
+              className='swiper-pagination--below'
+            >
               {screenshots.map(({ id, caption, url, alt }) => (
                 <SwiperSlide key={`slide-${id}`}>
                   <figure className='margin--none'>
