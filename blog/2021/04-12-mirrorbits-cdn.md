@@ -5,7 +5,7 @@ authors: joshuaboniface
 date: 2021-04-12
 slug: mirrorbits-cdn
 ---
-
+<!-- markdownlint-disable -->
 For many projects, distributing binary assets is easy: put the files on GitHub and you're done. It's not something many think about. But at Jellyfin, we needed something more robust, something able to handle our needs more elegantly than GitHub or a basic web server could. And both for those interested, and for those supporting other similar projects, I'd like to share how we do it.
 
 <!--truncate-->
