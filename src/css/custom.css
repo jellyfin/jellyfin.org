@@ -71,6 +71,13 @@ mark {
   color: var(--ifm-color-black);
 }
 
+/* Hide search keyboard hint on mobile to avoid overlap */
+@media (max-width: 996px) {
+  .navbar [class^='searchHintContainer_'] {
+    display: none;
+  }
+}
+
 a.pills__item {
   text-decoration: none;
 }
