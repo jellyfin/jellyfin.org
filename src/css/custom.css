@@ -89,22 +89,6 @@ a.pills__item:not(.pills__item--active) {
   justify-content: center;
 }
 
-.display--flex {
-  display: flex;
-}
-
-.flex-wrap--wrap {
-  flex-wrap: wrap;
-}
-
-.flex-direction--column {
-  flex-direction: column;
-}
-
-.align-items--center {
-  align-items: center;
-}
-
 .fill--white {
   fill: var(--ifm-font-color-base);
 }
