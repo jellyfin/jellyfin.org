@@ -122,7 +122,7 @@ Open subtitles (also known as burned-in subtitles) are subtitles that have been 
 
 #### SDH and Closed Captioning
 
-SDH and CC are subtitles for the Deaf and Hard of Hearing. They include extra content such as background noises. SDH and CC are not defined by a specific type of subtitle, just by their intent. If using an OTA Tuner and DVR, the subtitles will be [embedded](https://evertz.com/resources/eia_608_708_cc.pdf) into the video and transcoding them before extracting the subtitles will destroy the subtitles.
+SDH and CC are subtitles for the Deaf and Hard of Hearing. They include extra content such as background noises. SDH and CC are not defined by a specific type of subtitle, just by their intent. If using an OTA Tuner and DVR, the subtitles will be embedded into the video and transcoding them before extracting the subtitles will destroy the subtitles.
 
 #### Forced
 
