@@ -1,9 +1,13 @@
-import React from 'react';
 import Link from '@docusaurus/Link';
+import { Digitalocean, Jetbrains } from '@icons-pack/react-simple-icons';
 import Layout from '@theme/Layout';
+import clsx from 'clsx';
+import React from 'react';
 
 import ContributorGuide from '../components/contribute/ContributorGuide';
 import Hero from '../components/common/Hero';
+
+import styles from './contribute.module.css';
 
 export default function Contribute() {
   return (
@@ -15,6 +19,7 @@ export default function Contribute() {
       </Hero>
 
       <main className='margin-vert--lg text--center'>
+        <h2>Find a way to contribute</h2>
         <section className='container margin-bottom--lg'>
           <p>
             If you&apos;re interesting in helping the Jellyfin project, there are a few different ways to contribute
@@ -32,16 +37,41 @@ export default function Contribute() {
           <ContributorGuide />
         </section>
 
+        <hr />
+
         <h2>Meet the people that bring you Jellyfin</h2>
-        <div className='margin-bottom--lg' style={{ overflow: 'auto' }}>
-          <object
-            data='https://opencollective.com/jellyfin/contributors.svg?width=1000&button=false'
-            type='image/svg+xml'
-            width='1000'
-          >
-            Jellyfin Contributors
-          </object>
-        </div>
+        <section className='margin-bottom--lg'>
+          <div className='margin-bottom--md' style={{ overflow: 'auto' }}>
+            <object
+              data='https://opencollective.com/jellyfin/contributors.svg?width=1000&button=false'
+              type='image/svg+xml'
+              width='1000'
+            >
+              Jellyfin Contributors
+            </object>
+          </div>
+
+          <h3>Sponsors</h3>
+          <div className={styles['sponsor-list']}>
+            <a
+              href='https://www.digitalocean.com'
+              className={clsx('button', 'button--lg', styles['button--digitalocean'])}
+              style={{ display: 'inline-flex' }}
+            >
+              <Digitalocean size={28} className='margin-right--sm' />
+              DigitalOcean
+            </a>
+
+            <a
+              href='https://www.jetbrains.com'
+              className={clsx('button', 'button--lg', styles['button--jetbrains'])}
+              style={{ display: 'inline-flex' }}
+            >
+              <Jetbrains size={28} className='margin-right--sm' />
+              JetBrains
+            </a>
+          </div>
+        </section>
       </main>
     </Layout>
   );
