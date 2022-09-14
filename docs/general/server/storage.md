@@ -33,13 +33,12 @@ The image extractor can't be [turned off](https://github.com/jellyfin/jellyfin/i
 :::
 
 - animostiy22's [repo](https://github.com/animosity22/homescripts) about rclone and mergerfs.
-- animosity22's [rclone config](https://github.com/animosity22/homescripts/blob/master/systemd/rclone.service).
 
 ### MergerFS
 
 MergerFS isn't meant for everything, [see here](https://github.com/trapexit/mergerfs#what-should-mergerfs-not-be-used-for) for more.
 
 - rclone recommended [config](https://forum.rclone.org/t/my-best-rclone-config-mount-for-plex/7441).
-- animosity22's [mergerfs config](https://github.com/animosity22/homescripts/blob/master/systemd/gmedia.service).
+- animostiy22's [repo](https://github.com/animosity22/homescripts) about rclone and mergerfs.
 
 To modify and examine your mergerfs mount, here's a quick [guide](https://zackreed.me/mergerfs-neat-tricks).
