@@ -41,7 +41,7 @@ export type Download = {
 
 export const Downloads: Array<Download> = [
   {
-    id: 'debian',
+    id: 'debuntu',
     name: 'Debian and Ubuntu',
     osTypes: [OsType.Linux],
     status: DownloadStatus.Official,
@@ -194,7 +194,7 @@ makepkg -si`}
     ]
   },
   {
-    id: 'fedora',
+    id: 'fedora-centos',
     name: 'Fedora and CentOS',
     osTypes: [OsType.Linux],
     status: DownloadStatus.Official,

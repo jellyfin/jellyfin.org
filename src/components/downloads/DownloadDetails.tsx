@@ -80,6 +80,7 @@ type DownloadDetailsProps = {
 
 const DownloadDetails = ({ download, isStableLinks, activeButton, setActiveButton }: DownloadDetailsProps) => (
   <DetailsCard
+    id={download.id}
     title={download.name}
     description={download.description}
     badges={

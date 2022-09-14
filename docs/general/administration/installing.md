@@ -294,7 +294,7 @@ Any issues or feature requests related to deployment on Cloudron should be filed
 
 ## Windows (x64)
 
-Windows installers and builds in ZIP archive format are available [here](https://jellyfin.org/downloads/#windows).
+Windows installers and builds in ZIP archive format are available [here](/downloads/windows).
 
 :::caution
 
@@ -385,7 +385,7 @@ Using the Advanced/Service mode may experience FFmpeg hardware acceleration issu
 
 ## macOS
 
-macOS Application packages and builds in TAR archive format are available [here](https://jellyfin.org/downloads/#macos).
+macOS Application packages and builds in TAR archive format are available [here](/downloads/macos).
 
 **Install**
 
@@ -455,7 +455,7 @@ Navigate to the Playback tab in the Dashboard and set the path to FFmpeg under F
 
 ### Linux (generic amd64)
 
-Generic amd64, arm64, and armhf Linux builds in TAR archive format are available [here](https://jellyfin.org/downloads/#linux).
+Generic amd64, arm64, and armhf Linux builds in TAR archive format are available [here](/downloads/linux).
 
 #### Base Installation Process
 
@@ -588,7 +588,7 @@ sudo systemctl start jellyfin.service
 
 ### Portable DLL
 
-Platform-agnostic .NET Core DLL builds in TAR archive format are available [here](https://jellyfin.org/downloads/#portable).
+Platform-agnostic .NET Core DLL builds in TAR archive format are available [here](/downloads#portable).
 These builds use the binary `jellyfin.dll` and must be loaded with `dotnet`.
 
 ### Arch Linux
@@ -597,7 +597,7 @@ Jellyfin can be found in the AUR as [`jellyfin`](https://aur.archlinux.org/packa
 
 ### Fedora
 
-Fedora builds in RPM package format are available [here](https://jellyfin.org/downloads/#fedora) for now but an official Fedora repository is coming soon.
+Fedora builds in RPM package format are available [here](/downloads/linux#fedora-centos) for now but an official Fedora repository is coming soon.
 
 1. You will need to enable rpmfusion as ffmpeg is a dependency of the jellyfin server package
 
@@ -659,7 +659,7 @@ Fedora builds in RPM package format are available [here](https://jellyfin.org/do
 
 ### CentOS
 
-CentOS/RHEL 7 builds in RPM package format are available [here](https://jellyfin.org/downloads/#centos) and an official CentOS/RHEL repository is planned for the future.
+CentOS/RHEL 7 builds in RPM package format are available [here](/downloads/linux#fedora-centos) and an official CentOS/RHEL repository is planned for the future.
 
 The default CentOS/RHEL repositories don't provide FFmpeg, which the RPM requires. You will need to add a third-party repository which provide FFmpeg, such as [RPM Fusion's Free repository](https://rpmfusion.org/Configuration).
 
@@ -731,7 +731,7 @@ sudo extrepo enable jellyfin
 
 #### Packages
 
-Raw Debian packages, including old versions, are available [here](https://jellyfin.org/downloads/#debian).
+Raw Debian packages, including old versions, are available [here](/downloads/linux#debubuntu).
 
 :::note
 
@@ -847,7 +847,7 @@ Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyf
 
 #### Ubuntu Packages
 
-Raw Ubuntu packages, including old versions, are available [here](https://jellyfin.org/downloads/#ubuntu).
+Raw Ubuntu packages, including old versions, are available [here](/downloads/linux#debubuntu).
 
 :::note
 
