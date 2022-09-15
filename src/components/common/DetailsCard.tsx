@@ -3,6 +3,7 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import './DetailsCard.css';
 
 type DetailsCardProps = {
+  id?: string;
   title: string;
   description: ReactNode;
   badges?: ReactNode;
@@ -13,6 +14,7 @@ type DetailsCardProps = {
 };
 
 const DetailsCard: FunctionComponent<DetailsCardProps> = ({
+  id,
   title,
   description,
   badges = [],
@@ -21,7 +23,7 @@ const DetailsCard: FunctionComponent<DetailsCardProps> = ({
   secondaryButtons = [],
   footerDetails
 }) => (
-  <div className='card details-card margin-bottom--md'>
+  <div id={id} className='card details-card margin-bottom--md'>
     <div className='card__header details-card__header'>
       <div className='details-card__header__start'>
         <h3>{title}</h3>
