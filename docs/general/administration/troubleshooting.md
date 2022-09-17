@@ -11,7 +11,7 @@ This page outlines some solutions to common issues beginners may encounter when 
 
 The easiest way to check for issues is by checking the logs, which can be accessed through the console for the web client or in the log directory on your server.
 
-If media is unable transcode, first check the ffmpeg logs.
+If media is unable to transcode, first check the ffmpeg logs.
 
 ## Networking Issues
 
