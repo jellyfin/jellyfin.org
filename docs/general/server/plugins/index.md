@@ -173,7 +173,7 @@ Download subtitles from the internet to use with your media files from [Open Sub
 [![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-playbackreporting.svg)](https://github.com/jellyfin/jellyfin-plugin-playbackreporting)
 [![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-playbackreporting.svg)](https://github.com/jellyfin/jellyfin-plugin-playbackreporting)
 
-Collect and show user playback statistics, such as total time watched, media watched, time of day watched and time of week watched. Can keep information for as long as you want, or can cull older information automatically. Also allows you to manually query the data collected so you can generate your own reports.
+Collect and show user playback statistics, such as total time watched, media watched, time of day watched, and time of week watched. Can keep information for as long as you want or can cull older information automatically. Also allows you to manually query the data collected so you can generate your own reports.
 
 **Links:**
 
@@ -197,7 +197,7 @@ Generate reports of your media library.
 [![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-tmdbboxsets.svg)](https://github.com/jellyfin/jellyfin-plugin-tmdbboxsets)
 [![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-tmdbboxsets.svg)](https://github.com/jellyfin/jellyfin-plugin-tmdbboxsets)
 
-Automatically create movie box sets based on TMDb collections. Configerable minimum number of films to be considered a boxset. Boxsets are created as collections, and includes a schedueld task to ensure that new media is automatically put into boxsets.
+Automatically create movie box sets based on TMDb collections. Configurable minimum number of films to be considered a boxset. Boxsets are created as collections and includes a scheduled task to ensure that new media is automatically put into boxsets.
 
 **Links:**
 
@@ -295,7 +295,7 @@ A plugin to integrate your Shoko database with the Jellyfin media server.
 
 #### Ani-Sync
 
-Ani-Sync lets you synchorinze/scrobble your Jellyfin Anime watch progress to popular services like MyAnimeList, AniList, Kitsu.
+Ani-Sync lets you synchronize/scrobble your Jellyfin Anime watch progress to popular services like MyAnimeList, AniList, Kitsu.
 
 **Links:**
 
