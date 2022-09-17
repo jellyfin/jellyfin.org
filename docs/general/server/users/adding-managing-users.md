@@ -9,11 +9,11 @@ User management can be done under `Users` in the `Dashboard`. Here you can see y
 
 ## Adding a User
 
-To add a new user, click the `+` symbol at the top of the page. This will open a new page where you can enter the user's name as it will be either displayed on, or has to be typed into login screen. By default, this will be displayed, but this can be changed at any point by modifying the user, explained further down.
+To add a new user, click the `+` symbol at the top of the page. This will open a new page where you can enter the user's name as it will be either displayed on or has to be typed into login screen. By default, this will be displayed, but this can be changed at any point by modifying the user, explained further down.
 
 ### Manage User Library Access
 
-By default the `enables access to all libraries` option will be enabled, disabling this option will enable you to give the user access rights per library, libraries can consist of several folders. When adding new libraries any user that did not have access to `all libraries` will not receive the rights to open the new library, but this can be changed at any point by modifying the user, explained further down.
+By default, the `enables access to all libraries` option will be enabled, disabling this option will enable you to give the user access rights per library, libraries can consist of several folders. When adding new libraries any user that did not have access to `all libraries` will not receive the rights to open the new library, but this can be changed at any point by modifying the user, explained further down.
 
 ## Manage a User
 
@@ -23,7 +23,7 @@ To manage a user either click on their portrait to go straight to their `Profile
 
 Directly under the tabs you have a link to `Edit this user's profile, image and personal preferences.` Clicking that allows you to change the user's personal settings, any setting here can be changed by both user and admin.
 
-Under `name` you can change the user's name as it will be either displayed on, or has to be typed into login screen.
+Under `name` you can change the user's name as it will be either displayed on or has to be typed into login screen.
 
 Under `Authentication Provider` you have the option to change the backend that handles the login, by default the only option here will be `default` which means Jellyfin will handle this user, this option is sufficient for most use cases. Currently, the only other possibility is to have a LDAP server handle the login by installing the LDAP-Auth plugin. Note that if you wish to change a user's provider to LDAP after creating it in Jellyfin the username needs to be identical to the user's UID in LDAP, including capitalization.
 
@@ -51,7 +51,7 @@ More information about transcoding can be found [here](/docs/general/server/tran
 
 `Allow video playback that requires conversion without re-encoding` Unchecking this option will block the user's access to video playback that requires conversion without re-encoding.
 
-`Internet streaming bitrate limit (Mbps)` Under this option you can set an per stream bitrate limit for all out of network devices.
+`Internet streaming bitrate limit (Mbps)` Under this option you can set a bitrate limit per stream for all out of network devices.
 
 #### Allow Media Deletion From
 
@@ -61,7 +61,7 @@ These checkboxes allow a user to remove media for either `All libraries`, or per
 
 These allow a user to control other devices that are currently logged into Jellyfin, for example if you run a separate client on a HTPC without remote control.
 
-`Allow remote control of other users` Allows this user to control what other users are playing and send messages, but does not give them administrative rights.
+`Allow remote control of other users` Allows this user to control what other users are playing and send messages but does not give them administrative rights.
 
 `Allow remote control of shared devices` Allows this user to control unclaimed DLNA devices, and devices they are logged in to at the moment.
 
@@ -85,7 +85,7 @@ Locking
 
 `Failed login attempts before user is locked out` Determines how many incorrect login attempts can be made before lockout occurs, disabling the user. 0 means inheriting the default of 3 for non-admin and 5 for admin, -1 disables lockout
 
-When a user is locked out after the set amout of attempts the admin has determined for that account, the user will recieve the following message when trying to login to the Jellyfin instance:
+When a user is locked out after the set amount of attempts the admin has determined for that account, the user will receive the following message when trying to login to the Jellyfin instance:
 
 ```sh
 Connection Failure
@@ -94,7 +94,7 @@ We\'re unable to connect to the selected server right now. Please ensure it is r
 
 Unlocking
 
-The unlocking of a user is a manual process for the Jellyfin administrator. When a user is locked out a message of the lockout appears on the activity feed on the administrator dashboard. To unlock the user, the administrator needs to navigate to the profile of the locked out user. When on the profile of the locked out user, the following message should appear:
+The unlocking of a user is a manual process for the Jellyfin administrator. When a user is locked-out a message of the lockout appears on the activity feed on the administrator dashboard. To unlock the user, the administrator needs to navigate to the profile of the locked out user. When on the profile of the locked-out user, the following message should appear:
 
 ```sh
 This user is currently disabled
@@ -117,7 +117,7 @@ These options allow you to restrict access to specific content by this user or t
 
 `Maximum allowed parental rating` Allows you to select the highest rating **allowed to show up** for this user.
 
-`Block items with no or unrecognised rating information` Allows you to always hide items with no or unrecognised rating information.
+`Block items with no or unrecognized rating information` Allows you to always hide items with no or unrecognized rating information.
 
 `Block items with tags` Allows you to always hide items when they contain specific tags, you can add tags to items by editing their metadata.
 
