@@ -125,9 +125,15 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
       {
         fromExtensions: ['html'],
         redirects: [
+          // These pages existed on the jellyfin-blog site, but were not fully configured
           {
             from: ['/categories', '/tags'],
             to: '/posts'
+          },
+          // Jellyfin 10.8 and below linked to this subtitle docs page
+          {
+            from: '/docs/general/server/media/subtitles',
+            to: '/docs/general/server/media/external-files'
           }
         ]
       }

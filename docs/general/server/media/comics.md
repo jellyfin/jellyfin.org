@@ -11,7 +11,7 @@ Comics and mangas, from now on referred to as comics, should usually be in the l
 
 For the best reading experience, it is recommended to store comics in the comic book archive or pdf format. This is due to issues when trying to read comics stored in the epub format. Please note, that Jellyfin 10.8 and later saves your reading position for comics in the comic book archive format but does not save whether you finished the comic or not.
 
-::
+:::
 
 ## Naming
 
