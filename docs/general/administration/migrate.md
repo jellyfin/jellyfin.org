@@ -102,7 +102,7 @@ If anyone is interested in writing a database migration script which will correc
 
 While it is technically possible to migrate existing configuration of Emby version 3.5.2 or earlier, due to subtle and weird bugs reported after such attempts we do not recommend this migration.
 Emby versions 3.5.3 or 3.6+ cannot be migrated.
-Thus we recommend creating a new Jellyfin configuration and rebuilding your library instead.
+Thus, we recommend creating a new Jellyfin configuration and rebuilding your library instead.
 
 :::
 
@@ -131,7 +131,7 @@ This procedure is written for Debian-based Linux distributions, but can be trans
    sudo apt purge emby-server
    ```
 
-5. Install the `jellyfin` package using the [installaton instructions](/docs/general/administration/installing).
+5. Install the `jellyfin` package using the [installation instructions](/docs/general/administration/installing).
 
 6. Stop the `jellyfin` daemon:
 
