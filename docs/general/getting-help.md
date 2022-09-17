@@ -16,7 +16,7 @@ If you are having trouble using or configuring Jellyfin, there are several ways 
 
 We are also active on social media.
 
-- [Facebook](https://www.facebook.com/Jellyfin-319514125331205)
+- [Facebook](https://www.facebook.com/jellyfin.media)
 
 - [Twitter](https://twitter.com/jellyfin)
 
