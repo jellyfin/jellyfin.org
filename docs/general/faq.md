@@ -12,8 +12,8 @@ We explain our rationale on our [about page](/docs/general/about).
 
 ## Why don't you support my favorite client or feature?
 
-Chances are, we'd like to support it! But it hasn't been implemented yet.
-Jellyfin is an entirely volunteer-driven project, so until a developer is able and willing to implement a feature, it likely won't be done.
+Chances are, we would like to support it! But it has not been implemented yet.
+Jellyfin is an entirely volunteer-driven project, so until a developer is able and willing to implement a feature, it likely will not be done.
 We track our features on [our Fider instance](https://features.jellyfin.org), so please check that out, upvote the features you like, and add your own requests.
 If you're a developer and are interested in helping out, [please hack away](/docs/general/contributing) and let us know [on Matrix](/docs/general/getting-help) so we can help.
 
