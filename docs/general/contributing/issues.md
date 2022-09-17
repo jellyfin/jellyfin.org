@@ -29,11 +29,11 @@ Once you're ready to open an issue, please [see this page](https://github.com/je
 
 ### Reporting Bugs
 
-When writing an bug issue, please ensure you capture as much relevant detail as possible - this is very important to assist in troubleshooting and triaging/investigating the issue. Some useful elements include:
+When writing a bug issue, please ensure you capture as much relevant detail as possible - this is very important to assist in troubleshooting and triaging/investigating the issue. Some useful elements include:
 
 - How you installed Jellyfin (upgrade or fresh install)
 
-- What platform and operating system you're using (Debian, Arch, Docker, etc.)
+- What platform and operating system you are using (Debian, Arch, Docker, etc.)
 
 - What you were doing that caused the issue to appear
 
@@ -43,13 +43,13 @@ When writing an bug issue, please ensure you capture as much relevant detail as 
 
 Bugs should be tagged with `[bug]` at the beginning of their title. This will later be removed by the Jellyfin team when assigning labels. To assist in triaging, if you know which other [label(s)](/docs/general/contributing/issues#issue-labels) should be applied to your issue, please add them after the `[bug]` label.
 
-Bugs should be reproduceable. That is, you should be able to have determined through troubleshooting how to replicate the issue. While one-time bugs shouldn't be ignored, if they're difficult or impossible to reproduce, it's likely very hard to fix them. Please attempt to reproduce the bug before filing the issue, and include the smallest test case you can to demonstrate it.
+Bugs should be reproduceable. That is, you should be able to have determined through troubleshooting how to replicate the issue. While one-time bugs should not be ignored, if they're difficult or impossible to reproduce, it's likely very hard to fix them. Please attempt to reproduce the bug before filing the issue and include the smallest test case you can to demonstrate it.
 
 If you ever need assistance for troubleshooting or opening an issue, please [contact the community](/docs/general/getting-help) and we'll try to help you out!
 
 ## Issue Labels
 
-Jellyfin features a number of issue labels to assist in triaging and managing issues. Users cannot assign these themselves due to GitHub's permissions, but they will be added by an team member during triaging.
+Jellyfin features a number of issue labels to assist in triaging and managing issues. Users cannot assign these themselves due to GitHub's permissions, but they will be added by a team member during triaging.
 
 ### Categories
 
@@ -69,7 +69,7 @@ These labels help determine how critical an issue is.
 
 These labels help assist in managing the project and direction.
 
-- `good first issue`: Something that should be very straightforward to do, and is a great place to get started.
+- `good first issue`: Something that should be very straightforward to do and is a great place to get started.
 - `help wanted`: An issue that currently has no clear expert within the project and could use outside assistance.
 - `roadmap`: A meta-issue related to the future roadmap of the project.
 - `investigation`: An investigation-type issue into the codebase.
