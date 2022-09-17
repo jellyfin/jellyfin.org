@@ -21,7 +21,7 @@ Jellyfin is a Free Software Media System that puts you in control of managing an
 
 You can find a list of all available clients [here](/clients). For more information please see our [about page](/docs/general/about) or the [FAQ](/docs/general/faq). If you are looking for help, check out [this page](/docs/general/getting-help) for all the different communication channels we use.
 
-Note: Jellyfin is a fast moving project that is in its early stages, and this documentation as well as the code may change frequently. Please check back often and don't hesitate to contact us via our Matrix channels or the subreddit!
+Note: Jellyfin is a fast-moving project that is in its early stages, and this documentation as well as the code may change frequently. Please check back often and do not hesitate to contact us via our Matrix channels or the subreddit!
 
 ## Getting Started
 
@@ -46,7 +46,7 @@ Alternatively, Jellyfin may be built directly from the [source code](/docs/gener
 
 Want to know more about administering a Jellyfin server? Check out these pages!
 
-- [Quick-Start Guide](/docs/general/quick-start): What to do after you've installed Jellyfin to get it up and running.
+- [Quick-Start Guide](/docs/general/quick-start): What to do after you have installed Jellyfin to get it up and running.
 - [Migrating](/docs/general/administration/migrate): How to migrate Jellyfin.
 - [Plugins](/docs/general/server/plugins): How to install and manage plugins.
 - [Networking](/docs/general/networking): Networking settings and troubleshooting.
