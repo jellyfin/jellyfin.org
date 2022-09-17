@@ -108,13 +108,13 @@ Once you have your repository, you can get to work.
 
 ### CONTRIBUTORS.md
 
-If it's your first time contributing code to a particular repository, please add yourself to the `CONTRIBUTORS.md` file at the bottom of the `Jellyfin Contributors` section. While GitHub does track this, having the written document makes things clearer if the code leaves GitHub and lets everyone quickly see who's worked on the project for copyright or praise!
+If it's your first time contributing code to a particular repository, please add yourself to the `CONTRIBUTORS.md` file at the bottom of the `Jellyfin Contributors` section. While GitHub does track this, having the written document makes things clearer if the code leaves GitHub and lets everyone quickly see who has worked on the project for copyright or praise!
 
 ## Official Branches
 
 ### Feature Branches
 
-From time to time, major projects may come up that require multiple PRs and contributions from multiple people. For these tasks, feature branches specific to the feature should be created, based off of `master`. This helps allow the work to progress without breaking `master` for long periods, and allowing those interested in that particular project the ability to work at their own pace instead of racing to fix a broken feature before the next release. To create a feature branch, please communicate with a Core team member and that can be arranged.
+From time to time, major projects may come up that require multiple PRs and contributions from multiple people. For these tasks, feature branches specific to the feature should be created, based off of `master`. This helps allow the work to progress without breaking `master` for long periods and allowing those interested in that particular project the ability to work at their own pace instead of racing to fix a broken feature before the next release. To create a feature branch, please communicate with a Core team member and that can be arranged.
 
 Once the feature a feature branch was created for is ready, it can be merged in one shot into `master` and the feature branch removed. Alternatively, for very-long-lived features, certain "stable" snapshots can be merged into `master` as required.
 
@@ -165,11 +165,11 @@ When submitting a new PR, please ensure you do the following things. If you have
 
   2. How you approached the issue (if applicable) and briefly describe the changes, especially for large PRs.
 
-- If your pull request isn't finished yet please mark it as a "draft" when you open it. While this tag is in place, the pull request won't be merged, and reviews should remain as comments only. Once you're happy with the final state of your PR, please remove this tag; forgetting to do so might result in your PR being unintentionally ignored as still under active development! Inactive WIPs may occasionally elicit pings from the team inquiring on the status, and closed if there is no response.
+- If your pull request is not finished yet, please mark it as a "draft" when you open it. While this tag is in place, the pull request will not be merged, and reviews should remain as comments only. Once you are happy with the final state of your PR, please remove this tag; forgetting to do so might result in your PR being unintentionally ignored as still under active development! Inactive WIPs may occasionally elicit pings from the team inquiring on the status and closed if there is no response.
 
 - Avoid rebasing and force-pushing to large or complex pull requests if at all possible, and especially after reviews. It forces unnecessary reviews to verify the changes are still okay and build properly.
 
-- Expect review and discussion. If you can't back up your changes with a good description and through review, please reconsider whether it should be done at all. All PRs to `dev` require at least one approving review from an administrative team member, however we welcome and encourage reviews from any contributor, especially if it's in an area you are knowledgeable about. More eyes are always better.
+- Expect review and discussion. If you cannot back up your changes with a good description and through review, please reconsider whether it should be done at all. All PRs to `dev` require at least one approving review from an administrative team member, however we welcome and encourage reviews from any contributor, especially if it is in an area you are knowledgeable about. More eyes are always better.
 
 - All PRs require review by at least two team members before being merged into `master`, though reviews from any contributor are welcome! After the second team member review the PR may be merged immediately, or more review or feedback requested explicitly from other contributors if required.
 
