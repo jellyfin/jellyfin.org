@@ -15,7 +15,7 @@ All files must abide by the following general structure, with JSDoc comments bei
 
 ```javascript
 /**
- * This module documents the structure used by Javascript code in Jellyfin.
+ * This module documents the structure used by JavaScript code in Jellyfin.
  *
  * @module path/to/this/module
  */
