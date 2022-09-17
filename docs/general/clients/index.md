@@ -88,7 +88,7 @@ Native music player for Android devices with transcoding support, gapless playba
 
 ### Yatse
 
-A third party remote control for Jellyfin with support for Chromecast playback.
+A third-party remote control for Jellyfin with support for Chromecast playback.
 
 **Status:** ⭐ Active, 3rd-Party
 
@@ -98,7 +98,7 @@ A third party remote control for Jellyfin with support for Chromecast playback.
 
 ### MrMC
 
-A third party app with direct play and HDR support. Available on Android, Android TV, Fire TV, and iOS/Apple TV.
+A third-party app with direct play and HDR support. Available on Android, Android TV, Fire TV, and iOS/Apple TV.
 
 **Status:** ⭐ Active, 3rd-Party
 
@@ -153,7 +153,7 @@ jellyfin-web interface unlike Jellyfin Desktop. Supports audio passthrough. Base
 
 ### Jellyfin Audio Player
 
-A third party standalone music streaming app for iOS and Android. This client includes full support for background audio and casting.
+A third-party standalone music streaming app for iOS and Android. This client includes full support for background audio and casting.
 
 **Status** ✅ In Development, 3rd-Party
 
@@ -165,7 +165,7 @@ A third party standalone music streaming app for iOS and Android. This client in
 
 ### Jellyfin MPV Shim
 
-Provides background cast client using MPV. The client has support for direct play of advanced codecs such as 10 bit HEVC with subtitles, many customizable options, and whole-season subtitle preference support.
+Provides background cast client using MPV. The client has support for direct play of advanced codecs such as 10-bit HEVC with subtitles, many customizable options, and whole-season subtitle preference support.
 
 **Status:** ⭐ Active
 
@@ -219,7 +219,7 @@ Music client inspired by players such as foobar2000 or Clementine. Available on 
 
 ### Finamp
 
-A third party app for music playback. Supports offline mode/downloading songs.
+A third-party app for music playback. Supports offline mode/downloading songs.
 
 **Status** ⭐ Active, 3rd-Party
 
@@ -302,7 +302,7 @@ The Jellyfin app rewritten in Swift in order to support HDR and direct play capa
 
 ### Infuse for iOS/Apple TV
 
-A third party client with HDR support and direct play capabilities for multiple formats.
+A third-party client with HDR support and direct play capabilities for multiple formats.
 
 **Status:** ⭐ Active, 3rd-Party
 
@@ -314,7 +314,7 @@ A third party client with HDR support and direct play capabilities for multiple 
 
 ### MrMC for iOS/Apple TV
 
-A third party app with direct play and HDR support. Available on iOS and Apple TV.
+A third-party app with direct play and HDR support. Available on iOS and Apple TV.
 
 **Status:** ⭐ Active, 3rd-Party
 
