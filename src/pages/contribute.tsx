@@ -22,7 +22,7 @@ export default function Contribute() {
         <h2>Find a way to contribute</h2>
         <section className='container margin-bottom--lg'>
           <p>
-            If you&apos;re interesting in helping the Jellyfin project, there are a few different ways to contribute
+            If you&apos;re interested in helping the Jellyfin project, there are a few different ways to contribute
             depending on your skills and availability. Of course, simply using Jellyfin, finding issues, and reporting
             them, are a major help to our project, even if none of these apply to you!
           </p>
