@@ -280,7 +280,7 @@ export default function ContributorGuide() {
           {codeOption === CodeOption.JavaScript && (
             <>
               <div className='margin-top--md'>
-                The primary Jellyfin web client is written primarily in Javascript. You have a couple options to get
+                The primary Jellyfin web client is written primarily in JavaScript. You have a couple options to get
                 started.
               </div>
               <div>
@@ -352,7 +352,7 @@ export default function ContributorGuide() {
                     are working on it in order to let everyone know.
                   </p>
                   <p>
-                    Most well-requested features will have a tag; as a Javascript developer, those tagged as{' '}
+                    Most well-requested features will have a tag; as a JavaScript developer, those tagged as{' '}
                     <b>&ldquo;Web UI&rdquo;</b> are of the most interest to you.
                   </p>
                   <p>
