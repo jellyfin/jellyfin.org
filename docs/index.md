@@ -35,7 +35,7 @@ Want to get starting using Jellyfin right now? Check out the pages below for how
 - [Docker](/docs/general/administration/installing#docker)
 - [unRaid](/docs/general/administration/installing#unraid-docker)
 - [Kubernetes](/docs/general/administration/installing#kubernetes)
-- [Windows](/docs/general/administration/installing#windows-x86x64)
+- [Windows](/docs/general/administration/installing#windows-x64)
 - [MacOS](/docs/general/administration/installing#macos)
 - [Generic Linux](/docs/general/administration/installing#linux-generic-amd64)
 - [Portable DLL](/docs/general/administration/installing#portable-dll)
