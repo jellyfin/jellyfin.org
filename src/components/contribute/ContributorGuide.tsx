@@ -483,9 +483,8 @@ export default function ContributorGuide() {
               As a project, we generally do not like asking for donations - we are entirely volunteer-run and intend to
               keep Jellyfin free as in beer, as well as free as in speech, forever. We do not wish, support, nor intend
               donations to privilege any user&apos;s voice or priorities. That said, if you do want to help us cover
-              some operating expenses like our VPS hosting, domains, developer licenses, metadata API keys, and other 
-              incidental expenses, check out our{' '}
-              <a href='https://opencollective.com/jellyfin'>OpenCollective page</a> to donate. Our entire budget as well
+              some operating expenses like our VPS hosting, domains, developer licenses, metadata API keys, and other
+              incidental expenses, check out our{' '} <a href='https://opencollective.com/jellyfin'>OpenCollective page</a> to donate. Our entire budget as well
               as all expenses are publicly visible there.
             </div>
           )}
