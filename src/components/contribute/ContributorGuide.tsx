@@ -372,8 +372,8 @@ export default function ContributorGuide() {
               {codeLanguageOption === CodeLanguageOption.Modernize && (
                 <div className='margin-top--md'>
                   Jellyfin&apos;s web client is being rewritten. We are currently converting it to TypeScript and React.
-                  Head over to the <a href='https://github.com/jellyfin/jellyfin-web/'>project page</a> on GitHub
-                  for more information.
+                  Head over to the <a href='https://github.com/jellyfin/jellyfin-web/'>project page</a> on GitHub for
+                  more information.
                 </div>
               )}
             </>
@@ -419,8 +419,8 @@ export default function ContributorGuide() {
       {contributorOption === ContributorOption.Other && (
         <>
           <div className='margin-top--md'>
-            Even if you are not a developer or able to speak multiple languages, there are still lots of things
-            you can do to help Jellyfin.
+            Even if you are not a developer or able to speak multiple languages, there are still lots of things you can
+            do to help Jellyfin.
           </div>
           <div>
             <button
@@ -480,11 +480,11 @@ export default function ContributorGuide() {
 
           {otherOption === OtherOption.Donation && (
             <div className='margin-top--md'>
-              As a project, we generally do not like asking for donations - we are entirely volunteer-run and
-              intend to keep Jellyfin free as in beer, as well as free as in speech, forever. We do not wish, support,
-              nor intend donations to privilege any user&apos;s voice or priorities. That said, if you do want to help
-              us cover some operating expenses like our VPS hosting, domains, developer licenses, metadata API keys, and
-              other incidental expenses, check out our{' '}
+              As a project, we generally do not like asking for donations - we are entirely volunteer-run and intend to
+              keep Jellyfin free as in beer, as well as free as in speech, forever. We do not wish, support, nor intend
+              donations to privilege any user&apos;s voice or priorities. That said, if you do want to help us cover
+              some operating expenses like our VPS hosting, domains, developer licenses, metadata API keys, and other 
+              incidental expenses, check out our{' '}
               <a href='https://opencollective.com/jellyfin'>OpenCollective page</a> to donate. Our entire budget as well
               as all expenses are publicly visible there.
             </div>
