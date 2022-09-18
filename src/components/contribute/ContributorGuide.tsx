@@ -166,12 +166,12 @@ export default function ContributorGuide() {
                     <a href='https://github.com/jellyfin/jellyfin/issues?q=is%3Aissue+is%3Aopen+label%3Abug'>
                       open Bug Issues page
                     </a>{' '}
-                    on GitHub, and find one that interests you. If you find a bug that affects you already, it&apos;s a
+                    on GitHub, and find one that interests you. If you find a bug that affects you already, it is a
                     good candidate to fix as you should be quickly able to test it; otherwise, the bug report should
                     list steps to reproduce the bug.
                   </p>
                   <p>
-                    Once you&apos;ve found a bug you&apos;d like to fix, head over to the{' '}
+                    Once you have found a bug you would like to fix, head over to the{' '}
                     <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin hacking.
                     Development documentation can be found on the <Link to='/docs'>Documentation page</Link>. When the
                     fix is ready, feel free to propose it to other users in the issue to get them to help test as well.
@@ -231,7 +231,7 @@ export default function ContributorGuide() {
                     <div className='margin-top--md'>
                       <p>
                         Features of this type should be implemented directly into the core server itself. Once
-                        you&apos;ve found a feature you want to implement, head over to the{' '}
+                        you have found a feature you want to implement, head over to the{' '}
                         <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin hacking.
                         Development documentation can be found on the <Link to='/docs'>Documentation page</Link>.
                       </p>
@@ -254,7 +254,7 @@ export default function ContributorGuide() {
                         without worrying about the backend.
                       </p>
                       <p>
-                        Once you&apos;ve found a feature you want to implement with a plugin, check out the{' '}
+                        Once you have found a feature you want to implement with a plugin, check out the{' '}
                         <a href='https://github.com/jellyfin/jellyfin-plugin-template'>Plugin Template repository</a>{' '}
                         and clone this repository into a new project. Official plugins are named
                         &ldquo;jellyfin-plugin-mycoolname&rdquo;. You can use this template to get you started on
@@ -324,12 +324,12 @@ export default function ContributorGuide() {
                     <a href='https://github.com/jellyfin/jellyfin-web/issues?q=is%3Aissue+is%3Aopen+label%3Abug'>
                       open Bug Issues page
                     </a>{' '}
-                    on GitHub, and find one that interests you. If you find a bug that affects you already, it&apos;s a
+                    on GitHub, and find one that interests you. If you find a bug that affects you already, it is a
                     good candidate to fix as you should be quickly able to test it; otherwise, the bug report should
                     list steps to reproduce the bug.
                   </p>
                   <p>
-                    Once you&apos;ve found a bug you&apos;d like to fix, head over to the{' '}
+                    Once you have found a bug you would like to fix, head over to the{' '}
                     <a href='https://github.com/jellyfin/jellyfin-web'>GitHub page</a> for the web client and begin
                     hacking. Development documentation can be found on the <Link to='/docs'>Documentation page</Link>.
                     When the fix is ready, feel free to propose it to other users in the issue to get them to help test
@@ -356,7 +356,7 @@ export default function ContributorGuide() {
                     <b>&ldquo;Web UI&rdquo;</b> are of the most interest to you.
                   </p>
                   <p>
-                    Once you&apos;ve found a feature you&apos;d like to implement, head over to the{' '}
+                    Once you have found a feature you would like to implement, head over to the{' '}
                     <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin hacking.
                     Development documentation can be found on the <Link to='/docs'>Documentation page</Link>.
                   </p>
@@ -371,7 +371,7 @@ export default function ContributorGuide() {
 
               {codeLanguageOption === CodeLanguageOption.Modernize && (
                 <div className='margin-top--md'>
-                  Jellyfin&apos;s web client is being rewritten. We&apos;re currently converting it to TypeScript and
+                  Jellyfin&apos;s web client is being rewritten. We are currently converting it to TypeScript and
                   React. Head over to the <a href='https://github.com/jellyfin/jellyfin-web/'>project page</a> on GitHub
                   for more information.
                 </div>
@@ -419,7 +419,7 @@ export default function ContributorGuide() {
       {contributorOption === ContributorOption.Other && (
         <>
           <div className='margin-top--md'>
-            Even if you&apos;re not a developer or able to speak multiple languages, there&apos;s still lots of things
+            Even if you are not a developer or able to speak multiple languages, there are still lots of things
             you can do to help Jellyfin.
           </div>
           <div>
@@ -480,10 +480,10 @@ export default function ContributorGuide() {
 
           {otherOption === OtherOption.Donation && (
             <div className='margin-top--md'>
-              As a project, we generally don&apos;t like asking for donations - we&apos;re entirely volunteer-run and
+              As a project, we generally do not like asking for donations - we are entirely volunteer-run and
               intend to keep Jellyfin free as in beer, as well as free as in speech, forever. We do not wish, support,
               nor intend donations to privilege any user&apos;s voice or priorities. That said, if you do want to help
-              us cover some operating expenses like our VPS hosting, domains, developer licences, metadata API keys, and
+              us cover some operating expenses like our VPS hosting, domains, developer licenses, metadata API keys, and
               other incidental expenses, check out our{' '}
               <a href='https://opencollective.com/jellyfin'>OpenCollective page</a> to donate. Our entire budget as well
               as all expenses are publicly visible there.
