@@ -166,9 +166,9 @@ export default function ContributorGuide() {
                     <a href='https://github.com/jellyfin/jellyfin/issues?q=is%3Aissue+is%3Aopen+label%3Abug'>
                       open Bug Issues page
                     </a>{' '}
-                    on GitHub, and find one that interests you. If you find a bug that affects you already, it is a
-                    good candidate to fix as you should be quickly able to test it; otherwise, the bug report should
-                    list steps to reproduce the bug.
+                    on GitHub, and find one that interests you. If you find a bug that affects you already, it is a good
+                    candidate to fix as you should be quickly able to test it; otherwise, the bug report should list
+                    steps to reproduce the bug.
                   </p>
                   <p>
                     Once you have found a bug you would like to fix, head over to the{' '}
@@ -230,8 +230,8 @@ export default function ContributorGuide() {
                   {cSharpFeatureOption === CSharpFeatureOption.Server && (
                     <div className='margin-top--md'>
                       <p>
-                        Features of this type should be implemented directly into the core server itself. Once
-                        you have found a feature you want to implement, head over to the{' '}
+                        Features of this type should be implemented directly into the core server itself. Once you have
+                        found a feature you want to implement, head over to the{' '}
                         <a href='https://github.com/jellyfin/jellyfin'>GitHub page</a> for the server and begin hacking.
                         Development documentation can be found on the <Link to='/docs'>Documentation page</Link>.
                       </p>
@@ -324,9 +324,9 @@ export default function ContributorGuide() {
                     <a href='https://github.com/jellyfin/jellyfin-web/issues?q=is%3Aissue+is%3Aopen+label%3Abug'>
                       open Bug Issues page
                     </a>{' '}
-                    on GitHub, and find one that interests you. If you find a bug that affects you already, it is a
-                    good candidate to fix as you should be quickly able to test it; otherwise, the bug report should
-                    list steps to reproduce the bug.
+                    on GitHub, and find one that interests you. If you find a bug that affects you already, it is a good
+                    candidate to fix as you should be quickly able to test it; otherwise, the bug report should list
+                    steps to reproduce the bug.
                   </p>
                   <p>
                     Once you have found a bug you would like to fix, head over to the{' '}
@@ -371,8 +371,8 @@ export default function ContributorGuide() {
 
               {codeLanguageOption === CodeLanguageOption.Modernize && (
                 <div className='margin-top--md'>
-                  Jellyfin&apos;s web client is being rewritten. We are currently converting it to TypeScript and
-                  React. Head over to the <a href='https://github.com/jellyfin/jellyfin-web/'>project page</a> on GitHub
+                  Jellyfin&apos;s web client is being rewritten. We are currently converting it to TypeScript and React.
+                  Head over to the <a href='https://github.com/jellyfin/jellyfin-web/'>project page</a> on GitHub
                   for more information.
                 </div>
               )}
