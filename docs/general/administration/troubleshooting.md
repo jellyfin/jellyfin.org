@@ -11,7 +11,7 @@ This page outlines some solutions to common issues beginners may encounter when 
 
 The easiest way to check for issues is by checking the logs, which can be accessed through the console for the web client or in the log directory on your server.
 
-If media is unable transcode, first check the ffmpeg logs.
+If media is unable to transcode, first check the ffmpeg logs.
 
 ## Networking Issues
 
@@ -47,7 +47,7 @@ The debug messages show up in the log with the `DBG` tag.
 ## Real Time Monitoring
 
 This will let Jellyfin automatically update libraries when files are added or modified.
-Unfortunately this feature is only supported on certain filesystems.
+Unfortunately, this feature is only supported on certain filesystems.
 
 For Linux systems, this is performed by [inotify](https://en.wikipedia.org/wiki/Inotify).
 NFS and rclone do not support inotify, but support can be provided by using a union file system such as [mergerfs](https://github.com/trapexit/mergerfs) with your networked file systems.

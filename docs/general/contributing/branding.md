@@ -49,12 +49,12 @@ The design for the logo uses a gradient for the infill, and if the non-transpare
 
 - Gradient Start: `#AA5CC3`
 - Gradient End: `#00A4DC`
-- Background Colour: `#000B25`
+- Background Color: `#000B25`
 
 ### Theme
 
-- Background Colour: `#101010`
-- Accent Colour: `#00A4DC`
+- Background Color: `#101010`
+- Accent Color: `#00A4DC`
 
 ### Fonts
 

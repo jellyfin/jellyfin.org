@@ -39,7 +39,7 @@ With the settings above, the server executes this command when running the post 
 
 ## Run Post Processor Shell Script (to be run directly by Jellyfin Server)
 
-Quote interpretation is one of the hardest things to manage when using a post-processor script. Because of this, one easy way to run your post-processor is to have Jellyfin start a "runner" shell script, which then calls your actual post-processor script. This shell script then can be put into Jellyfin settings, and have a "clean" shell environment where it is easier to configure, look at logs, and more.
+Quote interpretation is one of the hardest things to manage when using a post-processor script. Because of this, one easy way to run your post-processor is to have Jellyfin start a "runner" shell script, which then calls your actual post-processor script. This shell script then can be put into Jellyfin settings and have a "clean" shell environment where it is easier to configure, look at logs, and more.
 
 In the sample script below:
 
@@ -60,7 +60,7 @@ echo $1
 
 ## Post Processor Python Script (to be run by `run_post_processor.sh`)
 
-In this example, a python script is where it all goes down. I chose to use Python primarilly because of how adaptable it is, and various third party extensions and packages that make it ideal for a post-processing script. This script can be customized to fit your individual requirements.
+In this example, a python script is where it all goes down. I chose to use Python primarily because of how adaptable it is, and various third party extensions and packages that make it ideal for a post-processing script. This script can be customized to fit your individual requirements.
 
 In the sample script:
 

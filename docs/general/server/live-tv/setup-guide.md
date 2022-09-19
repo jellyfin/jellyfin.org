@@ -46,7 +46,7 @@ This tuner allows you to add IPTV channel to Jellyfin by using the appropriate M
 
 - File or URL is the location of the M3U8 playlist. The file can either be stored online at a web (HTTP) address or stored locally.
 
-- User agent is needed in special cases where you need to supply a custome HTTP header to access the remotely stored M3U8 playlist
+- User agent is needed in special cases where you need to supply a custom HTTP header to access the remotely stored M3U8 playlist
 
 - Simultaneous stream limit will restrict the number of streams the server can have open at one time. Setting this value to '0' will allow for unlimited streams
 
@@ -88,4 +88,4 @@ The list of physical channels will be displayed. Click the pencil icon to the ri
 
 ![Step 2 of mapping channels](/images/docs/live-tv-setup-channels2.png)
 
-The guide data will now automatically imported. You can check that the data has been imported correctly by going to the 'Live TV Guide' page from the main Jellyfin web page on your server.
+The guide data will now automatically import. You can check that the data has been imported correctly by going to the 'Live TV Guide' page from the main Jellyfin web page on your server.

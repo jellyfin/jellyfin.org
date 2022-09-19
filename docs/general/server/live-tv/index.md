@@ -37,7 +37,7 @@ Guide data will need to be mapped to their corresponding channels after a guide 
 
 [Schedules Direct](http://www.schedulesdirect.org) is a paid service providing electronic program guide data to the United States and Canada.
 
-[XMLTV](http://wiki.xmltv.org/index.php/Main_Page) is "... an XML based file format for describing TV listings. IPTV providers use XMLTV as the base reference template in their systems, and extend it internally according to their business needs."
+[XMLTV](http://wiki.xmltv.org/index.php/Main_Page) is "... an XML based file format for describing TV listings. IPTV providers use XMLTV as the base reference template in their systems and extend it internally according to their business needs."
 
 ## Status
 

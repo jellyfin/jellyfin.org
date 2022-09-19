@@ -13,4 +13,4 @@ The only option available at the moment is editing the display name. This can be
 
 ## Remove
 
-If you don't want to keep old devices on the server you can remove them from this page. Please note that if a device connects again it will show up here. Removing a device does not hide the device forever, it simply cleans out old entries.
+If you don't want to keep old devices on the server, you can remove them from this page. Please note that if a device connects again it will show up here. Removing a device does not hide the device forever, it simply cleans out old entries.

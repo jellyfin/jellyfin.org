@@ -41,7 +41,7 @@ Go [here](https://www.w3schools.com/colors/colors_names.asp) for a list of color
 
 ### Comments
 
-A section of code or text inbetween `/*` and `*/` indicates a comment, and will be ignored.
+A section of code or text in-between `/*` and `*/` indicates a comment, and will be ignored.
 This allows you to add descriptions for any particular section of code.
 It can also be used to disable code without deleting it.
 
@@ -63,7 +63,7 @@ CSS can be "chained" together to modify different sections together at the same 
 
 ## Tweak List
 
-To apply any one of these tweaks, copy and paste the CSS code from the example into the "Custom CSS" field. To use multiple tweaks, simply add them one after another into the field. Any applied code will remain in the field. To remove a tweak, delete or comment out the code for it from the field. Changes apply immediately when the settings page is saved and doesn't require restarting your Jellyfin server.
+To apply any one of these tweaks, copy and paste the CSS code from the example into the "Custom CSS" field. To use multiple tweaks, simply add them one after another into the field. Any applied code will remain in the field. To remove a tweak, delete or comment out the code for it from the field. Changes apply immediately when the settings page is saved and does not require restarting your Jellyfin server.
 
 ### Played Indicator
 
