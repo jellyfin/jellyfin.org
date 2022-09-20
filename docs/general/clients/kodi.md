@@ -155,7 +155,7 @@ JellyCon behaves more like a standard Kodi streaming add-on. Media is accessed p
 
 ### Install JellyCon Add-on
 
-1. Instally JellyCon Add-on
+1. Install JellyCon Add-on
    - From within Kodi, navigate to "Add-on Browser"
    - Select "Install from Repository"
    - Choose "Kodi Jellyfin Add-ons", followed by "Video Add-ons"
