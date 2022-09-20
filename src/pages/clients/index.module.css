@@ -8,6 +8,12 @@
   }
 }
 
-.pills {
+.header .pills {
   flex-grow: 1;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }

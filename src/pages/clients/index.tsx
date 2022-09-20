@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 
 import ClientDetails from '../../components/clients/ClientDetails';
+import Pill from '../../components/common/Pill';
 import { Client, Clients, DeviceType } from '../../data/clients';
 import Platform, { FeaturedClientPlatforms } from '../../data/platform';
 
@@ -78,7 +79,14 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
             </div>
 
             <button
-              className='button button--outline button--primary button--icon margin-bottom--md'
+              className={clsx(
+                'button',
+                'button--outline',
+                'button--primary',
+                { 'button--active': isFiltersVisible },
+                'button--icon',
+                'margin-bottom--md'
+              )}
               onClick={() => {
                 setIsFiltersVisible(!isFiltersVisible);
               }}
@@ -90,47 +98,57 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
 
           {isFiltersVisible && (
             <div>
-              <h4 className='margin-bottom--sm'>Device Type</h4>
-              <div className='margin-bottom--md'>
+              <ul className={clsx('pills', styles.pills, 'margin-bottom--md')}>
+                <Pill
+                  active={filter.deviceTypes.length === 0}
+                  onClick={() => {
+                    setFilter({ ...filter, deviceTypes: [] });
+                  }}
+                >
+                  All Device Types
+                </Pill>
                 {Object.entries(DeviceType).map(([key, deviceType]) => (
-                  <label key={key} className='margin-right--md' style={{ display: 'inline-block' }}>
-                    <input
-                      type='checkbox'
-                      className='margin-right--sm'
-                      checked={filter.deviceTypes.includes(deviceType)}
-                      onChange={() => {
-                        setFilter({
-                          ...filter,
-                          deviceTypes: toggleValue(filter.deviceTypes, deviceType)
-                        });
-                      }}
-                    />{' '}
+                  <Pill
+                    key={key}
+                    active={filter.deviceTypes.includes(deviceType)}
+                    onClick={() => {
+                      setFilter({
+                        ...filter,
+                        deviceTypes: toggleValue(filter.deviceTypes, deviceType)
+                      });
+                    }}
+                  >
                     {deviceType}
-                  </label>
+                  </Pill>
                 ))}
-              </div>
+              </ul>
 
-              <h4 className='margin-bottom--sm'>Platform</h4>
-              <div className='margin-bottom--md'>
+              <ul className={clsx('pills', styles.pills, 'margin-bottom--md')}>
+                <Pill
+                  active={filter.platforms.length === 0}
+                  onClick={() => {
+                    setFilter({ ...filter, platforms: [] });
+                  }}
+                >
+                  All Platforms
+                </Pill>
                 {Object.entries(Platform)
                   .filter(([, platform]) => FeaturedClientPlatforms.includes(platform))
                   .map(([key, platform]) => (
-                    <label key={key} className='margin-right--md' style={{ display: 'inline-block' }}>
-                      <input
-                        type='checkbox'
-                        className='margin-right--sm'
-                        checked={filter.platforms.includes(platform)}
-                        onChange={() => {
-                          setFilter({
-                            ...filter,
-                            platforms: toggleValue(filter.platforms, platform)
-                          });
-                        }}
-                      />
+                    <Pill
+                      key={key}
+                      active={filter.platforms.includes(platform)}
+                      onClick={() => {
+                        setFilter({
+                          ...filter,
+                          platforms: toggleValue(filter.platforms, platform)
+                        });
+                      }}
+                    >
                       {platform}
-                    </label>
+                    </Pill>
                   ))}
-              </div>
+              </ul>
             </div>
           )}
 
