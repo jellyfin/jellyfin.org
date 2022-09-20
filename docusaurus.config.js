@@ -134,6 +134,11 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
           {
             from: '/docs/general/server/media/subtitles',
             to: '/docs/general/server/media/external-files'
+          },
+          // Storage docs moved from the server guide to administrative docs
+          {
+            from: '/docs/general/server/storage',
+            to: '/docs/general/administration/storage'
           }
         ]
       }
