@@ -102,7 +102,7 @@ sqlite3 /PATH/TO/JELLYFIN/DB/jellyfin.db
 
 ```sql
 UPDATE Users SET InvalidLoginAttemptCount = 0 WHERE Username = 'LockedUserName';
-update Permissions set Value = 0 where Kind = 2 and Permission_Permissions_Guid in (select Id from Users where Username = 'LockedUserName');
+UPDATE Permissions SET Value = 0 WHERE Kind = 2 AND UserId IN (SELECT Id FROM Users WHERE Username = 'LockedUserName');
 .exit
 ```
 
@@ -114,5 +114,5 @@ After opening the database, navigate to the Execute SQL Tab and execute the foll
 
 ```sql
 UPDATE Users SET InvalidLoginAttemptCount = 0 WHERE Username = 'LockedUserName';
-update Permissions set Value = 0 where Kind = 2 and Permission_Permissions_Guid in (select Id from Users where Username = 'LockedUserName');
+UPDATE Permissions SET Value = 0 WHERE Kind = 2 AND UserId IN (SELECT Id FROM Users WHERE Username = 'LockedUserName');
 ```
