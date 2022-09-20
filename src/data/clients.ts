@@ -6,9 +6,9 @@ export enum ClientType {
 }
 
 export enum DeviceType {
-  Desktop,
-  Mobile,
-  TV
+  Desktop = 'Desktop',
+  Mobile = 'Mobile',
+  TV = 'TV'
 }
 
 export enum LicenseType {

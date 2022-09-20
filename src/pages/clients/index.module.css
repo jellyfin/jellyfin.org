@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+}
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+  }
+}
+
+.pills {
+  flex-grow: 1;
+}

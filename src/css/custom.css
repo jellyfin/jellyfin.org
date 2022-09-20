@@ -92,6 +92,13 @@ a.pills__item:not(.pills__item--active) {
   padding: 0 var(--ifm-pre-padding);
 }
 
+.button--icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 .row--center {
   justify-content: center;
 }
