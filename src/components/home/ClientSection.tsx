@@ -2,10 +2,8 @@ import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import React from 'react';
 import { Android, Apple, Roku, Amazon, Kodi } from '@icons-pack/react-simple-icons';
-
-import Desktop from '../../../static/images/icons/monitor.svg';
-import Plus from '../../../static/images/icons/plus-thick.svg';
-import Web from '../../../static/images/icons/web.svg';
+import Icon from '@mdi/react';
+import { mdiPlusThick, mdiMonitor, mdiWeb } from '@mdi/js';
 
 import landingSectionStyles from './LandingSection.module.css';
 import styles from './ClientSection.module.css';
@@ -25,12 +23,12 @@ export default function ClientSection() {
         </div>
 
         <div className='row row--center'>
-          <div className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}>
-            <Web />
+          <div className={clsx('col', styles['client-icon'], 'margin-top--md')}>
+            <Icon path={mdiWeb} size='48px' className='fill-white' />
             <div className='margin-top--sm'>Web</div>
           </div>
-          <div className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}>
-            <Desktop />
+          <div className={clsx('col', styles['client-icon'], 'margin-top--md')}>
+            <Icon path={mdiMonitor} size='48px' className='fill-white' />
             <div className='margin-top--sm'>Desktop</div>
           </div>
           <div className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}>
@@ -53,8 +51,8 @@ export default function ClientSection() {
             <Kodi color='#ffffff' size={48} />
             <div className='margin-top--sm'>Kodi</div>
           </div>
-          <div className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}>
-            <Plus />
+          <div className={clsx('col', styles['client-icon'], 'margin-top--md')}>
+            <Icon path={mdiPlusThick} size='48px' className='fill-white' />
             <div className='margin-top--sm'>And more</div>
           </div>
         </div>

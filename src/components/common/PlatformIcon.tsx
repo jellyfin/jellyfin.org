@@ -20,12 +20,12 @@ import {
   Ubuntu,
   Windows
 } from '@icons-pack/react-simple-icons';
+import Icon from '@mdi/react';
+import { mdiMonitor, mdiWeb } from '@mdi/js';
 import clsx from 'clsx';
 import React from 'react';
 
 import Platform from '../../data/platform';
-import Desktop from '../../../static/images/icons/monitor.svg';
-import Web from '../../../static/images/icons/web.svg';
 
 const PlatformIcon = ({
   platform,
@@ -48,13 +48,13 @@ const PlatformIcon = ({
       return <Archlinux size={size} className={className} />;
 
     case Platform.Browser:
-      return <Web width={size} height={size} className={className} />;
+      return <Icon path={mdiWeb} size={`${size}px`} className={className} />;
 
     case Platform.CentOS:
       return <Centos size={size} className={className} />;
 
     case Platform.Desktop:
-      return <Desktop width={size} height={size} className={className} />;
+      return <Icon path={mdiMonitor} size={`${size}px`} className={className} />;
 
     case Platform.Debian:
       return <Debian size={size} className={className} />;
