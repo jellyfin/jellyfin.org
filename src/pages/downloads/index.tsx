@@ -103,15 +103,17 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
             </Admonition>
           )}
 
-          {Downloads.filter((download) => download.osTypes.includes(osType)).map((download) => (
-            <DownloadDetails
-              key={download.id}
-              download={download}
-              isStableLinks={isStableLinks}
-              activeButton={activeButton}
-              setActiveButton={setActiveButton}
-            />
-          ))}
+          {Downloads.filter((download) => download.osTypes.includes(osType))
+            .filter((download) => isStableLinks || download.unstableButtons.length > 0)
+            .map((download) => (
+              <DownloadDetails
+                key={download.id}
+                download={download}
+                isStableLinks={isStableLinks}
+                activeButton={activeButton}
+                setActiveButton={setActiveButton}
+              />
+            ))}
         </section>
       </main>
     </Layout>

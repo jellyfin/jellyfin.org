@@ -92,25 +92,21 @@ const DownloadDetails = ({ download, isStableLinks, activeButton, setActiveButto
     icons={download.platforms.map((platform, index) => (
       <PlatformIcon key={`${platform}-${index}`} platform={platform} size={36} />
     ))}
-    primaryButtons={
-      !isStableLinks && download.unstableButtons.length === 0
-        ? ['Unstable Unavailable']
-        : (isStableLinks ? download.stableButtons : download.unstableButtons).map((button) => (
-            <DownloadButton
-              key={button.id}
-              name={button.name || 'Downloads'}
-              url={button.url}
-              onClick={() => {
-                if (activeButton === button.id) {
-                  setActiveButton(null);
-                } else {
-                  setActiveButton(button.id);
-                }
-              }}
-              active={activeButton === button.id}
-            />
-          ))
-    }
+    primaryButtons={(isStableLinks ? download.stableButtons : download.unstableButtons).map((button) => (
+      <DownloadButton
+        key={button.id}
+        name={button.name || 'Downloads'}
+        url={button.url}
+        onClick={() => {
+          if (activeButton === button.id) {
+            setActiveButton(null);
+          } else {
+            setActiveButton(button.id);
+          }
+        }}
+        active={activeButton === button.id}
+      />
+    ))}
     secondaryButtons={download.otherButtons.map((button) => (
       <DownloadButton key={button.id} name={button.name || 'All Versions'} url={button.url} outline />
     ))}
