@@ -27,7 +27,8 @@ export default function Contribute() {
             If you are interested in helping the Jellyfin project, there are a few different ways to contribute
             depending on your skills and availability.
             <br />
-            Of course, simply using Jellyfin, finding issues, and reporting them, are a major help to our project, even if none of these apply to you!
+            Of course, simply using Jellyfin, finding issues, and reporting them are a major help to our project,
+            even if none of these apply to you!
           </p>
           <p>
             Before contributing, please read over our{' '}
