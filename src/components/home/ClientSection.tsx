@@ -17,6 +17,7 @@ export default function ClientSection() {
             <h2>Your media, wherever you&nbsp;are</h2>
             <p>
               With a large array of official and third-party clients, Jellyfin is available on most popular platforms.
+              <br />
               Your media is ready to follow you, wherever you go.
             </p>
           </div>
