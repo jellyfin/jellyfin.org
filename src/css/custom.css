@@ -99,6 +99,12 @@ a.pills__item:not(.pills__item--active) {
   gap: 0.25rem;
 }
 
+.card--outline {
+  background-color: transparent;
+  border: 2px solid #172138;
+  box-shadow: none;
+}
+
 .row--center {
   justify-content: center;
 }

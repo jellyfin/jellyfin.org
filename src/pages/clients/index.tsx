@@ -97,58 +97,60 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
           </div>
 
           {isFiltersVisible && (
-            <div>
-              <ul className={clsx('pills', styles.pills, 'margin-bottom--md')}>
-                <Pill
-                  active={filter.deviceTypes.length === 0}
-                  onClick={() => {
-                    setFilter({ ...filter, deviceTypes: [] });
-                  }}
-                >
-                  All Device Types
-                </Pill>
-                {Object.entries(DeviceType).map(([key, deviceType]) => (
+            <div className='card card--outline margin-bottom--md'>
+              <div className='card__body'>
+                <ul className={clsx('pills', styles.pills, 'margin-bottom--md')} style={{ justifyContent: 'center' }}>
                   <Pill
-                    key={key}
-                    active={filter.deviceTypes.includes(deviceType)}
+                    active={filter.deviceTypes.length === 0}
                     onClick={() => {
-                      setFilter({
-                        ...filter,
-                        deviceTypes: toggleValue(filter.deviceTypes, deviceType)
-                      });
+                      setFilter({ ...filter, deviceTypes: [] });
                     }}
                   >
-                    {deviceType}
+                    All Device Types
                   </Pill>
-                ))}
-              </ul>
-
-              <ul className={clsx('pills', styles.pills, 'margin-bottom--md')}>
-                <Pill
-                  active={filter.platforms.length === 0}
-                  onClick={() => {
-                    setFilter({ ...filter, platforms: [] });
-                  }}
-                >
-                  All Platforms
-                </Pill>
-                {Object.entries(Platform)
-                  .filter(([, platform]) => FeaturedClientPlatforms.includes(platform))
-                  .map(([key, platform]) => (
+                  {Object.entries(DeviceType).map(([key, deviceType]) => (
                     <Pill
                       key={key}
-                      active={filter.platforms.includes(platform)}
+                      active={filter.deviceTypes.includes(deviceType)}
                       onClick={() => {
                         setFilter({
                           ...filter,
-                          platforms: toggleValue(filter.platforms, platform)
+                          deviceTypes: toggleValue(filter.deviceTypes, deviceType)
                         });
                       }}
                     >
-                      {platform}
+                      {deviceType}
                     </Pill>
                   ))}
-              </ul>
+                </ul>
+
+                <ul className={clsx('pills', styles.pills)} style={{ justifyContent: 'center' }}>
+                  <Pill
+                    active={filter.platforms.length === 0}
+                    onClick={() => {
+                      setFilter({ ...filter, platforms: [] });
+                    }}
+                  >
+                    All Platforms
+                  </Pill>
+                  {Object.entries(Platform)
+                    .filter(([, platform]) => FeaturedClientPlatforms.includes(platform))
+                    .map(([key, platform]) => (
+                      <Pill
+                        key={key}
+                        active={filter.platforms.includes(platform)}
+                        onClick={() => {
+                          setFilter({
+                            ...filter,
+                            platforms: toggleValue(filter.platforms, platform)
+                          });
+                        }}
+                      >
+                        {platform}
+                      </Pill>
+                    ))}
+                </ul>
+              </div>
             </div>
           )}
 
