@@ -92,6 +92,19 @@ a.pills__item:not(.pills__item--active) {
   padding: 0 var(--ifm-pre-padding);
 }
 
+.button--icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.card--outline {
+  background-color: transparent;
+  border: 2px solid #172138;
+  box-shadow: none;
+}
+
 .row--center {
   justify-content: center;
 }
