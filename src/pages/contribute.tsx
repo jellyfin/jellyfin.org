@@ -14,7 +14,9 @@ export default function Contribute() {
     <Layout title='How to Contribute'>
       <Hero title='How to Contribute'>
         <p className='hero__text'>
-          Jellyfin is a community project run by volunteers.\n We are always looking for additional help.
+          Jellyfin is a community project run by volunteers.
+          <br />
+          We are always looking for additional help.
         </p>
       </Hero>
 
