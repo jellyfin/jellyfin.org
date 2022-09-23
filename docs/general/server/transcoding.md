@@ -16,7 +16,7 @@ If your hardware supports this you can enable [hardware acceleration](/docs/gene
 
 ## Thread Count
 
-This option will manually set the amount of threads to use when transcoding. If you're not using the server for anything else it's best to leave this option alone.
+This option will manually set the number of threads to use when transcoding. If you're not using the server for anything else, it's best to leave this option alone.
 
 ## Types of Transcoding
 

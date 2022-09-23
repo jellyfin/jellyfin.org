@@ -36,7 +36,7 @@ If the config.json file doesn't exist on the first run, Docker will map it to a 
 Jellyfin 10.8 adds the ability to specify custom links to be inserted in the navigation menu via the `config.json` file.
 Links are configured with a `name`, `url`, and optional `icon` property.
 The icon is specified using the name of an icon from the [Material Design Icons](https://jossef.github.io/material-design-icons-iconfont/) used in Jellyfin Web.
-By default the "link" icon will be used.
+By default, the "link" icon will be used.
 
 ```json
 "menuLinks": [

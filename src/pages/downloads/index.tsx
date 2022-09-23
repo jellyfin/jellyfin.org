@@ -103,7 +103,13 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
             </Admonition>
           )}
 
-          {Downloads.filter((download) => download.osTypes.includes(osType)).map((download) => (
+          {Downloads.filter(
+            (download) =>
+              // OS Type matches filter
+              download.osTypes.includes(osType) &&
+              // Ensure there are unstable links if unstable is selected
+              (isStableLinks || download.unstableButtons.length > 0)
+          ).map((download) => (
             <DownloadDetails
               key={download.id}
               download={download}

@@ -5,7 +5,7 @@ title: Quick Connect
 
 # Quick Connect
 
-Starting with Jellyfin server version 10.7.0 and supported clients, you can use Quick Connect to sign in to your account without the need of a password. You need to previously be logged into a supported client, like the default Jellyfin Web Client.
+Starting with Jellyfin server version 10.7.0 and supported clients, you can use Quick Connect to sign into your account without the need of a password. You need to previously be logged into a supported client, like the default Jellyfin Web Client.
 
 ## Enabling Quick Connect
 

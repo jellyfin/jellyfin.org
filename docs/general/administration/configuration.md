@@ -19,11 +19,11 @@ Documentation for the available command line options can be obtained by adding t
 
 ## Server Paths
 
-The file paths used by the server are determined according the rules outline below. In general, the [XDG specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) is followed by default for non-Windows systems.
+The file paths used by the server are determined according to the rules outlined below. In general, the [XDG specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) is followed by default for non-Windows systems.
 
 ### Data Directory
 
-This is the directory that will hold all Jellyfin data, and is also used as a default base directory for some other paths below. It is set from the following sources in order of decreasing precedence.
+This is the directory that will hold all Jellyfin data and is also used as a default base directory for some other paths below. It is set from the following sources in order of decreasing precedence.
 
 1. Command line option `--datadir`, if specified
 2. Environment variable `JELLYFIN_DATA_DIR`, if specified
