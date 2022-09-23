@@ -17,8 +17,11 @@ export default function Home() {
     >
       <Hero title='The Free Software Media System' large>
         <p className='hero__text margin-vert--lg'>
-          Jellyfin is the volunteer-built media solution that puts <em>you</em> in control of your media. Stream to any
-          device from your own server, with no strings attached. Your media, your server, your way.
+          Jellyfin is the volunteer-built media solution that puts <em>you</em> in control of your media.
+          <br />
+          Stream to any device from your own server, with no strings attached.
+          <br />
+          Your media, your server, your way.
         </p>
         <div className='hero__buttons'>
           <a href='https://demo.jellyfin.org/stable' className='button button--lg button--secondary button--outline'>
