@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3.4.1
         with:
           node-version: 16
-      - uses: actions/configure-pages@45efe609374726fd94570f0e5a4c32f41675e823 # tag=v2
+      - uses: actions/configure-pages@2ce6d5eaa1f7b36a30c9b424cd73fab661857cfe # tag=v2
       - name: Run build
         run: |
           npm ci
