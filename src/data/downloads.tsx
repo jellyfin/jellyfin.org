@@ -64,7 +64,7 @@ Types: deb
 URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
 Suites: $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )
 Components: main
-Arch: $( dpkg --print-architecture )
+Architectures: $( dpkg --print-architecture )
 Signed-By: /etc/apt/keyrings/jellyfin.gpg
 EOF
 sudo apt update
@@ -105,7 +105,7 @@ Types: deb
 URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
 Suites: $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )
 Components: main unstable
-Arch: $( dpkg --print-architecture )
+Architectures: $( dpkg --print-architecture )
 Signed-By: /etc/apt/keyrings/jellyfin.gpg
 EOF
 sudo apt update
