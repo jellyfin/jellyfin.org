@@ -8,7 +8,7 @@ import Pill from '../../components/common/Pill';
 import DownloadDetails from '../../components/downloads/DownloadDetails';
 import { Downloads, OsType } from '../../data/downloads';
 
-import styles from './index.module.css';
+import styles from './index.module.scss';
 
 export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsType }) {
   const [isStableLinks, setIsStableLinks] = useState<boolean>(true);

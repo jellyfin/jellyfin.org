@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 
-import './DetailsCard.css';
+import './DetailsCard.scss';
 
 type DetailsCardProps = {
   id?: string;

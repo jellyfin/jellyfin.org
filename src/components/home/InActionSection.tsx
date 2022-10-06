@@ -10,7 +10,7 @@ import PlaybackImageUrl from '../../../static/images/screenshots/home/10.8-playb
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import landingSectionStyles from './LandingSection.module.css';
+import landingSectionStyles from './LandingSection.module.scss';
 
 const screenshots = [
   {

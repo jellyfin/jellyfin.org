@@ -1,7 +1,7 @@
 import { Element } from '@icons-pack/react-simple-icons';
 import React, { useState } from 'react';
 
-import './ContactCard.css';
+import './ContactCard.scss';
 
 const MatrixCard = () => {
   const [isAllRoomsVisible, setAllRoomsVisible] = useState(false);

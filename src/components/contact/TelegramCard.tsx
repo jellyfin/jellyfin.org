@@ -1,7 +1,7 @@
 import { Telegram } from '@icons-pack/react-simple-icons';
 import React from 'react';
 
-import './ContactCard.css';
+import './ContactCard.scss';
 
 const TelegramCard = () => (
   <div className='card card--contact'>

@@ -1,7 +1,7 @@
 import { Discord } from '@icons-pack/react-simple-icons';
 import React from 'react';
 
-import './ContactCard.css';
+import './ContactCard.scss';
 
 const DiscordCard = () => (
   <div className='card card--contact'>

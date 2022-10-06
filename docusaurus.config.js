@@ -112,14 +112,15 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
         theme: {
           customCss: [
             require.resolve('@fontsource/noto-sans/index.css'),
-            require.resolve('./src/css/custom.css'),
-            require.resolve('./src/css/swiper.css')
+            require.resolve('./src/css/custom.scss'),
+            require.resolve('./src/css/swiper.scss')
           ]
         }
       }
     ]
   ],
   plugins: [
+    'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-client-redirects',
       {
