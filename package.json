@@ -32,7 +32,7 @@
     "@mdi/js": "7.0.96",
     "@mdi/react": "1.6.1",
     "@mdx-js/react": "1.6.22",
-    "@svgr/webpack": "6.3.1",
+    "@svgr/webpack": "6.4.0",
     "clsx": "1.2.1",
     "file-loader": "6.2.0",
     "react": "17.0.2",
