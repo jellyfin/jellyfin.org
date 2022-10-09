@@ -27,7 +27,7 @@
     "@docusaurus/preset-classic": "2.1.0",
     "@easyops-cn/docusaurus-search-local": "0.32.0",
     "@fontsource/noto-sans": "4.5.11",
-    "@icons-pack/react-simple-icons": "5.7.0",
+    "@icons-pack/react-simple-icons": "5.8.0",
     "@img-comparison-slider/react": "7.7.0",
     "@mdi/js": "7.0.96",
     "@mdi/react": "1.6.1",
