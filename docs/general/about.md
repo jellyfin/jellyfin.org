@@ -17,9 +17,9 @@ The Jellyfin project was started in early December 2018 primarily as a result of
 
 Since December 2018, the project has grown immensely, through several speedbumps and waves of activity, gaining contributors from around the world and of all skill levels and experiences, and we continue to advance the project as best as we can. We want to be the stwearts of a truly FLOSS option in the video streaming space against Plex and Emby, and to remain a good proof of the power of Free and Open-Source software.
 
-# The Team
+## The Team
 
-## Core Team
+### Core Team
 
 The core team consists of those with merge permissions on the main Jellyfin repositories, and thus have the ultimate decision authority for contributions to the core Jellyfin server and web client.
 
