@@ -58,6 +58,8 @@ Episode numbering for specials may vary from metadata provider to metadata provi
 
 ## Images
 
+Posters, Backdrops, and Logos may also be embedded into video containers that support it (such as mkv) and will be read out by the `Embedded Image Extractor` if enabled as an `Image Extractor` on the library configuration page.
+
 ### Poster
 
 - folder.ext

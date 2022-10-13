@@ -12,9 +12,9 @@ Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force 
 
 ### Requirements
 
-* Jellyfin remotely accessible
-* Fail2ban installed and running
-* Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/`
+- Jellyfin remotely accessible
+- Fail2ban installed and running
+- Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/`
 
 ### Step one: create a jail
 
@@ -47,9 +47,9 @@ Note:
 
 1. If jellyfin is running in a docker container, then add the following to jellyfin.local file
 
-    ```bash
-    action = iptables-allports[name=jellyfin, chain=DOCKER-USER]
-    ```
+   ```bash
+   action = iptables-allports[name=jellyfin, chain=DOCKER-USER]
+   ```
 
 2. If you are running Jellyfin on a non-standard port, then change the port from 80,443 to the relevant port say 8096 8920
 
@@ -65,7 +65,7 @@ And add this to the new file:
 
 ```bash
 [Definition]
-failregex = ^.*Authentication request for ".*" has been denied \(IP: "<ADDR>"\)\.
+failregex = ^.*Authentication request for .* has been denied \(IP: <ADDR>\)\.
 ```
 
 Save and exit, then reload Fail2ban:
