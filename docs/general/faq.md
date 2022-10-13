@@ -8,21 +8,20 @@ sidebar_position: 2
 
 ## Why fork Emby? Why did you start this project?
 
-We explain our rationale on our [about page](/docs/general/about).
+We explain the rationale for our fork on our [about page](/docs/general/about).
 
 ## Why don't you support my favorite client or feature?
 
-Chances are, we would like to support it! But it has not been implemented yet.
+Chances are, we would like to support it, but it has not been implemented yet.
 Jellyfin is an entirely volunteer-driven project, so until a developer is able and willing to implement a feature, it likely will not be done.
-We track our features on [our Fider instance](https://features.jellyfin.org), so please check that out, upvote the features you like, and add your own requests.
+We track community feature requests on [our Fider instance](https://features.jellyfin.org), so please check that out, upvote the features you like, and add your own requests. Note that the Fider does not guarantee prioritization, but instead provides developers a way of seeing what features might be popular to decide whether to work on them or not. This does unfortunately mean that even highly-soughtafter features might not be implemented until someone both interested and able to work on them comes along.
 If you're a developer and are interested in helping out, [please hack away](/docs/general/contributing) and let us know [on Matrix](/docs/general/getting-help) so we can help.
 
 ## When will release {X} happen? When will feature {X} be available?
 
-When the Jellyfin team feels it is ready.
-Please remember we are all volunteers and want to deliver the best possible experience.
+We make releases only when the team feels that it is ready, to provide our users with the best and most stable experience we can.
 To that end, releases happen when we feel there has been sufficient testing without new issues being found.
-Releases are also subject to the availability of the people who manage the builds and publishes for different platforms.
+Releases are also subject to the availability of the people who manage the builds and publishes for different platforms. Please remember we are all volunteers and there are no fixed timelines to our releases.
 
 ## I'm having problems with Jellyfin, how do I get help?
 
@@ -34,6 +33,7 @@ This normally comes down to one of the following issues:
 
 1. [File permissions](https://wikipedia.org/wiki/File-system_permissions) are not properly configured on your media.
 2. Your media does not follow the organizational requirements for Jellyfin's scanner to properly identify media. (Valid organization schemes can be found in the documentation for [Movies](/docs/general/server/media/movies), [Shows](/docs/general/server/media/shows), [Music](/docs/general/server/media/music), and others.)
+If it's not one of these, please consider asking for help as it might be a bug.
 
 ## How can I contribute to this project?
 
