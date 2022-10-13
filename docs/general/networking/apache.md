@@ -32,6 +32,10 @@ title: Apache
     # This line will tell apache to not to use the proxy for this folder.
     ProxyPass "/.well-known/" "!"
 
+    # Tell Jellyfin to forward that requests came from TLS connections
+    RequestHeader set X-Forwarded-Proto "https"
+    RequestHeader set X-Forwarded-Port "443"
+
     ProxyPass "/socket" "ws://SERVER_IP_ADDRESS:8096/socket"
     ProxyPassReverse "/socket" "ws://SERVER_IP_ADDRESS:8096/socket"
 
