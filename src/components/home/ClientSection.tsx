@@ -5,8 +5,8 @@ import { Android, Apple, Roku, Amazon, Kodi } from '@icons-pack/react-simple-ico
 import Icon from '@mdi/react';
 import { mdiPlusThick, mdiMonitor, mdiWeb } from '@mdi/js';
 
-import landingSectionStyles from './LandingSection.module.css';
-import styles from './ClientSection.module.css';
+import landingSectionStyles from './LandingSection.module.scss';
+import styles from './ClientSection.module.scss';
 
 export default function ClientSection() {
   return (

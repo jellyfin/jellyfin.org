@@ -10,7 +10,7 @@ import Pill from '../../components/common/Pill';
 import { Client, Clients, DeviceType } from '../../data/clients';
 import Platform, { FeaturedClientPlatforms } from '../../data/platform';
 
-import styles from './index.module.css';
+import styles from './index.module.scss';
 
 type ClientFilter = {
   recommended: boolean;

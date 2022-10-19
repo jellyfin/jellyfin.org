@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './ContactCard.css';
+import './ContactCard.scss';
 
 const IrcCard = () => (
   <div className='card card--contact'>

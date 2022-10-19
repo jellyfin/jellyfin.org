@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
-import landingSectionStyles from './LandingSection.module.css';
-import styles from './HomepageFeatures.module.css';
+import landingSectionStyles from './LandingSection.module.scss';
+import styles from './HomepageFeatures.module.scss';
 import clsx from 'clsx';
 
 type Feature = {

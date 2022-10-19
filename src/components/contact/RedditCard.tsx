@@ -1,7 +1,7 @@
 import { Reddit } from '@icons-pack/react-simple-icons';
 import React from 'react';
 
-import './ContactCard.css';
+import './ContactCard.scss';
 
 const RedditCard = () => (
   <div className='card card--contact'>

@@ -7,7 +7,7 @@ import React from 'react';
 import ContributorGuide from '../components/contribute/ContributorGuide';
 import Hero from '../components/common/Hero';
 
-import styles from './contribute.module.css';
+import styles from './contribute.module.scss';
 
 export default function Contribute() {
   return (

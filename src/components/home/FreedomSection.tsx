@@ -5,7 +5,7 @@ import { mdiAccountGroup, mdiLock, mdiCurrencyUsdOff } from '@mdi/js';
 import clsx from 'clsx';
 import React from 'react';
 
-import landingSectionStyles from './LandingSection.module.css';
+import landingSectionStyles from './LandingSection.module.scss';
 
 const ICON_SIZE = 48;
 
