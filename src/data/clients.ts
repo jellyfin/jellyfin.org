@@ -2,6 +2,7 @@ import Platform from './platform';
 
 export enum ClientType {
   Official,
+  OfficialBeta,
   ThirdParty
 }
 
@@ -305,6 +306,30 @@ export const Clients: Array<Client> = [
       }
     ],
     recommended: true
+  },
+  {
+    id: 'swiftfin',
+    name: 'Swiftfin',
+    description:
+      'Swiftfin is a modern video client for Jellyfin. Redesigned in Swift to maximize direct play with the power of VLC and look native on all classes of Apple devices.',
+    clientType: ClientType.OfficialBeta,
+    deviceTypes: [DeviceType.Mobile, DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.IOS, Platform.TVOS],
+    primaryLinks: [
+      {
+        id: 'test-flight',
+        name: 'TestFlight',
+        url: 'https://testflight.apple.com/join/oZd0QzWv'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/swiftfin'
+      }
+    ]
   },
   {
     id: 'findroid',

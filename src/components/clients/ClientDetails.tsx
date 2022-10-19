@@ -5,10 +5,13 @@ import PlatformIcon from '../common/PlatformIcon';
 import { Client, ClientType, LicenseType } from '../../data/clients';
 
 const ClientTypeBadge = ({ clientType }: { clientType: ClientType }) => {
-  if (clientType === ClientType.Official) {
-    return <span className='badge badge--primary margin-right--sm'>Official</span>;
-  } else if (clientType === ClientType.ThirdParty) {
-    return <span className='badge badge--secondary margin-right--sm'>Third Party</span>;
+  switch (clientType) {
+    case ClientType.Official:
+      return <span className='badge badge--primary margin-right--sm'>Official</span>;
+    case ClientType.OfficialBeta:
+      return <span className='badge badge--warning margin-right--sm'>Official Beta</span>;
+    case ClientType.ThirdParty:
+      return <span className='badge badge--secondary margin-right--sm'>Third Party</span>;
   }
 };
 
