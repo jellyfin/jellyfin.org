@@ -333,7 +333,7 @@ Using the Advanced/Service mode may experience FFmpeg hardware acceleration issu
 2. Search for Jellyfin.
 3. Click Uninstall.
 
-### Manual Installation (x86/x64)
+### Manual Installation (x64)
 
 **Install**
 
@@ -366,7 +366,7 @@ Using the Advanced/Service mode may experience FFmpeg hardware acceleration issu
    jellyfin.bat
    ```
 
-6. Open your browser at `http://<--Server-IP-->:8096` (if auto-start of webapp is disabled)
+6. Open your browser at `http://<--Server-IP-->:8096`.
 
 **Update**
 
