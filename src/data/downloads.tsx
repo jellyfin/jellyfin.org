@@ -298,7 +298,7 @@ makepkg -si`}
     name: 'MacOS',
     osTypes: [OsType.MacOS],
     status: DownloadStatus.Official,
-    features: [Feature.CustomFFmpeg],
+    features: [],
     platforms: [Platform.MacOS],
     description: 'Both installers (.dmg) and manual ZIP archives (.tar.gz) are provided.',
     stableButtons: [{ id: 'macos-stable-link', url: 'https://repo.jellyfin.org/releases/server/macos/stable' }],
