@@ -522,6 +522,34 @@ export const Clients: Array<Client> = [
     recommended: true
   },
   {
+    id: 'jellyfin-vue',
+    name: 'Jellyfin Vue',
+    description: 'A modern web client for Jellyfin based on Vue',
+    clientType: ClientType.OfficialBeta,
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Browser],
+    primaryLinks: [
+      {
+        id: 'browser',
+        name: 'Open in Browser',
+        url: 'https://jf-vue.pages.dev/'
+      },
+      {
+        id: 'docker-ghcr',
+        name: 'Docker',
+        url: 'https://github.com/jellyfin/jellyfin-vue/pkgs/container/jellyfin-vue'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-vue'
+      }
+    ]
+  },
+  {
     id: 'jellyfin-webos',
     name: 'Jellyfin for WebOS',
     description: 'The official Jellyfin app for WebOS devices.',
