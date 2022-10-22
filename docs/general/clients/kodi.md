@@ -81,6 +81,7 @@ Media in Kodi's database is automatically kept in sync with the server in one of
      - Note that if you have a baseurl set, you should append that value to the end of the host field.
        - Host: `192.168.0.10:8096/jellyfin`
    - Select user account and input password, or select "Manual Login" and fill in your user information
+   - Note that if using a reverse proxy like Nginx, it may resolve certain playpack issues by disabling HTTP/2
 3. Once you are successfully authenticated with the server, you'll be asked about which mode you'd like to use, Add-on vs Native, which are outlined below.
 
 #### Add-on Mode
