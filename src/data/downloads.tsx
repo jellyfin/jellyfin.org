@@ -59,6 +59,7 @@ export const Downloads: Array<Download> = [
                 {`sudo apt install curl gnupg
 sudo mkdir /etc/apt/keyrings
 curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+
 cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
 Types: deb
 URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
@@ -67,13 +68,15 @@ Components: main
 Architectures: $( dpkg --print-architecture )
 Signed-By: /etc/apt/keyrings/jellyfin.gpg
 EOF
+
 sudo apt update
 sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b> The third command will output the Jellyfin APT repository configuration for your system. We
-              support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures (
+              <b>Note:</b> The <code>cat</code> command will output the Jellyfin APT repository configuration for your system. 
+              It should be pasted in to the terminal as one block. 
+              We support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures (
               <code>Arch:</code>), <code>debian</code> and <code>ubuntu</code> for distributions (the text after the
               final slash in <code>URIs:</code>), <code>buster</code> and <code>bullseye</code> for Debian releases and{' '}
               <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu releases (
@@ -100,6 +103,7 @@ sudo apt install jellyfin`}
                 {`sudo apt install curl gnupg
 sudo mkdir /etc/apt/keyrings
 curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+
 cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
 Types: deb
 URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
@@ -108,13 +112,15 @@ Components: main unstable
 Architectures: $( dpkg --print-architecture )
 Signed-By: /etc/apt/keyrings/jellyfin.gpg
 EOF
+
 sudo apt update
 sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b> The third command will output the Jellyfin APT repository configuration for your system. We
-              support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures (
+              <b>Note:</b> The <code>cat</code> command will output the Jellyfin APT repository configuration for your system. 
+              It should be pasted in to the terminal as one block.
+              We support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures (
               <code>Arch:</code>), <code>debian</code> and <code>ubuntu</code> for distributions (the text after the
               final slash in <code>URIs:</code>), <code>buster</code> and <code>bullseye</code> for Debian releases and{' '}
               <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu releases (
