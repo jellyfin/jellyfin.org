@@ -58,7 +58,7 @@ export const Downloads: Array<Download> = [
               <code>
                 {`sudo apt install curl gnupg
 sudo mkdir /etc/apt/keyrings
-curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+curl -fsSL https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
 cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
 Types: deb
 URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
@@ -99,7 +99,7 @@ sudo apt install jellyfin`}
               <code>
                 {`sudo apt install curl gnupg
 sudo mkdir /etc/apt/keyrings
-curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+curl -fsSL https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
 cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
 Types: deb
 URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
