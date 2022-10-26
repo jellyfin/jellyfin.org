@@ -685,22 +685,30 @@ sudo apt install extrepo
 sudo extrepo enable jellyfin
 ```
 
-1. Install HTTPS transport for APT as well as `gnupg` and `lsb-release` if you haven't already.
+1. Install `curl` and `gnupg` if you haven't already:
 
    ```sh
-   sudo apt install apt-transport-https gnupg lsb-release
+   sudo apt install curl gnupg
    ```
 
-2. Import the GPG signing key (signed by the Jellyfin Team):
+2. Download the GPG signing key (signed by the Jellyfin Team):
 
    ```sh
-   curl -fsSL https://repo.jellyfin.org/debian/jellyfin_team.gpg.key | gpg --dearmor -o /etc/apt/trusted.gpg.d/debian-jellyfin.gpg
+   sudo mkdir /etc/apt/keyrings
+   curl -fsSL https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
    ```
 
-3. Add a repository configuration at `/etc/apt/sources.list.d/jellyfin.list`:
+3. Add a repository configuration at `/etc/apt/sources.list.d/jellyfin.sources`:
 
    ```sh
-   echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/debian $( lsb_release -c -s ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
+   cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
+   Types: deb
+   URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
+   Suites: $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )
+   Components: main
+   Architectures: $( dpkg --print-architecture )
+   Signed-By: /etc/apt/keyrings/jellyfin.gpg
+   EOF
    ```
 
    :::note
@@ -779,8 +787,7 @@ If you encounter errors about the `ubuntu` release not being found and you previ
 
 #### Ubuntu Repository
 
-The Jellyfin team provides an Ubuntu repository for installation on Ubuntu Xenial, Bionic, Cosmic, Disco, Eoan, and Focal. Supported architectures are `amd64`, `arm64`, and `armhf`.
-Only `amd64` is supported on Ubuntu Xenial.
+The Jellyfin team provides an Ubuntu repository for installation on Ubuntu Bionic, Focal, Impish, and Jammy. Supported architectures are `amd64`, `arm64`, and `armhf`.
 
 :::note
 
@@ -788,10 +795,10 @@ Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyf
 
 :::
 
-1. Install HTTPS transport for APT if you haven't already:
+1. Install `curl` and `gnupg` if you haven't already:
 
    ```sh
-   sudo apt install apt-transport-https
+   sudo apt install curl gnupg
    ```
 
 2. Enable the Universe repository to obtain all the FFMpeg dependencies:
@@ -807,21 +814,29 @@ Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyf
 
    :::
 
-3. Import the GPG signing key (signed by the Jellyfin Team):
+3. Download the GPG signing key (signed by the Jellyfin Team):
 
    ```sh
-   curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/debian-jellyfin.gpg
+   sudo mkdir /etc/apt/keyrings
+   curl -fsSL https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
    ```
 
-4. Add a repository configuration at `/etc/apt/sources.list.d/jellyfin.list`:
+4. Add a repository configuration at `/etc/apt/sources.list.d/jellyfin.sources`:
 
    ```sh
-   echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/ubuntu $( lsb_release -c -s ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
+   cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
+   Types: deb
+   URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
+   Suites: $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )
+   Components: main
+   Architectures: $( dpkg --print-architecture )
+   Signed-By: /etc/apt/keyrings/jellyfin.gpg
+   EOF
    ```
 
    :::note
 
-   Supported releases are `bionic`, `cosmic`, `disco`, `eoan`, and `focal`.
+   Supported releases are `bionic`, `focal`, `impish`, and `jammy`.
 
    :::
 
