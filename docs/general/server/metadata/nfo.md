@@ -83,8 +83,8 @@ User data importing is only possible for a single user. This user can be set in 
 | style         | multiple tags allowed                                                                                                 |
 | fileinfo      |                                                                                                                       |
 | uniqueid      | type attribute specifies id provider                                                                                  |
-| thumb         | please see the section about images                                                                                   |
-| fanart        | please see the section about images                                                                                   |
+| thumb         | please see the [section about images](#image-paths-and-urls-in-nfo-files)                                             |
+| fanart        | please see the [section about images](#image-paths-and-urls-in-nfo-files)                                             |
 
 Provider id tags are supported as well if they follow the scheme: `<PROVIDER_NAME`+ `id>`.
 
