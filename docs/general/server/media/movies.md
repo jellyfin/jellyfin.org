@@ -94,6 +94,8 @@ Supported folder types are:
 - `samples`
 - `shorts`
 - `featurettes`
+- `clips`
+- `other` - Generic catch all for extras of an unknown type.
 - `extras` - Generic catch all for extras of an unknown type.
 - `trailers`
 
@@ -150,8 +152,11 @@ If you would rather keep everything in a single folder, you can append special s
 - `-interview`
 - `-behindthescenes`
 - `-deleted`
+- `-deletedscene`
 - `-featurette`
 - `-short`
+- `-other`
+- `-extra`
 <!-- markdownlint-enable MD038 -->
 
 ```txt
