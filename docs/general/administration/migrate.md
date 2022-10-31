@@ -5,9 +5,15 @@ title: Migrating
 
 # Migrating
 
-It is possible to migrate your system to another system by using environment variables.
-It's possible to do this via the command line or by using Docker environment variables.
-To read more, see the [Configuration](/docs/general/administration/configuration) page.
+This page explains how to migrate from Emby to Jellyfin as well as how to migrate a Jellyfin installation. 
+
+Jellyfins internal databases are not designed for migrations. Depending on your case there may be ways to work around this, f.ex. by just migrating parts of the data, or because it's possible maintain the same file paths. 
+
+If that's not an option for you, there is also a script available to migrate the entire database without data loss, but it's not a turn-key solution. 
+
+## Full Database Migration
+
+[Jellyfin Migrator](https://github.com/MMMZZZZ/Jellyfin-Migrator) is a script that can migrate your entire installation from Windows to Linux or Linux Docker. It can also do other migrations, like f.ex. a reorganization of your media files. All statistics, settings and metadata are preserved. Please check the readme of the project for further details. 
 
 ## Watched Status Migration
 
@@ -18,9 +24,9 @@ This can be done from Plex, Emby or another Jellyfin instance.
 
 [Plex to Jellyfin migration](https://github.com/wilmardo/migrate-plex-to-jellyfin)
 
-## Migrating Linux install to Docker
+## Migrating Linux Install to Docker
 
-It's possible to use the data of a local install in the official docker image by mapping files and folders to the same locations and configuring the image accordingly.
+It's possible to use the data of a local install in the official docker image by mapping files and folders to the same locations and configuring the image accordingly. It's possible to do this via the command line or by using Docker environment variables. To read more, see the [Configuration](/docs/general/administration/configuration) page.
 
 :::note
 
