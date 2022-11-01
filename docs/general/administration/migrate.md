@@ -5,15 +5,15 @@ title: Migrating
 
 # Migrating
 
-This page explains how to migrate from Emby to Jellyfin as well as how to migrate a Jellyfin installation. 
+This page explains how to migrate from Emby to Jellyfin as well as how to migrate a Jellyfin installation.
 
-Jellyfins internal databases are not designed for migrations. Depending on your case there may be ways to work around this, f.ex. by just migrating parts of the data, or because it's possible maintain the same file paths. 
+Jellyfins internal databases are not designed for migrations. Depending on your case there may be ways to work around this, f.ex. by just migrating parts of the data, or because it's possible maintain the same file paths.
 
-If that's not an option for you, there is also a script available to migrate the entire database without data loss, but it's not a turn-key solution. 
+If that's not an option for you, there is also a script available to migrate the entire database without data loss, but it's not a turn-key solution.
 
 ## Full Database Migration
 
-[Jellyfin Migrator](https://github.com/MMMZZZZ/Jellyfin-Migrator) is a script that can migrate your entire installation from Windows to Linux or Linux Docker. It can also do other migrations, like f.ex. a reorganization of your media files. All statistics, settings and metadata are preserved. Please check the readme of the project for further details. 
+[Jellyfin Migrator](https://github.com/MMMZZZZ/Jellyfin-Migrator) is a script that can migrate your entire installation from Windows to Linux or Linux Docker. It can also do other migrations, like f.ex. a reorganization of your media files. All statistics, settings and metadata are preserved. Please check the readme of the project for further details.
 
 ## Watched Status Migration
 
