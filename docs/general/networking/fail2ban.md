@@ -14,18 +14,17 @@ Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force 
 
 - Jellyfin remotely accessible
 - Fail2ban installed and running
-- Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/`
+- Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/` for desktop and `/config/log/` for docker containers.
 
-### Step one: create a jail
+### Step one: create the jail
 
-You need to create a jail for Fail2ban.
-If you are on Ubuntu and use nano as editor, type:
+You need to create a jail for Fail2ban. If you're on Ubuntu and use nano as editor, run:
 
 ```bash
 sudo nano /etc/fail2ban/jail.d/jellyfin.local
 ```
 
-And add this to the file:
+Add this to the new file:
 
 ```bash
 [jellyfin]
@@ -38,34 +37,34 @@ filter = jellyfin
 maxretry = 3
 bantime = 86400
 findtime = 43200
-logpath = /var/log/jellyfin/jellyfin*.log
+logpath = /path_to_logs/*.log
 ```
 
 Save and exit nano.
 
 Note:
 
-1. If jellyfin is running in a docker container, then add the following to jellyfin.local file
+1. If Jellyfin is running in a docker container, add the following to the `jellyfin.local` file:
 
    ```bash
    action = iptables-allports[name=jellyfin, chain=DOCKER-USER]
    ```
 
-2. If you are running Jellyfin on a non-standard port, then change the port from 80,443 to the relevant port say 8096 8920
+2. If you're running Jellyfin on a non-standard port, then change the port from `80,443` to the relevant port say `8096,8920`
 
-### Step two: create a filter
+### Step two: create the filter
 
-The filter explains to Fail2ban where to look in the log file. This is the tricky part.
+The filter contains a set of rules which Fail2ban will use to identify a failed authentication attempt. Create the filter by running:
 
 ```bash
 sudo nano /etc/fail2ban/filter.d/jellyfin.conf
 ```
 
-And add this to the new file:
+Paste:
 
 ```bash
 [Definition]
-failregex = ^.*Authentication request for .* has been denied \(IP: <ADDR>\)\.
+failregex = ^.*Authentication request for .* has been denied \(IP: "<ADDR>"\)\.
 ```
 
 Save and exit, then reload Fail2ban:
@@ -78,10 +77,8 @@ You're done.
 
 ### Step three: test
 
-You can test this new jail:
+Assuming you've at least one failed authentication attempt, you can test this new jail with `fail2ban-regex`:
 
 ```bash
-fail2ban-regex /var/log/jellyfin/*.log /etc/fail2ban/filter.d/jellyfin.conf
+fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
 ```
-
-And see the output.
