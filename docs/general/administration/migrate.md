@@ -13,7 +13,7 @@ If that's not an option for you, there is also a script available to migrate the
 
 ## Full Database Migration
 
-[Jellyfin Migrator](https://github.com/MMMZZZZ/Jellyfin-Migrator) is a third-party script that can migrate your entire installation from Windows to Linux or Linux Docker. It can also do other migrations, like a reorganization of your media files. All statistics, settings and metadata are preserved. 
+[Jellyfin Migrator](https://github.com/MMMZZZZ/Jellyfin-Migrator) is a third-party script that can migrate your entire installation from Windows to Linux or Linux Docker. It can also do other migrations, like a reorganization of your media files. All statistics, settings and metadata are preserved.
 
 ## Watched Status Migration
 
