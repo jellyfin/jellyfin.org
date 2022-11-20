@@ -34,6 +34,7 @@ jobs:
   deploy:
     if: github.event_name != 'pull_request'
     name: Deploy to GitHub Pages
+    concurrency: build-deploy-pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
