@@ -120,7 +120,7 @@ services:
 Then while in the same folder as the `docker-compose.yml` run:
 
 ```sh
-docker-compose up
+docker compose up
 ```
 
 To run the container in background add `-d` to the above command.
