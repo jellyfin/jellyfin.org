@@ -223,7 +223,7 @@ docker run -d \
  --volume /path/to/cache:/cache \
  --volume /path/to/media:/media \
  --user 1000:1000 \
- --group-add=122 \ # Change this to match your system
+ --group-add="122" \ # Change this to match your system
  --net=host \
  --restart=unless-stopped \
  --device /dev/dri/renderD128:/dev/dri/renderD128 \
@@ -240,7 +240,7 @@ services:
     image: jellyfin/jellyfin
     user: 1000:1000
     group_add:
-      - 122
+      - "122"
     network_mode: 'host'
     volumes:
       - /path/to/config:/config
