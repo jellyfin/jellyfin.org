@@ -46,13 +46,100 @@ Season folders shouldn't contain the series name, otherwise Jellyfin can in cert
 
 :::
 
-## Show Extras
+## Show Specials
 
-Show extras, sometimes called specials, can be added in the `Season 00` folder. If supported by your metadata provider those files will be matched. In case your metadata provider does not provide information about the extra, it is recommended to use a name which describes the content of the special instead of naming it `Episode S00Exy.mkv`. This is done to avoid wrong metadata being pulled for the extra and to provide a proper presentation.
+Show specials can be added in the `Season 00` folder. If supported by your metadata provider those files will be matched. In case your metadata provider does not provide information about the special, it is recommended to use a name which describes the content of the special instead of naming it `Episode S00Exy.mkv`. This is done to avoid wrong metadata being pulled for the special and to provide a proper presentation.
 
 :::note
 
 Episode numbering for specials may vary from metadata provider to metadata provider.
+
+:::
+
+## Show Extras
+
+Show extras can include deleted scenes, interviews, and other various things that you would want to include alongside your show. Extras can be added at both the series and season level. Jellyfin supports several different methods of adding these files.
+
+:::note
+
+Season level extras are only supported when season folders are used.
+
+:::
+
+### Extras Folders
+
+One of the cleanest ways of adding extras is to place them in subfolders within your show or season folder.
+
+Supported folder types are:
+
+- `behind the scenes`
+- `deleted scenes`
+- `interviews`
+- `scenes`
+- `samples`
+- `shorts`
+- `featurettes`
+- `clips`
+- `other` - Generic catch all for extras of an unknown type.
+- `extras` - Generic catch all for extras of an unknown type.
+- `trailers`
+
+```txt
+Shows
+└── Series (2010)
+    ├── Season 01
+    │   ├── Episode S01E01.mkv
+    │   ├── Episode S01E02.mkv
+    │   ├── featurettes
+    │   │   └── Some Featurette.mkv
+    │   └── interviews
+    │       └── Interview with the Director.mp4
+    ├── Season 02
+    │   ├── Episode S02E01.mkv
+    │   ├── Episode S02E02.mkv
+    │   └── behind the scenes
+    │       └── Behind the Scenes.mp4
+    └── extras
+        └── Fantastic Extra.mkv
+```
+
+### File Suffix
+
+If you would rather keep everything in a single folder, you can append special suffixes to the filename which Jellyfin picks up and uses to identify the file as an extra. Unless noted, these suffixes **DO NOT** contain any spaces.
+
+<!-- markdownlint-disable MD038 -->
+
+- `-trailer`
+- `.trailer`
+- `_trailer`
+- ` trailer` - This is a space followed by the word `trailer`
+- `-scene`
+- `-clip`
+- `-interview`
+- `-behindthescenes`
+- `-deleted`
+- `-deletedscene`
+- `-featurette`
+- `-short`
+- `-other`
+- `-extra`
+<!-- markdownlint-enable MD038 -->
+
+```txt
+Shows
+└── Series (2010)
+    ├── Season 01
+    │   ├── Episode S01E01.mkv
+    │   ├── Episode S01E02.mkv
+    │   ├── Alternate Ending-deleted.mkv
+    │   └── Interview with the Director-interview.mp4
+    └── Fantastic Extra-extra.mkv
+    └── Making the Show-featurette.mp4
+```
+
+:::note
+
+Trailers support a special option if you only have a single file of that type per series/season. The option is to name the filename 'trailer.ext' when stored in the same folder as the series or season.
 
 :::
 
