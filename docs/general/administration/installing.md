@@ -677,12 +677,14 @@ Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyf
 
 :::
 
-Steps 1 to 3 can also be replaced by:
+Use extrepo to enable the jellyfin repositories (or see steps 1-3 below for manual repository setup):
 
 ```sh
 sudo apt install extrepo
 sudo extrepo enable jellyfin
 ```
+
+WARNING: Do not run steps 1-3 below if the extrepo commands above were used. 
 
 1. Install `curl` and `gnupg` if you haven't already:
 
