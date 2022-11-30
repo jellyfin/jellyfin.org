@@ -94,6 +94,13 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
 
+### Transparant count indicators (eg. Series)
+
+```css
+/* Make count indicator icon dark and transparent */
+.countIndicator {background: #00000058;}
+```
+
 ### Display external links in mobile layout
 
 The mobile app disables display of external links to IMDb, TheMovieDB, Trakt, etc by default.
