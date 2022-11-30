@@ -684,7 +684,7 @@ sudo apt install extrepo
 sudo extrepo enable jellyfin
 ```
 
-WARNING: Do not run steps 1-3 below if the extrepo commands above were used. 
+WARNING: Do not run steps 1-3 below if the extrepo commands above were used.
 
 1. Install `curl` and `gnupg` if you haven't already:
 
