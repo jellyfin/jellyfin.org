@@ -58,7 +58,7 @@
     "@docusaurus/module-type-aliases": "2.2.0",
     "@tsconfig/docusaurus": "1.0.6",
     "@types/react": "17.0.52",
-    "@types/react-helmet": "6.1.5",
+    "@types/react-helmet": "6.1.6",
     "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "5.44.0",
     "@typescript-eslint/parser": "5.44.0",
