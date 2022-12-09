@@ -11,7 +11,7 @@ export default function CallToAction() {
         <p className={styles['cta-sub']}>
           Check out our Getting Started guide to download and set up your server today.
         </p>
-        <Link to='/downloads' className='button button--primary button--lg margin-top--lg'>
+        <Link to='/downloads/server' className='button button--primary button--lg margin-top--lg'>
           Download Jellyfin
         </Link>
       </div>

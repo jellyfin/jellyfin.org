@@ -1,6 +1,17 @@
-.stable-links-container {
+.header-pills-middle {
+  display: flex;
+  justify-content: center;
+}
+
+.header-pills-end {
   display: flex;
   flex-direction: row-reverse;
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .stable-links {
@@ -9,8 +20,16 @@
 }
 
 @media (max-width: 996px) {
-  .stable-links-container {
+  .header-pills-middle {
+    justify-content: unset;
+  }
+
+  .header-pills-end {
     flex-direction: row;
+  }
+
+  .filters-button {
+    flex-grow: 1;
   }
 
   .stable-links {

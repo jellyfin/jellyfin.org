@@ -29,11 +29,6 @@ module.exports = {
       items: [
         { to: 'posts', label: 'Blog', position: 'right' },
         {
-          to: 'clients',
-          label: 'Clients',
-          position: 'right'
-        },
-        {
           to: 'downloads',
           label: 'Downloads',
           position: 'right'
