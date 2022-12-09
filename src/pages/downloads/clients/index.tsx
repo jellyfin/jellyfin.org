@@ -64,7 +64,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
 
   return (
     <Layout title='Clients'>
-      <h1 className='text--center'>Downloads</h1>
+      <h1 className='text--center margin-top--lg'>Downloads</h1>
 
       <main className='margin-vert--lg'>
         <section className='container'>

@@ -14,9 +14,9 @@ export default function Contact() {
 
   return (
     <Layout title='Contact'>
-      <h1 className='text--center'>Contact</h1>
+      <h1 className='text--center margin-top--lg'>Contact</h1>
 
-      <main className='margin-bottom--lg'>
+      <main className='margin-top--md margin-bottom--lg'>
         <section className='container'>
           <div className='row'>
             <div className='col'>

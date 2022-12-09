@@ -17,9 +17,9 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
 
   return (
     <Layout title='Downloads'>
-      <h1 className='text--center margin-bottom--lg'>Downloads</h1>
+      <h1 className='text--center margin-top--lg'>Downloads</h1>
 
-      <main className='margin-top--sm margin-bottom--lg'>
+      <main className='margin-vert--lg'>
         <section className='container'>
           <div className='row'>
             <div className='col margin-bottom--md'>
