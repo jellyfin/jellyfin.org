@@ -55,21 +55,15 @@ export const Downloads: Array<Download> = [
         details: (
           <>
             <pre>
-              <code>
-                {`curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}
-              </code>
+              <code>{`curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}</code>
             </pre>
             <p>
               If you don't have <code>curl</code> installed, you can try <code>wget</code> instead:
             </p>
             <pre>
-              <code>
-                {`wget -O- https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}
-              </code>
+              <code>{`wget -O- https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}</code>
             </pre>
-            <p>
-              For more advanced users, the full steps are:
-            </p>
+            <p>For more advanced users, the full steps are:</p>
             <pre>
               <code>
                 {`sudo apt install curl gnupg
@@ -90,7 +84,8 @@ sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b>: If you are running a non-Debian, non-Ubuntu derivative, ensure the <code>$DISTRO</code> and <code>$CODENAME</code> are valid Debian or Ubuntu values!
+              <b>Note:</b>: If you are running a non-Debian, non-Ubuntu derivative, ensure the <code>$DISTRO</code> and{' '}
+              <code>$CODENAME</code> are valid Debian or Ubuntu values!
             </p>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
@@ -127,7 +122,8 @@ sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b>: If you are running a non-Debian, non-Ubuntu derivative, ensure the $DISTRO and $CODENAME are valid Debian or Ubuntu values!
+              <b>Note:</b>: If you are running a non-Debian, non-Ubuntu derivative, ensure the $DISTRO and $CODENAME are
+              valid Debian or Ubuntu values!
             </p>
             <p>
               <b>Note:</b> Both the <code>main</code> and <code>unstable</code> are needed in <code>Components:</code>{' '}
