@@ -59,7 +59,7 @@ export const Downloads: Array<Download> = [
                 {`curl https://repo.jellyfin.org/install-deb-repo.sh | sudo bash`}
               </code>
             </pre>
-            <p>If you don't have Curl installed, you can try Wget instead:</p>
+            <p>If you don't have <code>curl</code> installed, you can try <code>wget</code> instead:</p>
             <pre>
               <code>
                 {`wget -O- https://repo.jellyfin.org/install-deb-repo.sh | sudo bash`}
@@ -86,7 +86,7 @@ sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b>: If you are running a non-Debian, non-Ubuntu derivative, ensure the $DISTRO and $CODENAME are valid Debian or Ubuntu values!
+              <b>Note:</b>: If you are running a non-Debian, non-Ubuntu derivative, ensure the <code>$DISTRO</code> and <code>$CODENAME</code> are valid Debian or Ubuntu values!
             </p>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
