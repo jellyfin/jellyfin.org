@@ -56,13 +56,27 @@ export const Downloads: Array<Download> = [
           <>
             <pre>
               <code>
+                {`curl https://repo.jellyfin.org/install-deb-repo.sh | sudo bash`}
+              </code>
+            </pre>
+            <p>If you don't have Curl installed, you can try Wget instead:</p>
+            <pre>
+              <code>
+                {`wget -O- https://repo.jellyfin.org/install-deb-repo.sh | sudo bash`}
+              </code>
+            </pre>
+            <p>For more advanced users, the full steps are:</p>
+            <pre>
+              <code>
                 {`sudo apt install curl gnupg
 sudo mkdir /etc/apt/keyrings
-curl -fsSL https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+DISTRO="$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )"
+CODENAME="$( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )"
+curl -fsSL https://repo.jellyfin.org/\${DISTRO}/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
 cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
 Types: deb
-URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
-Suites: $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )
+URIs: https://repo.jellyfin.org/\${DISTRO}
+Suites: \${CODENAME}
 Components: main
 Architectures: $( dpkg --print-architecture )
 Signed-By: /etc/apt/keyrings/jellyfin.gpg
@@ -72,13 +86,7 @@ sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b> The third command will output the Jellyfin APT repository configuration for your system. We
-              support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures (
-              <code>Arch:</code>), <code>debian</code> and <code>ubuntu</code> for distributions (the text after the
-              final slash in <code>URIs:</code>), <code>buster</code> and <code>bullseye</code> for Debian releases and{' '}
-              <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu releases (
-              <code>Suites:</code>). If you see something different in your output, you might need to manually modify
-              it. Use the closest equivalent Debian or Ubuntu version, instead.
+              <b>Note:</b>: If you are running a non-Debian, non-Ubuntu derivative, ensure the $DISTRO and $CODENAME are valid Debian or Ubuntu values!
             </p>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
@@ -99,11 +107,13 @@ sudo apt install jellyfin`}
               <code>
                 {`sudo apt install curl gnupg
 sudo mkdir /etc/apt/keyrings
-curl -fsSL https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+DISTRO="$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )"
+CODENAME="$( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )"
+curl -fsSL https://repo.jellyfin.org/\${DISTRO}/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
 cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
 Types: deb
-URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
-Suites: $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )
+URIs: https://repo.jellyfin.org/\${DISTRO}
+Suites: \${CODENAME}
 Components: main unstable
 Architectures: $( dpkg --print-architecture )
 Signed-By: /etc/apt/keyrings/jellyfin.gpg
@@ -113,13 +123,7 @@ sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b> The third command will output the Jellyfin APT repository configuration for your system. We
-              support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures (
-              <code>Arch:</code>), <code>debian</code> and <code>ubuntu</code> for distributions (the text after the
-              final slash in <code>URIs:</code>), <code>buster</code> and <code>bullseye</code> for Debian releases and{' '}
-              <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu releases (
-              <code>Suites:</code>). If you see something different in your output, you might need to manually modify
-              it. Use the closest equivalent Debian or Ubuntu version, instead.
+              <b>Note:</b>: If you are running a non-Debian, non-Ubuntu derivative, ensure the $DISTRO and $CODENAME are valid Debian or Ubuntu values!
             </p>
             <p>
               <b>Note:</b> Both the <code>main</code> and <code>unstable</code> are needed in <code>Components:</code>{' '}
