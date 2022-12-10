@@ -56,7 +56,7 @@ export const Downloads: Array<Download> = [
           <>
             <pre>
               <code>
-                {`curl https://repo.jellyfin.org/install-deb-repo.sh | sudo bash`}
+                {`curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}
               </code>
             </pre>
             <p>
@@ -64,7 +64,7 @@ export const Downloads: Array<Download> = [
             </p>
             <pre>
               <code>
-                {`wget -O- https://repo.jellyfin.org/install-deb-repo.sh | sudo bash`}
+                {`wget -O- https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}
               </code>
             </pre>
             <p>
