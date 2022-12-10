@@ -59,13 +59,17 @@ export const Downloads: Array<Download> = [
                 {`curl https://repo.jellyfin.org/install-deb-repo.sh | sudo bash`}
               </code>
             </pre>
-            <p>If you don't have <code>curl</code> installed, you can try <code>wget</code> instead:</p>
+            <p>
+              If you don't have <code>curl</code> installed, you can try <code>wget</code> instead:
+            </p>
             <pre>
               <code>
                 {`wget -O- https://repo.jellyfin.org/install-deb-repo.sh | sudo bash`}
               </code>
             </pre>
-            <p>For more advanced users, the full steps are:</p>
+            <p>
+              For more advanced users, the full steps are:
+            </p>
             <pre>
               <code>
                 {`sudo apt install curl gnupg
