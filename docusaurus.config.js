@@ -29,11 +29,6 @@ module.exports = {
       items: [
         { to: 'posts', label: 'Blog', position: 'right' },
         {
-          to: 'clients',
-          label: 'Clients',
-          position: 'right'
-        },
-        {
           to: 'downloads',
           label: 'Downloads',
           position: 'right'
@@ -132,6 +127,15 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
           {
             from: '/docs/general/server/storage',
             to: '/docs/general/administration/storage'
+          },
+          // Unified client + server download pages
+          {
+            from: '/clients',
+            to: '/downloads/clients/'
+          },
+          {
+            from: '/clients/all',
+            to: '/downloads/clients/all'
           }
         ]
       }

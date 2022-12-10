@@ -5,12 +5,12 @@ import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 
-import ClientDetails from '../../components/clients/ClientDetails';
-import Pill from '../../components/common/Pill';
-import { Client, Clients, DeviceType } from '../../data/clients';
-import Platform, { FeaturedClientPlatforms } from '../../data/platform';
+import ClientDetails from '../../../components/clients/ClientDetails';
+import Pill from '../../../components/common/Pill';
+import { Client, Clients, DeviceType } from '../../../data/clients';
+import Platform, { FeaturedClientPlatforms } from '../../../data/platform';
 
-import styles from './index.module.scss';
+import styles from '../index.module.scss';
 
 type ClientFilter = {
   recommended: boolean;
@@ -64,42 +64,63 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
 
   return (
     <Layout title='Clients'>
-      <h1 className='text--center'>Clients</h1>
+      <h1 className='text--center margin-top--lg'>Downloads</h1>
 
       <main className='margin-vert--lg'>
         <section className='container'>
-          <div className={styles.header}>
-            <div className={clsx('pills', styles.pills, 'margin-bottom--md')}>
-              <Link to='/clients' className={clsx('pills__item', { 'pills__item--active': filter.recommended })}>
-                Recommended Clients
-              </Link>
-              <Link to='/clients/all' className={clsx('pills__item', { 'pills__item--active': !filter.recommended })}>
-                All Clients
-              </Link>
+          <div className='row'>
+            <div className='col margin-bottom--md'>
+              <div className='pills'>
+                <Link to='/downloads' className='pills__item pills__item--active'>
+                  Clients
+                </Link>
+                <Link to='/downloads/server' className='pills__item'>
+                  Server
+                </Link>
+              </div>
             </div>
 
-            <button
-              className={clsx(
-                'button',
-                'button--outline',
-                'button--primary',
-                { 'button--active': isFiltersVisible },
-                'button--icon',
-                'margin-bottom--md'
-              )}
-              onClick={() => {
-                setIsFiltersVisible(!isFiltersVisible);
-              }}
-            >
-              <Icon path={mdiFilter} size='1em' />
-              Filters
-            </button>
+            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-middle'])}>
+              <div className='pills'>
+                <Link
+                  to='/downloads/clients'
+                  className={clsx('pills__item', { 'pills__item--active': filter.recommended })}
+                >
+                  Recommended
+                </Link>
+                <Link
+                  to='/downloads/clients/all'
+                  className={clsx('pills__item', { 'pills__item--active': !filter.recommended })}
+                >
+                  All
+                </Link>
+              </div>
+            </div>
+
+            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}>
+              <button
+                className={clsx(
+                  'button',
+                  'button--outline',
+                  'button--primary',
+                  { 'button--active': isFiltersVisible },
+                  'button--icon',
+                  styles['filters-button']
+                )}
+                onClick={() => {
+                  setIsFiltersVisible(!isFiltersVisible);
+                }}
+              >
+                <Icon path={mdiFilter} size='1em' />
+                Filters
+              </button>
+            </div>
           </div>
 
           {isFiltersVisible && (
             <div className='card card--outline margin-bottom--md'>
               <div className='card__body'>
-                <ul className={clsx('pills', styles.pills, 'margin-bottom--md')}>
+                <ul className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
                   <Pill
                     active={filter.deviceTypes.length === 0}
                     onClick={() => {
@@ -124,7 +145,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                   ))}
                 </ul>
 
-                <ul className={clsx('pills', styles.pills)}>
+                <ul className={clsx('pills', styles['filter-pills'])}>
                   <Pill
                     active={filter.platforms.length === 0}
                     onClick={() => {

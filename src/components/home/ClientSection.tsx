@@ -59,7 +59,7 @@ export default function ClientSection() {
 
         <div className='row'>
           <div className='col margin-top--lg'>
-            <Link to='/clients' className='button button--primary button--lg'>
+            <Link to='/downloads/clients' className='button button--primary button--lg'>
               Find a Client
             </Link>
           </div>
