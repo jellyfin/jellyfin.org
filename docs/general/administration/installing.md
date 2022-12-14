@@ -291,6 +291,32 @@ On your Cloudron you can install Jellyfin with a few clicks via the [app library
 The source code for the package can be found [here](https://git.cloudron.io/cloudron/jellyfin-app).
 Any issues or feature requests related to deployment on Cloudron should be filed there.
 
+### Multipass
+
+[Multipass](https://multipass.run) can launch and run virtual machines and configure them with cloud-init like a public cloud. Get an instant Ubuntu VM with a single command. Prototype your cloud launches locally for free.
+
+1. Once multipass is installed, create a new instance with jellyfin image
+
+    ```sh
+    multipass launch jellyfin --name jellyfin --cpus 1 --disk 40G --mem 4G
+    ```
+
+2. Check that jellyfin is running in your instance:
+
+    ```sh
+    multipass exec jellyfin -- sudo service jellyfin status
+    # ● jellyfin.service - Jellyfin Media Server
+    #      Loaded: loaded (/lib/systemd/system/jellyfin.service; enabled; vendor pres>
+    #     Drop-In: /etc/systemd/system/jellyfin.service.d
+    #              └─jellyfin.service.conf
+    #      Active: active (running) since Wed 2022-05-04 11:55:38 CEST; 1min 37s ago
+    ```
+
+3. Further information:
+
+- [Share data with an instance](https://multipass.run/docs/share-data-with-an-instance)
+- Expose your multipass guest/instance to your network/internet: [link1](https://github.com/ethicnology/nubo-init#expose-multipass-guest-to-your-network), [link2](https://maurow.bitbucket.io/notes/multipass-vm-port-forwarding.html)
+
 ## Windows (x64)
 
 Windows installers and builds in ZIP archive format are available [here](/downloads/windows).
