@@ -1,9 +1,9 @@
 ---
-uid: admin-install-synology
-title: Installing on Synology
+uid: installation-synology
+title: Synology
+description: Install on Synology NAS.
+sidebar_position: 4
 ---
-
-# Installing on Synology
 
 For [Synology](https://www.synology.com/en-us/dsm), Jellyfin is installed using Docker.
 

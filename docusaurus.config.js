@@ -136,6 +136,19 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
           {
             from: '/clients/all',
             to: '/downloads/clients/all'
+          },
+          // New installation documentation
+          {
+            from: '/docs/general/administration/installing',
+            to: '/docs/general/installation/'
+          },
+          {
+            from: '/docs/general/administration/install/synology',
+            to: '/docs/general/installation/synology'
+          },
+          {
+            from: '/docs/general/administration/building',
+            to: '/docs/general/installation/source'
           }
         ]
       }

@@ -25,22 +25,21 @@ Note: Jellyfin is a fast-moving project that is in its early stages, and this do
 
 ## Getting Started
 
-Want to get starting using Jellyfin right now? Check out the pages below for how to [install Jellyfin](/docs/general/administration/installing) on your machine.
+Want to get starting using Jellyfin right now? Check out the pages below for how to [install Jellyfin](/docs/general/installation) on your machine.
 
-- [Arch](/docs/general/administration/installing#arch-linux)
-- [Debian](/docs/general/administration/installing#debian)
-- [Ubuntu](/docs/general/administration/installing#ubuntu)
-- [Fedora](/docs/general/administration/installing#fedora)
-- [CentOS](/docs/general/administration/installing#centos)
-- [Docker](/docs/general/administration/installing#docker)
-- [unRaid](/docs/general/administration/installing#unraid-docker)
-- [Kubernetes](/docs/general/administration/installing#kubernetes)
-- [Windows](/docs/general/administration/installing#windows-x64)
-- [MacOS](/docs/general/administration/installing#macos)
-- [Generic Linux](/docs/general/administration/installing#linux-generic-amd64)
-- [Portable DLL](/docs/general/administration/installing#portable-dll)
+- [Arch](/docs/general/installation/linux#arch-linux)
+- [Debian](/docs/general/installation/linux#debian)
+- [Ubuntu](/docs/general/installation/linux#ubuntu)
+- [Fedora](/docs/general/installation/linux#fedora)
+- [CentOS](/docs/general/installation/linux#centos)
+- [Docker](/docs/general/installation/container#docker)
+- [unRaid](/docs/general/installation/container#unraid-docker)
+- [Kubernetes](/docs/general/installation/container#kubernetes)
+- [Windows](/docs/general/installation/windows)
+- [MacOS](/docs/general/installation/macos)
+- [Generic Linux](/docs/general/installation/linux)
 
-Alternatively, Jellyfin may be built directly from the [source code](/docs/general/administration/building).
+Alternatively, Jellyfin may be built directly from the [source code](/docs/general/installation/source).
 
 ## Administrator Documentation
 
