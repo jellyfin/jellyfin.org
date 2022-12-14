@@ -77,6 +77,9 @@ const MatrixCard = () => {
                 <li>
                   <a href='https://matrix.to/#/#jellyfin-dev-python:matrix.org'>#jellyfin-dev-python</a>
                 </li>
+                <li>
+                  <a href='https://matrix.to/#/#jellyfin-ui-ux:matrix.org'>#jellyfin-ui-ux</a>
+                </li>
               </ul>
             </div>
           </div>
