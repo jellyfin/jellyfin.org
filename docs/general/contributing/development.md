@@ -192,7 +192,7 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > mi
 wget -q https://packages.microsoft.com/config/debian/10/prod.list && mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
 apt-get update && apt-get install dotnet-sdk-6.0 npm
 cd /opt && git clone https://github.com/jellyfin/jellyfin.git && git clone https://github.com/jellyfin/jellyfin-web.git
-cd jellyfin/ && DOTNET_CLI_TELEMETRY_OPTOUT=1 dotnet publish --disable-parallel Jellyfin.Server --configuration Debug --output="/jellyfin" --self-contained --runtime linux-x64
+cd jellyfin/ && DOTNET_CLI_TELEMETRY_OPTOUT=1 && DOTNET_CLI_HOME="/tmp/" dotnet publish --disable-parallel Jellyfin.Server --configuration Debug --output="/jellyfin" --self-contained --runtime linux-x64
 cd /opt/jellyfin-web && npm install && cp -r /opt/jellyfin-web/dist /jellyfin/jellyfin-web
 kill -15 $(pidof jellyfin)
 ```
