@@ -122,7 +122,7 @@ sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b>: If you are running a non-Debian, non-Ubuntu derivative, ensure the $DISTRO and $CODENAME are
+              <b>Note:</b> If you are running a non-Debian, non-Ubuntu derivative, ensure the $DISTRO and $CODENAME are
               valid Debian or Ubuntu values!
             </p>
             <p>
