@@ -8,6 +8,7 @@ import MatrixCard from '../components/contact/MatrixCard';
 import RedditCard from '../components/contact/RedditCard';
 import TelegramCard from '../components/contact/TelegramCard';
 import TwitterCard from '../components/contact/TwitterCard';
+import MastodonCard from '../components/contact/MastodonCard';
 
 export default function Contact() {
   const [isOtherChatVisible, setOtherChatVisible] = useState(false);
@@ -61,6 +62,9 @@ export default function Contact() {
           <div className='row'>
             <div className='col margin-bottom--md' style={{ display: 'flex' }}>
               <RedditCard />
+            </div>
+            <div className='col margin-bottom--md' style={{ display: 'flex' }}>
+              <MastodonCard />
             </div>
             <div className='col margin-bottom--md' style={{ display: 'flex' }}>
               <TwitterCard />
