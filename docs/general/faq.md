@@ -46,6 +46,6 @@ Please see our [requesting features](/docs/general/contributing/issues#requestin
 
 ## How do I support this project?
 
-All we can ask is you [use Jellyfin](/docs/general/administration/installing), [report any bugs](/docs/general/contributing/issues#reporting-bugs), and tell your friends about us!
+All we can ask is you [use Jellyfin](/docs/general/installation), [report any bugs](/docs/general/contributing/issues#reporting-bugs), and tell your friends about us!
 Really, we're just people volunteering our time to help build a better media system, so joining the community is the best way to show your support.
 We do offer a donations page [on OpenCollective](https://opencollective.com/jellyfin), however please note that these funds are **only** used for infrastructure. All our developers are unpaid volunteers on principle.
