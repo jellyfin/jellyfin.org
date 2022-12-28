@@ -28,12 +28,22 @@ Movies
 
 Multiple versions of a movie can be stored together and presented as a single title. Place each movie version in the same folder and give each version a name with the folder name as a prefix as seen below.
 
+:::note
+
+The prefix has to be an exact match of the folder name for the versioning to work, that includes any media provider identifiers such as `[imdbid-tt12801262]`
+
+:::
+
 ```txt
 Movies
-└── Best_Movie_Ever (2019)
-    ├── Best_Movie_Ever (2019) - 1080P.mp4
-    ├── Best_Movie_Ever (2019) - 720P.mp4
-    └── Best_Movie_Ever (2019) - Directors Cut.mp4
+├── Best_Movie_Ever (2019)
+│   ├── Best_Movie_Ever (2019) - 1080P.mp4
+│   ├── Best_Movie_Ever (2019) - 720P.mp4
+│   └── Best_Movie_Ever (2019) - Directors Cut.mp4
+└── Movie (2021) [imdbid-tt12801262]
+    ├── Movie (2021) [imdbid-tt12801262] - 2160p.mp4
+    ├── Movie (2021) [imdbid-tt12801262] - 1080p.mp4
+    └── Movie (2021) [imdbid-tt12801262] - Directors Cut.mp4
 ```
 
 To distinguish between versions, each filename needs to have a space, hyphen, space, and then a label. Labels are not predetermined and can be made up by the user.
