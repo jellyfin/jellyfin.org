@@ -346,7 +346,7 @@ export const Clients: Array<Client> = [
     platforms: [Platform.IOS, Platform.TVOS],
     primaryLinks: [
       {
-         id: 'apple-store',
+        id: 'apple-store',
         name: 'App Store',
         url: 'https://apps.apple.com/ca/app/swiftfin/id1604098728'
       }
