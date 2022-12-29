@@ -346,9 +346,9 @@ export const Clients: Array<Client> = [
     platforms: [Platform.IOS, Platform.TVOS],
     primaryLinks: [
       {
-        id: 'test-flight',
-        name: 'TestFlight',
-        url: 'https://testflight.apple.com/join/oZd0QzWv'
+        id: 'apple-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/ca/app/swiftfin/id1604098728'
       }
     ],
     secondaryLinks: [
