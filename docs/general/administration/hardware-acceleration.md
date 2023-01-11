@@ -205,7 +205,7 @@ It is always best to consult [the FFMpeg documentation](https://trac.ffmpeg.org/
 
 :::note
 
-This are general instructions, for more specific instructions pleas check the next sections!
+These are general instructions, for more specific instructions please check the next sections!
 
 :::
 
