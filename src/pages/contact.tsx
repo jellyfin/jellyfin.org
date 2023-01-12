@@ -2,7 +2,6 @@ import Layout from '@theme/Layout';
 import React, { useState } from 'react';
 
 import DiscordCard from '../components/contact/DiscordCard';
-import FacebookCard from '../components/contact/FacebookCard';
 import IrcCard from '../components/contact/IrcCard';
 import MatrixCard from '../components/contact/MatrixCard';
 import RedditCard from '../components/contact/RedditCard';
@@ -68,9 +67,6 @@ export default function Contact() {
             </div>
             <div className='col margin-bottom--md' style={{ display: 'flex' }}>
               <TwitterCard />
-            </div>
-            <div className='col margin-bottom--md' style={{ display: 'flex' }}>
-              <FacebookCard />
             </div>
           </div>
         </section>
