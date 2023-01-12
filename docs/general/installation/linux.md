@@ -143,6 +143,15 @@ sudo systemctl start jellyfin.service
 Platform-agnostic .NET Core DLL builds in TAR archive format are available [here](/downloads#portable).
 These builds use the binary `jellyfin.dll` and must be loaded with `dotnet`.
 
+## Alpine Linux
+
+Jellyfin can be found in the `community` repository as
+[`jellyfin`](https://pkgs.alpinelinux.org/package/edge/community/x86_64/jellyfin) and
+[`jellyfin-web`](https://pkgs.alpinelinux.org/package/edge/community/x86_64/jellyfin-web).
+
+To enable the web UI after installing `jellyfin-web`, make sure to remove the `--nowebclient` option from
+`/etc/conf.d/jellyfin`.
+
 ## Arch Linux
 
 Jellyfin can be found in the AUR as [`jellyfin`](https://aur.archlinux.org/packages/jellyfin/), [`jellyfin-bin`](https://aur.archlinux.org/packages/jellyfin-bin/) and [`jellyfin-git`](https://aur.archlinux.org/packages/jellyfin-git/).
