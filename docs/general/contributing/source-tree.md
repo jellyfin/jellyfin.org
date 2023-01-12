@@ -58,49 +58,6 @@ Jellyfin is a maze of clients, plugins, and other useful projects. These source 
     - strings: `translations for the entire interface`
     - themes: `custom and bundled themes can be found here in their own directories`
 
-## [Android](https://github.com/jellyfin/jellyfin-android)
-
-1. res:
-   - android:
-2. src:
-   - NativeShell:
-     - res:
-     - src:
-       - RemotePlayerService.java: `handles the notification tile that can control playback`
-     - www:
-   - cordova:
-
-## [Android TV](https://github.com/jellyfin/jellyfin-androidtv)
-
-1. app:
-   - src:
-     - main:
-       - java/org/jellyfin/androidtv:
-         - constant: `constants/enums`
-         - data:
-           - compat: `classes ported from old apiclient to maintain compatibility in the app (Deprecated should be replaced/removed)`
-           - eventhandling: `API webservice event handling`
-           - model: `various data models`
-           - querying: `extensions to the querying package in the apiclient (Should probably be replaced/removed)`
-           - repository: `data repositories for shared access`
-         - di: `dependency injection modules`
-         - integration: `Android TV homescreen channel integrations`
-         - preference: `interface for Android shared preferences`
-         - ui:
-           - browsing: `views for browsing items (rows, grids, etc.)`
-           - home: `home screen views`
-           - itemdetail: `item detail views`
-           - itemhandling: `BaseItem views`
-           - livetv: `live TV views`
-           - playback: `media player views`
-           - preference: `app preferences/settings views`
-           - presentation: `presenters from MVP architecture`
-           - search: `search views`
-           - shared: `shared code for UI classes`
-           - startup: `authentication views`
-         - util: `various utilities`
-       - res: `Android resource files for XML layouts, translations, images, etc.`
-
 ## [Kodi](https://github.com/jellyfin/jellyfin-kodi)
 
 1. jellyfin_kodi
