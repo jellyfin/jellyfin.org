@@ -163,7 +163,6 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
         indexPages: true,
         blogRouteBasePath: '/posts',
         ignoreFiles: [
-          'andtv-privacy',
           // NOTE: We need to explicitly ignore the blog routes because it seems to fall through to the page indexing
           'posts',
           /^posts\//
