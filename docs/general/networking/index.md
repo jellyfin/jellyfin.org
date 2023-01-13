@@ -80,6 +80,8 @@ openssl pkcs12 -export -out jellyfin.pfx -inkey privkey.pem -in /usr/local/etc/l
 
 It's possible to run Jellyfin behind another server acting as a reverse proxy. With a reverse proxy setup, this server handles all network traffic and proxies it back to Jellyfin. This provides the benefits of using DNS names and not having to remember port numbers, as well as easier integration and management of SSL certificates.
 
+In cases when you would like to not use host networking with docker, you may use the gateway ip as a known proxy to fix ip resolution for clients logging in.
+
 :::caution
 
 In order for a reverse proxy to have the maximum benefit, you should have a publicly routable IP address and a domain with DNS set up correctly.
