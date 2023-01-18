@@ -28,7 +28,9 @@ Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.
 Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/rewrite/allowedServerVariables" -name "." -value @{name='HTTP_X_FORWARDED_HOST'}
 Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/rewrite/allowedServerVariables" -name "." -value @{name='HTTP_X_FORWARDED_PORT'}
 ```
+
 ## web.config
+
 ```config
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
@@ -37,7 +39,7 @@ Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.
             <rules>
                 <clear />
                 <rule name="Redirect to https" enabled="false" stopProcessing="true">
-                    <match url="*" negate="false" />
+                    <match url=".*" negate="false" />
                     <conditions logicalGrouping="MatchAny" trackAllCaptures="false">
                         <add input="{HTTPS}" pattern="off" />
                     </conditions>
@@ -92,12 +94,12 @@ Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.
         <caching enabled="false" enableKernelCache="false" />
         <httpProtocol>
             <customHeaders>
-				<clear />
+                <clear />
                 <add name="X-XSS-Protection" value="1; mode=block" />
                 <add name="X-Content-Type-Options" value="nosniff" />
-				<add name="Cache-Control" value="no-cache" />
-				<add name="X-Frame-Options" value="SAMEORIGIN" />
-				<add name="X-Robots-Tag" value="noindex, nofollow" />
+                <add name="Cache-Control" value="no-cache" />
+                <add name="X-Frame-Options" value="SAMEORIGIN" />
+                <add name="X-Robots-Tag" value="noindex, nofollow" />
             </customHeaders>
     </httpProtocol>
   </system.webServer>
