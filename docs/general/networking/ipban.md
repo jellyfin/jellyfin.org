@@ -14,27 +14,27 @@ Install with one command on windows (elevated powershell prompt)
 ```
 
 Config
-```
+```config
 <LogFile>
 
-	<Source>Jellyfin</Source>
-	<PathAndMask>
-	  C:/ProgramData/Jellyfin/Server/log/log_{year-local}{month-local}{day-local}.log
-	</PathAndMask>
-	<FailedLoginRegex>
-	  <![CDATA[
-		  Authentication\s+request\s+for\s+\S+?(?<username>[^\s]+)\S+\s+has\s+been\s+(?<log>denied)\s+\(IP:\s+"(?<ipaddress>[^,]+)"\)
-	  ]]>
-	</FailedLoginRegex>
-	<SuccessfulLoginRegex>
-	  <![CDATA[
-		Authentication\s+request\s+for\s+\S+?(?<username>[^\s]+)\S+\s+has\s+succeeded
-	  ]]>
-	</SuccessfulLoginRegex>
-	<PlatformRegex>Windows</PlatformRegex>
-	<PingInterval>10000</PingInterval>
-	<MaxFileSize>16777216</MaxFileSize>
-	<FailedLoginThreshold>0</FailedLoginThreshold>
+        <Source>Jellyfin</Source>
+        <PathAndMask>
+          C:/ProgramData/Jellyfin/Server/log/log_{year-local}{month-local}{day-local}.log
+        </PathAndMask>
+        <FailedLoginRegex>
+          <![CDATA[
+              Authentication\s+request\s+for\s+\S+?(?<username>[^\s]+)\S+\s+has\s+been\s+(?<log>denied)\s+\(IP:\s+"(?<ipaddress>[^,]+)"\)
+          ]]>
+        </FailedLoginRegex>
+        <SuccessfulLoginRegex>
+          <![CDATA[
+              Authentication\s+request\s+for\s+\S+?(?<username>[^\s]+)\S+\s+has\s+succeeded
+          ]]>
+        </SuccessfulLoginRegex>
+        <PlatformRegex>Windows</PlatformRegex>
+        <PingInterval>10000</PingInterval>
+        <MaxFileSize>16777216</MaxFileSize>
+        <FailedLoginThreshold>0</FailedLoginThreshold>
 
 </LogFile>
 ```
