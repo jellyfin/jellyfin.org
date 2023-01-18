@@ -17,7 +17,7 @@ IIS with default selections + Application Development->WebSocket Protocol (minim
 
 ## Configure
 
-```
+```powershell
 Set-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/proxy" -name "enabled" -value "True"
 Set-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/proxy/cache" -name "enabled" -value "False"
 Set-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/proxy" -name "httpVersion" -value "Http11"
@@ -78,16 +78,16 @@ Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.
                     <action type="Rewrite" url="http://localhost:8096/{R:0}" logRewrittenUrl="true" />
                 </rule>
             </rules>
-		  <outboundRules><!-- Add Cache -->
+              <outboundRules><!-- Add Cache -->
                 <rule name="Add Cache" preCondition="images" enabled="true" patternSyntax="ECMAScript">
                     <match serverVariable="RESPONSE_Cache_Control" pattern="(.*)" />
                     <action type="Rewrite" value="max-age=604800" />
                 </rule>
              <preConditions><!-- Pre-Condition for images -->
-			<preCondition name="images" logicalGrouping="MatchAny">
+                        <preCondition name="images" logicalGrouping="MatchAny">
                         <add input="{REQUEST_URI}" pattern="Items/.+/Images/.*" />
                         <add input="{RESPONSE_CONTENT_TYPE}" pattern="^image/.+" />
-			</preCondition>
+                        </preCondition>
         </preConditions>
       </outboundRules>
         </rewrite>
