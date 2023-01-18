@@ -4,9 +4,11 @@ title: IIS
 ---
 
 ## IIS
+
 "[Internet Information Services](https://www.iis.net) is an extensible web server software created by Microsoft for use with the Windows NT family. IIS supports HTTP, HTTP/2, HTTPS, FTP, FTPS, SMTP and NNTP. It has been an integral part of the Windows NT family since Windows NT 4.0" - [Wikipedia](https://en.wikipedia.org/wiki/Internet_Information_Services)
 
 ## Requirements
+
 IIS with default selections + Application Development->WebSocket Protocol (minimal)
 
 [URL Rewrite 2.1](https://www.iis.net/downloads/microsoft/url-rewrite)
@@ -14,6 +16,7 @@ IIS with default selections + Application Development->WebSocket Protocol (minim
 [Application Request Routing 3.0](https://www.iis.net/downloads/microsoft/application-request-routing)
 
 ## Configure
+
 ```
 Set-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/proxy" -name "enabled" -value "True"
 Set-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/proxy/cache" -name "enabled" -value "False"
@@ -103,4 +106,5 @@ Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.
 ```
 
 ## SSL
+
 [CertifytheWeb](https://certifytheweb.com/); a very easy to use UI for getting certificates
