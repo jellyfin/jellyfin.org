@@ -9,11 +9,12 @@ title: IPBan
 
 Install with one command on windows (elevated powershell prompt)
 
-```
+```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/DigitalRuby/IPBan/master/IPBanCore/Windows/Scripts/install_latest.ps1'))
 ```
 
 Config
+
 ```config
 <LogFile>
 
