@@ -1,0 +1,81 @@
+---
+title: Roku Version 1.6.3
+description: This was supposed to be a minor release!
+authors: 1hitsong
+date: 2023-01-13
+slug: roku-163
+tags: [release, roku]
+---
+
+We are excited to announce the release of Jellyfin 1.6.3 for Roku! The primary goal of this release is resolving bugs & issues,
+but we still managed to add some new items too. Keep reading to learn more.
+
+\- 1hitsong
+
+<!--truncate-->
+
+### 🐛 Bug Fixes
+
+- Fix TV season list crash when showing 27+ episodes
+- Fix crash when viewing in progress recording
+- Fix crash when options button pressed, but options are not available
+- Fix crash when invalid deep link arguments are passed
+- Show unwatched episode count on TV images
+- Fix TV episode cursor focus issues
+- Fix movie detail view lost cursor focus bug when going back from resume dialog
+
+### ⚙️ New Settings
+
+- Go straight to episode listing (if only 1 season available)
+- Disable community rating for episodes of TV shows
+- Movie grid title display options
+- Hide subtitles that might transcode
+
+### 🆕 New Features
+
+- Added music grid view
+- Updated TV library genre view
+- Create "What's New" popup that tells users what's changed the first time they run a new version
+- Toggle video playback when OK button is pressed
+- Create movie grid view and new default setting
+- Add resumable filter to movies
+- Add played/unplayed status filter to movies & series
+- Add artist presentation view & genre view to music library
+
+### ⭐ Additional Updates
+
+- Set maximum bitrates values based on Roku guidelines
+- Reorganize Roku settings
+- Draw homepage continue watching percent complete bar instead of using image API
+- Add new questions to GitHub bug template
+- Create queue manager and use for music (step 1 for playlist support 🤘)
+
+## 👥 Contributors
+
+Jellyfin apps are developed by our great contributors and we couldn't do it without them. Everyone is a volunteer that
+doesn't get paid by any organizations, so consider donating if you appreciate their work. A big shout-out to all
+contributors that made this release possible:
+
+- [@jimdogx](https://github.com/jimdogx)
+- [@dezchai](https://github.com/dezchai)
+- [@1hitsong](https://github.com/1hitsong)
+- [@ApexArray](https://github.com/ApexArray)
+- [@sevenrats](https://github.com/sevenrats)
+- [@neilsb](https://github.com/neilsb)
+- [@DJSweder](https://github.com/DJSweder)
+- [@andibing](https://github.com/andibing)
+- [@DaveSenn](https://github.com/DaveSenn)
+- [@Jac-Apex-Team](https://github.com/Jac-Apex-Team)
+- [@Muehli25](https://github.com/Muehli25)
+- [@DesertCookie](https://github.com/DesertCookie)
+- [@wippy00](https://github.com/wippy00)
+- [@blaugrau3001](https://github.com/blaugrau3001)
+- [@criscrafter](https://github.com/criscrafter)
+
+## 💾 Downloads & Changelog
+
+The complete list of changes for this release, including all merged pull requests, can be found on
+[GitHub](https://github.com/jellyfin/jellyfin-roku/releases/tag/v1.6.3).
+
+Your installed Jellyfin channel should automatically update once available or you can install Jellyfin 
+from the [Roku store](https://channelstore.roku.com/details/592369/jellyfin).
