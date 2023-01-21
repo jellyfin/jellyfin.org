@@ -40,7 +40,7 @@ The hardware acceleration is available immediately for media playback. No server
 On Linux you can check available GPU using:
 
 ```sh
-lspci -nn | egrep -i "3d|display|vga"
+lspci -nn | grep -Ei "3d|display|vga"
 ```
 
 or using `lshw`:
