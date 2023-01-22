@@ -35,14 +35,15 @@ module.exports = {
           position: 'right'
         },
         {
-          to: 'contribute',
-          label: 'Contribute',
+          type: 'doc',
+          docId: 'index',
+          label: 'Documentation',
           position: 'right'
         },
         {
           type: 'doc',
-          docId: 'index',
-          label: 'Documentation',
+          docId: 'developers/index',
+          label: 'Developers',
           position: 'right'
         },
         {
