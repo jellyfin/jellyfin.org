@@ -40,13 +40,17 @@ To set a favorite, go to the [HDHomeRun website](http://my.hdhomerun.com), selec
 
 ![Selecting favorites in HDHomeRun](/images/docs/live-tv-setup-hdhr_opt1.png)
 
-### Legacy HDHomeRun Specific
-Using a legacy HDHomeRun unit requires an initial scan from the HDHomeRun Setup utility, using a *Windows PC*. Otherwise, Jellyfin will not recognize any channels from the tuner and "Map Channels" page will be empty.
+:::note
+
+Using a legacy HDHomeRun unit requires an initial scan from the HDHomeRun Setup utility, using a **Windows** PC. Otherwise, Jellyfin will not recognize any channels from the tuner and "Map Channels" page will be empty.
 
 Legacy products include: HDHR-US, HDHR-EU, HDHR-T1-US, HDHR3-US, HDHR3-DT, and HDHR3-EU.
 
 Software and Instructions can be found here:
-https://info.hdhomerun.com/info/using_the_app_with_legacy_hardware
+
+[Using the HDHomeRun app with legacy HDHomeRun devices](https://info.hdhomerun.com/info/using_the_app_with_legacy_hardware)
+
+:::
 
 ### M3U Tuner Specific Options
 
