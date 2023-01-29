@@ -190,13 +190,14 @@ Movies
 
 The parser can recognize 3D files automatically, if the proper tags are added to the file name.
 The first tag is `3D`, which must be combined with one of the following tags to specify the 3D format:
+
 - `hsbs` = half side by side
 - `fsbs` = full side by side
 - `htab` = half top and bottom
 - `ftab` = full top and bottom
 - `mvc`  = Multiview Video Coding
 
-The tags are case-insensitive and must be surrounded by either a space ` `, hyphen `-`, dot `.` or underscore `_`.
+The tags are case-insensitive and must be surrounded by either a space, hyphen `-`, dot `.` or underscore `_`.
 3D tags can be combined with the multiple versions feature.
 
 ```txt
