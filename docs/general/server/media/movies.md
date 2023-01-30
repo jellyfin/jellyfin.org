@@ -186,6 +186,37 @@ Movies
     └── Art of the Best Movie Ever-short.mp4
 ```
 
+## 3D Movies
+
+The parser can recognize 3D files automatically, if the proper tags are added to the file name.
+The first tag is `3D`, which must be combined with one of the following tags to specify the 3D format:
+
+- `hsbs` = half side by side
+- `fsbs` = full side by side
+- `htab` = half top and bottom
+- `ftab` = full top and bottom
+- `mvc`  = Multiview Video Coding
+
+The tags are case-insensitive and must be surrounded by either a space, hyphen `-`, dot `.` or underscore `_`.
+3D tags can be combined with the multiple versions feature.
+
+```txt
+Movies
+└── Awesome 3D Movie (2022)
+    ├── Awesome 3D Movie (2022).3D.FTAB.mp4
+    ├── Awesome 3D Movie (2022) - 2D Version.mp4
+    ├── Awesome 3D Movie (2022) - 3d hsbs.mp4
+    └── Awesome 3D Movie (2022) - 1080p_mvc_3d.mkv
+```
+
+To mark a file manually as 3D, simply select the right 3D format in the metadata editor.
+
+:::note
+
+There is no tag for anaglyph 3D content.
+
+:::
+
 ## Images
 
 The following files may also be embedded into video containers that support it (such as mkv) and will be read out by the `Embedded Image Extractor` if enabled as an `Image Extractor` on the library configuration page.

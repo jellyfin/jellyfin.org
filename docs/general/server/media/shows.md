@@ -143,6 +143,10 @@ Trailers support a special option if you only have a single file of that type pe
 
 :::
 
+## 3D Videos
+
+Please refer to ['3D Movies' in the movies section](/docs/general/server/media/movies#3D-Movies)
+
 ## Images
 
 Posters, Backdrops, and Logos may also be embedded into video containers that support it (such as mkv) and will be read out by the `Embedded Image Extractor` if enabled as an `Image Extractor` on the library configuration page.
