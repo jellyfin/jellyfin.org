@@ -257,8 +257,8 @@ WARNING: Do not run steps 1-3 below if the extrepo commands above were used.
 2. Download the GPG signing key (signed by the Jellyfin Team):
 
    ```sh
-   sudo mkdir /etc/apt/keyrings
-   curl -fsSL https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+   sudo mkdir -p /etc/apt/keyrings
+   curl -fsSL https://repo.jellyfin.org/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
    ```
 
 3. Add a repository configuration at `/etc/apt/sources.list.d/jellyfin.sources`:
@@ -380,8 +380,8 @@ Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyf
 3. Download the GPG signing key (signed by the Jellyfin Team):
 
    ```sh
-   sudo mkdir /etc/apt/keyrings
-   curl -fsSL https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+   sudo mkdir -p /etc/apt/keyrings
+   curl -fsSL https://repo.jellyfin.org/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
    ```
 
 4. Add a repository configuration at `/etc/apt/sources.list.d/jellyfin.sources`:
