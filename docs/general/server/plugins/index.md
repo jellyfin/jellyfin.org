@@ -13,10 +13,6 @@ Jellyfin has a collection of optional plugins that can be installed to provide a
 
 Many plugins are available in a repository hosted on our servers, which can be easily installed using the plugin catalog in the settings. At the moment many of these are still being updated frequently so the version number may not be accurate. There are several different categories that can indicate what kind of functionality the plugins may provide.
 
-**Note to Windows Users:**
-Due to currently unresolved permission issues on Jellyfin Windows installs it is not possible to update and/or uninstall plugins from the UI.
-To update and/or uninstall plugins you must stop Jellyfin, navigate to the local _plugins folder_ and delete the `.dll` files for the plugins you want to update and/or uninstall.
-
 The _plugins folder_ is located in different locations depending on your install:
 
 - `%UserProfile%\AppData\Local\jellyfin\plugins` for direct installs
