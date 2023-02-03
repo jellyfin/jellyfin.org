@@ -22,9 +22,9 @@
     "test:web-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-web-urls.json"
   },
   "dependencies": {
-    "@docusaurus/core": "2.2.0",
-    "@docusaurus/plugin-client-redirects": "2.2.0",
-    "@docusaurus/preset-classic": "2.2.0",
+    "@docusaurus/core": "2.3.0",
+    "@docusaurus/plugin-client-redirects": "2.3.0",
+    "@docusaurus/preset-classic": "2.3.0",
     "@easyops-cn/docusaurus-search-local": "0.33.6",
     "@fontsource/noto-sans": "4.5.11",
     "@icons-pack/react-simple-icons": "5.11.0",
@@ -55,7 +55,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.2.0",
+    "@docusaurus/module-type-aliases": "2.3.0",
     "@tsconfig/docusaurus": "1.0.6",
     "@types/react": "17.0.53",
     "@types/react-helmet": "6.1.6",
