@@ -188,7 +188,7 @@ Movies
 
 ## 3D Movies
 
-The parser can recognize 3D files automatically if the proper tags are added to the file name, or you can manually assign the 3D attribute to a file, using Jellyfin's metadata editor (accessible from the context menu on each item) to select the correct 3D format.
+The parser can recognize 3D files automatically if the proper tags are added to the file name, or you can manually assign the 3D attribute to a file using Jellyfin's metadata editor to select the correct 3D format. The metadata editor is accessible from the context menu on each item.
 
 To identify 3D content by filename, the first tag is `3D`, which must be combined with one of the following tags to specify the specific 3D format:
 
