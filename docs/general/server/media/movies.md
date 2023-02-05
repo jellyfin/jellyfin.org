@@ -212,7 +212,7 @@ Awesome 3D Movie (2022)_3D_htab.mp4
 Awesome 3D Movie (2022)-3d-hsbs.mp4
 ```
 
-Additionally, 3D filename tags can be combined with the grouping functionality documented above. All text before the hyphen must match the folder name. 
+Additionally, 3D filename tags can be combined with the grouping functionality documented above. All text before the hyphen must match the folder name.
 
 ```txt
 Movies
