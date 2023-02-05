@@ -737,5 +737,33 @@ export const Clients: Array<Client> = [
         url: 'https://web-scrobbler.com'
       }
     ]
+  },
+  {
+    id: 'jellybook',
+    name: 'JellyBook',
+    description: 'A cross platform mobile app for book & comic reading for Jellyfin.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Android, Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'testflight',
+        name: 'TestFlight',
+        url: 'https://testflight.apple.com/join/lEXKY4Dl'
+      },
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/Kara-Zor-El/JellyBook/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/Kara-Zor-El/JellyBook'
+      }
+    ]
   }
 ];
