@@ -329,6 +329,7 @@ The repository is the preferred way to install Jellyfin on Ubuntu, as it contain
    sudo systemctl restart jellyfin
    sudo /etc/init.d/jellyfin stop
    ```
+
 ## Linux (generic amd64)
 
 Generic amd64, arm64, and armhf Linux builds in TAR archive format are available [here](/downloads/linux).
