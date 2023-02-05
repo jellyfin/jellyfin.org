@@ -188,8 +188,9 @@ Movies
 
 ## 3D Movies
 
-The parser can recognize 3D files automatically, if the proper tags are added to the file name.
-The first tag is `3D`, which must be combined with one of the following tags to specify the 3D format:
+The parser can recognize 3D files automatically if the proper tags are added to the file name, or you can manually assign the 3D attribute to a file, using Jellyfin's metadata editor (accessible from the context menu on each item) to select the correct 3D format.
+
+To identify 3D content by filename, the first tag is `3D`, which must be combined with one of the following tags to specify the specific 3D format:
 
 - `hsbs` = half side by side
 - `fsbs` = full side by side
@@ -198,18 +199,28 @@ The first tag is `3D`, which must be combined with one of the following tags to 
 - `mvc`  = Multiview Video Coding
 
 The tags are case-insensitive and must be surrounded by either a space, hyphen `-`, dot `.` or underscore `_`.
-3D tags can be combined with the multiple versions feature.
+
+```txt
+Awesome 3D Movie (2022).3D.FTAB.mp4
+```
+
+```txt
+Awesome 3D Movie (2022)_3D_htab.mp4
+```
+
+```txt
+Awesome 3D Movie (2022)-3d-hsbs.mp4
+```
+
+Additionally, 3D filename tags can be combined with the grouping functionality documented above. All text before the hyphen must match the folder name. 
 
 ```txt
 Movies
 └── Awesome 3D Movie (2022)
-    ├── Awesome 3D Movie (2022).3D.FTAB.mp4
-    ├── Awesome 3D Movie (2022) - 2D Version.mp4
-    ├── Awesome 3D Movie (2022) - 3d hsbs.mp4
-    └── Awesome 3D Movie (2022) - 1080p_mvc_3d.mkv
+    ├── Awesome 3D Movie (2022) - 3D_FTAB.mp4
+    ├── Awesome 3D Movie (2022) - 3D.hsbs.mp4
+    └── Awesome 3D Movie (2022) - 1080p.mp4
 ```
-
-To mark a file manually as 3D, simply select the right 3D format in the metadata editor.
 
 :::note
 
