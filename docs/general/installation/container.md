@@ -297,5 +297,5 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside 
    - Server URL to publish in UDP Auto Discovery response.
    - Networking, Ingress (Reverse Proxy), Security Options
    - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/guides/add-storage). For Jellyfin the recommendation is to  add storage as `Additional App Storage`
-   
+
 4. Click Save and once it's up and running you'll be able to click Open to access `Jellyfin`.
