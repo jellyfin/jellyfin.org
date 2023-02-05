@@ -280,7 +280,6 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside 
 
 1. Install the TrueCharts Catalog to TrueNAS SCALE, see [website](https://truecharts.org/manual/guides/Adding-TrueCharts) for more info.
 
-   ```sh
    1. Go to Apps page from the top level SCALE menu
    2. Select Manage Catalogs tab on the Apps page
    3. Click Add Catalog
@@ -290,16 +289,13 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside 
       Preferred Trains: enterprise and stable
       Branch: main
    5. Click Save and allow SCALE to refresh its catalog with TrueCharts (this may take a few minutes)
-   ```
 
 2. Click `Available Applications` and search for `Jellyfin`
 
 3. Click `Install`, which will take you to the GUI Wizard and you'll be able to fill out the necessary info
 
-   ```sh
-   -Server URL to publish in UDP Auto Discovery response.
-   -Networking, Ingress (Reverse Proxy), Security Options
-   -Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/guides/add-storage). For Jellyfin the recommendation is to  add storage as `Additional App Storage`
-   ```
-
+   - Server URL to publish in UDP Auto Discovery response.
+   - Networking, Ingress (Reverse Proxy), Security Options
+   - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/guides/add-storage). For Jellyfin the recommendation is to  add storage as `Additional App Storage`
+   
 4. Click Save and once it's up and running you'll be able to click Open to access `Jellyfin`.
