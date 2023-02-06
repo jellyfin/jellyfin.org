@@ -285,8 +285,8 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside 
    3. Click Add Catalog
    4. After reading the iXsystems notice, click Continue and enter the required information:
       Name: truecharts
-      Repository: https://github.com/truecharts/catalog
-      Preferred Trains: enterprise and stable
+      Repository: `https://github.com/truecharts/catalog`
+      Preferred Trains: `enterprise` and `stable`
       Branch: main
    5. Click Save and allow SCALE to refresh its catalog with TrueCharts (this may take a few minutes)
 
