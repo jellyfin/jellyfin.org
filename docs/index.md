@@ -37,7 +37,7 @@ Want to get starting using Jellyfin right now? Check out the pages below for how
 - [Kubernetes](/docs/general/installation/container#kubernetes)
 - [Windows](/docs/general/installation/windows)
 - [MacOS](/docs/general/installation/macos)
-- [Generic Linux](/docs/general/installation/linux)
+- [Generic Linux](/docs/general/installation/linux#linux-generic-amd64)
 
 Alternatively, Jellyfin may be built directly from the [source code](/docs/general/installation/source).
 
