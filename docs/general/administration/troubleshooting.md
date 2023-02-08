@@ -56,7 +56,7 @@ The structure for the `logging.json` file is slightly different, and should be m
 Jellyfin will automatically reload the new configuration without needing to restart.
 The debug messages show up in the log with the `DBG` tag.
 
-Once the need for verbose logging has passed, debug logging can be disabled again by reversing the above changes back the default value of `"Information"`.
+Once the need for verbose logging has passed, debug logging can be disabled again by reversing the above changes back to the default value of `"Information"`.
 
 ## Real Time Monitoring
 
