@@ -36,7 +36,7 @@ To make this change, go to the [Jellyfin configuration directory](/docs/general/
 {
   "Serilog": {
     "MinimumLevel": "Debug"
-    }
+  }
 }
 ```
 
