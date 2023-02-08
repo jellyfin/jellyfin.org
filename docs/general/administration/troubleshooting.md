@@ -54,9 +54,8 @@ Once the need for verbose logging has passed, debug logging can be disabled by c
 {
   "Serilog": {
     "MinimumLevel": "Information"
-    }
+  }
 }
-```
 
 ## Real Time Monitoring
 
