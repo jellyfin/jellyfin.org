@@ -56,6 +56,7 @@ Once the need for verbose logging has passed, debug logging can be disabled by c
     "MinimumLevel": "Information"
   }
 }
+```
 
 ## Real Time Monitoring
 
