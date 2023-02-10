@@ -28,21 +28,23 @@ module.exports = {
         src: 'images/logo.svg'
       },
       items: [
-        { to: 'posts', label: 'Blog', position: 'right' },
         {
           to: 'downloads',
-          label: 'Downloads',
-          position: 'right'
+          label: 'Downloads'
         },
         {
-          type: 'doc',
-          docId: 'index',
-          label: 'Documentation',
-          position: 'right'
+          to: 'posts',
+          label: 'Blog'
         },
         {
-          type: 'doc',
-          docId: 'developers/index',
+          type: 'docSidebar',
+          sidebarId: 'docs',
+          label: 'Documentation'
+        },
+
+        {
+          type: 'docSidebar',
+          sidebarId: 'developers',
           label: 'Developers',
           position: 'right'
         },
