@@ -3,7 +3,7 @@ title: Authorization
 sidebar_position: 2
 ---
 
-# Jellyfin API Authorization
+# Authorization
 
 To start using the Jellyfin API, authorization is probably the first thing you'll need to do. Jellyfin's authorization options can be a confusing because there are a lot of deprecated options.
 
