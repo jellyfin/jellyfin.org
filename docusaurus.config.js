@@ -88,7 +88,6 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
     }
   },
   plugins: [
-    // Main content
     [
       '@docusaurus/plugin-content-docs',
       /** @type {import('@docusaurus/plugin-content-docs').Options} */
@@ -107,12 +106,23 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
         path: 'blog'
       }
     ],
+    // Uncomment to enable developer blog
+    // [
+    //   '@docusaurus/plugin-content-blog',
+    //   /** @type {import('@docusaurus/plugin-content-blog').Options} */
+    //   {
+    //     id: 'blog-developers',
+    //     routeBasePath: 'developers/posts',
+    //     showReadingTime: true,
+    //     path: 'blog-dev',
+    //     authorsMapPath: '../blog/authors.yml'
+    //   }
+    // ],
     [
       '@docusaurus/plugin-content-pages',
       /** @type {import('@docusaurus/plugin-content-pages').Options} */
       {}
     ],
-    // Others
     [
       '@docusaurus/plugin-sitemap',
       /** @type {import('@docusaurus/plugin-sitemap').Options} */
@@ -128,45 +138,7 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
       /** @type {import('@docusaurus/plugin-client-redirects').Options} */
       {
         fromExtensions: ['html'],
-        redirects: [
-          // These pages existed on the jellyfin-blog site, but were not fully configured
-          {
-            from: ['/categories', '/tags'],
-            to: '/posts'
-          },
-          // Jellyfin 10.8 and below linked to this subtitle docs page
-          {
-            from: '/docs/general/server/media/subtitles',
-            to: '/docs/general/server/media/external-files'
-          },
-          // Storage docs moved from the server guide to administrative docs
-          {
-            from: '/docs/general/server/storage',
-            to: '/docs/general/administration/storage'
-          },
-          // Unified client + server download pages
-          {
-            from: '/clients',
-            to: '/downloads/clients/'
-          },
-          {
-            from: '/clients/all',
-            to: '/downloads/clients/all'
-          },
-          // New installation documentation
-          {
-            from: '/docs/general/administration/installing',
-            to: '/docs/general/installation/'
-          },
-          {
-            from: '/docs/general/administration/install/synology',
-            to: '/docs/general/installation/synology'
-          },
-          {
-            from: '/docs/general/administration/building',
-            to: '/docs/general/installation/source'
-          }
-        ]
+        redirects: require('./redirects.js')
       }
     ]
   ],
