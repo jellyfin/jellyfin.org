@@ -97,7 +97,6 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
     }
   },
   plugins: [
-    // Main content
     [
       '@docusaurus/plugin-content-docs',
       /** @type {import('@docusaurus/plugin-content-docs').Options} */
@@ -116,12 +115,23 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
         path: 'blog'
       }
     ],
+    // Uncomment to enable developer blog
+    // [
+    //   '@docusaurus/plugin-content-blog',
+    //   /** @type {import('@docusaurus/plugin-content-blog').Options} */
+    //   {
+    //     id: 'blog-developers',
+    //     routeBasePath: 'developers/posts',
+    //     showReadingTime: true,
+    //     path: 'blog-dev',
+    //     authorsMapPath: '../blog/authors.yml'
+    //   }
+    // ],
     [
       '@docusaurus/plugin-content-pages',
       /** @type {import('@docusaurus/plugin-content-pages').Options} */
       {}
     ],
-    // Others
     [
       '@docusaurus/plugin-sitemap',
       /** @type {import('@docusaurus/plugin-sitemap').Options} */
