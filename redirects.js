@@ -36,5 +36,38 @@ module.exports = [
   {
     from: '/docs/general/administration/building',
     to: '/docs/general/installation/source'
+  },
+  // New developer site
+  {
+    from: '/docs/general/contributing/branding',
+    to: '/developers/docs/branding'
+  },
+  {
+    from: '/docs/general/contributing/',
+    to: '/developers/docs/contributing/'
+  },
+  {
+    from: '/docs/general/contributing/development',
+    to: '/developers/docs/contributing/development'
+  },
+  {
+    from: '/docs/general/contributing/issues',
+    to: '/developers/docs/contributing/issues'
+  },
+  {
+    from: '/docs/general/contributing/release-procedure',
+    to: '/developers/docs/contributing/release-procedure'
+  },
+  {
+    from: '/docs/general/contributing/source-tree',
+    to: '/developers/docs/contributing/source-tree'
+  },
+  {
+    from: '/docs/general/style-guides/',
+    to: '/developers/docs/style-guides/'
+  },
+  {
+    from: '/docs/general/style-guides/javascript',
+    to: '/developers/docs/style-guides/javascript'
   }
 ];
