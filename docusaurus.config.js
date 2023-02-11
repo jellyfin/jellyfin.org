@@ -9,6 +9,7 @@ module.exports = {
   favicon: 'images/favicon.ico',
   organizationName: 'jellyfin',
   projectName: 'jellyfin.org',
+  /** @type {import('@docusaurus/types').ThemeConfig} */
   themeConfig: {
     image: 'images/social.png',
     metadata: [
@@ -86,80 +87,77 @@ module.exports = {
 Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
     }
   },
-  presets: [
-    [
-      '@docusaurus/preset-classic',
-      {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/jellyfin/jellyfin.org/edit/master/'
-        },
-        blog: {
-          routeBasePath: 'posts',
-          showReadingTime: true
-        },
-        theme: {
-          customCss: [
-            require.resolve('@fontsource/noto-sans/index.css'),
-            require.resolve('./src/css/custom.scss'),
-            require.resolve('./src/css/swiper.scss')
-          ]
-        }
-      }
-    ]
-  ],
   plugins: [
-    'docusaurus-plugin-sass',
+    [
+      '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      {
+        sidebarPath: require.resolve('./sidebars.js'),
+        // Please change this to your repo.
+        editUrl: 'https://github.com/jellyfin/jellyfin.org/edit/master/'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      /** @type {import('@docusaurus/plugin-content-blog').Options} */
+      {
+        id: 'blog-main',
+        routeBasePath: 'posts',
+        showReadingTime: true,
+        path: 'blog'
+      }
+    ],
+    // Uncomment to enable developer blog
+    // [
+    //   '@docusaurus/plugin-content-blog',
+    //   /** @type {import('@docusaurus/plugin-content-blog').Options} */
+    //   {
+    //     id: 'blog-developers',
+    //     routeBasePath: 'developers/posts',
+    //     showReadingTime: true,
+    //     path: 'blog-dev',
+    //     authorsMapPath: '../blog/authors.yml'
+    //   }
+    // ],
+    [
+      '@docusaurus/plugin-content-pages',
+      /** @type {import('@docusaurus/plugin-content-pages').Options} */
+      {}
+    ],
+    [
+      '@docusaurus/plugin-sitemap',
+      /** @type {import('@docusaurus/plugin-sitemap').Options} */
+      {}
+    ],
+    [
+      'docusaurus-plugin-sass',
+      /** @type {import('docusaurus-plugin-sass').Options} */
+      {}
+    ],
     [
       '@docusaurus/plugin-client-redirects',
+      /** @type {import('@docusaurus/plugin-client-redirects').Options} */
       {
         fromExtensions: ['html'],
-        redirects: [
-          // These pages existed on the jellyfin-blog site, but were not fully configured
-          {
-            from: ['/categories', '/tags'],
-            to: '/posts'
-          },
-          // Jellyfin 10.8 and below linked to this subtitle docs page
-          {
-            from: '/docs/general/server/media/subtitles',
-            to: '/docs/general/server/media/external-files'
-          },
-          // Storage docs moved from the server guide to administrative docs
-          {
-            from: '/docs/general/server/storage',
-            to: '/docs/general/administration/storage'
-          },
-          // Unified client + server download pages
-          {
-            from: '/clients',
-            to: '/downloads/clients/'
-          },
-          {
-            from: '/clients/all',
-            to: '/downloads/clients/all'
-          },
-          // New installation documentation
-          {
-            from: '/docs/general/administration/installing',
-            to: '/docs/general/installation/'
-          },
-          {
-            from: '/docs/general/administration/install/synology',
-            to: '/docs/general/installation/synology'
-          },
-          {
-            from: '/docs/general/administration/building',
-            to: '/docs/general/installation/source'
-          }
-        ]
+        redirects: require('./redirects.js')
       }
     ]
   ],
   themes: [
     [
+      require.resolve('@docusaurus/theme-classic'),
+      /** @type {import('@docusaurus/theme-classic').Options} */
+      {
+        customCss: [
+          require.resolve('@fontsource/noto-sans/index.css'),
+          require.resolve('./src/css/custom.scss'),
+          require.resolve('./src/css/swiper.scss')
+        ]
+      }
+    ],
+    [
       require.resolve('@easyops-cn/docusaurus-search-local'),
+      /** @type {import('@easyops-cn/docusaurus-search-local').Options} */
       {
         hashed: true,
         indexBlog: false,
