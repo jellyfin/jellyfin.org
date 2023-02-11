@@ -43,8 +43,7 @@ module.exports = {
         },
 
         {
-          type: 'docSidebar',
-          sidebarId: 'developers',
+          to: 'developers/docs/',
           label: 'Developers',
           position: 'right'
         },
@@ -88,6 +87,7 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
     }
   },
   plugins: [
+    // Main content
     [
       '@docusaurus/plugin-content-docs',
       /** @type {import('@docusaurus/plugin-content-docs').Options} */
@@ -106,23 +106,44 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
         path: 'blog'
       }
     ],
-    // Uncomment to enable developer blog
-    // [
-    //   '@docusaurus/plugin-content-blog',
-    //   /** @type {import('@docusaurus/plugin-content-blog').Options} */
-    //   {
-    //     id: 'blog-developers',
-    //     routeBasePath: 'developers/posts',
-    //     showReadingTime: true,
-    //     path: 'blog-dev',
-    //     authorsMapPath: '../blog/authors.yml'
-    //   }
-    // ],
     [
       '@docusaurus/plugin-content-pages',
       /** @type {import('@docusaurus/plugin-content-pages').Options} */
       {}
     ],
+    // Developers content
+    [
+      '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      {
+        id: 'developers-docs',
+        path: 'content/developers/docs',
+        routeBasePath: 'developers/docs',
+        sidebarPath: require.resolve('./content/developers/docs/_sidebar.js'),
+        editUrl: 'https://github.com/jellyfin/jellyfin.org/edit/master/'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      /** @type {import('@docusaurus/plugin-content-blog').Options} */
+      {
+        id: 'developers-blog',
+        path: 'content/developers/blog',
+        routeBasePath: 'developers/blog',
+        showReadingTime: true,
+        authorsMapPath: '../../../blog/authors.yml'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-pages',
+      /** @type {import('@docusaurus/plugin-content-pages').Options} */
+      {
+        id: 'developers-pages',
+        path: 'content/developers/pages',
+        routeBasePath: 'developers'
+      }
+    ],
+    // Others
     [
       '@docusaurus/plugin-sitemap',
       /** @type {import('@docusaurus/plugin-sitemap').Options} */
