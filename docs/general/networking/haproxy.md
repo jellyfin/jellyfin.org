@@ -29,8 +29,10 @@ frontend jellyfin_proxy
     use_backend jellyfin if jellyfin_server
 
 backend jellyfin
-    http-request set-header X-Forwarded-Port %[dst_port]
-    http-request add-header X-Forwarded-Proto https if { ssl_fc }
+    option httpchk
+    option forwardfor
+    http-check send meth GET uri /health
+    http-check expect string Healthy
     server jellyfin SERVER_IP_ADDRESS:8096
 
 # Uncomment these lines to allow LetsEncrypt authentication
