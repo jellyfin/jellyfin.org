@@ -161,8 +161,7 @@ The closed source driver `amdgpu-pro` is required when using AMF on Linux.
 
 :::tip
 
-Most Zen CPUs **do not** come with integrated graphics. You will need a **dedicated GPU** (dGPU) or a Zen CPU with integrated graphics for hardware acceleration.
-If your Zen CPU is suffixed with a _G_ or _GE_ in model name, you have integrated graphics.
+Starting with Zen 4 (7000 series), all AMD desktop CPUs have integrated graphics. Most AMD desktop Zen CPUs older than Zen 4 **do not** come with integrated graphics. You will need a dedicated GPU for these older CPUs, unless it is suffixed with a _G_ or _GE_ in model name.
 
 :::
 
