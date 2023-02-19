@@ -251,6 +251,56 @@ services:
       - /dev/dri/card0:/dev/dri/card0
 ```
 
+### VA-API hardware acceleration on Kubernetes (Linux)
+
+These instructions follow the same principles as for the Docker (see the section above), with one small change that your
+container within the pod must run as privileged. The devices in Kubernetes are added as a host path mounts, they
+are not separated into separate volumes and devices as in the Docker.
+
+```yaml
+# Example of an incomplete deployment spec
+apiVersion: apps/v1
+kind: Deployment
+metadata: ...
+spec:
+  template:
+    metadata: ...
+    spec:
+      securityContext:
+        runAsUser: 1000 # Similar to "user: 1000:1000" on Docker
+        runAsGroup: 1000
+        supplementalGroups:
+          - 122 # Change this to match your "render" system group and remove this comment
+          - 44 # Chnage this to match your "video" system group and remove this comment
+      containers:
+        - name: "jellyfin"
+          image: ...
+          ports: ...
+          env: ...
+          securityContext:
+            privileged: true # Container must run as privileged inside of the pod
+          volumeMounts:
+            - name: "render-device"
+              mountPath: "/dev/dri/renderD128"
+            - name: "card-device"
+              mountPath: "/dev/dri/card0"
+      volumes:
+        - name: "render-device"
+          hostPath:
+            path: "/dev/dri/renderD128"
+        - name: "card-device"
+          hostPath:
+            path: "/dev/dri/card0"
+```
+
+When the pod starts, you can verify that the VA-API is available by executing:
+
+```sh
+kubectl exec your_jellyfin_pod_name_here -- /usr/lib/jellyfin-ffmpeg/vainfo
+```
+
+If you get "error: failed to initialize display" then double check that the "supplementalGroups" are correct.
+
 ### NVIDIA hardware acceleration on Docker (Linux)
 
 In order to achieve hardware acceleration using Docker, several steps are required.
