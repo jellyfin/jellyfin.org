@@ -344,19 +344,19 @@ cd /opt/jellyfin
 ```
 
 Download the latest generic Linux build for your architecture.
-The rest of these instructions assume version 10.8.8 is being installed (i.e. `jellyfin_10.8.8_amd64.tar.gz`).
+The rest of these instructions assume version 10.8.9 is being installed (i.e. `jellyfin_10.8.9_amd64.tar.gz`).
 Download the generic build, then extract the archive:
 
 ```sh
-sudo wget https://repo.jellyfin.org/releases/server/linux/stable/combined/jellyfin_10.8.8_amd64.tar.gz
-sudo tar xvzf jellyfin_10.8.8_amd64.tar.gz
+sudo wget https://repo.jellyfin.org/releases/server/linux/stable/combined/jellyfin_10.8.9_amd64.tar.gz
+sudo tar xvzf jellyfin_10.8.9_amd64.tar.gz
 ```
 
-Create a symbolic link to the Jellyfin 10.8.8 directory.
+Create a symbolic link to the Jellyfin 10.8.9 directory.
 This allows an upgrade by repeating the above steps and enabling it by simply re-creating the symbolic link to the new version.
 
 ```sh
-sudo ln -s jellyfin_10.8.8 jellyfin
+sudo ln -s jellyfin_10.8.9 jellyfin
 ```
 
 Create four sub-directories for Jellyfin data.
@@ -376,11 +376,11 @@ Not being able to use `jellyfin-ffmpeg` will most likely break hardware accelera
 :::
 
 If you are running Debian or a derivative, you should [download](https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/) and install an `ffmpeg` release built specifically for Jellyfin.
-Be sure to download the latest release that matches your OS (4.4.1-1 for Debian Bullseye assumed below).
+Be sure to download the latest release that matches your OS (5.1.2-7 for Debian Bullseye assumed below).
 
 ```sh
-sudo wget https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/4.4.1-1/jellyfin-ffmpeg_4.4.1-1-bullseye_amd64.deb
-sudo dpkg --install jellyfin-ffmpeg_4.4.1-1-bullseye_amd64.deb
+sudo wget https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/5.1.2-7/jellyfin-ffmpeg5_5.1.2-7-bullseye_amd64.deb
+sudo dpkg --install jellyfin-ffmpeg5_5.1.2-7-bullseye_amd64.deb
 ```
 
 If you run into any dependency errors, run this and it will install them and `jellyfin-ffmpeg`.
