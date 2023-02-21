@@ -642,9 +642,9 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: 'discord-music',
-    name: 'Discord Music Bot for Jellyfin',
-    description: 'A Discord bot that allows playing your Jellyfin music library in Discord voice channels.',
+    id: 'discord-music-kgt1',
+    name: 'Discord Music Bot for Jellyfin by KGT1',
+    description: 'A Discord bot by KGT1 that allows playing your Jellyfin music library in Discord voice channels.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [],
     licenseType: LicenseType.OpenSource,
@@ -661,6 +661,30 @@ export const Clients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/kgt1/jellyfin-discord-music-bot'
+      }
+    ]
+  },
+  {
+    id: 'discord-music-manuel-rw',
+    name: 'Discord Music Bot for Jellyfin by manuel-rw',
+    description:
+      'A fork, based on the original bot by KGT1, that has been refactored and supports the Discord command system',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Discord],
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/manuel-rw/jellyfin-discord-music-bot/wiki/%F0%9F%9A%80-Initial-Discord-Bot-Creation-Guide'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/manuel-rw/jellyfin-discord-music-bot'
       }
     ]
   },
