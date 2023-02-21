@@ -27,34 +27,52 @@ export default function ClientSection() {
             <Icon path={mdiWeb} size='48px' className='fill-white' />
             <div className='margin-top--sm'>Web</div>
           </div>
-          <div className={clsx('col', styles['client-icon'], 'margin-top--md')}>
+          <Link
+            to='/downloads/clients?platform=Desktop'
+            className={clsx('col', styles['client-icon'], 'margin-top--md')}
+          >
             <Icon path={mdiMonitor} size='48px' className='fill-white' />
             <div className='margin-top--sm'>Desktop</div>
-          </div>
-          <div className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}>
+          </Link>
+          <Link
+            to='/downloads/clients?platform=Android,Android TV'
+            className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
+          >
             <Android color='#ffffff' size={48} />
             <div className='margin-top--sm'>Android</div>
-          </div>
-          <div className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}>
+          </Link>
+          <Link
+            to='/downloads/clients?platform=iOS,tvOS'
+            className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
+          >
             <Apple color='#ffffff' size={48} />
             <div className='margin-top--sm'>Apple</div>
-          </div>
-          <div className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}>
+          </Link>
+          <Link
+            to='/downloads/clients?platform=Fire TV'
+            className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
+          >
             <Amazon color='#ffffff' size={48} />
             <div className='margin-top--sm'>Amazon</div>
-          </div>
-          <div className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}>
+          </Link>
+          <Link
+            to='/downloads/clients?platform=Roku'
+            className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
+          >
             <Roku color='#ffffff' size={48} />
             <div className='margin-top--sm'>Roku</div>
-          </div>
-          <div className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}>
+          </Link>
+          <Link
+            to='/downloads/clients?platform=Kodi'
+            className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
+          >
             <Kodi color='#ffffff' size={48} />
             <div className='margin-top--sm'>Kodi</div>
-          </div>
-          <div className={clsx('col', styles['client-icon'], 'margin-top--md')}>
+          </Link>
+          <Link to='/downloads/clients' className={clsx('col', styles['client-icon'], 'margin-top--md')}>
             <Icon path={mdiPlusThick} size='48px' className='fill-white' />
             <div className='margin-top--sm'>And more</div>
-          </div>
+          </Link>
         </div>
 
         <div className='row'>
