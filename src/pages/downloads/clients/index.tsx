@@ -1,4 +1,5 @@
 import Link from '@docusaurus/Link';
+import { useHistory, useLocation } from '@docusaurus/router';
 import { mdiFilter } from '@mdi/js';
 import Icon from '@mdi/react';
 import Layout from '@theme/Layout';
@@ -31,13 +32,34 @@ function toggleValue<Type>(array: Type[], value: Type): Type[] {
 }
 
 export default function ClientsPage({ recommended = true }: { recommended?: boolean }) {
+  const history = useHistory();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+
   const [filteredClients, setFilteredClients] = useState<Client[]>([...Clients]);
-  const [filter, setFilter] = useState<ClientFilter>({
+  const [filter, setFilterValue] = useState<ClientFilter>({
     recommended,
-    deviceTypes: [],
-    platforms: []
+    deviceTypes: (searchParams.get('type')?.split(',') ?? []) as DeviceType[],
+    platforms: (searchParams.get('platform')?.split(',') ?? []) as Platform[]
   });
+
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
+
+  const setFilter = (filter: ClientFilter) => {
+    let search: string[] = [];
+
+    if (filter.deviceTypes.length > 0) {
+      search.push(`type=${filter.deviceTypes.join(',')}`);
+    }
+    if (filter.platforms.length > 0) {
+      search.push(`platform=${filter.platforms.join(',')}`);
+    }
+    history.push({
+      search: '?' + search.join('&')
+    });
+
+    setFilterValue(filter);
+  };
 
   useEffect(() => {
     setFilteredClients(
