@@ -46,16 +46,16 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
 
   const setFilter = (filter: ClientFilter) => {
-    let search: string[] = [];
+    const search = new URLSearchParams();
 
     if (filter.deviceTypes.length > 0) {
-      search.push(`type=${filter.deviceTypes.join(',')}`);
+      search.set('type', filter.deviceTypes.join(','));
     }
     if (filter.platforms.length > 0) {
-      search.push(`platform=${filter.platforms.join(',')}`);
+      search.set('platform', filter.platforms.join(','));
     }
     history.push({
-      search: '?' + search.join('&')
+      search: search.toString()
     });
 
     setFilterValue(filter);
@@ -105,13 +105,13 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
             <div className={clsx('col', 'margin-bottom--md', styles['header-pills-middle'])}>
               <div className='pills'>
                 <Link
-                  to='/downloads/clients'
+                  to={`/downloads/clients${location.search}`}
                   className={clsx('pills__item', { 'pills__item--active': filter.recommended })}
                 >
                   Recommended
                 </Link>
                 <Link
-                  to='/downloads/clients/all'
+                  to={`/downloads/clients/all${location.search}`}
                   className={clsx('pills__item', { 'pills__item--active': !filter.recommended })}
                 >
                   All
