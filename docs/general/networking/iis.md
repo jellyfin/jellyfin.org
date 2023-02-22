@@ -64,6 +64,16 @@ Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.
                         <set name="HTTP_X_FORWARDED_PROTOCOL" value="http" />
                         <set name="HTTP_X_FORWARDED_PROTO" value="http" />
                     </serverVariables>
+                </rule><!-- prevent JF back button bug + redirect / to /web/ -->
+                <rule name="Redirect" stopProcessing="true">
+                    <match url="^(web)?$" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Redirect" url="web/" redirectType="Found" />
+                </rule><!-- Rewrite web/ to web/index.html, similar trick used on nginx, makes urls much cleaner -->
+                <rule name="web">
+                    <match url="^web/$" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="web/index.html" />
                 </rule><!-- proxy to Jellyfin -->
                 <rule name="Proxy">
                     <match url=".*" />
