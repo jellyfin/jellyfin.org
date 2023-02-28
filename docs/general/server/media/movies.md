@@ -9,7 +9,7 @@ Movies should usually be in the library root directory or in a subfolder for the
 
 :::tip
 
-In order to help with identifying a movie, Jellyfin can make use of media provider identifiers. This can be specified in your movie's folder name, for example: `Film (2010) [imdbid-tt0106145]` or `Film (2018) [tmdbid-65567]`
+In order to help with identifying a movie, Jellyfin can make use of media provider identifiers. This can be specified in your movie's file or folder name, for example: `Film (2010) [imdbid-tt0106145].mp4` or `Film (2018) [tmdbid-65567]`
 
 :::
 
