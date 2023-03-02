@@ -167,7 +167,7 @@ Steps to run Jellyfin using Podman are similar to the Docker steps.
     --userns keep-id \
     --volume jellyfin-cache:/cache:Z \
     --volume jellyfin-config:/config:Z \
-    --mount type=bind,source=/path/to/media,destination=/media,ro=true \
+    --mount type=bind,source=/path/to/media,destination=/media,ro=true,relabel=private \
     docker.io/jellyfin/jellyfin:latest
    ```
 
@@ -189,7 +189,7 @@ This ensures that the permissions for directories bind-mounted inside the contai
 
 Keep in mind that the `--label "io.containers.autoupdate=image"` flag will allow the container to be automatically updated via `podman auto-update`.
 
-The `z` (shared volume) or `Z` (private volume) volume option tells Podman to relabel files inside the volumes as appropriate, for systems running SELinux.
+The `z` (shared volume) or `Z` (private volume) volume option and `relabel=shared` or `relabel=private` mount option tell Podman to relabel files inside the volumes as appropriate, for systems running SELinux.
 
 Replace `jellyfin-config` and `jellyfin-cache` with `/path/to/config` and `/path/to/cache` if you wish to use bind mounts.
 
