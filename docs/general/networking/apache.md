@@ -12,7 +12,7 @@ title: Apache
     ServerName DOMAIN_NAME
 
     # Comment to prevent HTTP to HTTPS redirect
-    Redirect permanent / https://DOMAIN_NAME
+    Redirect permanent / https://DOMAIN_NAME/
 
     ErrorLog /var/log/apache2/DOMAIN_NAME-error.log
     CustomLog /var/log/apache2/DOMAIN_NAME-access.log combined
