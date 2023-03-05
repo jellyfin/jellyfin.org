@@ -63,7 +63,7 @@ Episode numbering for specials may vary from metadata provider to metadata provi
 Episode that are split into multiple files can be stacked together if named correctly. Files should be named as follows:
 
 - Series (2010)/Season 02/Series (2010) S02E01\<separator>\<parttype>\<separator>\<partnumber>.mkv
-    
+
 The separator is optional between \<parttype> and \<partnumber>. \<partnumber> can be any number, or the letters a-d.
 
 Supported part types are:
@@ -74,10 +74,10 @@ Supported part types are:
 - `pt`
 - `disc`
 - `disk`
-    
+
 Supported separators are:
 
-- ` (space)`
+- `(space)`
 - `. (period)`
 - `- (dash)`
 - `_ (underscore)`
