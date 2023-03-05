@@ -26,7 +26,9 @@ Shows
 │   │   └── Episode S01E04.mkv
 │   └── Season 02
 │       ├── Episode S02E01.mkv
-│       └── Episode S02E02.mkv
+│       ├── Episode S02E02.mkv
+│       ├── Episode S02E03 Part 1.mkv
+│       └── Episode S02E03 Part 2.mkv
 └── Series (2018)
     ├── Episode S01E01.mkv
     ├── Episode S01E02.mkv
@@ -55,6 +57,30 @@ Show specials can be added in the `Season 00` folder. If supported by your metad
 Episode numbering for specials may vary from metadata provider to metadata provider.
 
 :::
+
+## Episodes Split Across Multiple Parts
+
+Episode that are split into multiple files can be stacked together if named correctly. Files should be named as follows:
+
+- Series (2010)/Season 02/Series (2010) S02E01\<separator>\<parttype>\<separator>\<partnumber>.mkv
+    
+The separator is optional between \<parttype> and \<partnumber>. \<partnumber> can be any number, or the letters a-d.
+
+Supported part types are:
+
+- `cd`
+- `dvd`
+- `part`
+- `pt`
+- `disc`
+- `disk`
+    
+Supported separators are:
+
+- ` (space)`
+- `. (period)`
+- `- (dash)`
+- `_ (underscore)`
 
 ## Show Extras
 
