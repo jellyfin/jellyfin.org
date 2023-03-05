@@ -538,13 +538,23 @@ You can convert an existing unprivileged container to a privileged container by 
 
 ### AMD AMF encoding on Ubuntu 18.04 or 20.04 LTS
 
-1. Install the `amdgpu-pro` closed source graphics driver by following the [installation instructions](https://amdgpu-install.readthedocs.io/en/latest/).
-
-2. Then install `amf-amdgpu-pro`.
+1. Download the `amdgpu-pro` closed source installer script at https://www.amd.com/en/support
 
    ```bash
-   sudo apt install amf-amdgpu-pro
+   sudo dpkg -i /path/to/amdgpu-pro.deb; apt update
    ```
+
+2. Then install the Pro variant with AMF
+
+   ```bash
+   sudo amdgpu-install -y --usecase=workstation,amf --vulkan=pro --opencl=rocr,legacy --accept-eula --no-32
+   ```
+   
+   :::info
+   
+   If your Ubuntu is 32 bit, please remove `--no-32`. Otherwise, on 64 bit the installer will error. Further documentation can be found here: https://amdgpu-install.readthedocs.io/en/latest/
+   
+   :::
 
 3. Check if `jellyfin-ffmpeg` contains `h264_amf` encoder:
 
