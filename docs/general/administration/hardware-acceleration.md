@@ -549,11 +549,11 @@ You can convert an existing unprivileged container to a privileged container by 
    ```bash
    sudo amdgpu-install -y --usecase=workstation,amf --vulkan=pro --opencl=rocr,legacy --accept-eula --no-32
    ```
-   
+
    :::info
-   
+
    If your Ubuntu is 32 bit, please remove `--no-32`. Otherwise, on 64 bit the installer will error. Further documentation can be found here: https://amdgpu-install.readthedocs.io/en/latest/
-   
+
    :::
 
 3. Check if `jellyfin-ffmpeg` contains `h264_amf` encoder:
