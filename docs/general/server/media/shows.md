@@ -60,7 +60,7 @@ Episode numbering for specials may vary from metadata provider to metadata provi
 
 ## Episodes Split Across Multiple Parts
 
-Episode that are split into multiple files can be stacked together if named correctly. Files should be named as follows:
+Episodes that are split into multiple files can be stacked together if named correctly. Files should be named as follows:
 
 - `Series (2010)/Season 02/Series (2010) S02E01<separator><parttype><separator><partnumber>.mkv`
 
