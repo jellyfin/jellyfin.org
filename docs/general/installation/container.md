@@ -201,21 +201,22 @@ To run as a systemd service see [podman-systemd.unit](https://docs.podman.io/en/
 
 As always it is recommended to run the container rootless. Therefore we want to manage the container with the `systemd --user` flag.
 
-1. Create a new user that the rootless container will run under. 
+1. Create a new user that the rootless container will run under.
 
    `useradd jellyfin`
-   
+
    This allows users who are not logged in to run long-running services.
-   
+
    `loginctl enable-linger jellyfin`
-   
+
    Open an interactive shell session.
-   
+
    `machinectl shell jellyfin@`
 
 2. Install `.config/containers/systemd/jellyfin.container`
 
    > Contents of `~/.config/containers/systemd/jellyfin.container`
+
    ```sh
    [Container]
    Image=docker.io/jellyfin/jellyfin:latest
@@ -238,19 +239,17 @@ As always it is recommended to run the container rootless. Therefore we want to 
 3. Reload daemon and start the service.
 
    `systemctl --user daemon-reload`
-   
+
    `systemctl --user start jellyfin`
-   
+
 4. To enable Podman auto-updates, enable the necessary systemd timer.
 
-   ```sh
-   systemctl --user enable --now podman-auto-update.timer
-   ```
+   `systemctl --user enable --now podman-auto-update.timer`
 
 5. Optionally check logs for errors
 
    `journalctl --user -u jellyfin`
-   
+
 6. `exit` the current session.
 
 ## TrueNAS SCALE / TrueCharts
