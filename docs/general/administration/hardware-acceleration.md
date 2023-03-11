@@ -552,7 +552,7 @@ You can convert an existing unprivileged container to a privileged container by 
 
    :::info
 
-   If your Ubuntu is 32 bit, please remove `--no-32`. Otherwise, on 64 bit the installer will error. Further documentation can be found here: https://amdgpu-install.readthedocs.io/en/latest/
+   If your Ubuntu is 32 bit, please remove `--no-32`. Otherwise, on 64 bit the installer will error. Further documentation can be found at [amdgpu-install.readthedocs.io](https://amdgpu-install.readthedocs.io/en/latest/)
 
    :::
 
