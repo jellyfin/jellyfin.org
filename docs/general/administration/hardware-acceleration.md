@@ -538,7 +538,7 @@ You can convert an existing unprivileged container to a privileged container by 
 
 ### AMD AMF encoding on Ubuntu 18.04 or 20.04 LTS
 
-1. Download the `amdgpu-pro` closed source installer script at https://www.amd.com/en/support
+1. Download the `amdgpu-pro` closed source installer script at [amd.com](https://www.amd.com/en/support)
 
    ```bash
    sudo dpkg -i /path/to/amdgpu-pro.deb; apt update
