@@ -1,0 +1,959 @@
+---
+uid: admin-hardware-acceleration-intel
+title: HWA Tutorial On Intel GPU
+---
+
+# HWA Tutorial On Intel GPU
+
+This tutorial guides you setting up full video hardware acceleration on Intel integrated GPU and ARC discrete GPU via QSV and VA-API.
+
+
+
+## Acceleration Methods
+
+Hardware accelerated transcoding is supported on most Intel GPUs.
+
+On Windows **QSV** is the only available method.
+
+On Linux there are two methods:
+
+- **QSV** - Prefered on mainstream GPUs, for better performance
+
+- **VA-API** - Required by pre-Broadwell legacy GPUs, for compatibility
+
+
+
+Linux VA-API supports nearly all Intel GPUs.
+
+Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-platforms) are limited to:
+
+- **BDW** (Broadwell)
+
+- **SKL** (Skylake)
+
+- **BXTx** (BXT: Broxton, APL: Apollo Lake, GLK: Gemini Lake)
+
+- **KBLx** (KBL: Kaby Lake, CFL: Coffe Lake, WHL: Whiskey Lake, CML: Comet Lake, AML: Amber Lake)
+
+- **ICL** (Ice Lake)
+
+- **JSL** (Jasper Lake) / **EHL** (Elkhart Lake)
+
+- **TGLx** (TGL: Tiger Lake, RKL: Rocket Lake, ADL-S/P/N: Alder Lake, RPL-S/P: Raptor Lake)
+
+- **DG1**/**SG1**
+
+- Alchemist(**DG2**)/ATSM
+
+- Meteor Lake(**MTL**)
+
+- Future platforms...
+
+
+
+The QSV interface comes from Intel [OneVPL](https://github.com/oneapi-src/oneVPL) / [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK) is a high-level implementation based on Linux VA-API and Windows DXVA/D3D11VA, which gives better performance and more fine-tuning options on supported platforms.
+
+QSV can be used together with VA-API and DXVA/D3D11VA for a more flexible hybrid transcoding pipeline.
+
+
+
+:::note
+
+Unlike NVIDIA NVENC, there is no concurrent encoding sessions limit on Intel iGPU and ARC dGPU.
+
+QSV and VA-API support headless server on both Windows and Linux, which means a connected monitor is not required.
+
+:::
+
+
+
+## Tone-mapping Methods
+
+Hardware accelerated HDR/DV to SDR tone-mapping is supported on **all Intel GPUs that have HEVC 10-bit decoding**.
+
+There are two methods can be used on Windows and/or Linux, here's the pros and cons of them:
+
+1. **OpenCL**
+
+   - Pros - Supports Dolby Vision P5, detailed fine-tuning options, widely supported hardware.
+
+   - Cons - The OpenCL runtime sometimes need to be manually installed on Linux.
+
+2. **QSV VPP**
+
+   - Pros - Lower power consumption, realized by Intel fixed-function LUT hardware.
+
+   - Cons - Poor tuning options, limited supported GPU models, currently only available on Linux.
+
+
+
+## Select GPU Hardware
+
+:::caution
+
+Rule out the model of Intel processors that ending in "F", which means it has no integrated GPU.
+
+:::
+
+Best to check Quick Sync Video support via the [Intel ark website](https://ark.intel.com/content/www/us/en/ark.html) before buying a new GPU for hardware acceleration.
+
+### Transcode H.264
+
+AVC / H.264 8-bit is still widely used due to its excellent compatibility. All Intel GPUs that support QSV can decode and encode it.
+
+- **Decoding & Encoding H.264 8-bit** - Any Intel GPU that supports Quick Sync Video (QSV)
+
+
+
+### Transcode HEVC
+
+HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoder [x265 and documentation](https://x265.readthedocs.io/en/master/) support, as well as the widely implemented hardware codecs in most GPUs released after 2016.
+
+No exception for Intel GPUs:
+
+- **Decoding & Encoding HEVC 8-bit** - Gen 9 Sky Lake (6th Gen Core) and newer
+
+- **Decoding & Encoding HEVC 10-bit** - Gen 9.5 Kaby Lake (7th Gen Core), Apollo Lake, Gemini Lake (Pentium and Celeron) and newer
+
+:::note
+
+Note that the 6th Gen Core lacks 10-bit support, it's best to choose 7th Gen and newer processors, which usually have HD / UHD 6xx series iGPU.
+
+:::
+
+
+
+### Transcode AV1
+
+AV1 is a royalty-free, future-proof video codec. It saves storage space and network bandwidth a lot. The downside is that decoding and encoding them are very stressful for your CPU. But hardware acceleration makes it possible to transcode to AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
+
+Intel added support for AV1 acceleration in their latest GPUs:
+
+- **Decoding AV1 8/10-bit** - Gen 12 Tiger Lake (11th Gen Core) and newer
+
+- **Encoding AV1 8/10-bit** - Gen 12.5 DG2 / ARC A-series, Gen 12.7 Meteor Lake (14th?? Gen Core) and newer
+
+
+
+### Transcode Other Codecs
+
+Please refer to these links:
+
+- [Intel Media Capabilities documentation](https://www.intel.com/content/www/us/en/develop/documentation/media-capabilities-of-intel-hardware/top.html)
+
+- [Linux media-driver/iHD capabilities](https://github.com/intel/media-driver#decodingencoding-features)
+
+- [Linux vaapi-driver/i965 capabilities](https://github.com/intel/intel-vaapi-driver/blob/master/README)
+
+
+
+### Speed And Quality
+
+Intel improves the speed and video quality of its fixed-function encoders between each generation of graphics architectures.
+
+They can be divided into 4 tiers by their performance：
+
+- **Entry-Level** - HD / UHD 500, 600, 605 and 61x
+
+  :::tip
+
+  These iGPUs usually come from mini PC boxes or Synology NAS and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
+
+  :::
+
+- **Mainstream** - HD / UHD 620, 630, Iris 640, 655 and the Gen 11 graphics
+
+  :::tip
+
+  These iGPUs have more computing power than entry-level, which makes them capable of multiple 4k HDR HEVC 10-bit transcoding at the same time. Note that the Gen 11 graphics has improved encoder quality over Gen 9 but not too much.
+
+  :::
+
+- **High-Performance** - UHD 7xx series and Iris Xe graphics
+
+  :::tip
+
+  These GPUs use Gen 12 XeLP architecture with [significantly improved video quality and speed](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-iris-xe-max-graphics/intel-iris-xe-max-graphics.md). Models like the UHD 770 and Iris Xe feature a second MFX video engine, which enhances its concurrent transcoding capabilities.
+
+  :::
+
+- **Hardcore** - ARC A-series discrete GPU
+
+  :::tip
+
+  ARC A-series GPU uses the latest Gen 12.5 XeHPG architecture, which continues to improve on the basis of XeLP, supports [AV1 hardware encoding and improved H.264 and HEVC encoding](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-data-center-gpu-flex-series/intel-data-center-gpu-flex-series.rst). This makes it competitive with the medium preset of the x264 and x265 software encoders. All ARC A-series GPU models comes with two MFX video engines.
+
+  :::
+
+
+
+### OneVPL And MediaSDK
+
+[OneVPL](https://github.com/oneapi-src/oneVPL) is a new QSV implementation to supersede [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK). Both provide Quick Sync Video (QSV) runtime.
+
+Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, namly Tiger Lake & Rocket Lake).
+
+:::note
+
+The most notable difference is that OneVPL supports new AV1 hardware encoder on ARC GPU.
+
+[FFmpeg 6.0](http://ffmpeg.org/download.html#release_6.0) enables OneVPL and this process is seamless for the end users.
+
+:::
+
+
+
+### ARC GPU Support
+
+Jellyfin server 10.8.9+ and the latest jellyfin-ffmpeg5 support Intel ARC discrete GPU on both Windows and Linux 6.2+.
+
+You only need to follow the [Windows Setups](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#windows-setups) and [Linux Setups](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#linux-setups) to configure and verify it.
+
+:::tip
+
+Tips for ARC GPU:
+
+- [Reizeable-BAR](https://game.intel.com/story/intel-arc-graphics-resizable-bar/) is not mandatory for hardware acceleration, but it can affect the performance of VPP tone-mapping.
+  It's recommended to enable the Resizable-BAR if the processor, motherboard and BIOS support it.
+
+- [ASPM](https://www.intel.com/content/www/us/en/support/articles/000092564/graphics.html) can be enabled in the supported BIOS, which greatly reduces the idle power consumption of the ARC GPU.
+
+- Low-Power encoding is used by default on ARC GPU. **GuC & HuC firmware can be missing on non-rolling release distros**.
+
+- Old kernel build configs [may not have the MEI modules enabled](https://gitlab.freedesktop.org/drm/intel/-/issues/7732), which is necessary for using ARC GPU on Linux.
+
+:::
+
+
+
+## Windows Setups
+
+Windows 10 64-bit and newer is recommeded. **QSV is not available in Windows Docker and WSL/WSL2.**
+
+### Configure On Windows Host
+
+1. Wipe the old driver with [DDU](https://www.wagnardsoft.com/) if you upgraded from a pre-6th Gen Intel processor without doing a fresh installation.
+
+2. Clean install the latest EXE or INF driver from [Intel download center](https://www.intel.com/content/www/us/en/download-center/home.html).
+
+3. Don't allow the GPU to be preempted by the Windows Remote desktop session.
+
+   - Type `gpedit.msc` in Win+R shortcut key dialog and run to open the "Local Group Policy Editor".
+
+   - Navigate in the left tree **[Computer Configuratoin > Administrative Templates > Windows Components]**
+
+   - Here you can find **[Remote Desktop Services > Remote Desktop Session Host > Remote Session Environment]**
+
+   - On the right side, double click the **[Use hardware graphics adapters for all Remote Desktop Services sessions]**
+
+   - Set **[Disabled]** in the pop-up dialog window and click **[OK]**, reboot the system.
+
+   ![Remote desktop GPU setup](/images/docs/hwa-gpedit-mstsc.png)
+
+3. Enable QSV in Jellyfin and uncheck the unsupported codecs.
+
+
+
+### Verify On Windows
+
+1. Play a video in Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
+
+2. Open the "Task Manager" and navigate to the GPU page.
+
+3. Check the occupancy of the engines as follows.
+
+   :::note
+
+   Duplicate engine name indicates the GPU may have multiple MFX video engines.
+
+   :::
+
+   - **3D** - 2D/3D engine, QSV VPP or GPGPU workload
+
+   - **Copy** - Blitter/Copy engine workload
+
+   - **Video Decode** - QSV decoder or encoder workload
+
+   - **Video Processing** - QSV VPP processor workload
+
+   - **Compute** - GPGPU or QSV VPP workload (only available on ARC / DG2+)
+
+   ![Verify Intel On Windows](/images/docs/hwa-intel-taskmgr.png)
+
+## Linux Setups
+
+Linux 64-bit distribution is required. **The supported GPU varies by kernel and firmware versions.**
+
+### Known Issues And Limitations
+
+:::caution
+
+There are some known upstream kernel and firmware issues that can affect the Intel hardware transcoding. Some of them can be fixed by upgrading your Linux distro, kernel and firmware packages, or editing the needed kernel parameters.
+
+:::
+
+1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#low-power-encoding) mode MUST be configured and enabled for doing the correct VBR or CBR bitrate control that is required by the Jellyfin on the fly video streaming.
+
+   - Ticket: https://gitlab.freedesktop.org/drm/intel/-/issues/8080
+
+2. The default kernel 5.15 that comes with Ubuntu 22.04 LTS has a regression on Intel Gen 11 graphics (ICL, JSL and EHL) that prevent you from using the Low-Power encoding mode. Linux 5.16+ is not affected.
+
+   - Ticket: https://gitlab.freedesktop.org/drm/intel/-/issues/4067
+
+   - Fixed by: [drm/i915/gen11: Moving WAs to icl_gt_workarounds_init()](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=52255ef662a5d490678fbad64a735f88fcba564d)
+
+3. The kernel range from 5.18 to 6.1.3 have an issue that locks up and resets the i915 kernel driver when using OpenCL based HDR/DV tone-mapping. Linux 5.18-, 6.0.18+, 6.1.4+ are not affected.
+
+   - Ticket: https://gitlab.freedesktop.org/drm/intel/-/issues/7627
+
+   - Fixed by: [drm/i915: improve the catch-all evict to handle lock contention](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3f882f2d4f689627c1566c2c92087bc3ff734953)
+
+4. The current Debian 11 and Ubuntu 22.04 LTS may not have the required GPU firmware for Intel 12th Gen processors and ARC GPU.
+
+5. The kernel support for Intel Gen 12 TGL graphics is incompletet before Linux 5.9.
+
+6. The kernel support for Intel Gen 12 DG1 is incomplete in upstream. Intel DKMS and custom iHD driver are required.
+
+7. The kernel support for Intel Gen 12 ADL graphics is incomplete before Linux 5.17.
+
+8. The kernel support for Intel Gen 12.5 DG2 / ARC A-series is incomplete before Linux 6.2.
+
+
+
+### Configure On Linux Host
+
+#### Debian And Ubuntu Linux
+
+The `jellyfin-ffmpeg5` deb package required by Jellyfin 10.8 comes with all necessary user mode Intel media drivers.
+
+Besides that you only need to install the OpenCL runtime and configure the the permission of `jellyfin` user.
+
+:::note
+
+Root permission is required.
+
+:::
+
+1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
+
+2. Install the `jellyfin-ffmpeg5` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
+
+   ```shell
+   # apt update && apt install -y jellyfin-ffmpeg5
+   ```
+
+3. Make sure at least one `renderD*` device exists in `/dev/dri`. Otherwise upgrade your kernel or enable the iGPU in the BIOS.
+
+   :::note
+
+   Note the permissions and group available to write to it, in this case it is `render`:
+
+   :::
+
+   ```shell
+   $ ls -l /dev/dri
+
+   total 0
+   drwxr-xr-x  2 root root        120 Mar  5 05:15 by-path
+   crw-rw----+ 1 root video  226,   0 Mar  5 05:15 card0
+   crw-rw----+ 1 root video  226,   1 Mar  5 05:15 card1
+   crw-rw----+ 1 root render 226, 128 Mar  5 05:15 renderD128
+   crw-rw----+ 1 root render 226, 129 Mar  5 05:15 renderD129
+   ```
+
+4. Add the `jellyfin` user to the `render` and `video` group, then restart `jellyfin` service:
+
+   :::note
+
+   On some releases, the group may be `video` or `input` instead of `render`.
+
+   :::
+
+   ```shell
+   # usermod -aG render jellyfin
+   # usermod -aG video jellyfin
+   # systemctl restart jellyfin
+   ```
+
+5. Check the version of `intel-opencl-icd` thats the Linux distro provides:
+
+   ```shell
+   $ apt policy intel-opencl-icd
+
+   intel-opencl-icd:
+     Installed: (none)
+     Candidate: 22.14.22890-1
+   ...
+   ```
+
+6. If the version is newer than `22.xx.xxxxx` just install it. Otherwise install from [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases).
+
+   ```shell
+   # apt install -y intel-opencl-icd
+   ```
+
+7. Check the supported QSV / VA-API codecs:
+
+   :::note
+
+   `iHD driver` indicates both QSV and VA-API interfaces are supported.
+
+   `i965 driver` indicates only VA-API interface is supported, which should only be used on pre-Broadwell platforms.
+
+   :::
+
+   ```shell
+   $ /usr/lib/jellyfin-ffmpeg/vainfo --display drm --device /dev/dri/renderD128
+
+   libva info: VA-API version 1.17.0
+   libva info: Trying to open /usr/lib/jellyfin-ffmpeg/lib/dri/iHD_drv_video.so
+   libva info: Found init function __vaDriverInit_1_17
+   libva info: va_openDriver() returns 0
+   Trying display: drm
+   vainfo: VA-API version: 1.17 (libva 2.17.0)
+   vainfo: Driver version: Intel iHD driver for Intel(R) Gen Graphics - 23.1.2 (xxxxxxx)
+   vainfo: Supported profile and entrypoints
+   ...
+   ```
+
+8. Check the OpenCL runtime status:
+
+   ```shell
+   $ /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
+
+   [AVHWDeviceContext @ 0x55cc8ac21a80] 0.0: Intel(R) OpenCL HD Graphics / Intel(R) Iris(R) Xe Graphics [0x9a49]
+   [AVHWDeviceContext @ 0x55cc8ac21a80] Intel QSV to OpenCL mapping function found (clCreateFromVA_APIMediaSurfaceINTEL).
+   [AVHWDeviceContext @ 0x55cc8ac21a80] Intel QSV in OpenCL acquire function found (clEnqueueAcquireVA_APIMediaSurfacesINTEL).
+   [AVHWDeviceContext @ 0x55cc8ac21a80] Intel QSV in OpenCL release function found (clEnqueueReleaseVA_APIMediaSurfacesINTEL).
+   ...
+   ```
+
+9. If you wish to use the second GPU, change `renderD128` to `renderD129` in the Jellyfin dashboard.
+
+10. Enable QSV or VA-API in Jellyfin and uncheck the unsupported codecs.
+
+
+
+#### Linux Mint
+
+Linux Mint use Ubuntu as its package base.
+
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+
+
+
+#### Arch Linux
+
+AUR `jellyfin-ffmpeg`, `jellyfin-ffmpeg5*` packages and future ffmpeg versions are maintained by Jellyfin team.
+
+:::note
+
+Root permission is required.
+
+:::
+
+1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin), then change the ffmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
+
+   ```shell
+   $ cd ~/
+   $ git clone https://aur.archlinux.org/jellyfin-ffmpeg5-bin.git
+   $ cd jellyfin-ffmpeg5-bin
+   $ makepkg -si
+   ```
+
+2. User mode Intel media drivers and the OpenCL runtime are required to be manually installed for enabling QSV / VA-API:
+
+   - [intel-media-driver](https://archlinux.org/packages/community/x86_64/intel-media-driver/)
+
+   - [intel-media-sdk](https://archlinux.org/packages/community/x86_64/intel-media-sdk/)
+
+   - [onevpl-intel-gpu](https://aur.archlinux.org/packages/onevpl-intel-gpu)
+
+   - [intel-compute-runtime](https://archlinux.org/packages/community/x86_64/intel-compute-runtime/)
+
+   - [libva-intel-driver](https://archlinux.org/packages/extra/x86_64/libva-intel-driver/)
+
+3. Check the QSV / VA-API codecs and the OpenCL runtime status:
+
+   ```shell
+   # pacman -Sy libva-utils
+   $ vainfo --display drm --device /dev/dri/renderD128
+   $ /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
+   ```
+
+4. Check to the rest parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#debian-and-ubuntu-linux).
+
+
+
+#### Other Distros
+
+We provide **portable** [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg) binaries for distros that don't have a regular maintainer.
+
+They can be downloaded from one of these links:
+
+- [Jellyfin repository](https://repo.jellyfin.org/releases/ffmpeg/)
+
+- [Releases · jellyfin/jellyfin-ffmpeg · GitHub](https://github.com/jellyfin/jellyfin-ffmpeg/releases)
+
+:::note
+
+Minimum requirements for glibc and Linux versions:
+
+- x86_64 / amd64 - glibc >= 2.23, Linux >= 4.4 (most distros released in 2016 and later)
+
+:::
+
+Extract and install it to the correct path, change the ffmpeg path in Jellyfin dashboard to match it:
+
+```shell
+$ cd ~/
+$ mkdir -p jellyfin-ffmpeg
+$ wget https://repo.jellyfin.org/releases/ffmpeg/<VERSION>/jellyfin-ffmpeg_<VERSION>_portable_linux64-gpl.tar.xz
+$ tar -xvf jellyfin-ffmpeg_<VERSION>_portable_linux64-gpl.tar.xz -C jellyfin-ffmpeg
+# mv jellyfin-ffmpeg /usr/lib
+$ ldd -v /usr/lib/jellyfin-ffmpeg/ffmpeg
+```
+
+Install other necessary Intel driver packages and their dependencies that contain these key words:
+
+- Intel media driver - iHD
+
+- Intel vaapi driver - i965
+
+- Intel media sdk - MFX
+
+- Intel oneVPL-intel-gpu - VPL
+
+- Intel compute runtime - OpenCL
+
+
+
+### Configure With Linux Virtualization
+
+#### Official Docker
+
+The official Docker image comes with all necessary user mode Intel media drivers and the OpenCL runtime.
+
+What you need to do is pass the host's `render`group id to Docker and modify the configurations to meet your requirements.
+
+1. Query the `render` and `video` groups id on the host system and use it in Docker cli or docker-compose file.
+
+   :::note
+
+   On some releases, the group may be `input`.
+
+   :::
+
+   ```shell
+   $ getent group render | cut -d: -f3
+   ```
+
+2. Use docker command line **or** use docker-compose:
+
+   - Example command line:
+
+     ```shell
+     $ docker run -d \
+      --name=jellyfin \
+      --volume /path/to/config:/config \
+      --volume /path/to/cache:/cache \
+      --volume /path/to/media:/media \
+      --user 1000:1000 \
+      --group-add="122" \ # Change this to match your "render" host group id and remove this comment
+      --group-add="123" \ # Change this to match your "video" host group id and remove this comment
+      --net=host \
+      --restart=unless-stopped \
+      --device /dev/dri/renderD128:/dev/dri/renderD128 \
+      --device /dev/dri/card0:/dev/dri/card0 \
+      jellyfin/jellyfin
+     ```
+
+   - Example docker-compose (version 3) configuration file written in YAML:
+
+     ```yaml
+     version: '3'
+     services:
+       jellyfin:
+         image: jellyfin/jellyfin
+         user: 1000:1000
+         group_add:
+           - "122" # Change this to match your "render" host group id and remove this comment
+         network_mode: 'host'
+         volumes:
+           - /path/to/config:/config
+           - /path/to/cache:/cache
+           - /path/to/media:/media
+         devices:
+           - /dev/dri/renderD128:/dev/dri/renderD128
+           - /dev/dri/card0:/dev/dri/card0
+     ```
+
+3. If you wish to use the second GPU on your system, change `card0` to `card1` and `renderD128` to `renderD129`.
+
+4. For trying out the unstable build, change `jellyfin/jellyfin` to `jellyfin/jellyfin:unstable` on your own risk.
+
+5. Check the QSV and VA-API codecs:
+
+   ```shell
+   $ docker exec -it jellyfin /usr/lib/jellyfin-ffmpeg/vainfo
+   ```
+
+6. Check the OpenCL runtime status:
+
+   ```shell
+   $ docker exec -it jellyfin /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va -init_hw_device opencl@va
+   ```
+
+7. Enable QSV or VA-API in Jellyfin and uncheck the unsupported codecs.
+
+
+
+#### Linuxserver.io Docker
+
+LSIO Docker images are maintained by [linuxserver.io](https://www.linuxserver.io/), please refer their docs from [GitHub - linuxserver/docker-jellyfin](https://github.com/linuxserver/docker-jellyfin).
+
+:::note
+
+The paths of Jellyfin config and data folders in the official and LSIO Docker images are different. So they cannot be easily exchanged.
+
+:::
+
+
+
+#### Kubernetes
+
+This follows the same principles as for the Docker, with one small change that your container within the pod much run as **privileged**.
+
+The devices in Kubernetes are added as a host path mounts, they are not separated into separate volumes as in the Docker.
+
+1. Example Kubernetes (API version 1) configuraton file written in YAML:
+
+   ```yaml
+   # Example of an incomplete deployment spec
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata: ...
+   spec:
+     template:
+       metadata: ...
+       spec:
+         securityContext:
+           runAsUser: 1000 # Similar to "user: 1000:1000" on Docker
+           runAsGroup: 1000
+           supplementalGroups:
+             - 122 # Change this to match your "render" host group id and remove this comment
+             - 44 # Chnage this to match your "video" host group id and remove this comment
+         containers:
+           - name: "jellyfin"
+             image: ...
+             ports: ...
+             env: ...
+             securityContext:
+               privileged: true # Container must run as privileged inside of the pod
+             volumeMounts:
+               - name: "render-device"
+                 mountPath: "/dev/dri/renderD128"
+               - name: "card-device"
+                 mountPath: "/dev/dri/card0"
+         volumes:
+           - name: "render-device"
+             hostPath:
+               path: "/dev/dri/renderD128"
+           - name: "card-device"
+             hostPath:
+               path: "/dev/dri/card0"
+   ```
+
+2. When the pod starts, you can check the QSV and VA-API codecs.
+
+   If you get `error: failed to initialize display` then double check that the `supplementalGroups` are correct.
+
+   ```shell
+   $ kubectl exec <JELLYFIN_POD_NAME> -- /usr/lib/jellyfin-ffmpeg/vainfo
+   ```
+
+3. Enable QSV or VA-API in Jellyfin and uncheck the unsupported codecs.
+
+
+
+#### LXC And LXD Container
+
+:::caution
+
+This has been tested with LXC 3.0 and may or may not work with older versions.
+
+:::
+
+1. Query the `render` and `video` group id on the host system.
+
+   :::note
+
+   On some releases, the group may be `input` instead of `render` and `video`.
+
+   :::
+
+   ```shell
+   $ getent group render | cut -d: -f3
+   $ getent group video | cut -d: -f3
+   ```
+
+2. Install the required drivers on the host system.
+
+3. Add your GPU to the container:
+
+   ```shell
+   $ lxc config device add <CONTAINER_NAME> gpu gpu gid=<GID_OF_HOST_RENDER_OR_VIDEO_GROUP>
+   ```
+
+4. Make sure you have the requied devices within the container:
+
+   ```shell
+   $ lxc exec jellyfin -- ls -l /dev/dri
+
+   total 0
+   crw-rw---- 1 root video 226,   0 Jun  4 02:13 card0
+   crw-rw---- 1 root video 226,   0 Jun  4 02:13 controlD64
+   crw-rw---- 1 root video 226, 128 Jun  4 02:13 renderD128
+   ```
+
+5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU renderD128 if necessary.
+
+
+
+#### LXC On Proxmox
+
+:::note
+
+Jellyfin needs to run in a **privileged** LXC container.
+
+An existing unprivileged container can be converted to a priviledged container by taking a backup and restoring it as priviledged.
+
+:::
+
+1. Install the required drivers on the Proxmox host.
+
+2. Add your GPU to the container by editing `/etc/pve/lxc/<CONTAINER_ID>.conf`.
+
+   You may need to change the GIDs in the examples below to match those used on your host.
+
+   :::caution
+
+   This has been tested on Proxmox VE 7.1 - on previous versions you may need to change `cgroup2` to `cgroup`.
+
+   :::
+
+   ```conf
+   lxc.cgroup2.devices.allow: c 226:0 rwm
+   lxc.cgroup2.devices.allow: c 226:128 rwm
+   lxc.mount.entry: /dev/dri/card0 dev/dri/card0 none bind,optional,create=file
+   lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
+   ```
+
+3. Restart your container and install the required drivers in your container.
+
+4. Add `jellyfin` user to the `video`, `render` and/or `input` groups depending on who owns the device inside the container.
+
+5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU `renderD128` if necessary.
+
+
+
+### Verify On Linux
+
+:::note
+
+Root permission is required.
+
+:::
+
+1. Install the `intel-gpu-tools` package, which is used for debugging Intel graphics driver on Linux. The name varies with different distros.
+
+   - On Debian & Ubuntu:
+
+     ```shell
+     # apt update && apt install -y intel-gpu-tools
+     ```
+
+   - On Arch Linux:
+
+     ```shell
+     # pacman -Sy intel-gpu-tools
+     ```
+
+2. Play a video in Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
+
+3. Use `intel_gpu_tool` command to check the occupancy of the engines as follows:
+
+   :::note
+
+   Duplicate engine name indicates the GPU may have multiple MFX video engines.
+
+   :::
+
+   - **Render/3D** - 2D/3D engine, QSV VPP or GPGPU workload
+
+   - **Blitter** - Blitter/Copy engine workload
+
+   - **Video** - QSV decoder or encoder workload
+
+   - **VideoEnhance** - QSV VPP processor workload
+
+   - **Compute** - GPGPU or QSV VPP workload (only available on ARC / DG2+)
+
+   ```shell
+   # intel_gpu_tool
+
+   intel-gpu-top: Intel Tigerlake (Gen12) @ /dev/dri/card0 -   86/ 349 MHz;  54% RC6
+           441 irqs/s
+
+            ENGINES     BUSY                                                MI_SEMA MI_WAIT
+          Render/3D   19.86% |████████▊                                   |      0%      0%
+            Blitter    0.00% |                                            |      0%      0%
+              Video    2.17% |█                                           |      0%      0%
+       VideoEnhance    3.52% |█▋                                          |      0%      0%
+
+      PID              NAME    Render/3D        Blitter          Video        VideoEnhance
+   ...
+   ```
+
+## Low-Power Encoding
+
+Intel video encoders on Gen 9+ graphics support two encoding modes:
+
+- Low-Power / LP encoding (VDEnc + HuC)
+
+- non Low-Power / LP encoding (PAK + media kernel + VME)
+
+Low-Power encoding can offload the GPU usage with the help of the [HuC firmware](https://01.org/linuxgraphics/downloads/firmware).
+
+This can be useful for speeding up the OpenCL based HDR/DV tone-mapping.
+
+:::tip
+
+More detail information about Intel video hardware can be found [here](https://github.com/intel/media-driver#components-and-features).
+
+:::
+
+
+
+### LP Mode Hardware Support
+
+:::note
+
+Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
+
+:::
+
+- Gen 9.x SKL+ graphics - Support non-LP and LP (H.264 only) encoding.
+
+- Gen 11 ICL graphics - Support both two encoding modes.
+
+- Gen 11 JSL/EHL graphics - Only support LP encoding mode.
+
+- Gen 12 TGL/DG1+ graphics - Support both two encodng modes.
+
+- Gen 12.5 DG2/ARC A-Series - Only support LP encoding mode.
+
+- Gen 12.7 MTL and newer - To be announced.
+
+
+
+### LP Mode System Support
+
+- Windows supports two modes by default. No additional configuration is required.
+
+- Linux supports two modes only on Gen 12 ADL+ by default.
+
+  On older platforms LP mode can be configured manually by passing a parameter to the i915 kernel driver.
+
+
+
+### Configure And Verify LP Mode On Linux
+
+:::caution
+
+The setup is not necessary unless you are using an Intel **Jasper Lake** or **Elkhart Lake** processor, or you want faster OpenCL tone-mapping speed on Linux. This also applies to the bleeding edge hardware such as **12th Gen Intel processors**, **ARC GPU** and newer **but the step 3 and 4 should be skipped**.
+
+:::
+
+:::note
+
+Root permission is required.
+
+:::
+
+1. Install the latest linux firmware packages **on host system**. The name varies with different distros.
+
+   - On Debian:
+
+     ```shell
+     # apt update && apt install -y firmware-linux-nonfree
+     ```
+
+   - On Ubuntu:
+
+     ```shell
+     # apt update && apt install -y linux-firmware
+     ```
+
+   - On Arch Linux:
+
+     ```shell
+     # pacman -Sy linux-firmware
+     ```
+
+   - Pull firmwares from Linux repository directly:
+
+     ```shell
+     $ cd ~/
+     $ git clone --depth=1 https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+     # cp -r linux-firmware/i915 /usr/lib/firmware
+     ```
+
+2. Add an i915 kernel parameter on host to enable GuC loading HuC firmware:
+
+   ```shell
+   # mkdir -p /etc/modeprobe.d
+   # sh -c "echo 'options i915 enable_guc=2' >> /etc/modeprobe.d/i915.conf"
+   ```
+
+3. Update the initramfs and grub. The commands varies with different distros.
+
+   - On Debian & Ubuntu:
+
+     ```shell
+     # update-initramfs -u && update-grub
+     ```
+
+   - On Arch Linux:
+
+     ```shell
+     # mkinitcpio -P && update-grub
+     ```
+
+4. Reboot the system and check the GuC & HuC status with the following commands, make sure there is no FAIL or ERROR in the outputs.
+
+   ```shell
+   $ reboot
+   # dmesg | grep i915
+   # cat /sys/kernel/debug/dri/0/gt/uc/guc_info
+   # cat /sys/kernel/debug/dri/0/gt/uc/huc_info
+   ```
+
+   On very old kernels (4.x) the last two commands can be like this:
+
+   ```shell
+   # cat /sys/kernel/debug/dri/0/i915_guc_load_status
+   # cat /sys/kernel/debug/dri/0/i915_huc_load_status
+   ```
+
+5. Now you can safely enable the Intel Low-Power encoder in Jellyfin dashboard.
+
+:::tip
+
+Extended readings for more distros:
+
+- [Intel graphics - ArchWiki](https://wiki.archlinux.org/title/intel_graphics)
+
+- [skylake-tuning-linux - GitHub](https://gist.github.com/Brainiarc7/aa43570f512906e882ad6cdd835efe57)
+
+:::
