@@ -7,19 +7,13 @@ title: HWA Tutorial On NVIDIA GPU
 
 This tutorial guides you on setting up full video hardware acceleration on NVIDIA GPU via NVENC.
 
-
-
 ## Acceleration Methods
 
 Hardware accelerated transcoding is supported on NVIDIA GPUs since Maxwell architecture.
 
 On Windows and Linux **NVENC** is the only available method.
 
-
-
 The NVENC/NVDEC are the proprietary video codec APIs of NVIDIA GPUs, which can be used with CUDA to achieve full hardware acceleration.
-
-
 
 :::caution
 
@@ -33,15 +27,11 @@ NVENC supports headless server on both Windows and Linux, which means a connecte
 
 :::
 
-
-
 ## Tone-mapping Methods
 
 Hardware accelerated HDR/DV to SDR tone-mapping is supported on **all NVIDIA GPUs that have HEVC 10-bit decoding**.
 
 On Windows and Linux **CUDA** is the only available tone-mapping method. It also supports Dolby Vision P5 and zero-copy.
-
-
 
 ## Select GPU Hardware
 
@@ -59,8 +49,6 @@ AVC / H.264 8-bit is still widely used due to its excellent compatibility. All N
 
 - **Decoding & Encoding H.264 8-bit** - Any NVIDIA GPU supporting NVENC/NVDEC
 
-
-
 ### Transcode HEVC
 
 HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoding support thanks to [x265](https://x265.readthedocs.io/en/master/), as well as the widely implemented hardware encoding support in most GPUs released after 2016.
@@ -75,13 +63,9 @@ Maxwell+ GPUs provide support for HEVC:
 
 :::note
 
-Note that in Maxwell 2nd Gen series only the GM206 variants provide HEVC 10-bit decoding support.
-
-Its sucessor Pascal has full support for HEVC 10-bit and improved speed and quality.
+Note that in Maxwell 2nd Gen series only the GM206 variants provide HEVC 10-bit decoding support. Its sucessor Pascal has full support for HEVC 10-bit and improved speed and quality.
 
 :::
-
-
 
 ### Transcode AV1
 
@@ -93,8 +77,6 @@ NVIDIA added support for AV1 acceleration in their latest GPUs:
 
 - **Encoding AV1 8/10-bit** - Ada Lovelace and newer
 
-
-
 ### Transcode Other Codecs
 
 Please refer to these links:
@@ -102,8 +84,6 @@ Please refer to these links:
 - [NVIDIA GPU Codec Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new)
 
 - [NVIDIA Hardware Transcoding Calculator](https://www.elpamsoft.com/?p=Plex-Hardware-Transcoding)
-
-
 
 ### Speed And Quality
 
@@ -121,15 +101,11 @@ Decoding & Encoding speed within the same generation:
 
 - High memory bandwidth models > Low memory bandwidth models
 
-
-
-NVENC/NVDEC encoding performance tables:
+NVENC/NVDEC performance tables:
 
 - [NVENC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/nvenc-application-note/index.html#nvenc-performance)
 
 - [NVDEC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/nvdec-application-note/index.html#nvdec-performance)
-
-
 
 ## Windows Setups
 
@@ -143,15 +119,11 @@ Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.8 the minimum requir
 
 3. Enable NVENC in Jellyfin and uncheck the unsupported codecs.
 
-
-
 ### Configure With Windows Virtualization
 
 NVIDIA Windows driver provides access to the NVENC/NVDEC and CUDA in Windows WSL2 and Docker.
 
 Refer to [Configure On Linux Host](/docs/general/administration/hardware-acceleration/nvidia-hwa-tutorial#configure-on-linux-host) and [Configure With Linux Virtualization](/docs/general/administration/hardware-acceleration/nvidia-hwa-tutorial#configure-with-linux-virtualization).
-
-
 
 ### Verify On Windows
 
@@ -196,18 +168,18 @@ Root permission is required.
 2. Install the `jellyfin-ffmpeg5` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
    ```shell
-   # apt update && apt install -y jellyfin-ffmpeg5
+   sudo apt update && sudo apt install -y jellyfin-ffmpeg5
    ```
 
 3. Install the NVIDIA proprietary driver by following these links. Then install two extra packages for NVENC and NVDEC support:
 
-   - On Debian: https://wiki.debian.org/NvidiaGraphicsDrivers
+   - On Debian: <https://wiki.debian.org/NvidiaGraphicsDrivers>
 
      ```shell
-     # apt update && apt install -y libnvcuvid1 libnvidia-encode1
+     sudo apt update && sudo apt install -y libnvcuvid1 libnvidia-encode1
      ```
 
-   - On Ubuntu: https://help.ubuntu.com/community/NvidiaDriversInstallation
+   - On Ubuntu: <https://help.ubuntu.com/community/NvidiaDriversInstallation>
 
      :::note
 
@@ -216,7 +188,7 @@ Root permission is required.
      :::
 
      ```shell
-     # apt update && apt install -y libnvidia-decode libnvidia-encode
+     sudo apt update && sudo apt install -y libnvidia-decode libnvidia-encode
      ```
 
 4. Check the NVIDIA GPU status by using `nvidia-smi`:
@@ -240,15 +212,11 @@ Root permission is required.
 
 5. Enable NVENC in Jellyfin and uncheck the unsupported codecs.
 
-
-
 #### Linux Mint
 
 Linux Mint uses Ubuntu as its package base.
 
 You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/nvidia-hwa-tutorial#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
-
-
 
 #### Arch Linux
 
@@ -263,29 +231,27 @@ Root permission is required.
 1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin) package, then change the FFmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
 
    ```shell
-   $ cd ~/
-   $ git clone https://aur.archlinux.org/jellyfin-ffmpeg5-bin.git
-   $ cd jellyfin-ffmpeg5-bin
-   $ makepkg -si
+   cd ~/
+   git clone https://aur.archlinux.org/jellyfin-ffmpeg5-bin.git
+   cd jellyfin-ffmpeg5-bin
+   makepkg -si
    ```
 
 2. Install the NVIDIA proprietary driver by following the link. Then install an extra package for NVENC and NVDEC support:
 
-   - https://wiki.archlinux.org/title/NVIDIA#Installation
+   - <https://wiki.archlinux.org/title/NVIDIA#Installation>
 
    ```shell
-   # pacman -Sy nvidia-utils
+   sudo pacman -Sy nvidia-utils
    ```
 
 3. Check the NVIDIA GPU status by using `nvidia-smi`:
 
    ```shell
-   $ nvidia-smi
+   nvidia-smi
    ```
 
 4. Enable NVENC in Jellyfin and uncheck the unsupported codecs.
-
-
 
 #### Other Distros
 
@@ -307,13 +273,19 @@ Minimum requirements for glibc and Linux versions:
 
 Extract and install it to the correct path, change the FFmpeg path in the Jellyfin dashboard to match it:
 
+:::note
+
+Root permission is required.
+
+:::
+
 ```shell
-$ cd ~/
-$ mkdir -p jellyfin-ffmpeg
-$ wget https://repo.jellyfin.org/releases/ffmpeg/<VERSION>/jellyfin-ffmpeg_<VERSION>_portable_linux64-gpl.tar.xz
-$ tar -xvf jellyfin-ffmpeg_<VERSION>_portable_linux64-gpl.tar.xz -C jellyfin-ffmpeg
-# mv jellyfin-ffmpeg /usr/lib
-$ ldd -v /usr/lib/jellyfin-ffmpeg/ffmpeg
+cd ~/
+mkdir -p jellyfin-ffmpeg
+wget https://repo.jellyfin.org/releases/ffmpeg/<VERSION>/jellyfin-ffmpeg_<VERSION>_portable_linux64-gpl.tar.xz
+tar -xvf jellyfin-ffmpeg_<VERSION>_portable_linux64-gpl.tar.xz -C jellyfin-ffmpeg
+sudo mv jellyfin-ffmpeg /usr/lib
+sudo ldd -v /usr/lib/jellyfin-ffmpeg/ffmpeg
 ```
 
 Install the NVIDIA proprietary driver packages and their dependencies that contain these key words:
@@ -321,8 +293,6 @@ Install the NVIDIA proprietary driver packages and their dependencies that conta
 - NVIDIA NVDEC CUVID - DECODE
 
 - NVIDIA NVENC - ENCODE
-
-
 
 ### Configure With Linux Virtualization
 
@@ -342,14 +312,14 @@ Root permission is required.
 
 2. Install the NVIDIA Container Toolkit on the host system by following this link:
 
-   - https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide
+   - <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide>
 
 3. Use the Docker command line **or** docker-compose:
 
    - Example command line:
 
      ```shell
-     $ docker run -d \
+     docker run -d \
       --name=jellyfin \
       --volume /path/to/config:/config \
       --volume /path/to/cache:/cache \
@@ -386,27 +356,25 @@ Root permission is required.
 4. Add your username to the video group:
 
    ```shell
-   # usermod -aG video $USER
+   sudo usermod -aG video $USER
    ```
 
 5. Update dynamic links and restart the Docker service:
 
    ```shell
-   $ docker exec -it jellyfin ldconfig
-   # systemctl restart docker
+   docker exec -it jellyfin ldconfig
+   sudo systemctl restart docker
    ```
 
 6. Check the NVIDIA GPU's status by using `nvidia-smi`:
 
    ```shell
-   $ docker exec -it jellyfin nvidia-smi
+   docker exec -it jellyfin nvidia-smi
    ```
 
 7. For trying out the unstable build, change `jellyfin/jellyfin` to `jellyfin/jellyfin:unstable` on your own risk.
 
 8. Enable NVENC in Jellyfin and uncheck the unsupported codecs.
-
-
 
 :::note
 
@@ -418,8 +386,6 @@ Note that the official Jellyfin Docker image already sets the required environme
 
 :::
 
-
-
 #### Linuxserver.io Docker
 
 LSIO Docker images are maintained by [linuxserver.io](https://www.linuxserver.io/), please refer their docs from [GitHub - linuxserver/docker-jellyfin](https://github.com/linuxserver/docker-jellyfin).
@@ -430,15 +396,11 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 :::
 
-
-
 #### Other Virtualizations
 
 Other Virtualizations are not verified and may or may not work on NVIDIA GPU.
 
 Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#configure-with-linux-virtualization) for more information.
-
-
 
 ### Verify On Linux
 

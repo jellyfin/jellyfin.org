@@ -7,13 +7,9 @@ title: Hardware Acceleration
 
 The Jellyfin server can offload on the fly video transcoding by utilizing an integrated or discrete graphics card ([GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)) suitable to accelerate this workloads very efficiently without straining your CPU.
 
-
-
 ## Supported Acceleration Methods
 
 The Jellyfin server uses a modified version of [FFmpeg](http://ffmpeg.org/) as its transcoder, namely [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg). It enables the Jellyfin server to access the fixed-function video codecs, video processors and [GPGPU](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) computing interfaces provided by vendor of the installed GPU and the operating system.
-
-
 
 The supported and validated video [hardware acceleration (HWA)](https://trac.ffmpeg.org/wiki/HWAccelIntro) methods are:
 
@@ -28,8 +24,6 @@ The supported and validated video [hardware acceleration (HWA)](https://trac.ffm
 - **Apple** Video Toolbox (macOS only)
 
 - **Raspberry Pi** Video4Linux2 (V4L2, Linux only)
-
-
 
 ## Full & Partial Acceleration
 
@@ -61,8 +55,6 @@ Jellyfin 10.8 supports full acceleration on mainstream Intel, NVIDIA and AMD (Wi
 
 Jellyfin 10.9 enables full acceleration for AMD Vega and newer GPUs on Linux via VA-API and Vulkan interop.
 
-
-
 Using [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg/releases) with Jellyfin is highly recommended, which has a `-Jellyfin` suffix in the version string.
 
 ```shell
@@ -77,13 +69,11 @@ ffmpeg version 5.1.2-Jellyfin Copyright (c) 2000-2022 the FFmpeg developers
 
 Using FFmpeg binaries downloaded from somewhere else will result in partial acceleration.
 
-Jellyfin-ffmpeg usually ships with our deb package, official Docker images and Windows installers. 
+Jellyfin-ffmpeg usually ships with our deb package, official Docker images and Windows installers.
 
 The only exception is when using a portable installation or an unsupported distro, then it's required to manually download and set it in Jellyfin.
 
 :::
-
-
 
 ## Configure & Verify Hardware Acceleration
 
@@ -91,37 +81,29 @@ There are some preparations that need to be done before enabling hardware accele
 
 The specific configuration steps may vary between GPU vendors, installation methods, and operating systems.
 
-
-
 On Linux you can check available GPU using the `lspci` command:
 
 ```shell
-$ lspci -nn | grep -Ei "3d|display|vga"
+lspci -nn | grep -Ei "3d|display|vga"
 ```
 
 Or using `lshw`:
 
 ```shell
-$ lshw -C display
+lshw -C display
 ```
 
 ### Intel QSV & VA-API
 
-Click [HWA Tutorial On Intel GPU](/docs/general/administration/intel-hwa-tutorial).
-
-
+Click [HWA Tutorial On Intel GPU](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial).
 
 ### AMD AMF & VA-API
 
-Click [HWA Tutorial On AMD GPU](/docs/general/administration/amd-hwa-tutorial).
-
-
+Click [HWA Tutorial On AMD GPU](/docs/general/administration/hardware-acceleration/amd-hwa-tutorial).
 
 ### NVIDIA NVENC
 
-Click [HWA Tutorial On NVIDIA GPU](/docs/general/administration/nvidia-hwa-tutorial).
-
-
+Click [HWA Tutorial On NVIDIA GPU](/docs/general/administration/hardware-acceleration/nvidia-hwa-tutorial).
 
 ### Raspberry Pi V4L2
 
@@ -144,8 +126,6 @@ Supported codecs need to be indicated by checking the boxes in **Enable hardware
 
 The hardware acceleration is available immediately for media playback. No server restart is required.
 
-
-
 ## Remote Hardware Acceleration
 
 If your Jellyfin server does not support hardware acceleration, but you have another machine that does, you can leverage [rffmpeg](https://github.com/joshuaboniface/rffmpeg) to delegate the transcoding to another machine.
@@ -164,9 +144,9 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
 :::note
 
-Intel VPP HDR10 tone-mapping is supported on Intel QSV and VA-API on Linux.
+- Intel VPP HDR10 tone-mapping is supported on Intel QSV and VA-API on Linux.
 
-VPP is prefered if both tone-mapping options are enabled.
+- VPP is prefered if both tone-mapping options are enabled.
 
 :::
 
@@ -177,17 +157,13 @@ VPP is prefered if both tone-mapping options are enabled.
 | Linux          | ✔️           | ✔️      | ✔️       | ✔️           | ✔️         | WIP      |
 | Linux Docker   | ✔️           | ✔️      | ✔️       | ✔️           | ✔️         | WIP      |
 
-
-
 ## Tips For Hardware Acceleration
 
 - Avoid H.264 / AVC 10-bit videos
 
   :::tip
 
-  The hardware decoding of H.264 / AVC 10-bit (High 10 profile) video is not supported by any Intel, NVIDIA and AMD GPU.
-
-  Jellyfin will always fallback to software decoding for it. Consider upgrading such video to H.265 / HEVC 10-bit (Main 10 profile).
+  The hardware decoding of H.264 / AVC 10-bit (High 10 profile) video is not supported by any Intel, NVIDIA and AMD GPU. Jellyfin will always fallback to software decoding for it. Consider upgrading such video to H.265 / HEVC 10-bit (Main 10 profile).
 
   :::
 
@@ -214,5 +190,3 @@ VPP is prefered if both tone-mapping options are enabled.
   Hardware encoder presets can greatly affect encoding speed. You can lower this preset in the Jellyfin dashboard to sacrifice encoding quality to maximize speed, or raise the preset to optimize encoding quality on an overkill GPU.
 
   :::
-
-
