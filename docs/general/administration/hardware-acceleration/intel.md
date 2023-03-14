@@ -825,7 +825,7 @@ Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e.
 
 :::caution
 
-The setup is not necessary unless you are using an Intel **Jasper Lake** or **Elkhart Lake** processor, or you want faster OpenCL tone-mapping speed on Linux. This also applies to the bleeding edge hardware such as **12th Gen Intel processors**, **ARC GPU** and newer **but step 3 and 4 should be skipped**.
+The setup is not necessary unless you are using an Intel **Jasper Lake** or **Elkhart Lake** processor, or you want faster OpenCL tone-mapping speed on Linux. This also applies to the bleeding edge hardware such as **12th Gen Intel processors**, **ARC GPU** and newer **but step 2 should be skipped**.
 
 :::
 
