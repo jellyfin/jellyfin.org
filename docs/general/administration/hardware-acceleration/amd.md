@@ -1,6 +1,6 @@
 ---
 uid: admin-hardware-acceleration-amd
-title: HWA Tutorial On AMD GPU
+title: AMD GPU
 ---
 
 # HWA Tutorial On AMD GPU
@@ -330,7 +330,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd-hwa-tutorial#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -383,7 +383,7 @@ Root permission is required.
    /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
    ```
 
-6. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd-hwa-tutorial#debian-and-ubuntu-linux).
+6. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux).
 
 #### Other Distros
 
@@ -565,7 +565,7 @@ LSIO Docker images are maintained by [linuxserver.io](https://www.linuxserver.io
 
 Other Virtualizations are not verified and may or may not work on AMD GPU.
 
-Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#configure-with-linux-virtualization) for more information.
+Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](/docs/general/administration/hardware-acceleration/intel#configure-with-linux-virtualization) for more information.
 
 ### Verify On Linux
 

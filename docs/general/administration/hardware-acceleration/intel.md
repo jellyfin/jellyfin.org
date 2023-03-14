@@ -1,6 +1,6 @@
 ---
 uid: admin-hardware-acceleration-intel
-title: HWA Tutorial On Intel GPU
+title: Intel GPU
 ---
 
 # HWA Tutorial On Intel GPU
@@ -183,7 +183,7 @@ Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, na
 
 Jellyfin server 10.8.9+ and the latest jellyfin-ffmpeg5 support Intel ARC discrete GPU on both Windows and Linux 6.2+.
 
-You only need to follow the [Windows Setups](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#windows-setups) and [Linux Setups](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#linux-setups) to configure and verify it.
+You only need to follow the [Windows Setups](/docs/general/administration/hardware-acceleration/intel#windows-setups) and [Linux Setups](/docs/general/administration/hardware-acceleration/intel#linux-setups) to configure and verify it.
 
 :::tip
 
@@ -264,7 +264,7 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 :::
 
-1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#low-power-encoding) mode MUST be configured and enabled for correct VBR and CBR bitrate control that is required by Jellyfin.
+1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](/docs/general/administration/hardware-acceleration/intel#low-power-encoding) mode MUST be configured and enabled for correct VBR and CBR bitrate control that is required by Jellyfin.
 
    - Ticket: <https://gitlab.freedesktop.org/drm/intel/-/issues/8080>
 
@@ -406,7 +406,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -447,7 +447,7 @@ Root permission is required.
    /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
    ```
 
-4. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#debian-and-ubuntu-linux).
+4. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux).
 
 #### Other Distros
 

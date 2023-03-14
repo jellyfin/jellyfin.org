@@ -95,15 +95,15 @@ lshw -C display
 
 ### Intel QSV & VA-API
 
-Click [HWA Tutorial On Intel GPU](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial).
+Click [Intel GPU](/docs/general/administration/hardware-acceleration/intel).
 
 ### AMD AMF & VA-API
 
-Click [HWA Tutorial On AMD GPU](/docs/general/administration/hardware-acceleration/amd-hwa-tutorial).
+Click [AMD GPU](/docs/general/administration/hardware-acceleration/amd).
 
 ### NVIDIA NVENC
 
-Click [HWA Tutorial On NVIDIA GPU](/docs/general/administration/hardware-acceleration/nvidia-hwa-tutorial).
+Click [NVIDIA GPU](/docs/general/administration/hardware-acceleration/nvidia).
 
 ### Raspberry Pi V4L2
 

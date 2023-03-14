@@ -1,6 +1,6 @@
 ---
 uid: admin-hardware-acceleration-nvidia
-title: HWA Tutorial On NVIDIA GPU
+title: NVIDIA GPU
 ---
 
 # HWA Tutorial On NVIDIA GPU
@@ -123,7 +123,7 @@ Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.8 the minimum requir
 
 NVIDIA Windows driver provides access to the NVENC/NVDEC and CUDA in Windows WSL2 and Docker.
 
-Refer to [Configure On Linux Host](/docs/general/administration/hardware-acceleration/nvidia-hwa-tutorial#configure-on-linux-host) and [Configure With Linux Virtualization](/docs/general/administration/hardware-acceleration/nvidia-hwa-tutorial#configure-with-linux-virtualization).
+Refer to [Configure On Linux Host](/docs/general/administration/hardware-acceleration/nvidia#configure-on-linux-host) and [Configure With Linux Virtualization](/docs/general/administration/hardware-acceleration/nvidia#configure-with-linux-virtualization).
 
 ### Verify On Windows
 
@@ -216,7 +216,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/nvidia-hwa-tutorial#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -400,7 +400,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 Other Virtualizations are not verified and may or may not work on NVIDIA GPU.
 
-Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#configure-with-linux-virtualization) for more information.
+Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](/docs/general/administration/hardware-acceleration/intel#configure-with-linux-virtualization) for more information.
 
 ### Verify On Linux
 
