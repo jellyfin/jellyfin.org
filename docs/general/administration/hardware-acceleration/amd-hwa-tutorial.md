@@ -5,7 +5,7 @@ title: HWA Tutorial On AMD GPU
 
 # HWA Tutorial On AMD GPU
 
-This tutorial guides you setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF and VA-API.
+This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF and VA-API.
 
 
 
@@ -45,13 +45,13 @@ AMF and VA-API support headless server on both Windows and Linux, which means a 
 
 Hardware accelerated HDR/DV to SDR tone-mapping is supported on **all AMD GPUs that have HEVC 10-bit decoding**.
 
-There are two methods can be used on Windows and/or Linux, here's the pros and cons of them:
+There are two different methods that can be used on Windows and/or Linux. Pros and cons are listed below:
 
 1. **OpenCL**
 
    - Pros - Supports Dolby Vision P5, detailed fine-tuning options, widely supported hardware.
 
-   - Cons - The Pro or ROCm OpenCL runtime need to be manually installed on Linux. No zero-copy support on Linux.
+   - Cons - The Pro or ROCm OpenCL runtime needs to be manually installed on Linux. No zero-copy support on Linux.
 
 2. **Vulkan**
 
@@ -65,7 +65,7 @@ There are two methods can be used on Windows and/or Linux, here's the pros and c
 
 :::caution
 
-Most AMD dGPU comes with video encoders but be careful with certain models - RX 6400/6500 series, which don't have video encoder.
+Most AMD dGPUs come with video encoders but be careful with certain models -  RX 6400/6500 series don't have video encoders.
 
 :::
 
@@ -77,13 +77,13 @@ Best to check the video codec support via the [AMD product specifications](https
 
 AVC / H.264 8-bit is still widely used due to its excellent compatibility. All AMD GPUs that support AMF or VA-API can decode and encode it.
 
-- **Decoding & Encoding H.264 8-bit** - Any AMD GPU that supports AMF or VA-API
+- **Decoding & Encoding H.264 8-bit** - Any AMD GPU supporting AMF or VA-API
 
 
 
 ### Transcode HEVC
 
-HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoder [x265 and documentation](https://x265.readthedocs.io/en/master/) support, as well as the widely implemented hardware codecs in most GPUs released after 2016.
+HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoding support thanks to [x265](https://x265.readthedocs.io/en/master/), as well as the widely implemented hardware encoding support in most GPUs released after 2016.
 
 The HEVC support on AMD is complicated:
 
@@ -97,7 +97,7 @@ The HEVC support on AMD is complicated:
 
 :::note
 
-Note that even though the RX 400 series have HEVC 10-bit decoding support but it doesn't support DRM-Vulkan format modifier, which means full hardware acceleration is not possible for these cards on Linux. Vega and newer GPU is recommended on Linux.
+Note that even though the RX 400 series have HEVC 10-bit decoding support, it doesn't support the DRM-Vulkan format modifier, which means full hardware acceleration is not possible for these cards on Linux. A Vega or newer GPU is recommended on Linux.
 
 :::
 
@@ -105,7 +105,7 @@ Note that even though the RX 400 series have HEVC 10-bit decoding support but it
 
 ### Transcode AV1
 
-AV1 is a royalty-free, future-proof video codec. It saves storage space and network bandwidth a lot. The downside is that decoding and encoding them are very stressful for your CPU. But hardware acceleration makes it possible to transcode to AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
+AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
 
 AMD added support for AV1 acceleration in their latest GPUs:
 
@@ -127,9 +127,9 @@ Please refer to these links:
 
 ### Speed And Quality
 
-Due to the lack of B-frame support, the encoding quality of AMD H.264 encoder has been unsatisfactory. Although RX 6000/VCN3.0 brings back the B-frame support, the quality improvement is not much.
+Due to the lack of B-frame support, the encoding quality of the AMD H.264 hardware encoder has been unsatisfactory. Although RX 6000/VCN3.0 brings back the B-frame support, the quality improvement is not great.
 
-AMD HEVC encoder is far better than AMD H.264 encoder, and the new AMD AV1 encoding support on RX 7000/VCN4.0 seems to be the savior of AMD encoding quality. Although they are currently no match for Intel QSV and NVIDIA NVENC. Plus the VCN4.0 drastically improved the encoding speed.
+The AMD HEVC encoder is far better than the AMD H.264 encoder, and the new AMD AV1 encoding support on RX 7000/VCN4.0 seems to be the savior of AMD encoding quality. Nonetheless they are currently no match for Intel QSV and NVIDIA NVENC. VCN4.0 additionally improved the encoding speed drastically.
 
 
 
@@ -169,12 +169,12 @@ Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Doc
 
 ### Verify On Windows
 
-1. Play a video in Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
+1. Play a video in the Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
 
 2. Open the "Task Manager" and navigate to the GPU page.
 
 3. Check the occupancy of the engines as follows.
-   Duplicate engine name indicates the GPU may have multiple video engines.
+   Duplicate engine names indicate the GPU may have multiple video engines.
 
    - **3D** - 2D/3D engine or GPGPU workload
 
@@ -192,7 +192,7 @@ Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Doc
 
 ## Linux Setups
 
-Linux 64-bit distribution is required. **The supported GPU varies by kernel and firmware versions.**
+A 64-bit Linux distribution is required. **The supported GPU varies by kernel and firmware versions.**
 
 ### Known Issues And Limitations
 
@@ -210,7 +210,7 @@ Known affected distros:
 
 - [Manjaro](https://forum.manjaro.org/t/stable-update-2022-12-06-kernels-mesa-plasma-cinnamon-nvidia-libreoffice-pipewire-virtualbox/128453)
 
-This prevents you from using the AMD VA-API transcoding **on host system**.
+This prevents you from using the AMD VA-API transcoding **on the host system**.
 
 You can use our Docker image instead or install thirt-party Mesa driver package.
 
@@ -228,7 +228,7 @@ Alternatively, rebuild the Mesa driver with these options added to restore the s
 
 The `jellyfin-ffmpeg5` deb package required by Jellyfin 10.8 comes with all necessary user mode Mesa drivers.
 
-Besides that you only need to install the OpenCL runtime (optional for Vega+ in Jellyfin 10.9+) and configure the the permission of `jellyfin` user.
+Besides that you only need to install the OpenCL runtime (optional for Vega+ in Jellyfin 10.9+) and configure the the permission of the `jellyfin` user.
 
 :::note
 
@@ -258,7 +258,7 @@ Root permission is required.
    crw-rw----+ 1 root render 226, 129 Mar  5 05:15 renderD129
    ```
 
-4. Add the `jellyfin` user to the `render` and `video` group, then restart `jellyfin` service:
+4. Add the `jellyfin` user to the `render` and `video` group, then restart the `jellyfin` service:
 
    :::note
 
@@ -293,7 +293,7 @@ Root permission is required.
 
    :::note
 
-   `Mesa Gallium driver` indicates VA-API interface is supported.
+   `Mesa Gallium driver` indicates that the VA-API interface is supported.
 
    :::
 
@@ -353,7 +353,7 @@ Root permission is required.
 
 #### Linux Mint
 
-Linux Mint use Ubuntu as its package base.
+Linux Mint uses Ubuntu as its package base.
 
 You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd-hwa-tutorial#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
@@ -369,7 +369,7 @@ Root permission is required.
 
 :::
 
-1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin), then change the ffmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
+1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin) package, then change the FFmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
 
    ```shell
    $ cd ~/
@@ -410,7 +410,7 @@ Root permission is required.
    $ /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
    ```
 
-6. Check to the rest parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd-hwa-tutorial#debian-and-ubuntu-linux).
+6. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd-hwa-tutorial#debian-and-ubuntu-linux).
 
 
 
@@ -432,7 +432,7 @@ Minimum requirements for glibc and Linux versions:
 
 :::
 
-Extract and install it to the correct path, change the ffmpeg path in Jellyfin dashboard to match it:
+Extract and install it to the correct path, change the FFmpeg path in the Jellyfin dashboard to match it:
 
 ```shell
 $ cd ~/
@@ -459,7 +459,7 @@ Install other necessary Intel driver packages and their dependencies that contai
 
 The official Docker image comes with all necessary user mode Mesa drivers.
 
-What you need to do is install the OpenCL runtime and pass the host's `render`group id to Docker and modify the configurations to meet your requirements.
+What you need to do is install the OpenCL runtime and pass the host's `render` group id to Docker and modify the configurations to meet your requirements.
 
 :::note
 
@@ -475,7 +475,7 @@ Root permission is required.
 
 :::
 
-1. Query the `render` and `video` groups id on the host system and use it in Docker cli or docker-compose file:
+1. Query the ids of the  `render` and `video` groups on the host system and use it in the Docker CLI or docker-compose file:
 
    :::note
 
@@ -488,7 +488,7 @@ Root permission is required.
    $ getent group video | cut -d: -f3
    ```
 
-2. Use Docker command line **or** use docker-compose:
+2. Use Docker command line **or** docker-compose:
 
    - Example command line:
 
@@ -586,7 +586,7 @@ LSIO Docker images are maintained by [linuxserver.io](https://www.linuxserver.io
 
 - The paths of Jellyfin config and data folders in the official and LSIO Docker images are different. So they cannot be easily exchanged.
 
-- Third-party LSIO Docker mod [jellyfin-amd](https://github.com/linuxserver/docker-mods/pull/544) can be used for enabling the OpenCL tone-mapping.
+- A third-party LSIO Docker mod [jellyfin-amd](https://github.com/linuxserver/docker-mods/pull/544) can be used for enabling the OpenCL tone-mapping.
 
 :::
 
@@ -602,7 +602,7 @@ Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](/
 
 ### Verify On Linux
 
-There is not reliable way to read the occupancy of the VCE/UVD/VCN engines on AMD GPU on Linux.
+There is no reliable way to read the occupancy of the VCE/UVD/VCN engines on AMD GPU on Linux.
 
 But you can still verify this by reading other engines with the `radeontop` tool.
 
@@ -612,7 +612,7 @@ Root permission is required.
 
 :::
 
-1. Install the `radeontop` package. The name varies with different distros.
+1. Install the `radeontop` package. The name varies between distros.
 
    - On Debian & Ubuntu:
 
@@ -626,6 +626,6 @@ Root permission is required.
      # pacman -Sy radeontop
      ```
 
-2. Play a video in Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
+2. Play a video in the Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
 
 3. Use `radeontop` command to check the occupancy of 3D engines.

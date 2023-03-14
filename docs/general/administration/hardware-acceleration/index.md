@@ -5,13 +5,13 @@ title: Hardware Acceleration
 
 # Hardware Acceleration
 
-Jellyfin server can offload the process of on the fly video transcoding with the help of integrated or discrete graphics card ([GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)), which is designed to be suitable for accelerating this workload very efficiently without needing to burn your CPU.
+The Jellyfin server can offload on the fly video transcoding by utilizing an integrated or discrete graphics card ([GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)) suitable to accelerate this workloads very efficiently without straining your CPU.
 
 
 
 ## Supported Acceleration Methods
 
-Jellyfin server uses a modified version of [FFmpeg](http://ffmpeg.org/) as its transcoder, namely [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg). It enables Jellyfin server to access the fixed-function video codecs, video processors and [GPGPU](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) computing interfaces provided by vendor and operating system of the installed GPU.
+The Jellyfin server uses a modified version of [FFmpeg](http://ffmpeg.org/) as its transcoder, namely [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg). It enables the Jellyfin server to access the fixed-function video codecs, video processors and [GPGPU](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) computing interfaces provided by vendor of the installed GPU and the operating system.
 
 
 
@@ -33,7 +33,7 @@ The supported and validated video [hardware acceleration (HWA)](https://trac.ffm
 
 ## Full & Partial Acceleration
 
-Transcoding pipeline usually has multiple stages, which can be simpified to:
+The transcoding pipeline usually has multiple stages, which can be simplified to:
 
 - Video Decoding
 
@@ -51,19 +51,19 @@ Transcoding pipeline usually has multiple stages, which can be simpified to:
 
 :::note
 
-Some of these stages cannot be GPU accelerated due to the software, hardware or driver limitations.
+Some of these stages cannot be GPU accelerated due to software, hardware or driver limitations.
 
-Partial acceleration may result in slightly higher CPU usage and lower than expected transcoding FPS.
+Partial acceleration may result in slightly higher CPU usage and lower transcoding speed.
 
 :::
 
-Jellyfin 10.8 managed to support full acceleration on mainstream Intel, NVIDIA and AMD (Windows only) GPUs.
+Jellyfin 10.8 supports full acceleration on mainstream Intel, NVIDIA and AMD (Windows only) GPUs.
 
 Jellyfin 10.9 enables full acceleration for AMD Vega and newer GPUs on Linux via VA-API and Vulkan interop.
 
 
 
-Using our [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg/releases) with Jellyfin is highly recommended, which has a `-Jellyfin` suffix in the version string.
+Using [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg/releases) with Jellyfin is highly recommended, which has a `-Jellyfin` suffix in the version string.
 
 ```shell
 $ /usr/lib/jellyfin-ffmpeg/ffmpeg
@@ -75,11 +75,11 @@ ffmpeg version 5.1.2-Jellyfin Copyright (c) 2000-2022 the FFmpeg developers
 
 :::caution
 
-Using the ffmpeg binaries downloaded from else where will result in partial acceleration.
+Using FFmpeg binaries downloaded from somewhere else will result in partial acceleration.
 
 Jellyfin-ffmpeg usually ships with our deb package, official Docker images and Windows installers. 
 
-The only exception is when using portable installation or a unsupported distro you need to manually download and set it in Jellyfin.
+The only exception is when using a portable installation or an unsupported distro, then it's required to manually download and set it in Jellyfin.
 
 :::
 
@@ -87,19 +87,19 @@ The only exception is when using portable installation or a unsupported distro y
 
 ## Configure & Verify Hardware Acceleration
 
-There are some preparations that need to be done before enabling the hardware acceleration.
+There are some preparations that need to be done before enabling hardware acceleration.
 
-The specific configuration steps may vary with different GPU vendors, installation methods, and operating systems.
+The specific configuration steps may vary between GPU vendors, installation methods, and operating systems.
 
 
 
-On Linux you can check available GPU using `lspci` command:
+On Linux you can check available GPU using the `lspci` command:
 
 ```shell
 $ lspci -nn | grep -Ei "3d|display|vga"
 ```
 
-Or using `lshw` command:
+Or using `lshw`:
 
 ```shell
 $ lshw -C display
@@ -129,7 +129,7 @@ Click [HWA Tutorial On NVIDIA GPU](/docs/general/administration/nvidia-hwa-tutor
 
 As of **Jellyfin 10.8** hardware acceleration on Raspberry Pi via `OpenMAX OMX` was dropped and is no longer available.
 
-This decision was made because Raspberry Pi is currently migrating to a `V4L2` based hardware acceleration, which is already available in Jellyfin but does not support all features other hardware acceleration methods provide due to lacking support in FFmpeg. Jellyfin will fallback to software codecs for those usecases.
+This decision was made because Raspberry Pi is currently migrating to a `V4L2` based hardware acceleration, which is already available in Jellyfin but does not support all features other hardware acceleration methods provide due to lacking support in FFmpeg. Jellyfin will fallback to software de/encoding for those usecases.
 
 The current state of hardware acceleration support in FFmpeg can be checked on the [rpi-ffmpeg repository](https://github.com/jc-kynesim/rpi-ffmpeg).
 
@@ -139,7 +139,8 @@ The current state of hardware acceleration support in FFmpeg can be checked on t
 
 Hardware acceleration options can be found in the Admin Dashboard under the **Transcoding** section of the **Playback** tab.
 
-Select a valid hardware acceleration option from the drop-down menu, indicate a device if applicable, and check the boxes in **Enable hardware decoding for** and **Hardware encoding options** to enable encoding as well as decoding, if your hardware supports this.
+Select a valid hardware acceleration method from the drop-down menu and a device if applicable.
+Supported codecs need to be indicated by checking the boxes in **Enable hardware decoding for** and **Hardware encoding options**.
 
 The hardware acceleration is available immediately for media playback. No server restart is required.
 
@@ -151,13 +152,13 @@ If your Jellyfin server does not support hardware acceleration, but you have ano
 
 :::note
 
-Currently Linux-only and requires SSH between the machines, as well as shared storage both for media and for the Jellyfin data directory.
+Currently Linux-only and requires SSH between the machines, as well as shared storage for media and the Jellyfin data directory.
 
 :::
 
 ## Hardware Accelerated Tone-mapping
 
-Hardware accelerated HDR10, HLG to SDR tone-mapping is supported in Jellyfin.
+Jellyfin supports hardware accelerated tone-mapping of HDR10 and HLG to SDR.
 
 Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and requires jellyfin-ffmpeg 5.0.1-5 or newer.
 
@@ -165,7 +166,7 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
 Intel VPP HDR10 tone-mapping is supported on Intel QSV and VA-API on Linux.
 
-VPP is prefered when both tone-mapping options are checked on Intel GPU.
+VPP is prefered if both tone-mapping options are enabled.
 
 :::
 
@@ -194,7 +195,7 @@ VPP is prefered when both tone-mapping options are checked on Intel GPU.
 
   :::tip
 
-  Integrated GPU takes up a portion of system memory as its video memory, which means using dual-channel memory can double the video memory bandwidth. This can be quite useful for compute intensive workloads such as hardware HDR/DV tone-mapping.
+  Integrated GPUs take up a portion of system memory as their video memory, which means using dual-channel memory can double the video memory bandwidth. This can be useful while computing intensive workloads such as hardware HDR/DV tone-mapping.
 
   :::
 
@@ -202,7 +203,7 @@ VPP is prefered when both tone-mapping options are checked on Intel GPU.
 
   :::tip
 
-  On modern GPUs the peak throughput of video transcoding can be limited by the I/O speed of your hard drives. In this case, SSD or RamDisk can be used for caching the transcoded termporary video segments.
+  On modern GPUs the peak throughput of video transcoding can be limited by the I/O speed of your hard drives. In this case, an SSD or RamDisk can be used for caching the transcoded temporary video segments.
 
   :::
 

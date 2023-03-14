@@ -5,7 +5,7 @@ title: HWA Tutorial On Intel GPU
 
 # HWA Tutorial On Intel GPU
 
-This tutorial guides you setting up full video hardware acceleration on Intel integrated GPU and ARC discrete GPU via QSV and VA-API.
+This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API.
 
 
 
@@ -51,7 +51,7 @@ Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-
 
 
 
-The QSV interface comes from Intel [OneVPL](https://github.com/oneapi-src/oneVPL) / [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK) is a high-level implementation based on Linux VA-API and Windows DXVA/D3D11VA, which gives better performance and more fine-tuning options on supported platforms.
+The QSV interface provided by Intel [OneVPL](https://github.com/oneapi-src/oneVPL) / [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK) is a high-level implementation based on Linux VA-API and Windows DXVA/D3D11VA providing better performance and more fine-tuning options on supported platforms.
 
 QSV can be used together with VA-API and DXVA/D3D11VA for a more flexible hybrid transcoding pipeline.
 
@@ -71,7 +71,7 @@ QSV and VA-API support headless server on both Windows and Linux, which means a 
 
 Hardware accelerated HDR/DV to SDR tone-mapping is supported on **all Intel GPUs that have HEVC 10-bit decoding**.
 
-There are two methods can be used on Windows and/or Linux, here's the pros and cons of them:
+There are two different methods that can be used on Windows and/or Linux. Pros and cons are listed below:
 
 1. **OpenCL**
 
@@ -91,11 +91,11 @@ There are two methods can be used on Windows and/or Linux, here's the pros and c
 
 :::caution
 
-Rule out the model of Intel processors that ending in "F", which means it has no integrated GPU.
+Do not use models of Intel processors ending with "F" - those do not have an integrated GPU.
 
 :::
 
-Best to check Quick Sync Video support via the [Intel ark website](https://ark.intel.com/content/www/us/en/ark.html) before buying a new GPU for hardware acceleration.
+Quick Sync Video support can be checked via the [Intel ark website](https://ark.intel.com/content/www/us/en/ark.html) prior to buying a new GPU suitable for hardware acceleration.
 
 ### Transcode H.264
 
@@ -107,9 +107,9 @@ AVC / H.264 8-bit is still widely used due to its excellent compatibility. All I
 
 ### Transcode HEVC
 
-HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoder [x265 and documentation](https://x265.readthedocs.io/en/master/) support, as well as the widely implemented hardware codecs in most GPUs released after 2016.
+HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoding support thanks to [x265](https://x265.readthedocs.io/en/master/), as well as the widely implemented hardware encoding support in most GPUs released after 2016.
 
-No exception for Intel GPUs:
+Intel GPUs are no exception:
 
 - **Decoding & Encoding HEVC 8-bit** - Gen 9 Sky Lake (6th Gen Core) and newer
 
@@ -125,7 +125,7 @@ Note that the 6th Gen Core lacks 10-bit support, it's best to choose 7th Gen and
 
 ### Transcode AV1
 
-AV1 is a royalty-free, future-proof video codec. It saves storage space and network bandwidth a lot. The downside is that decoding and encoding them are very stressful for your CPU. But hardware acceleration makes it possible to transcode to AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
+AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
 
 Intel added support for AV1 acceleration in their latest GPUs:
 
@@ -157,7 +157,7 @@ They can be divided into 4 tiers by their performance：
 
   :::tip
 
-  These iGPUs usually come from mini PC boxes or Synology NAS and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
+  These iGPUs usually come from mini PC boxes or Synology NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
 
   :::
 
@@ -165,7 +165,7 @@ They can be divided into 4 tiers by their performance：
 
   :::tip
 
-  These iGPUs have more computing power than entry-level, which makes them capable of multiple 4k HDR HEVC 10-bit transcoding at the same time. Note that the Gen 11 graphics has improved encoder quality over Gen 9 but not too much.
+  These iGPUs have more computing power than entry-level, which makes them capable of multiple 4k HDR HEVC 10-bit transcoding at the same time. Note that the Gen 11 graphics have a slightly improved encoder quality over Gen 9.
 
   :::
 
@@ -181,7 +181,7 @@ They can be divided into 4 tiers by their performance：
 
   :::tip
 
-  ARC A-series GPU uses the latest Gen 12.5 XeHPG architecture, which continues to improve on the basis of XeLP, supports [AV1 hardware encoding and improved H.264 and HEVC encoding](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-data-center-gpu-flex-series/intel-data-center-gpu-flex-series.rst). This makes it competitive with the medium preset of the x264 and x265 software encoders. All ARC A-series GPU models comes with two MFX video engines.
+  ARC A-series GPUs use the latest Gen 12.5 XeHPG architecture, which continues to improve on the basis of XeLP, supports [AV1 hardware encoding and improved H.264 and HEVC encoding](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-data-center-gpu-flex-series/intel-data-center-gpu-flex-series.rst). This makes it competitive with the medium preset of the x264 and x265 software encoders. All ARC A-series GPU models come with two MFX video engines.
 
   :::
 
@@ -189,15 +189,15 @@ They can be divided into 4 tiers by their performance：
 
 ### OneVPL And MediaSDK
 
-[OneVPL](https://github.com/oneapi-src/oneVPL) is a new QSV implementation to supersede [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK). Both provide Quick Sync Video (QSV) runtime.
+[OneVPL](https://github.com/oneapi-src/oneVPL) is a new QSV implementation to supersede [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK). Both provide the Quick Sync Video (QSV) runtime.
 
 Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, namly Tiger Lake & Rocket Lake).
 
 :::note
 
-The most notable difference is that OneVPL supports new AV1 hardware encoder on ARC GPU.
+The most notable difference is that OneVPL supports the new AV1 hardware encoder on ARC GPU.
 
-[FFmpeg 6.0](http://ffmpeg.org/download.html#release_6.0) enables OneVPL and this process is seamless for the end users.
+[FFmpeg 6.0](http://ffmpeg.org/download.html#release_6.0) enables OneVPL. This process is seamless for the end users.
 
 :::
 
@@ -216,11 +216,11 @@ Tips for ARC GPU:
 - [Reizeable-BAR](https://game.intel.com/story/intel-arc-graphics-resizable-bar/) is not mandatory for hardware acceleration, but it can affect the performance of VPP tone-mapping.
   It's recommended to enable the Resizable-BAR if the processor, motherboard and BIOS support it.
 
-- [ASPM](https://www.intel.com/content/www/us/en/support/articles/000092564/graphics.html) can be enabled in the supported BIOS, which greatly reduces the idle power consumption of the ARC GPU.
+- [ASPM](https://www.intel.com/content/www/us/en/support/articles/000092564/graphics.html) should be enabled in the BIOS if supported. This greatly reduces the idle power consumption of the ARC GPU.
 
-- Low-Power encoding is used by default on ARC GPU. **GuC & HuC firmware can be missing on non-rolling release distros**.
+- Low-Power encoding is used by default on ARC GPUs. **GuC & HuC firmware can be missing on non-rolling release distros**, you might need to manually download it from the [Kernel firmware git](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915).
 
-- Old kernel build configs [may not have the MEI modules enabled](https://gitlab.freedesktop.org/drm/intel/-/issues/7732), which is necessary for using ARC GPU on Linux.
+- Old kernel build configs [may not have the MEI modules enabled](https://gitlab.freedesktop.org/drm/intel/-/issues/7732), which are necessary for using ARC GPU on Linux.
 
 :::
 
@@ -228,7 +228,7 @@ Tips for ARC GPU:
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **QSV is not available in Windows Docker and WSL/WSL2.**
+Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Docker and WSL/WSL2.**
 
 ### Configure On Windows Host
 
@@ -256,7 +256,7 @@ Windows 10 64-bit and newer is recommeded. **QSV is not available in Windows Doc
 
 ### Verify On Windows
 
-1. Play a video in Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
+1. Play a video in the Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
 
 2. Open the "Task Manager" and navigate to the GPU page.
 
@@ -264,7 +264,7 @@ Windows 10 64-bit and newer is recommeded. **QSV is not available in Windows Doc
 
    :::note
 
-   Duplicate engine name indicates the GPU may have multiple MFX video engines.
+   Duplicate engine names indicate the GPU may have multiple MFX video engines.
 
    :::
 
@@ -282,17 +282,17 @@ Windows 10 64-bit and newer is recommeded. **QSV is not available in Windows Doc
 
 ## Linux Setups
 
-Linux 64-bit distribution is required. **The supported GPU varies by kernel and firmware versions.**
+A 64-bit Linux distribution is required. **The supported GPU varies by kernel and firmware versions.**
 
 ### Known Issues And Limitations
 
 :::caution
 
-There are some known upstream kernel and firmware issues that can affect the Intel hardware transcoding. Some of them can be fixed by upgrading your Linux distro, kernel and firmware packages, or editing the needed kernel parameters.
+There are some known upstream Linux Kernel and firmware issues that can affect the Intel hardware transcoding. Some of them can be fixed by upgrading your Linux distro, kernel and firmware packages, or adding the required kernel parameters.
 
 :::
 
-1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#low-power-encoding) mode MUST be configured and enabled for doing the correct VBR or CBR bitrate control that is required by the Jellyfin on the fly video streaming.
+1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#low-power-encoding) mode MUST be configured and enabled for correct VBR and CBR bitrate control that is required by Jellyfin.
 
    - Ticket: https://gitlab.freedesktop.org/drm/intel/-/issues/8080
 
@@ -396,9 +396,9 @@ Root permission is required.
 
    :::note
 
-   `iHD driver` indicates both QSV and VA-API interfaces are supported.
+   `iHD driver` indicates support for the QSV and VA-API interfaces.
 
-   `i965 driver` indicates only VA-API interface is supported, which should only be used on pre-Broadwell platforms.
+   `i965 driver` indicates only support for the VA-API interface, which should only be used on pre-Broadwell platforms.
 
    :::
 
@@ -436,7 +436,7 @@ Root permission is required.
 
 #### Linux Mint
 
-Linux Mint use Ubuntu as its package base.
+Linux Mint uses Ubuntu as its package base.
 
 You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
@@ -452,7 +452,7 @@ Root permission is required.
 
 :::
 
-1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin), then change the ffmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
+1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin) package, then change the FFmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
 
    ```shell
    $ cd ~/
@@ -481,7 +481,7 @@ Root permission is required.
    $ /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
    ```
 
-4. Check to the rest parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#debian-and-ubuntu-linux).
+4. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel-hwa-tutorial#debian-and-ubuntu-linux).
 
 
 
@@ -503,7 +503,7 @@ Minimum requirements for glibc and Linux versions:
 
 :::
 
-Extract and install it to the correct path, change the ffmpeg path in Jellyfin dashboard to match it:
+Extract and install it to the correct path, change the FFmpeg path in the Jellyfin dashboard to match it:
 
 ```shell
 $ cd ~/
@@ -534,9 +534,9 @@ Install other necessary Intel driver packages and their dependencies that contai
 
 The official Docker image comes with all necessary user mode Intel media drivers and the OpenCL runtime.
 
-What you need to do is pass the host's `render`group id to Docker and modify the configurations to meet your requirements.
+What you need to do is pass the host's `render` group id to Docker and modify the configurations to meet your requirements.
 
-1. Query the `render` and `video` groups id on the host system and use it in Docker cli or docker-compose file.
+1. Query the ids of the  `render` and `video` groups on the host system and use it in the Docker CLI or docker-compose file:
 
    :::note
 
@@ -548,7 +548,7 @@ What you need to do is pass the host's `render`group id to Docker and modify the
    $ getent group render | cut -d: -f3
    ```
 
-2. Use docker command line **or** use docker-compose:
+2. Use docker command line **or** docker-compose:
 
    - Example command line:
 
@@ -578,6 +578,8 @@ What you need to do is pass the host's `render`group id to Docker and modify the
          user: 1000:1000
          group_add:
            - "122" # Change this to match your "render" host group id and remove this comment
+           - "123" # Change this to match your "video" host group id and remove this comment
+           - "123" # Change this to match your "video" host group id and remove this comment
          network_mode: 'host'
          volumes:
            - /path/to/config:/config
@@ -624,7 +626,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 This follows the same principles as for the Docker, with one small change that your container within the pod much run as **privileged**.
 
-The devices in Kubernetes are added as a host path mounts, they are not separated into separate volumes as in the Docker.
+The devices in Kubernetes are added as host path mounts, they are not separated into separate volumes like in the Docker example.
 
 1. Example Kubernetes (API version 1) configuraton file written in YAML:
 
@@ -666,7 +668,7 @@ The devices in Kubernetes are added as a host path mounts, they are not separate
 
 2. When the pod starts, you can check the QSV and VA-API codecs.
 
-   If you get `error: failed to initialize display` then double check that the `supplementalGroups` are correct.
+   If you get `error: failed to initialize display`, double check that the `supplementalGroups` are correct.
 
    ```shell
    $ kubectl exec <JELLYFIN_POD_NAME> -- /usr/lib/jellyfin-ffmpeg/vainfo
@@ -684,7 +686,7 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
 
 :::
 
-1. Query the `render` and `video` group id on the host system.
+1. Query the ids of the  `render` and `video` groups on the host system.
 
    :::note
 
@@ -765,7 +767,7 @@ Root permission is required.
 
 :::
 
-1. Install the `intel-gpu-tools` package, which is used for debugging Intel graphics driver on Linux. The name varies with different distros.
+1. Install the `intel-gpu-tools` package, which is used for debugging Intel graphics driver on Linux. The name varies between distros.
 
    - On Debian & Ubuntu:
 
@@ -781,11 +783,11 @@ Root permission is required.
 
 2. Play a video in Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
 
-3. Use `intel_gpu_tool` command to check the occupancy of the engines as follows:
+3. Use `intel_gpu_top` command to check the occupancy of the engines as follows:
 
    :::note
 
-   Duplicate engine name indicates the GPU may have multiple MFX video engines.
+   Duplicate engine names indicate the GPU may have multiple MFX video engines.
 
    :::
 
@@ -823,7 +825,7 @@ Intel video encoders on Gen 9+ graphics support two encoding modes:
 
 - non Low-Power / LP encoding (PAK + media kernel + VME)
 
-Low-Power encoding can offload the GPU usage with the help of the [HuC firmware](https://01.org/linuxgraphics/downloads/firmware).
+Low-Power encoding can offload the GPU usage with the help of the [HuC firmware](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915).
 
 This can be useful for speeding up the OpenCL based HDR/DV tone-mapping.
 
@@ -871,7 +873,7 @@ Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e.
 
 :::caution
 
-The setup is not necessary unless you are using an Intel **Jasper Lake** or **Elkhart Lake** processor, or you want faster OpenCL tone-mapping speed on Linux. This also applies to the bleeding edge hardware such as **12th Gen Intel processors**, **ARC GPU** and newer **but the step 3 and 4 should be skipped**.
+The setup is not necessary unless you are using an Intel **Jasper Lake** or **Elkhart Lake** processor, or you want faster OpenCL tone-mapping speed on Linux. This also applies to the bleeding edge hardware such as **12th Gen Intel processors**, **ARC GPU** and newer **but step 3 and 4 should be skipped**.
 
 :::
 
@@ -881,7 +883,7 @@ Root permission is required.
 
 :::
 
-1. Install the latest linux firmware packages **on host system**. The name varies with different distros.
+1. Install the latest linux firmware packages **on the host system**. The name varies between distros.
 
    - On Debian:
 
@@ -909,14 +911,14 @@ Root permission is required.
      # cp -r linux-firmware/i915 /usr/lib/firmware
      ```
 
-2. Add an i915 kernel parameter on host to enable GuC loading HuC firmware:
+2. Add the required i915 kernel parameter on the host system to enable loading GuC and HuC firmware:
 
    ```shell
    # mkdir -p /etc/modeprobe.d
    # sh -c "echo 'options i915 enable_guc=2' >> /etc/modeprobe.d/i915.conf"
    ```
 
-3. Update the initramfs and grub. The commands varies with different distros.
+3. Update the initramfs and grub. The commands varies between distros.
 
    - On Debian & Ubuntu:
 
@@ -946,7 +948,7 @@ Root permission is required.
    # cat /sys/kernel/debug/dri/0/i915_huc_load_status
    ```
 
-5. Now you can safely enable the Intel Low-Power encoder in Jellyfin dashboard.
+5. Now you can safely enable the Intel Low-Power encoder in the Jellyfin dashboard.
 
 :::tip
 

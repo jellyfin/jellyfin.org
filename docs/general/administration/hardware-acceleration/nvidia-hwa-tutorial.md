@@ -5,7 +5,7 @@ title: HWA Tutorial On NVIDIA GPU
 
 # HWA Tutorial On NVIDIA GPU
 
-This tutorial guides you setting up full video hardware acceleration on NVIDIA GPU via NVENC.
+This tutorial guides you on setting up full video hardware acceleration on NVIDIA GPU via NVENC.
 
 
 
@@ -17,7 +17,7 @@ On Windows and Linux **NVENC** is the only available method.
 
 
 
-The NVENC/NVDEC are the proprietary video codec APIs of NVIDIA GPU, which can be used with CUDA to achieve full hardware acceleration.
+The NVENC/NVDEC are the proprietary video codec APIs of NVIDIA GPUs, which can be used with CUDA to achieve full hardware acceleration.
 
 
 
@@ -29,7 +29,7 @@ Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia
 
 :::note
 
-NVENC support headless server on both Windows and Linux, which means a connected monitor is not required.
+NVENC supports headless server on both Windows and Linux, which means a connected monitor is not required.
 
 :::
 
@@ -47,25 +47,25 @@ On Windows and Linux **CUDA** is the only available tone-mapping method. It also
 
 :::caution
 
-Most NVIDIA GPU comes with NVENC/NVDEC support but be **some low-end and mobile models (e.g. GT1030 and MX450)** are exceptions.
+Most NVIDIA GPUs come with NVENC/NVDEC support but **some low-end and mobile models (e.g. GT1030 and MX450)** are exceptions.
 
 :::
 
-Best to check the video codec support via the [NVIDIA GPU Codec Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) before buying a GPU for hardware acceleration.
+Video codec support can be checked via the [NVIDIA GPU Codec Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) prior to buying a GPU suitable for hardware acceleration.
 
 ### Transcode H.264
 
-AVC / H.264 8-bit is still widely used due to its excellent compatibility. All NVIDIA GPUs that support NVENC/NVDEC can decode and/or encode it.
+AVC / H.264 8-bit is still widely used due to its excellent compatibility. All NVIDIA GPUs supporting NVENC/NVDEC can decode and/or encode it.
 
-- **Decoding & Encoding H.264 8-bit** - Any NVIDIA GPU that supports NVENC/NVDEC
+- **Decoding & Encoding H.264 8-bit** - Any NVIDIA GPU supporting NVENC/NVDEC
 
 
 
 ### Transcode HEVC
 
-HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoder [x265 and documentation](https://x265.readthedocs.io/en/master/) support, as well as the widely implemented hardware codecs in most GPUs released after 2016.
+HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoding support thanks to [x265](https://x265.readthedocs.io/en/master/), as well as the widely implemented hardware encoding support in most GPUs released after 2016.
 
-Maxwell+ GPU provide support for HEVC:
+Maxwell+ GPUs provide support for HEVC:
 
 - **Decoding & Encoding HEVC 8-bit** - Maxwell 2nd Gen (GM206) and newer
 
@@ -75,9 +75,9 @@ Maxwell+ GPU provide support for HEVC:
 
 :::note
 
-Note that in Maxwell 2nd Gen series only the GM206 variants provide the HEVC 10-bit decoding support.
+Note that in Maxwell 2nd Gen series only the GM206 variants provide HEVC 10-bit decoding support.
 
-Its sucessor Pascal has full support for HEVC 10-bit and improved speed and quality performance.
+Its sucessor Pascal has full support for HEVC 10-bit and improved speed and quality.
 
 :::
 
@@ -85,7 +85,7 @@ Its sucessor Pascal has full support for HEVC 10-bit and improved speed and qual
 
 ### Transcode AV1
 
-AV1 is a royalty-free, future-proof video codec. It saves storage space and network bandwidth a lot. The downside is that decoding and encoding them are very stressful for your CPU. But hardware acceleration makes it possible to transcode to AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
+AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
 
 NVIDIA added support for AV1 acceleration in their latest GPUs:
 
@@ -113,7 +113,7 @@ Encoding quality:
 
 - AV1 - Ada Lovelace only
 
-Decoding & Encoding speed in same generation:
+Decoding & Encoding speed within the same generation:
 
 - Multiple NVENC/NVDEC models > Single NVENC/NVDEC models
 
@@ -155,7 +155,7 @@ Refer to [Configure On Linux Host](/docs/general/administration/hardware-acceler
 
 ### Verify On Windows
 
-1. Play a video in Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
+1. Play a video in the Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
 
 2. Open the "Task Manager" and navigate to the GPU page.
 
@@ -175,7 +175,7 @@ Refer to [Configure On Linux Host](/docs/general/administration/hardware-acceler
 
 ## Linux Setups
 
-Linux 64-bit distribution is required. **In Jellyfin 10.8 the minimum required NVIDIA driver version is 470.57.02**.
+A 64-bit Linux distribution is required. **In Jellyfin 10.8 the minimum required NVIDIA driver version is 470.57.02**.
 
 ### Configure On Linux Host
 
@@ -183,7 +183,7 @@ Linux 64-bit distribution is required. **In Jellyfin 10.8 the minimum required N
 
 The `jellyfin-ffmpeg5` deb package required by Jellyfin 10.8 doesn't include any NVIDIA proprietary driver.
 
-So you have to install the NVIDIA driver from the distro and configure the the permission of `jellyfin` user.
+You have to install the NVIDIA driver from the distro and configure the the permission of the `jellyfin` user.
 
 :::note
 
@@ -244,7 +244,7 @@ Root permission is required.
 
 #### Linux Mint
 
-Linux Mint use Ubuntu as its package base.
+Linux Mint uses Ubuntu as its package base.
 
 You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/nvidia-hwa-tutorial#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
@@ -260,7 +260,7 @@ Root permission is required.
 
 :::
 
-1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin), then change the ffmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
+1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin) package, then change the FFmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
 
    ```shell
    $ cd ~/
@@ -305,7 +305,7 @@ Minimum requirements for glibc and Linux versions:
 
 :::
 
-Extract and install it to the correct path, change the ffmpeg path in Jellyfin dashboard to match it:
+Extract and install it to the correct path, change the FFmpeg path in the Jellyfin dashboard to match it:
 
 ```shell
 $ cd ~/
@@ -316,7 +316,7 @@ $ tar -xvf jellyfin-ffmpeg_<VERSION>_portable_linux64-gpl.tar.xz -C jellyfin-ffm
 $ ldd -v /usr/lib/jellyfin-ffmpeg/ffmpeg
 ```
 
-Install NVIDIA proprietary driver packages and their dependencies that contain these key words:
+Install the NVIDIA proprietary driver packages and their dependencies that contain these key words:
 
 - NVIDIA NVDEC CUVID - DECODE
 
@@ -330,7 +330,7 @@ Install NVIDIA proprietary driver packages and their dependencies that contain t
 
 The official Docker image doesn't include any NVIDIA proprietary driver.
 
-So you have to install the NVIDIA driver and NVIDIA Container Toolkit on host to allow Docker access your GPU.
+You have to install the NVIDIA driver and NVIDIA Container Toolkit on the host system to allow Docker access to your GPU.
 
 :::note
 
@@ -338,13 +338,13 @@ Root permission is required.
 
 :::
 
-1. Install the NVIDIA proprietary driver on host. See above instructions.
+1. Install the NVIDIA proprietary driver on the host system. See above instructions.
 
-2. Install the NVIDIA Container Toolkit on host by following the link:
+2. Install the NVIDIA Container Toolkit on the host system by following this link:
 
    - https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide
 
-3. Use Docker command line **or** use docker-compose:
+3. Use the Docker command line **or** docker-compose:
 
    - Example command line:
 
@@ -389,14 +389,14 @@ Root permission is required.
    # usermod -aG video $USER
    ```
 
-5. Update configure dynamic links and restart the Docker service:
+5. Update dynamic links and restart the Docker service:
 
    ```shell
    $ docker exec -it jellyfin ldconfig
    # systemctl restart docker
    ```
 
-6. Check the NVIDIA GPU status by using `nvidia-smi`:
+6. Check the NVIDIA GPU's status by using `nvidia-smi`:
 
    ```shell
    $ docker exec -it jellyfin nvidia-smi
@@ -410,7 +410,7 @@ Root permission is required.
 
 :::note
 
-Note that the official Jellyfin Docker image already set the required environment variables for NVIDIA GPUs. If you are building your own image don't forget the add two extra environment variables into the Docker configs.
+Note that the official Jellyfin Docker image already sets the required environment variables for NVIDIA GPUs. If you are building your own image don't forget the add two extra environment variables into the Docker configs.
 
 - `NVIDIA_DRIVER_CAPABILITIES=all`
 
@@ -442,7 +442,7 @@ Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](/
 
 ### Verify On Linux
 
-1. Play a video in Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
+1. Play a video in the Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
 
 2. Use `nvidia-smi` command to check the occupancy of the NVIDIA GPU and the VRAM usage of each jellyfin-ffmpeg process:
 
