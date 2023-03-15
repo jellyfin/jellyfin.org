@@ -15,9 +15,11 @@ On Windows **QSV** is the only available method.
 
 On Linux there are two methods:
 
-- **QSV** - Prefered on mainstream GPUs, for better performance
+- **QSV** - **Prefered on mainstream GPUs**, for better performance
 
 - **VA-API** - Required by pre-Broadwell legacy GPUs, for compatibility
+
+:::note
 
 Linux VA-API supports nearly all Intel GPUs.
 
@@ -44,6 +46,8 @@ Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-
 - Meteor Lake(**MTL**)
 
 - Future platforms...
+
+:::
 
 The QSV interface provided by Intel [OneVPL](https://github.com/oneapi-src/oneVPL) / [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK) is a high-level implementation based on Linux VA-API and Windows DXVA/D3D11VA providing better performance and more fine-tuning options on supported platforms.
 
@@ -73,7 +77,7 @@ There are two different methods that can be used on Windows and/or Linux. Pros a
 
    - Pros - Lower power consumption, realized by Intel fixed-function LUT hardware.
 
-   - Cons - Poor tuning options, limited supported GPU models, currently only available on Linux.
+   - Cons - Poor tuning options, limited supported GPU models, **currently only available on Linux**.
 
 ## Select GPU Hardware
 
@@ -153,7 +157,7 @@ They can be divided into 4 tiers by their performance：
 
   :::tip
 
-  These GPUs use Gen 12 XeLP architecture with [significantly improved video quality and speed](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-iris-xe-max-graphics/intel-iris-xe-max-graphics.md). Models like the UHD 770 and Iris Xe feature a second MFX video engine, which enhances its concurrent transcoding capabilities.
+  These GPUs use Gen 12 XeLP architecture with AV1 hardware decoding, [significantly improved video quality and speed](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-iris-xe-max-graphics/intel-iris-xe-max-graphics.md). Models like the UHD 770 and Iris Xe feature a second MFX video engine, which enhances its concurrent transcoding capabilities.
 
   :::
 
@@ -181,16 +185,13 @@ Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, na
 
 ### ARC GPU Support
 
-Jellyfin server 10.8.9+ and the latest jellyfin-ffmpeg5 support Intel ARC discrete GPU on both Windows and Linux 6.2+.
+Jellyfin server 10.8.9+ and the latest jellyfin-ffmpeg5 support Intel ARC discrete GPU on both Windows and Linux **6.2+**.
 
 You only need to follow the [Windows Setups](/docs/general/administration/hardware-acceleration/intel#windows-setups) and [Linux Setups](/docs/general/administration/hardware-acceleration/intel#linux-setups) to configure and verify it.
 
 :::tip
 
-Tips for ARC GPU:
-
-- [Reizeable-BAR](https://game.intel.com/story/intel-arc-graphics-resizable-bar/) is not mandatory for hardware acceleration, but it can affect the graphics performance.
-  It's recommended to enable the Resizable-BAR if the processor, motherboard and BIOS support it.
+- [Reizeable-BAR](https://game.intel.com/story/intel-arc-graphics-resizable-bar/) is not mandatory for hardware acceleration, but it can affect the graphics performance. It's recommended to enable the Resizable-BAR if the processor, motherboard and BIOS support it.
 
 - [ASPM](https://www.intel.com/content/www/us/en/support/articles/000092564/graphics.html) should be enabled in the BIOS if supported. This greatly reduces the idle power consumption of the ARC GPU.
 
@@ -331,7 +332,7 @@ Root permission is required.
    crw-rw----+ 1 root render 226, 129 Mar  5 05:15 renderD129
    ```
 
-4. Add the `jellyfin` user to the `render` and `video` group, then restart `jellyfin` service:
+4. Add the `jellyfin` user to the `render` group, then restart `jellyfin` service:
 
    :::note
 
@@ -341,7 +342,6 @@ Root permission is required.
 
    ```shell
    sudo usermod -aG render jellyfin
-   sudo usermod -aG video jellyfin
    sudo systemctl restart jellyfin
    ```
 
@@ -410,7 +410,7 @@ You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/genera
 
 #### Arch Linux
 
-AUR `jellyfin-ffmpeg`, `jellyfin-ffmpeg5*` packages and future ffmpeg versions are maintained by Jellyfin team.
+AUR `jellyfin-ffmpeg`, `jellyfin-ffmpeg5*` packages and future FFmpeg versions are maintained by Jellyfin team.
 
 :::note
 
@@ -504,17 +504,16 @@ The official Docker image comes with all necessary user mode Intel media drivers
 
 What you need to do is pass the host's `render` group id to Docker and modify the configurations to meet your requirements.
 
-1. Query the ids of the  `render` and `video` groups on the host system and use it in the Docker CLI or docker-compose file:
+1. Query the id of the `render` group on the host system and use it in the Docker CLI or docker-compose file:
 
    :::note
 
-   On some releases, the group may be `input`.
+   On some releases, the group may be `video` or `input` instead of `render`.
 
    :::
 
    ```shell
    getent group render | cut -d: -f3
-   getent group video | cut -d: -f3
    ```
 
 2. Use docker command line **or** docker-compose:
@@ -529,11 +528,9 @@ What you need to do is pass the host's `render` group id to Docker and modify th
       --volume /path/to/media:/media \
       --user 1000:1000 \
       --group-add="122" \ # Change this to match your "render" host group id and remove this comment
-      --group-add="123" \ # Change this to match your "video" host group id and remove this comment
       --net=host \
       --restart=unless-stopped \
       --device /dev/dri/renderD128:/dev/dri/renderD128 \
-      --device /dev/dri/card0:/dev/dri/card0 \
       jellyfin/jellyfin
      ```
 
@@ -547,7 +544,6 @@ What you need to do is pass the host's `render` group id to Docker and modify th
          user: 1000:1000
          group_add:
            - "122" # Change this to match your "render" host group id and remove this comment
-           - "123" # Change this to match your "video" host group id and remove this comment
          network_mode: 'host'
          volumes:
            - /path/to/config:/config
@@ -555,10 +551,9 @@ What you need to do is pass the host's `render` group id to Docker and modify th
            - /path/to/media:/media
          devices:
            - /dev/dri/renderD128:/dev/dri/renderD128
-           - /dev/dri/card0:/dev/dri/card0
      ```
 
-3. If you wish to use the second GPU on your system, change `card0` to `card1` and `renderD128` to `renderD129`.
+3. If you wish to use the second GPU on your system, change `renderD128` to `renderD129`.
 
 4. For trying out the unstable build, change `jellyfin/jellyfin` to `jellyfin/jellyfin:unstable` on your own risk.
 
@@ -608,7 +603,6 @@ The devices in Kubernetes are added as host path mounts, they are not separated 
            runAsGroup: 1000
            supplementalGroups:
              - 122 # Change this to match your "render" host group id and remove this comment
-             - 123 # Chnage this to match your "video" host group id and remove this comment
          containers:
            - name: "jellyfin"
              image: ...
@@ -619,15 +613,10 @@ The devices in Kubernetes are added as host path mounts, they are not separated 
              volumeMounts:
                - name: "render-device"
                  mountPath: "/dev/dri/renderD128"
-               - name: "card-device"
-                 mountPath: "/dev/dri/card0"
          volumes:
            - name: "render-device"
              hostPath:
                path: "/dev/dri/renderD128"
-           - name: "card-device"
-             hostPath:
-               path: "/dev/dri/card0"
    ```
 
 2. When the pod starts, you can check the QSV and VA-API codecs.
@@ -648,17 +637,16 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
 
 :::
 
-1. Query the ids of the  `render` and `video` groups on the host system.
+1. Query the id of the `render` group on the host system.
 
    :::note
 
-   On some releases, the group may be `input` instead of `render` and `video`.
+   On some releases, the group may be `video` or `input` instead of `render`.
 
    :::
 
    ```shell
    getent group render | cut -d: -f3
-   getent group video | cut -d: -f3
    ```
 
 2. Install the required drivers on the host system.
@@ -666,7 +654,7 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
 3. Add your GPU to the container:
 
    ```shell
-   lxc config device add <CONTAINER_NAME> gpu gpu gid=<GID_OF_HOST_RENDER_OR_VIDEO_GROUP>
+   lxc config device add <CONTAINER_NAME> gpu gpu gid=<GID_OF_HOST_RENDER_GROUP>
    ```
 
 4. Make sure you have the requied devices within the container:
@@ -680,7 +668,7 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    crw-rw---- 1 root video 226, 128 Jun  4 02:13 renderD128
    ```
 
-5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU renderD128 if necessary.
+5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU `renderD128` if necessary.
 
 #### LXC On Proxmox
 
@@ -707,7 +695,6 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    ```conf
    lxc.cgroup2.devices.allow: c 226:0 rwm
    lxc.cgroup2.devices.allow: c 226:128 rwm
-   lxc.mount.entry: /dev/dri/card0 dev/dri/card0 none bind,optional,create=file
    lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
    ```
 
@@ -725,7 +712,7 @@ Root permission is required.
 
 :::
 
-1. Install the `intel-gpu-tools` package, which is used for debugging Intel graphics driver on Linux. The name varies between distros.
+1. Install the `intel-gpu-tools` package **on the host system**, which is used for debugging Intel graphics driver on Linux. The name varies between distros.
 
    - On Debian & Ubuntu:
 
@@ -860,6 +847,7 @@ Root permission is required.
      ```shell
      cd ~/
      git clone --depth=1 https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+     sudo mkdir -p /usr/lib/firmware
      sudo cp -r linux-firmware/i915 /usr/lib/firmware
      ```
 
