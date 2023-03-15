@@ -93,9 +93,9 @@ AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space
 
 AMD added support for AV1 acceleration in their latest GPUs:
 
-- **Decoding AV1 8/10-bit** - Radeon RX 6000 series (Navi 2x) and newer (except RX 6400/6500)
+- **Decoding AV1 8/10-bit** - Radeon RX 6000 series (Navi 2x), Ryzen 6000 mobile APU and newer (except RX 6400/6500)
 
-- **Encoding AV1 8/10-bit** - Ryzen 7000 mobile APU, Radeon RX 7000 series (Navi 3x) and newer
+- **Encoding AV1 8/10-bit** - Radeon RX 7000 series (Navi 3x), Ryzen 7000 mobile APU and newer
 
 ### Transcode Other Codecs
 
@@ -253,6 +253,7 @@ Root permission is required.
 
    ```shell
    sudo apt update && sudo apt install -y curl gpg
+   sudo mkdir -p /etc/apt/keyrings
    curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/rocm.gpg
    cat <<EOF | sudo tee /etc/apt/sources.list.d/rocm.sources
    Types: deb
@@ -334,7 +335,7 @@ You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/genera
 
 #### Arch Linux
 
-AUR `jellyfin-ffmpeg`, `jellyfin-ffmpeg5*` packages and future ffmpeg versions are maintained by Jellyfin team.
+AUR `jellyfin-ffmpeg`, `jellyfin-ffmpeg5*` packages and future FFmpeg versions are maintained by Jellyfin team.
 
 :::note
 
@@ -448,7 +449,7 @@ Root permission is required.
 
 :::
 
-1. Query the ids of the  `render` and `video` groups on the host system and use it in the Docker CLI or docker-compose file:
+1. Query the ids of the `render` and `video` groups on the host system and use it in the Docker CLI or docker-compose file:
 
    :::note
 
@@ -477,7 +478,6 @@ Root permission is required.
       --net=host \
       --restart=unless-stopped \
       --device /dev/dri/renderD128:/dev/dri/renderD128 \
-      --device /dev/dri/card0:/dev/dri/card0 \
       --device /dev/dri/kfd:/dev/dri/kfd \ # Remove this device if you don't use the OpenCL tone-mapping
       --env ROC_ENABLE_PRE_VEGA=1 \
       jellyfin/jellyfin
@@ -501,7 +501,6 @@ Root permission is required.
            - /path/to/media:/media
          devices:
            - /dev/dri/renderD128:/dev/dri/renderD128
-           - /dev/dri/card0:/dev/dri/card0
            - /dev/dri/kfd:/dev/dri/kfd # Remove this device if you don't use the OpenCL tone-mapping
          environment:
            - ROC_ENABLE_PRE_VEGA=1
@@ -512,6 +511,7 @@ Root permission is required.
    ```shell
    sudo docker exec -u root -it jellyfin bash
    apt update && apt install -y curl gpg
+   mkdir -p /etc/apt/keyrings
    curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | gpg --dearmor -o /etc/apt/keyrings/rocm.gpg
    cat <<EOF | tee /etc/apt/sources.list.d/rocm.sources
    Types: deb
@@ -525,7 +525,7 @@ Root permission is required.
    exit
    ```
 
-4. If you wish to use the second GPU on your system, change `card0` to `card1` and `renderD128` to `renderD129`.
+4. If you wish to use the second GPU on your system, change `renderD128` to `renderD129`.
 
 5. For trying out the unstable build, change `jellyfin/jellyfin` to `jellyfin/jellyfin:unstable` on your own risk.
 

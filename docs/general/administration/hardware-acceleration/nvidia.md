@@ -220,7 +220,7 @@ You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/genera
 
 #### Arch Linux
 
-AUR `jellyfin-ffmpeg`, `jellyfin-ffmpeg5*` packages and future ffmpeg versions are maintained by Jellyfin team.
+AUR `jellyfin-ffmpeg`, `jellyfin-ffmpeg5*` packages and future FFmpeg versions are maintained by Jellyfin team.
 
 :::note
 
