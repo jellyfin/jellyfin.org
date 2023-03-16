@@ -84,9 +84,12 @@ Fedora builds in RPM package format are available [here](/downloads/linux#fedora
 
 CentOS/RHEL 7 builds in RPM package format are available [here](/downloads/linux#fedora-centos) and an official CentOS/RHEL repository is planned for the future.
 
-The default CentOS/RHEL repositories don't provide FFmpeg, which the RPM requires. You will need to add a third-party repository which provide FFmpeg, such as [RPM Fusion's Free repository](https://rpmfusion.org/Configuration).
+The default CentOS/RHEL repositories don't provide FFmpeg, which the RPM requires.
+You will need to add a third-party repository which provide FFmpeg, such as [RPM Fusion's Free repository](https://rpmfusion.org/Configuration).
 
-You can also build [Jellyfin's version](https://github.com/jellyfin/jellyfin-ffmpeg) on your own. This includes gathering the dependencies and compiling and installing them. Instructions can be found at [the FFmpeg wiki](https://trac.ffmpeg.org/wiki/CompilationGuide/Centos).
+You can also build [Jellyfin's version](https://github.com/jellyfin/jellyfin-ffmpeg) on your own.
+This includes gathering the dependencies and compiling and installing them.
+Instructions can be found at [the FFmpeg wiki](https://trac.ffmpeg.org/wiki/CompilationGuide/Centos).
 
 ## Debian
 
@@ -101,14 +104,20 @@ Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyf
 
 :::
 
-Use extrepo to enable the jellyfin repositories (or see steps 1-3 below for manual repository setup):
+We provide an installer script to easily configure the Jellyfin APT repository.
+All you need to do is run this command on your system:
 
 ```sh
-sudo apt install extrepo
-sudo extrepo enable jellyfin
+curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
 ```
 
-WARNING: Do not run steps 1-3 below if the extrepo commands above were used.
+If you do not have `curl` installed, you can try `wget` instead:
+
+```sh
+wget -O- https://repo.jellyfin.org/install-debuntu.sh | sudo bash
+```
+
+If you don't trust the script or want to do everything manually, the full steps are as follows:
 
 1. Install `curl` and `gnupg` if you haven't already:
 
@@ -154,12 +163,10 @@ WARNING: Do not run steps 1-3 below if the extrepo commands above were used.
    sudo apt install jellyfin
    ```
 
-6. Manage the Jellyfin system service with your tool of choice:
+6. Manage the Jellyfin system service:
 
    ```sh
-   sudo service jellyfin status
-   sudo systemctl restart jellyfin
-   sudo /etc/init.d/jellyfin stop
+   sudo systemctl {action} jellyfin
    ```
 
 ### Packages
@@ -186,12 +193,10 @@ The repository is the preferred way to obtain Jellyfin on Debian, as it contains
    sudo apt -f install
    ```
 
-4. Manage the Jellyfin system service with your tool of choice:
+4. Manage the Jellyfin system service:
 
    ```sh
-   sudo service jellyfin status
-   sudo systemctl restart jellyfin
-   sudo /etc/init.d/jellyfin stop
+   sudo systemctl {action} jellyfin
    ```
 
 ## Ubuntu
@@ -212,13 +217,29 @@ If you encounter errors about the `ubuntu` release not being found and you previ
 
 ### Ubuntu Repository
 
-The Jellyfin team provides an Ubuntu repository for installation on Ubuntu Bionic, Focal, Impish, and Jammy. Supported architectures are `amd64`, `arm64`, and `armhf`.
+The Jellyfin team provides an Ubuntu repository for installation on Ubuntu Bionic, Focal, Impish, and Jammy.
+Supported architectures are `amd64`, `arm64`, and `armhf`.
 
 :::note
 
 Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
 
 :::
+
+We provide an installer script to easily configure the Jellyfin APT repository.
+All you need to do is run this command on your system:
+
+```sh
+curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
+```
+
+If you do not have `curl` installed, you can try `wget` instead:
+
+```sh
+wget -O- https://repo.jellyfin.org/install-debuntu.sh | sudo bash
+```
+
+If you don't trust the script or want to do everything manually, the full steps are as follows:
 
 1. Install `curl` and `gnupg` if you haven't already:
 
@@ -277,12 +298,10 @@ Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyf
    sudo apt install jellyfin
    ```
 
-7. Manage the Jellyfin system service with your tool of choice:
+7. Manage the Jellyfin system service:
 
    ```sh
-   sudo service jellyfin status
-   sudo systemctl restart jellyfin
-   sudo /etc/init.d/jellyfin stop
+   sudo systemctl {action} jellyfin
    ```
 
 ### Ubuntu Packages
@@ -322,17 +341,23 @@ The repository is the preferred way to install Jellyfin on Ubuntu, as it contain
    sudo apt -f install
    ```
 
-6. Manage the Jellyfin system service with your tool of choice:
+6. Manage the Jellyfin system service:
 
    ```sh
-   sudo service jellyfin status
-   sudo systemctl restart jellyfin
-   sudo /etc/init.d/jellyfin stop
+   sudo systemctl {action} jellyfin
+   ```
+
+## Gentoo
+
+The Gentoo ebuild repositoy includes the Jellyfin package which can be installed like other software:
+
+   ```sh
+   emerge www-apps/jellyfin
    ```
 
 ## Linux (generic amd64)
 
-Generic amd64, arm64, and armhf Linux builds in TAR archive format are available [here](/downloads/linux).
+Generic `amd64`, `arm64`, and `armhf` Linux builds in TAR archive format are available [here](/downloads/linux).
 
 ### Base Installation Process
 
@@ -365,7 +390,7 @@ Create four sub-directories for Jellyfin data.
 sudo mkdir data cache config log
 ```
 
-### `ffmpeg` Installation
+### `FFmpeg` Installation
 
 If you are not running a Debian derivative, install `ffmpeg` through your OS's package manager, and skip this section.
 
@@ -375,12 +400,12 @@ Not being able to use `jellyfin-ffmpeg` will most likely break hardware accelera
 
 :::
 
-If you are running Debian or a derivative, you should [download](https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/) and install an `ffmpeg` release built specifically for Jellyfin.
-Be sure to download the latest release that matches your OS (5.1.2-7 for Debian Bullseye assumed below).
+If you are running Debian or a derivative, you should [download](https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/) and install a `ffmpeg` release built specifically for Jellyfin.
+Be sure to download the latest release that matches your OS (`5.1.2-8` for Debian Bullseye assumed below).
 
 ```sh
-sudo wget https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/5.1.2-7/jellyfin-ffmpeg5_5.1.2-7-bullseye_amd64.deb
-sudo dpkg --install jellyfin-ffmpeg5_5.1.2-7-bullseye_amd64.deb
+sudo wget https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/5.1.2-8/jellyfin-ffmpeg5_5.1.2-8-bullseye_amd64.deb
+sudo dpkg --install jellyfin-ffmpeg5_5.1.2-8-bullseye_amd64.deb
 ```
 
 If you run into any dependency errors, run this and it will install them and `jellyfin-ffmpeg`.
@@ -391,7 +416,7 @@ sudo apt install -f
 
 ### Running Jellyfin
 
-Due to the number of command line options that must be passed, it is easiest to create a small script to run Jellyfin.
+Due to the number of command line options that must be passed on to the Jellyfin binary, it is easiest to create a small script to run Jellyfin.
 
 ```sh
 sudo nano jellyfin.sh
