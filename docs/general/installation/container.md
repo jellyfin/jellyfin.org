@@ -130,17 +130,13 @@ You can learn more about using Docker by [reading the official Docker documentat
 
 An Unraid Docker template is available in the repository.
 
-1. Open the unRaid GUI (at least unRaid 6.5) and click on the `Docker` tab.
+1. Open the unRaid GUI (at least unRaid 6.10.0) and click on the `Apps` tab.
 
-2. Add the following line under "Template Repositories" and save the options.
+2. Enable apps and search for "jellyfin". Install the app that is tagged as official.
 
-   ```data
-   https://github.com/jellyfin/jellyfin/blob/master/deployment/unraid/docker-templates
-   ```
+3. Edit library paths to add your host paths and apply the changes. (You can then go to the UI via the "Actions" button on the installed app.)
 
-3. Click "Add Container" and select "jellyfin".
-
-4. Adjust any required paths and save your changes.
+4. Go to the "Docker" tab and enable autostart for jellyfin.
 
 ## Podman
 
