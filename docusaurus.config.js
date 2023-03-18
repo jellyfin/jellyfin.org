@@ -43,7 +43,7 @@ module.exports = {
         },
 
         {
-          to: 'developers/docs/',
+          to: 'developers',
           label: 'Developers',
           position: 'right'
         },
