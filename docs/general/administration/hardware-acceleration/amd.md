@@ -276,7 +276,7 @@ Root permission is required.
    :::
 
    ```shell
-   $ /usr/lib/jellyfin-ffmpeg/vainfo --display drm --device /dev/dri/renderD128
+   sudo /usr/lib/jellyfin-ffmpeg/vainfo --display drm --device /dev/dri/renderD128
 
    libva info: VA-API version 1.17.0
    libva info: Trying to open /usr/lib/jellyfin-ffmpeg/lib/dri/radeonsi_drv_video.so
@@ -292,7 +292,7 @@ Root permission is required.
 7. Check the OpenCL runtime status:
 
    ```shell
-   $ /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device opencl=ocl:.0,device_vendor="Advanced Micro Devices"
+   sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device opencl=ocl:.0,device_vendor="Advanced Micro Devices"
 
    [AVHWDeviceContext @ 0x55d3ea4bfd00] 1 OpenCL platforms found.
    [AVHWDeviceContext @ 0x55d3ea4bfd00] 1 OpenCL devices found on platform "AMD Accelerated Parallel Processing".
@@ -303,7 +303,7 @@ Root permission is required.
 8. Check the Vulkan runtime status:
 
    ```shell
-   $ /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
+   sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
 
    [AVHWDeviceContext @ 0x557f13a57bc0] GPU listing:
    [AVHWDeviceContext @ 0x557f13a57bc0]     0: AMD Radeon RX Vega (RADV VEGA10) (discrete) (0x687f)
@@ -369,19 +369,19 @@ Root permission is required.
 
    ```shell
    sudo pacman -Sy libva-utils
-   vainfo --display drm --device /dev/dri/renderD128
+   sudo vainfo --display drm --device /dev/dri/renderD128
    ```
 
 4. Check the OpenCL runtime status:
 
    ```shell
-   /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device opencl=ocl:.0,device_vendor="Advanced Micro Devices"
+   sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device opencl=ocl:.0,device_vendor="Advanced Micro Devices"
    ```
 
 5. Check the Vulkan runtime status:
 
    ```shell
-   /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
+   sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
    ```
 
 6. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux).
