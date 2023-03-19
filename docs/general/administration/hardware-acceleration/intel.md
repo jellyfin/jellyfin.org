@@ -121,6 +121,12 @@ Intel added support for AV1 acceleration in their latest GPUs:
 
 - **Encoding AV1 8/10-bit** - Gen 12.5 DG2 / ARC A-series, Gen 12.7 Meteor Lake (14th?? Gen Core) and newer
 
+:::note
+
+Note that Jasper Lake and Elkhart Lake processors are 10th Gen Pentium/Celeron/Atom, which don't have AV1 acceleration.
+
+:::
+
 ### Transcode Other Codecs
 
 Please refer to these links:
@@ -373,7 +379,7 @@ Root permission is required.
    :::
 
    ```shell
-   $ /usr/lib/jellyfin-ffmpeg/vainfo --display drm --device /dev/dri/renderD128
+   sudo /usr/lib/jellyfin-ffmpeg/vainfo --display drm --device /dev/dri/renderD128
 
    libva info: VA-API version 1.17.0
    libva info: Trying to open /usr/lib/jellyfin-ffmpeg/lib/dri/iHD_drv_video.so
@@ -389,7 +395,7 @@ Root permission is required.
 8. Check the OpenCL runtime status:
 
    ```shell
-   $ /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
+   sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
 
    [AVHWDeviceContext @ 0x55cc8ac21a80] 0.0: Intel(R) OpenCL HD Graphics / Intel(R) Iris(R) Xe Graphics [0x9a49]
    [AVHWDeviceContext @ 0x55cc8ac21a80] Intel QSV to OpenCL mapping function found (clCreateFromVA_APIMediaSurfaceINTEL).
@@ -433,7 +439,7 @@ Root permission is required.
 
    - [intel-media-sdk](https://archlinux.org/packages/community/x86_64/intel-media-sdk/)
 
-   - [onevpl-intel-gpu](https://aur.archlinux.org/packages/onevpl-intel-gpu)
+   - [onevpl-intel-gpu](https://archlinux.org/packages/community/x86_64/onevpl-intel-gpu/)
 
    - [intel-compute-runtime](https://archlinux.org/packages/community/x86_64/intel-compute-runtime/)
 
@@ -443,8 +449,8 @@ Root permission is required.
 
    ```shell
    sudo pacman -Sy libva-utils
-   vainfo --display drm --device /dev/dri/renderD128
-   /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
+   sudo vainfo --display drm --device /dev/dri/renderD128
+   sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
    ```
 
 4. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux).

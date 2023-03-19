@@ -353,6 +353,21 @@ Root permission is required.
                  - capabilities: [gpu]
      ```
 
+   :::note
+
+   If you encounter the upsteam issue `CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected`, pass these extra devices to the Docker:
+
+   ```shell
+   /dev/nvidia-caps:/dev/nvidia-caps
+   /dev/nvidia0:/dev/nvidia0
+   /dev/nvidiactl:/dev/nvidiactl
+   /dev/nvidia-modeset:/dev/nvidia-modeset
+   /dev/nvidia-uvm:/dev/nvidia-uvm
+   /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools
+   ```
+
+   :::
+
 4. Add your username to the video group:
 
    ```shell
