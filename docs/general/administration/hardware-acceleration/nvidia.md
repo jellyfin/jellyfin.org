@@ -355,7 +355,7 @@ Root permission is required.
 
    :::note
 
-   If you encounter an upsteam issue - `CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected`. Pass these extra devices to the Docker:
+   If you encounter the upsteam issue `CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected`, pass these extra devices to the Docker:
 
    ```shell
    /dev/nvidia-caps:/dev/nvidia-caps
