@@ -121,6 +121,12 @@ Intel added support for AV1 acceleration in their latest GPUs:
 
 - **Encoding AV1 8/10-bit** - Gen 12.5 DG2 / ARC A-series, Gen 12.7 Meteor Lake (14th?? Gen Core) and newer
 
+:::note
+
+Note that Jasper Lake and Elkhart Lake processors are 10th Gen Pentium/Celeron/Atom, which don't have AV1 acceleration.
+
+:::
+
 ### Transcode Other Codecs
 
 Please refer to these links:
@@ -433,7 +439,7 @@ Root permission is required.
 
    - [intel-media-sdk](https://archlinux.org/packages/community/x86_64/intel-media-sdk/)
 
-   - [onevpl-intel-gpu](https://aur.archlinux.org/packages/onevpl-intel-gpu)
+   - [onevpl-intel-gpu](https://archlinux.org/packages/community/x86_64/onevpl-intel-gpu/)
 
    - [intel-compute-runtime](https://archlinux.org/packages/community/x86_64/intel-compute-runtime/)
 
