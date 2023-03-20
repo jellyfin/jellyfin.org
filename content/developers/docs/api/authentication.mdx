@@ -1,0 +1,25 @@
+---
+title: Authentication
+sidebar_position: 3
+---
+
+# Authentication
+
+## Password login
+
+The password login is the easiest method to implement. Use the authenticateUserByName method in the userApi with a username and password combination to get an access token. The server responds with an HTTP 401 status code when the credentials are invalid, otherwise it contains the authentication result with user information.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import AuthByNameSnippetTs from '!!raw-loader!./snippet/auth-byname.ts';
+import AuthByNameSnippetKt from '!!raw-loader!./snippet/auth-byname.kt';
+
+<Tabs defaultValue='ts' groupId='dev-sdk-language'>
+  <TabItem value='ts' label='TypeScript'>
+    <CodeBlock language='typescript'>{AuthByNameSnippetTs}</CodeBlock>
+  </TabItem>
+  <TabItem value='kt' label='Kotlin'>
+    <CodeBlock language='kt'>{AuthByNameSnippetKt}</CodeBlock>
+  </TabItem>
+</Tabs>
