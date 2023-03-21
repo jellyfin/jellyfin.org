@@ -33,6 +33,12 @@ Hardware accelerated HDR/DV to SDR tone-mapping is supported on **all NVIDIA GPU
 
 On Windows and Linux **CUDA** is the only available tone-mapping method. It also supports Dolby Vision P5 and zero-copy.
 
+:::note
+
+The `Enable enhanced NVDEC decoder` feature toggles between the newer NVDEC and the older CUVID decoding processes. Dolby Vision support requires that this option be checked in order to enable NVDEC.
+
+:::
+
 ## Select GPU Hardware
 
 :::caution
