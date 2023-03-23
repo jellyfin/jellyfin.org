@@ -860,8 +860,8 @@ Root permission is required.
 2. Add the required i915 kernel parameter on the host system to enable loading GuC and HuC firmware:
 
    ```shell
-   sudo mkdir -p /etc/modeprobe.d
-   sudo sh -c "echo 'options i915 enable_guc=2' >> /etc/modeprobe.d/i915.conf"
+   sudo mkdir -p /etc/modprobe.d
+   sudo sh -c "echo 'options i915 enable_guc=2' >> /etc/modprobe.d/i915.conf"
    ```
 
 3. Update the initramfs and grub. The commands varies between distros.
