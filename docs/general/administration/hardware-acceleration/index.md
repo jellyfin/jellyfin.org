@@ -17,7 +17,7 @@ The supported and validated video [hardware acceleration (HWA)](https://trac.ffm
 
 - **NVIDIA** NVDEC/NVENC (NVENC)
 
-- **AMD** Advancded Media Framework (AMF)
+- **AMD** Advanced Media Framework (AMF)
 
 - **Intel/AMD** Video Acceleration API (VA-API, Linux only)
 
