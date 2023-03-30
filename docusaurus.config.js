@@ -133,7 +133,7 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
           },
           // Jellyfin 10.8 and below linked to this subtitle docs page
           {
-            from: '/docs/general/server/media/subtitles',
+            from: ['/docs/general/server/media/subtitles', '/docs/general/server/media/subtitles.html'],
             to: '/docs/general/server/media/external-files'
           },
           // Storage docs moved from the server guide to administrative docs
