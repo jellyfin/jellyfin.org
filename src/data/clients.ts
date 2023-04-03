@@ -506,6 +506,11 @@ export const Clients: Array<Client> = [
     platforms: [Platform.AndroidTV, Platform.FireOS],
     primaryLinks: [
       {
+        id: 'fdroid',
+        name: 'F-Droid',
+        url: 'https://f-droid.org/en/packages/org.jellyfin.androidtv/'
+      },
+      {
         id: 'amazon-store',
         name: 'Amazon Appstore',
         url: 'https://www.amazon.com/gp/aw/d/B07TX7Z725'
