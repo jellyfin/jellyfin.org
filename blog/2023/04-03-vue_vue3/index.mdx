@@ -7,6 +7,8 @@ slug: vue-vue3
 tags: [release, vue]
 ---
 
+import { ImgComparisonSlider } from '@img-comparison-slider/react';
+
 280 commits, +28000 lines added, +43000 lines removed since November 2022: The results of the biggest refactor we ever tackled
 and an ecosystem upgrade we've been looking forward since we started working on this client on 2020.
 
@@ -14,9 +16,9 @@ and an ecosystem upgrade we've been looking forward since we started working on 
 
 <!--truncate-->
 
-*Don't know about what Jellyfin Vue is? Skip to **What's Jellyfin Vue?** section. What's below is a rather technical explanation*
+*Don't know what Jellyfin Vue is? Skip to **What's Jellyfin Vue?** section. What's below is a rather technical explanation*
 
-When we started working in this client, we used Nuxt and Vue 2, even when Vue 3 was right around the corner.
+When we started working on this client, we used Nuxt and Vue 2, even when Vue 3 was right around the corner.
 Nuxt has been an amazing tool to scaffold our project, and get started into the Vue ecosystem.
 It even allowed us to play with SSR. However, it forced a really rigid structure on us, besides
 [SSR turned out to be a burden](https://github.com/jellyfin/jellyfin-vue/discussions/1620).
@@ -27,7 +29,7 @@ As part of our Vue 3 migration, we switched to an standard Vue 3 project structu
 and legacy code we used to overcome Vue and Nuxt 2 limitations. Beside that, Vue 3
 only supports ES6-compatible browsers. We also use [some syntax](https://github.com/jellyfin/jellyfin-vue/blob/master/frontend/src/main.ts#L2)
 that's only compatible with ES2022. All of this means that, as part of this upgrade, **we also deprecated all legacy support for outdated browsers**.
-That include the majority of TVs, sadly. **Chrome/Edge/Firefox/Safari, both in desktop and mobile platforms are still fully compatible**.
+That include the majority of TVs. **Chrome/Edge/Firefox/Safari, both in desktop and mobile platforms are still fully compatible**.
 If the web browser of your device still gets updates, it'll likely have no issues running Jellyfin Vue.
 
 Although the affected userbase will probably be small, I'm sorry for those who might be affected by this decision but,
@@ -74,6 +76,13 @@ problems, so we thought it might be a good idea to start a new client with moder
 and use it as a playground for testing some cool features that might not make the cut (or would've been impossible to make)
 in Jellyfin Web.
 
-![Screenshot of the new picture viewer](./vue3-homepage.png)
+![Screenshot of Jellyfin Vue homepage on demo server](./vue-homepage.png)
+
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./music_full.png').default} />
+  <img slot='after' src={require('./music_mini.png').default} />
+</ImgComparisonSlider>
+
+![Screenshot of Jellyfin Vue video playback](./video.png)
 
 Head over [our GitHub repo](https://github.com/jellyfin/jellyfin-vue) to know more about it and see how you can use it!
