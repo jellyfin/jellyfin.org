@@ -5,7 +5,6 @@ import DiscordCard from '../components/contact/DiscordCard';
 import IrcCard from '../components/contact/IrcCard';
 import MatrixCard from '../components/contact/MatrixCard';
 import RedditCard from '../components/contact/RedditCard';
-import TelegramCard from '../components/contact/TelegramCard';
 import TwitterCard from '../components/contact/TwitterCard';
 import MastodonCard from '../components/contact/MastodonCard';
 
@@ -24,14 +23,11 @@ export default function Contact() {
             </div>
           </div>
           <div className='row'>
-            <div className='col col--12 margin-bottom--md' style={{ display: 'flex' }}>
+            <div className='col col--8 margin-bottom--md' style={{ display: 'flex' }}>
               <MatrixCard />
             </div>
-            <div className='col margin-bottom--md' style={{ display: 'flex' }}>
+            <div className='col col--4 margin-bottom--md' style={{ display: 'flex' }}>
               <DiscordCard />
-            </div>
-            <div className='col margin-bottom--md' style={{ display: 'flex' }}>
-              <TelegramCard />
             </div>
           </div>
           <div className='row'>
@@ -48,7 +44,7 @@ export default function Contact() {
           </div>
           {isOtherChatVisible && (
             <div className='row'>
-              <div className='col margin-bottom--md'>
+              <div className='col col--12 margin-bottom--md'>
                 <IrcCard />
               </div>
             </div>
