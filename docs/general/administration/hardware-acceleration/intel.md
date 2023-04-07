@@ -197,7 +197,7 @@ You only need to follow the [Windows Setups](/docs/general/administration/hardwa
 
 :::tip
 
-- [Reizeable-BAR](https://game.intel.com/story/intel-arc-graphics-resizable-bar/) is not mandatory for hardware acceleration, but it can affect the graphics performance. It's recommended to enable the Resizable-BAR if the processor, motherboard and BIOS support it.
+- [Resizable-BAR](https://game.intel.com/story/intel-arc-graphics-resizable-bar/) is not mandatory for hardware acceleration, but it can affect the graphics performance. It's recommended to enable the Resizable-BAR if the processor, motherboard and BIOS support it.
 
 - [ASPM](https://www.intel.com/content/www/us/en/support/articles/000092564/graphics.html) should be enabled in the BIOS if supported. This greatly reduces the idle power consumption of the ARC GPU.
 
@@ -887,7 +887,7 @@ Root permission is required.
    sudo cat /sys/kernel/debug/dri/0/gt/uc/huc_info
    ```
 
-   On very old kernels (4.x) the last two commands can be like this:
+   On very old kernels (4.16-) the last two commands can be like this:
 
    ```shell
    sudo cat /sys/kernel/debug/dri/0/i915_guc_load_status
