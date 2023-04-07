@@ -17,7 +17,7 @@ The NVENC/NVDEC are the proprietary video codec APIs of NVIDIA GPUs, which can b
 
 :::caution
 
-Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) cards officially support **no more than 3 simultaneously encoding video streams**, regardless of the count of the cards installed, but this restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
+Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) cards officially support **no more than 3 simultaneously encoding video streams**, regardless of the count of the cards installed. On NVIDIA 530+ drivers the limit is relaxed to 5 simultaneously encoding video streams on Geforce cards. This restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
 
 :::
 
@@ -109,9 +109,9 @@ Decoding & Encoding speed within the same generation:
 
 NVENC/NVDEC performance tables:
 
-- [NVENC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/nvenc-application-note/index.html#nvenc-performance)
+- [NVENC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/12.0/nvenc-application-note/index.html#nvenc-performance)
 
-- [NVDEC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/nvdec-application-note/index.html#nvdec-performance)
+- [NVDEC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/12.0/nvdec-application-note/index.html#nvdec-performance)
 
 ## Windows Setups
 
