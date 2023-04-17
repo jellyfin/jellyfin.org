@@ -412,7 +412,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choosed the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
