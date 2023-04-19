@@ -12,7 +12,7 @@ This page details how our repositories are organized, how to get started editing
 There are many projects within the [organization](https://github.com/jellyfin) to browse through for contributions.
 Summarized here are the two biggest ones, one for backend devs and another for frontend devs.
 
-- [Jellyfin Server](https://github.com/jellyfin/jellyfin): The server portion, built using .NET 6 and C#.
+- [Jellyfin Server](https://github.com/jellyfin/jellyfin): The server portion, built using .NET 7 and C#.
 - [Jellyfin Web](https://github.com/jellyfin/jellyfin-web): The main client application built for browsers, but also used in some of our other clients that are just wrappers.
 
 Note that each of the repositories also has its own documentation on how to get started with that project, generally found in the repository README. You can also view the organization [source tree](/docs/general/contributing/source-tree) to see how some of the bigger projects are structured.
