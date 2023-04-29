@@ -281,6 +281,18 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
    - Fixed by: [drm/i915/gen11: Moving WAs to icl_gt_workarounds_init()](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=52255ef662a5d490678fbad64a735f88fcba564d)
 
+   - You can fix this by switching to the [Hardware Enablement Stack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack) and rebooting your system
+
+   ```shell
+   sudo apt install --install-recommends linux-generic-hwe-22.04
+   ```
+
+   :::caution
+
+   This will move you off a 5.15 kernel which could have other implications. If it breaks something you can return to the normal kernel by installing the linux-generic package.
+
+   :::
+
 3. The kernel range from 5.18 to 6.1.3 have an issue that locks up and resets the i915 kernel driver when using OpenCL based HDR/DV tone-mapping. Linux 5.18-, 6.0.18+, 6.1.4+ are not affected.
 
    - Ticket: <https://gitlab.freedesktop.org/drm/intel/-/issues/7627>
