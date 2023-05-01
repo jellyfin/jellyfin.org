@@ -301,7 +301,7 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 4. The current Debian 11 and Ubuntu 22.04 LTS may not have the required GPU firmware for Intel 12th Gen processors and ARC GPU.
 
-5. The kernel support for Intel Gen 12 TGL graphics is incompletet before Linux 5.9.
+5. The kernel support for Intel Gen 12 TGL graphics is incomplete before Linux 5.9.
 
 6. The kernel support for Intel Gen 12 DG1 is incomplete in upstream. Intel DKMS and custom iHD driver are required.
 
