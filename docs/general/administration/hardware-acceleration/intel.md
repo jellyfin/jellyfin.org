@@ -601,7 +601,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 #### Kubernetes
 
-This follows the same principles as for the Docker, with one small change that your container within the pod much run as **privileged**.
+This follows the same principles as for the Docker, with one small change that your container within the pod must run as **privileged**.
 
 The devices in Kubernetes are added as host path mounts, they are not separated into separate volumes like in the Docker example.
 
