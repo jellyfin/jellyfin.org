@@ -1,0 +1,80 @@
+---
+title: 'Jellyfin Android v2.5.0 - Bitrate selection, player improvements and quality-of-life tweaks'
+description: 'Enjoy a more polished Jellyfin experience on your phone'
+authors: Maxr1998
+date: 2023-05-14
+slug: android-v2.5.0
+---
+
+It has been a long while since the last update, but after an extended beta testing period with plenty of bug reports (thanks, by the way!) and subsequent fixes, we're excited to finally announce a new major update to Jellyfin Android.
+
+Version 2.5.0 again focused on improvements to the integrated player, and brings various new features, many bug fixes and a lot of technical maintenance and rewrites.
+
+Read on to learn more!
+
+<!--truncate-->
+
+## Integrated Player Improvements
+
+In this release, we finally introduce the highly requested bitrate selection so that you can transcode to lower resolutions to save your precious mobile data while on the go. The audio and subtitle track selection was reworked and improved multiple times and should be a lot more robust now. Thanks to everyone who reported bugs! The complicated nature of various playback methods, inconsistencies between the server and ExoPlayer and misconceptions about their inner workings caused countless edge cases that could only be discovered through a lot of trial and error.
+The player interface itself now has a back button to close the player and a new playback option was added to pick between hardware and software decoding, if the default hardware decoder causes issues for the currently played video.
+
+In the client settings (which you should make sure to check out) we added the option to pick the initial orientation for video playback and now allow choosing whether you want video with SSA subtitles to be transcoded (for full styling support) or not (to direct play with limited styling). There's also a link to the operating system's subtitle customization settings, which the integrated player uses to style your subtitles. Note that the subtitle settings in the Jellyfin settings only apply to the web player due to technical reasons.
+
+## Other Tweaks
+
+Thanks to @susonthapa, the app now shows a splash screen with the Jellyfin logo on start, instead of the previous, boring gray screen where you didn't see whether the app was actually doing anything. While the app is connecting, there's now a cancel button so that you can quickly jump to the connect screen to select a different server if the current one isn't available at the moment.
+The connect screen itself was reworked and rewritten in JetPack Compose, a new UI framework by Google that allows fast and easy UI development. We plan to use it for more parts of the app in the future, especially for the long-term goal of a completely native app experience.
+We also added a monochrome icon so that Jellyfin will look great on your home screen on supported launchers on Android 13 and above.
+
+## TODO – To mention or not to mention?
+
+- Cronet - very technical and most probably don't care. The percentage of users that deployed QUIC is probably also quite low
+- PGSSUB - a full sentence for just one subtitle codec? Idk..
+- Disabled Safe browsing - only applies to very few users and might confuse/scare others
+
+## Download Now
+
+<a className="margin-right--md" href="https://play.google.com/store/apps/details?id=org.jellyfin.mobile">
+  <img width="153" alt="Jellyfin on Google Play" src="/images/store-icons/google-play.png" />
+</a>
+
+<a className="margin-right--md" href="https://www.amazon.com/gp/product/B081RFTTQ9">
+  <img width="153" alt="Jellyfin on Amazon App Store" src="/images/store-icons/amazon.png" />
+</a>
+
+<a href="https://f-droid.org/en/packages/org.jellyfin.mobile/">
+  <img width="153" alt="Jellyfin on F-Droid" src="/images/store-icons/fdroid.png" />
+</a>
+
+Direct downloads are always available from [our repository](https://repo.jellyfin.org/releases/client/android/).
+
+## Full Release Notes
+
+The full (technical) release notes are available on [GitHub](https://github.com/jellyfin/jellyfin-android/releases/tag/v2.5.0).
+
+## Contributors
+
+As always, many great people contributed to this release:
+
+### Jellyfin Team
+
+- [@nielsvanvelzen](https://github.com/nielsvanvelzen) - [Sponsor](https://github.com/sponsors/nielsvanvelzen)
+- [@Maxr1998](https://github.com/Maxr1998) - [Sponsor](https://github.com/sponsors/Maxr1998)
+
+### Others
+
+- [@colonelpopcorn](https://github.com/colonelpopcorn)
+- [@eglia](https://github.com/eglia)
+- [@Irishsmurf](https://github.com/Irishsmurf)
+- [@mingyech](https://github.com/mingyech)
+- [@nalsai](https://github.com/nalsai)
+- [@susonthapa](https://github.com/susonthapa)
+
+We'd also like to thank everyone who reported bugs, provided feedback and participated in beta testing!
+
+### Contribute
+
+If you have some experience with Android development and are interested in contributing yourself, feel free to dive into the source code [on GitHub](https://github.com/jellyfin/jellyfin-android) and open pull requests.
+
+Alternatively, you can help with translating the app into your language on our [Weblate](https://translate.jellyfin.org/projects/jellyfin-android/jellyfin-android/).
