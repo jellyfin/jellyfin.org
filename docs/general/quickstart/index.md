@@ -1,5 +1,5 @@
 ---
-uid: quick-start-index
+uid: quickstart-index
 title: Quick Start
 ---
 

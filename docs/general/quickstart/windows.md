@@ -1,0 +1,255 @@
+---
+uid: quickstart-windows
+title: Windows
+---
+
+# Windows Quick Start
+
+## Required Tools and Resources
+* A Windows 10/11 PC
+* A User Account with Admin Privileges
+* An Internet Connection
+* A Public IP Address
+* A Text Editor (Notepad will work but [Notepad++](https://notepad-plus-plus.org/downloads/) or [VSCode](https://code.visualstudio.com/Download) is recommended)
+* A Browser that isn't internet explorer
+
+## Before you begin
+* Connect your PC with Ethernet instead of Wifi
+* Set PC to never go to sleep automatically ([Guide](https://support.microsoft.com/en-us/windows/how-to-adjust-power-and-sleep-settings-in-windows-26f623b5-4fcc-4194-863d-b824e5ea7679))
+* Show file extensions in explorer ([Guide](https://www.howtogeek.com/205086/beginner-how-to-make-windows-show-file-extensions/))
+* Setup Auto login for your user account if you haven't already ([Guide](https://www.lifewire.com/how-do-i-auto-login-to-windows-2626066))
+* Make your media file accessible on this computer by this user
+* Install latest updates ([Guide](https://support.microsoft.com/en-us/windows/get-the-latest-windows-update-7d20e88c-0568-483a-37bc-c3885390d212))
+* Setup Remote Access (Optional). Popular options include [Teamviewer](https://www.teamviewer.com/), [AnyDesk](https://anydesk.com/), [RustDesk](https://rustdesk.com/), [Google Remote Desktop](https://remotedesktop.google.com/) and [Parsec](https://parsec.app/)
+
+## Notes
+* How to open a Terminal from current location in explorer
+    * Windows 10
+        * Right Click on blank space while holding down `Shift`
+        * Click `Open PowerShell window here`
+    * Windows 11
+        * Right Click on blank space
+        * Click `Open in Windows Terminal` or `Open in Terminal`
+
+## Jellyfin Install
+
+### Install
+1. Download Installer exe and sha256sum from [the official repo](https://repo.jellyfin.org/releases/server/windows/stable/). The files to download are `installer/jellyfin_x.y.z_windows-x64.exe` and `installer/jellyfin_x.y.z_windows-x64.exe`.
+
+    ![](/images/docs/quickstart/windows/jellyfin-0.png)
+
+3. Once download finishes, open the sha256sum in a text editor
+4. Open a Terminal in your Downloads folder and enter this command: `certutil -hashfile .\jellyfin_x.y.z_windows-x64.exe SHA256`, replace `jellyfin_x.y.z_windows-x64.exe` with the executable you just downloaded.
+5. Wait for command to finish and see if it matches the value in the sha256sum file. If the values don't match, at least one of the files is corrupted and both files should be redownloaded.
+
+    ![](/images/docs/quickstart/windows/jellyfin-1.png)
+
+    Values Match, files are good
+    
+    ![](/images/docs/quickstart/windows/jellyfin-2.png)
+
+    Values don't match, possibly corrupted file(s)
+
+5. Run and follow the Installer
+6. Look for a Jellyfin icon in your system tray. If it isn't present, search for `Jellyfin Tray App` and run it. No windows will popup after running this application.
+    
+    ![](/images/docs/quickstart/windows/jellyfin-3.png)
+    
+    Jellyfin Tray App
+
+7. Allow Firewall Access when Prompted
+
+    ![](/images/docs/quickstart/windows/jellyfin-4.png)
+    
+    Windows Firewall Prompt
+
+8. Open a browser and go to http://localhost:8096 to finish the setup process. Leave the `Enable Automatic Port Mapping` option unchecked.
+
+### Hardware Accel
+See [Hardware Acceleration](https://jellyfin.org/docs/general/administration/hardware-acceleration/)
+
+## Reverse Proxy
+
+### Router Settings
+1. Press Win + R, enter `control` and click OK to open Control Panel
+
+    ![](/images/docs/quickstart/windows/router-1.png)
+
+3. Navigate to `Network and Internet > Network and Sharing Center` 
+4. Click on the internet connection under Connections
+
+    ![](/images/docs/quickstart/windows/router-2.png)
+
+4. Click `Details` in the popup and note the `IPv4 Address` and `IPv4 Default Gateway` values. The `IPv4 Address` is the LAN IP address of your Jellyfin server and the `IPv4 Default Gateway` is usually your Router. 
+
+    ![](/images/docs/quickstart/windows/router-3.png)
+
+5. go to https://ipv4.icanhazip.com and note the IP address
+
+6. Go to the `IPv4 Default Gateway`  IP in a browser (for this example, http://192.168.50.1/) and Login to your router. If you do not have the credentials, look for them on the bottom of your router or online with the model number of your router
+
+7. Most Routers will show a WAN IP in the index. Check if the IP matches the IP you noted down in step 5. If it doesn't, you do not have a routable IP address. In this case, you should stop following this guide and look for other options for remote access.
+
+    ![](/images/docs/quickstart/windows/router-4.png)
+
+    ASUS Router Settings Page
+
+8. Assign your Jellyfin Host Permanent local IP. The option is usually under LAN and named DHCP Server or DHCP. If you assign a different IP than what it currently has, you may need to reconnect the internet of this PC for settings to apply properly. In this case, I am assigning 192.168.50.142 to my PC.
+
+    ![](/images/docs/quickstart/windows/router-5.png)
+
+9. Find Port Forwarding Settings in your Router. This setting is usually under WAN, Firewall, Security or NAT and usually named Port Forwarding or Virtual Server. Port Trigger is NOT the setting you are looking for
+
+10. Forward ports 80 and 443 to the IP you assigned previously
+
+    ![](/images/docs/quickstart/windows/router-6.png)
+
+
+### Install Caddy
+1. go to https://caddyserver.com/download
+2. Choose `Windows amd64` for the platform and click download. leave the standard features checkbox checked. You do NOT need any extra features.
+
+    ![](/images/docs/quickstart/windows/caddyinst-1.png)
+
+
+3. Create a new folder under C:\ and name it caddy
+
+    ![](/images/docs/quickstart/windows/caddyinst-2.png)
+
+4. move the downloaded exe file to the folder and rename it to caddy.exe
+
+    ![](/images/docs/quickstart/windows/caddyinst-3.png)
+
+5. go to `This PC` in Explorer, right click on blank space and click on `properties`
+
+    ![](/images/docs/quickstart/windows/caddyinst-4.png)
+
+6. Click `Advanced system settings`. it will be after Device Specifications on Windows 11, or in the left sidebar on Windows 10
+7. Click on `Environment Variables` in the popup and doubleclick on `Path` under the `User variables for user` in the second popup
+
+    ![](/images/docs/quickstart/windows/caddyinst-5.png)
+
+8. Click on `New` in the popup and enter `C:\caddy`, then click `OK` on the bottom right
+    
+    ![](/images/docs/quickstart/windows/caddyinst-6.png)
+
+9. Click on OK for the other 2 popups to save and apply settings 
+10. reboot to make sure settings apply poperly
+
+### Test if http is routable
+1. Open a terminal and run `caddy respond --body test --listen :80`
+    
+    ![](/images/docs/quickstart/windows/httptest-1.png)
+
+3. Allow access if prompted by Windows Firewall
+4. Your IP may have changed while making the changes in your router. Go to https://ipv4.icanhazip.com to get your current public IP address
+    
+    ![](/images/docs/quickstart/windows/httptest-2.png)
+
+5. Attempt to access `http://<your IP here>` using another internet connection on another device such as your mobile data. For this case, the IP has changed to `1.171.xxx.xxx` so I will be accessing http://1.171.xxx.xxx using my mobile data on my phone.
+
+6. The page should look like the picture below. If it doesn't look this way or fails to connect, your ISP may be blocking incoming http connections or your IP is not routable. In this case, you should stop following this guide and look for other remote access options.
+    
+    ![](/images/docs/quickstart/windows/httptest-3.png)
+    
+    Screenshot taken on iOS using Safari
+
+7. Press `Ctrl + C` in the terminal to exit Caddy, then close the terminal.
+
+
+
+### DDNS
+1. Login to DuckDNS on the top right at https://www.duckdns.org/
+2. Add a new domain in the middle. I am using jellyfintest12345.duckdns.org for this example but you can use anything as long as it hasn't been taken
+
+    ![](/images/docs/quickstart/windows/ddns-1.png)
+
+3. Download the latest windows client zip from https://github.com/XWolfOverride/DuckDNS/releases
+4. create a new subfolder under C:\ and name it `duckdns`
+
+    ![](/images/docs/quickstart/windows/ddns-2.png)
+    
+5. Unzip the downloaded file and move the `DuckDNS.exe` into the folder
+
+    ![](/images/docs/quickstart/windows/ddns-3.png)
+
+6. Run `DuckDNS.exe`
+7. Enter the Domain you just created and the Token from your DuckDNS dashboard, change interval to 5m and click on OK
+
+    ![](/images/docs/quickstart/windows/ddns-4.png)
+
+8. Make sure that no errors appeared and there is a yellow duck in your system tray. If the duck is red, check your configuration.
+
+9. hit Win + R, enter `taskschd.msc` and click OK or click enter
+
+    ![](/images/docs/quickstart/windows/ddns-5.png)
+
+10. Click on Create basic task on the right panel.
+11. Enter a descriptive Name and a description, one that you can identify in the future and click next
+12. Choose `When I log on` for the Task Trigger and click Next
+13. Choose `Start a program` for the Action
+14. Enter `C:\duckdns\DuckDNS.exe` in the Program/script field
+
+    ![](/images/docs/quickstart/windows/ddns-6.png)
+
+15. Check Open the Properties dialog checkbox and click Finish
+
+    ![](/images/docs/quickstart/windows/ddns-7.png)
+
+16. Go to the Settings Pane in the dialog and uncheck the `Stop the task if it runs longer than` checkbox, then click OK
+
+    ![](/images/docs/quickstart/windows/ddns-8.png)
+
+
+### Reverse Proxy with Caddy
+1. Go to your caddy folder (the one you created in the Install Caddy section which should be `C:\caddy`)
+2. create a text file named `CaddyFile` (Remove the .txt suffix). You will be asked to confirm if you want to change the file extension, click Yes.
+
+    ![](/images/docs/quickstart/windows/reverseproxy-1.png)
+
+3. Open the file in a text editor and paste in config from below depending on your needs. Replace `<your (sub)domain here>` with the domain you just created with DuckDNS.
+    * if you want your jellyfin instance behind the bare domain / subdomain(example.com / jellyfin.example.com):
+        ```
+        <your (sub)domain here>
+        
+        reverse_proxy 127.0.0.1:8096
+        ```
+    * if you want your jellyfin instance under a subpath (example.com/jellyfin):
+        ```
+        <your (sub)domain here>
+
+        redir /jellyfin /jellyfin/
+        reverse_proxy /jellyfin/* 127.0.0.1:8096
+        ```
+4. save the file and close the text editor
+5. If you have chosen to use a subpath for jellyfin, go to your jellyfin dashboard (open http://localhost:8096 on your server, click the 3 bars on the top right then select Dashboard) and go to the Networking menu on the side bar. Then enter the subpath you have chosen to use and save. Then restart the Jellyfin server (Stop then start the server from the system tray icon)
+
+    ![](/images/docs/quickstart/windows/reverseproxy-2.png)
+
+7. open a terminal in the caddy folder and run `caddy start`. If there are no errors, you can safely close the terminal.
+8. go to `http://<your (sub)domain here>` or `http://<your (sub)domain here>/jellyfin` in a browser to test if it is working. You should be able to see a Jellyfin Login Page.
+13. hit Win + R, enter `taskschd.msc` and click OK
+
+    ![](/images/docs/quickstart/windows/reverseproxy-3.png)
+
+11. Click on Create basic task on the right panel.
+12. Enter a descriptive Name and a description, one that you can identify in the future and click next
+13. Choose `When I log on` for the Task Trigger and click Next
+14. Choose `Start a program` for the Action
+15. Enter `C:\caddy\caddy.exe` in the Program/script field, `run` in the arguments field and `C:\caddy` in the Start in field, then click Next
+16. Check Open the Properties dialog checkbox and click Finish
+
+    ![](/images/docs/quickstart/windows/reverseproxy-4.png)
+
+17. Go to the Settings Pane in the dialog and uncheck the `Stop the task if it runs longer than` checkbox, then click OK
+
+    ![](/images/docs/quickstart/windows/reverseproxy-5.png)
+
+18. Reboot to test configuration. There will be a Terminal window open after bootup. This is normal.
+
+    ![](/images/docs/quickstart/windows/reverseproxy-6.png)
+
+## References
+* https://caddy.community/t/jellyfin-gotify-cadyv2/9435/2
+* https://jellyfin.org/docs/
+* https://caddyserver.com/docs/
