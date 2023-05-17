@@ -149,7 +149,7 @@ See [Hardware Acceleration](https://jellyfin.org/docs/general/administration/har
 
 2. Allow access if prompted by Windows Firewall
 3. Your IP may have changed while making the changes in your router. Go to [https://ipv4.icanhazip.com](https://ipv4.icanhazip.com) to get your current public IP address
-    
+
     ![My IP](/images/docs/quick-start/windows/httptest-2.png)
 
 4. Attempt to access `http://<your IP here>` using another internet connection on another device such as your mobile data. For this case, the IP has changed to `1.171.xxx.xxx` so I will be accessing `http://1.171.xxx.xxx` using my mobile data on my phone.
@@ -215,7 +215,7 @@ See [Hardware Acceleration](https://jellyfin.org/docs/general/administration/har
 3. Open the file in a text editor and paste in config from below depending on your needs. Replace `<your (sub)domain here>` with the domain you just created with DuckDNS.
     * if you want your jellyfin instance behind the bare domain / subdomain(example.com / jellyfin.example.com):
 
-        ```
+        ```Caddyfile
         <your (sub)domain here>
         
         reverse_proxy 127.0.0.1:8096
@@ -223,7 +223,7 @@ See [Hardware Acceleration](https://jellyfin.org/docs/general/administration/har
 
     * if you want your jellyfin instance under a subpath (example.com/jellyfin):
 
-        ```
+        ```Caddyfile
         <your (sub)domain here>
 
         redir /jellyfin /jellyfin/
