@@ -68,6 +68,7 @@ Then simply give the `reverse_proxy` directive a path matcher.
 ```txt
 example.com
 
+redir /jellyfin /jellyfin/
 reverse_proxy /jellyfin/* 127.0.0.1:8096
 ```
 
