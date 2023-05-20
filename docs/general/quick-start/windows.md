@@ -64,7 +64,11 @@ title: Windows
 
     Windows Firewall Prompt
 
-6. Open a browser and go to [http://localhost:8096](http://localhost:8096) to finish the setup process. Leave the `Enable Automatic Port Mapping` option unchecked.
+6. Open a browser and go to [http://localhost:8096](http://localhost:8096) to finish the setup process. Leave the `Enable automatic port mapping` option unchecked. Jellyfin's automatic port mapping feature uses UPnP, which can be a security risk and may not work on some networks. ([Click here for more about UPnP and security](https://www.upguard.com/blog/what-is-upnp))
+
+    ![Set up Remote Access](/images/docs/quick-start/windows/jellyfin-5.png)
+
+    Remote Access Setup Page
 
 ### Hardware Accel
 
