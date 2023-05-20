@@ -70,9 +70,9 @@ title: Windows
 
     Remote Access Setup Page
 
-### Hardware Accel
+### Hardware Acceleration
 
-See [Hardware Acceleration](/docs/general/administration/hardware-acceleration/)
+Read the dedicated [Hardware Acceleration](/docs/general/administration/hardware-acceleration/) page for how to configure hardware acceleration.
 
 ## Reverse Proxy
 
