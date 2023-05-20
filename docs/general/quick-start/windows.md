@@ -173,11 +173,11 @@ A reverse proxy is a server that sits in front of other services and forwards cl
     ![duckdns dashboard](/images/docs/quick-start/windows/ddns-1.png)
 
 3. Download the latest Windows C# client zip from [its Github releases page](https://github.com/XWolfOverride/DuckDNS/releases)
-4. Create a new subfolder under `C:\` and name it `duckdns`
+4. Create a new subfolder under `C:\Program Files` and name it `duckdns`
 
     ![duckdns folder](/images/docs/quick-start/windows/ddns-2.png)
 
-5. Unzip the downloaded file and move the `DuckDNS.exe` into the folder
+5. Unzip the downloaded file and move the `DuckDNS.exe` into the folder. Confirm the operation if prompted.
 
     ![duckdns exe](/images/docs/quick-start/windows/ddns-3.png)
 
@@ -196,7 +196,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 11. Enter a descriptive Name and a description, one that you can identify in the future and click next
 12. Choose `When I log on` for the Task Trigger and click Next
 13. Choose `Start a program` for the Action
-14. Enter `C:\duckdns\DuckDNS.exe` in the Program/script field
+14. Enter `C:\Program Files\duckdns\DuckDNS.exe` in the Program/script field
 
     ![create duckdns task](/images/docs/quick-start/windows/ddns-6.png)
 
