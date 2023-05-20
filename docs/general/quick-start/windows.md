@@ -76,6 +76,8 @@ Read the dedicated [Hardware Acceleration](/docs/general/administration/hardware
 
 ## Reverse Proxy
 
+A reverse proxy is a server that sits in front of other services and forwards client requests to those services according to predefined rules. They are usually used to help increase security, performance and reliability. Some popular options are [Apache](https://httpd.apache.org), [Caddy](https://caddyserver.com), [Haproxy](https://www.haproxy.com), [Nginx](https://www.nginx.com) and [Traefik](https://traefik.io). We are using Caddy in this guide for its simplicity. Info on other reverse proxy solutions can be found at [Running Jellyfin Behind a Reverse Proxy](/docs/general/networking/#running-jellyfin-behind-a-reverse-proxy).
+
 ### Router Settings
 
 1. Press `Win + R`, enter `control` and click `OK` to open Control Panel
