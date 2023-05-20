@@ -38,36 +38,24 @@ title: Windows
 
 ### Install
 
-1. Download installer exe and sha256sum from [the official repo](https://repo.jellyfin.org/releases/server/windows/stable/). The files to download are `installer/jellyfin_x.y.z_windows-x64.exe` and `installer/jellyfin_x.y.z_windows-x64.exe`.
+1. Download installer exe and sha256sum from [the official repo](https://repo.jellyfin.org/releases/server/windows/stable/). The files to download are `installer/jellyfin_x.y.z_windows-x64.exe`.
 
     ![Windows Download Page](/images/docs/quick-start/windows/jellyfin-0.png)
 
-2. Once the download finishes, open the sha256sum in a text editor
-3. Open a Terminal in your Downloads folder and enter this command: `certutil -hashfile .\jellyfin_x.y.z_windows-x64.exe SHA256`, replace `jellyfin_x.y.z_windows-x64.exe` with the .exe file you just downloaded.
-4. Wait for the command to finish and see if it matches the value in the sha256sum file. If the values don't match, at least one of the files is corrupted and both files should be redownloaded.
-
-    ![Checksum Match](/images/docs/quick-start/windows/jellyfin-1.png)
-
-    Values match, files are good
-
-    ![Checksum Doesn't Match](/images/docs/quick-start/windows/jellyfin-2.png)
-
-    Values don't match, possibly corrupted file(s)
-
-5. Run and follow the installer
-6. Look for a Jellyfin icon in your system tray. If it isn't present, search for `Jellyfin Tray App` and run it. No windows will popup after running this application.
+2. Run and follow the installer
+3. Look for a Jellyfin icon in your system tray. If it isn't present, search for `Jellyfin Tray App` and run it. No windows will popup after running this application.
 
     ![Jellyfin Tray App Search](/images/docs/quick-start/windows/jellyfin-3.png)
 
     Jellyfin Tray App
 
-7. Allow Firewall Access when Prompted
+4. Allow Firewall Access when Prompted
 
     ![Windows Firewall Prompt](/images/docs/quick-start/windows/jellyfin-4.png)
 
     Windows Firewall Prompt
 
-8. Open a browser and go to [http://localhost:8096](http://localhost:8096) to finish the setup process. Leave the `Enable Automatic Port Mapping` option unchecked.
+5. Open a browser and go to [http://localhost:8096](http://localhost:8096) to finish the setup process. Leave the `Enable Automatic Port Mapping` option unchecked.
 
 ### Hardware Accel
 
