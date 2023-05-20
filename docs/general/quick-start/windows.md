@@ -42,20 +42,29 @@ title: Windows
 
     ![Windows Download Page](/images/docs/quick-start/windows/jellyfin-0.png)
 
-2. Run and follow the installer
-3. Look for a Jellyfin icon in your system tray. If it isn't present, search for `Jellyfin Tray App` and run it. No windows will popup after running this application.
+2. Run and follow the installer. Select `Basic Install` when prompted. Do NOT select `Install as a Service` as it will break certain functions.
+
+    ![Install Option](/images/docs/quick-start/windows/jellyfin-1.png)
+
+3. Close the installer after the install completes.
+
+    ![Installation Complete](/images/docs/quick-start/windows/jellyfin-2.png)
+
+    Installation Complete
+
+4. Look for a Jellyfin icon in your system tray. If it isn't present, search for `Jellyfin Tray App` and run it. No windows will popup after running this application.
 
     ![Jellyfin Tray App Search](/images/docs/quick-start/windows/jellyfin-3.png)
 
     Jellyfin Tray App
 
-4. Allow Firewall Access when Prompted
+5. Allow Firewall Access when Prompted
 
     ![Windows Firewall Prompt](/images/docs/quick-start/windows/jellyfin-4.png)
 
     Windows Firewall Prompt
 
-5. Open a browser and go to [http://localhost:8096](http://localhost:8096) to finish the setup process. Leave the `Enable Automatic Port Mapping` option unchecked.
+6. Open a browser and go to [http://localhost:8096](http://localhost:8096) to finish the setup process. Leave the `Enable Automatic Port Mapping` option unchecked.
 
 ### Hardware Accel
 
