@@ -120,11 +120,11 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
     ![Caddy Download](/images/docs/quick-start/windows/caddyinst-1.png)
 
-3. Create a new folder under `C:\` and name it `caddy`
+3. Create a new folder under `C:\Program Files` and name it `caddy`. Confirm the operation if prompted.
 
     ![Create Caddy folder](/images/docs/quick-start/windows/caddyinst-2.png)
 
-4. move the downloaded exe file to the folder and rename it to `caddy.exe`
+4. move the downloaded exe file to the folder and rename it to `caddy.exe`. Confirm the operation if prompted.
 
     ![Place Caddy exe](/images/docs/quick-start/windows/caddyinst-3.png)
 
@@ -137,7 +137,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
     ![Environment Variables](/images/docs/quick-start/windows/caddyinst-5.png)
 
-8. Click on `New` in the popup and enter `C:\caddy`, then click `OK` on the bottom right
+8. Click on `New` in the popup and enter `C:\Program Files\caddy`, then click `OK` on the bottom right. DO NOT change the other entries as messing with them can result in broken programs and/or a broken system.
 
     ![New PATH value](/images/docs/quick-start/windows/caddyinst-6.png)
 
@@ -210,12 +210,11 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
 ### Reverse Proxy with Caddy
 
-1. Go to your caddy folder (the one you created in the Install Caddy section which should be `C:\caddy`)
-2. create a text file named `CaddyFile` (Remove the .txt suffix). You will be asked to confirm if you want to change the file extension, click `Yes`.
+1. Create a text file named `Caddyfile` (Remove the .txt suffix) on your computer. This file is temporary and can be anywhere. You will be asked to confirm if you want to change the file extension, click `Yes`.
 
     ![file extension change confirmation](/images/docs/quick-start/windows/reverseproxy-1.png)
 
-3. Open the file in a text editor and paste in config from below depending on your needs. Replace `<your (sub)domain here>` with the domain you just created with DuckDNS.
+2. Open the file in a text editor and paste in config from below depending on your needs. Replace `<your (sub)domain here>` with the domain you just created with DuckDNS.
     * if you want your jellyfin instance behind the bare domain (subdomain.example.com / jellyfin.example.com):
 
         ```Caddyfile
@@ -233,7 +232,10 @@ A reverse proxy is a server that sits in front of other services and forwards cl
         reverse_proxy /jellyfin/* 127.0.0.1:8096
         ```
 
-4. save the file and close the text editor
+3. Save the file and close the text editor
+
+4. Copy this file to your caddy folder (the one you created in the Install Caddy section which should be `C:\Program Files\caddy`). Confirm the operation if prompted.
+
 5. If you have chosen to use a subpath for Jellyfin, go to your Jellyfin dashboard (open [http://localhost:8096](http://localhost:8096) on your server, click the 3 bars on the top right then select `Dashboard`) and go to the `Networking` menu on the side bar. Then enter the subpath you have chosen to use and save. Then restart the Jellyfin server (Stop then start the server from the system tray icon)
 
     ![Networking Settings](/images/docs/quick-start/windows/reverseproxy-2.png)
@@ -248,7 +250,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 10. Enter a descriptive Name and a description, one that you can identify in the future and click next
 11. Choose `When I log on` for the Task Trigger and click Next
 12. Choose `Start a program` for the Action
-13. Enter `C:\caddy\caddy.exe` in the Program/script field, `run` in the arguments field and `C:\caddy` in the Start in field, then click Next
+13. Enter `"C:\Program Files\caddy\caddy.exe"` in the Program/script field, `run` in the arguments field and `"C:\Program Files\caddy"` in the Start in field, then click Next. The parenthesis are required as the path contains a space.
 14. Check Open the Properties dialog checkbox and click Finish
 
     ![create caddy task](/images/docs/quick-start/windows/reverseproxy-4.png)
