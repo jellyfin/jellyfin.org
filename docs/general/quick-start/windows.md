@@ -240,7 +240,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
     ![Networking Settings](/images/docs/quick-start/windows/reverseproxy-2.png)
 
-6. open a terminal in the caddy folder and run `caddy run`. If there are errors, check your configs and try again. Keep this window running.
+6. Open a terminal in the caddy folder and run `caddy run`. If there are errors, check your configs and try again. Keep this window running.
 7. Go to `http://<your (sub)domain here>` or `http://<your (sub)domain here>/jellyfin` in a browser to test if it is working. You should be able to see the Jellyfin Login Page.
 8. hit `Win + R`, enter `taskschd.msc` and click `OK`
 
