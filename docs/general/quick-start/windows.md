@@ -34,7 +34,7 @@ title: Windows
     * Right click on blank space
     * Click `Open in Windows Terminal` or `Open in Terminal`
 
-## Jellyfin Install
+## Install Jellyfin
 
 ### Install
 
