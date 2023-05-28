@@ -144,7 +144,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 9. Click on `OK` for the other 2 popups to save and apply settings
 10. Reboot to make sure settings apply poperly
 
-### Test if http is routable
+### Test if HTTP is routable
 
 1. Open a terminal and run `caddy respond --body test --listen :80`
 
