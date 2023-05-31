@@ -5,7 +5,7 @@ title: fail2ban
 
 ## Fail2ban
 
-Fail2ban is an intrusion prevention software framework that protects computer servers from brute-force attacks.
+[Fail2ban](https://github.com/fail2ban/fail2ban) is an intrusion prevention software framework that protects computer servers from brute-force attacks.
 Fail2ban operates by monitoring log files (e.g. /var/log/auth.log, /var/log/apache/access.log, etc.) for selected entries and running scripts based on their content.
 
 Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force attacks on your machine.
@@ -24,7 +24,7 @@ You need to create a jail for Fail2ban. If you're on Ubuntu and use nano as edit
 sudo nano /etc/fail2ban/jail.d/jellyfin.local
 ```
 
-Add this to the new file:
+Add this to the new file, replacing `/path_to_logs` with the path to the log files above, e.g. `/var/log/jellyfin/`:
 
 ```bash
 [jellyfin]
@@ -73,7 +73,10 @@ Save and exit, then reload Fail2ban:
 sudo systemctl restart fail2ban
 ```
 
-You're done.
+Check fail2ban is running:
+```bash
+sudo systemctl status fail2ban
+```
 
 ### Step three: test
 
