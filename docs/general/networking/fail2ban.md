@@ -74,6 +74,7 @@ sudo systemctl restart fail2ban
 ```
 
 Check fail2ban is running:
+
 ```bash
 sudo systemctl status fail2ban
 ```
