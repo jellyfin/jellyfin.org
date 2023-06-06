@@ -297,6 +297,14 @@ Ani-Sync lets you synchronize/scrobble your Jellyfin Anime watch progress to pop
 
 - [GitHub](https://github.com/vosmiic/jellyfin-ani-sync)
 
+#### Themerr
+
+Plugin for Jellyfin that adds theme songs to movies using ThemerrDB.
+
+**Links:**
+
+- [GitHub](https://github.com/LizardByte/themerr-jellyfin)
+
 ## Repositories
 
 ### Official Jellyfin Plugin Repositories

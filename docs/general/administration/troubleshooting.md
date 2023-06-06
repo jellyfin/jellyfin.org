@@ -28,21 +28,35 @@ This would indicate either an incorrect address or an issue somewhere else on th
 
 ## Debug Logging
 
-To enable debug (much more verbose) logging, it is currently required to manually edit config files since no options exist yet on the frontend.
-Go to the Jellyfin configuration directory, find the `logging.default.json` file, and change the minimum level to debug as seen below.
+To enable much more verbose debug logging, it is currently required to manually edit a configuration file, since Jellyfin does not yet have an option to enable debug functionality within the frontend UI.
+
+To make this change, go to the [Jellyfin configuration directory](/docs/general/administration/configuration#configuration-directory) and find the `logging.json` file if it exists, or create the file if it does not. Debug logging is then enabled by changing the minimum logging level to debug as in the example below. If `logging.json` already exists and contains existing keys, the `"MinimumLevel"` key should be added to the `"Serilog"` object as seen in the example. If `logging.json` does not already exist, or if it is empty, a configuration containing only the following example structure will enable debug logging.
 
 ```json
 {
   "Serilog": {
-    "MinimumLevel": {
-      "Default": "Debug"
-    }
+    "MinimumLevel": "Debug"
   }
 }
 ```
 
-Jellyfin will automatically reload the new configuration without needing to restart.
-The debug messages show up in the log with the `DBG` tag.
+Debug messages appear in the log with the `DBG` tag prefixed to each line.
+
+:::note
+
+If the `logging.json` file existed before the last server start, Jellyfin will automatically reload the new configuration, once the change is made, without needing to restart. If the `logging.json` file was created after the last server start, a server restart will be required before the changes enabling debug logging will take effect.
+
+:::
+
+Once the need for verbose logging has passed, debug logging can be disabled by changing the `"MinimumLevel"` key in `logging.json` to `"Information"`, as in the example below, in order to restore the default logging level. It is not necessary to delete the `logging.json` configuration after debugging is complete.
+
+```json
+{
+  "Serilog": {
+    "MinimumLevel": "Information"
+  }
+}
+```
 
 ## Real Time Monitoring
 
@@ -73,7 +87,7 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 Then paste it in your terminal and press on enter to run it. For Docker, this needs to be done on the host, not the container.
 See [here](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) for more information.
 
-## Uninstall MacOS
+## Uninstalling Jellyfin on MacOS
 
 To fully remove all data of Jellyfin from MacOS, run these commands:
 

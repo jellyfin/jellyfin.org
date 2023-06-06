@@ -9,6 +9,7 @@ module.exports = {
   favicon: 'images/favicon.ico',
   organizationName: 'jellyfin',
   projectName: 'jellyfin.org',
+  /** @type {import('@docusaurus/types').ThemeConfig} */
   themeConfig: {
     image: 'images/social.png',
     metadata: [
@@ -83,33 +84,45 @@ module.exports = {
 Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
     }
   },
-  presets: [
-    [
-      '@docusaurus/preset-classic',
-      {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/jellyfin/jellyfin.org/edit/master/'
-        },
-        blog: {
-          routeBasePath: 'posts',
-          showReadingTime: true
-        },
-        theme: {
-          customCss: [
-            require.resolve('@fontsource/noto-sans/index.css'),
-            require.resolve('./src/css/custom.scss'),
-            require.resolve('./src/css/swiper.scss')
-          ]
-        }
-      }
-    ]
-  ],
   plugins: [
-    'docusaurus-plugin-sass',
+    // Main content
+    [
+      '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      {
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://github.com/jellyfin/jellyfin.org/edit/master/'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      /** @type {import('@docusaurus/plugin-content-blog').Options} */
+      {
+        id: 'blog-main',
+        routeBasePath: 'posts',
+        showReadingTime: true,
+        path: 'blog'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-pages',
+      /** @type {import('@docusaurus/plugin-content-pages').Options} */
+      {}
+    ],
+    // Others
+    [
+      '@docusaurus/plugin-sitemap',
+      /** @type {import('@docusaurus/plugin-sitemap').Options} */
+      {}
+    ],
+    [
+      'docusaurus-plugin-sass',
+      /** @type {import('docusaurus-plugin-sass').Options} */
+      {}
+    ],
     [
       '@docusaurus/plugin-client-redirects',
+      /** @type {import('@docusaurus/plugin-client-redirects').Options} */
       {
         fromExtensions: ['html'],
         redirects: [
@@ -120,7 +133,7 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
           },
           // Jellyfin 10.8 and below linked to this subtitle docs page
           {
-            from: '/docs/general/server/media/subtitles',
+            from: ['/docs/general/server/media/subtitles', '/docs/general/server/media/subtitles.html'],
             to: '/docs/general/server/media/external-files'
           },
           // Storage docs moved from the server guide to administrative docs
@@ -156,7 +169,19 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
   ],
   themes: [
     [
+      require.resolve('@docusaurus/theme-classic'),
+      /** @type {import('@docusaurus/theme-classic').Options} */
+      {
+        customCss: [
+          require.resolve('@fontsource/noto-sans/index.css'),
+          require.resolve('./src/css/custom.scss'),
+          require.resolve('./src/css/swiper.scss')
+        ]
+      }
+    ],
+    [
       require.resolve('@easyops-cn/docusaurus-search-local'),
+      /** @type {import('@easyops-cn/docusaurus-search-local').Options} */
       {
         hashed: true,
         indexBlog: false,

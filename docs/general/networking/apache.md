@@ -12,7 +12,7 @@ title: Apache
     ServerName DOMAIN_NAME
 
     # Comment to prevent HTTP to HTTPS redirect
-    Redirect permanent / https://DOMAIN_NAME
+    Redirect permanent / https://DOMAIN_NAME/
 
     ErrorLog /var/log/apache2/DOMAIN_NAME-error.log
     CustomLog /var/log/apache2/DOMAIN_NAME-access.log combined
@@ -60,10 +60,10 @@ title: Apache
 </IfModule>
 ```
 
-If you encouter errors, you may have to enable `mod_proxy`, `mod_ssl`, `proxy_wstunnel`, `http2` and `remoteip` support manually.
+If you encouter errors, you may have to enable `mod_proxy`, `mod_ssl`, `proxy_wstunnel`, `http2`, `headers` and `remoteip` support manually.
 
 ```bash
-sudo a2enmod proxy proxy_http ssl proxy_wstunnel remoteip http2
+sudo a2enmod proxy proxy_http ssl proxy_wstunnel remoteip http2 headers
 ```
 
 ## Apache with Subpath (example.org/jellyfin)

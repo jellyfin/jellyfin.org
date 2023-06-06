@@ -72,7 +72,7 @@ This will very likely be split out into a separate repository at some point in t
 
 ## Windows
 
-3. Install dotnet SDK 6.0 from [Microsoft's Website](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) and [install Git for Windows](https://gitforwindows.org/).
+3. Install dotnet SDK 7.0 from [Microsoft's Website](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) and [install Git for Windows](https://gitforwindows.org/).
    You must be on Powershell 3 or higher.
 
 4. From Powershell set the execution policy to unrestricted.

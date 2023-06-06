@@ -87,9 +87,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ```css
 /* Make watched icon dark and transparent */
-.playedIndicator {
-  background: #00000058;
-}
+.indicator { background: #00000058 !important; }
 ```
 
 ![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
