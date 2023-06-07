@@ -79,6 +79,12 @@ There are two different methods that can be used on Windows and/or Linux. Pros a
 
    - Cons - Poor tuning options, limited supported GPU models, **currently only available on Linux**.
 
+:::note
+
+The `Prefer OS native DXVA or VA-API hardware decoders` feature toggles between the native decoders and the QSV decoders. Dolby Vision support requires that this option be checked.
+
+:::
+
 ## Select GPU Hardware
 
 :::caution
@@ -746,7 +752,7 @@ Root permission is required.
 
 2. Play a video in Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
 
-3. Use `intel_gpu_top -p` command to check the occupancy of the engines as follows:
+3. Use `intel_gpu_top` command to check the occupancy of the engines as follows:
 
    :::note
 
@@ -765,7 +771,7 @@ Root permission is required.
    - **Compute** - GPGPU or QSV VPP workload (only available on ARC / DG2+)
 
    ```shell
-   sudo intel_gpu_top -p
+   sudo intel_gpu_top
 
    intel-gpu-top: Intel Tigerlake (Gen12) @ /dev/dri/card0 -   86/ 349 MHz;  54% RC6
            441 irqs/s
