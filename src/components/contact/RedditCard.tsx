@@ -12,11 +12,11 @@ const RedditCard = () => (
       <Reddit />
     </div>
     <div className='card__body'>
-      r/Jellyfin has
+      r/Jellyfin has 
       <a href='https://www.theverge.com/2023/6/5/23749188/reddit-subreddit-private-protest-api-changes-apollo-charges'>
         gone private
       </a>
-      . Our chat options remain open. We are currently on Lemmy:
+      . Our chat options remain open. We are currently on Lemmy: 
       <a href='https://beehaw.org/c/jellyfin@lemmy.ml'>c/Jellyfin</a> (via Beehaw)
     </div>
     <div className='card__footer'>
