@@ -17,7 +17,7 @@ const RedditCard = () => (
     </div>
     <div className='card__footer'>
       <button className='button button--block button--reddit'>
-        Unavailable
+Unavailable
       </button>
     </div>
   </div>
