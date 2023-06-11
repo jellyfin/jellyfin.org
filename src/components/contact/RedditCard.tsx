@@ -12,12 +12,11 @@ const RedditCard = () => (
       <Reddit />
     </div>
     <div className='card__body'>
-      Participate in community discussion and troubleshooting and receive updates from the Jellyfin project and
-      community on Reddit.
+      r/Jellyfin has <a href="https://www.theverge.com/2023/6/5/23749188/reddit-subreddit-private-protest-api-changes-apollo-charges">gone private</a>. Our chat options remain open.
     </div>
     <div className='card__footer'>
-      <a href='https://www.reddit.com/r/jellyfin' className='button button--block button--reddit'>
-        /r/jellyfin
+      <a href='#' className='button button--block button--reddit'>
+        Unavailable
       </a>
     </div>
   </div>
