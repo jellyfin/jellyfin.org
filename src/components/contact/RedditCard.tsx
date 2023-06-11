@@ -16,7 +16,7 @@ const RedditCard = () => (
       We are currently on Lemmy: <a href="https://beehaw.org/c/jellyfin@lemmy.ml">c/Jellyfin</a> (via Beehaw)
     </div>
     <div className='card__footer'>
-      <a href='#' className='button button--block button--reddit'>
+      <button className='button button--block button--reddit'>
         Unavailable
       </a>
     </div>
