@@ -17,11 +17,10 @@ const RedditCard = () => (
         gone private
       </a>
       . Our chat options remain open. We are currently on Lemmy:
-      <a href="https://beehaw.org/c/jellyfin@lemmy.ml">c/Jellyfin</a> (via Beehaw)
+      <a href='https://beehaw.org/c/jellyfin@lemmy.ml'>c/Jellyfin</a> (via Beehaw)
     </div>
     <div className='card__footer'>
-      <button className='button button--block button--reddit'>
-Unavailable</button>
+      <button className='button button--block button--reddit'>Unavailable</button>
     </div>
   </div>
 );
