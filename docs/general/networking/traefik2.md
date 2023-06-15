@@ -110,7 +110,7 @@ services:
       #### Set contentTypeNosniff to true to add the X-Content-Type-Options header with the value nosniff.
       - 'traefik.http.middlewares.jellyfin-mw.headers.contentTypeNosniff=true'
       #### Set browserXssFilter to true to add the X-XSS-Protection header with the value 1; mode=block.
-      - 'traefik.http.middlewares.jellyfin-mw.headers.browserXSSFilter=true'
+      - 'traefik.http.middlewares.jellyfin-mw.headers.customresponseheaders.X-XSS-PROTECTION=0'
       #### The customFrameOptionsValue allows the X-Frame-Options header value to be set with a custom value. This
       #### overrides the FrameDeny option.
       - "traefik.http.middlewares.jellyfin-mw.headers.customFrameOptionsValue='allow-from https://DOMAIN_NAME'"
