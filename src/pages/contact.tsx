@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import DiscordCard from '../components/contact/DiscordCard';
 import IrcCard from '../components/contact/IrcCard';
 import MatrixCard from '../components/contact/MatrixCard';
-import RedditCard from '../components/contact/RedditCard';
+import ForumCard from '../components/contact/ForumCard';
 import TwitterCard from '../components/contact/TwitterCard';
 import MastodonCard from '../components/contact/MastodonCard';
 
@@ -56,7 +56,7 @@ export default function Contact() {
           </div>
           <div className='row'>
             <div className='col margin-bottom--md' style={{ display: 'flex' }}>
-              <RedditCard />
+              <ForumCard />
             </div>
             <div className='col margin-bottom--md' style={{ display: 'flex' }}>
               <MastodonCard />
