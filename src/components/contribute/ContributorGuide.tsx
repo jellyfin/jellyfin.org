@@ -473,8 +473,8 @@ export default function ContributorGuide() {
               problems your fellow users are having. Troubleshooting generally occurs in our{' '}
               <a href='https://matrix.to/#/#jellyfin:matrix.org'>main</a> and{' '}
               <a href='https://matrix.to/#/#jellyfin-troubleshooting:matrix.org'>troubleshooting</a> Matrix rooms and on{' '}
-              <a href='https://forum.jellyfin.org'>our Forum</a>. Hanging around those places and helping
-              your fellow users, in a kind, courteous, and respectful manner, earns our eternal gratitude!
+              <a href='https://forum.jellyfin.org'>our Forum</a>. Hanging around those places and helping your fellow
+              users, in a kind, courteous, and respectful manner, earns our eternal gratitude!
             </div>
           )}
 
