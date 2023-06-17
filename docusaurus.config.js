@@ -46,13 +46,13 @@ module.exports = {
           position: 'right'
         },
         {
-          href: 'https://forum.jellyfin.org',
-          label: 'Forum',
+          to: 'contact',
+          label: 'Contact',
           position: 'right'
         },
         {
-          to: 'contact',
-          label: 'Contact',
+          href: 'https://forum.jellyfin.org',
+          label: 'Forum',
           position: 'right'
         }
       ]
