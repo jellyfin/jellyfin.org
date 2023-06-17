@@ -46,6 +46,11 @@ module.exports = {
           position: 'right'
         },
         {
+          href: 'https://forum.jellyfin.org',
+          label: 'Forum',
+          position: 'right'
+        },
+        {
           to: 'contact',
           label: 'Contact',
           position: 'right'
