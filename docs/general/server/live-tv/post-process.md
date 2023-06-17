@@ -17,7 +17,7 @@ Described below is one way to do post processing, there may be other ways (other
 
 :::
 
-Mess around with this to change to your needs. Search around, post questions to the [Jellyfin Reddit Forum](https://www.reddit.com/r/jellyfin) or elsewhere, and others may be able to help. Logging is your friend! Make sure your script(s) logs adequately to a file or elsewhere in order to troubleshoot any issues you may encounter, as any output to stdout/stderror will not be seen in the Jellyfin logs.
+Mess around with this to change to your needs. Search around, post questions to the [Jellyfin Forum](https://forum.jellyfin.org) or elsewhere, and others may be able to help. Logging is your friend! Make sure your script(s) logs adequately to a file or elsewhere in order to troubleshoot any issues you may encounter, as any output to stdout/stderror will not be seen in the Jellyfin logs.
 
 ## Jellyfin Dashboard/DVR/Recording Post Processing Settings
 
