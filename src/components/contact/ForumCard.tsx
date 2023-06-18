@@ -13,7 +13,7 @@ const ForumCard = () => (
       Join us on our Forum for release announcements, troubleshooting, and development discussions.
     </div>
     <div className='card__footer'>
-      <a href='https://forum.jellyfin.org' className='button button--block'>
+      <a href='https://forum.jellyfin.org' className='button button--block button--forum'>
         Jellyfin Forum
       </a>
     </div>
