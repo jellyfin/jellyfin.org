@@ -25,7 +25,7 @@ The core team consists of those with merge permissions on the main Jellyfin repo
 
 | Person | Contact |
 |---|---|
-| Joshua Boniface (Project Leader) | [GitHub](https://github.com/joshuaboniface) [Matrix](https://matrix.to/#/@joshuaboniface:bonifacelabs.ca) [Reddit](https://www.reddit.com/user/djbon2112) [Email](mailto:joshua@boniface.me) |
+| Joshua Boniface (Project Leader) | [GitHub](https://github.com/joshuaboniface) [Matrix](https://matrix.to/#/@joshuaboniface:bonifacelabs.ca) [Email](mailto:joshua@boniface.me) |
 | Anthony Lavado | [GitHub](https://github.com/anthonylavado) |
 | Andrew Rabert  | [GitHub](https://github.com/nvllsvm) |
 | Bond-009 | [GitHub](https://github.com/Bond-009) |

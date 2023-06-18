@@ -29,19 +29,6 @@
   border-color: #0ba176;
 }
 
-.button--reddit {
-  background-color: #ff4500;
-  border-color: #ff4500;
-}
-.button--reddit:hover {
-  background-color: #e63e00;
-  border-color: #e63e00;
-}
-.button--reddit:active {
-  background-color: #d93b00;
-  border-color: #d93b00;
-}
-
 .button--twitter {
   background-color: #1da1f2;
   border-color: #1da1f2;
@@ -66,4 +53,17 @@
 .button--mastodon:active {
   background-color: #2f0c7a;
   border-color: #2f0c7a;
+}
+
+.button--forum {
+  background-color: #00a4dc;
+  border-color: #00a4dc;
+}
+.button--forum:hover {
+  background-color: #0094cc;
+  border-color: #0094cc;
+}
+.button--forum:active {
+  background-color: #0084bc;
+  border-color: #0084bc;
 }
