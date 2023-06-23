@@ -54,10 +54,10 @@ const MatrixCard = () => {
                 <a href='https://matrix.to/#/#jellyfin-dev-ios:matrix.org'>#jellyfin-dev-ios</a>
               </li>
               <li>
-                <a href='https://matrix.to/#/#jellyfin-dev-ios:matrix.org'>#jellyfin-vue</a>
+                <a href='https://matrix.to/#/#jellyfin-vue:matrix.org'>#jellyfin-vue</a>
               </li>
               <li>
-                <a href='https://matrix.to/#/#jellyfin-dev-ios:matrix.org'>#jellyfin-dev-roku</a>
+                <a href='https://matrix.to/#/#jellyfin-dev-roku:matrix.org'>#jellyfin-dev-roku</a>
               </li>
               <li>
                 <a href='https://matrix.to/#/#jellyfin-dev-python:matrix.org'>#jellyfin-dev-python</a>
