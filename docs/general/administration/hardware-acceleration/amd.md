@@ -478,7 +478,7 @@ Root permission is required.
       --net=host \
       --restart=unless-stopped \
       --device /dev/dri/renderD128:/dev/dri/renderD128 \
-      --device /dev/dri/kfd:/dev/dri/kfd \ # Remove this device if you don't use the OpenCL tone-mapping
+      --device /dev/kfd:/dev/kfd \ # Remove this device if you don't use the OpenCL tone-mapping
       --env ROC_ENABLE_PRE_VEGA=1 \
       jellyfin/jellyfin
      ```
@@ -501,7 +501,7 @@ Root permission is required.
            - /path/to/media:/media
          devices:
            - /dev/dri/renderD128:/dev/dri/renderD128
-           - /dev/dri/kfd:/dev/dri/kfd # Remove this device if you don't use the OpenCL tone-mapping
+           - /dev/kfd:/dev/kfd # Remove this device if you don't use the OpenCL tone-mapping
          environment:
            - ROC_ENABLE_PRE_VEGA=1
      ```
