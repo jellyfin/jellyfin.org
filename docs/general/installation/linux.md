@@ -95,7 +95,7 @@ Instructions can be found at [the FFmpeg wiki](https://trac.ffmpeg.org/wiki/Comp
 
 ### Repository
 
-The Jellyfin team provides a Debian repository for installation on Debian Buster/Bullseye.
+The Jellyfin team provides a Debian repository for installation on Debian Buster, Bullseye and Bookworm.
 Supported architectures are `amd64`, `arm64`, and `armhf`.
 
 :::note
@@ -147,7 +147,7 @@ If you don't trust the script or want to do everything manually, the full steps 
 
    :::note
 
-   Supported releases are `buster` and `bullseye`.
+   Supported releases are `buster`, `bullseye` and `bookworm`.
 
    :::
 
@@ -401,11 +401,11 @@ Not being able to use `jellyfin-ffmpeg` will most likely break hardware accelera
 :::
 
 If you are running Debian or a derivative, you should [download](https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/) and install a `ffmpeg` release built specifically for Jellyfin.
-Be sure to download the latest release that matches your OS (`5.1.2-8` for Debian Bullseye assumed below).
+Be sure to download the latest release that matches your OS (`5.1.3-2` for Debian Bookworm assumed below).
 
 ```sh
-sudo wget https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/5.1.2-8/jellyfin-ffmpeg5_5.1.2-8-bullseye_amd64.deb
-sudo dpkg --install jellyfin-ffmpeg5_5.1.2-8-bullseye_amd64.deb
+sudo wget https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/5.1.3-2/jellyfin-ffmpeg5_5.1.3-2-bookworm_amd64.deb
+sudo dpkg --install jellyfin-ffmpeg5_5.1.3-2-bookworm_amd64.deb
 ```
 
 If you run into any dependency errors, run this and it will install them and `jellyfin-ffmpeg`.
