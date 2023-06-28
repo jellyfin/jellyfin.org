@@ -54,11 +54,6 @@ module.exports = {
           href: 'https://forum.jellyfin.org',
           label: 'Forum',
           position: 'right'
-        },
-        {
-          href: 'https://status.jellyfin.org',
-          label: 'Status',
-          position: 'right'
         }
       ]
     },
@@ -81,6 +76,10 @@ module.exports = {
         {
           label: 'Contribute',
           to: '/contribute'
+        },
+        {
+          label: 'Status',
+          to: 'https://status.jellyfin.org'
         },
         {
           label: 'Contact',
