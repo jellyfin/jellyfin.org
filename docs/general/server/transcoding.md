@@ -22,7 +22,7 @@ This option will manually set the number of threads to use when transcoding. If 
 
 There are four types of playback; three of which involve transcoding. The type being used will be listed in the dashboard when playing a file. They are ordered below from lowest to highest load on the server:
 
-- Direct Play: Delivers the file without transcoding.  There is no modification to the file and almost no additional load on the server.
+- Direct Play: Delivers the file without transcoding. There is no modification to the file and almost no additional load on the server.
 - Remux: Changes the container but leaves both audio and video streams untouched.
 - Direct Stream: Transcodes audio but leaves original video untouched.
 - Transcode: Transcodes the video stream.
