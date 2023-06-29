@@ -248,7 +248,7 @@ server {
         # The / at the end is significant.
         # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
 
-        proxy_pass http://$jellyfin:8096;
+        proxy_pass http://$jellyfin:8096/;
 
         proxy_pass_request_headers on;
 
