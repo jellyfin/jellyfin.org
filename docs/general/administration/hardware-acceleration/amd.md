@@ -361,14 +361,14 @@ Root permission is required.
    - [rocm-opencl-runtime](https://archlinux.org/packages/community/x86_64/rocm-opencl-runtime/)
 
    ```shell
-   sudo pacman -Sy libva-mesa-driver vulkan-radeon rocm-opencl-runtime
+   sudo pacman -Syu libva-mesa-driver vulkan-radeon rocm-opencl-runtime
    sudo sh -c "echo ROC_ENABLE_PRE_VEGA=1 >> /etc/profile"
    ```
 
 3. Check the VA-API codecs:
 
    ```shell
-   sudo pacman -Sy libva-utils
+   sudo pacman -Syu libva-utils
    sudo vainfo --display drm --device /dev/dri/renderD128
    ```
 
@@ -590,7 +590,7 @@ Root permission is required.
    - On Arch Linux:
 
      ```shell
-     sudo pacman -Sy radeontop
+     sudo pacman -Syu radeontop
      ```
 
 2. Play a video in the Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.

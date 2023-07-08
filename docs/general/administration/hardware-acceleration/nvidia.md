@@ -248,7 +248,7 @@ Root permission is required.
    - <https://wiki.archlinux.org/title/NVIDIA#Installation>
 
    ```shell
-   sudo pacman -Sy nvidia-utils
+   sudo pacman -Syu nvidia-utils
    ```
 
 3. Check the NVIDIA GPU status by using `nvidia-smi`:
