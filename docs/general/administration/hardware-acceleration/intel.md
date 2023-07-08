@@ -466,7 +466,7 @@ Root permission is required.
 3. Check the QSV / VA-API codecs and the OpenCL runtime status:
 
    ```shell
-   sudo pacman -Sy libva-utils
+   sudo pacman -Syu libva-utils
    sudo vainfo --display drm --device /dev/dri/renderD128
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
    ```
@@ -747,7 +747,7 @@ Root permission is required.
    - On Arch Linux:
 
      ```shell
-     sudo pacman -Sy intel-gpu-tools
+     sudo pacman -Syu intel-gpu-tools
      ```
 
 2. Play a video in Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
@@ -863,7 +863,7 @@ Root permission is required.
    - On Arch Linux:
 
      ```shell
-     sudo pacman -Sy linux-firmware
+     sudo pacman -Syu linux-firmware
      ```
 
    - Pull firmwares from Linux repository directly:
