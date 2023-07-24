@@ -250,7 +250,7 @@ As always it is recommended to run the container rootless. Therefore we want to 
 
 ## TrueNAS SCALE / TrueCharts
 
-Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside the [TrueCharts](https://www.truecharts.org/) App Catalog with direct intergation into the GUI, no CLI needed. Direct support is available on the [TrueCharts Discord](https://discord.com/Js6xv9nGuU) and the source code is available on [GitHub](https://github.com/truecharts/charts).
+Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside the [TrueCharts](https://www.truecharts.org/) App Catalog with direct integration into the GUI, no CLI needed. Direct support is available on the [TrueCharts Discord](https://discord.com/Js6xv9nGuU) and the source code is available on [GitHub](https://github.com/truecharts/charts).
 
 1. Install the TrueCharts Catalog to TrueNAS SCALE, see [website](https://truecharts.org/manual/guides/Adding-TrueCharts) for more info.
 

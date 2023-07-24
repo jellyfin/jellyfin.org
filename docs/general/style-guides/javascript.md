@@ -31,11 +31,11 @@ import 'otherDependency';
  * @returns {Int|null} The resulting object from the function.
  */
 function privateFunction (argument) {
-    // Code ommitted
+    // Code omitted
 }
 
-export publicFunction (argument) {
-    // Code ommitted
+export function publicFunction (argument) {
+    // Code omitted
 }
 
 export default { publicFunction }

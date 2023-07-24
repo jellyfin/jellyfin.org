@@ -105,7 +105,7 @@ Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.
         <httpProtocol>
             <customHeaders>
                 <clear />
-                <add name="X-XSS-Protection" value="1; mode=block" />
+                <add name="X-XSS-Protection" value="0" />
                 <add name="X-Content-Type-Options" value="nosniff" />
                 <add name="Cache-Control" value="no-cache" />
                 <add name="X-Frame-Options" value="SAMEORIGIN" />
