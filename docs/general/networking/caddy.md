@@ -13,6 +13,22 @@ You can reverse proxy to Jellyfin either with or without a config file, and eith
 
 If you aren't familiar with Caddy yet, check out its [Getting Started](https://caddyserver.com/docs/getting-started) guide.
 
+:::caution
+There are a some guides that have a Caddyfile which includes the `tls` section with a CloudFlare API Key.
+Some guides even state that you NEED this section in the config for HTTPS to work.
+```Caddyfile
+example.com {
+    reverse_proxy 127.0.0.1:8096
+    // highlight-start
+    tls {
+        dns <DNS Provider> <API Token>
+    }
+    // highlight-end
+}
+```
+This section is NOT needed for HTTPS to work and we STRONGLY recommend you NOT add this section in your config. This feature is for obtaining a Let's Encrypt certificate in cases where ports 80 and 443 are inaccessable from the outside. However, due to the way permissions work for most providers, you are likely NOT able to limit access of a given token to only certain DNS records. In the event that this API Token leaks, ALL of your DNS records for this domain and even your account may be compromised. Please read [Let's Encrypt Documentation](https://letsencrypt.org/docs/challenge-types/) for more info.
+:::
+
 ## One-liners
 
 The easiest way to reverse proxy to Jellyfin is with the `reverse-proxy` command:
@@ -74,9 +90,3 @@ reverse_proxy /jellyfin/* 127.0.0.1:8096
 
 With that config, Caddy will only proxy requests that start with `/jellyfin/`.
 Note the trailing slash - that is optional, but recommended.
-
-## Community Links
-
-- [Windows Guide for Caddy v2](https://www.youtube.com/watch?v=dbmgOxPwQA0) - YouTube
-- [Windows Guide for Caddy v2](https://www.reddit.com/r/jellyfin/comments/gdwe0s/windows_and_caddy_v2_reverse_proxy_guide)
-- [Windows Guide for Caddy v1](https://www.reddit.com/r/jellyfin/comments/ek8ugr/windows_reverse_proxy_guide)
