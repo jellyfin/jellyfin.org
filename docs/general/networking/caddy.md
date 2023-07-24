@@ -15,6 +15,7 @@ If you aren't familiar with Caddy yet, check out its [Getting Started](https://c
 
 :::caution
 There are a some guides that have a Caddyfile which includes the `tls` section with a DNS Provider API Key, as shown the following example.
+
 ```Caddyfile
 example.com {
     reverse_proxy 127.0.0.1:8096
@@ -25,6 +26,7 @@ example.com {
     // highlight-end
 }
 ```
+
 This WILL NOT automatically update your DNS records if you have a dynamic IP, and is only necessary for Automatic Let's Encrypt DNS-01 Challenge to work. This is strongly NOT recommended because of security reasons. Due to the way permissions work for most providers, ALL of your DNS records for this domain or even your account might get compromised in the event that this API Token leaks. If you are unable to use the HTTP-01 challenge, we recommend using an external tool to obtain the certificates, such as [acme.sh](https://github.com/acmesh-official/acme.sh). Please read [Let's Encrypt Documentation](https://letsencrypt.org/docs/challenge-types/) for more info.
 :::
 
