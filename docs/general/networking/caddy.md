@@ -14,7 +14,7 @@ You can reverse proxy to Jellyfin either with or without a config file, and eith
 If you aren't familiar with Caddy yet, check out its [Getting Started](https://caddyserver.com/docs/getting-started) guide.
 
 :::caution
-There are a some guides that have a Caddyfile which includes the `tls` section with a DNS Provider API Key, as shown the following example.
+There are a some guides that have a Caddyfile which includes a `tls` section with the DNS provider's API key as shown the following example.
 
 ```Caddyfile
 example.com {
