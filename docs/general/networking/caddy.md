@@ -87,7 +87,7 @@ To do this, first configure Jellyfin to use a base path.
 If you already have access to the web interface, go to `Admin > Networking` and enter a path like `/jellyfin` in the Base URL field.
 If not, you may instead go to `<Configuration Directory>/network.xml` and modify the value of `<BaseUrl>` according to your needs. For information on the directory location, please consult the [configuration documentation](/docs/general/administration/configuration#configuration-directory).
 You might have to restart the Jellyfin server for this to take effect.
-Then simply give the `reverse_proxy` directive a path matcher. The path should be the same as the Base URL you entered into Jellyfin's settings. The following example is for a server that is under `example.com/jellyfin`.
+Then simply give the `reverse_proxy` directive a path matcher. The path should be the same as the `Base URL`  you entered into Jellyfin's settings. The following example is for a server that is under `example.com/jellyfin`.
 
 ```txt
 example.com
