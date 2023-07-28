@@ -30,7 +30,7 @@ example.com {
 Please proceed with caution when using this option:
 
 - This will **NOT** automatically update your DNS records if you have a dynamic IP.
-- This is **only** necessary if you **cannot** open ports 80 and 443
+- This is **only** necessary if you **cannot** open ports 80 and 443.
 - Misconfiguration can lead to **compromised domains and/or accounts**.
 - API Tokens should only be granted the least permissions for the application to function.
 
