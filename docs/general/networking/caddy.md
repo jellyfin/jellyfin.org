@@ -30,7 +30,7 @@ example.com {
 Please proceed with caution when using this option:
 
 - This will **NOT** automatically update your DNS records if you have a dynamic IP.
-- This is **only** necessary if you **cannot** open ports 80 and 443.
+- This is **NOT** required for automatic SSL to work in most cases.
 - Misconfiguration can lead to **compromised domains and/or accounts**.
 - API keys should only be granted the least permissions required for the application to function.
 
