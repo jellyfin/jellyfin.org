@@ -34,7 +34,7 @@ Please proceed with caution when using this option:
 - Misconfiguration can lead to **compromised domains and/or accounts**.
 - API keys should only be granted the least permissions required for the application to function.
 
-Please read [Let's Encrypt Documentation](https://letsencrypt.org/docs/challenge-types/) for more info.
+Please read the [Let's Encrypt documentation](https://letsencrypt.org/docs/challenge-types/) for more info.
 :::
 
 ## One-liners
