@@ -42,6 +42,11 @@ title: Apache
     ProxyPass "/" "http://SERVER_IP_ADDRESS:8096/"
     ProxyPassReverse "/" "http://SERVER_IP_ADDRESS:8096/"
 
+    <Location "/socket">
+        ProxyPass "ws://SERVER_IP_ADDRESS:8096/socket"
+        ProxyPassReverse "ws://SERVER_IP_ADDRESS:8096/socket"
+    </Location>
+
     SSLEngine on
     SSLCertificateFile /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem
     SSLCertificateKeyFile /etc/letsencrypt/live/DOMAIN_NAME/privkey.pem
