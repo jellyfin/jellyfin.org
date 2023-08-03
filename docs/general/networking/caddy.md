@@ -13,6 +13,30 @@ You can reverse proxy to Jellyfin either with or without a config file, and eith
 
 If you aren't familiar with Caddy yet, check out its [Getting Started](https://caddyserver.com/docs/getting-started) guide.
 
+:::caution
+There are a some guides that have a Caddyfile which includes a `tls` section with the DNS provider's API key as shown in the following example.
+
+```Caddyfile
+example.com {
+    reverse_proxy 127.0.0.1:8096
+    // highlight-start
+    tls {
+        dns <DNS Provider> <API Token>
+    }
+    // highlight-end
+}
+```
+
+Please proceed with caution when using this option:
+
+- This will **NOT** automatically update your DNS records if you have a dynamic IP.
+- This is **NOT** required for automatic HTTPS to work in most cases.
+- Misconfiguration can lead to **compromised domains and/or accounts**.
+- API keys should only be granted the least permissions required for the application to function.
+
+Please read the [Let's Encrypt documentation](https://letsencrypt.org/docs/challenge-types/) for more info.
+:::
+
 ## One-liners
 
 The easiest way to reverse proxy to Jellyfin is with the `reverse-proxy` command:
@@ -63,7 +87,7 @@ To do this, first configure Jellyfin to use a base path.
 If you already have access to the web interface, go to `Admin > Networking` and enter a path like `/jellyfin` in the Base URL field.
 If not, you may instead go to `<Configuration Directory>/network.xml` and modify the value of `<BaseUrl>` according to your needs. For information on the directory location, please consult the [configuration documentation](/docs/general/administration/configuration#configuration-directory).
 You might have to restart the Jellyfin server for this to take effect.
-Then simply give the `reverse_proxy` directive a path matcher.
+Then simply give the `reverse_proxy` directive a path matcher. The path should be the same as the `Base URL` you entered into Jellyfin's settings. The following example is for a server that is accessible at `example.com/jellyfin`.
 
 ```txt
 example.com
@@ -74,9 +98,3 @@ reverse_proxy /jellyfin/* 127.0.0.1:8096
 
 With that config, Caddy will only proxy requests that start with `/jellyfin/`.
 Note the trailing slash - that is optional, but recommended.
-
-## Community Links
-
-- [Windows Guide for Caddy v2](https://www.youtube.com/watch?v=dbmgOxPwQA0) - YouTube
-- [Windows Guide for Caddy v2](https://www.reddit.com/r/jellyfin/comments/gdwe0s/windows_and_caddy_v2_reverse_proxy_guide)
-- [Windows Guide for Caddy v1](https://www.reddit.com/r/jellyfin/comments/ek8ugr/windows_reverse_proxy_guide)
