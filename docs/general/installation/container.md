@@ -83,13 +83,6 @@ Multiple media libraries can be bind mounted if needed:
 ...etc
 ```
 
-:::note
-
-There is currently an [issue](https://github.com/docker/for-linux/issues/788) with read-only mounts in Docker.
-If there are submounts within the main mount, the submounts are read-write capable.
-
-:::
-
 ### Using Docker Compose
 
 Create a `docker-compose.yml` file with the following contents. Add in the UID and GID that you would like to run jellyfin as in the user line below, or remove the user line to use the default (root).
