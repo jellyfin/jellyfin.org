@@ -19,8 +19,8 @@ The goal is to Direct Play all media. This means the container, video, audio and
 | [MPEG-4 Part 2/ASP](<https://en.wikipedia.org/wiki/MPEG-4_Part_2#Advanced_Simple_Profile_(ASP)>)                   | ❌             | ❌             | ❌      | ❌             | ❌             | ❌             | ❌             | ✅             |                                                                                 | ✅   | ✅                                                           |
 | [H.264 8Bit](https://caniuse.com/#feat=mpeg4 'H264 Browser Support Reference')                                     | ✅             | ✅             | ✅      | ✅             | ✅             | ✅             | ✅             | ✅             | ✅                                                                              | ✅   | ✅                                                           |
 | [H.264 10Bit](https://caniuse.com/#feat=mpeg4 'H264 Browser Support Reference')                                    | ✅             | ✅             | ❌      | ❌             | ✅             | ✅             | ❌             | ✅             | ❌                                                                              | ✅   | ✅                                                           |
-| [H.265 8Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                      | 🔶<sup>8</sup> | ✅<sup>7</sup> | ❌      | 🔶<sup>1</sup> | 🔶<sup>2</sup> | ✅<sup>5</sup> | 🔶<sup>1</sup> | ✅<sup>6</sup> | ✅                                                                              | ✅   | ✅                                                           |
-| [H.265 10Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                     | 🔶<sup>8</sup> | ✅<sup>7</sup> | ❌      | 🔶<sup>1</sup> | 🔶<sup>2</sup> | 🔶<sup>5</sup> | 🔶<sup>1</sup> | ✅<sup>6</sup> | ✅                                                                              | ✅   | ✅                                                           |
+| [H.265 8Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                      | 🔶<sup>8</sup> | ✅<sup>7</sup> | ❌      | 🔶<sup>1</sup> | 🔶<sup>2</sup> | ✅<sup>5</sup> | 🔶<sup>1</sup> | ✅<sup>6</sup> | 🔶<sup>9</sup>                                                                              | ✅   | ✅                                                           |
+| [H.265 10Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                     | 🔶<sup>8</sup> | ✅<sup>7</sup> | ❌      | 🔶<sup>1</sup> | 🔶<sup>2</sup> | 🔶<sup>5</sup> | 🔶<sup>1</sup> | ✅<sup>6</sup> | 🔶<sup>9</sup>                                                                              | ✅   | ✅                                                           |
 | [VP9](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#VP9 'V9 Browser Support Reference')  | ✅             | ✅             | ✅      | ❌             | ✅<sup>3</sup> | 🔶<sup>3</sup> | ❌             | ❌             | ✅                                                                              | ✅   | ✅                                                           |
 | [AV1](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#AV1 'AV1 Browser Support Reference') | ✅             | ✅             | ✅      | ❌             | ✅             | 🔶<sup>4</sup> | ❌             | ❌             | ✅                                                                              | ✅   | ✅                                                           |
 
@@ -30,15 +30,17 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <br />
 <sup>3</sup>May be (partially) dependent on Hardware support (can be compensated with CPU decoding on Android). Most new Android phones in the higher price range and many "4K" Android TV devices have VP9 hardware decoding support. Refer to you manufacturer for supported codecs.
 <br />
-<sup>4</sup>Needs atleast Android TV 10
+<sup>4</sup>Needs atleast Android TV 10.
 <br />
 <sup>5</sup>As of <a href="https://github.com/jellyfin/jellyfin-androidtv/pull/671">version 0.12</a>, HEVC is enabled on all devices running Android 5.0+, but early generations of the Amazon Fire may not work yet. 10Bit may be supported depending on your device. Before Client 0.12, HEVC support was enabled on specific devices.
 <br />
-<sup>6</sup>HEVC decoding is supported on Apple devices with the A8X chip or newer and at least iOS 14
+<sup>6</sup>HEVC decoding is supported on Apple devices with the A8X chip or newer and at least iOS 14.
 <br />
 <sup>7</sup>HEVC decoding is only supported on Windows 10 with the HEVC Video Extension from the Microsoft <a href="https://www.microsoft.com/store/productId/9NMZLZ57R3T7">store</a>.
 <br />
-<sup>8</sup> Chromium 104 does support HEVC decoding when launched with <code>--enable-features=PlatformHEVCDecoderSupport</code> argument. For more informations please look at <a href="https://github.com/StaZhu/enable-chromium-hevc-hardware-decoding#readme">enable-chromium-hevc-hardware-decoding</a>.
+<sup>8</sup>Chromium 104 does support HEVC decoding when launched with <code>--enable-features=PlatformHEVCDecoderSupport</code> argument. For more informations please look at <a href="https://github.com/StaZhu/enable-chromium-hevc-hardware-decoding#readme">enable-chromium-hevc-hardware-decoding</a>.
+<br />
+<sup>9</sup>HEVC decoding is only supported on 4K devices.
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
 
