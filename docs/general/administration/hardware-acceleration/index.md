@@ -25,6 +25,12 @@ The supported and validated video [hardware acceleration (HWA)](https://trac.ffm
 
 - **Raspberry Pi** Video4Linux2 (V4L2, Linux only)
 
+:::caution
+
+While Hardware Acceleration is supported on Raspberry Pi Hardware, it is recommended that Jellyfin NOT be used on Raspberry Pi or other SBCs. They are too slow to provide a good experience when transcoding is needed. Please consider getting a more powerful system.
+
+:::
+
 ## Full & Partial Acceleration
 
 The transcoding pipeline usually has multiple stages, which can be simplified to:
