@@ -27,7 +27,7 @@ The supported and validated video [hardware acceleration (HWA)](https://trac.ffm
 
 :::caution
 
-While hardware acceleration is supported on Raspberry Pi hardware, it is recommended that Jellyfin NOT be hosted on Raspberry Pis or other SBCs. Many hardware acceleration features are not supported and will fallback to software. In addation, they are generally too slow to provide a good experience when transcoding is needed. Please consider getting a more powerful system to host Jellyfin.
+While hardware acceleration is supported on Raspberry Pi hardware, it is recommended that Jellyfin NOT be hosted on Raspberry Pis or other SBCs. Many hardware acceleration features are not supported and will fallback to software. In addition, they are generally too slow to provide a good experience when transcoding is needed. Please consider getting a more powerful system to host Jellyfin.
 
 :::
 
