@@ -37,7 +37,7 @@ filter = jellyfin
 maxretry = 3
 bantime = 86400
 findtime = 43200
-logpath = /path_to_logs/*.log
+logpath = /path_to_logs/jellyfin*.log
 ```
 
 Save and exit nano.
