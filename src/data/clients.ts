@@ -27,6 +27,7 @@ export type Client = {
   id: string;
   name: string;
   description: string;
+  smallDescription?: string;
   clientType: ClientType;
   deviceTypes: Array<DeviceType>;
   licenseType: LicenseType;
@@ -534,6 +535,8 @@ export const Clients: Array<Client> = [
     id: 'jellyfin-roku',
     name: 'Jellyfin for Roku',
     description: 'The official Jellyfin app for Roku devices.',
+    smallDescription:
+      'Due to a technical limitation of the Roku store, the Jellyfin app for Roku may state that a cable or satellite subscription is required. However, no subscription of any form is required to use any official client or the Jellyfin server.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.TV],
     licenseType: LicenseType.OpenSource,
