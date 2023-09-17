@@ -6,6 +6,7 @@ type DetailsCardProps = {
   id?: string;
   title: string;
   description: ReactNode;
+  smallDescription?: ReactNode;
   badges?: ReactNode;
   icons?: ReactNode;
   primaryButtons?: Array<ReactNode>;
