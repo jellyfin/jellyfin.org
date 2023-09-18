@@ -8,7 +8,7 @@ title: fail2ban
 [Fail2ban](https://github.com/fail2ban/fail2ban) is an intrusion prevention software framework that protects computer servers from brute-force attacks.
 Fail2ban operates by monitoring log files (e.g. /var/log/auth.log, /var/log/apache/access.log, etc.) for selected entries and running scripts based on their content.
 
-Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force attacks on your machine. 
+Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force attacks on your machine.
 
 ### Requirements
 
@@ -88,12 +88,11 @@ Assuming you've at least one failed authentication attempt, you can test this ne
 sudo fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
 ```
 
-
-
 ### optional Step four: Systemd+nftables config
 
 Systemd users like Debian or Ubuntu currently require some additional configs for fail2ban to work. 
 Insert into /etc/fail2ban/jail.d/defaults-debian.conf:
+
 ``` [sshd]
 enabled = true
 backend=systemd
@@ -112,6 +111,3 @@ You also have to enable nftables to start at boot.
 sudo systemctl enable nftables
 sudo systemctl start nftables
 ```
-
-
-
