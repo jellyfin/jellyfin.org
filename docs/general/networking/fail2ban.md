@@ -91,9 +91,10 @@ sudo fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --p
 ### optional Step four: Systemd+nftables config
 
 Systemd users like Debian or Ubuntu currently require some additional configs for fail2ban to work. 
-Insert into /etc/fail2ban/jail.d/defaults-debian.conf:
+Change the file /etc/fail2ban/jail.d/defaults-debian.conf to:
 
-``` [sshd]
+```bash
+[sshd]
 enabled = true
 backend=systemd
 
@@ -107,7 +108,7 @@ And without adding the banaction default, fail2ban will try to use iptables that
 
 You also have to enable nftables to start at boot.
 
-```
+```bash
 sudo systemctl enable nftables
 sudo systemctl start nftables
 ```
