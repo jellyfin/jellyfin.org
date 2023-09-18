@@ -131,7 +131,6 @@ UPDATE Users SET InvalidLoginAttemptCount = 0 WHERE Username = 'LockedUserName';
 UPDATE Permissions SET Value = 0 WHERE Kind = 2 AND UserId IN (SELECT Id FROM Users WHERE Username = 'LockedUserName');
 ```
 
-
 ## Fix Admin User Permissions
 
 If the Permissions for your Admin Account break, you can Restore them using simple SQL Queries.
