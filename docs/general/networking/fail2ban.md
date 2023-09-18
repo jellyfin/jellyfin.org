@@ -15,7 +15,7 @@ Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force 
 - Jellyfin remotely accessible
 - Fail2ban installed and running
 - Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/` for desktop and `/config/log/` for docker containers.
-- For systemd or nftables users (Debian, Ubuntu) there are some additional steps needed, see step four.
+- For systemd or nftables users (Debian, Ubuntu) there are some additional steps needed, see *optional steps for systemd and nftables* at the end of this document.
 
 ### Step one: create the jail
 
@@ -88,7 +88,7 @@ Assuming you've at least one failed authentication attempt, you can test this ne
 sudo fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
 ```
 
-###  Step four: Systemd+nftables config (optional)
+### optional steps for systemd and nftables
 
 Systemd users like Debian or Ubuntu currently require some additional configs for fail2ban to work.
 Change the file /etc/fail2ban/jail.d/defaults-debian.conf to:
