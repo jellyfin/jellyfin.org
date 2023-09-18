@@ -81,14 +81,13 @@ sudo systemctl status fail2ban
 ```
 
 ### Step three: test
-
 Assuming you've at least one failed authentication attempt, you can test this new jail with `fail2ban-regex`:
 
 ```bash
 sudo fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
 ```
 
-### optional Step four: Systemd+nftables config
+###  Step four: Systemd+nftables config (optional)
 
 Systemd users like Debian or Ubuntu currently require some additional configs for fail2ban to work. 
 Change the file /etc/fail2ban/jail.d/defaults-debian.conf to:
@@ -103,7 +102,7 @@ banaction = nftables
 banaction_allports = nftables[type=allports]
 ```
 
-Without the telling the sshd jail to use systemd as a backend, fail2ban won't even start. The banaction is to send the bans to nftables instead of the not in use iptables.
+Without the telling the sshd jail to use systemd as a backend, fail2ban won't even start. The banaction is to send the bans to nftables instead of unused iptables.
 And without adding the banaction default, fail2ban will try to use iptables that got replaced by nftables.
 
 You also have to enable nftables to start at boot.
