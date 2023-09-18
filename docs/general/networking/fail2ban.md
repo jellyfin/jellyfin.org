@@ -88,7 +88,7 @@ Assuming you've at least one failed authentication attempt, you can test this ne
 sudo fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
 ```
 
-### optional steps for systemd and nftables
+### Optional steps for systemd and nftables
 
 Systemd users like Debian or Ubuntu currently require some additional configs for fail2ban to work.
 Change the file /etc/fail2ban/jail.d/defaults-debian.conf to:
