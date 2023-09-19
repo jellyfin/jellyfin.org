@@ -32,7 +32,7 @@ Add this to the new file, replacing `/path_to_logs` with the path to the log fil
 
 backend = auto
 enabled = true
-port = 80,443
+port = 80,443,8096,8920
 protocol = tcp
 filter = jellyfin
 maxretry = 3
@@ -96,7 +96,7 @@ Change the file /etc/fail2ban/jail.d/defaults-debian.conf to:
 ```bash
 [sshd]
 enabled = true
-backend=systemd
+backend = systemd
 
 [DEFAULT]
 banaction = nftables
