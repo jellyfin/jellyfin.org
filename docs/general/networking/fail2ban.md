@@ -104,7 +104,7 @@ banaction_allports = nftables[type=allports]
 ```
 
 Without the telling the sshd jail to use systemd as a backend, fail2ban won't even start. The banaction is to send the bans to nftables instead of unused iptables.
-And without adding the banaction default, fail2ban will try to use iptables that got replaced by nftables.
+In a similar manner, without adding the `banaction` default, fail2ban will try to use iptables that got replaced by nftables.
 
 You also have to enable nftables to start at boot.
 
