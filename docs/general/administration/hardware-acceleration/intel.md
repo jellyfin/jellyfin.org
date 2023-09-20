@@ -87,6 +87,8 @@ The `Prefer OS native DXVA or VA-API hardware decoders` feature toggles between 
 
 ## Select GPU Hardware
 
+For beginners, please refer to the [Hardware Selection Guide](/docs/general/administration/hardware-selection) for tips on selecting hardware. For expert users, please continue reading this section.
+
 :::caution
 
 Do not use models of Intel processors ending with "F" - those do not have an integrated GPU.
