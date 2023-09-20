@@ -9,7 +9,7 @@ title: VPNs
 
 ## Commercial VPN services
 
-Commercial VPN services such as Mullvad, PIA, NordVPN or Windscribe are a great way to hide your IP and bypass georestrictions. While some of them do provide a port forwarding feature,  they are **NOT** designed for hosting permanent services. You **SHOULD NOT** use a commercial VPN as a means to remotely access a Jellyfin server.
+Commercial VPN services such as Mullvad, PIA, NordVPN or Windscribe are a great way to hide your IP and bypass georestrictions. While some of them do provide a port forwarding feature, hosting Jellyfin using one is not recommended.
 
 ## Point To Point VPNs
 
