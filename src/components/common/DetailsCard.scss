@@ -46,6 +46,9 @@
 .details-card__footer .button:first-child {
   margin-left: 0;
 }
+.details-card .card__body .card__body__helptext {
+  color: rgb(157, 148, 136);
+}
 
 @media (max-width: 420px) {
   .details-card__header {

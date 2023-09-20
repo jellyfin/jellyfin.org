@@ -731,19 +731,19 @@ Material Icons:
 - Outlined:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css");
   ```
 
 - Rounded:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
   ```
 
 - Sharp:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css");
   ```
 
 Fontawesome Icons:
@@ -751,25 +751,25 @@ Fontawesome Icons:
 - Solid:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css");
   ```
 
 - Regular:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css");
   ```
 
 - Light:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css");
   ```
 
 - duotone:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css");
   ```
 
 ## Community Links

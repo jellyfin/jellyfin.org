@@ -51,6 +51,8 @@ There are two different methods that can be used on Windows and/or Linux. Pros a
 
 ## Select GPU Hardware
 
+For beginners, please refer to the [Hardware Selection Guide](/docs/general/administration/hardware-selection) for tips on selecting hardware. For expert users, please continue reading this section.
+
 :::caution
 
 Most AMD dGPUs come with video encoders but be careful with certain models -  RX 6400/6500 series don't have video encoders.

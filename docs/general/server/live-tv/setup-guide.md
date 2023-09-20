@@ -82,7 +82,7 @@ Choose between 'Schedules Direct' and 'XMLTV'. You currently cannot use both at 
 
 **Schedules Direct:**
 
-Schedules Direct is a paid service that provides U.S. and Canadian guide data for use in OSS projects. The price is $25 a year and has not increased since it began in 2007. The guide data is highly reliable. You will have to create an account at their [website](http://www.schedulesdirect.org).
+Schedules Direct is a paid service that provides U.S., Canadian, and other guide data for use in OSS projects. They are a non-profit with a low membership fee. The guide data is highly reliable. You will have to create an account at their [website](http://www.schedulesdirect.org).
 
 **XMLTV:**
 

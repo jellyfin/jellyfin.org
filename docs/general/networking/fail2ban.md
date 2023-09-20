@@ -37,7 +37,7 @@ filter = jellyfin
 maxretry = 3
 bantime = 86400
 findtime = 43200
-logpath = /path_to_logs/*.log
+logpath = /path_to_logs/jellyfin*.log
 ```
 
 Save and exit nano.
@@ -84,5 +84,5 @@ sudo systemctl status fail2ban
 Assuming you've at least one failed authentication attempt, you can test this new jail with `fail2ban-regex`:
 
 ```bash
-fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
+sudo fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
 ```

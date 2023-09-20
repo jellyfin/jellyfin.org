@@ -27,6 +27,7 @@ export type Client = {
   id: string;
   name: string;
   description: string;
+  smallDescription?: string;
   clientType: ClientType;
   deviceTypes: Array<DeviceType>;
   licenseType: LicenseType;
@@ -534,6 +535,8 @@ export const Clients: Array<Client> = [
     id: 'jellyfin-roku',
     name: 'Jellyfin for Roku',
     description: 'The official Jellyfin app for Roku devices.',
+    smallDescription:
+      'Due to a technical limitation of the Roku store, the Jellyfin app for Roku may state that a cable or satellite subscription is required. However, no subscription of any form is required to use the Jellyfin server or any official client.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.TV],
     licenseType: LicenseType.OpenSource,
@@ -643,29 +646,6 @@ export const Clients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/patrickkfkan/volumio-jellyfin'
-      }
-    ]
-  },
-  {
-    id: 'discord-music-kgt1',
-    name: 'Discord Music Bot for Jellyfin by KGT1',
-    description: 'A Discord bot by KGT1 that allows playing your Jellyfin music library in Discord voice channels.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Discord],
-    primaryLinks: [
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: 'https://github.com/kgt1/jellyfin-discord-music-bot#getting-started'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/kgt1/jellyfin-discord-music-bot'
       }
     ]
   },

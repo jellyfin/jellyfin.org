@@ -142,7 +142,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
     ![New PATH value](/images/docs/quick-start/windows/caddyinst-6.png)
 
 9. Click on `OK` for the other 2 popups to save and apply settings
-10. Reboot to make sure settings apply poperly
+10. Reboot to make sure settings apply properly
 
 ### Test if HTTP is routable
 

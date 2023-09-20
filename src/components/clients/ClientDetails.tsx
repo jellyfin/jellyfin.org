@@ -27,6 +27,7 @@ const ClientDetails = ({ client }: { client: Client }) => (
   <DetailsCard
     title={client.name}
     description={client.description}
+    smallDescription={client.smallDescription}
     badges={
       <>
         <ClientTypeBadge clientType={client.clientType} />
