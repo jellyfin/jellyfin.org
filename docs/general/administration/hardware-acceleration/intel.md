@@ -87,7 +87,133 @@ The `Prefer OS native DXVA or VA-API hardware decoders` feature toggles between 
 
 ## Select GPU Hardware
 
-Please refer to the [Hardware Selection Guide](/docs/general/administration/hardware-selection) for tips on selecting hardware.
+For beginners, please refer to the [Hardware Selection Guide](/docs/general/administration/hardware-selection) for tips on selecting hardware. For expert users, please continue reading this section.
+
+:::caution
+
+Do not use models of Intel processors ending with "F" - those do not have an integrated GPU.
+
+:::
+
+Quick Sync Video support can be checked via the [Intel ark website](https://ark.intel.com/content/www/us/en/ark.html) prior to buying a new GPU suitable for hardware acceleration.
+
+### Transcode H.264
+
+AVC / H.264 8-bit is still widely used due to its excellent compatibility. All Intel GPUs that support QSV can decode and encode it.
+
+- **Decoding & Encoding H.264 8-bit** - Any Intel GPU that supports Quick Sync Video (QSV)
+
+### Transcode HEVC
+
+HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoding support thanks to [x265](https://x265.readthedocs.io/en/master/), as well as the widely implemented hardware encoding support in most GPUs released after 2016.
+
+Intel GPUs are no exception:
+
+- **Decoding & Encoding HEVC 8-bit** - Gen 9 Sky Lake (6th Gen Core) and newer
+
+- **Decoding & Encoding HEVC 10-bit** - Gen 9.5 Kaby Lake (7th Gen Core), Apollo Lake, Gemini Lake (Pentium and Celeron) and newer
+
+:::note
+
+Note that the 6th Gen Core lacks 10-bit support, it's best to choose 7th Gen and newer processors, which usually have HD / UHD 6xx series iGPU.
+
+:::
+
+### Transcode AV1
+
+AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
+
+Intel added support for AV1 acceleration in their latest GPUs:
+
+- **Decoding AV1 8/10-bit** - Gen 12 Tiger Lake (11th Gen Core) and newer
+
+- **Encoding AV1 8/10-bit** - Gen 12.5 DG2 / ARC A-series, Gen 12.7 Meteor Lake (14th?? Gen Core) and newer
+
+:::note
+
+Note that Jasper Lake and Elkhart Lake processors are 10th Gen Pentium/Celeron/Atom, which don't have AV1 acceleration.
+
+:::
+
+### Transcode Other Codecs
+
+Please refer to these links:
+
+- [Intel Media Capabilities documentation](https://www.intel.com/content/www/us/en/develop/documentation/media-capabilities-of-intel-hardware/top.html)
+
+- [Linux media-driver/iHD capabilities](https://github.com/intel/media-driver#decodingencoding-features)
+
+- [Linux vaapi-driver/i965 capabilities](https://github.com/intel/intel-vaapi-driver/blob/master/README)
+
+### Speed And Quality
+
+Intel improves the speed and video quality of its fixed-function encoders between each generation of graphics architectures.
+
+They can be divided into 4 tiers by their performance：
+
+- **Entry-Level** - HD / UHD 500, 600, 605 and 61x
+
+  :::tip
+
+  These iGPUs usually come from mini PC boxes or Synology NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
+
+  :::
+
+- **Mainstream** - HD / UHD 620, 630, Iris 640, 655 and the Gen 11 graphics
+
+  :::tip
+
+  These iGPUs have more computing power than entry-level, which makes them capable of multiple 4k HDR HEVC 10-bit transcoding at the same time. Note that the Gen 11 graphics have a slightly improved encoder quality over Gen 9.
+
+  :::
+
+- **High-Performance** - UHD 7xx series and Iris Xe graphics
+
+  :::tip
+
+  These GPUs use Gen 12 XeLP architecture with AV1 hardware decoding, [significantly improved video quality and speed](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-iris-xe-max-graphics/intel-iris-xe-max-graphics.md). Models like the UHD 770 and Iris Xe feature a second MFX video engine, which enhances its concurrent transcoding capabilities.
+
+  :::
+
+- **Hardcore** - ARC A-series discrete GPU
+
+  :::tip
+
+  ARC A-series GPUs use the latest Gen 12.5 XeHPG architecture, which continues to improve on the basis of XeLP, supports [AV1 hardware encoding and improved H.264 and HEVC encoding](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-data-center-gpu-flex-series/intel-data-center-gpu-flex-series.rst). This makes it competitive with the medium preset of the x264 and x265 software encoders. All ARC A-series GPU models come with two MFX video engines.
+
+  :::
+
+### OneVPL And MediaSDK
+
+[OneVPL](https://github.com/oneapi-src/oneVPL) is a new QSV implementation to supersede [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK). Both provide the Quick Sync Video (QSV) runtime.
+
+Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, namely Tiger Lake & Rocket Lake).
+
+:::note
+
+- The most notable difference is that OneVPL supports the new AV1 hardware encoder on ARC GPU.
+
+- [FFmpeg 6.0](http://ffmpeg.org/download.html#release_6.0) enables OneVPL. This process is seamless for the end users.
+
+:::
+
+### ARC GPU Support
+
+Jellyfin server 10.8.9+ and the latest jellyfin-ffmpeg5 support Intel ARC discrete GPU on both Windows and Linux **6.2+**.
+
+You only need to follow the [Windows Setups](/docs/general/administration/hardware-acceleration/intel#windows-setups) and [Linux Setups](/docs/general/administration/hardware-acceleration/intel#linux-setups) to configure and verify it.
+
+:::tip
+
+- [Resizable-BAR](https://game.intel.com/story/intel-arc-graphics-resizable-bar/) is not mandatory for hardware acceleration, but it can affect the graphics performance. It's recommended to enable the Resizable-BAR if the processor, motherboard and BIOS support it.
+
+- [ASPM](https://www.intel.com/content/www/us/en/support/articles/000092564/graphics.html) should be enabled in the BIOS if supported. This greatly reduces the idle power consumption of the ARC GPU.
+
+- Low-Power encoding is used by default on ARC GPUs. **GuC & HuC firmware can be missing on older distros**, you might need to manually download it from the [Kernel firmware git](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915).
+
+- Old kernel build configs [may not have the MEI modules enabled](https://gitlab.freedesktop.org/drm/intel/-/issues/7732), which are necessary for using ARC GPU on Linux.
+
+:::
 
 ## Windows Setups
 

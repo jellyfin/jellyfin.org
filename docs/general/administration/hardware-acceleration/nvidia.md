@@ -41,7 +41,79 @@ The `Enable enhanced NVDEC decoder` feature toggles between the newer NVDEC and 
 
 ## Select GPU Hardware
 
-Please refer to the [Hardware Selection Guide](/docs/general/administration/hardware-selection) for tips on selecting hardware.
+For beginners, please refer to the [Hardware Selection Guide](/docs/general/administration/hardware-selection) for tips on selecting hardware. For expert users, please continue reading this section.
+
+:::caution
+
+Most NVIDIA GPUs come with NVENC/NVDEC support but **some low-end and mobile models (e.g. GT1030 and MX450)** are exceptions.
+
+:::
+
+Video codec support can be checked via the [NVIDIA GPU Codec Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) prior to buying a GPU suitable for hardware acceleration.
+
+### Transcode H.264
+
+AVC / H.264 8-bit is still widely used due to its excellent compatibility. All NVIDIA GPUs supporting NVENC/NVDEC can decode and/or encode it.
+
+- **Decoding & Encoding H.264 8-bit** - Any NVIDIA GPU supporting NVENC/NVDEC
+
+### Transcode HEVC
+
+HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoding support thanks to [x265](https://x265.readthedocs.io/en/master/), as well as the widely implemented hardware encoding support in most GPUs released after 2016.
+
+Maxwell+ GPUs provide support for HEVC:
+
+- **Decoding & Encoding HEVC 8-bit** - Maxwell 2nd Gen (GM206) and newer
+
+- **Decoding HEVC 10-bit** - Maxwell 2nd Gen (GM206) and newer
+
+- **Encoding HEVC 10-bit** - Pascal and newer
+
+:::note
+
+Note that in Maxwell 2nd Gen series only the GM206 variants provide HEVC 10-bit decoding support. Its sucessor Pascal has full support for HEVC 10-bit and improved speed and quality.
+
+:::
+
+### Transcode AV1
+
+AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
+
+NVIDIA added support for AV1 acceleration in their latest GPUs:
+
+- **Decoding AV1 8/10-bit** - Ampere and newer
+
+- **Encoding AV1 8/10-bit** - Ada Lovelace and newer
+
+### Transcode Other Codecs
+
+Please refer to these links:
+
+- [NVIDIA GPU Codec Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new)
+
+- [NVIDIA Hardware Transcoding Calculator](https://www.elpamsoft.com/?p=Plex-Hardware-Transcoding)
+
+### Speed And Quality
+
+Encoding quality:
+
+- H.264 & HEVC - Ada/Ampere/Turing > Turing TU117/Volta/Pascal > Maxwell
+
+- AV1 - Ada Lovelace only
+
+Decoding & Encoding speed within the same generation:
+
+- Multiple NVENC/NVDEC models > Single NVENC/NVDEC models
+
+- High GPU clock speed models > Low GPU clock speed models
+
+- High memory bandwidth models > Low memory bandwidth models
+
+NVENC/NVDEC performance tables:
+
+- [NVENC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/12.0/nvenc-application-note/index.html#nvenc-performance)
+
+- [NVDEC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/12.0/nvdec-application-note/index.html#nvdec-performance)
 
 ## Windows Setups
 
