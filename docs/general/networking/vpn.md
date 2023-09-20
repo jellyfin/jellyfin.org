@@ -10,4 +10,4 @@ title: VPNs
 Commercial VPN services such as Mullvad, PIA, NortVPN or Windscribe are a great way to hide your IP and bypass georestrictions. While some of them do provide a port forwarding feature,  they are **NOT** designed for hosting permanent services. You **SHOULD NOT** use a commercial VPN as a means to remotely access a Jellyfin server.
 
 ## Point To Point VPNs
-Services like Tailscale, Zerotier and Hamachi provide an easy eay to link devices together in a Virtual network, providing LAN access between them. They are an easy way to allow access to devices without requiring much networking expertise.
+Services like Tailscale, Zerotier and Hamachi provide an easy eay to link devices together in a Virtual network, providing LAN access between them. They are an easy way to allow access to devices without requiring much networking expertise. However, they require devices that support their apps in order to function.
