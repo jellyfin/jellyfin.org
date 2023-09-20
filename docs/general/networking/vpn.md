@@ -11,3 +11,14 @@ Commercial VPN services such as Mullvad, PIA, NortVPN or Windscribe are a great 
 
 ## Point To Point VPNs
 Services like Tailscale, Zerotier and Hamachi provide an easy eay to link devices together in a Virtual network, providing LAN access between them. They are an easy way to allow access to devices without requiring much networking expertise. However, they require devices that support their apps in order to function.
+
+### Tailscale
+
+[Tailscale](https://tailscale.com/) is a VPN solution based on [WireGuard](https://www.wireguard.com/). The free tier of its service allows up to 100 connected devices.
+
+To setup remote access to Jellyfin using Tailscale, please follow the steps below.
+
+1. Register an account at [their website](https://tailscale.com/)
+2. Download and install the Tailscale client from [here](https://tailscale.com/download/) on the Jellyfin server and all clients.
+3. Login to your Tailscale account on all devices. They will be automatically assigned an IP address for the Tailscale network.
+4. Connect to the IP assigned to the Jellyfin server from all clients.
