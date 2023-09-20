@@ -14,7 +14,7 @@ Services like Tailscale, Zerotier and Hamachi provide an easy eay to link device
 
 ### Tailscale
 
-[Tailscale](https://tailscale.com/) is a VPN solution based on [WireGuard](https://www.wireguard.com/). The free tier of its service allows up to 100 connected devices.
+[Tailscale](https://tailscale.com/) is a VPN solution based on [WireGuard](https://www.wireguard.com/). The free tier of its service allows up to 100 connected devices. Tailscale is easy to setup but support is limited.
 
 To setup remote access to Jellyfin using Tailscale, please follow the steps below.
 
@@ -25,9 +25,9 @@ To setup remote access to Jellyfin using Tailscale, please follow the steps belo
 
 ### ZeroTier
 
-[Zerotier](https://www.zerotier.com/) is another VPN solution. The free tier allows up to 25 connected devices.
+[ZeroTier](https://www.zerotier.com/) is another VPN solution. The free tier allows up to 25 connected devices. ZeroTier supports much more platforms than Tailscale.
 
-To setup remote access to Jellyfin using Tailscale, please follow the steps below.
+To setup remote access to Jellyfin using ZeroTier, please follow the steps below.
 
 #### Setting Up a Network
 
@@ -42,8 +42,8 @@ To setup remote access to Jellyfin using Tailscale, please follow the steps belo
 
 The server and all clients should be added to this network.
 
-1. Download and install [Zerotier One](https://www.zerotier.com/download/) on the device.
-2. Login to [Zerotier Central](https://my.zerotier.com/) and choose your Jellyfin network.
+1. Download and install [ZeroTier One](https://www.zerotier.com/download/) on the device.
+2. Login to [ZeroTier Central](https://my.zerotier.com/) and choose your Jellyfin network.
 3. Use the `Network ID` to join new devices.
 4. Scroll down to the `Members` section in the dashboard. The devices that have joined should appear in this section. Devices that have a dashed red line aren't authorized to connect yet. Check the `Auth?` box to authorize the device. 
 5. After they are authorized, they will be assigned an IP address automatically. Please connect all clients to the IP address of the Jellyfin Server.
