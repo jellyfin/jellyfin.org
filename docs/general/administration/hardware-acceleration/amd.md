@@ -51,69 +51,7 @@ There are two different methods that can be used on Windows and/or Linux. Pros a
 
 ## Select GPU Hardware
 
-:::caution
-
-Most AMD dGPUs come with video encoders but be careful with certain models -  RX 6400/6500 series don't have video encoders.
-
-:::
-
-AMD Ryzen APU (G/GE/H/HS/HX suffixed models) and Zen 4 based processors have integrated graphics.
-
-Best to check the video codec support via the [AMD product specifications](https://www.amd.com/en/products/specifications) before buying a GPU for hardware acceleration.
-
-### Transcode H.264
-
-AVC / H.264 8-bit is still widely used due to its excellent compatibility. All AMD GPUs that support AMF or VA-API can decode and encode it.
-
-- **Decoding & Encoding H.264 8-bit** - Any AMD GPU supporting AMF or VA-API
-
-### Transcode HEVC
-
-HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Vision video. It has mature software encoding support thanks to [x265](https://x265.readthedocs.io/en/master/), as well as the widely implemented hardware encoding support in most GPUs released after 2016.
-
-The HEVC support on AMD is complicated:
-
-- **Decoding HEVC 8-bit** - Radeon R9 Fury and newer (Fiji)
-
-- **Encoding HEVC 8-bit** - Radeon RX 400 series (Polaris) and newer
-
-- **Decoding HEVC 10-bit** - Radeon RX 400 series (Polaris) and newer
-
-- **Encoding HEVC 10-bit** - Ryzen 4000 series APU (Renoir), Radeon RX 5700 series (Navi 1x) and newer
-
-:::note
-
-Note that even though the RX 400 series have HEVC 10-bit decoding support, it doesn't support the [DRM-Vulkan format modifier](https://gitlab.freedesktop.org/mesa/mesa/-/issues/5882), which means full hardware acceleration is not possible for these cards on Linux for the time being. A Vega or newer GPU is recommended on Linux.
-
-:::
-
-### Transcode AV1
-
-AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
-
-AMD added support for AV1 acceleration in their latest GPUs:
-
-- **Decoding AV1 8/10-bit** - Radeon RX 6000 series (Navi 2x), Ryzen 6000 mobile APU and newer (except RX 6400/6500)
-
-- **Encoding AV1 8/10-bit** - Radeon RX 7000 series (Navi 3x), Ryzen 7000 mobile APU and newer
-
-### Transcode Other Codecs
-
-Please refer to these links:
-
-- [X.org RadeonFeature](https://www.x.org/wiki/RadeonFeature/)
-
-- [GitHub - GPUOpen-LibrariesAndSDKs/AMF](https://github.com/GPUOpen-LibrariesAndSDKs/AMF)
-
-### Speed And Quality
-
-Due to the lack of B-frame support, the encoding quality of the AMD H.264 hardware encoder has been unsatisfactory. Although RX 6000/VCN3.0 brings back the B-frame support, the quality improvement is not great.
-
-The AMD HEVC encoder is far better than the AMD H.264 encoder, and the new AMD AV1 encoding support on RX 7000/VCN4.0 seems to be the savior of AMD encoding quality. Nonetheless they are currently no match for Intel QSV and NVIDIA NVENC. VCN4.0 additionally improved the encoding speed drastically.
-
-Encoding speed and quality:
-
-- VCN4(RX 7000) > VCN3/VCN2(RX 6000/RX 5000/Renoir) > VCN1/VCE(Raven/Picasso/GCN GPUs)
+Please refer to the [Hardware Selection Guide](/docs/general/administration/hardware-selection) for tips on selecting hardware.
 
 ## Windows Setups
 
