@@ -142,7 +142,8 @@ Manual changes to the database can destroy your Instance beyond repair. to preve
 
 Before continuing, make sure that you have sqlite3 installed.
 When sqlite3 is not installed, you can install it under Debian based systems with `apt install sqlite3`.
-After that do the following commands/SQL query:
+After that do the following commands/SQL query:  
+*You can find a list of default Paths [here](https://jellyfin.org/docs/general/administration/configuration#configuration-directory)*
 
 ```bash
 sqlite3 /PATH/TO/JELLYFIN/DB/jellyfin.db
@@ -153,13 +154,14 @@ sqlite3 /PATH/TO/JELLYFIN/DB/jellyfin.db
 To see all your current permissions for all users, you can run the following Query:
 
 ```sql
-select Permissions.Value,Permissions.Kind,Users.Username  from Permissions Inner Join Users on Permissions.UserID = Users.Id;
+SELECT Permissions.Value,Permissions.Kind,Users.Username  FROM Permissions Inner Join Users on Permissions.UserID = Users.Id;
 ```
 
-To just check Permissions on your Admin Account, run the following Query:
+To just check Permissions on your Admin Account, run the following Query:  
+*Please change the AdminUsername to the username of your Admin account*
 
 ```sql
-select Value,Kind from Permissions WHERE UserId IN (SELECT Id FROM Users WHERE Username = 'AdminUsername');
+SELECT Value,Kind FROM Permissions WHERE UserId IN (SELECT Id FROM Users WHERE Username = 'AdminUsername');
 ```
 
 <br />
@@ -172,7 +174,7 @@ Not all permissions are needed, you can remove the unnecessary ones later in the
 :::
 
 ```sql
-UPDATE Permissions SET Value = 1 WHERE (Kind = 0 or Kind = 3 or Kind = 4 or Kind = 5 or Kind = 6 or Kind = 7 or Kind = 8 or Kind = 9 or Kind = 10 or Kind = 11 or Kind = 12 or Kind = 13 or Kind = 14 or Kind = 15 or Kind = 16 or Kind = 17 or Kind = 18 or Kind = 19 or Kind = 20 or Kind = 21) AND UserId IN (SELECT Id FROM Users WHERE Username = 'AdminUsername');
+UPDATE Permissions SET Value = 1 WHERE (Kind = 0 OR Kind = 3 OR Kind = 4 OR Kind = 5 OR Kind = 6 OR Kind = 7 OR Kind = 8 OR Kind = 9 OR Kind = 10 OR Kind = 11 OR Kind = 12 OR Kind = 13 OR Kind = 14 OR Kind = 15 OR Kind = 16 OR Kind = 17 OR Kind = 18 OR Kind = 19 OR Kind = 20 OR Kind = 21) AND UserId IN (SELECT Id FROM Users WHERE Username = 'AdminUsername');
 
 .exit
 ```
