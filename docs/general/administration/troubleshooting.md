@@ -133,7 +133,7 @@ UPDATE Permissions SET Value = 0 WHERE Kind = 2 AND UserId IN (SELECT Id FROM Us
 
 ## Fix Admin User Permissions
 
-If the Permissions for your Admin Account break, you can Restore them using simple SQL Queries.
+If the permissions for your admin account break, you can restore them using simple SQL queries.
 
 :::caution
 Manual changes to the database can destroy your Instance beyond repair. to prevent this create a copy of your database before executing:
