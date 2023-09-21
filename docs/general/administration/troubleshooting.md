@@ -151,7 +151,7 @@ sqlite3 /PATH/TO/JELLYFIN/DB/jellyfin.db
 
 ### Get an Overview
 
-To see all your current permissions for all users, you can run the following Query:
+To see the current permissions for all users, you can run the following query:
 
 ```sql
 SELECT Permissions.Value,Permissions.Kind,Users.Username  FROM Permissions INNER JOIN Users ON Permissions.UserID = Users.Id;
