@@ -136,7 +136,7 @@ UPDATE Permissions SET Value = 0 WHERE Kind = 2 AND UserId IN (SELECT Id FROM Us
 If the permissions for your admin account break, you can restore them using simple SQL queries.
 
 :::caution
-Manual changes to the database can destroy your Instance beyond repair. to prevent this create a copy of your database before executing:
+Manual changes to the database can destroy your instance beyond repair. to prevent this create a copy of your database before executing:
 `cp /PATH/TO/JELLYFIN/DB/jellyfin.db  /PATH/TO/JELLYFIN/DB/jellyfin.db.bck`
 :::
 
