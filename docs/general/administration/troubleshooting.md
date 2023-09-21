@@ -165,7 +165,7 @@ SELECT Value,Kind FROM Permissions WHERE UserId IN (SELECT Id FROM Users WHERE U
 ```
 
 <br />
-The first row with an value of 1 or 0 shows if the permission is assigned or not. The second row displays the Kind of permission. To get a summary for every permission you can look [here](https://github.com/jellyfin/jellyfin/blob/master/Jellyfin.Data/Enums/PermissionKind.cs)
+The first row with an value of 1 or 0 shows if the permission is assigned or not. The second row displays the kind of permission. To get a summary for every permission you can look [here](https://github.com/jellyfin/jellyfin/blob/master/Jellyfin.Data/Enums/PermissionKind.cs)
 
 ### Repair Permissions
 
