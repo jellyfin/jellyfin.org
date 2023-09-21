@@ -143,7 +143,7 @@ Manual changes to the database can destroy your instance beyond repair. to preve
 Before continuing, make sure that you have sqlite3 installed.
 When sqlite3 is not installed, you can install it under Debian based systems with `apt install sqlite3`.
 After that do the following commands/SQL query:  
-*You can find a list of default Paths [here](https://jellyfin.org/docs/general/administration/configuration#configuration-directory)*
+*You can find a list of default Paths [here](../configuration#configuration-directory)*
 
 ```bash
 sqlite3 /PATH/TO/JELLYFIN/DB/jellyfin.db
