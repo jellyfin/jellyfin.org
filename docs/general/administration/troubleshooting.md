@@ -157,8 +157,8 @@ To see the current permissions for all users, you can run the following query:
 SELECT Permissions.Value,Permissions.Kind,Users.Username  FROM Permissions INNER JOIN Users ON Permissions.UserID = Users.Id;
 ```
 
-To just check Permissions on your Admin Account, run the following Query:  
-*Please change the AdminUsername to the username of your Admin account*
+To just check permissions on your admin account, run the following query:  
+*Please change `AdminUsername` to the username of your admin account*
 
 ```sql
 SELECT Value,Kind FROM Permissions WHERE UserId IN (SELECT Id FROM Users WHERE Username = 'AdminUsername');
