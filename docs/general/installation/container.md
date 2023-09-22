@@ -118,10 +118,11 @@ docker compose up
 To run the container in background add `-d` to the above command.
 
 You can learn more about using Docker by [reading the official Docker documentation](https://docs.docker.com/).
-Note: If your config path is in "/home/USER_NAME", then you have to give permission to the folder. Otherwise you will get a permission error.
+Note: If your config path is in "/home/USER_NAME/jellyfin_config", then you have to give permission to the folder. Otherwise you will get a permission error.
 ```sh
-sudo chown -R USER_NAME:USER_NAME /home/USER_NAME
-# This will make the user as the owner of the /home/USER_NAME folder. -R means do this for every file and folder in /home/USER_NAME
+sudo chown -R USER_NAME:USER_NAME /home/USER_NAME/jellyfin_config
+# This will make the user as the owner of the /home/USER_NAME/jellyfin_config folder. -R means do this for every file and folder in /home/USER_NAME/jellyfin_config
+# Caution: Do not run this code for /home/USER_NAME. This is highly discourage for security reasons
 ```
 
 ## Unraid Docker
