@@ -41,6 +41,8 @@ The `Enable enhanced NVDEC decoder` feature toggles between the newer NVDEC and 
 
 ## Select GPU Hardware
 
+For beginners, please refer to the [Hardware Selection Guide](/docs/general/administration/hardware-selection) for tips on selecting hardware. For expert users, please continue reading this section.
+
 :::caution
 
 Most NVIDIA GPUs come with NVENC/NVDEC support but **some low-end and mobile models (e.g. GT1030 and MX450)** are exceptions.

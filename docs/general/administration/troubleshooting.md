@@ -130,3 +130,51 @@ After opening the database, navigate to the Execute SQL Tab and execute the foll
 UPDATE Users SET InvalidLoginAttemptCount = 0 WHERE Username = 'LockedUserName';
 UPDATE Permissions SET Value = 0 WHERE Kind = 2 AND UserId IN (SELECT Id FROM Users WHERE Username = 'LockedUserName');
 ```
+
+## Fix Admin User Permissions
+
+If the permissions for your admin account break, you can restore them using simple SQL queries.
+
+:::caution
+Manual changes to the database can destroy your instance beyond repair. to prevent this create a copy of your database before executing:
+`cp /PATH/TO/JELLYFIN/DB/jellyfin.db  /PATH/TO/JELLYFIN/DB/jellyfin.db.bck`
+:::
+
+Before continuing, make sure that you have sqlite3 installed.
+When sqlite3 is not installed, you can install it under Debian based systems with `apt install sqlite3`.
+After that do the following commands/SQL query:  
+*You can find a list of default Paths [here](../configuration#configuration-directory)*
+
+```bash
+sqlite3 /PATH/TO/JELLYFIN/DB/jellyfin.db
+```
+
+### Get an Overview
+
+To see the current permissions for all users, you can run the following query:
+
+```sql
+SELECT Permissions.Value,Permissions.Kind,Users.Username  FROM Permissions INNER JOIN Users ON Permissions.UserID = Users.Id;
+```
+
+To just check permissions on your admin account, run the following query:  
+*Please change `AdminUsername` to the username of your admin account*
+
+```sql
+SELECT Value,Kind FROM Permissions WHERE UserId IN (SELECT Id FROM Users WHERE Username = 'AdminUsername');
+```
+
+<br />
+The first row with an value of 1 or 0 shows if the permission is assigned or not. The second row displays the kind of permission. To get a summary for every permission you can look [here](https://github.com/jellyfin/jellyfin/blob/master/Jellyfin.Data/Enums/PermissionKind.cs)
+
+### Repair Permissions
+
+:::note
+Not all permissions are needed, you can remove the unnecessary ones later in the Web UI.
+:::
+
+```sql
+UPDATE Permissions SET Value = 1 WHERE (Kind = 0 OR Kind = 3 OR Kind = 4 OR Kind = 5 OR Kind = 6 OR Kind = 7 OR Kind = 8 OR Kind = 9 OR Kind = 10 OR Kind = 11 OR Kind = 12 OR Kind = 13 OR Kind = 14 OR Kind = 15 OR Kind = 16 OR Kind = 17 OR Kind = 18 OR Kind = 19 OR Kind = 20 OR Kind = 21) AND UserId IN (SELECT Id FROM Users WHERE Username = 'AdminUsername');
+
+.exit
+```
