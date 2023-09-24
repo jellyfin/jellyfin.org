@@ -19,6 +19,12 @@ For a Jellyfin server, the following is recommended:
 - Storage: 60GB SSD storage for Jellyfin files and transcoding cache.
 - Graphics: Intel HD 6xx (7th gen integrated graphics) or newer, Nvidia GTX 16 / RTX 20 series or newer (excluding GTX 1650). Intel recommended over Nvidia, AMD and Apple Silicon not recommended.
 
+:::caution Pre-built NAS Devices
+
+Many pre-built NAS devices are underpowered. Please check your specs against the above recommendations for a good experience.
+
+:::
+
 :::tip Upgrading an Existing System
 
 Intel ARC GPUs are recommended when upgrading an existing system to be used as a Jellyfin server. In cases where Intel ARC is not feasible, Nvidia graphics is recommended. Please select an appropriate GPU according to the recommended specs above.
