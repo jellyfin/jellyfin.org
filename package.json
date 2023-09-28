@@ -22,13 +22,13 @@
     "test:web-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-web-urls.json"
   },
   "dependencies": {
-    "@docusaurus/core": "2.4.1",
-    "@docusaurus/plugin-client-redirects": "2.4.1",
-    "@docusaurus/plugin-content-blog": "2.4.1",
-    "@docusaurus/plugin-content-docs": "2.4.1",
-    "@docusaurus/plugin-content-pages": "2.4.1",
-    "@docusaurus/plugin-sitemap": "2.4.1",
-    "@docusaurus/theme-classic": "2.4.1",
+    "@docusaurus/core": "2.4.3",
+    "@docusaurus/plugin-client-redirects": "2.4.3",
+    "@docusaurus/plugin-content-blog": "2.4.3",
+    "@docusaurus/plugin-content-docs": "2.4.3",
+    "@docusaurus/plugin-content-pages": "2.4.3",
+    "@docusaurus/plugin-sitemap": "2.4.3",
+    "@docusaurus/theme-classic": "2.4.3",
     "@easyops-cn/docusaurus-search-local": "0.36.0",
     "@fontsource/noto-sans": "5.0.12",
     "@icons-pack/react-simple-icons": "5.11.0",
@@ -59,7 +59,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.4.1",
+    "@docusaurus/module-type-aliases": "2.4.3",
     "@tsconfig/docusaurus": "2.0.1",
     "@types/react": "17.0.65",
     "@types/react-helmet": "6.1.6",
