@@ -16,9 +16,10 @@ To enable the web UI after installing `jellyfin-web`, make sure to remove the `-
 
 ## Arch Linux
 
-The `Extra` repository contains builds for both [`jellyfin-server`](https://archlinux.org/packages/?name=jellyfin-server) and [`jellyfin-web`](https://archlinux.org/packages/?name=jellyfin-web).
+The `Extra` repository contains builds for both [`jellyfin-server`](https://archlinux.org/packages/?name=jellyfin-server) and [`jellyfin-web`](https://archlinux.org/packages/?name=jellyfin-web). `jellyfin-server` includes a hard dependency on [`jellyfin-ffmpeg`](https://archlinux.org/packages/?name=jellyfin-ffmpeg).
 
-The Jellyfin binary can be installed from the AUR as [`jellyfin-bin`](https://aur.archlinux.org/packages/jellyfin-bin/) and can be built at the tip of the master branch with [`jellyfin-git`](https://aur.archlinux.org/packages/jellyfin-git/).
+Both packages, server and web, can also be built from source at the tip of the master branch using [`jellyfin-git`](https://aur.archlinux.org/packages/jellyfin-git/).
+Debian builds of the Jellyfin server and web binaries can be installed from the AUR at [`jellyfin-bin`](https://aur.archlinux.org/packages/jellyfin-bin/).
 
 ## Fedora
 
