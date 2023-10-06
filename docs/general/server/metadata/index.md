@@ -24,6 +24,7 @@ Below is a list of known inaccessable providers: <br />
 下方为已知无法访问的提供者：
 
 - The Movie Database (TMDb)
-- TheTVDB 
+- TheTVDB
 
 :::
+
