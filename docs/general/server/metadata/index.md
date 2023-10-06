@@ -17,7 +17,7 @@ There are more official providers available in our [Plugin Catalog](/docs/genera
 
 :::caution Notice for Users in Mainland China 中国大陆地区用户请注意
 
-Because of external factors, certain metadata providers may not be accessible in mainland China. <br />
+Because of external factors, certain metadata providers may not be accessable in mainland China. <br />
 由于外部因素，部分元数据提供者在中国大陆地区可能无法访问。
 
 Below is a list of known inaccessable providers: <br />
