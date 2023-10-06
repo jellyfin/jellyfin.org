@@ -92,3 +92,6 @@ Multiple backdrop images can be used to cycle through several over time. Simply 
 
 * thumb
 * landscape
+
+##File Extensions
+Files with a ".mp4" file extension are not recognised as music. If the file does not contain a video change the extension to ".m4a", otherwise it is not found during a library scan.
