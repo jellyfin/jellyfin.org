@@ -181,4 +181,4 @@ UPDATE Permissions SET Value = 1 WHERE (Kind = 0 OR Kind = 3 OR Kind = 4 OR Kind
 
 ## Text Not Rendering Properly
 
-Text may show up as boxes ☐☐☐☐☐☐ if fonts for the characters are not available. Installing fallback fonts for the affected languages can solve the problem. Please refer to [Fonts](/docs/general/administration/configuration#fonts) on where to install them.
+Text may show up as boxes ☐☐☐☐☐☐ if fonts for the characters are not available. Installing fonts for the affected languages can solve the problem. For library cover images, please install system fonts on the server system. For subtitles, the source of fonts depends on the client. Please refer to [Fonts](/docs/general/administration/configuration#fonts) on where to install them.
