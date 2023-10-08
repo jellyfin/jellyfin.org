@@ -178,3 +178,7 @@ UPDATE Permissions SET Value = 1 WHERE (Kind = 0 OR Kind = 3 OR Kind = 4 OR Kind
 
 .exit
 ```
+
+## Text Not Rendering Properly
+
+Text may show up as boxes ☐☐☐☐☐☐ if fonts for the characters are not available. Installing fallback fonts for the affected languages can solve the problem. Please refer to [Fonts](/docs/general/administration/configuration#fonts) on where to install them.
