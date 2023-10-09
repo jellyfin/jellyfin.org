@@ -211,7 +211,7 @@ As always it is recommended to run the container rootless. Therefore we want to 
    Image=docker.io/jellyfin/jellyfin:latest
    Label=io.containers.autoupdate=registry
    PublishPort=8096:8096/tcp
-   RemapUsers=keep-id
+   UserNS=keep-id
    Volume=jellyfin-config:/config:Z
    Volume=jellyfin-cache:/cache:Z
    Volume=jellyfin-media:/media:Z

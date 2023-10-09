@@ -30,7 +30,7 @@
     "@docusaurus/plugin-sitemap": "2.4.3",
     "@docusaurus/theme-classic": "2.4.3",
     "@easyops-cn/docusaurus-search-local": "0.36.0",
-    "@fontsource/noto-sans": "5.0.12",
+    "@fontsource/noto-sans": "5.0.13",
     "@icons-pack/react-simple-icons": "5.11.0",
     "@img-comparison-slider/react": "8.0.0",
     "@mdi/js": "7.2.96",
@@ -61,7 +61,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.4.3",
     "@tsconfig/docusaurus": "2.0.1",
-    "@types/react": "17.0.66",
+    "@types/react": "17.0.67",
     "@types/react-helmet": "6.1.7",
     "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "6.7.3",
