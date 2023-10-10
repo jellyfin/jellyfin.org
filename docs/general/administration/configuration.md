@@ -41,6 +41,15 @@ This is the directory containing the server configuration files. It is set from 
 4. `$XDG_CONFIG_HOME/jellyfin` if `$XDG_CONFIG_HOME` exists
 5. `$HOME/.config/jellyfin`
 
+Specific system locations include:
+
+- Arch/EndeavourOS/Manjaro: `/var/lib/jellyfin/config`
+- Debian/Mint/Ubuntu: `/etc/jellyfin`
+- Fedora/RHEL/Rocky/Alma/Oracle: `/etc/jellyfin`
+- Flatpak: `~/.var/app/org.jellyfin.JellyfinServer/config/jellyfin/`
+- Gentoo: `/etc/jellyfin`
+- Windows: `C:\ProgramData\Jellyfin\Server\config`
+
 ### Cache Directory
 
 This is the directory containing the server cache. It is set from the following sources in order of decreasing precedence.
@@ -50,6 +59,7 @@ This is the directory containing the server cache. It is set from the following 
 3. `<Data Directory>/cache`, if Windows
 4. `$XDG_CACHE_HOME/jellyfin` if `$XDG_CACHE_HOME` exists
 5. `$HOME/.cache/jellyfin`
+
 
 ### Web Directory
 
@@ -72,6 +82,15 @@ This is the directory where the Jellyfin logs will be stored. It is set from the
 1. Command line option `--logdir`, if specified
 2. Environment variable `$JELLYFIN_LOG_DIR`, if specified
 3. `<Data Directory>/log`
+
+Specific system locations include:
+
+- Arch/EndeavourOS/Manjaro: `/var/lib/jellyfin/log`
+- Debian/Mint/Ubuntu: `/var/log/jellyfin`
+- Fedora/RHEL/Rocky/Alma/Oracle: `/var/log/jellyfin`
+- Flatpak: `~/.var/app/org.jellyfin.JellyfinServer/data/jellyfin/log`
+- Gentoo: `/var/log/jellyfin/`
+- Windows: `C:\ProgramData\Jellyfin\Server\log` 
 
 ## Main Configuration
 
