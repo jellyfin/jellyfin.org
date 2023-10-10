@@ -35,4 +35,4 @@ The location of the transcoded files will depend on the system being used for th
 - Fedora/RHEL/Rocky/Alma/Oracle: `/var/lib/jellyfin/transcodes`
 - Flatpak: `~/.var/app/org.jellyfin.JellyfinServer/data/jellyfin/transcodes`
 - Gentoo: `/var/lib/jellyfin/transcodes`
-- Windows: 
+- Windows: `C:\ProgramData\Jellyfin\Server\transcodes`
