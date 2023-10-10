@@ -119,18 +119,6 @@ To run the container in background add `-d` to the above command.
 
 You can learn more about using Docker by [reading the official Docker documentation](https://docs.docker.com/).
 
-## Unraid Docker
-
-An Unraid Docker template is available in the repository.
-
-1. Open the unRaid GUI (at least unRaid 6.10.0) and click on the `Apps` tab.
-
-2. Enable apps and search for "jellyfin". Install the app that is tagged as official.
-
-3. Edit library paths to add your host paths and apply the changes. (You can then go to the UI via the "Actions" button on the installed app.)
-
-4. Go to the "Docker" tab and enable autostart for jellyfin.
-
 ## Podman
 
 [Podman](https://podman.io) allows you to run rootless containers.
