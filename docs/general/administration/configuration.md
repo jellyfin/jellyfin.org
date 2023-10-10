@@ -106,3 +106,23 @@ This section lists all the configuration options available and explains their fu
 | `FFmpeg:analyzeduration`                | `"200M"`                                                                                          | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
 | `playlists:allowDuplicates`             | `True`                                                                                            | Whether playlists should allow duplicate items or automatically filter out duplicates.                                                                                  |
 | `PublishedServerUrl`                    | Server Url based on primary IP address                                                            | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
+
+## Fonts
+
+Jellyfin uses fonts to render text in many places.
+
+### Server Side System Fonts
+
+The system fonts installed on the server are used for burning in subtitles and rendering cover images. How to install them depends on the operating system.
+
+### Client Side System Fonts
+
+The system fonts installed on the client devices are used to display the text in the client interface as well as render subtitles for some clients. How to install them depends on the operating system.
+
+### Fallback Fonts
+
+The `Fallback Fonts` option is currently used by the web client to render subtitles only. This can be set to a folder containing fonts for this purpose. Lightweight formats optimized for web like woff2 are recommended. A tool to convert normal TrueType (`.ttf`) and OpenType (`.otf`) fonts to woff2 can be found [in their repo](https://github.com/google/woff2).
+
+### Downloading Fonts
+
+There are many fonts available online. [Google Fonts](https://fonts.google.com/) is a good place to download fonts for most languages.
