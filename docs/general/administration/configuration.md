@@ -31,6 +31,15 @@ This is the directory that will hold all Jellyfin data and is also used as a def
 4. `$XDG_DATA_HOME/jellyfin`, if `$XDG_DATA_HOME` exists
 5. `$HOME/.local/share/jellyfin`
 
+Specific system locations include:
+
+- Arch/EndeavourOS/Manjaro: `/var/lib/jellyfin/data`
+- Debian/Mint/Ubuntu: `/var/lib/jellyfin/data`
+- Fedora/RHEL/Rocky/Alma/Oracle: `/var/lib/jellyfin/data`
+- Flatpak: `~/.var/app/org.jellyfin.JellyfinServer/data/jellyfin/data`
+- Gentoo: `/var/lib/jellyfin/data`
+- Windows: `C:\ProgramData\Jellyfin\Server\data`
+  
 ### Configuration Directory
 
 This is the directory containing the server configuration files. It is set from the following sources in order of decreasing precedence.
@@ -60,6 +69,14 @@ This is the directory containing the server cache. It is set from the following 
 4. `$XDG_CACHE_HOME/jellyfin` if `$XDG_CACHE_HOME` exists
 5. `$HOME/.cache/jellyfin`
 
+Specific system locations include:
+
+- Arch/EndeavourOS/Manjaro: `/var/cache/jellyfin`
+- Debian/Mint/Ubuntu: `/var/cache/jellyfin`
+- Fedora/RHEL/Rocky/Alma/Oracle: `/var/cache/jellyfin`
+- Flatpak: `~/.var/app/org.jellyfin.JellyfinServer/cache`
+- Gentoo: `/var/cache/jellyfin`
+- Windows `C:\ProgramData\Jellyfin\Server\cache`
 
 ### Web Directory
 
@@ -69,11 +86,20 @@ This is the directory containing the built files from a [web client](https://git
 2. Environment variable `$JELLYFIN_WEB_DIR`, if specified
 3. `<Binary Directory>/jellyfin-web`, where `<Binary Directory>` is the directory containing the Jellyfin executable
 
+
 :::note
 
 This setting is only used when the server is configured to host the web client. See the `hostwebclient` option in the [Main Configuration Options](#main-configuration-options) section below for additional details.
 
 :::
+
+Specific system locations include:
+
+- Arch/EndeavourOS/Manjaro: `/usr/share/jellyfin/web`
+- Debian/Mint/Ubuntu: `/usr/share/jellyfin/web`
+- Fedora/RHEL/Rocky/Alma/Oracle: `/usr/share/jellyfin-web`
+- Gentoo: `/opt/jellyfin/jellyfin-web`
+- Windows `C:\Program Files\Jellyfin\Server\jellyfin-web`
 
 ### Log Directory
 
