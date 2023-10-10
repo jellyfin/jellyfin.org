@@ -26,3 +26,13 @@ There are four types of playback; three of which involve transcoding. The type b
 - Remux: Changes the container but leaves both audio and video streams untouched.
 - Direct Stream: Transcodes audio but leaves original video untouched.
 - Transcode: Transcodes the video stream.
+
+## Transcoding Directories
+The location of the transcoded files will depend on the system being used for the server. This is a non-exhaustive list of locations:
+
+- Arch/EndeavourOS/Manjaro: `/var/lib/jellyfin/transcodes`
+- Debian/Mint/Ubuntu: `/var/lib/jellyfin/transcodes`
+- Fedora/RHEL/Rocky/Alma/Oracle: `/var/lib/jellyfin/transcodes`
+- Flatpak: `~/.var/app/org.jellyfin.JellyfinServer/data/jellyfin/transcodes`
+- Gentoo: `/var/lib/jellyfin/transcodes`
+- Windows: 
