@@ -30,7 +30,7 @@
     "@docusaurus/plugin-sitemap": "2.4.3",
     "@docusaurus/theme-classic": "2.4.3",
     "@easyops-cn/docusaurus-search-local": "0.36.0",
-    "@fontsource/noto-sans": "5.0.13",
+    "@fontsource/noto-sans": "5.0.14",
     "@icons-pack/react-simple-icons": "5.11.0",
     "@img-comparison-slider/react": "8.0.0",
     "@mdi/js": "7.2.96",
