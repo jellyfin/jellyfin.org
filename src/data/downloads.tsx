@@ -191,23 +191,15 @@ sudo apt install jellyfin`}
     id: 'arch',
     name: 'Arch Linux',
     osTypes: [OsType.Linux],
-    status: DownloadStatus.Community,
+    status: DownloadStatus.Official,
     features: [Feature.CustomFFmpeg],
     platforms: [Platform.Arch],
-    description: 'Install Jellyfin via the Arch User Repository.',
+    description: 'Install Jellyfin via Arch-Extra Repository.',
     stableButtons: [
       {
-        id: 'arch-stable-button',
-        name: 'Install Instructions',
-        details: (
-          <pre className='margin-bottom--none'>
-            <code>
-              {`git clone https://aur.archlinux.org/jellyfin.git
-cd jellyfin
-makepkg -si`}
-            </code>
-          </pre>
-        )
+        id: 'arch-stable-link',
+        name: 'Arch Downloads',
+        url: 'https://archlinux.org/packages/?q=jellyfin'
       }
     ],
     unstableButtons: [
