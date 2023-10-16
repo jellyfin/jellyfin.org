@@ -231,9 +231,9 @@ As always it is recommended to run the container rootless. Therefore we want to 
 
 ## TrueNAS SCALE / TrueCharts
 
-Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside the [TrueCharts](https://www.truecharts.org/) App Catalog with direct integration into the GUI, no CLI needed. Direct support is available on the [TrueCharts Discord](https://discord.com/Js6xv9nGuU) and the source code is available on [GitHub](https://github.com/truecharts/charts).
+Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside the [TrueCharts](https://www.truecharts.org/) App Catalog with direct integration into the GUI, no CLI needed. Direct support is available on the [TrueCharts Discord](https://discord.gg/tVsPTHWTtr) and the source code is available on [GitHub](https://github.com/truecharts/charts).
 
-1. Install the TrueCharts Catalog to TrueNAS SCALE, see [website](https://truecharts.org/manual/guides/Adding-TrueCharts) for more info.
+1. Install the TrueCharts Catalog to TrueNAS SCALE, see [website](https://truecharts.org/manual/SCALE/guides/getting-started/#adding-truecharts) for more info.
 
    1. Go to Apps page from the top level SCALE menu
    2. Select Manage Catalogs tab on the Apps page
@@ -251,6 +251,6 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside 
 
    - Server URL to publish in UDP Auto Discovery response.
    - Networking, Ingress (Reverse Proxy), Security Options
-   - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/guides/add-storage). For Jellyfin the recommendation is to  add storage as `Additional App Storage`
+   - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/SCALE/guides/add-storage/). For Jellyfin the recommendation is to  add storage as `Additional App Storage`
 
 4. Click Save and once it's up and running you'll be able to click Open to access `Jellyfin`.
