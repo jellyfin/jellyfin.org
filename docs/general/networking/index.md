@@ -15,7 +15,7 @@ HTTP and HTTPS are the primary means of connecting to the server. If using a sel
 
 :::caution
 
-In order for Chromecast to work on a non-public routable connection, 8.8.8.8 must be blocked on the Chromecast's Gateway. Blocking 8.8.8.8 on your router is the easiest solution to this problem.
+In order for Chromecast to work on a non-public routable IPv4 connection, 8.8.8.8 must be blocked on the Chromecast's Gateway. Blocking 8.8.8.8 and redirecting local DNS requests to your local Jellyfin IP on your router is a solution to this problem. Another solution would be to use IPv6 instead of IPv4. For IPv6 there is no differentiation between public and local IP. One single IPv6 address can be publicly routable and accessible from the local LAN. 
 
 :::
 
