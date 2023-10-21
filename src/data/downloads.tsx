@@ -58,8 +58,8 @@ export const Downloads: Array<Download> = [
               <code>{`curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}</code>
             </pre>
             <p>
-              If you do not have <code>curl</code> installed, you can use <code>wget -O-</code> instead
-              of <code>curl</code>.
+              If you do not have <code>curl</code> installed, you can use{' '}
+              <code>wget -O-</code> instead of <code>curl</code>.
             </p>
             <p>
               For more advanced users, the full steps can be [found in the
