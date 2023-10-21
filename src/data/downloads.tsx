@@ -59,7 +59,7 @@ export const Downloads: Array<Download> = [
             </pre>
             <p>
               If you do not have <code>curl</code> installed, you can use
-              <code>wget -O-</code> instead of{' '}
+              <code>wget -O-</code> instead of
               <code>curl</code>.
             </p>
             <p>
