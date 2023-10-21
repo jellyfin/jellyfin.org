@@ -103,7 +103,7 @@ curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
 
 :::note
 
-You can verify the script download integrity with (requires `sha256sum`) with:
+You can verify the script download integrity with (requires `sha256sum`):
 
 ```sh
 diff <( curl -s https://repo.jellyfin.org/install-debuntu.sh -o install-debuntu.sh; sha256sum install-debuntu.sh ) <( curl -s https://repo.jellyfin.org/install-debuntu.sh.sha256sum )
