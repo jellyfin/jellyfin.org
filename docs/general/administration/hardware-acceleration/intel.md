@@ -906,13 +906,20 @@ Root permission is required.
    sudo cat /sys/kernel/debug/dri/0/gt/uc/guc_info
    sudo cat /sys/kernel/debug/dri/0/gt/uc/huc_info
    ```
+   
+   - If you get a `No such file or directory` error when running the last two commands, try querying a `dri` device with a different number, for example `1`:
 
-   On very old kernels (4.16-) the last two commands can be like this:
+     ```shell
+     sudo cat /sys/kernel/debug/dri/1/gt/uc/guc_info
+     sudo cat /sys/kernel/debug/dri/1/gt/uc/huc_info
+     ```
 
-   ```shell
-   sudo cat /sys/kernel/debug/dri/0/i915_guc_load_status
-   sudo cat /sys/kernel/debug/dri/0/i915_huc_load_status
-   ```
+   - On very old kernels (4.16-) the last two commands can be like this:
+
+     ```shell
+     sudo cat /sys/kernel/debug/dri/0/i915_guc_load_status
+     sudo cat /sys/kernel/debug/dri/0/i915_huc_load_status
+     ```
 
 5. Now you can safely enable the Intel Low-Power encoder in the Jellyfin dashboard.
 
