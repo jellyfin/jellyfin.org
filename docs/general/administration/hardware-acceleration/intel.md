@@ -906,7 +906,7 @@ Root permission is required.
    sudo cat /sys/kernel/debug/dri/0/gt/uc/guc_info
    sudo cat /sys/kernel/debug/dri/0/gt/uc/huc_info
    ```
-   
+
    - If you get a `No such file or directory` error when running the last two commands, try querying a `dri` device with a different number, for example `1`:
 
      ```shell
