@@ -147,7 +147,7 @@ If you would prefer to install everything manually, the full steps are as follow
 
    :::
 
-   On Debian, you can also enable the `non-free` components of your base repositories for additional FFMpeg dependencies, but this is optional.
+   On Debian, you can also enable the `non-free` components of your base repositories for additional FFmpeg dependencies, but this is optional.
 
 3. Download the GPG signing key (signed by the Jellyfin Team) and install it:
 
