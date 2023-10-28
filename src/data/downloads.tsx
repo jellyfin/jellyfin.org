@@ -58,13 +58,13 @@ export const Downloads: Array<Download> = [
               <code>{`curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}</code>
             </pre>
             <p>
-              If you do not have <code>curl</code> installed, you can use
-              <code>wget -O-</code> instead of
+              If you do not have <code>curl</code> installed, you can use{' '}
+              <code>wget -O-</code> instead of{' '}
               <code>curl</code>.
             </p>
             <p>
-              For more advanced users, the full steps can be [found in the
-              docs](https://jellyfin.org/docs/general/installation/linux#debuntu).
+              For more advanced users, the full steps can be <a href="https://jellyfin.org/docs/general/installation/linux#debuntu-debian-ubuntu-and-derivatives-using-apt">
+              found in the docs</a>.
             </p>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
