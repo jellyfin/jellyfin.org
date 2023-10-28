@@ -134,7 +134,7 @@ If you would prefer to install everything manually, the full steps are as follow
    sudo apt install curl gnupg
    ```
 
-2. On Ubuntu (and derivatives) only, enable the Universe repository to obtain all the FFMpeg dependencies:
+2. On Ubuntu (and derivatives) only, enable the Universe repository to obtain all the FFmpeg dependencies:
 
    ```sh
    sudo add-apt-repository universe
@@ -223,7 +223,7 @@ The repository is the preferred way to obtain Jellyfin on Debian and Ubuntu syst
 
 :::
 
-1. On Ubuntu (and derivatives) only, enable the Universe repository to obtain all the FFMpeg dependencies:
+1. On Ubuntu (and derivatives) only, enable the Universe repository to obtain all the FFmpeg dependencies:
 
    ```sh
    sudo add-apt-repository universe
@@ -236,7 +236,7 @@ The repository is the preferred way to obtain Jellyfin on Debian and Ubuntu syst
 
    :::
 
-   On Debian, you can also enable the `non-free` components of your base repositories for additional FFMpeg dependencies, but this is optional.
+   On Debian, you can also enable the `non-free` components of your base repositories for additional FFmpeg dependencies, but this is optional.
 
 2. Download the desired `jellyfin-server`, `jellyfin-web`, and `jellyfin-ffmpeg` `.deb` packages from the repository; `jellyfin` is a metapackage and is not required.
 
