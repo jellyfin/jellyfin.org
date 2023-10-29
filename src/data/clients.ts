@@ -198,6 +198,34 @@ export const Clients: Array<Client> = [
     ]
   },
   {
+    id: 'feishin',
+    name: 'Feishin',
+    description: 'A full-featured Navidrome/Jellyfin compatible desktop music player.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'browser',
+        name: 'Open in Browser',
+        url: 'https://feishin.vercel.app/'
+      },
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/jeffvli/feishin/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jeffvli/feishin'
+      }
+    ]
+  },
+  {
     id: 'tauon-music-box',
     name: 'Tauon Music Box',
     description: "A modern streamlined music player for desktop with a minimal interface that's packed with features!",
