@@ -225,14 +225,6 @@ Manage TVHeadEnd from Jellyfin. Click [here](/docs/general/server/plugins/tvhead
 
 ### 3rd-Party Plugins
 
-#### Antennas
-
-Takes your tuners in TVHeadEnd and emulates a HDHomeRun, in order to connect to Jellyfin's Live TV and DVR features. It requires additional setup and configuration, but is a useful alternative to the TVHeadEnd plugin.
-
-**Links:**
-
-- [GitHub](https://github.com/TheJF/antennas)
-
 #### Merge Versions
 
 Automatically group every repeated movie.
