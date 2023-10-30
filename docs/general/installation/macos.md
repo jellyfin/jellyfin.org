@@ -11,6 +11,9 @@ sidebar_position: 5
 
 macOS Application packages and builds in TAR archive format are available [here](/downloads/macos).
 
+:::note
+Jellyfin requires macOS 10.15 or newer to run.
+
 **Install**
 
 1. Download the latest version.
