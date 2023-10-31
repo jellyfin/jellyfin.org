@@ -24,7 +24,29 @@ The AUR also offers each separately at [`jellyfin-server-git`](https://aur.archl
 
 ## Fedora
 
-Fedora builds in RPM package format are available [in the main download repository](https://repo.jellyfin.org/releases/server/). We do not yet have an official Fedora repository, but one is planned for the future.
+Fedora builds in RPM package format are available [in the main download repository](https://repo.jellyfin.org/releases/server/). We do not yet have an official Fedora repository, but one is planned for the future.  
+However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` and `jellyfin-web` for Fedora version `38` and above.
+
+### RPM Fusion
+
+1. `rpmfusion` must be enabled first
+
+   ```sh
+   sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+   ```
+
+2. Install the `jellyfin` package, which will automatically install `jellyfin-server`, `jellyfin-web` and `jellyfin-firewalld`
+
+   ```sh
+   sudo dnf install jellyfin
+   ```
+3. Enable and start the Jellyfin service:
+
+   ```sh
+   sudo systemctl enable --now jellyfin
+   ```
+
+### Manual installation via the .rpm packages
 
 1. You will need to enable `rpmfusion`, as `ffmpeg` is a dependency of the `jellyfin` server package
 
