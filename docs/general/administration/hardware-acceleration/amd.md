@@ -193,7 +193,7 @@ Known affected distros:
 
 This prevents you from using the AMD VA-API transcoding **on the host system**.
 
-You can use our Docker image instead or install thirt-party Mesa driver package.
+You can use our Docker image instead or install third-party Mesa driver package.
 
 Alternatively, rebuild the Mesa driver with these options added to restore the stripped hardware codecs:
 
