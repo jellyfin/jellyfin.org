@@ -156,7 +156,7 @@ For example, the local **Host Path** /mnt/tank/video/movies could be assigned th
 <details>
   <summary>Additional Storage Fields</summary>
 
-  <table style="max-width: 95%;">
+  <table>
     <thead>
       <tr>
         <th>Type</th>
