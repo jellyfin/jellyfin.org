@@ -820,7 +820,7 @@ Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e.
 
 - Gen 11 JSL/EHL graphics - Only support LP encoding mode.
 
-- Gen 12 TGL/DG1+ graphics - Support both two encodng modes.
+- Gen 12 TGL/DG1+ graphics - Support both two encoding modes.
 
 - Gen 12.5 DG2/ARC A-Series - Only support LP encoding mode.
 
