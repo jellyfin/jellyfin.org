@@ -40,6 +40,7 @@ However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` an
    ```sh
    sudo dnf install jellyfin
    ```
+
 3. Enable and start the Jellyfin service:
 
    ```sh
