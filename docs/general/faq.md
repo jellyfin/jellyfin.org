@@ -17,7 +17,7 @@ Jellyfin is an entirely volunteer-driven project, so until a developer is able a
 We track community feature requests on [our Fider instance](https://features.jellyfin.org), so please check that out, upvote the features you like, and add your own requests. Note that the Fider does not guarantee prioritization, but instead provides developers a way of seeing what features might be popular to decide whether to work on them or not. This does unfortunately mean that even highly-soughtafter features might not be implemented until someone both interested and able to work on them comes along.
 If you're a developer and are interested in helping out, [please hack away](/docs/general/contributing) and let us know [on Matrix](/docs/general/getting-help) so we can help.
 
-## When will release {X} happen? When will feature {X} be available?
+## When will release \{X} happen? When will feature \{X} be available?
 
 We make releases only when the team feels that it is ready, to provide our users with the best and most stable experience we can.
 To that end, releases happen when we feel there has been sufficient testing without new issues being found.

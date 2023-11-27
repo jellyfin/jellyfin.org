@@ -53,9 +53,9 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 1DE21A7B
 
 **Please ensure you refresh the key before December 15th, or you will find that `apt update` no longer works!**
 
-GitHub Issue for reference: <https://github.com/jellyfin/jellyfin/issues/4528>
+GitHub Issue for reference: [https://github.com/jellyfin/jellyfin/issues/4528](https://github.com/jellyfin/jellyfin/issues/4528)
 
-Reddit thread for reference: <https://www.reddit.com/r/jellyfin/comments/jz6u9o/debian_ubuntu_repo_users_our_key_is_expiring/>
+Reddit thread for reference: [https://www.reddit.com/r/jellyfin/comments/jz6u9o/debian_ubuntu_repo_users_our_key_is_expiring/](https://www.reddit.com/r/jellyfin/comments/jz6u9o/debian_ubuntu_repo_users_our_key_is_expiring/)
 
 Thanks,
 Joshua

@@ -48,7 +48,7 @@ This will delete all settings and user information. This applies for the .app pa
 2. Extract it into the Applications folder
 3. Open Terminal and type `cd` followed with a space then drag the jellyfin folder into the terminal.
 4. Type `./jellyfin` to run jellyfin.
-5. Open your browser at <http://localhost:8096>
+5. Open your browser at [http://localhost:8096](http://localhost:8096)
 
 Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmux can prevent this from happening.
 
@@ -59,7 +59,7 @@ Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmu
 1. Extract the latest version into Applications
 1. Open Terminal and type `cd` followed with a space then drag the jellyfin folder into the terminal.
 1. Type `./jellyfin` to run jellyfin.
-1. Open your browser at <http://localhost:8096>
+1. Open your browser at [http://localhost:8096](http://localhost:8096)
 
 **Uninstalling the Portable Version**
 
