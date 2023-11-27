@@ -1,4 +1,4 @@
-import { Mastodon } from '@icons-pack/react-simple-icons';
+import { SiMastodon } from '@icons-pack/react-simple-icons';
 import React from 'react';
 
 import './ContactCard.scss';
@@ -9,7 +9,7 @@ const MastodonCard = () => (
       <h3 className='margin-bottom--none' style={{ flexGrow: 1 }}>
         Mastodon
       </h3>
-      <Mastodon />
+      <SiMastodon />
     </div>
     <div className='card__body'>
       Follow us on Mastodon for release announcements and more, just like our Twitter account.

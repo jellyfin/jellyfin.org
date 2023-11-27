@@ -1,4 +1,4 @@
-import { Element } from '@icons-pack/react-simple-icons';
+import { SiElement } from '@icons-pack/react-simple-icons';
 import React from 'react';
 
 import './ContactCard.scss';
@@ -10,7 +10,7 @@ const MatrixCard = () => {
         <h3 className='margin-bottom--none' style={{ flexGrow: 1 }}>
           Matrix
         </h3>
-        <Element />
+        <SiElement />
       </div>
       <div className='card__body'>
         We primarily use <a href='https://element.io/get-started'>Element</a> to access the{' '}

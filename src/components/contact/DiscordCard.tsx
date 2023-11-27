@@ -1,4 +1,4 @@
-import { Discord } from '@icons-pack/react-simple-icons';
+import { SiDiscord } from '@icons-pack/react-simple-icons';
 import React from 'react';
 
 import './ContactCard.scss';
@@ -9,7 +9,7 @@ const DiscordCard = () => (
       <h3 className='margin-bottom--none' style={{ flexGrow: 1 }}>
         Discord
       </h3>
-      <Discord />
+      <SiDiscord />
     </div>
     <div className='card__body'>
       The Jellyfin Discord server is bridged to the official Matrix rooms for convenience.

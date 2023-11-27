@@ -1,7 +1,7 @@
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import React from 'react';
-import { Android, Apple, Roku, Amazon, Kodi } from '@icons-pack/react-simple-icons';
+import { SiAndroid, SiApple, SiRoku, SiAmazon, SiKodi } from '@icons-pack/react-simple-icons';
 import Icon from '@mdi/react';
 import { mdiPlusThick, mdiMonitor, mdiWeb } from '@mdi/js';
 
@@ -38,35 +38,35 @@ export default function ClientSection() {
             to='/downloads/clients?platform=Android,Android TV'
             className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
           >
-            <Android color='#ffffff' size={48} />
+            <SiAndroid color='#ffffff' size={48} />
             <div className='margin-top--sm'>Android</div>
           </Link>
           <Link
             to='/downloads/clients?platform=iOS,tvOS'
             className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
           >
-            <Apple color='#ffffff' size={48} />
+            <SiApple color='#ffffff' size={48} />
             <div className='margin-top--sm'>Apple</div>
           </Link>
           <Link
             to='/downloads/clients?platform=Fire TV'
             className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
           >
-            <Amazon color='#ffffff' size={48} />
+            <SiAmazon color='#ffffff' size={48} />
             <div className='margin-top--sm'>Amazon</div>
           </Link>
           <Link
             to='/downloads/clients?platform=Roku'
             className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
           >
-            <Roku color='#ffffff' size={48} />
+            <SiRoku color='#ffffff' size={48} />
             <div className='margin-top--sm'>Roku</div>
           </Link>
           <Link
             to='/downloads/clients?platform=Kodi'
             className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
           >
-            <Kodi color='#ffffff' size={48} />
+            <SiKodi color='#ffffff' size={48} />
             <div className='margin-top--sm'>Kodi</div>
           </Link>
           <Link to='/downloads/clients' className={clsx('col', styles['client-icon'], 'margin-top--md')}>
