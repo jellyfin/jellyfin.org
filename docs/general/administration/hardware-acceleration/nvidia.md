@@ -181,13 +181,13 @@ Root permission is required.
 
 3. Install the NVIDIA proprietary driver by following these links. Then install two extra packages for NVENC and NVDEC support:
 
-   - On Debian: <https://wiki.debian.org/NvidiaGraphicsDrivers>
+   - On Debian: [https://wiki.debian.org/NvidiaGraphicsDrivers](https://wiki.debian.org/NvidiaGraphicsDrivers)
 
      ```shell
      sudo apt update && sudo apt install -y libnvcuvid1 libnvidia-encode1
      ```
 
-   - On Ubuntu: <https://help.ubuntu.com/community/NvidiaDriversInstallation>
+   - On Ubuntu: [https://help.ubuntu.com/community/NvidiaDriversInstallation](https://help.ubuntu.com/community/NvidiaDriversInstallation)
 
      :::note
 
@@ -247,7 +247,7 @@ Root permission is required.
 
 2. Install the NVIDIA proprietary driver by following the link. Then install an extra package for NVENC and NVDEC support:
 
-   - <https://wiki.archlinux.org/title/NVIDIA#Installation>
+   - [https://wiki.archlinux.org/title/NVIDIA#Installation](https://wiki.archlinux.org/title/NVIDIA#Installation)
 
    ```shell
    sudo pacman -Syu nvidia-utils
@@ -320,7 +320,7 @@ Root permission is required.
 
 2. Install the NVIDIA Container Toolkit on the host system by following this link:
 
-   - <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide>
+   - [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide)
 
 3. Use the Docker command line **or** docker-compose:
 

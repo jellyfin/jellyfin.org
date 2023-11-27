@@ -281,11 +281,11 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](/docs/general/administration/hardware-acceleration/intel#low-power-encoding) mode MUST be configured and enabled for correct VBR and CBR bitrate control that is required by Jellyfin.
 
-   - Ticket: <https://gitlab.freedesktop.org/drm/intel/-/issues/8080>
+   - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/8080](https://gitlab.freedesktop.org/drm/intel/-/issues/8080)
 
 2. The default kernel 5.15 that comes with Ubuntu 22.04 LTS has a regression on Intel Gen 11 graphics (ICL, JSL and EHL) that prevent you from using the Low-Power encoding mode. Linux 5.16+ is not affected.
 
-   - Ticket: <https://gitlab.freedesktop.org/drm/intel/-/issues/4067>
+   - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/4067](https://gitlab.freedesktop.org/drm/intel/-/issues/4067)
 
    - Fixed by: [drm/i915/gen11: Moving WAs to icl_gt_workarounds_init()](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=52255ef662a5d490678fbad64a735f88fcba564d)
 
@@ -303,7 +303,7 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 3. The kernel range from 5.18 to 6.1.3 have an issue that locks up and resets the i915 kernel driver when using OpenCL based HDR/DV tone-mapping. Linux 5.18-, 6.0.18+, 6.1.4+ are not affected.
 
-   - Ticket: <https://gitlab.freedesktop.org/drm/intel/-/issues/7627>
+   - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/7627](https://gitlab.freedesktop.org/drm/intel/-/issues/7627)
 
    - Fixed by: [drm/i915: improve the catch-all evict to handle lock contention](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3f882f2d4f689627c1566c2c92087bc3ff734953)
 

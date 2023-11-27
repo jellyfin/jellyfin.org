@@ -267,7 +267,7 @@ Enables audio scrobbling to Last.FM as well as a metadata fetcher source.
 
 #### Kinopoisk metadata plugin
 
-Fetches metadata from <https://kinopoisk.ru>. This site is popular in the Russian-speaking community and contains almost no English-language information. Can provide movies and series rating, description, actors and staff, trailers and so on.
+Fetches metadata from [https://kinopoisk.ru](https://kinopoisk.ru). This site is popular in the Russian-speaking community and contains almost no English-language information. Can provide movies and series rating, description, actors and staff, trailers and so on.
 
 **Links:**
 
