@@ -35,7 +35,7 @@
     "@img-comparison-slider/react": "8.0.1",
     "@mdi/js": "7.3.67",
     "@mdi/react": "1.6.1",
-    "@mdx-js/react": "1.6.22",
+    "@mdx-js/react": "3.0.0",
     "@svgr/webpack": "8.1.0",
     "clsx": "2.0.0",
     "docusaurus-plugin-sass": "0.2.5",
