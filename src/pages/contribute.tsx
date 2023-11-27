@@ -1,5 +1,5 @@
 import Link from '@docusaurus/Link';
-import { Digitalocean, Jetbrains } from '@icons-pack/react-simple-icons';
+import { SiDigitalocean, SiJetbrains } from '@icons-pack/react-simple-icons';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import React from 'react';
@@ -58,7 +58,7 @@ export default function Contribute() {
               className={clsx('button', 'button--lg', styles['button--digitalocean'])}
               style={{ display: 'inline-flex' }}
             >
-              <Digitalocean size={28} className='margin-right--sm' />
+              <SiDigitalocean size={28} className='margin-right--sm' />
               DigitalOcean
             </a>
 
@@ -67,7 +67,7 @@ export default function Contribute() {
               className={clsx('button', 'button--lg', styles['button--jetbrains'])}
               style={{ display: 'inline-flex' }}
             >
-              <Jetbrains size={28} className='margin-right--sm' />
+              <SiJetbrains size={28} className='margin-right--sm' />
               JetBrains
             </a>
           </div>

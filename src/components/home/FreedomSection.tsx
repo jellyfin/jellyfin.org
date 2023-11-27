@@ -1,5 +1,5 @@
 import Link from '@docusaurus/Link';
-import { Opensourceinitiative } from '@icons-pack/react-simple-icons';
+import { SiOpensourceinitiative } from '@icons-pack/react-simple-icons';
 import Icon from '@mdi/react';
 import { mdiAccountGroup, mdiLock, mdiCurrencyUsdOff } from '@mdi/js';
 import clsx from 'clsx';
@@ -13,7 +13,7 @@ const cards = [
   {
     id: 'free-software',
     title: 'Free Software',
-    icon: <Opensourceinitiative size={ICON_SIZE} />,
+    icon: <SiOpensourceinitiative size={ICON_SIZE} />,
     description:
       'Jellyfin is Free Software, licensed under the GNU GPL. You can use it, study it, modify it, build it, and distribute it for free, as long as your changes are licensed the same way.'
   },
