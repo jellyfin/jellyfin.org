@@ -2,7 +2,7 @@
 uid: installation-truenas
 title: TrueNAS SCALE
 description: Install on TrueNAS SCALE.
-sidebar_position: 
+sidebar_position: 7
 ---
 
 Jellyfin can easily be installed on [TrueNAS SCALE](https://www.truenas.com/truenas-scale/) (version 23.10 or more recent) via the **Community** train application. Consider reviewing the [TrueNAS Apps tutorial](https://www.truenas.com/docs/scale/scaletutorials/apps/) if you have not previously configured applications on your system.
