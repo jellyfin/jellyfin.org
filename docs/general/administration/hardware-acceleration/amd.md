@@ -360,7 +360,7 @@ Root permission is required.
 
    - [vulkan-radeon](https://archlinux.org/packages/extra/x86_64/vulkan-radeon/)
 
-   - [rocm-opencl-runtime](https://archlinux.org/packages/community/x86_64/rocm-opencl-runtime/)
+   - [rocm-opencl-runtime](https://archlinux.org/packages/extra/x86_64/rocm-opencl-runtime/)
 
    ```shell
    sudo pacman -Syu libva-mesa-driver vulkan-radeon rocm-opencl-runtime

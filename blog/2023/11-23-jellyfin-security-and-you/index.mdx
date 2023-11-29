@@ -1,0 +1,18 @@
+---
+title: 'Jellyfin Security & You'
+description: "We have removed GUI FFmpeg configuration in 10.8.13: here's what you must know."
+authors: joshuaboniface
+date: 2023-11-26
+slug: jellyfin-security-and-you
+tags: [security]
+---
+
+We have just released our 10.8.13 stable version. This release fixes two serious security vulnerabilities, which will be detailed in full in approximately 1-2 weeks. Please be advised to update your Jellyfin instances as soon as possible before these vulnerabilities are released publicly.
+
+As part of this release, we have made a change to the behaviour of the "FFmpeg path" GUI configuration option in Jellyfin. Specifically, in version 10.8.13, this functionality has been disabled, and will be fully replaced in the next major version (10.9.0). Editing this value in the GUI in 10.8.13 or later will not change it. In the short term, those wishing to make further changes to their FFmpeg binary must do so by editing the `encoding.xml` configuration file instead of using the GUI, and the server must be restarted after making the change. Note too that the `--ffmpeg` flag may or may not change this for you, depending on what version you originally installed; while you should change it to match, you may still need to update the XML file as well.
+
+This feature/option stems from Emby 3.5 and the very earliest days of Jellyfin, when user configuration of a custom FFmpeg was much more common and often required, especially to provide hardware acceleration or a newer version than the host operating system provided. However, at this point, it is our belief that this is a very uncommonly-used feature, with most servers using our default `jellyfin-ffmpeg` packages, and thus we believe the impact from this change is minimal. The change also does not affect existing installs or non-default configurations of this value; those are preserved, and only future changes in the GUI are blocked.
+
+Thankfully for our users, this option has always required administrator privileges to the Jellyfin instance, and thus required an abusive administrator to leverage for nefarious purposes. We are aware that this change violates Semantic versioning standards, but after having several vulnerabilities in 10.8 that either include or potentially include this endpoint as a vector, we have decided to remove it now to avoid any potential further exposure for our users while we continue to work towards 10.9.0. While we have not completely decided how this functionality will be implemented there, it will similarly require reconfiguration outside of the application and a server restart to provide safety and security.
+
+Lastly, we want to remind all users that **granting administrator access to a Jellyfin server is, in many ways, tantamount to granting them shell access**. An administrative user has the power to do many dangerous and destructive actions, such as deleting files or overwriting configurations, even with this feature removed; plugins may also grant even more access, including full shell access should the plugin decide to. Thus it is always best to be safe and avoid handing this privilege out except when absolutely required, and **only grant administrator privileges to people you trust and to accounts with strong passwords**. Further, we recommend that you do not use an administrative user for day-to-day usage, especially in any client applications, just in case of future vulnerabilities in these applications.
