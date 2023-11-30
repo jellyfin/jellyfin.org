@@ -47,6 +47,12 @@ It is recommended that Intel-based macs be used with Windows or Linux installed 
 
 For low power applications, Intel 12th gen or newer Atom CPUs with integrated graphics are recommended. It is also recommended that [Low Power Encoding](/docs/general/administration/hardware-acceleration/intel/#low-power-encoding) be setup.
 
+:::caution SBCs (Single Board Computers)
+
+Most SBCs use low powered chipsets, often with less than ideal driver support from the chipset vendors. They are generally too slow for a good experience and/or have broken hardware acceleration support. Please avoid using SBCs such as Raspberry Pis (Including newer Raspberry Pi 5 Models) to run Jellyfin.
+
+:::
+
 ## Detailed Guide
 
 ### CPU
