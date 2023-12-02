@@ -42,6 +42,9 @@ server {
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
     client_max_body_size 20M;
 
+    #Disable TLS 1.0 and 1.1
+    ssl_protocols TLSv1.3 TLSv1.2;
+
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
     # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
