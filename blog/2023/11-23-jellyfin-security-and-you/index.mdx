@@ -9,6 +9,8 @@ tags: [security]
 
 We have just released our 10.8.13 stable version. This release fixes two serious security vulnerabilities, which will be detailed in full in approximately 1-2 weeks. Please be advised to update your Jellyfin instances as soon as possible before these vulnerabilities are released publicly.
 
+{/* truncate */}
+
 As part of this release, we have made a change to the behaviour of the "FFmpeg path" GUI configuration option in Jellyfin. Specifically, in version 10.8.13, this functionality has been disabled, and will be fully replaced in the next major version (10.9.0). Editing this value in the GUI in 10.8.13 or later will not change it. In the short term, those wishing to make further changes to their FFmpeg binary must do so by editing the `encoding.xml` configuration file instead of using the GUI, and the server must be restarted after making the change. Note too that the `--ffmpeg` flag may or may not change this for you, depending on what version you originally installed; while you should change it to match, you may still need to update the XML file as well.
 
 This feature/option stems from Emby 3.5 and the very earliest days of Jellyfin, when user configuration of a custom FFmpeg was much more common and often required, especially to provide hardware acceleration or a newer version than the host operating system provided. However, at this point, it is our belief that this is a very uncommonly-used feature, with most servers using our default `jellyfin-ffmpeg` packages, and thus we believe the impact from this change is minimal. The change also does not affect existing installs or non-default configurations of this value; those are preserved, and only future changes in the GUI are blocked.

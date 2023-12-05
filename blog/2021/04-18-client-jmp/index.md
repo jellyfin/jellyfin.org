@@ -8,7 +8,7 @@ slug: client-jmp
 
 Jellyfin Media Player is a new Jellyfin client option intended to offer a more user-friendly experience. It takes the user interface from jellyfin-web, including the playback interface, and combines it with the extensive codec support from MPV.
 
-<!--truncate-->
+<!-- truncate -->
 
 ![Player](./player.png)
 
