@@ -85,8 +85,7 @@ LOCATION: /socket
 
 ```
 
-:::
-In the "SSL" tab, use the jellyfin.example.com certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
+In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
 
 Finally, in the "Advanced" tab, add the following:
 
