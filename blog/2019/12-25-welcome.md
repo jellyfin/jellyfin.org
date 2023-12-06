@@ -8,7 +8,7 @@ slug: welcome
 
 Welcome to our brand new website.
 
-<!--truncate-->
+<!-- truncate -->
 
 At first glance, it may not look like much has changed - the theme and colours are still the same, and so is our frontpage. What has changed, is what's under the hood. Our website is now built using [Hugo](https://www.gohugo.io), a static-page generator written in Go.
 

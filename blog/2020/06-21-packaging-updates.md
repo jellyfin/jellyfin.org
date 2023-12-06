@@ -12,7 +12,7 @@ Luckily, today they are all completed. In this post, I'll detail the changes as 
 
 For a brief TL;DR: for most users of our stable releases, not much will change, and you will upgrade to 10.6.0 as you always have. For anyone using nightlies for testing, advanced setups, or who are just curious - read on!
 
-<!--truncate-->
+<!-- truncate -->
 
 ### Split Builds
 
