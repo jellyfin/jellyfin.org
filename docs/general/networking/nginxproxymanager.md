@@ -92,7 +92,7 @@ Finally, in the "Advanced" tab, add the following:
 
 ```config
 
-    # Uncomment next line to disable TLS 1.0 and 1.1 (Might break older devices)
+    # Uncomment next line to disable insecure TLS 1.0 and 1.1 (Might break older devices)
     # ssl_protocols TLSv1.3 TLSv1.2;
     
     # Disable buffering when the nginx proxy gets very resource heavy upon streaming
