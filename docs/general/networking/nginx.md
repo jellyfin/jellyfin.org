@@ -595,12 +595,11 @@ error_page 460 http://your-page-telling-your-limit/;
 
 [See here for more](https://www.nginx.com/blog/rate-limiting-nginx/)
 
-
 ## Nginx Proxy Manager
 
 [Nginx Proxy Manager](https://nginxproxymanager.com/) (pronounced "engine X") is a web server which can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Nginx was created by Igor Sysoev and first publicly released in 2004. A company of the same name was founded in 2011 to provide support and Nginx plus paid software. Nginx Proxy Manager was created by jc21 in 2016 and provides an easy-to-use web GUI for Nginx.
 
-### Nginx from a subdomain (jellyfin.example.org)
+### Nginx Proxy Manager from a subdomain (jellyfin.example.org)
 
 :::tip
 
