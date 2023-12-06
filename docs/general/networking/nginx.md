@@ -394,15 +394,7 @@ error_page 460 http://your-page-telling-your-limit/;
 
 ## Nginx Proxy Manager
 
-[Nginx Proxy Manager](https://nginxproxymanager.com/) (pronounced "engine X") was created by jc21 in 2016 and provides an easy-to-use web GUI for Nginx.
-
-### Nginx Proxy Manager from a subdomain (jellyfin.example.org)
-
-:::tip
-
-The default X-Frame-Options header may cause issues with the webOS app, causing it to remain stuck at a black screen. If enabled, the default Content Security Policy may also cause issues.
-
-:::
+[Nginx Proxy Manager](https://nginxproxymanager.com/) provides an easy-to-use web GUI for Nginx.
 
 Create a proxy host and point it to your Jellyfin server's IP address and http port (usually 8096)
 
