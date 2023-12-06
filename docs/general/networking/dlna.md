@@ -16,6 +16,12 @@ Setting `Alive message interval (seconds)` to 30 seconds also appears to help di
 
 If a base URL is set, try removing it and restarting the server.
 
+:::warning DLNA on CasaOS
+
+DLNA is broken by default on CasaOS due to the way Jellyfin is packaged by the CasaOS team. Their image uses the Bridged network mode instead of the Host network mode. It will have to be fixed for DLNA to work properly.
+
+:::
+
 ### DLNA Logging
 
 Use these entries in `logging.default.json` to turn on DLNA debug logs.
