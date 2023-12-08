@@ -198,6 +198,29 @@ export const Clients: Array<Client> = [
     ]
   },
   {
+    id: 'supersonic',
+    name: 'Supersonic',
+    description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'installation',
+        name: 'Installation Guide',
+        url: 'https://github.com/dweymouth/supersonic#installation'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/dweymouth/supersonic'
+      }
+    ]
+  },
+  {
     id: 'feishin',
     name: 'Feishin',
     description: 'A full-featured Navidrome/Jellyfin compatible desktop music player.',
