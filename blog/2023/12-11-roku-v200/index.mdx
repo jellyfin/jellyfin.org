@@ -2,7 +2,6 @@
 title: Roku Version 2.0.0
 description: I Want a Rokupotamus for Christmas
 authors: 1hitsong
-date: 2023-12-11
 slug: roku-200
 tags: [release, roku]
 ---
@@ -15,15 +14,15 @@ Read more to learn about some of the exciting new features.
 
 {/* truncate */}
 
-Requires minimum server version of 10.8.1
-
 ### 👥 User Select Screen / Auto Login
 
 ![Screenshot of the user select screen in the Jellyfin Roku app](./UserSelect.gif)
 
-When launching the Jellyfin app, it now presents you with the list of all public users and any other remembered users for you to login as.
+When launching the Jellyfin app, it now presents you with the list of public users and any private users with saved credentials for you to login as.
 
 If you prefer to have the app automatically login as a specific user, simply login as them and enable the new global Remember Me setting. With this global setting enabled, the app will automatically login as this user at the start of the Jellyfin app without needing to select them or enter a password.
+
+**Note:** Users upgrading from 1.6.6 will automatically have this global setting enabled and will automatically login as the last user logged in to the 1.6.6 app.
 
 ![Screenshot of the new Remember Me global setting](./RememberMe.jpg)
 
@@ -49,7 +48,11 @@ Support for Music Videos has been added. If the user has access to the Music Vid
 
 ### 🏎️ Quickplay Support Expanded To Entire App
 
-Stop wasting time and get your media playing ASAP! Quickplay support is now across the entire app. Simply highlight an item and  press play on your remote. TV Season? Check. Playlist? Check. Your Music library for a week long rager? Ya' better believe check.
+Stop wasting time and get your media playing ASAP!
+
+Quickplay support is now across the entire app. Simply highlight an item and press play on your remote. The client will then queue up to 2000 items and start playing.
+
+TV season? Check. Playlist? Check. Your favorite actor? Check. Your music library for a week long rager? Ya' better believe check.
 
 ### 📺 TV Show Season Extras Support
 
@@ -83,6 +86,20 @@ A new setting has been added under User Interface > General > Use Web Client's H
 
 ## ...and on, and on , and on
 
+- Native support for the AV1 codec (no more user setting)
+- Boxsets now sorted by release date by default
+- View your music library by Album Artists
+- Custom subtitle support (required for CJK support) expanded
+- Alpha menu now wraps from bottom to top & top to bottom
+- When connecting to a server, automatically attempt connection using default protocols and ports if not specified
+- Updated loading spinner similar to the video player spinner
+- Use TV show posters (if available) instead of channel posters for the \"On Now\" home section
+- Device Profile has been rewritten and improved
+- Improved \"Next Episode\" button logic
+- Movie and music libraries now sorted A to Z by default
+- Fixed several bugs that could crash the app
+- Many (oh so many) bug fixes
+
 There are simply too many amazing things in this release to name them all! To read the full list of changes, please read the full [release notes](https://github.com/jellyfin/jellyfin-roku/releases/tag/v2.0.0).
 
 ## 👥 Contributors
@@ -113,6 +130,8 @@ contributors that made this release possible:
 
 
 ## 💾 Downloads & Changelog
+
+Requires minimum server version of 10.8.1
 
 The complete list of changes for this release, including all merged pull requests, can be found on
 [GitHub](https://github.com/jellyfin/jellyfin-roku/releases/tag/v2.0.0).
