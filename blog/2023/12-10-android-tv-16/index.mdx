@@ -15,13 +15,13 @@ to the public. Read along to learn everything about improved music playback, the
 
 ## Significant changes
 
-In this post I will focus on a few of the popular and significant changes. As always a lot more changes were made both visible and
+In this post I will focus on a few of the popular and significant changes. As always, a lot more changes were made both visible and
 invisible; check out the full changelog to discover the full extent of this release.
 
 ### Music playback
 
 Playing media is the key feature of Jellyfin. Up until now the Android TV app had many issues playing every possible format. The code
-was also hard to work with making it challenging to fix the issues or implement new features. To encounter this we decided to rewrite all
+was also hard to work with making it challenging to fix the issues or implement new features. To counter this we decided to rewrite all
 playback code completely from scratch. In this release the initial results are ready for daily use and playing music will use the new
 playback code!
 
@@ -31,7 +31,7 @@ applications on your TV or even your smartphone!
 
 Improved codec detection should reduce transcoding and use direct play more often resulting in faster playback with less strain on the
 Jellyfin server. We already have plans to improve this even more and add preferences to fine-tune this for your specific devices. Other
-planned features include showing lyrics, enabling SyncPlay and support gapless playback.
+planned features include showing lyrics, enabling SyncPlay and gapless playback support.
 
 Work has already started to rework video playback based on this new code so we can add all kinds of new features with ease in a shared
 code base for both video and audio playback.
@@ -51,9 +51,9 @@ And the best part: the screensaver now works when the video player is paused!
 
 ### Search
 
-The search screen was partially rewritten to improve the performance. It will now cancel any pending search requests while typing and use
-a different method for getting the results. With these changes a search on large servers will be noticeably faster and no flickering occurs
-anymore.
+The search screen was partially rewritten to improve performance. It will now cancel any pending search requests while typing and use
+a different method for getting the results. With these changes, a search on a large server is now noticeably faster and no flickering
+occurs anymore.
 
 ![Screenshot of the search view in the Android TV app](./search.png)
 
