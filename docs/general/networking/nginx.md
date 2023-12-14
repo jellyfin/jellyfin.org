@@ -408,7 +408,6 @@ LOCATION: /
 
     # Proxy main Jellyfin traffic
     proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Forwarded-Protocol $scheme;
     proxy_set_header X-Forwarded-Host $http_host;
@@ -442,7 +441,6 @@ LOCATION: /socket
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
     proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Forwarded-Protocol $scheme;
     proxy_set_header X-Forwarded-Host $http_host;
@@ -477,8 +475,6 @@ Finally, in the "Advanced" tab, add the following:
     
     # Disable buffering when the nginx proxy gets very resource heavy upon streaming
     proxy_buffering off;
-    
-    # The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
-    client_max_body_size 20M;
+
 
 ```
