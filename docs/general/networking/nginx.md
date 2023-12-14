@@ -408,7 +408,6 @@ LOCATION: /
 
     # Proxy main Jellyfin traffic
     proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Forwarded-Protocol $scheme;
     proxy_set_header X-Forwarded-Host $http_host;
     proxy_headers_hash_max_size 2048;
@@ -419,7 +418,6 @@ LOCATION: /
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "0";
     add_header X-Content-Type-Options "nosniff";
-    add_header Strict-Transport-Security "max-age=31536000" always;
     
     # Tell browsers to use per-origin process isolation
     add_header Origin-Agent-Cluster "?1" always;
@@ -438,10 +436,8 @@ LOCATION: /
 LOCATION: /socket
 
     # Proxy Jellyfin Websockets traffic
-    proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
     proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Forwarded-Protocol $scheme;
     proxy_set_header X-Forwarded-Host $http_host;
     
@@ -450,7 +446,6 @@ LOCATION: /socket
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "0";
     add_header X-Content-Type-Options "nosniff";
-    add_header Strict-Transport-Security "max-age=31536000" always;
     
     # Tell browsers to use per-origin process isolation
     add_header Origin-Agent-Cluster "?1" always;
@@ -469,9 +464,6 @@ In the "SSL" tab, use the jellyfin.example.org certificate that you created with
 Finally, in the "Advanced" tab, add the following:
 
 ```config
-
-    # Uncomment next line to disable insecure TLS 1.0 and 1.1 (Might break older devices)
-    # ssl_protocols TLSv1.3 TLSv1.2;
     
     # Disable buffering when the nginx proxy gets very resource heavy upon streaming
     proxy_buffering off;
