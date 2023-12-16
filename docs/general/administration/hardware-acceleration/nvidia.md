@@ -372,6 +372,7 @@ Root permission is required.
    /dev/nvidia-modeset:/dev/nvidia-modeset
    /dev/nvidia-uvm:/dev/nvidia-uvm
    /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools
+   /dev/nvidia-caps:/dev/nvidia-caps
    ```
 
    :::
