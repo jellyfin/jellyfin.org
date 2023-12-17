@@ -1,5 +1,6 @@
-/** @type {import('@docusaurus/plugin-client-redirects').Options['redirects']} */
-module.exports = [
+import * as ClientRedirects from '@docusaurus/plugin-client-redirects';
+
+const redirects: ClientRedirects.Options['redirects'] = [
   // These pages existed on the jellyfin-blog site, but were not fully configured
   {
     from: ['/categories', '/tags'],
@@ -38,3 +39,4 @@ module.exports = [
     to: '/docs/general/installation/source'
   }
 ];
+export default redirects;
