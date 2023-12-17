@@ -225,21 +225,13 @@ Manage TVHeadEnd from Jellyfin. Click [here](/docs/general/server/plugins/tvhead
 
 ### 3rd-Party Plugins
 
-#### Merge Versions
+#### Ani-Sync
 
-Automatically group every repeated movie.
-
-**Links:**
-
-- [GitHub](https://github.com/danieladov/jellyfin-plugin-mergeversions)
-
-#### Skin Manager
-
-Download and manage the most popular skins.
+Ani-Sync lets you synchronize/scrobble your Jellyfin Anime watch progress to popular services like MyAnimeList, AniList, Kitsu.
 
 **Links:**
 
-- [GitHub](https://github.com/danieladov/jellyfin-plugin-skin-manager)
+- [GitHub](https://github.com/vosmiic/jellyfin-ani-sync)
 
 #### Intros
 
@@ -249,13 +241,13 @@ Download flashy intros from prerolls.video for your movies.
 
 - [GitHub](https://github.com/dkanada/jellyfin-plugin-intros)
 
-#### YouTube Metadata
+#### Kinopoisk metadata plugin
 
-Downloads metadata of YouTube videos with a YouTube API key.
+Fetches metadata from [https://kinopoisk.ru](https://kinopoisk.ru). This site is popular in the Russian-speaking community and contains almost no English-language information. Can provide movies and series rating, description, actors and staff, trailers and so on.
 
 **Links:**
 
-- [GitHub](https://github.com/ankenyr/jellyfin-youtube-metadata-plugin)
+- [GitHub](https://github.com/LinFor/jellyfin-plugin-kinopoisk)
 
 #### Last.FM
 
@@ -265,13 +257,13 @@ Enables audio scrobbling to Last.FM as well as a metadata fetcher source.
 
 - [GitHub](https://github.com/jesseward/jellyfin-plugin-lastfm)
 
-#### Kinopoisk metadata plugin
+#### Merge Versions
 
-Fetches metadata from [https://kinopoisk.ru](https://kinopoisk.ru). This site is popular in the Russian-speaking community and contains almost no English-language information. Can provide movies and series rating, description, actors and staff, trailers and so on.
+Automatically group every repeated movie.
 
 **Links:**
 
-- [GitHub](https://github.com/LinFor/jellyfin-plugin-kinopoisk)
+- [GitHub](https://github.com/danieladov/jellyfin-plugin-mergeversions)
 
 #### Shokofin
 
@@ -281,13 +273,13 @@ A plugin to integrate your Shoko database with the Jellyfin media server.
 
 - [GitHub](https://github.com/ShokoAnime/Shokofin)
 
-#### Ani-Sync
+#### Skin Manager
 
-Ani-Sync lets you synchronize/scrobble your Jellyfin Anime watch progress to popular services like MyAnimeList, AniList, Kitsu.
+Download and manage the most popular skins.
 
 **Links:**
 
-- [GitHub](https://github.com/vosmiic/jellyfin-ani-sync)
+- [GitHub](https://github.com/danieladov/jellyfin-plugin-skin-manager)
 
 #### Themerr
 
@@ -296,6 +288,14 @@ Plugin for Jellyfin that adds theme songs to movies using ThemerrDB.
 **Links:**
 
 - [GitHub](https://github.com/LizardByte/themerr-jellyfin)
+
+#### YouTube Metadata
+
+Downloads metadata of YouTube videos with a YouTube API key.
+
+**Links:**
+
+- [GitHub](https://github.com/ankenyr/jellyfin-youtube-metadata-plugin)
 
 ## Repositories
 
@@ -308,12 +308,19 @@ Plugin for Jellyfin that adds theme songs to movies using ThemerrDB.
 
 ### 3rd-Party Plugin Repositories
 
-#### dkanada's Repo
+#### 9p4's Single-Sign-On (SSO) Repo
 
 - Manifest
-  - [https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json](https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json)
+  - [https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json](https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json)
 - Included Plugins
-  - [Intros](https://github.com/dkanada/jellyfin-plugin-intros)
+  - [9p4's Single Sign On Plugin](https://github.com/9p4/jellyfin-plugin-sso)
+
+#### Ani-Sync Repo
+
+- Manifest
+  - [https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json](https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json)
+- Included Plugins
+  - [Ani-Sync](https://github.com/vosmiic/jellyfin-ani-sync)
 
 #### danieladov's Repo
 
@@ -323,6 +330,13 @@ Plugin for Jellyfin that adds theme songs to movies using ThemerrDB.
   - [Merge Versions](https://github.com/danieladov/jellyfin-plugin-mergeversions)
   - [Skin Manager](https://github.com/danieladov/jellyfin-plugin-skin-manager)
   - [Theme Songs](https://github.com/danieladov/jellyfin-plugin-themesongs)
+
+#### dkanada's Repo
+
+- Manifest
+  - [https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json](https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json)
+- Included Plugins
+  - [Intros](https://github.com/dkanada/jellyfin-plugin-intros)
 
 #### k-matti's Repo
 
@@ -339,23 +353,16 @@ Plugin for Jellyfin that adds theme songs to movies using ThemerrDB.
 - Included Plugins
   - [Kinopoisk metadata plugin](https://github.com/LinFor/jellyfin-plugin-kinopoisk)
 
+#### LizardByte's Repo
+
+- Manifest
+  - [https://app.lizardbyte.dev/jellyfin-plugin-repo/manifest.json](https://app.lizardbyte.dev/jellyfin-plugin-repo/manifest.json)
+- Included Plugins
+  - [Themerr](https://github.com/LizardByte/themerr-jellyfin)
+
 #### ShokoAnime's Repo
 
 - Manifest
   - [https://raw.githubusercontent.com/ShokoAnime/Shokofin/master/manifest.json](https://raw.githubusercontent.com/ShokoAnime/Shokofin/master/manifest.json)
 - Included Plugins
   - [Shokofin](https://github.com/ShokoAnime/Shokofin)
-
-#### 9p4's Single-Sign-On (SSO) Repo
-
-- Manifest
-  - [https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json](https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json)
-- Included Plugins
-  - [9p4's Single Sign On Plugin](https://github.com/9p4/jellyfin-plugin-sso)
-
-#### Ani-Sync Repo
-
-- Manifest
-  - [https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json](https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json)
-- Included Plugins
-  - [Ani-Sync](https://github.com/vosmiic/jellyfin-ani-sync)
