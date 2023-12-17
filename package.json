@@ -18,7 +18,8 @@
     "lint": "eslint --ext .ts,.js,.json,.jsx,.tsx .",
     "test:blog-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-blog-urls.json",
     "test:docs-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-docs-urls.json",
-    "test:web-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-web-urls.json"
+    "test:web-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-web-urls.json",
+    "update-plugins": "tsx ./scripts/update-plugins.ts"
   },
   "dependencies": {
     "@docusaurus/core": "3.0.1",
@@ -77,6 +78,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "node-fetch": "3.3.2",
     "prettier": "3.1.1",
+    "tsx": "4.6.2",
     "typescript": "5.3.3",
     "typescript-plugin-css-modules": "5.0.2"
   }

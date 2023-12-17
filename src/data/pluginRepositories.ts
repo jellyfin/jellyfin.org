@@ -99,3 +99,10 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     }
   }
 ];
+
+export const AllPluginRepositories: Array<PluginRepository> = [
+  ...OfficialPluginRepositories,
+  ...ThirdPartyRepositories
+];
+
+export const RepositoryById = (id: string) => AllPluginRepositories.find((repository) => repository.id === id) ?? null;
