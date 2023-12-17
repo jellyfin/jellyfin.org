@@ -1,5 +1,14 @@
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
+import { Config } from '@docusaurus/types';
+import * as Docs from '@docusaurus/plugin-content-docs';
+import * as Blog from '@docusaurus/plugin-content-blog';
+import * as Pages from '@docusaurus/plugin-content-pages';
+import * as Sitemap from '@docusaurus/plugin-sitemap';
+import * as ClientRedirects from '@docusaurus/plugin-client-redirects';
+import * as ThemeClassic from '@docusaurus/theme-classic';
+import * as SearchLocal from '@easyops-cn/docusaurus-search-local';
+import redirects from './redirects';
+
+const config: Config = {
   title: 'Jellyfin',
   tagline: 'The Free Software Media System',
   url: 'https://jellyfin.org',
@@ -9,7 +18,6 @@ module.exports = {
   favicon: 'images/favicon.ico',
   organizationName: 'jellyfin',
   projectName: 'jellyfin.org',
-  /** @type {import('@docusaurus/types').ThemeConfig} */
   themeConfig: {
     image: 'images/social.png',
     metadata: [
@@ -97,62 +105,45 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
     // Main content
     [
       '@docusaurus/plugin-content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
-        sidebarPath: require.resolve('./sidebars.js'),
+        sidebarPath: './sidebars.ts',
         editUrl: 'https://github.com/jellyfin/jellyfin.org/edit/master/'
-      }
+      } satisfies Docs.Options
     ],
     [
       '@docusaurus/plugin-content-blog',
-      /** @type {import('@docusaurus/plugin-content-blog').Options} */
       {
         id: 'blog-main',
         routeBasePath: 'posts',
         showReadingTime: true,
         path: 'blog'
-      }
+      } satisfies Blog.Options
     ],
-    [
-      '@docusaurus/plugin-content-pages',
-      /** @type {import('@docusaurus/plugin-content-pages').Options} */
-      {}
-    ],
+    ['@docusaurus/plugin-content-pages', {} satisfies Pages.Options],
     // Others
-    [
-      '@docusaurus/plugin-sitemap',
-      /** @type {import('@docusaurus/plugin-sitemap').Options} */
-      {}
-    ],
-    [
-      'docusaurus-plugin-sass',
-      /** @type {import('docusaurus-plugin-sass').Options} */
-      {}
-    ],
+    ['@docusaurus/plugin-sitemap', {} satisfies Sitemap.Options],
+    ['docusaurus-plugin-sass', {}],
     [
       '@docusaurus/plugin-client-redirects',
-      /** @type {import('@docusaurus/plugin-client-redirects').Options} */
       {
         fromExtensions: ['html'],
-        redirects: require('./redirects.js')
-      }
+        redirects: redirects
+      } satisfies ClientRedirects.Options
     ]
   ],
   themes: [
     [
-      require.resolve('@docusaurus/theme-classic'),
-      /** @type {import('@docusaurus/theme-classic').Options} */
+      '@docusaurus/theme-classic',
       {
         customCss: [
           require.resolve('@fontsource/noto-sans/index.css'),
           require.resolve('./src/css/custom.scss'),
           require.resolve('./src/css/swiper.scss')
         ]
-      }
+      } satisfies ThemeClassic.Options
     ],
     [
-      require.resolve('@easyops-cn/docusaurus-search-local'),
-      /** @type {import('@easyops-cn/docusaurus-search-local').Options} */
+      '@easyops-cn/docusaurus-search-local',
       {
         hashed: true,
         indexBlog: false,
@@ -164,7 +155,9 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
           /^posts\//
         ],
         explicitSearchResultPath: true
-      }
+      } satisfies SearchLocal.PluginOptions
     ]
   ]
 };
+
+export default config;

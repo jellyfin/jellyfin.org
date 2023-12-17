@@ -1,3 +1,5 @@
+import { SidebarConfig } from '@docusaurus/plugin-content-docs/src/sidebars/types';
+
 /**
  * Creating a sidebar enables you to:
  - create an ordered group of docs
@@ -9,7 +11,7 @@
  Create as many sidebars as you want.
  */
 
-module.exports = {
+const sidebars: SidebarConfig = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   docs: [
     // "docs/general" pages
@@ -18,3 +20,5 @@ module.exports = {
     { type: 'link', label: 'API Documentation', href: 'https://api.jellyfin.org' }
   ]
 };
+
+export default sidebars;
