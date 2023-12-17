@@ -299,70 +299,13 @@ Downloads metadata of YouTube videos with a YouTube API key.
 
 ## Repositories
 
+import { OfficialPluginRepositories, ThirdPartyRepositories } from '../../../../src/data/pluginRepositories';
+import PluginRepositoryList from '../../../../src/components/plugins/PluginRepositoryList';
+
 ### Official Jellyfin Plugin Repositories
 
-#### Default Repository
-
-- Manifest
-  - [https://repo.jellyfin.org/releases/plugin/manifest-stable.json](https://repo.jellyfin.org/releases/plugin/manifest-stable.json)
+<PluginRepositoryList repositories={OfficialPluginRepositories} />
 
 ### 3rd-Party Plugin Repositories
 
-#### 9p4's Single-Sign-On (SSO) Repo
-
-- Manifest
-  - [https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json](https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json)
-- Included Plugins
-  - [9p4's Single Sign On Plugin](https://github.com/9p4/jellyfin-plugin-sso)
-
-#### Ani-Sync Repo
-
-- Manifest
-  - [https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json](https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json)
-- Included Plugins
-  - [Ani-Sync](https://github.com/vosmiic/jellyfin-ani-sync)
-
-#### danieladov's Repo
-
-- Manifest
-  - [https://raw.githubusercontent.com/danieladov/JellyfinPluginManifest/master/manifest.json](https://raw.githubusercontent.com/danieladov/JellyfinPluginManifest/master/manifest.json)
-- Included Plugins
-  - [Merge Versions](https://github.com/danieladov/jellyfin-plugin-mergeversions)
-  - [Skin Manager](https://github.com/danieladov/jellyfin-plugin-skin-manager)
-  - [Theme Songs](https://github.com/danieladov/jellyfin-plugin-themesongs)
-
-#### dkanada's Repo
-
-- Manifest
-  - [https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json](https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json)
-- Included Plugins
-  - [Intros](https://github.com/dkanada/jellyfin-plugin-intros)
-
-#### k-matti's Repo
-
-- Manifest
-  - [https://raw.githubusercontent.com/k-matti/jellyfin-plugin-repository/master/manifest.json](https://raw.githubusercontent.com/k-matti/jellyfin-plugin-repository/master/manifest.json)
-- Included Plugins
-  - [SMS Notifications](https://github.com/k-matti/jellyfin-plugin-sms)
-  - [NapiSub](https://github.com/k-matti/jellyfin-plugin-napi)
-
-#### LinFor's Repo
-
-- Manifest
-  - [https://raw.githubusercontent.com/LinFor/jellyfin-plugin-kinopoisk/master/dist/manifest.json](https://raw.githubusercontent.com/LinFor/jellyfin-plugin-kinopoisk/master/dist/manifest.json)
-- Included Plugins
-  - [Kinopoisk metadata plugin](https://github.com/LinFor/jellyfin-plugin-kinopoisk)
-
-#### LizardByte's Repo
-
-- Manifest
-  - [https://app.lizardbyte.dev/jellyfin-plugin-repo/manifest.json](https://app.lizardbyte.dev/jellyfin-plugin-repo/manifest.json)
-- Included Plugins
-  - [Themerr](https://github.com/LizardByte/themerr-jellyfin)
-
-#### ShokoAnime's Repo
-
-- Manifest
-  - [https://raw.githubusercontent.com/ShokoAnime/Shokofin/master/manifest.json](https://raw.githubusercontent.com/ShokoAnime/Shokofin/master/manifest.json)
-- Included Plugins
-  - [Shokofin](https://github.com/ShokoAnime/Shokofin)
+<PluginRepositoryList repositories={ThirdPartyRepositories} />
