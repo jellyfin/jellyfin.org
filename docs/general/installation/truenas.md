@@ -5,7 +5,7 @@ description: Install on TrueNAS SCALE.
 sidebar_position: 7
 ---
 
-Jellyfin can easily be installed on [TrueNAS SCALE](https://www.truenas.com/truenas-scale/) (version 23.10 or more recent) via the **Community** train application. Consider reviewing the [TrueNAS Apps tutorial](https://www.truenas.com/docs/scale/scaletutorials/apps/) if you have not previously configured applications on your system.
+Jellyfin can easily be installed on [TrueNAS SCALE](https://www.truenas.com/truenas-scale/) (version 23.10 or newer) via the **Community** train application. Consider reviewing the [TrueNAS Apps tutorial](https://www.truenas.com/docs/scale/scaletutorials/apps/) if you have not previously configured applications on your system.
 
 TrueNAS SCALE makes installing Jellyfin easy, but you must use the Jellyfin web portal to configure accounts and manage libraries.
 
@@ -28,7 +28,7 @@ If you want to run the application with a user or group other than the default a
 
 ## Installing the Jellyfin Application
 
-To install the **Jellyfin** application, go to **Apps**, click **Discover Apps**, either begin typing Jellyfin into the search field or scroll down to locate the **Jellyfin** application widget.
+To install the **Jellyfin** application, go to **Apps**, click **Discover Apps**, either begin typing Jellyfin into the search field or scroll down to locate the **Jellyfin** application widget. You might need to click "Refresh Charts" if no Jellyfin app is showing in the results.
 
 ![Jellyfin App Widget](/images/docs/install-truenas-1.png)
 
