@@ -169,19 +169,17 @@ Please check the product page of your CPU for more info.
 
 Supported codecs are listed below:
 
-| Codec       | M1 | M1 Pro | M2 | M2 Pro |
-|-------------|----|--------|----|--------|
-| H.264 8bit  | ✅  | ✅      | ✅  | ✅      |
-| H.264 10bit | 🔶  | 🔶      | 🔶  | 🔶      |
-| H.265 8bit  | ✅  | ✅      | ✅  | ✅      |
-| H.265 10bit | ✅  | ✅      | ✅  | ✅      |
-| VP9 8bit    | 🔶  | 🔶      | 🔶  | 🔶      |
-| VP9 10bit   | 🔶  | 🔶      | 🔶  | 🔶      |
-| AV1         | ❌  | ❌      | ❌  | ❌      |
+| Codec       | M1, M2 Family | M3 Family |
+| ----------- | ------------- | --------- |
+| H.264 8bit  | ✅            | ✅        |
+| H.264 10bit | 🔶            | 🔶        |
+| H.265 8bit  | ✅            | ✅        |
+| H.265 10bit | ✅            | ✅        |
+| VP9 8bit    | 🔶            | 🔶        |
+| VP9 10bit   | 🔶            | 🔶        |
+| AV1         | ❌            | 🔶        |
 
-Refer to the Pro column for Max and Ultra SOCs.
-
-✅ = Supported, 🔶 = Decode Only, ❌ = Not Supported.
+✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
 
 :::caution
 
