@@ -171,7 +171,7 @@ Trailers support a special option if you only have a single file of that type pe
 
 ## 3D Videos
 
-Please refer to ['3D Movies' in the movies section](/docs/general/server/media/movies#3D-Movies)
+Please refer to ['3D Movies' in the movies section](/docs/general/server/media/movies#3d-movies)
 
 ## Images
 
