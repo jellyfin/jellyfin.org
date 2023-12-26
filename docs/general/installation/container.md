@@ -197,7 +197,7 @@ As always it is recommended to run the container rootless. Therefore we want to 
    ```sh
    [Container]
    Image=docker.io/jellyfin/jellyfin:latest
-   Label=io.containers.autoupdate=registry
+   AutoUpdate=registry
    PublishPort=8096:8096/tcp
    UserNS=keep-id
    Volume=jellyfin-config:/config:Z
