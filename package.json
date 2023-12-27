@@ -28,7 +28,7 @@
     "@docusaurus/plugin-content-pages": "3.0.1",
     "@docusaurus/plugin-sitemap": "3.0.1",
     "@docusaurus/theme-classic": "3.0.1",
-    "@easyops-cn/docusaurus-search-local": "0.38.1",
+    "@easyops-cn/docusaurus-search-local": "0.40.0",
     "@fontsource/noto-sans": "5.0.18",
     "@icons-pack/react-simple-icons": "9.2.0",
     "@img-comparison-slider/react": "8.0.1",
