@@ -246,6 +246,7 @@ Finally, you need to set the `--device` flag for the container to use the render
 `--device /dev/dri/`
 
 #### podman run
+
 ```sh
    podman run \
     --detach \
@@ -264,6 +265,7 @@ Finally, you need to set the `--device` flag for the container to use the render
    ```
 
 #### systemd
+
 ```sh
 [Unit]
 Description=jellyfin
