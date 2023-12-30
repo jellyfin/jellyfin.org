@@ -28,6 +28,9 @@ export default function Home() {
             Download Now
           </Link>
         </div>
+        <span id="demo_userpass_span" className='hero__text margin-vert--lg'>
+          Note: To signin to the demo, the user is "demo" (without quotes) and leave password field blank
+        </span>
       </Hero>
       <main>
         <HomepageFeatures />
