@@ -31,6 +31,12 @@ These specs are the **recommended** specs to run Jellyfin. They are not minimum 
 
 :::
 
+:::note AMD Ryzen CPUs and Hardware Encoding
+
+AMD Ryzen CPUs are often percieved to have inferior hardware encoding quality. While this is true when using integrated graphics for encoding, They will provide the same encoding quality and performance as Intel when encoding on a discrete GPU.
+
+:::
+
 :::caution Pre-built NAS Devices
 
 Many pre-built NAS devices are underpowered. Please check your specs against the above recommendations for a good experience.
