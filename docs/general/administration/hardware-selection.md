@@ -13,7 +13,7 @@ For a Jellyfin server, the following is recommended:
 
 ### Normal Server
 
-- CPU (With dGPU): Intel Core i5-2300, AMD Ryzen 3 1200 or better. (Geekbench 6 Multicore 1500 or better)
+- CPU (With dGPU): Intel Core i5-2300, AMD Ryzen 3 1200 or better. (Geekbench 6 Multicore 1500 or better). *CPU vendor will not have meaningful impacts on quality and/or speed.*
 - CPU (Without dGPU): Intel Pentium G4560, Intel Core i3-7100 or better. (Intel 7th gen or newer Pentium or better, excluding J and N series)
 - RAM: 8GB or more
 - Storage: 60GB SSD storage for Jellyfin files and transcoding cache.
@@ -28,12 +28,6 @@ Atom CPUs in this guide refer to any Intel Atom CPUs, as well as other low power
 :::note These are Recommended Specs
 
 These specs are the **recommended** specs to run Jellyfin. They are not minimum requirements, and it is certainly possible to run Jellyfin on lower end hardware.
-
-:::
-
-:::note AMD Ryzen CPUs and Hardware Encoding
-
-AMD Ryzen CPUs are often percieved to have inferior hardware encoding quality. While this is true when using integrated graphics for encoding, They will provide the same encoding quality and performance as Intel when encoding on a discrete GPU.
 
 :::
 
