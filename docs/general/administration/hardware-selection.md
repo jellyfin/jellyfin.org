@@ -14,10 +14,16 @@ For a Jellyfin server, the following is recommended:
 ### Normal Server
 
 - CPU (With dGPU): Intel Core i5-2300, AMD Ryzen 3 1200 or better. (Geekbench 6 Multicore 1500 or better)
-- CPU (Without dGPU): Intel Pentium G4560, Intel Core i3-7100 or better. (Intel 7th gen or newer Pentium or better)
+- CPU (Without dGPU): Intel Pentium G4560, Intel Core i3-7100 or better. (Intel 7th gen or newer Pentium or better, excluding J and N series)
 - RAM: 8GB or more
 - Storage: 60GB SSD storage for Jellyfin files and transcoding cache.
 - Graphics: Intel HD 6xx (7th gen integrated graphics) or newer, Nvidia GTX 16 / RTX 20 series or newer (excluding GTX 1650). Intel is recommended over Nvidia. AMD and Apple Silicon are not recommended.
+
+:::note Intel "Atom" CPUs
+
+Atom CPUs in this guide refer to any Intel Atom CPUs, as well as other low powered Intel CPUs such as J/M/N/Y series from other product lines. (eg. Pentium N5105, Pentium N6000, Core i3 N305). While these CPUs are branded as products from other product lines, they use the same microarchitecture as Intel's low powered chipsets and may be significantly less powerful and have less features than their names might otherwise suggest.
+
+:::
 
 :::note These are Recommended Specs
 
