@@ -13,7 +13,7 @@ For a Jellyfin server, the following is recommended:
 
 ### Normal Server
 
-- CPU (With dGPU): Intel Core i5-2300, AMD Ryzen 3 1200 or better. (Geekbench 6 Multicore 1500 or better)
+- CPU (With dGPU): Intel Core i5-2300, AMD Ryzen 3 1200 or better. (Geekbench 6 Multicore 1500 or better). *CPU vendor will not have a meaningful impact on quality and/or speed of transcoding.*
 - CPU (Without dGPU): Intel Pentium G4560, Intel Core i3-7100 or better. (Intel 7th gen or newer Pentium or better, excluding J and N series)
 - RAM: 8GB or more
 - Storage: 60GB SSD storage for Jellyfin files and transcoding cache.
