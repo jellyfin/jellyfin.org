@@ -8,7 +8,7 @@ slug: jellyfin-apt-key
 
 Our GPG key for signing our Debian and Ubuntu repositories (`https://repo.jellyfin.org/debian` and `https://repo.jellyfin.org/ubuntu`) is set to expire next month.
 
-<!--truncate-->
+<!-- truncate -->
 
 Unfortunately this was an oversight when we first set up this repo, and we never provided any convenient way to update this. As a remedy, we've removed the expiry on the key and put a new version on the repo. This brings us into line with numerous other 3rd-party Debian repositories, such as the Microsoft .NET and Docker repositories which also use an expiry-less key, and should avoid any such issues again, barring a need to rotate it. This does however require manually refreshing the key on your system.
 

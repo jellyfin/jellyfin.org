@@ -197,7 +197,7 @@ As always it is recommended to run the container rootless. Therefore we want to 
    ```sh
    [Container]
    Image=docker.io/jellyfin/jellyfin:latest
-   Label=io.containers.autoupdate=registry
+   AutoUpdate=registry
    PublishPort=8096:8096/tcp
    UserNS=keep-id
    Volume=jellyfin-config:/config:Z
@@ -228,6 +228,67 @@ As always it is recommended to run the container rootless. Therefore we want to 
    `journalctl --user -u jellyfin`
 
 6. `exit` the current session.
+
+### With hardware acceleration
+
+To use hardware acceleration, you need to allow the container to access the render device. If you are using container-selinux-2.226 or later, you have to set the `container_use_dri_device` flag in selinux or the container will not be able to use it:
+
+`sudo setsebool -P container_use_dri_device 1`
+
+On older versions of container-selinux, you have to disable the selinux confinement for the container by adding `--security-opt label=disable` to the podman command.
+
+Then, you need to mount the render device inside the container:
+
+`--device /dev/dri/:/dev/dri/`
+
+Finally, you need to set the `--device` flag for the container to use the render device:
+
+`--device /dev/dri/`
+
+#### podman run
+
+```sh
+   podman run \
+    --detach \
+    --label "io.containers.autoupdate=registry" \
+    --name myjellyfin \
+    --publish 8096:8096/tcp \
+    --device /dev/dri/:/dev/dri/ \
+    # --security-opt label=disable # Only needed for older versions of container-selinux < 2.226
+    --rm \
+    --user $(id -u):$(id -g) \
+    --userns keep-id \
+    --volume jellyfin-cache:/cache:Z \
+    --volume jellyfin-config:/config:Z \
+    --mount type=bind,source=/path/to/media,destination=/media,ro=true,relabel=private \
+    docker.io/jellyfin/jellyfin:latest
+   ```
+
+#### systemd
+
+```sh
+[Unit]
+Description=jellyfin
+
+[Container]
+Image=docker.io/jellyfin/jellyfin:latest
+AutoUpdate=registry
+PublishPort=8096:8096/tcp
+UserNS=keep-id
+#SecurityLabelDisable=true # Only needed for older versions of container-selinux < 2.226
+AddDevice=/dev/dri/:/dev/dri/
+Volume=jellyfin-config:/config:Z
+Volume=jellyfin-cache:/cache:Z
+Volume=jellyfin-media:/media:Z
+
+[Service]
+# Inform systemd of additional exit status
+SuccessExitStatus=0 143
+
+[Install]
+# Start by default on boot
+WantedBy=default.target
+```
 
 ## TrueNAS SCALE / TrueCharts
 

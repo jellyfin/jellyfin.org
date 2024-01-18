@@ -310,19 +310,19 @@ cd /opt/jellyfin
 ```
 
 Download the latest generic Linux build for your architecture.
-The rest of these instructions assume version 10.8.9 is being installed (i.e. `jellyfin_10.8.9_amd64.tar.gz`).
+The rest of these instructions assume version 10.8.13 is being installed (i.e. `jellyfin_10.8.13_amd64.tar.gz`).
 Download the generic build, then extract the archive:
 
 ```sh
-sudo wget https://repo.jellyfin.org/releases/server/linux/stable/combined/jellyfin_10.8.9_amd64.tar.gz
-sudo tar xvzf jellyfin_10.8.9_amd64.tar.gz
+sudo wget https://repo.jellyfin.org/releases/server/linux/stable/combined/jellyfin_10.8.13_amd64.tar.gz
+sudo tar xvzf jellyfin_10.8.13_amd64.tar.gz
 ```
 
-Create a symbolic link to the Jellyfin 10.8.9 directory.
+Create a symbolic link to the Jellyfin 10.8.13 directory.
 This allows an upgrade by repeating the above steps and enabling it by simply re-creating the symbolic link to the new version.
 
 ```sh
-sudo ln -s jellyfin_10.8.9 jellyfin
+sudo ln -s jellyfin_10.8.13 jellyfin
 ```
 
 Create four sub-directories for Jellyfin data.

@@ -25,6 +25,12 @@ The supported and validated video [hardware acceleration (HWA)](https://trac.ffm
 
 - **Raspberry Pi** Video4Linux2 (V4L2, Linux only)
 
+:::danger RPi5
+
+Please AVOID Rapsberry Pi 5 for Jellyfin. The Raspberry Pi 5 lacks hardware encoders altogether. The Raspberry Pi Foundation has also not responded to requests for official comment from the Jellyfin team.
+
+:::
+
 :::caution
 
 While hardware acceleration is supported on Raspberry Pi hardware, it is recommended that Jellyfin NOT be hosted on Raspberry Pis or other SBCs. Many hardware acceleration features are not supported and will fallback to software. In addition, they are generally too slow to provide a good experience when transcoding is needed. Please consider getting a more powerful system to host Jellyfin.
