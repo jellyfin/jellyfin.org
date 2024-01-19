@@ -49,7 +49,7 @@ server {
     # in this example we are using a hostname which is resolved via DNS
     # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
     set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30;
+    resolver 127.0.0.1 valid=30s;
 
     #ssl_certificate /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem;
     #ssl_certificate_key /etc/letsencrypt/live/DOMAIN_NAME/privkey.pem;
@@ -162,7 +162,7 @@ server {
     # in this example we are using a hostname which is resolved via DNS
     # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
     set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30;
+    resolver 127.0.0.1 valid=30s;
 
     # Uncomment and create directory to also host static content
     #root /srv/http/media;
@@ -177,13 +177,12 @@ server {
         return 302 $scheme://$host/jellyfin/;
     }
 
+    # The / at the end is significant.
+    # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
     location /jellyfin/ {
         # Proxy main Jellyfin traffic
 
-        # The / at the end is significant.
-        # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
-
-        proxy_pass http://$jellyfin:8096/jellyfin/;
+        proxy_pass http://$jellyfin:8096;
 
         proxy_pass_request_headers on;
 
@@ -238,18 +237,17 @@ server {
     # in this example we are using a hostname which is resolved via DNS
     # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
     set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30;
+    resolver 127.0.0.1 valid=30s;
 
     # Jellyfin
     location /jellyfin {
         return 302 $scheme://$host/jellyfin/;
     }
 
+    # The / at the end is significant.
+    # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
     location /jellyfin/ {
         # Proxy main Jellyfin traffic
-
-        # The / at the end is significant.
-        # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
 
         proxy_pass http://$jellyfin:8096;
 
@@ -344,7 +342,7 @@ proxy_cache_path /var/cache/nginx/jellyfin levels=1:2 keys_zone=jellyfin:100m ma
 
 # Cache images (inside server block)
 location ~ /Items/(.*)/Images {
-  proxy_pass http://127.0.0.1:8096;
+  proxy_pass http://$jellyfin:8096;
   proxy_set_header Host $host;
   proxy_set_header X-Real-IP $remote_addr;
   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -369,7 +367,7 @@ limit_conn_zone $binary_remote_addr zone=addr:10m;
 
 # Downloads limit (inside server block)
 location ~ /Items/(.*)/Download$ {
-   proxy_pass http://127.0.0.1:8096;
+   proxy_pass http://$jellyfin:8096;
    proxy_set_header Host $host;
    proxy_set_header X-Real-IP $remote_addr;
    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
