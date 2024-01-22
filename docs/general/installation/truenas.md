@@ -43,56 +43,6 @@ To find specific fields click in the **Search Input Fields** search field, scrol
 
 ![Install Jellyfin Screen](/images/docs/install-truenas-3.png)
 
-Accept the default values in **Application Name** and **Version**.
-
-Accept the defaults in **Jellyfin Configuration**, **User and Group Configuration**, and **Network Configuration** or change to suit your use case.
-You must select **Host Network** under **Network Configuration** if using [DLNA](/docs/general/networking/dlna/).
-
-Jellyfin requires three app storage datasets.
-You can allow SCALE to create them for you, or use the dataset(s) created in [First Steps](#first-steps).
-Select the storage options you want to use for **Jellyfin Config Storage** and **Jellyfin Cache Storage**.
-Select **ixVolume (dataset created automatically by the system)** in **Type** to let SCALE create the dataset or select **Host Path** to use the existing datasets created on the system.
-
-Jellyfin also requires a dataset or [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) for **Jellyfin Transcodes Storage**.
-Select **ixVolume (dataset created automatically by the system)** in **Type** to let SCALE create the dataset, select **Host Path** to use an existing dataset created on the system, or select **emptyDir** to use a temporary storage volume on the disk or in memory.
-
-Mount one or more media libraries using **Additional Storage**.
-Click **Add** to enter the path(s) on your system.
-Select **Host Path (Path that already exists on the system)** or **SMB Share (Mounts a persistent volume claim to a SMB share)** in **Type**.
-Enter a **Mount Path** to be used within the Jellyfin container. For example, the local Host Path /mnt/tank/video/movies could be assigned the Mount Path /media/movies.
-Define the **Host Path** or complete the SMB Share Configuration fields.
-See [Mounting Additional Storage](#mounting-additional-storage) below for more information.
-
-Accept the defaults in **Resource Configuration** or change the CPU and memory limits to suit your use case.
-
-Click **Install**.
-
-A container launches with root privileges to apply the correct permissions to the Jellyfin directories.
-Afterward, the Jellyfin container runs as a non-root user (default: 568).
-Configured storage directory ownership is changed if the parent directory does not match the configured user.
-
-The system opens the **Installed Applications** screen with the Jellyfin app in the **Deploying** state.
-When the installation completes it changes to **Running**.
-
-![Jellyfin Installed](/images/docs/install-truenas-4.png)
-
-Click **Web Portal** on the **Application Info** widget to open the Jellyfin web interface initial setup wizard to set up your admin account and begin administering libraries.
-
-![Jellyfin Web Portal](/images/docs/install-truenas-5.png)
-
-## Editing the Jellyfin Application
-
-Go to the **Installed Applications** screen and select Jellyfin from the list of installed applications.
-Click **Edit** on the **Application Info** widget to open the **Edit Jellyfin** screen.
-The settings on the edit screen are the same as on the install screen.
-You cannot edit **Storage Configuration** paths after the initial app install.
-
-Click **Update** to save changes.
-TrueNAS automatically updates, recreates, and redeploys the Jellyfin container with the updated environment variables.
-
-## Understanding Jellyfin Settings
-
-The following sections provide more detailed explanations of the settings found in each section of the **Install Jellyfin** screen.
 
 ### Application Name Settings
 
@@ -124,8 +74,8 @@ Create an admin user in the Jellyfin initial setup wizard to access the UI.
 
 ### Networking Settings
 
-Leave **Host Network** unchecked unless using [DLNA](https://jellyfin.org/docs/general/networking/dlna/).
-If so, select **Host Network** to bind network configuration to the host network settings.
+Select **Host Network** under **Network Configuration** if using [DLNA](/docs/general/networking/dlna/), to bind network configuration to the host network settings.
+Otherwise, leave **Host Network** unselected.
 
 ![Networking](/images/docs/install-truenas-8.png)
 
@@ -137,6 +87,10 @@ To change the port numbers, enter a number within the range 9000-65535.
 
 ### Storage Settings
 
+Jellyfin requires three app storage datasets for **Jellyfin Config Storage**, **Jellyfin Cache Storage**, and **Jellyfin Transcodes Storage**.
+Solid state storage is recommended for config and cache storage.
+Do not use the same spinning disk device for both cache and config and media storage libraries.
+
 You can install Jellyfin using the default setting **ixVolume (dataset created automatically by the system)** or use the host path option with datasets [created before installing the app](#first-steps).
 
 ![Configure Storage ixVolumes](/images/docs/install-truenas-9.png)
@@ -145,11 +99,11 @@ Select **Host Path (Path that already exists on the system)** to browse to and s
 
 ![Configure Storage Host Paths](/images/docs/install-truenas-10.png)
 
-For **Jellyfin Transcodes Storage**, choose **ixVolume**, **Host Path**, or **emptyDir (Temporary directory created on the disk or in memory)**. An emptyDir uses ephemeral storage either on the disk or by mounting a tmpfs (RAM-backed filesystem) directory for storing transcode files.
+For **Jellyfin Transcodes Storage** select **ixVolume (dataset created automatically by the system)** in **Type** to let SCALE create the dataset, select **Host Path** to use an existing dataset created on the system, or select **emptyDir** to use a temporary storage volume either on the disk or by mounting a tmpfs (RAM-backed filesystem) directory for storing transcode files.
 
 #### Mounting Additional Storage
 
-Click **Add** next to **Additional Storage** to add the media storage path(s) on your system.
+Click **Add** next to **Additional Storage** to add the media library storage path(s) on your system.
 
 ![Additional Storage](/images/docs/install-truenas-11.png)
 
@@ -244,3 +198,30 @@ You must have at least two GPUs in your system; one allocated to the host system
 One isolated GPU device can be used by a single VM or multiple applications, but not both.
 
 See [Managing GPUs](https://www.truenas.com/docs/scale/scaletutorials/systemsettings/advanced/managegpuscale/) for more information about allocating isolated GPU devices in TrueNAS SCALE.
+
+## Finalizing Install
+
+Click **Install**.
+
+A container launches with root privileges to apply the correct permissions to the Jellyfin directories.
+Afterward, the Jellyfin container runs as a non-root user (default: 568).
+Configured storage directory ownership is changed if the parent directory does not match the configured user.
+
+The system opens the **Installed Applications** screen with the Jellyfin app in the **Deploying** state.
+When the installation completes it changes to **Running**.
+
+![Jellyfin Installed](/images/docs/install-truenas-4.png)
+
+Click **Web Portal** on the **Application Info** widget to open the Jellyfin web interface initial setup wizard to set up your admin account and begin administering libraries.
+
+![Jellyfin Web Portal](/images/docs/install-truenas-5.png)
+
+## Editing the Jellyfin Application
+
+Go to the **Installed Applications** screen and select Jellyfin from the list of installed applications.
+Click **Edit** on the **Application Info** widget to open the **Edit Jellyfin** screen.
+The settings on the edit screen are the same as on the install screen.
+You cannot edit **Storage Configuration** paths after the initial app install.
+
+Click **Update** to save changes.
+TrueNAS automatically updates, recreates, and redeploys the Jellyfin container with the updated environment variables.
