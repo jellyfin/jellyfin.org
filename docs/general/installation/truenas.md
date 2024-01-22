@@ -43,7 +43,6 @@ To find specific fields click in the **Search Input Fields** search field, scrol
 
 ![Install Jellyfin Screen](/images/docs/install-truenas-3.png)
 
-
 ### Application Name Settings
 
 Accept the default value or enter a name in the **Application Name** field.
