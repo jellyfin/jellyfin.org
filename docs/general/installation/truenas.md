@@ -9,7 +9,7 @@ Jellyfin can easily be installed on [TrueNAS SCALE](https://www.truenas.com/true
 
 TrueNAS SCALE makes installing Jellyfin easy, but you must use the Jellyfin web portal to configure accounts and manage libraries.
 
-## First Steps
+## Introduction and Preparation
 
 The Jellyfin app in TrueNAS SCALE installs, completes the initial configuration, then starts the Jellyfin web portal.
 When updates become available, SCALE alerts and provides easy updates.
@@ -46,7 +46,7 @@ To find specific fields click in the **Search Input Fields** search field, scrol
 Accept the default values in **Application Name** and **Version**.
 
 Accept the defaults in **Jellyfin Configuration**, **User and Group Configuration**, and **Network Configuration** or change to suit your use case.
-You must select **Host Network** under **Network Configuration** if using [DLNA](https://jellyfin.org/docs/general/networking/dlna/).
+You must select **Host Network** under **Network Configuration** if using [DLNA](/docs/general/networking/dlna/).
 
 Jellyfin requires three app storage datasets.
 You can allow SCALE to create them for you, or use the dataset(s) created in [First Steps](#first-steps).
@@ -231,10 +231,10 @@ By default, this application is limited to use no more than 4 CPU cores and 8 gi
 ![Resource Limits](/images/docs/install-truenas-12.png)
 
 To customize the CPU and memory allocated to the container Jellyfin uses, enter new CPU values as a plain integer value followed by the suffix m (milli).
-Default is 4000m.
+Default is 4000m, which means Jellyfin is allowed to use 4 CPU threads.
 
 Accept the default value 8Gi allocated memory or enter a new limit in bytes.
-Enter a plain integer followed by the measurement suffix, for example 129M or 123Mi.
+Enter a plain integer followed by the measurement suffix, for example 4GB.
 
 Systems with compatible GPU(s) for hardware acceleration display devices in **GPU Configuration**.
 Use the **GPU Resource** dropdown menu(s) to configure device allocation.
