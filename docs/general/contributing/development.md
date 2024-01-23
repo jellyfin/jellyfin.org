@@ -195,7 +195,7 @@ curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dea
 echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 apt-get update && apt-get install -y nodejs
 cd /opt && git clone https://github.com/jellyfin/jellyfin.git && git clone https://github.com/jellyfin/jellyfin-web.git
-cd jellyfin/ && DOTNET_CLI_TELEMETRY_OPTOUT=1 && DOTNET_CLI_HOME="/tmp/" dotnet publish --disable-parallel Jellyfin.Server --configuration Debug --output="/jellyfin" --self-contained --runtime linux-x64
+cd jellyfin/ && DOTNET_CLI_TELEMETRY_OPTOUT=1 && DOTNET_CLI_HOME="/tmp/" dotnet publish Jellyfin.Server --configuration Debug --output="/jellyfin" --self-contained --runtime linux-x64
 cd /opt/jellyfin-web && npm install && npm run build:development && cp -r /opt/jellyfin-web/dist /jellyfin/jellyfin-web
 kill -15 $(pidof jellyfin)
 ```
