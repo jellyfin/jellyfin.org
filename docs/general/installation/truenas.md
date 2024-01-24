@@ -90,7 +90,7 @@ Jellyfin requires three app storage datasets for **Jellyfin Config Storage**, **
 Solid state storage is recommended for config and cache storage.
 Do not use the same spinning disk device for both cache and config and media storage libraries.
 
-You can install Jellyfin using the default setting **ixVolume (dataset created automatically by the system)** or use the host path option with datasets [created before installing the app](#first-steps).
+You can install Jellyfin using the default setting **ixVolume (dataset created automatically by the system)** or use the host path option with datasets [created before installing the app](#introduction-and-preparation).
 
 ![Configure Storage ixVolumes](/images/docs/install-truenas-9.png)
 
@@ -193,8 +193,6 @@ Systems with compatible GPU(s) for hardware acceleration display devices in **GP
 Use the **GPU Resource** dropdown menu(s) to configure device allocation.
 
 To isolate a GPU, go to the **System Settings > Advanced** screen and click **Configure** on the **Isolated GPU Device(s)** widget to open the **Isolate GPU PCI’s Ids** screen. Select the GPU device ID to isolate from the dropdown list and click **Save**.
-You must have at least two GPUs in your system; one allocated to the host system for system functions and the other available for use by either a VM or applications.
-One isolated GPU device can be used by a single VM or multiple applications, but not both.
 
 See [Managing GPUs](https://www.truenas.com/docs/scale/scaletutorials/systemsettings/advanced/managegpuscale/) for more information about allocating isolated GPU devices in TrueNAS SCALE.
 
