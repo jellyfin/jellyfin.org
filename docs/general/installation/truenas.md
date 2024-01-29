@@ -186,8 +186,8 @@ By default, this application is limited to use no more than 4 CPU cores and 8 gi
 To customize the CPU and memory allocated to the container Jellyfin uses, enter new CPU values as a plain integer value followed by the suffix m (milli).
 Default is 4000m, which means Jellyfin is allowed to use 4 CPU threads.
 
-Accept the default value 8Gi allocated memory or enter a new limit in bytes.
-Enter a plain integer followed by the measurement suffix, for example 4GB.
+Accept the default value 8Gi allocated memory or enter a new limit.
+Enter a plain integer followed by the measurement suffix, for example 4G.
 
 Systems with compatible GPU(s) display devices in **GPU Configuration**.
 Use the **GPU Resource** dropdown menu(s) to configure device allocation.
