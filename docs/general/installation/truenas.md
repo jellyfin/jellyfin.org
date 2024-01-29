@@ -189,12 +189,10 @@ Default is 4000m, which means Jellyfin is allowed to use 4 CPU threads.
 Accept the default value 8Gi allocated memory or enter a new limit in bytes.
 Enter a plain integer followed by the measurement suffix, for example 4GB.
 
-Systems with compatible GPU(s) for hardware acceleration display devices in **GPU Configuration**.
+Systems with compatible GPU(s) display devices in **GPU Configuration**.
 Use the **GPU Resource** dropdown menu(s) to configure device allocation.
 
-To isolate a GPU, go to the **System Settings > Advanced** screen and click **Configure** on the **Isolated GPU Device(s)** widget to open the **Isolate GPU PCI’s Ids** screen. Select the GPU device ID to isolate from the dropdown list and click **Save**.
-
-See [Managing GPUs](https://www.truenas.com/docs/scale/scaletutorials/systemsettings/advanced/managegpuscale/) for more information about allocating isolated GPU devices in TrueNAS SCALE.
+See [Allocating GPUs](https://www.truenas.com/docs/scale/scaletutorials/apps/#allocating-gpu) for more information about allocating GPU devices in TrueNAS SCALE.
 
 ## Finalizing Install
 
