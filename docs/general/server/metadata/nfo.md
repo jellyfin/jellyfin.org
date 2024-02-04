@@ -59,7 +59,7 @@ User data importing is only possible for a single user. This user can be set in 
 | tagline       |                                                                                                                       |
 | country       |                                                                                                                       |
 | mpaa          |                                                                                                                       |
-| customrating  |
+| customrating  |                                                                                                                       |
 | runtime       |                                                                                                                       |
 | aspectratio   |                                                                                                                       |
 | lockdata      |                                                                                                                       |
