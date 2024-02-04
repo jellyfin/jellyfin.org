@@ -46,7 +46,7 @@ Avoid special characters such as \* in M\*A\*S\*H, use MASH instead.
 
 Do not mix episodes inside season folders and episodes on the Series root folder.
 
-Do not abbriviate the Season folder with `S01` or `SE01` or alike.
+Do not abbreviate the Season folder with `S01` or `SE01` or alike.
 
 :::
 
