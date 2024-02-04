@@ -640,7 +640,7 @@ export const Clients: Array<Client> = [
   {
     id: 'phyn',
     name: 'Phyn',
-    description: 'Multiplatform video and audio playback client for Jellyfin with Jellyseerr support. Available on iOS, iPadOS and macOS. Android coming soon...',
+    description: 'Multiplatform video and audio playback client for Jellyfin. Available on iOS, iPadOS and macOS.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.Proprietary,
