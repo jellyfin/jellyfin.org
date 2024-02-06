@@ -9,7 +9,7 @@ You should organize albums into folders, with one folder containing one and only
 
 ```txt
 Music
-├── Artist 1
+├── Some Artist
 │   ├── Album A
 │   │   ├── Song 1.flac
 │   │   ├── Song 2.flac
@@ -56,18 +56,13 @@ Album
 
 ## Images
 
-Images will be scraped from album or artist folders, and they can also be embedded in the music files themselves. The supported filenames are listed below for each respective image.
-
+Images can come from a few different sources. For music, there are 3 image types.
 ### Primary
 
 - folder
 - poster
 - cover
 - default
-
-### Art
-
-- clearart
 
 ### Backdrop
 
@@ -79,27 +74,28 @@ Multiple backdrop images can be used to cycle through several over time. Simply 
 - art
 - extrafanart
 
-### Banner
-
-- banner
-
-### Disc
-
-- disc
-- cdart
-
 ### Logo
 
 - logo
-
-### Thumb
-
-- thumb
-- landscape
 
 ## File Extensions / Containers
 
 Jellyfin should support most common music formats. Exceptions as follows:
 
 - MP4 with only audio: `.mp4` files won't be recognized as music. Please rename them to `.m4a`.
+- MKV / WebM with only audio: `.mkv` and `.webm` files won't be recognized as music. Please rename them to `.mka`.
+- WebA: `.weba` files aren't supported. Please rename them to `.mka`
 - `.flac` files with embedded WebP images may fail to play in Chromium based browsers (Chrome, Edge, Opera, Brave etc.).
+- `.flac` files with ID3 tags won't play in Firefox.
+
+:::tip Alternate containers
+
+Problematic files can be remuxed to `.mka` containers with ffmpeg with this command:
+
+```sh
+ffmpeg -i <Input File> -c:a copy <Output File>.mka
+```
+
+Do note that the metadata may be messed up and images might not carry over, so the metadata will have to be restored either manually or using another program.
+
+:::
