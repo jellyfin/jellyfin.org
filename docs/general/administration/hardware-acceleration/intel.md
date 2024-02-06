@@ -121,7 +121,7 @@ Note that the 6th Gen Core lacks 10-bit support, it's best to choose 7th Gen and
 
 ### Transcode AV1
 
-AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding support in Jellyfin 10.9 and newer versions.
+AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding is supported in Jellyfin 10.9 and newer.
 
 Intel added support for AV1 acceleration in their latest GPUs:
 
