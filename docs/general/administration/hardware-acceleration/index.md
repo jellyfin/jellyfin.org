@@ -67,7 +67,7 @@ Partial acceleration may result in slightly higher CPU usage and lower transcodi
 
 Jellyfin 10.8 supports full acceleration on mainstream Intel, NVIDIA and AMD (Windows only) GPUs.
 
-Jellyfin 10.9 enables full acceleration for AMD Vega and newer GPUs on Linux via VA-API and Vulkan interop.
+Jellyfin 10.9 enables full acceleration for AMD Polaris and newer GPUs on Linux via VA-API and Vulkan interop.
 
 Using [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg/releases) with Jellyfin is highly recommended, which has a `-Jellyfin` suffix in the version string.
 

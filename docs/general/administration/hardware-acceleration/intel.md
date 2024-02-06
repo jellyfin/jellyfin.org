@@ -41,9 +41,9 @@ Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-
 
 - **DG1**/**SG1**
 
-- Alchemist(**DG2**)/ATSM
+- Alchemist (**DG2**)/ATSM
 
-- Meteor Lake(**MTL**)
+- Meteor Lake (**MTL**)
 
 - Future platforms...
 
@@ -121,13 +121,13 @@ Note that the 6th Gen Core lacks 10-bit support, it's best to choose 7th Gen and
 
 ### Transcode AV1
 
-AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
+AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding is supported in Jellyfin 10.9 and newer.
 
 Intel added support for AV1 acceleration in their latest GPUs:
 
 - **Decoding AV1 8/10-bit** - Gen 12 Tiger Lake (11th Gen Core) and newer
 
-- **Encoding AV1 8/10-bit** - Gen 12.5 DG2 / ARC A-series, Gen 12.7 Meteor Lake (14th?? Gen Core) and newer
+- **Encoding AV1 8/10-bit** - Gen 12.5 DG2 / ARC A-series, Gen 12.7 Meteor Lake (14th Gen Core Mobile / 1st Gen Core Ultra) and newer
 
 :::note
 
@@ -175,7 +175,7 @@ They can be divided into 4 tiers by their performance：
 
   :::
 
-- **Hardcore** - ARC A-series discrete GPU
+- **Hardcore** - ARC A-series discrete and integrated GPU
 
   :::tip
 
@@ -317,6 +317,8 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 8. The kernel support for Intel Gen 12.5 DG2 / ARC A-series is incomplete before Linux 6.2.
 
+9. The kernel support for Intel Gen 12.7 MTL is incomplete before Linux 6.7.
+
 ### Configure On Linux Host
 
 #### Debian And Ubuntu Linux
@@ -382,7 +384,7 @@ Root permission is required.
    ...
    ```
 
-6. If the version is newer than `22.xx.xxxxx` just install it. Otherwise install from [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases).
+6. If the version is newer than `22.xx.xxxxx` just install it. For the latest products like N95/N100 and Arc A380, support is provided in `23.xx.xxxxx` and newer. Otherwise install from [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases).
 
    ```shell
    sudo apt install -y intel-opencl-icd
@@ -436,21 +438,16 @@ You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/genera
 
 #### Arch Linux
 
-AUR `jellyfin-ffmpeg`, `jellyfin-ffmpeg5*` packages and future FFmpeg versions are maintained by Jellyfin team.
-
 :::note
 
 Root permission is required.
 
 :::
 
-1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin) package, then change the FFmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
+1. Install the Archlinux/extra [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package:
 
    ```shell
-   cd ~/
-   git clone https://aur.archlinux.org/jellyfin-ffmpeg5-bin.git
-   cd jellyfin-ffmpeg5-bin
-   makepkg -si
+   sudo pacman -Syu jellyfin-ffmpeg
    ```
 
 2. User mode Intel media drivers and the OpenCL runtime are required to be manually installed for enabling QSV / VA-API:
@@ -824,7 +821,7 @@ Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e.
 
 - Gen 12.5 DG2/ARC A-Series - Only support LP encoding mode.
 
-- Gen 12.7 MTL and newer - To be announced.
+- Gen 12.7 MTL and newer - Only support LP encoding mode.
 
 ### LP Mode System Support
 
