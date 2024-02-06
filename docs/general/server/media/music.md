@@ -60,6 +60,23 @@ Images can come from a few different sources. For music, there are 3 image types
 
 ![](/images/docs/server/media/music/AlbumImages.png)
 
+### External images
+
+Images can be provided as external files within the media folders. When provided, they should be placed alongside the media files. In case they are provided, they will take precedence over other sources.
+
+If a cover image is not provided, Jellyfin will fallback to the first track with an embedded album image. If Backdrop or Logo types are not provided, Jellyfin will fallback to these images of the album artist instead.
+
+
+```txt
+Album
+├── cover.jpg
+├── backdrop.webp
+├── logo.png
+├── Track 1.wav
+├── Track 2.wav
+└── Track 3.wav
+```
+
 | Type     | Allowed Names                                  |
 | -------- | ---------------------------------------------- |
 | Primary  | folder, poster, cover, default                 |
