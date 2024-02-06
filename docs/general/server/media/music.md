@@ -5,9 +5,23 @@ title: Music
 
 # Music
 
-You should organize albums into folders, with one folder containing one and only one album. <br/>
-Jellyfin does not care how you organize albums together, as long as each album is contained within one folder. <br/>
-Filenames do not matter since the info will be scraped from the embedded metadata of the tracks.
+You should organize albums into folders, with one folder containing one and only one album. Jellyfin does not care how you organize albums together, as long as each album is contained within one folder. Filenames generally do not matter since the info will be scraped from the embedded metadata of the tracks. If no other metadata was found, Jellyfin uses the file names as track titles.
+
+:::caution Special Characters in File Names
+
+While Jellyfin generally doesn't use the file names for indentification, files containing special characters can still cause problems.
+
+The following characters are known to cause issues:
+- < (less than)
+- \> (greater than)
+- : (colon)
+- " (double quote)
+- / (forward slash)
+- \ (backslash)
+- | (vertical bar or pipe)
+- ? (question mark)
+- \* (asterisk)
+:::
 
 ```txt
 Music
