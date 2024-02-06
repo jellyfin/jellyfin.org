@@ -13,18 +13,18 @@ Filenames do not matter since the info will be scraped from the embedded metadat
 Music
 ├── Artist 1
 │   ├── Album A
-│   │   ├── Track 1.flac
-│   │   ├── Track 2.flac
-│   │   └── Track 3.flac
+│   │   ├── Song 1.flac
+│   │   ├── Song 2.flac
+│   │   └── Song 3.flac
 │   └── Album B
 │       ├── Track 1.m4a
 │       ├── Track 2.m4a
 │       └── Track 3.m4a
 └── Album X
-    ├── Track 1.mp3
-    ├── Track 2.mp3
-    ├── Track 3.mp3
-    └── Track 4.mp3
+    ├── Whatever You.mp3
+    ├── Like To.mp3
+    ├── Name Your.mp3
+    └── Music Files.mp3
 ```
 
 ## Discs
