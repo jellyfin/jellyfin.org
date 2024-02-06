@@ -56,27 +56,21 @@ Album
 
 ## Images
 
-Images can come from a few different sources. For music, there are 3 image types.
-### Primary
+Images can come from a few different sources. For music, there are 3 image types, as shown in this image.
 
-- folder
-- poster
-- cover
-- default
+![](/images/docs/server/media/music/AlbumImages.png)
 
-### Backdrop
+| Type     | Allowed Names                                  |
+| -------- | ---------------------------------------------- |
+| Primary  | folder, poster, cover, default                 |
+| Backdrop | backdrop, fanart, background, art, extrafanart |
+| Logo     | logo                                           |
+
+:::tip Multiple Backdrop Images
 
 Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen.
 
-- backdrop
-- fanart
-- background
-- art
-- extrafanart
-
-### Logo
-
-- logo
+:::
 
 ## File Extensions / Containers
 
