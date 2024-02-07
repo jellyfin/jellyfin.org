@@ -24,11 +24,13 @@ Music
     ├── Name Your.mp3
     └── Music Files.mp3
 ```
+
 :::caution Special Characters in File Names
 
 While Jellyfin generally doesn't use the file names for indentification, files containing special characters can still cause problems.
 
 The following characters are known to cause issues:
+
 - < (less than)
 - \> (greater than)
 - : (colon)
@@ -58,14 +60,13 @@ Album
 
 Images can come from a few different sources. For music, there are 3 image types, as shown in this image.
 
-![](/images/docs/server/media/music/AlbumImages.png)
+![Album View](/images/docs/server/media/music/AlbumImages.png)
 
 ### External images
 
 Images can be provided as external files within the media folders. When provided, they should be placed alongside the media files. In case they are provided, they will take precedence over other sources.
 
 If a cover image is not provided, Jellyfin will fallback to the first track with an embedded album image. If Backdrop or Logo types are not provided, Jellyfin will fallback to these images of the album artist instead.
-
 
 ```txt
 Album
