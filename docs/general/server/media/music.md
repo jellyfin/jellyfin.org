@@ -25,27 +25,11 @@ Music
     └── Music Files.mp3
 ```
 
-:::caution Special Characters in File Names
-
-While Jellyfin generally doesn't use the file names for identification, files containing special characters can still cause problems.
-
-The following characters are known to cause issues:
-
-- < (less than)
-- \> (greater than)
-- : (colon)
-- " (double quote)
-- / (forward slash)
-- \ (backslash)
-- | (vertical bar or pipe)
-- ? (question mark)
-- \* (asterisk)
-
-:::
+While Jellyfin generally doesn't use the file names for identification, file names containing special characters can still cause problems. The following characters are known to cause issues: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`
 
 ## Discs
 
-Albums with several discs are identified by the metadata tags. Place the tracks for all discs in one folder.
+Albums with several discs are identified by the metadata tags with the `disc number` and `total discs` fields. Place the tracks for all discs in one folder.
 
 ```txt
 Album
@@ -61,13 +45,13 @@ Album
 
 Images can come from a few different sources. For music, there are 3 image types, as shown in this image.
 
-![Album View](/images/docs/server/media/music/AlbumImages.png)
+![Album View](/images/docs/server/media/music/album-images.png)
 
 ### External images
 
 Images can be provided as external files within the media folders. When provided, they should be placed alongside the media files. In case they are provided, they will take precedence over other sources.
 
-If a cover image is not provided, Jellyfin will fallback to the first track with an embedded album image. If Backdrop or Logo types are not provided, Jellyfin will fallback to these images of the album artist instead.
+If a cover image is not provided, Jellyfin will fallback to the first track with an embedded album image. If no backdrop or logo types are available, Jellyfin will fallback to these images of the album artist instead.
 
 ```txt
 Album
@@ -85,11 +69,7 @@ Album
 | Backdrop | backdrop, fanart, background, art, extrafanart |
 | Logo     | logo                                           |
 
-:::tip Multiple Backdrop Images
-
 Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen.
-
-:::
 
 ## File Extensions / Containers
 
