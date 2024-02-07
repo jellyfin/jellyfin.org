@@ -93,7 +93,7 @@ Multiple backdrop images can be used to cycle through several over time. Simply 
 
 ## File Extensions / Containers
 
-Jellyfin should support most common music formats. Exceptions as follows:
+Jellyfin supports most common music formats, with some exceptions:
 
 - MP4 with only audio: `.mp4` files won't be recognized as music. Please rename them to `.m4a`.
 - MKV / WebM with only audio: `.mkv` and `.webm` files won't be recognized as music. Please rename them to `.mka`.
