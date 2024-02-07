@@ -27,7 +27,7 @@ Music
 
 :::caution Special Characters in File Names
 
-While Jellyfin generally doesn't use the file names for indentification, files containing special characters can still cause problems.
+While Jellyfin generally doesn't use the file names for identification, files containing special characters can still cause problems.
 
 The following characters are known to cause issues:
 
@@ -40,7 +40,7 @@ The following characters are known to cause issues:
 - | (vertical bar or pipe)
 - ? (question mark)
 - \* (asterisk)
-:::
+  :::
 
 ## Discs
 
