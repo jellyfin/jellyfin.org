@@ -40,7 +40,8 @@ The following characters are known to cause issues:
 - | (vertical bar or pipe)
 - ? (question mark)
 - \* (asterisk)
-  :::
+
+:::
 
 ## Discs
 
