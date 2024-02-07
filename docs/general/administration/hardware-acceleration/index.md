@@ -27,7 +27,7 @@ The supported and validated video [hardware acceleration (HWA)](https://trac.ffm
 
 :::danger RPi5
 
-Please AVOID Rapsberry Pi 5 for Jellyfin. The Raspberry Pi 5 lacks hardware encoders altogether. The Raspberry Pi Foundation has also not responded to requests for official comment from the Jellyfin team.
+Please AVOID Raspberry Pi 5 for Jellyfin. The Raspberry Pi 5 lacks hardware encoders altogether. The Raspberry Pi Foundation has also not responded to requests for official comment from the Jellyfin team.
 
 :::
 
