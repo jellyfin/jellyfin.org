@@ -45,7 +45,7 @@ The following characters are known to cause issues:
 
 ## Discs
 
-Albums with several discs are identified by the metadata tags. Please place the tracks for all discs in one folder
+Albums with several discs are identified by the metadata tags. Place the tracks for all discs in one folder.
 
 ```txt
 Album
