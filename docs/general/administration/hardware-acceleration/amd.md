@@ -121,6 +121,18 @@ Encoding speed and quality:
 
 Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Docker and WSL/WSL2.**
 
+### Known Issues And Limitations On Windows
+
+:::caution
+
+There are some known Windows driver issues that can affect the AMD hardware transcoding. Some of them can be fixed by downgrading or upgrading your graphics driver.
+
+:::
+
+1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue in `Adrenalin 24.1.1` and newer. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing HDR videos that **require tone-mapping**. The last known working driver is [`Adrenalin 23.12.1`](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-23-12-1), and the problem can be solved by downgrading to it and disabling automatic updates. Note that if `Adrenalin 23.12.1` driver does not resolve the problem, you may need to try an older one such as `Adrenalin 23.11.1`. You can follow the status of this driver issue through the ticket below.
+
+   - Ticket: [https://github.com/ROCm/clr/issues/50](https://github.com/ROCm/clr/issues/50)
+
 ### Configure On Windows Host
 
 1. Wipe the old driver with [DDU](https://www.wagnardsoft.com/) if you upgraded from a pre-GCN AMD GPU without doing a fresh installation.
@@ -175,7 +187,7 @@ Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Doc
 
 A 64-bit Linux distribution is required. **The supported GPU varies by kernel and firmware versions.**
 
-### Known Issues And Limitations
+### Known Issues And Limitations On Linux
 
 :::caution
 
