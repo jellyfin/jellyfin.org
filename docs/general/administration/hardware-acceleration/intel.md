@@ -219,6 +219,18 @@ You only need to follow the [Windows Setups](/docs/general/administration/hardwa
 
 Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Docker and WSL/WSL2.**
 
+### Known Issues And Limitations On Windows
+
+:::caution
+
+There are some known Windows driver issues that can affect the Intel hardware transcoding. Some of them can be fixed by downgrading or upgrading your graphics driver.
+
+:::
+
+1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue in `31.0.101.5186 / 31.0.101.5234` and newer. You may encounter a **green screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The last known working driver is [`31.0.101.5085 / 31.0.101.5122`](https://www.intel.com/content/www/us/en/download/785597/813048/intel-arc-iris-xe-graphics-windows.html), and the problem can be solved by downgrading to it and disabling automatic updates. You can follow the status of this driver issue through the ticket below.
+
+   - Ticket: [https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/680](https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/680)
+
 ### Configure On Windows Host
 
 1. Wipe the old driver with [DDU](https://www.wagnardsoft.com/) if you upgraded from a pre-6th Gen Intel processor without doing a fresh installation.
@@ -271,7 +283,7 @@ Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Doc
 
 A 64-bit Linux distribution is required. **The supported GPU varies by kernel and firmware versions.**
 
-### Known Issues And Limitations
+### Known Issues And Limitations On Linux
 
 :::caution
 
