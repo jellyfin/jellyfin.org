@@ -74,9 +74,6 @@ server {
     # Permissions policy. May cause issues on some clients
     add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
 
-    # Tell browsers to use per-origin process isolation
-    add_header Origin-Agent-Cluster "?1" always;
-
 
     # Content Security Policy
     # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
