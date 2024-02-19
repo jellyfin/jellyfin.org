@@ -413,9 +413,6 @@ LOCATION: /
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "0";
     add_header X-Content-Type-Options "nosniff";
-    
-    # Tell browsers to use per-origin process isolation
-    add_header Origin-Agent-Cluster "?1" always;
 
     # Content Security Policy
     # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
@@ -441,9 +438,6 @@ LOCATION: /socket
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "0";
     add_header X-Content-Type-Options "nosniff";
-    
-    # Tell browsers to use per-origin process isolation
-    add_header Origin-Agent-Cluster "?1" always;
 
     # Content Security Policy
     # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
