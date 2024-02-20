@@ -34,7 +34,6 @@ Want to get starting using Jellyfin right now? Check out the pages below for how
 - [Fedora](/docs/general/installation/linux#fedora)
 - [CentOS](/docs/general/installation/linux#centos)
 - [Docker](/docs/general/installation/container#docker)
-- [unRaid](/docs/general/installation/container#unraid-docker)
 - [Kubernetes](/docs/general/installation/container#kubernetes)
 - [Windows](/docs/general/installation/windows)
 - [MacOS](/docs/general/installation/macos)
