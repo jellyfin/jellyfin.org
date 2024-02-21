@@ -351,11 +351,11 @@ Root permission is required.
    sudo apt update && sudo apt install -y intel-gpu-tools intel-media-va-driver-non-free intel-microcode libdrm-intel1
    ```
 
-:::note
+   :::note
 
-A new Debian install does not include non-free repos so you will need to update your apt config to add non-free and non-free-firmware.
+   A new Debian install does not include non-free repos so you will need to update your apt config to add non-free and non-free-firmware.
 
-:::
+   :::
 
 2. Install the `jellyfin-ffmpeg5` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
