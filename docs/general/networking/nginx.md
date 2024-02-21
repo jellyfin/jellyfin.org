@@ -424,4 +424,3 @@ In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  Thi
 ```
 
 In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
-
