@@ -319,7 +319,7 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
    - Fixed by: [drm/i915: improve the catch-all evict to handle lock contention](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3f882f2d4f689627c1566c2c92087bc3ff734953)
 
-4. The current Debian 11 and Ubuntu 22.04 LTS may not have the required GPU firmware for Intel 12th Gen processors and ARC GPU.
+4. The current Debian 11 and Ubuntu 22.04 LTS may not have the required GPU firmware for Intel 12th Gen processors and ARC GPU.  Ubuntu 22.04 LTS can be switch to use Ubuntu's Hardware Enablement Stack (see #2 above) to switch to a new kernel that supports Intel 12th Gen+ and ARC GPUs.
 
 5. The kernel support for Intel Gen 12 TGL graphics is incomplete before Linux 5.9.
 
@@ -335,7 +335,7 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg5` deb package required by Jellyfin 10.8 comes with all necessary user mode Intel media drivers.
+Using jellyfin-ffmpeg with Intel Quick Sync requires additional Intel media driver packages.
 
 Besides that you only need to install the OpenCL runtime and configure the the permission of `jellyfin` user.
 
@@ -345,7 +345,17 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
+1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`, you will need to ensure Intel's media drivers are installed.
+
+   ```shell
+   sudo apt update && sudo apt install -y intel-gpu-tools intel-media-va-driver-non-free intel-microcode libdrm-intel1
+   ```
+
+:::note
+
+A new Debian install does not include non-free repos so you will need to update your apt config to add non-free and non-free-firmware.
+
+:::
 
 2. Install the `jellyfin-ffmpeg5` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
