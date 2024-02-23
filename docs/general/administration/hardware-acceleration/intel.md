@@ -345,11 +345,15 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`, you will need to ensure Intel's media drivers are installed.
+1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.  If you choose to use vanilla ffmpeg, instead of jellyfin-ffmpeg, you will need to install the following intel packages.
 
    ```shell
-   sudo apt update && sudo apt install -y intel-microcode libdrm-intel1
+   sudo apt update && sudo apt install -y intel-media-va-driver-non-free libdrm-intel1
    ```
+
+   :::note
+   If you are running Debian, you will need to add "non-free" to your apt config.
+   :::
 
 2. Install the `jellyfin-ffmpeg5` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
