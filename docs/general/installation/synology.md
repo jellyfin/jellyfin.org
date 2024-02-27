@@ -6,6 +6,7 @@ sidebar_position: 4
 ---
 
 # Install on Synology
+
 :::caution Pre-built NAS Devices
 
 Many pre-built NAS devices are underpowered. We generally do not recommend running Jellyfin on those devices.
