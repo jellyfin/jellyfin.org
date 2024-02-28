@@ -43,7 +43,7 @@ After the image is downloaded, it can be found in the `Image` tab.
 ### Creating the Container
 
 Navigate to the `Container` tab and click `Create`.
-Select the "Jellyfin" image and give the container a name. We recommend using "Jellyfin" as the name. You can also set the container to auto-start if you want Jellyfin to start when the NAS boots.
+Select the `Jellyfin` image and give the container a name. This is mainly for identification purposes and can be set to anything desired. `Auto-start` can be enabled to automatically start Jellyfin when the NAS boots.
 Resource limits can also be set for the container. It is recommended that all CPU resources and at least 4GB of ram be allocated to the Jellyfin container.
 Click `Next` to proceed to the next step.
 ![Creating the Container](/images/docs/install-synology-12.png)
