@@ -10,7 +10,7 @@ sidebar_position: 4
 :::caution Pre-built NAS Devices
 
 Many pre-built NAS devices are underpowered. We generally do not recommend running Jellyfin on those devices.
-See: [Hardware Selection](https://jellyfin.org/docs/general/administration/hardware-selection#normal-server) for more information.
+See: [Hardware Selection](/docs/general/administration/hardware-selection) for more information.
 
 :::
 For [Synology](https://www.synology.com/en-us/dsm), Jellyfin is installed using Docker. For this guide, we will use the Synology Container Manager to install Jellyfin.
