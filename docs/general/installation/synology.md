@@ -34,7 +34,7 @@ Navigate to the "Registry" tab and search for "Jellyfin". You should see the off
 
 ![Downloading the Image](/images/docs/install-synology-10.png)
 
-A new window will open, there you can select a version of Jellyfin. We recommend using the latest version. Click "Apply".
+A new window will open and a Jellyfin version can be selected for install. The latest version is recommended. Click `Apply` after selection a version.
 
 ![Downloading the Image](/images/docs/install-synology-11.png)
 
