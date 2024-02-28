@@ -66,9 +66,7 @@ Your settings should look like this:
 ![Advanced Settings](/images/docs/install-synology-14.png)
 Click `Next` to proceed to the next step.
 
-You can review your settings and then click "Apply".
-Make sure the checkbox "Run this container after the wizard is finished" is checked.
-You can now see the container in the "Container" tab.
+Settings can be reviewed at this screen. Check the `Run this container after the wizard is finished` checkbox and click `Apply` if everything looks correct. The container should now be shown in the `Container` tab.
 
 Browse to `http://SERVER_IP:8096` to access the web client.
 If you used a different port, replace 8096 with the port you used.
