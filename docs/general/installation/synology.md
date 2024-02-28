@@ -48,7 +48,8 @@ Resource limits can also be set for the container. It is recommended that all CP
 Click `Next` to proceed to the next step.
 ![Creating the Container](/images/docs/install-synology-12.png)
 
-**Port Settings**
+#### Port Settings
+
 You need to set the port settings for the container. Jellyfin uses port 8096 for the web interface and 1900 for DLNA. You can set the container to use the same ports as the host or use different ports. We recommend using the same ports as the host.
 
 **Volume Settings**
