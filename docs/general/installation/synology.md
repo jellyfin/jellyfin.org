@@ -38,7 +38,7 @@ A new window will open and a Jellyfin version can be selected for install. The l
 
 ![Downloading the Image](/images/docs/install-synology-11.png)
 
-After a few seconds, the image will be downloaded and you can find it in the "Image" tab.
+After the image is downloaded, it can be found in the `Image` tab.
 
 ### Creating the Container
 
