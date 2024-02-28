@@ -26,7 +26,7 @@ To do this you need to open the Package Center and search for "Container Manager
 ## Installation
 
 The installation is done with the Synology Container Manager.
-If after the installation of the "Container Manager" you don´t see the icon in the main menu, you can find it in when clicking on the top left corner of the main menu.
+If you don't see the icon in the main menu after the installation of `Container Manager`, it can be found by clicking the top left corner of the main menu.
 
 ### Downloading the Jellyfin Image
 
