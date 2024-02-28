@@ -42,7 +42,7 @@ After the image is downloaded, it can be found in the `Image` tab.
 
 ### Creating the Container
 
-Navigate to the "Container" tab and click "Create".
+Navigate to the `Container` tab and click `Create`.
 Select the "Jellyfin" image and give the container a name. We recommend using "Jellyfin" as the name. You can also set the container to auto-start if you want Jellyfin to start when the NAS boots.
 Also, you can set the resource limits for the container. We recommend that you let the container use all available resources.
 Click "Next".
