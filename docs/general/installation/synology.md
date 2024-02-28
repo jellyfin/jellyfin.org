@@ -22,6 +22,7 @@ This guide assumes you have already set up your Synology NAS and have access to 
 Install the "Container Manager" package from the Synology Package Center.
 Open the Package Center and search for "Container Manager" to find the package.
 For further information read this [guide](https://kb.synology.com/en-global/DSM/help/DSM/PkgManApp/install_buy?version=7).
+
 ## Installation
 
 The installation is done with the Synology Container Manager.
