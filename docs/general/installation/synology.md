@@ -21,7 +21,7 @@ Everything is done through the Synology web interface.
 This guide assumes you have already set up your Synology NAS and have access to the web interface. And your Synology NAS is running DSM 7.0 or newer.
 If you are running an older version of DSM, you can use the guide at the bottom.
 Install the "Container Manager" package from the Synology Package Center.
-To do this you need to open the Package Center and search for "Container Manager" and install it.
+Open the Package Center and search for "Container Manager" to find the package.
 
 ## Installation
 
