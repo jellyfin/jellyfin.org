@@ -20,8 +20,13 @@ For [Synology](https://www.synology.com/en-us/dsm), Jellyfin is installed using 
 Everything is done through the Synology web interface.
 This guide assumes you have already set up your Synology NAS and have access to the web interface. And your Synology NAS is running DSM 7.0 or newer.
 Install the "Container Manager" package from the Synology Package Center.
-Open the Package Center and search for "Container Manager" to find the package.
+<<<<<<< HEAD
+To do this you need to open the Package Center and search for "Container Manager" and install it.
 For further information read this [guide](https://kb.synology.com/en-global/DSM/help/DSM/PkgManApp/install_buy?version=7).
+=======
+Open the Package Center and search for "Container Manager" to find the package.
+>>>>>>> abfd60eacf4d2e6093e8485c3dbd5b0a40e7c0c4
+
 ## Installation
 
 The installation is done with the Synology Container Manager.
