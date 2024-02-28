@@ -52,7 +52,8 @@ Click `Next` to proceed to the next step.
 
 Allocate ports to the container. Jellyfin uses port 8096 for the web interface and 1900 for DLNA by default. It is recommended to use the default ports if they are not being used by other services.
 
-**Volume Settings**
+#### Volume Settings
+
 You need to set the volume settings for the container. Jellyfin needs access to your media files and configuration files.
 To add a volume, click "Add Folder" and select the folder you want to use. In the middle column, you need to set the mount path. For the media files, you can use "/media" and for the configuration files, you can use "/config".
 
