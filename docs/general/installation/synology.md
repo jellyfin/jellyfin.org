@@ -64,7 +64,7 @@ Any other settings can be left as default.
 Your settings should look like this:
 ![Advanced Settings](/images/docs/install-synology-13.png)
 ![Advanced Settings](/images/docs/install-synology-14.png)
-Click "Next".
+Click `Next` to proceed to the next step.
 
 You can review your settings and then click "Apply".
 Make sure the checkbox "Run this container after the wizard is finished" is checked.
