@@ -13,7 +13,7 @@ Many pre-built NAS devices are underpowered. We generally do not recommend runni
 See: [Hardware Selection](/docs/general/administration/hardware-selection) for more information.
 
 :::
-For [Synology](https://www.synology.com/en-us/dsm), Jellyfin is installed using Docker. For this guide, we will use the Synology Container Manager to install Jellyfin.
+For [Synology](https://www.synology.com/en-us/dsm), Jellyfin is installed using Docker. For this guide, the Synology Container Manager will be used to install Jellyfin.
 
 ## Prerequisites
 
