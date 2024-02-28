@@ -5,7 +5,7 @@ description: Install on Synology NAS.
 sidebar_position: 4
 ---
 
-# Install on Synology
+# Installation on Synology
 
 :::caution Pre-built NAS Devices
 
