@@ -68,8 +68,8 @@ Click `Next` to proceed to the next step.
 
 Settings can be reviewed at this screen. Check the `Run this container after the wizard is finished` checkbox and click `Apply` if everything looks correct. The container should now be shown in the `Container` tab.
 
-Browse to `http://SERVER_IP:8096` to access the web client.
-If you used a different port, replace 8096 with the port you used.
+Browse to `http://SERVER_IP:8096` in a browser on a other device to finish setting up the Jellyfin server.
+If a different port was used, replace `8096` with the port used instead.
 
 ## earlier versions of DSM
 
