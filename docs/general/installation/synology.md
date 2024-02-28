@@ -19,9 +19,9 @@ For [Synology](https://www.synology.com/en-us/dsm), Jellyfin is installed using 
 
 Everything is done through the Synology web interface.
 This guide assumes you have already set up your Synology NAS and have access to the web interface. And your Synology NAS is running DSM 7.0 or newer.
-If you are running an older version of DSM, you can use the guide at the bottom.
 Install the "Container Manager" package from the Synology Package Center.
 To do this you need to open the Package Center and search for "Container Manager" and install it.
+For further information read this [guide](https://kb.synology.com/en-global/DSM/help/DSM/PkgManApp/install_buy?version=7).
 
 ## Installation
 
@@ -71,31 +71,3 @@ Settings can be reviewed at this screen. Check the `Run this container after the
 Browse to `http://SERVER_IP:8096` in a browser on a other device to finish setting up the Jellyfin server.
 If a different port was used, replace `8096` with the port used instead.
 
-## earlier versions of DSM
-
-![Installing Synology](/images/docs/install-synology-1.png)
-
-![Installing Synology](/images/docs/install-synology-2.png)
-
-![Installing Synology](/images/docs/install-synology-3.png)
-
-Create the container.
-
-![Installing Synology](/images/docs/install-synology-4.png)
-
-![Installing Synology](/images/docs/install-synology-5.png)
-
-Use Advanced Settings to add mount points to your media and config.
-
-![Installing Synology](/images/docs/install-synology-6.png)
-
-![Installing Synology](/images/docs/install-synology-7.png)
-
-Host Mode is required for HdHR and DLNA. Use bridge mode if running multiple instances.
-
-![Installing Synology](/images/docs/install-synology-8.png)
-
-![Installing Synology](/images/docs/install-synology-9.png)
-
-Browse to `http://SERVER_IP:8096` to access the web client.
-If a different port was used, replace `8096` with the port used instead.
