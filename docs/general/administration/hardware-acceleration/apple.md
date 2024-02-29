@@ -11,11 +11,11 @@ This tutorial guides you on setting up full video hardware acceleration on Apple
 
 [VideoToolbox](https://developer.apple.com/documentation/videotoolbox) is the only available method on macOS.
 
-To achieve full acceleration, [Metal](https://developer.apple.com/metal/) and OpenCL is also required.
+To achieve full acceleration, [Metal](https://developer.apple.com/metal/) and OpenCL are also required.
 
 ## Tone-mapping Methods
 
-Hardware accelerated HDR/DV to SDR tone-mapping is supported on most Macs from 2017 and later, with the exception of the MacBook Air (13-inch, 2017).
+Hardware accelerated HDR to SDR tone-mapping is supported on all Macs from 2017 and later, with the exception of the MacBook Air (13-inch, 2017).
 
 There are two different methods that can be used. Pros and cons are listed below:
 
@@ -71,9 +71,7 @@ There is no hardware accelerated path for AV1 on macOS at the moment. Although t
 
 ## macOS Setups
 
-Although there is no hard requirement for the macOS version, we recommend **macOS 12 and later**.
-
-Jellyfin's custom ffmpeg may work on earlier versions, but the functionality cannot be guaranteed.
+**MacOS 12 and later** are officially supported. Older versions might work, but are not supported.
 
 ### Configure
 
