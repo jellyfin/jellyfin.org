@@ -231,9 +231,9 @@ As always it is recommended to run the container rootless. Therefore we want to 
 
 ### With hardware acceleration
 
-To use hardware acceleration, you need to allow the container to access the render device. If you are using container-selinux-2.226 or later, you have to set the `container_use_dri_device` flag in selinux or the container will not be able to use it:
+To use hardware acceleration, you need to allow the container to access the render device. If you are using container-selinux-2.226 or later, you have to set the `container_use_dri_devices` flag in selinux or the container will not be able to use it:
 
-`sudo setsebool -P container_use_dri_device 1`
+`sudo setsebool -P container_use_dri_devices 1`
 
 On older versions of container-selinux, you have to disable the selinux confinement for the container by adding `--security-opt label=disable` to the podman command.
 
