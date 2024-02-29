@@ -21,21 +21,17 @@ There are two different methods that can be used. Pros and cons are listed below
 
 1. **OpenCL**
 
-   - Pros - Supports Dolby Vision P5, detailed fine-tuning options.
+   - Pros: Supports Dolby Vision P5, detailed fine-tuning options.
 
-   - Cons - Slower, requires more powerful GPUs.
+   - Cons: Slower, requires more powerful GPUs.
 
 2. **VideoToolbox Native**
 
    - Pros: Lower power consumption, less dependency on GPU performance, good visual quality without manual fine-tuning.
 
-   - Cons: Lack of tuning options, potential performance issues on Intel Macs.
-
-:::note
+   - Cons: Lack of tuning options, potential performance issues on Intel Macs, does not support Dolby Vision P5.
 
 When both methods are enabled, VideoToolbox Native will be used for most videos, and OpenCL will only be used as a fallback for Dolby Vision Profile 5 videos.
-
-:::
 
 ## Select System Hardware
 
@@ -45,17 +41,13 @@ Full acceleration is available on most Macs from 2017 and later, with the except
 
 To have native Apple Silicon support, Jellyfin server 10.9.0+ and the latest `jellyfin-ffmpeg6` is required.
 
-<sup>*</sup> On very old Macs, VideoToolbox may fallback to software decoding/encoding. Macs from 2017 and later is strongly recommend.
-
-:::note
-
 While hardware acceleration via VideoToolbox might work on older series Macs, it is not officially supported.
 
-:::
+<sup>*</sup> On very old Macs, VideoToolbox may fallback to software decoding/encoding. Macs from 2017 and later is strongly recommend.
 
 ### Transcode H.264
 
-AVC / H.264 8-bit is still widely used due to its excellent compatibility. All Intel GPUs that support QSV can decode and encode it.
+AVC / H.264 8-bit is still widely used due to its excellent compatibility. Most GPUs after 2011 can decode and encode it.
 
 Any VideoToolbox-supported Mac supports decoding and encoding H.264 8-bit.
 
