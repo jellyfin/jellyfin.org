@@ -39,7 +39,7 @@ Hardware accelerated transcoding is supported on all Macs that support [VideoToo
 
 Full acceleration is available on most Macs from 2017 and later, with the exception of the MacBook Air (13-inch, 2017).
 
-To have native Apple Silicon support, Jellyfin server 10.9.0+ and the latest `jellyfin-ffmpeg6` is required.
+To have native Apple Silicon support, Jellyfin server 10.9.0+ and `jellyfin-ffmpeg6` 6.0.1-4 or higher is required.
 
 While hardware acceleration via VideoToolbox might work on older series Macs, it is not officially supported.
 
