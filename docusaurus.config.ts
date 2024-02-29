@@ -22,8 +22,8 @@ const config: Config = {
     image: 'images/social.png',
     metadata: [
       { name: 'og:type', content: 'website' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:site', content: '@jellyfin' }
+      { name: 'xcorp:card', content: 'summary_large_image' },
+      { name: 'xcorp:site', content: '@jellyfin' }
     ],
     colorMode: {
       defaultMode: 'dark',

@@ -5,7 +5,7 @@ import DiscordCard from '../components/contact/DiscordCard';
 import IrcCard from '../components/contact/IrcCard';
 import MatrixCard from '../components/contact/MatrixCard';
 import ForumCard from '../components/contact/ForumCard';
-import TwitterCard from '../components/contact/TwitterCard';
+import XCorpCard from '../components/contact/XCorpCard';
 import MastodonCard from '../components/contact/MastodonCard';
 
 export default function Contact() {
@@ -62,7 +62,7 @@ export default function Contact() {
               <MastodonCard />
             </div>
             <div className='col margin-bottom--md' style={{ display: 'flex' }}>
-              <TwitterCard />
+              <XCorpCard />
             </div>
           </div>
         </section>
