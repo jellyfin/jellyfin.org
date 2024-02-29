@@ -11,9 +11,7 @@ const MastodonCard = () => (
       </h3>
       <SiMastodon />
     </div>
-    <div className='card__body'>
-      Follow us on Mastodon for release announcements and more, just like our Twitter account.
-    </div>
+    <div className='card__body'>Follow us on Mastodon for release announcements and more, just like our X account.</div>
     <div className='card__footer'>
       <a href='https://mastodon.online/@jellyfin' className='button button--block button--mastodon'>
         @jellyfin@mastodon.online
