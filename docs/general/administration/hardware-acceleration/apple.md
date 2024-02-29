@@ -27,9 +27,9 @@ There are two different methods that can be used. Pros and cons are listed below
 
 2. **VideoToolbox Native**
 
-   - Pros - Lower power consumption, more performant, good visual quality without manual fine-tuning.
+   - Pros: Lower power consumption, less dependency on GPU performance, good visual quality without manual fine-tuning.
 
-   - Cons - No tuning options, might work badly on Intel Macs.
+   - Cons: Lack of tuning options, potential performance issues on Intel Macs.
 
 :::note
 
