@@ -18,7 +18,7 @@ hotio image: `hotio/jellyfin` <a href="https://hub.docker.com/r/hotio/jellyfin">
 Jellyfin distributes [official container images on Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin/) for multiple architectures.
 These images are based on Debian and [built directly from the Jellyfin source code](https://github.com/jellyfin/jellyfin/blob/master/Dockerfile).
 
-Additionally the [LinuxServer.io](https://www.linuxserver.io/) ([Dockerfile](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile)) project and [hotio](https://github.com/hotio) ([Dockerfile](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile)) distribute images based on Ubuntu and the official Jellyfin Ubuntu binary packages.
+Additionally, there are several third parties providing unofficial container images, including the [LinuxServer.io](https://www.linuxserver.io/) ([Dockerfile](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile)) project and [hotio](https://github.com/hotio) ([Dockerfile](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile)), which offer images based on Ubuntu and the official Jellyfin Ubuntu binary packages.
 
 ## Docker
 
@@ -106,7 +106,7 @@ services:
       - JELLYFIN_PublishedServerUrl=http://example.com
     # Optional - may be necessary for docker healthcheck to pass if running in host network mode
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - 'host.docker.internal:host-gateway'
 ```
 
 Then while in the same folder as the `docker-compose.yml` run:
@@ -262,7 +262,7 @@ Finally, you need to set the `--device` flag for the container to use the render
     --volume jellyfin-config:/config:Z \
     --mount type=bind,source=/path/to/media,destination=/media,ro=true,relabel=private \
     docker.io/jellyfin/jellyfin:latest
-   ```
+```
 
 #### systemd
 
@@ -312,6 +312,6 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside 
 
    - Server URL to publish in UDP Auto Discovery response.
    - Networking, Ingress (Reverse Proxy), Security Options
-   - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/SCALE/guides/add-storage/). For Jellyfin the recommendation is to  add storage as `Additional App Storage`
+   - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/SCALE/guides/add-storage/). For Jellyfin the recommendation is to add storage as `Additional App Storage`
 
 4. Click Save and once it's up and running you'll be able to click Open to access `Jellyfin`.
