@@ -85,7 +85,7 @@ As I outlined [over in this GitHub discussion](https://github.com/jellyfin/jelly
 
 4. As we approach stability, i.e. after the 3-5 weeks of frozen bug-fixing, we will make the decision to cut the actual final release. I am personally hoping to get this done during the weekend of April 27-28, but that may change depending on how things go during the freeze.
 
-5. The release will actually happen. We will cut a fresh release branch, tag, the version, and - using the new CI above - perform the release. We do want to ensure that **any 3rd parties who might trigger off of a Tag event** on our repositories *please turn this off* for this release, as I fully expect to hit at least one or two roadblocks as we run through the process "for real". Once the dust settles, we can ensure that your releases get built, just in case we need to do anything drastic like re-tagging the release.
+5. The release will actually happen. We will cut a fresh release branch, tag the version, and - using the new CI above - perform the release. We do want to ensure that **any 3rd parties who might trigger off of a Tag event** on our repositories *please turn this off* for this release, as I fully expect to hit at least one or two roadblocks as we run through the process "for real". Once the dust settles, we can ensure that your releases get built, just in case we need to do anything drastic like re-tagging the release.
 
 6. At that point, master will resume normal operation, and we will begin the stable point bugfix cycle for 10.9.0. We hope that with the improvements, 10.10.0 will not be a very long ways away after that, perhaps 3-6 months, after which this process will start anew.
 
