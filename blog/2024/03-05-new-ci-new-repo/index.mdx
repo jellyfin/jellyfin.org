@@ -7,7 +7,7 @@ slug: new-ci-new-repo
 tags: [release, infrastructure]
 ---
 
-Over the last several weeks, I've been driving a major push to revamp and improve our CI, in an effort to improve both our release workflow, our velocity of releases, and the burden they have on me as release manager. This quick post will detail some of the major changes, how they might affect you as a user, and also, how we're planning to proceed with our 10.9.0 release cycle. Read on for more information!
+Over the last several weeks, I've been driving a major push to revamp and improve our CI, in an effort to improve both our release workflow, our velocity of releases, and the burden they have on me as the release manager. This quick post will detail some of the major changes, how they might affect you as a user, and also, how we're planning to proceed with our 10.9.0 release cycle. Read on for more information!
 
 ## The TL;DR
 
@@ -17,7 +17,7 @@ Over the last several weeks, I've been driving a major push to revamp and improv
 
 3. For 10.9.0, we are dropping non-LTS Ubuntu packages. If you are using a non-LTS version, consider switching to 24.04 (which is LTS) or a Docker install.
 
-4. The 10.9.0 feature freeze (bugfix PRs only after this) will tentatively begin on **Monday, March 18th**. The hope is that all of the above will be ready by then so that obtaining unstable builds for testing will be east.
+4. The 10.9.0 feature freeze (bugfix PRs only after this) will tentatively begin on **Monday, March 18th**. The hope is that all of the above will be ready by then so that obtaining unstable builds for testing will be easy.
 
 5. The 10.9.0 release itself is tentatively planned for the **last weekend in April**. To all **3rd parties who build packages of our releases, please read until the end for an important note about this release**.
 
@@ -53,7 +53,7 @@ While the bot isn't completely finished yet, the scaffolding is all there, and I
 
 One big drawback I mentioned of the previous CI was how it treated the server and web components of Jellyfin separately. It did this because these two components are indeed separate on the code side, in separate GitHub repositories and with different groups leading them. The problem is, that's not how Jellyfin is actually consumed by users. Users want just one package, installer, or archive to install and run out of the box. So we had to do a lot of complex shenanigans to combine the packages together.
 
-No longer. With the updated CI, all our packaging is unified together, and split off into [it's own dedicated repository](https://github.com/jellyfin/jellyfin-packaging). This repository handles the two code repos via submodules and a simple Python script to synchronize what version is checked out of each before a build. Then, another Python script handles the actual building, which itself is then called from GitHub actions. It is still a little convoluted, but this is absolutely critical for how complex our software ultimately is to package.
+No longer. With the updated CI, all our packaging is unified together, and split off into [its own dedicated repository](https://github.com/jellyfin/jellyfin-packaging). This repository handles the two code repos via submodules and a simple Python script to synchronize what version is checked out of each before a build. Then, another Python script handles the actual building, which itself is then called from GitHub actions. It is still a little convoluted, but this is absolutely critical for how complex our software ultimately is to package.
 
 What this means depends on the different packaging types. For Debian and Ubuntu, it means that there is now one Debian source package for the three resulting binary packages (metapackage, web, and server) and thus all 3 can be built at once using a single `dpkg-buildpackage` command; the same is true for Fedora and CentOS packages. For archives, this means that both the server and web components are built in sequence and then combined into one archive at build time, rather than haphazardly later, a process that failed more times than I could count. For installers, this means that the process is now simpler and can be automated. And lastly, for Docker, it means that we now provide just a single image, `jellyfin/jellyfin`, that was built all at once and does not rely on two intermediate images, another very error-prone process.
 
@@ -81,7 +81,7 @@ As I outlined [over in this GitHub discussion](https://github.com/jellyfin/jelly
 
 2. As we approach the planned release date, we will begin a feature freeze. While in the feature freeze, only bugfix PRs will be accepted. We expect this to last between 3 and 5 weeks. Currently, the tentative start is **Monday, March 18th**. During the freeze, the unstable builds should be consistent and working, with only the minor fixes being merged.
 
-3. As users, please be diligent about reporting bugs in the unstable releases. Our Triage team has been very diligent these last few months at ensuring issues are triaged and looked at, so it is vitally important that anyone using the unstable releases properly report their bugs!
+3. As users, please be diligent about reporting bugs in the unstable releases. Our Triage team has been very diligent these last few months at ensuring issues are triaged and looked at, so it is vitally important that anyone using the unstable releases properly reports their bugs!
 
 4. As we approach stability, i.e. after the 3-5 weeks of frozen bug-fixing, we will make the decision to cut the actual final release. I am personally hoping to get this done during the weekend of April 27-28, but that may change depending on how things go during the freeze.
 
