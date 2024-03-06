@@ -30,6 +30,9 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                 <Link to='/downloads/server' className='pills__item pills__item--active'>
                   Server
                 </Link>
+                <Link to='https://repo.jellyfin.org' className='pills__item pills__item'>
+                  Full Repository
+                </Link>
               </div>
             </div>
 
@@ -42,6 +45,12 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                   Linux
                 </Link>
                 <Link
+                  to='/downloads/docker'
+                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Docker })}
+                >
+                  Docker
+                </Link>
+                <Link
                   to='/downloads/windows'
                   className={clsx('pills__item', { 'pills__item--active': osType === OsType.Windows })}
                 >
@@ -52,12 +61,6 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                   className={clsx('pills__item', { 'pills__item--active': osType === OsType.MacOS })}
                 >
                   MacOS
-                </Link>
-                <Link
-                  to='/downloads/docker'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Docker })}
-                >
-                  Docker
                 </Link>
               </div>
             </div>
