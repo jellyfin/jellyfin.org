@@ -116,7 +116,7 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
         details: (
           <>
             <pre>
-              <code>{`curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}</code>
+              <code>{`curl https://repo.jellyfin.org/files/install-debuntu.sh | sudo bash`}</code>
             </pre>
             <p>
               If you do not have <code>curl</code> installed, you can use{' '}
