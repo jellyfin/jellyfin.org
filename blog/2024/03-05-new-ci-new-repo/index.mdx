@@ -37,25 +37,25 @@ There was also, though not a flaw with the CI system itself, the matter of "unst
 
 At the time, GitHub Actions did not yet exist, and while we got everything to work, the CI as a whole was clunky and prone to failure. Major releases would often take me over 20 man-hours to prepare for and execute, while point releases would take at least 4-6 hours. It was a huge burden as a release manager, and also very cumbersome to fix if things broke in obscure ways. Lastly, all this meant that our release velocity was extremely slow, as there was never a clear flow between master being tested and preparing for the next release.
 
-Rather than continue incremental tweaking of this setup, about 2 years ago a project was started by @ferferga and @h1dden-da3m0n (who has since moved on) to move to GitHub Actions. While they did lay a lot of groundwork, that project ultimately stalled out and was effectively abandoned. Earlier this year, I took up the mantle to finally get this done in preparation for 10.9.0, and was able to get it working well, in a much easier to understand and hopefully much more consistent way.
+Rather than continue incremental tweaking of this setup, about 2 years ago a project was started by @ferferga and @h1dden-da3m0n (who has since moved on) to move to GitHub Actions. While they did lay a lot of groundwork, that project ultimately stalled out and was effectively abandoned. Earlier this year, we took up the mantle to finally get this done in preparation for 10.9.0, and was able to get it working well, in a much easier to understand and hopefully much more consistent way.
 
 ## More Automation
 
-The next part, besides just the CI itself, is an automation bot. As mentioned, releases took a long time, but only a fraction of that was spent actually dealing with Azure. The rest was administrative work: building changelogs, ensuring repos were in sync, running `bump-version` scripts, creating release drafts, checking them 3 times and still missing something, writing a release post for our Forum, etc. All of this added up to a significant time investment that I was rarely eager to do, which in turn trashed our velocity.
+The next part, besides just the CI itself, is an automation bot. As mentioned, releases took a long time, but only a fraction of that was spent actually dealing with Azure. The rest was administrative work: building changelogs, ensuring repos were in sync, running `bump-version` scripts, creating release drafts, checking them 3 times and still missing something, writing a release post for our Forum, etc. All of this added up to a significant time investment that we was rarely eager to do, which in turn trashed our velocity.
 
 No project should be so dependent on one person, but we were, for a very long time. Part of the goal with this CI improvement is to streamline all these aspects as well using another piece of automation, a private chatbot.
 
 The goal here is for us to tell our chatbot that we're ready for a release, for it to prepare all the text automatically, and then after review, tell it that it's ready to ship. Not only does this ease the process for myself, but it can easily be performed by others. And with the more reliable CI, this will hopefully mean a "set and forget" release process that helps us massively increase velocity.
 
-While the bot isn't completely finished yet, the scaffolding is all there, and I definitely expect it to be ready to go in time for the actual 10.9.0 release.
+While the bot isn't completely finished yet, the scaffolding is all there, and we definitely expect it to be ready to go in time for the actual 10.9.0 release.
 
 ## Unifying packages
 
-One big drawback I mentioned of the previous CI was how it treated the server and web components of Jellyfin separately. It did this because these two components are indeed separate on the code side, in separate GitHub repositories and with different groups leading them. The problem is, that's not how Jellyfin is actually consumed by users. Users want just one package, installer, or archive to install and run out of the box. So we had to do a lot of complex shenanigans to combine the packages together.
+One big drawback we mentioned of the previous CI was how it treated the server and web components of Jellyfin separately. It did this because these two components are indeed separate on the code side, in separate GitHub repositories and with different groups leading them. The problem is, that's not how Jellyfin is actually consumed by users. Users want just one package, installer, or archive to install and run out of the box. So we had to do a lot of complex shenanigans to combine the packages together.
 
 No longer. With the updated CI, all our packaging is unified together, and split off into [its own dedicated repository](https://github.com/jellyfin/jellyfin-packaging). This repository handles the two code repos via submodules and a simple Python script to synchronize what version is checked out of each before a build. Then, another Python script handles the actual building, which itself is then called from GitHub actions. It is still a little convoluted, but this is absolutely critical for how complex our software ultimately is to package.
 
-What this means depends on the different packaging types. For Debian and Ubuntu, it means that there is now one Debian source package for the three resulting binary packages (metapackage, web, and server) and thus all 3 can be built at once using a single `dpkg-buildpackage` command; the same is true for Fedora and CentOS packages. For archives, this means that both the server and web components are built in sequence and then combined into one archive at build time, rather than haphazardly later, a process that failed more times than I could count. For installers, this means that the process is now simpler and can be automated. And lastly, for Docker, it means that we now provide just a single image, `jellyfin/jellyfin`, that was built all at once and does not rely on two intermediate images, another very error-prone process.
+What this means depends on the different packaging types. For Debian and Ubuntu, it means that there is now one Debian source package for the three resulting binary packages (metapackage, web, and server) and thus all 3 can be built at once using a single `dpkg-buildpackage` command; the same is true for Fedora and CentOS packages. For archives, this means that both the server and web components are built in sequence and then combined into one archive at build time, rather than haphazardly later, a process that failed more times than we could count. For installers, this means that the process is now simpler and can be automated. And lastly, for Docker, it means that we now provide just a single image, `jellyfin/jellyfin`, that was built all at once and does not rely on two intermediate images, another very error-prone process.
 
 As a normal end user, you shouldn't see anything different because of this: you'll still install the packages the same way as always through our repositories. But for anyone building their own versions, you are now advised to use the above repository, as all non-development packaging (e.g. the `debian/` and `fedora/` folders, the `deployment/` folder, etc.) will be removed from the main repositories, leaving just a simple Dockerfile for building testing and development images quickly.
 
@@ -75,7 +75,7 @@ If you are using a non-LTS version of Ubuntu, you still have options. First, you
 
 ## The 10.9.0 release cycle
 
-As I outlined [over in this GitHub discussion](https://github.com/jellyfin/jellyfin/discussions/11051), all these changes mean there will be some big changes for how we approach the 10.9.0 release cycle. To clarify things, the exact process will be as follows:
+As we outlined [over in this GitHub discussion](https://github.com/jellyfin/jellyfin/discussions/11051), all these changes mean there will be some big changes for how we approach the 10.9.0 release cycle. To clarify things, the exact process will be as follows:
 
 1. Starting now, and moving forward indefinitely for all future releases, the weekly unstable builds will act as the "beta" versions. That is to say, if you want to help us test, or just keep up with all the latest and greatest features, use the unstable releases. The instructions found on [our Downloads page](https://jellyfin.org/downloads/server) still apply.
 
@@ -83,13 +83,13 @@ As I outlined [over in this GitHub discussion](https://github.com/jellyfin/jelly
 
 3. As users, please be diligent about reporting bugs in the unstable releases. Our Triage team has been very diligent these last few months at ensuring issues are triaged and looked at, so it is vitally important that anyone using the unstable releases properly reports their bugs!
 
-4. As we approach stability, i.e. after the 3-5 weeks of frozen bug-fixing, we will make the decision to cut the actual final release. I am personally hoping to get this done during the weekend of April 27-28, but that may change depending on how things go during the freeze.
+4. As we approach stability, i.e. after the 3-5 weeks of frozen bug-fixing, we will make the decision to cut the actual final release. we am personally hoping to get this done during the weekend of April 27-28, but that may change depending on how things go during the freeze.
 
-5. The release will actually happen. We will cut a fresh release branch, tag the version, and - using the new CI above - perform the release. We do want to ensure that **any 3rd parties who might trigger off of a Tag event** on our repositories *please turn this off* for this release, as I fully expect to hit at least one or two roadblocks as we run through the process "for real". Once the dust settles, we can ensure that your releases get built, just in case we need to do anything drastic like re-tagging the release.
+5. The release will actually happen. We will cut a fresh release branch, tag the version, and - using the new CI above - perform the release. We do want to ensure that **any 3rd parties who might trigger off of a Tag event** on our repositories *please turn this off* for this release, as we fully expect to hit at least one or two roadblocks as we run through the process "for real". Once the dust settles, we can ensure that your releases get built, just in case we need to do anything drastic like re-tagging the release.
 
 6. At that point, master will resume normal operation, and we will begin the stable point bugfix cycle for 10.9.0. We hope that with the improvements, 10.10.0 will not be a very long ways away after that, perhaps 3-6 months, after which this process will start anew.
 
-We are very nearly there, over 2 years in the making, so I wanted to ensure we spread the word about this plan as far and wide as possible, especially to help get more people testing the new unstable builds for bugs as we prepare for the final release!
+We are very nearly there, over 2 years in the making, so we wanted to ensure we spread the word about this plan as far and wide as possible, especially to help get more people testing the new unstable builds for bugs as we prepare for the final release!
 
 ## Final thoughts
 
