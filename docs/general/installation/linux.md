@@ -24,7 +24,7 @@ The AUR also offers each separately at [`jellyfin-server-git`](https://aur.archl
 
 ## Fedora
 
-Fedora builds in RPM package format are available [in the main download repository](https://repo.jellyfin.org/releases/server/). We do not yet have an official Fedora repository, but one is planned for the future.  
+Fedora builds in RPM package format are available [in the main download repository](https://repo.jellyfin.org/?path=/server/). We do not yet have an official Fedora repository, but one is planned for the future.  
 However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` and `jellyfin-web` for Fedora version `38` and above.
 
 ### RPM Fusion
@@ -100,7 +100,7 @@ However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` an
 
 ## CentOS
 
-CentOS/RHEL 7 builds in RPM package format are available [in the main download repository](https://repo.jellyfin.org/releases/server/). We do not yet have an official CentOS/RHEL repository, but one is planned for the future.
+CentOS/RHEL 7 builds in RPM package format are available [in the main download repository](https://repo.jellyfin.org/?path=/server/). We do not yet have an official CentOS/RHEL repository, but one is planned for the future.
 
 The default CentOS/RHEL repositories don't provide FFmpeg, which the RPM requires.
 You will need to add a third-party repository which provide FFmpeg, such as [RPM Fusion's Free repository](https://rpmfusion.org/Configuration).
@@ -143,7 +143,7 @@ sudo bash install-debuntu.sh
 
 :::note
 
-The script tries to handle as many common derivatives as possible, including, at least, Linux Mint (Ubuntu and Debian editions), Raspbian/Raspberry Pi OS, and KDE Neon. We welcome PRs [to the script](https://github.com/jellyfin/jellyfin-metapackages/blob/master/install-debuntu.sh#L52) for any other common derivatives, or you can use the steps below instead.
+The script tries to handle as many common derivatives as possible, including, at least, Linux Mint (Ubuntu and Debian editions), Raspbian/Raspberry Pi OS, and KDE Neon. We welcome PRs [to the script](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh) for any other common derivatives, or you can use the steps below instead.
 
 :::
 
@@ -200,8 +200,8 @@ If you would prefer to install everything manually, the full steps are as follow
    The supported values for the above variables are:
 
    * `${VERSION_OS}`: One of `debian` or `ubuntu`; if it is not, use the closest one for your distribution.
-   * `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-metapackages/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-metapackages/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
-   * `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-metapackages/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
+   * `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
+   * `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
 
    :::
 
@@ -238,7 +238,7 @@ If you would prefer to install everything manually, the full steps are as follow
 
 ### `.deb` Packages (Very Manual)
 
-Raw `.deb` packages, including old versions, source packages, and `dpkg` meta files, are available [in the main download repository](https://repo.jellyfin.org/releases/server/).
+Raw `.deb` packages, including old versions, source packages, and `dpkg` meta files, are available [in the main download repository](https://repo.jellyfin.org/?path=/server/).
 
 :::note
 
@@ -298,7 +298,7 @@ The Gentoo ebuild repository includes the Jellyfin package which can be installe
 
 ## Linux (generic amd64)
 
-Generic `amd64`, `arm64`, and `armhf` Linux builds in TAR archive format are available [in the main download repository](https://repo.jellyfin.org/releases/server/).
+Generic `amd64`, `arm64`, and `armhf` Linux builds in TAR archive format are available [in the main download repository](https://repo.jellyfin.org/?path=/server/).
 
 ### Base Installation Process
 
@@ -314,7 +314,7 @@ The rest of these instructions assume version 10.8.13 is being installed (i.e. `
 Download the generic build, then extract the archive:
 
 ```sh
-sudo wget https://repo.jellyfin.org/releases/server/linux/stable/combined/jellyfin_10.8.13_amd64.tar.gz
+sudo wget https://repo.jellyfin.org/?path=/server/linux/stable/combined/jellyfin_10.8.13_amd64.tar.gz
 sudo tar xvzf jellyfin_10.8.13_amd64.tar.gz
 ```
 
@@ -341,13 +341,7 @@ Not being able to use `jellyfin-ffmpeg` will most likely break hardware accelera
 
 :::
 
-If you are running Debian or a derivative, you should [download](https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/) and install a `ffmpeg` release built specifically for Jellyfin.
-Be sure to download the latest release that matches your OS (`5.1.3-2` for Debian Bookworm assumed below).
-
-```sh
-sudo wget https://repo.jellyfin.org/releases/server/debian/versions/jellyfin-ffmpeg/5.1.3-2/jellyfin-ffmpeg5_5.1.3-2-bookworm_amd64.deb
-sudo dpkg --install jellyfin-ffmpeg5_5.1.3-2-bookworm_amd64.deb
-```
+If you are running Debian or a derivative, you should [download](https://repo.jellyfin.org/?path=/ffmpeg/debian/) and install an `ffmpeg` `.deb` package built specifically for Jellyfin.
 
 If you run into any dependency errors, run this and it will install them and `jellyfin-ffmpeg`.
 
