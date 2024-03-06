@@ -92,7 +92,7 @@ Supported separators are:
 
 ## Show Extras
 
-Show extras can include deleted scenes, interviews, and other various things that you would want to include alongside your show. Extras can be added at both the series and season level. Jellyfin supports several different methods of adding these files.
+Show extras can include deleted scenes, interviews, and other various things that you would want to include alongside your show. Extras can be added at both the series and season level. **And as of Jellyfin 10.9.0 for individual episodes using both folder and suffix methods.** Jellyfin supports several different methods of adding these files.
 
 :::note
 
@@ -102,7 +102,7 @@ Season level extras are only supported when season folders are used.
 
 ### Extras Folders
 
-One of the cleanest ways of adding extras is to place them in subfolders within your show or season folder.
+One of the cleanest ways of adding extras is to place them in subfolders within your show or season folder. This method can be used for episodes, but you must place the episode within a subfolder for just that episode (see example below).
 
 Supported folder types are:
 
@@ -124,6 +124,11 @@ Shows
     ├── Season 01
     │   ├── Episode S01E01.mkv
     │   ├── Episode S01E02.mkv
+    |   ├── Episode S01E03
+    |   |   ├── Episode S01E03.mkv
+    │   |   └── deleted scenes
+    |   |       ├── Deleted scene from middle of episode.mkv
+    │   |       └── Deleted scene after the opening credits.mkv
     │   ├── featurettes
     │   │   └── Some Featurette.mkv
     │   └── interviews
@@ -165,6 +170,8 @@ Shows
     ├── Season 01
     │   ├── Episode S01E01.mkv
     │   ├── Episode S01E02.mkv
+    │   ├── Episode S01E02-deleted.mkv
+    │   ├── Episode S01E02-featurette.mkv
     │   ├── Alternate Ending-deleted.mkv
     │   └── Interview with the Director-interview.mp4
     └── Fantastic Extra-extra.mkv
