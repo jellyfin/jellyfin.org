@@ -137,12 +137,12 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
       },
       {
         id: 'debian-manual-stable-link',
-        name: 'Manual Downloads (Debian)',
+        name: 'Downloads (Debian)',
         url: 'https://repo.jellyfin.org/?path=/server/debian/latest-stable'
       },
       {
         id: 'ubuntu-manual-stable-link',
-        name: 'Manual Downloads (Ubuntu)',
+        name: 'Downloads (Ubuntu)',
         url: 'https://repo.jellyfin.org/?path=/server/ubuntu/latest-stable'
       }
     ],
@@ -189,12 +189,12 @@ sudo apt install jellyfin`}
       },
       {
         id: 'debian-manual-unstable-link',
-        name: 'Manual Downloads (Debian)',
+        name: 'Downloads (Debian)',
         url: 'https://repo.jellyfin.org/?path=/server/debian/latest-unstable'
       },
       {
         id: 'ubuntu-manual-unstable-link',
-        name: 'Manual Downloads (Ubuntu)',
+        name: 'Downloads (Ubuntu)',
         url: 'https://repo.jellyfin.org/?path=/server/ubuntu/latest-unstable'
       }
     ],
@@ -211,24 +211,24 @@ sudo apt install jellyfin`}
     stableButtons: [
       {
         id: 'fedora-manual-stable-link',
-        name: 'Manual Downloads (Fedora)',
+        name: 'Downloads (Fedora)',
         url: 'https://repo.jellyfin.org/?path=/server/fedora/latest-stable'
       },
       {
         id: 'centos-manual-stable-link',
-        name: 'Manual Downloads (CentOS/etc.)',
+        name: 'Downloads (CentOS/etc.)',
         url: 'https://repo.jellyfin.org/?path=/server/centos/latest-stable'
       }
     ],
     unstableButtons: [
       {
         id: 'fedora-manual-unstable-link',
-        name: 'Manual Downloads (Fedora)',
+        name: 'Downloads (Fedora)',
         url: 'https://repo.jellyfin.org/?path=/server/fedora/latest-unstable'
       },
       {
         id: 'centos-manual-unstable-link',
-        name: 'Manual Downloads (CentOS/etc.)',
+        name: 'Downloads (CentOS/etc.)',
         url: 'https://repo.jellyfin.org/?path=/server/centos/latest-unstable'
       }
     ],
@@ -267,14 +267,14 @@ sudo apt install jellyfin`}
     stableButtons: [
       {
         id: 'windows-manual-stable-link',
-        name: "Manual Downloads",
+        name: "Downloads",
         url: 'https://repo.jellyfin.org/?path=/server/windows/latest-stable'
       }
     ],
     unstableButtons: [
       {
         id: 'windows-unstable-link',
-        name: "Manual Downloads",
+        name: "Downloads",
         url: 'https://repo.jellyfin.org/?path=/server/windows/latest-unstable'
       }
     ],
@@ -291,14 +291,14 @@ sudo apt install jellyfin`}
     stableButtons: [
       {
         id: 'macos-manual-stable-link',
-        name: "Manual Downloads",
+        name: "Downloads",
         url: 'https://repo.jellyfin.org/?path=/server/macos/latest-stable'
       }
     ],
     unstableButtons: [
       {
         id: 'macos-manual-unstable-link',
-        name: "Manual Downloads",
+        name: "Downloads",
         url: 'https://repo.jellyfin.org/?path=/server/macos/latest-unstable'
       }
     ],
