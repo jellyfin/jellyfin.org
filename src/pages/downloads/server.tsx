@@ -110,7 +110,7 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
           {isStableHelpVisible && (
             <Admonition type='tip' title='Stable or Unstable?'>
               <p>
-                Generally, if you&apos;re a new user or don't want your server to change often, use the Stable version.
+                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable version.
                 If you want to help test the latest improvements and features and can handle some occasional breakage,
                 use the Unstable version. New Unstable releases are published Weekly on Monday mornings (~midnight GMT-5).
                 NOTE: Always back up your existing configuration before testing Unstable releases as there is NO
