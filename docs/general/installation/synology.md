@@ -23,6 +23,8 @@ Install the "Container Manager" package from the Synology Package Center.
 Open the Package Center and search for "Container Manager" to find the package.
 For further information read this [guide](https://kb.synology.com/en-global/DSM/help/DSM/PkgManApp/install_buy?version=7).
 
+The creation and initialation of an Volume will not be touched in this guide. Further information is provided by [Synology](https://kb.synology.com/en-global/DSM/help/DSM/StorageManager/volume_create_volume?version=7)
+
 ## Installation
 
 The installation is done with the Synology Container Manager.
@@ -32,11 +34,11 @@ If you don't see the icon in the main menu after the installation of `Container 
 
 Navigate to the "Registry" tab and search for "Jellyfin". You should see the official jellyfin/jellyfin image. Click on it and then click "Download".
 
-![Downloading the Image](/images/docs/install-synology-10.png)
+![Downloading the Image](/images/docs/install-synology-0.png)
 
 A new window will open and a Jellyfin version can be selected for install. The latest version is recommended. Click `Apply` after selection a version.
 
-![Downloading the Image](/images/docs/install-synology-11.png)
+![Downloading the Image](/images/docs/install-synology-1.png)
 
 After the image is downloaded, it can be found in the `Image` tab.
 
@@ -46,7 +48,7 @@ Navigate to the `Container` tab and click `Create`.
 Select the `Jellyfin` image and give the container a name. This is mainly for identification purposes and can be set to anything desired. `auto-restart` can be enabled to automatically start Jellyfin when the NAS boots.
 Resource limits can also be set for the container. It is recommended that all CPU resources and at least 4GB of ram be allocated to the Jellyfin container.
 Click `Next` to proceed to the next step.
-![Creating the Container](/images/docs/install-synology-12.png)
+![Creating the Container](/images/docs/install-synology-2.png)
 
 #### Port Settings
 
@@ -60,10 +62,13 @@ To add a volume, click "Add Folder" and select the folder desired. The mount poi
 #### Network Settings
 Set how the container connects to the network. DLNA requires `Host` mode to function.
 
-Any other settings can be left as default.
+#### Settings for advanced users
+- Enviroment Variables
+
+#### Example
 Your settings should look like this:
-![Advanced Settings](/images/docs/install-synology-13.png)
-![Advanced Settings](/images/docs/install-synology-14.png)
+![Advanced Settings](/images/docs/install-synology-3.png)
+![Advanced Settings](/images/docs/install-synology-4.png)
 Click `Next` to proceed to the next step.
 
 Settings can be reviewed at this screen. Check the `Run this container after the wizard is finished` checkbox and click `Apply` if everything looks correct. The container should now be shown in the `Container` tab.
