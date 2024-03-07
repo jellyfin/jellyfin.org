@@ -7,7 +7,7 @@ slug: new-ci-new-repo
 tags: [release, infrastructure]
 ---
 
-Over the last several weeks, I've been driving a major push to revamp and improve our CI, in an effort to improve both our release workflow, our velocity of releases, and the burden they have on me as the release manager. This quick post will detail some of the major changes, how they might affect you as a user, and also, how we're planning to proceed with our 10.9.0 release cycle. Read on for more information!
+Over the last several weeks, I've been driving a major push to revamp and improve our CI, in an effort to improve our release workflow, our velocity of releases, and the burden they have on me as the release manager. This quick post will detail some of the major changes, how they might affect you as a user, and also, how we're planning to proceed with our 10.9.0 release cycle. Read on for more information!
 
 ## The TL;DR
 
@@ -27,7 +27,7 @@ Over the last several weeks, I've been driving a major push to revamp and improv
 
 ## Why build a new CI?
 
-Our old CI was assembled way back in 2019 by a few dedicated team members (mostly @EraYan) using Azure DevOps. While it was a very major improvement over my self-built pure-BASH build system that we had used for the first year or so, it still had a number of drawbacks:
+Our old CI was assembled way back in 2019 by a few dedicated team members (mostly @EraYan) using Azure DevOps. While it was a major improvement over my self-built pure-BASH build system that we had used for the first year or so, it still had a number of drawbacks:
 
 1. It was a little difficult to understand, and relied on an external system (Microsoft Azure).
 2. It still relied on a very complex, convoluted, and error prone [BASH script to finalize the builds](https://github.com/jellyfin/jellyfin-metapackages), because...
@@ -83,7 +83,7 @@ As we outlined [over in this GitHub discussion](https://github.com/jellyfin/jell
 
 3. As users, please be diligent about reporting bugs in the unstable releases. Our Triage team has been very diligent these last few months at ensuring issues are triaged and looked at, so it is vitally important that anyone using the unstable releases properly reports their bugs!
 
-4. As we approach stability, i.e. after the 3-5 weeks of frozen bug-fixing, we will make the decision to cut the actual final release. we am personally hoping to get this done during the weekend of April 27-28, but that may change depending on how things go during the freeze.
+4. As we approach stability, i.e. after the 3-5 weeks of frozen bug-fixing, we will make the decision to cut the actual final release. I am personally hoping to get this done during the weekend of April 27-28, but that may change depending on how things go during the freeze.
 
 5. The release will actually happen. We will cut a fresh release branch, tag the version, and - using the new CI above - perform the release. We do want to ensure that **any 3rd parties who might trigger off of a Tag event** on our repositories *please turn this off* for this release, as we fully expect to hit at least one or two roadblocks as we run through the process "for real". Once the dust settles, we can ensure that your releases get built, just in case we need to do anything drastic like re-tagging the release.
 
