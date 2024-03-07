@@ -67,11 +67,11 @@ As a normal end user, you shouldn't see anything different because of this: you'
 
 ## A new repository master for a new CI system
 
-One thing the ground-up CI and unified packages enabled was a much cleaner repository structure. Our previous structure was based around the combining requirements, full of strange quirks and nested directories to try to make that simpler. With those out of the picture, we were able to settle on a much nicer layout, and thus, a brand new master server to house them for an easier transition.
+One thing the ground-up CI and unified packages enables is a much cleaner repository structure. Our previous structure was based around the combining requirements, full of strange quirks and nested directories to try to make that simpler. With those out of the picture, we were able to settle on a much nicer layout, and thus, a brand new master server to house them for an easier transition.
 
-Part of this also includes a revamped browser page to easily facilitate getting to the files you need, descending through the tree of the new layout in a much more user-friendly way. The new browser is now live at https://repo.jellyfin.org for perusal, and it still includes the stable release packages in the new layout for your convenience until 10.9.0 is released.
+Part of this also includes a revamped browser page to easily facilitate getting to the files you need, descending through the tree of the new layout in a much more user-friendly way.
 
-This new repository master is live as of posting, so as mentioned in the preamble please test it out and let us know if you run into any trouble with it, any broken links, or similar issues.
+The new browser and repository master is now live as of posting at https://repo.jellyfin.org for perusal, and still includes the stable release packages in the new layout for your convenience until 10.9.0 is released. So as mentioned in the preamble please test it out and let us know if you run into any trouble with it, any broken links, or similar issues.
 
 ## Unstable Releases
 
@@ -101,11 +101,13 @@ Luckily, a community member (@mooninite) has already been maintaning a stable co
 
 Unstable users on Fedora/CentOS are recommended to stick with the Docker container instead, as this both bundles FFmpeg today and helps ensure speedy upgrades.
 
+3. We are finaly adding GHCR (ghcr.io) support for our Docker images. This will help ensure that, even if something were to happen to Docker Hub, there is another source for our Docker images. If you wish to, you can use this source immediately for Unstable builds, and for 10.9.0 when it is released.
+
 ## The 10.9.0 release cycle
 
 As we outlined [over in this GitHub discussion](https://github.com/jellyfin/jellyfin/discussions/11051), all these changes mean there will be some big changes for how we approach the 10.9.0 release cycle. To clarify things, the exact process will be as follows:
 
-1. Starting now, and moving forward indefinitely for all future releases, the weekly unstable builds will act as the "beta" versions. That is to say, if you want to help us test, or just keep up with all the latest and greatest features, use the unstable releases. The instructions found on [our Downloads page](https://jellyfin.org/downloads/server) still apply.
+1. Starting now, and moving forward indefinitely for all future releases, the weekly unstable builds will act as the "beta" versions. That is to say, if you want to help us test, or just keep up with all the latest and greatest features, use the unstable releases. The instructions found on [our Downloads page](https://jellyfin.org/downloads/server) still apply for enabling Unstable builds, as well as listing all of our supported Unstable platforms.
 
 2. As we approach the planned release date, we will begin a feature freeze. While in the feature freeze, only bugfix PRs will be accepted. We expect this to last between 3 and 5 weeks. Currently, the tentative start is **Monday, March 18th**. During the freeze, the unstable builds should be consistent and working, with only the minor fixes being merged.
 
