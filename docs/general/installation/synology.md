@@ -54,7 +54,7 @@ Allocate ports to the container. Jellyfin uses port 8096 for the web interface a
 
 #### Volume Settings
 
-You need to set the volume settings for the container. Jellyfin needs access to your media files and configuration files.
+This setting maps directories on the host to within the container. Use this setting to allow Jellyfin access to media and a place to store application data.
 To add a volume, click "Add Folder" and select the folder you want to use. In the middle column, you need to set the mount path. For the media files, you can use "/media" and for the configuration files, you can use "/config".
 
 #### Network Settings
