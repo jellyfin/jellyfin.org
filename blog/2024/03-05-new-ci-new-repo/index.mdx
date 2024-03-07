@@ -73,9 +73,19 @@ Part of this also includes a revamped browser page to easily facilitate getting 
 
 This new repository master is live as of posting, so as mentioned in the preamble please test it out and let us know if you run into any trouble with it, any broken links, or similar issues.
 
-## Cleaning up Ubuntu and Fedora/CentOS
+## Unstable Releases
 
-As mentioned in the TL;DR, we are making two major changes to what we build:
+As mentioned a bit above, our previous "build things on every pull request merge" was quite cumbersome to use, as things would change very rapidly, and keeping testers up-to-date was nearly impossible during fast-moving days. Way back in the early days, we had experimented with daily builds before moving to this model, but even those felt a little too quick for both our current development pace, and for users to keep adequetly up-to-date.
+
+Instead, going forward we are moving to a Weekly cycle for Unstable releases. The builds will occur on Monday mornings around midnight Eastern time (UTC-5/4-with-DST), a time chosen farily arbitrarily but ensuring each week starts with a fresh Unstable build. This process is completely automated, and the resulting builds will be available soon thereafter on all our normal places.
+
+We hope that this slower pace will help ensure that users running our Unstable builds have more of a chance to actually test the current state of Jellyfin and not be overwhelmed by the speed of releases, while also providing fast enough movement for people to truly test.
+
+One final note, mentioned in more detail below, is that these Unstable Weekly builds will act as our pre-release testing for 10.9.0: there will be no tagged "beta" or "rc" releases for this cycle. This is being done to avoid the major burden we found with 10.8.0 of trying to continually backport the fixes for the upcoming stable release back into master, while also forward-porting bugfixes in the other direction when they were accidentally mis-targeted.
+
+## Cleaning up Ubuntu and Fedora/CentOS and adding GHCR
+
+As mentioned in the TL;DR, we are making three major changes to what we build, both for the Unstable releases and the upcoming 10.9.0 release:
 
 1. We are dropping all non-LTS Ubuntu releases from our official APT package repository.
 
