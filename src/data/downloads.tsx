@@ -201,40 +201,6 @@ sudo apt install jellyfin`}
     otherButtons: []
   },
   {
-    id: 'fedora-centos',
-    name: 'Fedora and CentOS',
-    osTypes: [OsType.Linux],
-    status: DownloadStatus.Official,
-    features: [],
-    platforms: [Platform.Fedora, Platform.CentOS],
-    description: 'RPM archives for both Fedora and CentOS are provided.',
-    stableButtons: [
-      {
-        id: 'fedora-manual-stable-link',
-        name: 'Downloads (Fedora)',
-        url: 'https://repo.jellyfin.org/?path=/server/fedora/latest-stable'
-      },
-      {
-        id: 'centos-manual-stable-link',
-        name: 'Downloads (CentOS/etc.)',
-        url: 'https://repo.jellyfin.org/?path=/server/centos/latest-stable'
-      }
-    ],
-    unstableButtons: [
-      {
-        id: 'fedora-manual-unstable-link',
-        name: 'Downloads (Fedora)',
-        url: 'https://repo.jellyfin.org/?path=/server/fedora/latest-unstable'
-      },
-      {
-        id: 'centos-manual-unstable-link',
-        name: 'Downloads (CentOS/etc.)',
-        url: 'https://repo.jellyfin.org/?path=/server/centos/latest-unstable'
-      }
-    ],
-    otherButtons: []
-  },
-  {
     id: 'generic-linux',
     name: 'Generic Linux',
     osTypes: [OsType.Linux],
@@ -327,42 +293,6 @@ sudo apt install jellyfin`}
     otherButtons: []
   },
   {
-    id: 'flatpak',
-    name: 'Flatpak',
-    osTypes: [OsType.Linux],
-    status: DownloadStatus.Community,
-    features: [Feature.CustomFFmpeg],
-    platforms: [Platform.Linux],
-    description: 'Install Jellyfin via Flathub.',
-    stableButtons: [
-      {
-        id: 'flatpak-stable-button',
-        name: 'Install Instructions',
-        details: (
-          <>
-            <pre>
-              <code>{`flatpak install flathub org.jellyfin.JellyfinServer`}</code>
-            </pre>
-            <p>
-              <b>Note:</b> If you are running on an Intel GPU an additional extension is required for HDR Tone mapping.
-            </p>
-            <pre>
-              <code>{`flatpak install flathub org.jellyfin.JellyfinServer.Plugin.IntelComputeRuntime`}</code>
-            </pre>
-          </>
-        )
-      },
-      {
-        id: 'flatpak-flathub-link',
-        name: 'Flathub',
-        url: 'https://flathub.org/apps/org.jellyfin.JellyfinServer'
-      }
-    ],
-    unstableButtons: [],
-    otherButtons: [
-    ]
-  },
-  {
     id: 'arch',
     name: 'Arch Linux',
     osTypes: [OsType.Linux],
@@ -403,6 +333,74 @@ makepkg -si`}
       }
     ],
     otherButtons: []
+  },
+  {
+    id: 'fedora-centos',
+    name: 'Fedora/CentOS Linux',
+    osTypes: [OsType.Linux],
+    status: DownloadStatus.OsPackage,
+    features: [],
+    platforms: [Platform.Fedora, Platform.CentOS],
+    description: 'Install Jellyfin via the RPMFusion Repository (Free).',
+    stableButtons: [
+      {
+        id: 'rpmfusion-stable-button',
+        name: 'Install Instructions',
+        details: (
+          <>
+            <p>
+              <a href="https://rpmfusion.org/Configuration">Configure the RPMFusion repository</a>
+            </p>
+            <pre>
+              <code>{`dnf install jellyfin`}</code>
+            </pre>
+          </>
+        )
+      },
+      {
+        id: 'rpmfusion-stable-link',
+        name: 'RPMFusion',
+        url: 'https://admin.rpmfusion.org/pkgdb/package/free/jellyfin/'
+      }
+    ],
+    unstableButtons: [],
+    otherButtons: []
+  },
+  {
+    id: 'flatpak',
+    name: 'Flatpak',
+    osTypes: [OsType.Linux],
+    status: DownloadStatus.Community,
+    features: [Feature.CustomFFmpeg],
+    platforms: [Platform.Linux],
+    description: 'Install Jellyfin via Flathub.',
+    stableButtons: [
+      {
+        id: 'flatpak-stable-button',
+        name: 'Install Instructions',
+        details: (
+          <>
+            <pre>
+              <code>{`flatpak install flathub org.jellyfin.JellyfinServer`}</code>
+            </pre>
+            <p>
+              <b>Note:</b> If you are running on an Intel GPU an additional extension is required for HDR Tone mapping.
+            </p>
+            <pre>
+              <code>{`flatpak install flathub org.jellyfin.JellyfinServer.Plugin.IntelComputeRuntime`}</code>
+            </pre>
+          </>
+        )
+      },
+      {
+        id: 'flatpak-flathub-link',
+        name: 'Flathub',
+        url: 'https://flathub.org/apps/org.jellyfin.JellyfinServer'
+      }
+    ],
+    unstableButtons: [],
+    otherButtons: [
+    ]
   },
   {
     id: 'gentoo',
