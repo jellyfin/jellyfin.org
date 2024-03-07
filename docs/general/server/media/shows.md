@@ -15,30 +15,38 @@ In order to help with identifying a series, Jellyfin can make use of media provi
 
 ```txt
 Shows
-├── Series (2010)
+├── Series Name A (2010)
 │   ├── Season 00
 │   │   ├── Some Special.mkv
-│   │   ├── Episode S00E01.mkv
-│   │   └── Episode S00E02.mkv
+│   │   ├── Series Name A S00E01.mkv
+│   │   └── Series Name A S00E02.mkv
 │   ├── Season 01
-│   │   ├── Episode S01E01-E02.mkv
-│   │   ├── Episode S01E03.mkv
-│   │   └── Episode S01E04.mkv
+│   │   ├── Series Name A S01E01-E02.mkv
+│   │   ├── Series Name A S01E03.mkv
+│   │   └── Series Name A S01E04.mkv
 │   └── Season 02
-│       ├── Episode S02E01.mkv
-│       ├── Episode S02E02.mkv
-│       ├── Episode S02E03 Part 1.mkv
-│       └── Episode S02E03 Part 2.mkv
-└── Series (2018)
-    ├── Episode S01E01.mkv
-    ├── Episode S01E02.mkv
-    ├── Episode S02E01-E02.mkv
-    └── Episode S02E03.mkv
+│       ├── Series Name A S02E01.mkv
+│       ├── Series Name A S02E02.mkv
+│       ├── Series Name A S02E03 Part 1.mkv
+│       └── Series Name A S02E03 Part 2.mkv
+└── Series Name B (2018)
+    ├── Series Name B S01E01.mkv
+    ├── Series Name B S01E02.mkv
+    ├── Series Name B S02E01-E02.mkv
+    └── Series Name B S02E03.mkv
 ```
 
 :::note
 
 Avoid special characters such as \* in M\*A\*S\*H, use MASH instead.
+
+:::
+
+:::note
+
+Do not mix episodes inside season folders and episodes on the Series root folder.
+
+Do not abbreviate the Season folder with `S01` or `SE01` or alike.
 
 :::
 
@@ -171,7 +179,7 @@ Trailers support a special option if you only have a single file of that type pe
 
 ## 3D Videos
 
-Please refer to ['3D Movies' in the movies section](/docs/general/server/media/movies#3D-Movies)
+Please refer to ['3D Movies' in the movies section](/docs/general/server/media/movies#3d-movies)
 
 ## Images
 

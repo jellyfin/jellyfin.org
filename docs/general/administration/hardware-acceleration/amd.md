@@ -21,7 +21,7 @@ On Linux there are two methods:
 
 The [AMF](https://github.com/GPUOpen-LibrariesAndSDKs/AMF) interface on Windows is based on DXVA/D3D11VA but on Linux it is based on their Pro Vulkan and OpenCL stack, which is a closed source solution. We only provide full hardware acceleration for it on Windows.
 
-The VA-API interface on Linux is an open source implementation. This open driver stack embraces Intel's [Libva](https://github.com/intel/libva) standard and exposes their video hardware via the [Mesa](https://gitlab.freedesktop.org/mesa/mesa) Gallium RadeonSI driver. And thanks to the developers of RADV Vulkan driver, we can interop between the VA-API and Vulkan on Vega+ GPUs, which make it possible for us to use Vulkan compute to achieve full hardware acceleration on Linux.
+The VA-API interface on Linux is an open source implementation. This open driver stack embraces Intel's [Libva](https://github.com/intel/libva) standard and exposes their video hardware via the [Mesa](https://gitlab.freedesktop.org/mesa/mesa) Gallium RadeonSI driver. And thanks to the developers of RADV Vulkan driver, we can interop between the VA-API and Vulkan on Polaris+ GPUs, which make it possible for us to use Vulkan compute to achieve full hardware acceleration on Linux.
 
 :::note
 
@@ -47,7 +47,7 @@ There are two different methods that can be used on Windows and/or Linux. Pros a
 
    - Pros - Supports Dolby Vision P5, libplacebo renderer, ROCm OpenCL runtime is not required.
 
-   - Cons - Linux only, zero-copy only supports Vega+ GPUs for the time being.
+   - Cons - Linux only, zero-copy only supports Polaris+ GPUs.
 
 ## Select GPU Hardware
 
@@ -91,7 +91,7 @@ Note that even though the RX 400 series have HEVC 10-bit decoding support, it do
 
 ### Transcode AV1
 
-AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
+AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding is supported in Jellyfin 10.9 and newer.
 
 AMD added support for AV1 acceleration in their latest GPUs:
 
@@ -120,6 +120,18 @@ Encoding speed and quality:
 ## Windows Setups
 
 Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Docker and WSL/WSL2.**
+
+### Known Issues And Limitations On Windows
+
+:::caution
+
+There are some known Windows driver issues that can affect the AMD hardware transcoding. Some of them can be fixed by downgrading or upgrading your graphics driver.
+
+:::
+
+1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue in `Adrenalin 24.1.1` and newer. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing HDR videos that **require tone-mapping**. The last known working driver is [`Adrenalin 23.12.1`](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-23-12-1), and the problem can be solved by downgrading to it and disabling automatic updates. Note that if `Adrenalin 23.12.1` driver does not resolve the problem, you may need to try an older one such as `Adrenalin 23.11.1`. You can follow the status of this driver issue through the ticket below.
+
+   - Ticket: [https://github.com/ROCm/clr/issues/50](https://github.com/ROCm/clr/issues/50)
 
 ### Configure On Windows Host
 
@@ -175,7 +187,7 @@ Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Doc
 
 A 64-bit Linux distribution is required. **The supported GPU varies by kernel and firmware versions.**
 
-### Known Issues And Limitations
+### Known Issues And Limitations On Linux
 
 :::caution
 
@@ -337,21 +349,16 @@ You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/genera
 
 #### Arch Linux
 
-AUR `jellyfin-ffmpeg`, `jellyfin-ffmpeg5*` packages and future FFmpeg versions are maintained by Jellyfin team.
-
 :::note
 
 Root permission is required.
 
 :::
 
-1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin) package, then change the FFmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
+1. Install the Archlinux/extra [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package:
 
    ```shell
-   cd ~/
-   git clone https://aur.archlinux.org/jellyfin-ffmpeg5-bin.git
-   cd jellyfin-ffmpeg5-bin
-   makepkg -si
+   sudo pacman -Syu jellyfin-ffmpeg
    ```
 
 2. User mode Mesa drivers and the ROCm OpenCL runtime are required to be manually installed for VA-API:

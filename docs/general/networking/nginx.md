@@ -42,11 +42,14 @@ server {
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
     client_max_body_size 20M;
 
+    # Uncomment next line to Disable TLS 1.0 and 1.1 (Might break older devices)
+    # ssl_protocols TLSv1.3 TLSv1.2;
+
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
     # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
     set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30;
+    resolver 127.0.0.1 valid=30s;
 
     #ssl_certificate /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem;
     #ssl_certificate_key /etc/letsencrypt/live/DOMAIN_NAME/privkey.pem;
@@ -70,9 +73,6 @@ server {
 
     # Permissions policy. May cause issues on some clients
     add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
-
-    # Tell browsers to use per-origin process isolation
-    add_header Origin-Agent-Cluster "?1" always;
 
 
     # Content Security Policy
@@ -159,7 +159,7 @@ server {
     # in this example we are using a hostname which is resolved via DNS
     # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
     set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30;
+    resolver 127.0.0.1 valid=30s;
 
     # Uncomment and create directory to also host static content
     #root /srv/http/media;
@@ -174,13 +174,12 @@ server {
         return 302 $scheme://$host/jellyfin/;
     }
 
+    # The / at the end is significant.
+    # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
     location /jellyfin/ {
         # Proxy main Jellyfin traffic
 
-        # The / at the end is significant.
-        # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
-
-        proxy_pass http://$jellyfin:8096/jellyfin/;
+        proxy_pass http://$jellyfin:8096;
 
         proxy_pass_request_headers on;
 
@@ -235,18 +234,20 @@ server {
     # in this example we are using a hostname which is resolved via DNS
     # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
     set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30;
+    resolver 127.0.0.1 valid=30s;
+
+    # Uncomment next line to disable TLS 1.0 and 1.1 (Might break older devices)
+    # ssl_protocols TLSv1.3 TLSv1.2;
 
     # Jellyfin
     location /jellyfin {
         return 302 $scheme://$host/jellyfin/;
     }
 
+    # The / at the end is significant.
+    # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
     location /jellyfin/ {
         # Proxy main Jellyfin traffic
-
-        # The / at the end is significant.
-        # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
 
         proxy_pass http://$jellyfin:8096;
 
@@ -341,7 +342,7 @@ proxy_cache_path /var/cache/nginx/jellyfin levels=1:2 keys_zone=jellyfin:100m ma
 
 # Cache images (inside server block)
 location ~ /Items/(.*)/Images {
-  proxy_pass http://127.0.0.1:8096;
+  proxy_pass http://$jellyfin:8096;
   proxy_set_header Host $host;
   proxy_set_header X-Real-IP $remote_addr;
   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -366,7 +367,7 @@ limit_conn_zone $binary_remote_addr zone=addr:10m;
 
 # Downloads limit (inside server block)
 location ~ /Items/(.*)/Download$ {
-   proxy_pass http://127.0.0.1:8096;
+   proxy_pass http://$jellyfin:8096;
    proxy_set_header Host $host;
    proxy_set_header X-Real-IP $remote_addr;
    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -385,3 +386,41 @@ error_page 460 http://your-page-telling-your-limit/;
 ```
 
 [See here for more](https://www.nginx.com/blog/rate-limiting-nginx/)
+
+## Nginx Proxy Manager
+
+[Nginx Proxy Manager](https://nginxproxymanager.com/) provides an easy-to-use web GUI for Nginx.
+
+Create a proxy host and point it to your Jellyfin server's IP address and http port (usually 8096)
+
+Enable "Block Common Exploits", and "Websockets Support". Configure the access list if you intend to use them. Otherwise leave it on "publicly accessible".
+
+In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  This is optional, but recommended if you intend to make Jellyfin accessible outside of your home.
+
+```config
+    # Disable buffering when the nginx proxy gets very resource heavy upon streaming
+    proxy_buffering off;
+
+    # Proxy main Jellyfin traffic
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Protocol $scheme;
+    proxy_set_header X-Forwarded-Host $http_host;
+    proxy_headers_hash_max_size 2048;
+    proxy_headers_hash_bucket_size 128; 
+    
+    # Security / XSS Mitigation Headers
+    # NOTE: X-Frame-Options may cause issues with the webOS app
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "0";
+    add_header X-Content-Type-Options "nosniff";
+
+    # Content Security Policy
+    # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+    # Enforces https content and restricts JS/CSS to origin
+    # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
+    # NOTE: The default CSP headers may cause issues with the webOS app
+    #add_header Content-Security-Policy "default-src https: data: blob: http://image.tmdb.org; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com/cv/js/sender/v1/cast_sender.js https://www.gstatic.com/eureka/clank/95/cast_sender.js https://www.gstatic.com/eureka/clank/96/cast_sender.js https://www.gstatic.com/eureka/clank/97/cast_sender.js https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
+
+```
+
+In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".

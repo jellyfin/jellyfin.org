@@ -5,8 +5,32 @@ title: Tasks
 
 # Tasks
 
-Tasks include any operations that are either too time consuming to always run within a library scan or not directly related to scanning media. One such example of a task is the option to clean out old log files. They can either be run on demand by clicking the run button on the right of a task or at specific times by creating a trigger.
+Tasks are operations that are scheduled to run periodically. They can also be triggered manually by clicking the run button on the right.
 
-The triggers can be set daily or weekly to run at a set time or on a specific interval if the former two are insufficient. There is also an option to simply run the task every time the server starts running. You can add more than one trigger depending on how often you want to run the task.
+## Default Jellyfin Tasks
+
+Below is a list of tasks that Jellyfin runs peoridically by default:
+
+### Libraries
+
+- Download Missing Subtitles
+- Refresh Users
+- Extract Chapter Images
+- Scan Library
+- Extract Key Frames
+
+### Application
+
+- Update Plugins
+
+### Maintenance
+
+- Optimize Database
+- Clear Log Folder
+- Clear Cache Folder
+- Clear Activity Logs
+- Clear Transcodes Folder
+
+## Plugin Tasks
 
 Plugins can add their own tasks if they include operations that need to be run at specified intervals. These will also show up in the settings for you to configure.
