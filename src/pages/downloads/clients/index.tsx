@@ -99,7 +99,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                 <Link to='/downloads/server' className='pills__item'>
                   Server
                 </Link>
-                <Link to='https://repo.jellyfin.org' className='pills__item pills__item'>
+                <Link to='https://repo.jellyfin.org' className='pills__item'>
                   Full Repository
                 </Link>
               </div>

@@ -30,7 +30,7 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                 <Link to='/downloads/server' className='pills__item pills__item--active'>
                   Server
                 </Link>
-                <Link to='https://repo.jellyfin.org' className='pills__item pills__item'>
+                <Link to='https://repo.jellyfin.org' className='pills__item'>
                   Full Repository
                 </Link>
               </div>
