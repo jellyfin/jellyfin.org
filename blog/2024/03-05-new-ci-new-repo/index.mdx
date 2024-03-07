@@ -39,13 +39,15 @@ Our old CI was assembled way back in 2019 by a few dedicated team members (mostl
 
 There was also, though not a flaw with the CI system itself, the matter of "unstable" builds. For a long time, they've been built on every merged PR, which was good for quickly seeing if things worked, but were effectively unusable for normal people as they changed so often. This was also something we wanted to fix.
 
-At the time, GitHub Actions did not yet exist, and while we got everything to work, the CI as a whole was clunky and prone to failure. Major releases would often take me over 20 man-hours to prepare for and execute, while point releases would take at least 4-6 hours. It was a huge burden as a release manager, and also very cumbersome to fix if things broke in obscure ways. Lastly, all this meant that our release velocity was extremely slow, as there was never a clear flow between master being tested and preparing for the next release.
+At the time, GitHub Actions did not yet exist, and while we got everything to work, the CI as a whole was clunky and prone to failure. Major releases would often take me over 20 man-hours to prepare for and execute, while point releases would take at least 4-6 hours. It was a huge burden as a release manager, and also very cumbersome to fix if things broke in obscure ways, especially after the tag, because all the CI was in the code repos.
 
-Rather than continue incremental tweaking of this setup, about 2 years ago a project was started by @ferferga and @h1dden-da3m0n (who has since moved on) to move to GitHub Actions. While they did lay a lot of groundwork, that project ultimately stalled out and was effectively abandoned. Earlier this year, we took up the mantle to finally get this done in preparation for 10.9.0, and was able to get it working well, in a much easier to understand and hopefully much more consistent way.
+All this meant that our release velocity was extremely slow, as there was never a clear flow between master being tested and preparing for the next release.
+
+Rather than continue incremental tweaking of this setup, about 2 years ago a project was started by @ferferga and @h1dden-da3m0n (who has since moved on) to move to GitHub Actions. While they did lay a lot of groundwork, that project ultimately stalled out and was effectively abandoned. Earlier this year, I took up the mantle to finally get this done in preparation for 10.9.0, and was able to get it working well, in a much easier to understand and hopefully much more consistent way.
 
 ## More Automation
 
-The next part, besides just the CI itself, is an automation bot. As mentioned, releases took a long time, but only a fraction of that was spent actually dealing with Azure. The rest was administrative work: building changelogs, ensuring repos were in sync, running `bump-version` scripts, creating release drafts, checking them 3 times and still missing something, writing a release post for our Forum, etc. All of this added up to a significant time investment that we was rarely eager to do, which in turn trashed our velocity.
+The next part, besides just the CI itself, is an automation bot. As mentioned, releases took a long time, but only a fraction of that was spent actually dealing with Azure. The rest was administrative work: building changelogs, ensuring repos were in sync, running `bump-version` scripts, creating release drafts, checking them 3 times and still missing something, writing a release post for our Forum, etc. All of this added up to a significant time investment that I was rarely eager to do, which in turn trashed our velocity.
 
 No project should be so dependent on one person, but we were, for a very long time. Part of the goal with this CI improvement is to streamline all these aspects as well using another piece of automation, a private chatbot.
 
@@ -57,7 +59,7 @@ While the bot isn't completely finished yet, the scaffolding is all there, and w
 
 One big drawback we mentioned of the previous CI was how it treated the server and web components of Jellyfin separately. It did this because these two components are indeed separate on the code side, in separate GitHub repositories and with different groups leading them. The problem is, that's not how Jellyfin is actually consumed by users. Users want just one package, installer, or archive to install and run out of the box. So we had to do a lot of complex shenanigans to combine the packages together.
 
-No longer. With the updated CI, all our packaging is unified together, and split off into [its own dedicated repository](https://github.com/jellyfin/jellyfin-packaging). This repository handles the two code repos via submodules and a simple Python script to synchronize what version is checked out of each before a build. Then, another Python script handles the actual building, which itself is then called from GitHub actions. It is still a little convoluted, but this is absolutely critical for how complex our software ultimately is to package.
+No longer. With the updated CI, all our packaging is unified together, and split off into [its own dedicated repository](https://github.com/jellyfin/jellyfin-packaging). This repository handles the two code repos via submodules and a simple Python script to synchronize what version is checked out of each before a build. Then, another Python script handles the actual building, which itself is then called from GitHub actions. It is still a little convoluted, but this is unavoidable for how complex our software ultimately is to package, and the hope is that having this in Python (a robust but easy-to-understand language) will help ensure this process isn't nearly as opaque as it previously was.
 
 What this means depends on the different packaging types. For Debian and Ubuntu, it means that there is now one Debian source package for the three resulting binary packages (metapackage, web, and server) and thus all 3 can be built at once using a single `dpkg-buildpackage` command; the same is true for Fedora and CentOS packages. For archives, this means that both the server and web components are built in sequence and then combined into one archive at build time, rather than haphazardly later, a process that failed more times than we could count. For installers, this means that the process is now simpler and can be automated. And lastly, for Docker, it means that we now provide just a single image, `jellyfin/jellyfin`, that was built all at once and does not rely on two intermediate images, another very error-prone process.
 
@@ -65,9 +67,11 @@ As a normal end user, you shouldn't see anything different because of this: you'
 
 ## A new repository master for a new CI system
 
-One thing the ground-up CI and unified packages enabled was a much cleaner repository structure. Our current structure was based around the combining requirements, but with those out of the picture, we were able to settle on a much nicer layout, and thus, a brand new master server to house them for an easy transition.
+One thing the ground-up CI and unified packages enabled was a much cleaner repository structure. Our previous structure was based around the combining requirements, full of strange quirks and nested directories to try to make that simpler. With those out of the picture, we were able to settle on a much nicer layout, and thus, a brand new master server to house them for an easier transition.
 
 Part of this also includes a revamped browser page to easily facilitate getting to the files you need, descending through the tree of the new layout in a much more user-friendly way. The new browser is now live at https://repo.jellyfin.org for perusal, and it still includes the stable release packages in the new layout for your convenience until 10.9.0 is released.
+
+This new repository master is live as of posting, so as mentioned in the preamble please test it out and let us know if you run into any trouble with it, any broken links, or similar issues.
 
 ## Cleaning up Ubuntu and Fedora/CentOS
 
