@@ -55,7 +55,7 @@ Allocate ports to the container. Jellyfin uses port 8096 for the web interface a
 #### Volume Settings
 
 This setting maps directories on the host to within the container. Use this setting to allow Jellyfin access to media and a place to store application data.
-To add a volume, click "Add Folder" and select the folder you want to use. In the middle column, you need to set the mount path. For the media files, you can use "/media" and for the configuration files, you can use "/config".
+To add a volume, click "Add Folder" and select the folder desired. The mount point is set in the middle column and the directory will be accessible at this path within the container. For media files, `/media` can be used, and for config files, `/config` can be used.
 
 #### Network Settings
 Set how the container connects to the network. DLNA requires `Host` mode to function.
