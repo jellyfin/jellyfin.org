@@ -5,14 +5,14 @@ sidebar_position: 2
 
 # Authorization
 
-To start using the Jellyfin API, authorization is probably the first thing you'll need to do. Jellyfin's authorization options can be a confusing because there are a lot of deprecated options.
+To start using the Jellyfin API, authorization is probably the first thing you'll need to do. Jellyfin's authorization options can be a bit confusing because there are a lot of deprecated options.
 
 Generally there are three ways to authenticate: no authorization, user authorization with an access token or authorization with an API key. The first way is easy, just do nothing. But most often you'll need to use either the access token or API key.
 
 ## Sending authorization values
 
 There are multiple methods for transmitting authorization values, however, some are outdated and scheduled to be removed.
-It's recommend to use the `Authorization` header. If header auth isn't an option, the token should be sent trough the `ApiKey` query parameter.
+It's recommend to use the `Authorization` header. If header auth isn't an option, the token should be sent through the `ApiKey` query parameter.
 
 | Type   | Name                   | Method     | Deprecated |
 | ------ | ---------------------- | ---------- | ---------- |
@@ -23,11 +23,11 @@ It's recommend to use the `Authorization` header. If header auth isn't an option
 | Header | `X-MediaBrowser-Token` | Token only | **yes**    |
 | Header | `X-Emby-Authorization` | Schema     | **yes**    |
 
-Avoid sending multiple tokens in one request as it's uncertain which value will be used. Deprecated options may be removed in future server updates.
+Avoid sending multiple tokens in one request as it's uncertain which value will be used. Deprecated options might be removed in future server updates.
 
 ## The Jellyfin authorization scheme
 
-The [Authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) uses the format `Authorization: <scheme> <parameters>`. The Jellyfin scheme is named `MediaBrowser` and uses named values separated by commas. There is no specific order for parameters. A key can is case sensitive and only allows alphanumeric characters, unknown keys are ignored by the server. Values must be wrapped in double quotes (`"`) and should use [url encoding](https://en.wikipedia.org/wiki/URL_encoding).
+The [Authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) uses the format `Authorization: <scheme> <parameters>`. The Jellyfin scheme is named `MediaBrowser` and it uses named values separated by commas. There is no specific order for parameters. All keys are case sensitive and only allow alphanumeric characters. Unknown keys are ignored by the server. Values must be wrapped in double quotes (`"`) and should use [url encoding](https://en.wikipedia.org/wiki/URL_encoding).
 
 ```txt
 MediaBrowser key="value", key2="value2", key3="value3"
@@ -45,7 +45,15 @@ MediaBrowser key="value", key2="value2", key3="value3"
 
 The token parameter is required to use authenticated endpoints. The client and version properties are used to identify the client in the dashboard.
 
+#### Device identifiers
+
+When it comes to device identifiers in the Jellyfin API, it's important to understand the nuances involved. While generating a random string for the `deviceId` might seem like a straightforward solution, there are certain limitations to consider. Currently, the server permits only a single access token for each `deviceId`. This means that you cannot have multiple users signed into your client with a single randomized string. To work around this limitation, you'll need to use a unique identifier for each combination of a device-specific identifier and user-specific identifier.
+
+Since it's often not possible to know the user identifier before signing in at least once, we recommend including the username as user-specific identifier. It is advisable to hash the username because it is user-input that could include double quotes (escaping the header value format) or special characters that your HTTP library might not allow.
+
 ### Examples
+
+Here are a couple of examples for the authorization header:
 
 - Authenticate with API key
 
@@ -61,4 +69,4 @@ The token parameter is required to use authenticated endpoints. The client and v
 
 ## The ApiKey query parameter
 
-Use the `ApiKey` query parameter when the `Authorization` header can't be used. The value of the query parameter is the access token or API key. Avoid using this option if possible. Never use the `ApiKey` query parameter and `Authorization` header at the same time.
+Use the `ApiKey` query parameter when the `Authorization` header can't be used. The value of the query parameter is the access token or API key. Avoid using this option if possible. Never use the `ApiKey` query parameter and the `Authorization` header at the same time.
