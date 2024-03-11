@@ -8,7 +8,7 @@ slug: ios-update-150
 
 With [Jellyfin Mobile](https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8), our main iOS App, we have updated some frameworks that adjust our minimum iOS version.
 
-<!--truncate-->
+<!-- truncate -->
 
 Our main iOS app has been built using [Expo](http://expo.dev). It offers a unique take on a "managed" React Native experience that allows anyone to develop an app for iOS, even without using a Mac. It allowed us to get an app out quickly, and use the web interface that is a part of every Jellyfin install.
 

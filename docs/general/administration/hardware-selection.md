@@ -13,11 +13,29 @@ For a Jellyfin server, the following is recommended:
 
 ### Normal Server
 
-- CPU (With dGPU): Intel Core i5-2300, AMD Ryzen 3 1200 or better. (Geekbench 6 Multicore 1500 or better)
-- CPU (Without dGPU): Intel Pentium G4560, Intel Core i3-7100 or better. (Intel 7th gen or newer Pentium or better)
+- CPU (With dGPU): Intel Core i5-2300, AMD Ryzen 3 1200 or better. (Geekbench 6 Multicore 1500 or better). *CPU vendor will not have a meaningful impact on quality and/or speed of transcoding.*
+- CPU (Without dGPU): Intel Pentium G4560, Intel Core i3-7100 or better. (Intel 7th gen or newer Pentium or better, excluding J and N series)
 - RAM: 8GB or more
 - Storage: 60GB SSD storage for Jellyfin files and transcoding cache.
-- Graphics: Intel HD 6xx (7th gen integrated graphics) or newer, Nvidia GTX 16 / RTX 20 series or newer (excluding GTX 1650). Intel recommended over Nvidia, AMD and Apple Silicon not recommended.
+- Graphics: Intel HD 6xx (7th gen integrated graphics) or newer, Nvidia GTX 16 / RTX 20 series or newer (excluding GTX 1650). Intel is recommended over Nvidia. AMD and Apple Silicon are not recommended.
+
+:::note Intel "Atom" CPUs
+
+Atom CPUs in this guide refer to any Intel Atom CPUs, as well as other low powered Intel CPUs such as J/M/N/Y series from other product lines. (eg. Pentium N5105, Pentium N6000, Core i3 N305). While these CPUs are branded as products from other product lines, they use the same microarchitecture as Intel's low powered chipsets and may be significantly less powerful and have less features than their names might otherwise suggest.
+
+:::
+
+:::note These are Recommended Specs
+
+These specs are the **recommended** specs to run Jellyfin. They are not minimum requirements, and it is certainly possible to run Jellyfin on lower end hardware.
+
+:::
+
+:::caution Pre-built NAS Devices
+
+Many pre-built NAS devices are underpowered. Please check your specs against the above recommendations for a good experience.
+
+:::
 
 :::tip Upgrading an Existing System
 
@@ -34,6 +52,12 @@ It is recommended that Intel-based macs be used with Windows or Linux installed 
 ### Low Power Applications
 
 For low power applications, Intel 12th gen or newer Atom CPUs with integrated graphics are recommended. It is also recommended that [Low Power Encoding](/docs/general/administration/hardware-acceleration/intel/#low-power-encoding) be setup.
+
+:::caution SBCs (Single Board Computers)
+
+Most SBCs use low powered chipsets, often with less than ideal driver support from the chipset vendors. They are generally too slow for a good experience and/or have broken hardware acceleration support. Please avoid using SBCs such as Raspberry Pis (Including newer Raspberry Pi 5 Models) to run Jellyfin.
+
+:::
 
 ## Detailed Guide
 
@@ -151,19 +175,17 @@ Please check the product page of your CPU for more info.
 
 Supported codecs are listed below:
 
-| Codec       | M1 | M1 Pro | M2 | M2 Pro |
-|-------------|----|--------|----|--------|
-| H.264 8bit  | ✅  | ✅      | ✅  | ✅      |
-| H.264 10bit | 🔶  | 🔶      | 🔶  | 🔶      |
-| H.265 8bit  | ✅  | ✅      | ✅  | ✅      |
-| H.265 10bit | ✅  | ✅      | ✅  | ✅      |
-| VP9 8bit    | 🔶  | 🔶      | 🔶  | 🔶      |
-| VP9 10bit   | 🔶  | 🔶      | 🔶  | 🔶      |
-| AV1         | ❌  | ❌      | ❌  | ❌      |
+| Codec       | M1, M2 Family | M3 Family |
+| ----------- | ------------- | --------- |
+| H.264 8bit  | ✅            | ✅        |
+| H.264 10bit | 🔶            | 🔶        |
+| H.265 8bit  | ✅            | ✅        |
+| H.265 10bit | ✅            | ✅        |
+| VP9 8bit    | 🔶            | 🔶        |
+| VP9 10bit   | 🔶            | 🔶        |
+| AV1         | ❌            | 🔶        |
 
-Refer to the Pro column for Max and Ultra SOCs.
-
-✅ = Supported, 🔶 = Decode Only, ❌ = Not Supported.
+✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
 
 :::caution
 

@@ -8,7 +8,7 @@ slug: android-v2.1.0
 
 Jellyfin for Android version 2.1 is here with support for Android Auto.
 
-<!--truncate-->
+<!-- truncate -->
 
 A new version of the Android app: version 2.1 has just been released! This update contains some quality of life improvements, some bugfixes and new features.
 It's been only a few weeks since 2.0 but we couldn't wait to bring these new exiting changes to you. Let's start with the most awesome feature.

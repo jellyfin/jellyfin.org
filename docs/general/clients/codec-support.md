@@ -150,6 +150,10 @@ Content recorded OTA will typically have subtitles [embedded](https://aberdeen.i
 ffmpeg -f lavfi -i "movie=Ronin (1998).ts[out+subcc]" -map 0:1  "Ronin (1998).srt"
 ```
 
+### Fonts
+
+Text-based subtitle formats require fonts to render properly. Please refer to [Fonts](/docs/general/administration/configuration#fonts) for how to install them.
+
 ## [Container Compatibility](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers)
 
 If the container is unsupported, this will result in remuxing. The video and audio codec will remain intact but wrapped in a supported container. This is the least intensive process. Most video containers will be remuxed to use the HLS streaming protocol and TS containers. Remuxing shouldn't be a concern even for an RPi3.

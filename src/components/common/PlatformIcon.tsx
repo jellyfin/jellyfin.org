@@ -1,24 +1,24 @@
 import {
-  Amazonfiretv,
-  Android,
-  Apple,
-  Appletv,
-  Archlinux,
-  Centos,
-  Debian,
-  Discord,
-  Docker,
-  Dotnet,
-  Fedora,
-  Gentoo,
-  Ios,
-  Kodi,
-  Lg,
-  Linux,
-  Roku,
-  Sailfishos,
-  Ubuntu,
-  Windows
+  SiAmazonfiretv,
+  SiAndroid,
+  SiApple,
+  SiAppletv,
+  SiArchlinux,
+  SiCentos,
+  SiDebian,
+  SiDiscord,
+  SiDocker,
+  SiDotnet,
+  SiFedora,
+  SiGentoo,
+  SiIos,
+  SiKodi,
+  SiLg,
+  SiLinux,
+  SiRoku,
+  SiSailfishos,
+  SiUbuntu,
+  SiWindows
 } from '@icons-pack/react-simple-icons';
 import Icon from '@mdi/react';
 import { mdiMonitor, mdiWeb } from '@mdi/js';
@@ -42,70 +42,70 @@ const PlatformIcon = ({
     // TODO: AndroidTV should have a unique icon
     case Platform.Android:
     case Platform.AndroidTV:
-      return <Android size={size} className={className} />;
+      return <SiAndroid size={size} className={className} />;
 
     case Platform.Arch:
-      return <Archlinux size={size} className={className} />;
+      return <SiArchlinux size={size} className={className} />;
 
     case Platform.Browser:
       return <Icon path={mdiWeb} size={`${size}px`} className={className} />;
 
     case Platform.CentOS:
-      return <Centos size={size} className={className} />;
+      return <SiCentos size={size} className={className} />;
 
     case Platform.Desktop:
       return <Icon path={mdiMonitor} size={`${size}px`} className={className} />;
 
     case Platform.Debian:
-      return <Debian size={size} className={className} />;
+      return <SiDebian size={size} className={className} />;
 
     case Platform.Discord:
-      return <Discord size={size} className={className} />;
+      return <SiDiscord size={size} className={className} />;
 
     case Platform.Docker:
-      return <Docker size={size} className={className} />;
+      return <SiDocker size={size} className={className} />;
 
     case Platform.DotNet:
-      return <Dotnet size={size} className={className} />;
+      return <SiDotnet size={size} className={className} />;
 
     case Platform.Fedora:
-      return <Fedora size={size} className={className} />;
+      return <SiFedora size={size} className={className} />;
 
     case Platform.FireOS:
-      return <Amazonfiretv size={size} className={className} />;
+      return <SiAmazonfiretv size={size} className={className} />;
 
     case Platform.Gentoo:
-      return <Gentoo size={size} className={className} />;
+      return <SiGentoo size={size} className={className} />;
 
     case Platform.IOS:
-      return <Ios size={size} className={className} />;
+      return <SiIos size={size} className={className} />;
 
     case Platform.Kodi:
-      return <Kodi size={size} className={className} />;
+      return <SiKodi size={size} className={className} />;
 
     case Platform.Linux:
-      return <Linux size={size} className={className} />;
+      return <SiLinux size={size} className={className} />;
 
     case Platform.MacOS:
-      return <Apple size={size} className={className} />;
+      return <SiApple size={size} className={className} />;
 
     case Platform.Roku:
-      return <Roku size={size} className={className} />;
+      return <SiRoku size={size} className={className} />;
 
     case Platform.SailfishOS:
-      return <Sailfishos size={size} className={className} />;
+      return <SiSailfishos size={size} className={className} />;
 
     case Platform.TVOS:
-      return <Appletv size={size} className={className} />;
+      return <SiAppletv size={size} className={className} />;
 
     case Platform.Ubuntu:
-      return <Ubuntu size={size} className={className} />;
+      return <SiUbuntu size={size} className={className} />;
 
     case Platform.WebOS:
-      return <Lg size={size} className={className} />;
+      return <SiLg size={size} className={className} />;
 
     case Platform.Windows:
-      return <Windows size={size} className={className} />;
+      return <SiWindows size={size} className={className} />;
 
     default:
       return null;

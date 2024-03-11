@@ -18,7 +18,7 @@ hotio image: `hotio/jellyfin` <a href="https://hub.docker.com/r/hotio/jellyfin">
 Jellyfin distributes [official container images on Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin/) for multiple architectures.
 These images are based on Debian and [built directly from the Jellyfin source code](https://github.com/jellyfin/jellyfin/blob/master/Dockerfile).
 
-Additionally the [LinuxServer.io](https://www.linuxserver.io/) project and [hotio](https://github.com/hotio) distribute images based on Ubuntu and the official Jellyfin Ubuntu binary packages, see [here](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile) and [here](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile) to see their Dockerfile.
+Additionally, there are several third parties providing unofficial container images, including the [LinuxServer.io](https://www.linuxserver.io/) ([Dockerfile](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile)) project and [hotio](https://github.com/hotio) ([Dockerfile](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile)), which offer images based on Ubuntu and the official Jellyfin Ubuntu binary packages.
 
 ## Docker
 
@@ -106,7 +106,7 @@ services:
       - JELLYFIN_PublishedServerUrl=http://example.com
     # Optional - may be necessary for docker healthcheck to pass if running in host network mode
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - 'host.docker.internal:host-gateway'
 ```
 
 Then while in the same folder as the `docker-compose.yml` run:
@@ -118,18 +118,6 @@ docker compose up
 To run the container in background add `-d` to the above command.
 
 You can learn more about using Docker by [reading the official Docker documentation](https://docs.docker.com/).
-
-## Unraid Docker
-
-An Unraid Docker template is available in the repository.
-
-1. Open the unRaid GUI (at least unRaid 6.10.0) and click on the `Apps` tab.
-
-2. Enable apps and search for "jellyfin". Install the app that is tagged as official.
-
-3. Edit library paths to add your host paths and apply the changes. (You can then go to the UI via the "Actions" button on the installed app.)
-
-4. Go to the "Docker" tab and enable autostart for jellyfin.
 
 ## Podman
 
@@ -209,9 +197,9 @@ As always it is recommended to run the container rootless. Therefore we want to 
    ```sh
    [Container]
    Image=docker.io/jellyfin/jellyfin:latest
-   Label=io.containers.autoupdate=registry
+   AutoUpdate=registry
    PublishPort=8096:8096/tcp
-   RemapUsers=keep-id
+   UserNS=keep-id
    Volume=jellyfin-config:/config:Z
    Volume=jellyfin-cache:/cache:Z
    Volume=jellyfin-media:/media:Z
@@ -241,11 +229,72 @@ As always it is recommended to run the container rootless. Therefore we want to 
 
 6. `exit` the current session.
 
+### With hardware acceleration
+
+To use hardware acceleration, you need to allow the container to access the render device. If you are using container-selinux-2.226 or later, you have to set the `container_use_dri_devices` flag in selinux or the container will not be able to use it:
+
+`sudo setsebool -P container_use_dri_devices 1`
+
+On older versions of container-selinux, you have to disable the selinux confinement for the container by adding `--security-opt label=disable` to the podman command.
+
+Then, you need to mount the render device inside the container:
+
+`--device /dev/dri/:/dev/dri/`
+
+Finally, you need to set the `--device` flag for the container to use the render device:
+
+`--device /dev/dri/`
+
+#### podman run
+
+```sh
+   podman run \
+    --detach \
+    --label "io.containers.autoupdate=registry" \
+    --name myjellyfin \
+    --publish 8096:8096/tcp \
+    --device /dev/dri/:/dev/dri/ \
+    # --security-opt label=disable # Only needed for older versions of container-selinux < 2.226
+    --rm \
+    --user $(id -u):$(id -g) \
+    --userns keep-id \
+    --volume jellyfin-cache:/cache:Z \
+    --volume jellyfin-config:/config:Z \
+    --mount type=bind,source=/path/to/media,destination=/media,ro=true,relabel=private \
+    docker.io/jellyfin/jellyfin:latest
+```
+
+#### systemd
+
+```sh
+[Unit]
+Description=jellyfin
+
+[Container]
+Image=docker.io/jellyfin/jellyfin:latest
+AutoUpdate=registry
+PublishPort=8096:8096/tcp
+UserNS=keep-id
+#SecurityLabelDisable=true # Only needed for older versions of container-selinux < 2.226
+AddDevice=/dev/dri/:/dev/dri/
+Volume=jellyfin-config:/config:Z
+Volume=jellyfin-cache:/cache:Z
+Volume=jellyfin-media:/media:Z
+
+[Service]
+# Inform systemd of additional exit status
+SuccessExitStatus=0 143
+
+[Install]
+# Start by default on boot
+WantedBy=default.target
+```
+
 ## TrueNAS SCALE / TrueCharts
 
-Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside the [TrueCharts](https://www.truecharts.org/) App Catalog with direct integration into the GUI, no CLI needed. Direct support is available on the [TrueCharts Discord](https://discord.com/Js6xv9nGuU) and the source code is available on [GitHub](https://github.com/truecharts/charts).
+Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside the [TrueCharts](https://www.truecharts.org/) App Catalog with direct integration into the GUI, no CLI needed. Direct support is available on the [TrueCharts Discord](https://discord.gg/tVsPTHWTtr) and the source code is available on [GitHub](https://github.com/truecharts/charts).
 
-1. Install the TrueCharts Catalog to TrueNAS SCALE, see [website](https://truecharts.org/manual/guides/Adding-TrueCharts) for more info.
+1. Install the TrueCharts Catalog to TrueNAS SCALE, see [website](https://truecharts.org/manual/SCALE/guides/getting-started/#adding-truecharts) for more info.
 
    1. Go to Apps page from the top level SCALE menu
    2. Select Manage Catalogs tab on the Apps page
@@ -263,6 +312,6 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside 
 
    - Server URL to publish in UDP Auto Discovery response.
    - Networking, Ingress (Reverse Proxy), Security Options
-   - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/guides/add-storage). For Jellyfin the recommendation is to  add storage as `Additional App Storage`
+   - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/SCALE/guides/add-storage/). For Jellyfin the recommendation is to add storage as `Additional App Storage`
 
 4. Click Save and once it's up and running you'll be able to click Open to access `Jellyfin`.

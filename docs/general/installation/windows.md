@@ -31,7 +31,7 @@ Using the Advanced/Service mode may experience FFmpeg hardware acceleration issu
 2. Run the installer.
 3. (Optional) When installing as a service (not recommended), pick the service account type.
 4. If everything was completed successfully, Jellyfin is now running.
-5. Open your browser at <http://your_local_IP_address:8096> to finish setting up Jellyfin.
+5. Open your browser at [http://your_local_IP_address:8096](http://your_local_IP_address:8096) to finish setting up Jellyfin.
 
 **Update**
 

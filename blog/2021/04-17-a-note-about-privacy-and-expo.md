@@ -8,7 +8,7 @@ slug: a-note-about-privacy-and-expo
 
 When it comes to Jellyfin, we guarantee that there is no involuntary tracking, from the server to the mobile apps. This still remains true, even with today's update to the Apple App Store.
 
-<!--truncate-->
+<!-- truncate -->
 
 In developing the Jellyfin Mobile app for iOS, we use a Javascript framework known as [Expo](https://expo.io). This framework is an integrated way of using [React Native](https://reactnative.dev) to create mobile apps. For a variety of technical reasons, this has been the best way for us to deliver an iOS app, even with its current restrictions.
 

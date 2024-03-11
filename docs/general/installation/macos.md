@@ -11,6 +11,11 @@ sidebar_position: 5
 
 macOS Application packages and builds in TAR archive format are available [here](/downloads/macos).
 
+:::note
+Jellyfin requires macOS 10.15 or newer to run.
+
+:::
+
 **Install**
 
 1. Download the latest version.
@@ -39,11 +44,12 @@ This will delete all settings and user information. This applies for the .app pa
 
 **Portable Version**
 
-1. Download the latest version
-2. Extract it into the Applications folder
-3. Open Terminal and type `cd` followed with a space then drag the jellyfin folder into the terminal.
-4. Type `./jellyfin` to run jellyfin.
-5. Open your browser at <http://localhost:8096>
+1. Install the `.NET Runtime` and `ASP.NET Core Runtime` version 6.0. This can also be accomplished by installing the `.NET SDK` which includes both of these runtimes. Links to the official download page can be found [here](https://dotnet.microsoft.com/en-us/download/dotnet/6.0). Ensure you add the installation directory to your `PATH` variable.
+2. Download the latest version of Jellyfin.
+3. Extract it into the Applications folder.
+4. Open Terminal and type `cd` followed with a space then drag the jellyfin folder into the terminal.
+5. Type `dotnet jellyfin.dll` to run jellyfin.
+6. Open your browser at [http://localhost:8096](http://localhost:8096).
 
 Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmux can prevent this from happening.
 
@@ -54,7 +60,7 @@ Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmu
 1. Extract the latest version into Applications
 1. Open Terminal and type `cd` followed with a space then drag the jellyfin folder into the terminal.
 1. Type `./jellyfin` to run jellyfin.
-1. Open your browser at <http://localhost:8096>
+1. Open your browser at [http://localhost:8096](http://localhost:8096)
 
 **Uninstalling the Portable Version**
 

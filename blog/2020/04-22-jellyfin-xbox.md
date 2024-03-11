@@ -8,7 +8,7 @@ slug: jellyfin-xbox
 
 Due to long standing issues with this current release of the Xbox client beta, and incompatibility with the latest release of Jellyfin, we've made the decision to remove it from the store. We hope to return soon, with an updated client. In the meanwhile, please try using the Edge browser, or Kodi with our plug-ins to watch Jellyfin.
 
-<!--truncate-->
+<!-- truncate -->
 
 ~~Jellyfin is proud to announce our brand new [Xbox One client beta](https://www.microsoft.com/store/apps/9P2DRTG62QF8).~~
 

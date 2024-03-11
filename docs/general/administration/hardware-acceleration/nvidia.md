@@ -17,7 +17,13 @@ The NVENC/NVDEC are the proprietary video codec APIs of NVIDIA GPUs, which can b
 
 :::caution
 
-Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) cards officially support **no more than 3 simultaneously encoding video streams**, regardless of the count of the cards installed. On NVIDIA 530+ drivers the limit is relaxed to 5 simultaneously encoding video streams on Geforce cards. This restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
+Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) cards have an artificial limit on the number of concurrent NVENC encoding sessions. This restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
+
+| NVIDIA driver  | NVENC concurrent sessions |
+| -------------- | ------------------------- |
+| 550 and newer  | Up to 8 encoding sessions |
+| 530 to 546     | Up to 5 encoding sessions |
+| pre-530        | Up to 3 encoding sessions |
 
 :::
 
@@ -77,7 +83,7 @@ Note that in Maxwell 2nd Gen series only the GM206 variants provide HEVC 10-bit 
 
 ### Transcode AV1
 
-AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding support in Jellyfin is planned in the future.
+AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space and network bandwidth due to smaller file size. The downside is that decoding and encoding is very demanding on the CPU. Hardware acceleration makes it possible to transcode AV1 streams on the fly. AV1 encoding is supported in Jellyfin 10.9 and newer.
 
 NVIDIA added support for AV1 acceleration in their latest GPUs:
 
@@ -181,13 +187,13 @@ Root permission is required.
 
 3. Install the NVIDIA proprietary driver by following these links. Then install two extra packages for NVENC and NVDEC support:
 
-   - On Debian: <https://wiki.debian.org/NvidiaGraphicsDrivers>
+   - On Debian: [https://wiki.debian.org/NvidiaGraphicsDrivers](https://wiki.debian.org/NvidiaGraphicsDrivers)
 
      ```shell
      sudo apt update && sudo apt install -y libnvcuvid1 libnvidia-encode1
      ```
 
-   - On Ubuntu: <https://help.ubuntu.com/community/NvidiaDriversInstallation>
+   - On Ubuntu: [https://ubuntu.com/server/docs/nvidia-drivers-installation](https://ubuntu.com/server/docs/nvidia-drivers-installation)
 
      :::note
 
@@ -228,26 +234,21 @@ You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/genera
 
 #### Arch Linux
 
-AUR `jellyfin-ffmpeg`, `jellyfin-ffmpeg5*` packages and future FFmpeg versions are maintained by Jellyfin team.
-
 :::note
 
 Root permission is required.
 
 :::
 
-1. Make and install the AUR [`jellyfin-ffmpeg5-bin`](https://aur.archlinux.org/packages/jellyfin-ffmpeg5-bin) package, then change the FFmpeg path in Jellyfin dashboard to `/usr/lib/jellyfin-ffmpeg/ffmpeg`:
+1. Install the Archlinux/extra [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package:
 
    ```shell
-   cd ~/
-   git clone https://aur.archlinux.org/jellyfin-ffmpeg5-bin.git
-   cd jellyfin-ffmpeg5-bin
-   makepkg -si
+   sudo pacman -Syu jellyfin-ffmpeg
    ```
 
 2. Install the NVIDIA proprietary driver by following the link. Then install an extra package for NVENC and NVDEC support:
 
-   - <https://wiki.archlinux.org/title/NVIDIA#Installation>
+   - [https://wiki.archlinux.org/title/NVIDIA#Installation](https://wiki.archlinux.org/title/NVIDIA#Installation)
 
    ```shell
    sudo pacman -Syu nvidia-utils
@@ -320,7 +321,7 @@ Root permission is required.
 
 2. Install the NVIDIA Container Toolkit on the host system by following this link:
 
-   - <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide>
+   - [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide)
 
 3. Use the Docker command line **or** docker-compose:
 

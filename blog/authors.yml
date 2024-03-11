@@ -1,49 +1,59 @@
 1hitsong:
   name: 1hitsong
+  title: Roku Team
   url: https://github.com/1hitsong
   image_url: https://avatars.githubusercontent.com/u/3330318?v=4
 
 anthonylavado:
   name: Anthony Lavado
+  title: Core Team
   url: https://github.com/anthonylavado
   image_url: https://avatars.githubusercontent.com/u/596194?v=4
 
 dkanada:
   name: dkanada
+  title: Core Team
   url: https://github.com/dkanada
   image_url: https://avatars.githubusercontent.com/u/21353219?v=4
 
 ferferga:
   name: Fernando Fernández
+  title: Vue Lead
   url: https://github.com/ferferga
   image_url: https://avatars.githubusercontent.com/u/10274099?v=4
 
 iwalton3:
-  name: Ian Walton
+  name: Izzie Walton
+  title: Desktop Applications Lead
   url: https://github.com/iwalton3
   image_url: https://avatars.githubusercontent.com/u/8078788?v=4
 
 joshuaboniface:
   name: Joshua Boniface
+  title: Project Leader
   url: https://github.com/joshuaboniface
   image_url: https://avatars.githubusercontent.com/u/4031396?v=4
 
 mcarlton00:
   name: Matt Carlton
+  title: Kodi Lead
   url: https://github.com/mcarlton00
   image_url: https://avatars.githubusercontent.com/u/17029228?v=4
 
 Maxr1998:
   name: Max Rumpf
+  title: Android Mobile Lead
   url: https://github.com/Maxr1998
   image_url: https://avatars.githubusercontent.com/u/5903699?v=4
 
 nielsvanvelzen:
   name: Niels van Velzen
+  title: Android Lead
   url: https://github.com/nielsvanvelzen
   image_url: https://avatars.githubusercontent.com/u/2305178?v=4
 
 Shadowghost:
-  name: Shadowghost
+  name: Tim Eisele
+  title: Server Team
   url: https://github.com/Shadowghost
   image_url: https://avatars.githubusercontent.com/u/3741446?v=4

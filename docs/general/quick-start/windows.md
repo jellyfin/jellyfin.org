@@ -265,4 +265,4 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
 ## External References
 
-* [Official Caddyy Documentation](https://caddyserver.com/docs/)
+* [Official Caddy Documentation](https://caddyserver.com/docs/)

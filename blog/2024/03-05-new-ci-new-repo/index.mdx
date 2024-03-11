@@ -1,0 +1,126 @@
+---
+title: New CI, New Repo, A Renewed Push for 10.9.0
+description: There's some things about our repo we need to share as we prepare for 10.9.0
+authors: joshuaboniface
+date: 2024-03-05
+slug: new-ci-new-repo
+tags: [release, infrastructure]
+---
+
+Over the last several weeks, I've been driving a major push to revamp and improve our CI, in an effort to improve our release workflow, our velocity of releases, and the burden they have on me as the release manager. This post will detail the changes we've made, how they might affect you as a user or contributor, and how we're planning to proceed with our 10.9.0 release cycle.
+
+## The TL;DR
+
+1. We have [a new repository browser UI](https://repo.jellyfin.org) along with a new file layout, on a new master repository machine, built by new CI, that will hopefully make it nicer to look around and get right to what you need. This has now been cut over into production, but is still a bit of a work in progress, so please report any bugs you find to us! Note that quite a number of paths will have changed (anything under `/server` especially), but some will remain the same. If you get a 404 and can't find it through the browser UI, best to check in. **3rd party packagers downloading files manually from us are advised to contact us if needed.**
+
+1. We are dropping non-LTS Ubuntu packages, dropping our own Fedora/CentOS packages in favour of [RPMFusion builds](https://admin.rpmfusion.org/pkgdb/package/free/jellyfin/), and adding [GHCR as a container repository](https://ghcr.io/jellyfin/jellyfin) for our Docker images.
+
+1. For 10.9.0, we will not be producing explicit "beta" releases. Instead, we will test using our new Weekly Unstable builds. Once the master branch is sufficiently stable and good, we will release 10.9.0 directly from there (via our standard release branch process).
+
+1. The 10.9.0 feature freeze (bugfix PRs only after this) will tentatively begin on **Monday, March 18th**. The hope is that all of the above will be ready by then so that obtaining Unstable builds for testing will be easy.
+
+1. The 10.9.0 release itself is tentatively planned for the **last weekend in April**. To all **3rd parties who build packages of our releases, please read until the end for an important note about this release**.
+
+Read on for more details.
+
+\- Joshua
+
+{/* truncate */}
+
+## Why build a new CI?
+
+Our old CI was assembled way back in 2019 by a few dedicated team members (mostly @EraYan) using Azure DevOps. While it was a major improvement over my self-built pure-BASH build system that we had used for the first year or so, it still had a number of drawbacks:
+
+1. It was a little difficult to understand, and relied on an external system (Microsoft Azure).
+2. It still relied on a very complex, convoluted, and error prone [BASH script to finalize the builds](https://github.com/jellyfin/jellyfin-metapackages), because...
+3. It built the Server and Web components of Jellyfin independently, triggered independently off the different repository tag events, and then had to rely on a whole lot of shenanigans to combine the results into unified, user-friendly packages.
+
+There was also, though not a flaw with the CI system itself, the matter of Unstable builds. For a long time, they've been built on every merged PR, which was good for quickly seeing if things worked, but were effectively unusable for normal people as they changed so often. This was also something we wanted to fix.
+
+At the time, GitHub Actions did not yet exist, and while we got everything to work, the CI as a whole was clunky and prone to failure. Major releases would often take me over 20 man-hours to prepare for and execute, while point releases would take at least 4-6 hours. It was a huge burden as a release manager, and also very cumbersome to fix if things broke in obscure ways, especially after the tag, because all the CI was in the code repos.
+
+All this meant that our release velocity was extremely slow, as there was never a clear flow between master being tested and preparing for the next release.
+
+Rather than continue incremental tweaking of this setup, about 2 years ago a project was started by @ferferga and @h1dden-da3m0n (who has since moved on) to move to GitHub Actions. While they did lay a lot of groundwork, that project ultimately stalled out and was effectively abandoned. Earlier this year, I took up the mantle to finally get this done in preparation for 10.9.0, and was able to get it working well, in a much easier to understand and hopefully much more consistent way.
+
+## More Automation
+
+The next part, besides just the CI itself, is an automation bot. As mentioned, releases took a long time, but only a fraction of that was spent actually dealing with Azure. The rest was administrative work: building changelogs, ensuring repos were in sync, running `bump-version` scripts, creating release drafts, checking them 3 times and still missing something, writing a release post for our Forum, etc. All of this added up to a significant time investment that I was rarely eager to do, which in turn trashed our velocity.
+
+No project should be so dependent on one person, but we were, for a very long time. Part of the goal with this CI improvement is to streamline all these aspects as well using another piece of automation, a private chatbot.
+
+The goal here is for us to tell our chatbot that we're ready for a release, for it to prepare all the text automatically, and then after review, tell it that it's ready to ship. Not only does this ease the process for myself, but it can easily be performed by others. And with the more reliable CI, this will hopefully mean a "set and forget" release process that helps us massively increase velocity.
+
+While the bot isn't completely finished yet, the scaffolding is all there, and we definitely expect it to be ready to go in time for the actual 10.9.0 release.
+
+## Unifying packages
+
+One big drawback we mentioned of the previous CI was how it treated the server and web components of Jellyfin separately. It did this because these two components are indeed separate on the code side, in separate GitHub repositories and with different groups leading them. The problem is, that's not how Jellyfin is actually consumed by users. Users want just one package, installer, or archive to install and run out of the box. So we had to do a lot of complex shenanigans to combine the packages together.
+
+No longer. With the updated CI, all our packaging is unified together, and split off into [its own dedicated repository](https://github.com/jellyfin/jellyfin-packaging). This repository handles the two code repos via submodules and a simple Python script to synchronize what version is checked out of each before a build. Then, another Python script handles the actual building, which itself is then called from GitHub actions. It is still a little convoluted, but this is unavoidable for how complex our software ultimately is to package, and the hope is that having this in Python (a robust but easy-to-understand language) will help ensure this process isn't nearly as opaque as it previously was.
+
+What this means depends on the different packaging types. For Debian and Ubuntu, it means that there is now one Debian source package for the three resulting binary packages (metapackage, web, and server) and thus all 3 can be built at once using a single `dpkg-buildpackage` command. For archives, this means that both the server and web components are built in sequence and then combined into one archive at build time, rather than haphazardly later, a process that failed more times than we could count. For installers, this means that the process is now simpler and can be automated. And lastly, for Docker, it means that we now provide just a single image, `jellyfin/jellyfin`, that was built all at once and does not rely on two intermediate images, another very error-prone process.
+
+Related to this, and as part of the unified builds, each version of Debian and Ubuntu now has its own distinct package, with version suffixes like `-deb12` or `-ubu2204`. This will help ensure smooth dependency handling for shared libraries like LibSSL. This should only matter if you're downloading `.deb` packages from the repo directly: ensure you download the right one for your release.
+
+As a normal end user, you shouldn't see anything different because of this: you'll still install the packages the same way as always through our repositories. But for anyone building their own versions, you are now advised to use the above repository, as all non-development packaging (e.g. the `debian/` and `fedora/` folders, the `deployment/` folder, etc.) will be removed from the main repositories, leaving just a simple Dockerfile for building testing and development images quickly.
+
+## A new repository master for a new CI system
+
+One thing the ground-up CI and unified packages enables is a much cleaner repository structure. Our previous structure was based around the combining requirements, full of strange quirks and nested directories to try to make that simpler. With those out of the picture, we were able to settle on a much nicer layout, and thus, a brand new master server to house them for an easier transition.
+
+Part of this also includes a revamped browser page to easily facilitate getting to the files you need, descending through the tree of the new layout in a much more user-friendly way.
+
+The new browser and repository master is now live as of posting at https://repo.jellyfin.org for perusal, and still includes the stable release packages in the new layout for your convenience until 10.9.0 is released. So, as mentioned in the preamble, please test it out and let us know if you run into any trouble with it, any broken links, or similar issues.
+
+## Unstable Releases
+
+As mentioned a bit above, our previous "build things on every pull request merge" was quite cumbersome to use, as things would change very rapidly, and keeping testers up-to-date was nearly impossible during fast-moving days. Way back in the early days, we had experimented with daily builds before moving to this model, but even those felt a little too quick for both our current development pace, and for users to keep adequetly up-to-date.
+
+Instead, going forward we are moving to a Weekly cycle for Unstable releases. The builds will occur on Monday mornings around midnight Eastern time (UTC-5/4-with-DST), a time chosen farily arbitrarily but ensuring each week starts with a fresh Unstable build. This process is completely automated, and the resulting builds will be available soon thereafter in all our normal places.
+
+We hope that this slower pace will help ensure that users running our Unstable builds have more of a chance to actually test the current state of Jellyfin and not be overwhelmed by the speed of releases, while also providing fast enough movement for people to truly test the latest and greatest features and bugfixes.
+
+One final note, mentioned in more detail below, is that these Unstable Weekly builds will act as our pre-release testing for 10.9.0: there will be no tagged "beta" or "rc" releases for this cycle. This is being done to avoid the major burden we found with 10.8.0 of trying to continually backport the fixes for the upcoming stable release back into master, while also forward-porting bugfixes in the other direction when they were accidentally mis-targeted.
+
+## Cleaning up what we build
+
+As mentioned in the TL;DR, we are making three major changes to what we build, both for the Unstable releases and the upcoming 10.9.0 release:
+
+1. We are dropping all non-LTS Ubuntu releases from our official APT package repository.
+
+   The reason is simple: it's a huge burden to keep up with Ubuntu's 6 month release schedule, just to support what are in practice minor versions with a 9 month lifespan. While we understand people might want to run Jellyfin on desktops or ensure their servers have "the latest" stuff, this just isn't tenable for us long term. So, going forward, our packages will only target the LTS releases, starting with 20.04 "Focal", and including 22.04 "Jammy" and the new 24.04 "Noble" due to release in April.
+
+   If you are using a non-LTS version of Ubuntu, you still have options. First, you can always upgrade to 24.04 and use that going forward. However do note that 24.04 will be the latest release that we build for until 26.04 comes out. Alternatively, if you still want to keep your system on the 6-month update path, you can migrate to our Docker images instead, and these have the added benefit of additional long-term stability even as your base OS changes.
+
+2. We are dropping our own "official" RPM builds for Fedora and CentOS(-like) distributions in favour of RPMFusion:
+
+   These builds have always been a bit of a red-headed-stepchild for us. They were poorly maintained (despite some valiant efforts and community contributions), broke frequently, and this all came to a head when we started working on a combined spec.
+
+   Luckily, a community member (@mooninite) has already been maintaning a stable combined RPMFusion build of Jellyfin. This seemed like a perfect time to switch to that, reducing another bit of packaging burden away from us, as well as (finally) providing a "real" repository for our RPM-based users. The RPMFusion build is now the official Fedora/CentOS build listed on our [downloads page](https://jellyfin.org/downloads/server) and will be going forward. We're also taking steps to get a packaged FFmpeg build provided there too, so stay tuned.
+
+   Unstable users on Fedora/CentOS are recommended to stick with the Docker container instead, as this both bundles FFmpeg today and helps ensure speedy upgrades.
+
+3. We are finaly adding GHCR (ghcr.io) support for our Docker images. This will help ensure that, even if something were to happen to Docker Hub, there is another source for our Docker images. If you wish to, you can use this source immediately for Unstable builds, and for 10.9.0 when it is released.
+
+## The 10.9.0 release cycle
+
+As we outlined [over in this GitHub discussion](https://github.com/jellyfin/jellyfin/discussions/11051), all these changes mean there will be some big changes for how we approach the 10.9.0 release cycle. To clarify things, the exact process will be as follows:
+
+1. Starting now, and moving forward indefinitely for all future releases, the Weekly Unstable builds will act as the "beta" versions. That is to say, if you want to help us test, or just keep up with all the latest and greatest features, use the Unstable releases. The instructions found on [our Downloads page](https://jellyfin.org/downloads/server) still apply for enabling Unstable builds, as well as listing all of our supported Unstable platforms.
+
+2. As we approach the planned release date, we will begin a feature freeze. While in the feature freeze, only bugfix PRs will be accepted. We expect this to last between 3 and 5 weeks. Currently, the tentative start is **Monday, March 18th**. During the freeze, the Unstable builds should be consistent and working, with only the minor fixes being merged.
+
+3. As users, please be diligent about reporting bugs in the Unstable releases. Our Triage team has been very diligent these last few months at ensuring issues are triaged and looked at, so it is vitally important that anyone using the Unstable releases properly reports their bugs!
+
+4. As we approach stability, i.e. after the 3-5 weeks of frozen bug-fixing, we will make the decision to cut the actual final release. I am personally hoping to get this done during the weekend of April 27-28, but that may change depending on how things go during the freeze.
+
+5. The release will actually happen. We will cut a fresh release branch, tag the version, and - using the new CI above - perform the release. We do want to ensure that **any 3rd parties who might trigger off of a Tag event** on our repositories *please turn this off* for this release, as we fully expect to hit at least one or two roadblocks as we run through the process "for real". Once the dust settles, we can ensure that your releases get built, just in case we need to do anything drastic like re-tagging the release. Longer-term, we'll also come up with a better coordination process, so we'd like to ensure we work with any 3rd party maintainers to assist here - please reach out.
+
+6. At that point, master will resume normal operation, and we will begin the stable point bugfix cycle for 10.9.0. We hope that with the improvements, 10.10.0 will not be a very long ways away after that, perhaps 3-6 months, after which this process will start anew.
+
+We are very nearly there, over 2 years in the making, so we wanted to ensure we spread the word about this plan as far and wide as possible, especially to help get more people testing the new Unstable builds for bugs as we prepare for the final release!
+
+## Final thoughts
+
+That basically concludes my thoughts right now, both on the roadmap to 10.9.0 and the improvements we're making and have already made to the release process. Happy watching!

@@ -39,6 +39,12 @@ If multiple languages are defined within the filename the last one will be used 
 
 ### Naming Flags
 
+:::note
+
+Support for naming flags is coming with the next feature release for Jellyfin. Until then it is recommended you avoid adding additional flags. This is especially true for `hi` flags (see note below).
+
+:::
+
 Additional flags can be appended to the filename (separated by the `.` delimiter) to add metadata. Supported metadata and flags are:
 
 - Default: `default`

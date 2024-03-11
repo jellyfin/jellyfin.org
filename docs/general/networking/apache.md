@@ -23,7 +23,7 @@ title: Apache
 <IfModule mod_ssl.c>
 <VirtualHost *:443>
     ServerName DOMAIN_NAME
-    # This folder exists just for certbot(You may have to create it, chown and chmod it to give apache permission to read it)
+    # This folder exists just for certbot (You may have to create it, chown and chmod it to give apache permission to read it)
     DocumentRoot /var/www/html/jellyfin/public_html
 
     ProxyPreserveHost On
@@ -32,7 +32,7 @@ title: Apache
     # This line will tell apache to not to use the proxy for this folder.
     ProxyPass "/.well-known/" "!"
 
-    # Tell Jellyfin to forward that requests came from TLS connections
+    # Tell Jellyfin to forward requests that came from TLS connections
     RequestHeader set X-Forwarded-Proto "https"
     RequestHeader set X-Forwarded-Port "443"
 

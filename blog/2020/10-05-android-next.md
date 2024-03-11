@@ -8,7 +8,7 @@ slug: android-next
 
 This will be a net benefit for users and developers alike!
 
-<!--truncate-->
+<!-- truncate -->
 
 Everyone will enjoy the native video player spearheaded by [Stampede10343](https://github.com/Stampede10343) and [vitorsemeano](https://github.com/vitorsemeano) over the course of several months.
 [Maxr1998](https://github.com/Maxr1998) valiantly ported the Cordova portions to Kotlin (and a bit of Java) which means Android developers will feel right at home with the new codebase!
