@@ -13,7 +13,7 @@ Commercial VPN services such as Mullvad, PIA, NordVPN or Windscribe are a great 
 
 ## Point To Point VPNs
 
-Services like Tailscale, Zerotier and Hamachi provide an easy eay to link devices together in a Virtual network, providing LAN access between them. They are an easy way to allow access to devices without requiring much networking expertise. However, they require devices that support their apps in order to function.
+Services like Tailscale and Zerotier provide an easy eay to link devices together in a Virtual network. They are an easy way to allow access to devices without requiring much networking expertise. However, they require devices that support their apps in order to function.
 
 ### Tailscale
 
@@ -38,7 +38,7 @@ To setup remote access to Jellyfin using ZeroTier, please follow the steps below
 2. Login to [ZeroTier Central](https://my.zerotier.com/). For new accounts, there should be 4 networks already created. You can use any of them, or create a new one and enter its settings page by clicking on it.
 3. Give the network a name and description that you can remember (optional).
 4. Change `Access Control` to `Private`
-5. Scroll down and check `IPv4 Auto Assign`. Select `Easy` and pick an IP range from below. Any IP range should work.
+5. Scroll down and check `IPv4 Auto Assign`. Select `Easy` and pick an IP range from below. Any IP range that doesn't conflict with the local IP range of any client should work.
 6. Note down the `Network ID`. This will be required for adding new devices to the network.
 
 #### Adding Devices
