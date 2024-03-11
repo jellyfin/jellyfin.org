@@ -43,7 +43,7 @@ To have native Apple Silicon support, Jellyfin server 10.9.0+ and `jellyfin-ffmp
 
 While hardware acceleration via VideoToolbox might work on older series Macs, it is not officially supported.
 
-<sup>*</sup> VideoToolbox may fallback to software decoding/encoding when the task exceeds its hardware capability. The older your Mac, the more this will occur. Macs from 2017 and later are strongly recommended.
+<sup>*</sup> VideoToolbox may fallback to software decoding/encoding or stop working when the task exceeds its hardware capability. The older your Mac, the more this will occur. Macs from 2017 and later are strongly recommended.
 
 ### Transcode H.264
 
