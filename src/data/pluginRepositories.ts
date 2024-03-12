@@ -97,5 +97,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       Shokofin: 'https://github.com/ShokoAnime/Shokofin'
     }
+  },
+  {
+    id: 'gh:DarkFighterLuke/TubeArchivistMetadata',
+    name: "DarkFighterLuke's Repo",
+    url: 'https://raw.githubusercontent.com/DarkFighterLuke/TubeArchivistMetadata/master/manifest.json',
+    includes: {
+      TubeArchivistMetadata: 'https://github.com/DarkFighterLuke/TubeArchivistMetadata'
+    }
   }
 ];
