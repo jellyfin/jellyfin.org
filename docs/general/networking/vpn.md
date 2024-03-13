@@ -57,7 +57,7 @@ You can also host a VPN server yourself, either on premises or in the cloud. The
 
 ### WireGuard
 
-To quicky establish a link between 2 devices using WireGuard, [their quick start guide](https://www.wireguard.com/quickstart/) can be followed
+To quicky establish a link between 2 devices using WireGuard, [their quick start guide](https://www.wireguard.com/quickstart/) can be followed.
 
 ### PiVPN
 
