@@ -863,5 +863,28 @@ export const Clients: Array<Client> = [
         url: 'https://fintunes.app'
       }
     ]
+  },
+  {
+    id: 'ampfin',
+    name: 'AmpFin',
+    description: 'iOS 17 native Jellyfin music player',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/de/app/ampfin/id6473753735'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/rasmuslos/AmpFin'
+      }
+    ]
   }
 ];
