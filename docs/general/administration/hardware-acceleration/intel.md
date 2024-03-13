@@ -319,7 +319,7 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
    - Fixed by: [drm/i915: improve the catch-all evict to handle lock contention](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3f882f2d4f689627c1566c2c92087bc3ff734953)
 
-4. The current Debian 11 and Ubuntu 22.04 LTS may not have the required GPU firmware for Intel 12th Gen processors and ARC GPU.  Ubuntu 22.04 LTS can be switched to use Ubuntu's Hardware Enablement Stack (see #2 above) which uses a newer kernel that supports Intel 12th Gen+ and ARC GPUs.
+4. The current Debian 11 and Ubuntu 22.04 LTS may not have the required GPU firmware for Intel 12th Gen processors and ARC GPU. Ubuntu 22.04 LTS can be switched to use Ubuntu's Hardware Enablement Stack (see #2 above) which uses a newer kernel that supports Intel 12th Gen+ and ARC GPUs.
 
 5. The kernel support for Intel Gen 12 TGL graphics is incomplete before Linux 5.9.
 
@@ -345,7 +345,7 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.  If you choose to use vanilla ffmpeg, instead of jellyfin-ffmpeg, you will need to install the following intel packages.
+1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`. If you choose to use vanilla ffmpeg, instead of jellyfin-ffmpeg, you will need to install the following intel packages.
 
    ```shell
    sudo apt update && sudo apt install -y intel-media-va-driver-non-free libdrm-intel1
