@@ -11,7 +11,7 @@ title: VPNs
 
 Commercial VPN services such as PIA, NordVPN or Windscribe are a great way to hide your IP and bypass georestrictions. While some of them do provide a port forwarding feature, hosting Jellyfin using one is not recommended.
 
-## Point To Point VPNs
+## VPN Software
 
 Services like Tailscale and Zerotier provide an easy eay to link devices together in a Virtual network. They are an easy way to allow access to devices without requiring much networking expertise. However, they require devices that support their apps in order to function.
 
@@ -28,7 +28,7 @@ To setup remote access to Jellyfin using Tailscale, please follow the steps belo
 
 ### ZeroTier
 
-[ZeroTier](https://www.zerotier.com/) is another VPN solution. The free tier allows up to 25 connected devices. ZeroTier supports much more platforms than Tailscale.
+[ZeroTier](https://www.zerotier.com/) is another VPN solution. The free tier allows up to 25 connected devices. ZeroTier supports much more platforms than Tailscale, but can be more complicated to setup. Zerotier also has the option for users to self-host the coordination server.
 
 To setup remote access to Jellyfin using ZeroTier, please follow the steps below.
 
@@ -50,3 +50,15 @@ The server and all clients should be added to this network.
 3. Use the `Network ID` to join new devices.
 4. Scroll down to the `Members` section in the dashboard. The devices that have joined should appear in this section. Devices that have a dashed red line aren't authorized to connect yet. Check the `Auth?` box to authorize the device.
 5. After they are authorized, they will be assigned an IP address automatically. Please connect all clients to the IP address of the Jellyfin Server.
+
+## Self Hosted Options
+
+You can also host a VPN server yourself, either on premises or in the cloud. These are intended for advanced users only.
+
+### WireGuard
+
+To quicky establish a link between 2 devices using WireGuard, [their quick start guide](https://www.wireguard.com/quickstart/) can be followed
+
+### PiVPN
+
+[PiVPN](https://www.pivpn.io/) can be used to quickly setup a VPN server on any device running Debian / Ubuntu.
