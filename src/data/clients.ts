@@ -876,7 +876,7 @@ export const Clients: Array<Client> = [
       {
         id: 'app-store',
         name: 'App Store',
-        url: 'https://apps.apple.com/de/app/ampfin/id6473753735'
+        url: 'https://apps.apple.com/app/ampfin/id6473753735'
       }
     ],
     secondaryLinks: [
