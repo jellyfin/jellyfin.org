@@ -28,9 +28,10 @@
     "@docusaurus/plugin-content-pages": "3.1.1",
     "@docusaurus/plugin-sitemap": "3.1.1",
     "@docusaurus/theme-classic": "3.1.1",
+    "@docusaurus/theme-mermaid": "3.1.1",
     "@easyops-cn/docusaurus-search-local": "0.40.1",
     "@fontsource/noto-sans": "5.0.19",
-    "@icons-pack/react-simple-icons": "9.3.0",
+    "@icons-pack/react-simple-icons": "9.4.0",
     "@img-comparison-slider/react": "8.0.1",
     "@mdi/js": "7.4.47",
     "@mdi/react": "1.6.1",
@@ -60,7 +61,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.1.1",
     "@docusaurus/tsconfig": "3.1.1",
-    "@types/react": "18.2.63",
+    "@types/react": "18.2.64",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "7.1.1",
@@ -77,7 +78,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "node-fetch": "3.3.2",
     "prettier": "3.2.5",
-    "typescript": "5.3.3",
+    "typescript": "5.4.2",
     "typescript-plugin-css-modules": "5.1.0"
   }
 }
