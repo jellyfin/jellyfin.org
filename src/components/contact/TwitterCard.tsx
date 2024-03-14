@@ -2,24 +2,19 @@ import { SiTwitter } from '@icons-pack/react-simple-icons';
 import React from 'react';
 
 import './ContactCard.scss';
+import ContactCard, { ContactType } from './ContactCard';
 
-const TwitterCard = () => (
-  <div className='card card--contact'>
-    <div className='card__header' style={{ display: 'flex' }}>
-      <h3 className='margin-bottom--none' style={{ flexGrow: 1 }}>
-        Twitter
-      </h3>
-      <SiTwitter />
-    </div>
-    <div className='card__body'>
-      Follow us on Twitter for release announcements and other updates, along with general musings.
-    </div>
-    <div className='card__footer'>
-      <a href='https://www.twitter.com/jellyfin' className='button button--block button--twitter'>
-        @jellyfin
-      </a>
-    </div>
-  </div>
-);
-
-export default TwitterCard;
+export default function TwitterCard() {
+  return (
+    <ContactCard
+      contactDetails={{
+        title: 'Twitter',
+        icon: <SiTwitter />,
+        buttonLink: 'https://www.twitter.com/jellyfin',
+        buttonText: '@jellyfin',
+        contactType: ContactType.Twitter,
+        body: <>Follow us on Twitter for release announcements and other updates, along with general musings.</>
+      }}
+    />
+  );
+}
