@@ -4,10 +4,11 @@ import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import React from 'react';
 
-import ContributorGuide from '../components/contribute/ContributorGuide';
 import Hero from '../components/common/Hero';
 
 import styles from './contribute.module.scss';
+import Node from '../components/node/Node';
+import { contributeData } from '../data/contributeData';
 
 export default function Contribute() {
   return (
@@ -34,7 +35,7 @@ export default function Contribute() {
         </section>
 
         <section className='container margin-bottom--lg'>
-          <ContributorGuide />
+          <Node data={contributeData}/>
         </section>
 
         <hr />
