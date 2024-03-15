@@ -187,7 +187,7 @@ Run each command on a separate line. The container we'll test in is named `jftes
 
 ```sh
 docker exec -ti jftest bash
-apt-get update && apt-get install -y git gnupg curl autoconf g++ make libpng-dev gifsicle automake libtool make gcc musl-dev nasm ca-certificates
+apt-get update && apt-get install -y git gnupg curl autoconf g++ make libpng-dev gifsicle automake libtool gcc musl-dev nasm ca-certificates
 curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
 curl -LO https://packages.microsoft.com/config/debian/12/prod.list && mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
 apt-get update && apt-get install -y dotnet-sdk-8.0
@@ -197,6 +197,7 @@ apt-get update && apt-get install -y nodejs
 cd /opt && git clone https://github.com/jellyfin/jellyfin.git && git clone https://github.com/jellyfin/jellyfin-web.git
 cd jellyfin/ && DOTNET_CLI_TELEMETRY_OPTOUT=1 && DOTNET_CLI_HOME="/tmp/" dotnet publish Jellyfin.Server --configuration Debug --output="/jellyfin" --self-contained --runtime linux-x64
 cd /opt/jellyfin-web && npm install && npm run build:development && cp -r /opt/jellyfin-web/dist /jellyfin/jellyfin-web
+apt-get remove -y gnupg curl && apt-get clean -y autoclean && apt-get autoremove -y
 kill -15 $(pidof jellyfin)
 ```
 
