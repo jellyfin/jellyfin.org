@@ -101,6 +101,9 @@ const config: Config = {
 Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
     }
   },
+  markdown: {
+    mermaid: true
+  },
   plugins: [
     // Main content
     [
@@ -156,7 +159,8 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
         ],
         explicitSearchResultPath: true
       } satisfies SearchLocal.PluginOptions
-    ]
+    ],
+    ['@docusaurus/theme-mermaid', {}]
   ]
 };
 
