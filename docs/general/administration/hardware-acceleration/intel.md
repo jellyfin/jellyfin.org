@@ -335,9 +335,7 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 #### Debian And Ubuntu Linux
 
-Using jellyfin-ffmpeg with Intel Quick Sync requires additional Intel media driver packages.
-
-Besides that you only need to install the OpenCL runtime and configure the the permission of `jellyfin` user.
+The `jellyfin-ffmpeg5` deb package comes with all necessary user mode Intel media drivers except OpenCL (see below).
 
 :::note
 
@@ -345,7 +343,7 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`. If you choose to use vanilla ffmpeg, instead of jellyfin-ffmpeg, you will need to install the following [intel packages](https://github.com/intel/media-driver/wiki).
+1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`, if you choose to use vanilla ffmpeg, instead of jellyfin-ffmpeg, you will need to install the following [intel packages](https://github.com/intel/media-driver/wiki).
 
    :::note
    If you are running Debian, you will need to add "non-free" to your apt config.
