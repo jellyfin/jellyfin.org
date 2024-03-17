@@ -319,7 +319,7 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
    - Fixed by: [drm/i915: improve the catch-all evict to handle lock contention](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3f882f2d4f689627c1566c2c92087bc3ff734953)
 
-4. The current Debian 11 and Ubuntu 22.04 LTS may not have the required GPU firmware for Intel 12th Gen processors and ARC GPU.
+4. The current Debian 11 and Ubuntu 22.04 LTS may not have the required GPU firmware for Intel 12th Gen processors and ARC GPU. Ubuntu 22.04 LTS can be switched to use Ubuntu's Hardware Enablement Stack (see #2 above) which uses a newer kernel that supports Intel 12th Gen+ and ARC GPUs.
 
 5. The kernel support for Intel Gen 12 TGL graphics is incomplete before Linux 5.9.
 
@@ -335,9 +335,7 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg5` deb package required by Jellyfin 10.8 comes with all necessary user mode Intel media drivers.
-
-Besides that you only need to install the OpenCL runtime and configure the the permission of `jellyfin` user.
+The `jellyfin-ffmpeg5` deb package comes with all necessary user mode Intel media drivers except OpenCL (see below).
 
 :::note
 
@@ -345,7 +343,11 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
+1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`, if you choose to use vanilla ffmpeg, instead of jellyfin-ffmpeg, you will need to install the following [intel packages](https://github.com/intel/media-driver/wiki).
+
+   :::note
+   If you are running Debian, you will need to add "non-free" to your apt config.
+   :::
 
 2. Install the `jellyfin-ffmpeg5` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
