@@ -66,12 +66,12 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
         )
       },
       {
-        id: 'docker-hub-link',
+        id: 'docker-hub-stable-link',
         name: 'Docker Hub',
         url: 'https://hub.docker.com/r/jellyfin/jellyfin/'
       },
       {
-        id: 'docker-hub-link',
+        id: 'ghcr-stable-link',
         name: 'GHCR',
         url: 'https://ghcr.io/jellyfin/jellyfin'
       }
@@ -89,12 +89,12 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
         )
       },
       {
-        id: 'docker-hub-link',
+        id: 'docker-hub-unstable-link',
         name: 'Docker Hub',
         url: 'https://hub.docker.com/r/jellyfin/jellyfin/'
       },
       {
-        id: 'docker-hub-link',
+        id: 'ghcr-unstable-link',
         name: 'GHCR',
         url: 'https://ghcr.io/jellyfin/jellyfin'
       }
