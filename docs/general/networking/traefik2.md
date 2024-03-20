@@ -7,6 +7,8 @@ title: Traefik v2.x
 
 [Traefik](https://traefik.io/) is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy. Traefik integrates with your existing infrastructure components (ie: Docker) and generally configures itself dynamically as services are added or removed.
 
+### Both Traefik and Jellyfin in Docker
+
 This document provides a complete configuration of Traefik v2.x and Jellyfin. It uses a number of files including a `docker-compose.yml` file, `traefik.toml` (your Traefik static configuration), `traefik-provider.toml` (a file-based provider for Traefik), `traefik.log` (an optional log file), `.env` (the environment which may be needed for your ACME/LetsEncrypt providers), and `acme.json` (the state data for your ACME/LetsEncrypt certificate). The files should all be created in the **same** directory. Alternately, alter the paths in the volume section of the `traefik` service in `docker-compose.yml`. You can optionally jam some of the traefik.toml file into labels for the traefik service in `docker-compose.yml`, however this method is much clearer and easier to comment.
 
 :::note
@@ -291,5 +293,43 @@ docker-compose up -d
 ```
 
 If you set a PathPrefix (i.e. /jellyfin), you need to configure Jellyfin to expect it. After starting the service, access Jellyfin directly (via the host's IP at port 8096) and change the 'Base URL' in Dashboard / Advanced / Networking to match the '/jellyfin' path (if you used one in this configuration). Afterward, you may wish to create a firewall rule to prevent direct access to Jellyfin at port 8096 on the host, or simply ensure the port is not accessible via the Internet.
+
+### Traefik in Docker and Jellyfin native
+If you start Jellyfin natively on linux, installed with RPM, Bash, or Snap.
+
+Add at the end of Traefik dynamic configuration file this snippet:
+* replace ipadress:8096 with Jellyfin server ip and port
+* replace subdomain.domain.com with your DNS name
+
+```yaml
+routers:
+    jellyfin:
+      rule: "Host(`subdomain.domain.com`)"
+      service: "jellyfin"
+      entryPoints:
+        - "http"
+        - "https"
+      tls:
+        certResolver: "letsencrypt"
+      middlewares:
+        - "redirect-to-https@file"
+
+  middlewares:
+    redirect-to-https:
+      redirectScheme:
+        scheme: "https"
+        permanent: true
+
+  services:
+    jellyfin:
+      loadBalancer:
+        servers:
+          - url: "http://ipadress:8096"
+```
+
+You do not need to restart Traefik (we changed dynamic config), first access to Jellyfin may failed, as letsencrypt take a few second to be created on demand.
+
+### Conclusions
+
 
 Congratulations, your stack with Traefik 2.x and Jellyfin is (hopefully) running! Check the log file or run without the '-d' parameter to review any errors that may come up, particularly with respect to the LetsEncrypt configuration.
