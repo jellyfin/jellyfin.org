@@ -1,0 +1,40 @@
+name: Publish
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master, cfpages]
+
+jobs:
+  publish:
+    permissions:
+      contents: read
+      deployments: write
+
+    name: Deploy to Cloudflare Pages
+    runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.cf.outputs.url }}
+
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
+        with:
+          node-version: 20
+
+      - name: Run build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Publish
+        id: cf
+        uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # 1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: jellyfin.org
+          directory: build
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
