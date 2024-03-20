@@ -618,13 +618,8 @@ export const Clients: Array<Client> = [
     platforms: [Platform.WebOS],
     primaryLinks: [
       {
-        id: 'jf-blog',
-        name: 'Older webOS Versions',
-        url: '/posts/webos-july2022'
-      },
-      {
         id: 'lg-store',
-        name: 'Content Store - webOS 6+',
+        name: 'Content Store',
         url: 'https://us.lgappstv.com/main/tvapp/detail?appId=1030579'
       }
     ],
