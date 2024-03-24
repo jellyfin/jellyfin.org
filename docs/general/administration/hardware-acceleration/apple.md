@@ -11,7 +11,7 @@ This tutorial guides you on setting up full video hardware acceleration on Apple
 
 [VideoToolbox](https://developer.apple.com/documentation/videotoolbox) is the only available method on macOS.
 
-To achieve full acceleration, [Metal](https://developer.apple.com/metal/) and OpenCL are also required.
+To achieve full acceleration, [Metal](https://developer.apple.com/metal/) is required.
 
 ## Tone-mapping Methods
 
@@ -19,19 +19,19 @@ Hardware accelerated HDR to SDR tone-mapping is supported on all Macs from 2017 
 
 There are two different methods that can be used. Pros and cons are listed below:
 
-1. **OpenCL**
+1. **Metal**
 
    - Pros: Supports Dolby Vision P5, detailed fine-tuning options.
 
-   - Cons: Slower, requires more powerful GPUs.
+   - Cons: Slower on low end GPU, especially on Intel iGPUs.
 
 2. **VideoToolbox Native**
 
    - Pros: Lower power consumption, less dependency on GPU performance, good visual quality without manual fine-tuning.
 
-   - Cons: Lack of tuning options, potential performance issues on Intel Macs, does not support Dolby Vision P5.
+   - Cons: Lack of tuning options, does not support Dolby Vision P5.
 
-When both methods are enabled, VideoToolbox Native will be used for most videos, and OpenCL will only be used as a fallback for Dolby Vision Profile 5 videos.
+When both methods are enabled, VideoToolbox Native will be used for most videos, and Metal will only be used as a fallback for Dolby Vision Profile 5 videos.
 
 ## Select System Hardware
 
@@ -39,7 +39,7 @@ Hardware accelerated transcoding is supported on all Macs that support [VideoToo
 
 Full acceleration is available on most Macs from 2017 and later, with the exception of the MacBook Air (13-inch, 2017).
 
-To have native Apple Silicon support, Jellyfin server 10.9.0+ and `jellyfin-ffmpeg6` 6.0.1-4 or higher is required.
+To have native Apple Silicon support, Jellyfin server 10.9.0+ and `jellyfin-ffmpeg6` 6.0.1-5 or higher is required.
 
 While hardware acceleration via VideoToolbox might work on older series Macs, it is not officially supported.
 
@@ -61,13 +61,29 @@ Macs from 2017 and later, excluding the MacBook Air (13-inch, 2017), support dec
 
 There is no hardware accelerated path for AV1 on macOS at the moment. Although the M3 series added AV1 decoding support, [ffmpeg does not support it yet](https://trac.ffmpeg.org/ticket/10642).
 
+### Performance Consideration
+
+An Apple Silicon-based Mac is preferred in most cases. Even an entry-level M1 can handle three 4K 24fps Dolby Vision HEVC 10-bit transcoding tasks simultaneously while performing tone-mapping to SDR.<sup>*</sup>
+
+The "Max" variant chips come with an additional video encoding engine. VideoToolbox can utilize this extra engine even when there is only a single transcoding session, enabling support for 4K 120fps transcoding and tone-mapping.<sup>*</sup>
+
+The "Ultra" variant chips feature 2 video decoding engines and 4 video encoding engines, effectively doubling the capability compared to the "Max" variant chips.
+
+On legacy Intel Macs, you may encounter performance issues with tone-mapping using Metal on 4K videos if your Mac doesn't have an AMD GPU. However, it is still adequate for transcoding SDR videos.
+
+<sup>*</sup> Using prefer speed encoder preset.
+
 ## macOS Setups
 
-**MacOS 12 and later** are officially supported. Older versions might work, but are not supported.
+**macOS 12 and later** are officially supported. Older versions might work, but are not supported.
 
 ### Configure
 
-- Enable VideoToolbox in Jellyfin and uncheck the unsupported codecs.
+- Enable VideoToolbox in Jellyfin and uncheck unsupported codecs.
+  - Disable `MPEG4`, `MPEG2`, and `VC-1`, as VideoToolbox lacks a hardware-accelerated decoding path for these codecs.
+- Check `Enable VideoToolbox Tone mapping` if you want to use VideoToolbox native tone-mapping.
+- Check `Enable Tone mapping` if you want to use Metal-based tone-mapping.
+- Optionally, select an `Encoding Preset`. The `veryslow`, `slower`, `slow`, and `medium` presets prioritize quality, while `fast`, `faster`, `veryfast`, `superfast`, and `ultrafast` prioritize speed. The default `Auto` setting prioritizes speed.
 
 ### Verify
 
