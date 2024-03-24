@@ -63,15 +63,17 @@ There is no hardware accelerated path for AV1 on macOS at the moment. Although t
 
 ### Performance Consideration
 
-An Apple Silicon-based Mac is preferred in most cases. Even an entry-level M1 can handle three 4K 24fps Dolby Vision HEVC 10-bit transcoding tasks simultaneously while performing tone-mapping to SDR.<sup>*</sup>
+An Apple Silicon-based Mac is preferred in most cases. Even an entry-level M1 can handle three 4K 24fps Dolby Vision HEVC 10-bit transcoding tasks simultaneously while performing tone-mapping to SDR.<sup>1</sup> <sup>2</sup>
 
-The "Max" variant chips come with an additional video encoding engine. VideoToolbox can utilize this extra engine even when there is only a single transcoding session, enabling support for 4K 120fps transcoding and tone-mapping.<sup>*</sup>
+The "Max" variant chips come with an additional video encoding engine. VideoToolbox can utilize this extra engine even when there is only a single transcoding session, enabling support for 4K 120fps transcoding and tone-mapping.<sup>1</sup>
 
 The "Ultra" variant chips feature 2 video decoding engines and 4 video encoding engines, effectively doubling the capability compared to the "Max" variant chips.
 
 On legacy Intel Macs, you may encounter performance issues with tone-mapping using Metal on 4K videos if your Mac doesn't have an AMD GPU. However, it is still adequate for transcoding SDR videos.
 
-<sup>*</sup> Using prefer speed encoder preset.
+<sup>1</sup> Using prefer speed encoder preset.
+
+<sup>2</sup> The simultaneous session count is a soft limit. You can run more sessions if you are willing to accept the per-session performance trade-offs.
 
 ## macOS Setups
 
