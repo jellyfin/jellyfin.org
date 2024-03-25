@@ -73,7 +73,7 @@ On legacy Intel Macs, you may encounter performance issues with tone-mapping usi
 
 <sup>1</sup> Using prefer speed encoder preset.
 
-<sup>2</sup> The simultaneous session count is a soft limit. You can run more sessions if you are willing to accept the per-session performance trade-offs.
+<sup>2</sup> The simultaneous session count is a soft limit. You can run more sessions if you want, but the transcoding performance of each session may be reduced to a point where video playback starts to stutter.
 
 ## macOS Setups
 
