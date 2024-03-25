@@ -23,7 +23,7 @@ There are two different methods that can be used. Pros and cons are listed below
 
    - Pros: Supports Dolby Vision P5, detailed fine-tuning options.
 
-   - Cons: Slower on low end GPU, especially on Intel iGPUs.
+   - Cons: Slower on low end GPUs, especially on Intel iGPUs.
 
 2. **VideoToolbox Native**
 
