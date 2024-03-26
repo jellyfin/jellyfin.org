@@ -26,7 +26,7 @@ Movies
 
 :::caution ISO Files and other Disc Images
 
-While Jellyfin _should_ work with .iso files and other images, it is **explicitly** unsupported. It is recommended those be extracted to bdmv folders or remuxed to .mkv video files.
+While Jellyfin _should_ work with .iso files and other images, it is **explicitly** unsupported. It is recommended those be extracted to bdmv folders or remuxed to .mkv video files. Regardless of the source format, menus are not support and only the main titles will be played.
 
 :::
 
