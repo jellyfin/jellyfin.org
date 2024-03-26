@@ -21,34 +21,4 @@ To install them, navigate to our [downloads page](/downloads/server) and choose 
 
 ## Testing from Master Branch
 
-For the absolute bleeding edge, you can test directly from the Master branch of the server. To test from the master branch, a few extra tools are needed:
-
-- [git](https://git-scm.com/downloads)
-- [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-
-### Downloading Source Code
-
-Open a terminal where you would like to store the server files. For this step on Windows, you may need to open a git BASH window instead of the normal powershell window depending on how git is installed / configured. Please do not create a subdirectory for Jellyfin as git will automatically create a subdirectory for the project. Use the following commands to download the Jellyfin master branch and navigate to the directory.
-
-```shell
-git clone https://github.com/jellyfin/jellyfin
-cd jellyfin
-```
-
-### Updating
-
-Open a terminal in the server subdirectory. For this step on Windows, you may need to open a git BASH window instead of the normal powershell window depending on how git is installed / configured. Run the following command to fetch the latest commits.
-
-```shell
-git pull
-```
-
-### Running
-
-Open a terminal in the server subdirectory. Run the following commands to start the server.
-
-```shell
-dotnet run -c Release --project Jellyfin.Server --nowebclient
-```
-
-Note that this starts the server without a web client, and requires the web client to be hosted separately or the use of another client.
+The Master branch of the server can be used to obtain the absolute bleeding edge. This is only intended for developers. Further info can be found [here](/docs/general/contributing/development).
