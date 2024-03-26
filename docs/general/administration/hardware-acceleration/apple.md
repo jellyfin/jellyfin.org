@@ -81,8 +81,7 @@ On legacy Intel Macs, you may encounter performance issues with tone-mapping usi
 
 ### Configure
 
-- Enable VideoToolbox in Jellyfin and uncheck unsupported codecs.
-  - Disable `MPEG4`, `MPEG2`, and `VC-1`, as VideoToolbox lacks a hardware-accelerated decoding path for these codecs.
+- Enable VideoToolbox in the Jellyfin Dashboard under the Playback section and deselect unsupported codecs for your Mac.
 - Check `Enable VideoToolbox Tone mapping` if you want to use VideoToolbox native tone-mapping.
 - Check `Enable Tone mapping` if you want to use Metal-based tone-mapping.
 - Optionally, select an `Encoding Preset`. The `veryslow`, `slower`, `slow`, and `medium` presets prioritize quality, while `fast`, `faster`, `veryfast`, `superfast`, and `ultrafast` prioritize speed. The default `Auto` setting prioritizes speed.
