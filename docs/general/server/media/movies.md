@@ -24,6 +24,12 @@ Movies
     └── Film-cd2.avi
 ```
 
+:::caution ISO Files and other Disc Images
+
+While Jellyfin _should_ work with .iso files and other images, it is **explicitly** unsupported. It is recommended those be extracted to bdmv folders or remuxed to .mkv video files.
+
+:::
+
 ## Multiple Versions of a Movie
 
 Multiple versions of a movie can be stored together and presented as a single title. Place each movie version in the same folder and give each version a name with the folder name as a prefix as seen below.
