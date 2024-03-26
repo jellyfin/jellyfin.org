@@ -26,7 +26,7 @@ Movies
 
 :::caution ISO Files and other Disc Images
 
-While Jellyfin _should_ work with .iso files and other images, it is **explicitly** unsupported. It is recommended those be extracted to bdmv folders or remuxed to .mkv video files. Regardless of the source format, menus are not support and only the main titles will be played.
+While Jellyfin _should_ work with .iso files and other images, it is **explicitly** unsupported. It is recommended those be extracted to BDMV or VIDEO_TS folders or remuxed to .mkv video files. Regardless of the source format, menus are not support and only the main titles will be played.
 
 :::
 
@@ -202,7 +202,7 @@ To identify 3D content by filename, the first tag is `3D`, which must be combine
 - `fsbs` = full side by side
 - `htab` = half top and bottom
 - `ftab` = full top and bottom
-- `mvc`  = Multiview Video Coding
+- `mvc` = Multiview Video Coding
 
 The tags are case-insensitive and must be surrounded by either a space, hyphen `-`, dot `.` or underscore `_`.
 
