@@ -48,7 +48,7 @@ git pull
 Open a terminal in the server subdirectory. Run the following commands to start the server.
 
 ```shell
-dotnet run -c Release --project Jellyfin.Server
+dotnet run -c Release --project Jellyfin.Server --nowebclient
 ```
 
 Note that this starts the server without a web client, and requires the web client to be hosted separately or the use of another client.
