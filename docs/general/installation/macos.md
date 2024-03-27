@@ -11,10 +11,7 @@ sidebar_position: 5
 
 macOS Application packages and builds in TAR archive format are available [here](/downloads/macos).
 
-:::note
 Jellyfin requires macOS 12 or newer to run.
-
-:::
 
 ## Packaged Version(dmg)
 
