@@ -9,6 +9,13 @@ sidebar_position: 2
 
 Testing unstable builds requires you to not be afraid of using the command line.
 
+Before running the unstable builds, make sure to backup your current data from the following folders:
+
+```shell
+~/.config/jellyfin/
+~/.local/share/jellyfin/
+```
+
 ## Get Unstable Server
 
 Unlike the stable releases, the unstable builds for macOS do not come with a packaged installer or application. Instead, they have to be ran from the command line.
