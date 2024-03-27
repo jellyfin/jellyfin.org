@@ -32,7 +32,7 @@ Intel Macs should download the `AMD64` binaries.
 
 Apple Silicon Macs should download the `ARM64` binaries.
 
-## Prepare The Unstable Server
+## Prepare The Unstable Server and FFmpeg
 
 After downloading both the server and FFmpeg, extract them to a folder you like. Before running, the quarantine flag needs to be removed and an ad-hoc signature needs to be created for the binaries.
 
@@ -44,11 +44,7 @@ xattr -rd com.apple.quarantine .
 codesign -fs - --deep jellyfin
 ```
 
-## Prepare The FFmpeg
-
-We also need to perform the similar thing to our ffmpeg binaries, but this time we only have to remove the quarantine flag as the ad-hoc signature will be automatically created on first launch.
-
-Open another command line interface, then run the following commands:
+Similarly, the quarantine flag needs to be removed from `ffmpeg` and `ffprobe` as well. We don't need to sign them manually, as the ad-hoc signature will be created automatically on first run:
 
 ```shell
 cd /path/to/jellyfin-ffmpeg
