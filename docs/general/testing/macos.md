@@ -7,22 +7,22 @@ sidebar_position: 2
 
 # Test unstable builds on macOS
 
-Testing unstable builds requires you to be confident with the command line, or at least not afraid of it.
+Testing unstable builds requires you to not be afraid of using the command line.
 
 ## Get Unstable Server
 
-Unlike the release version, the unstable builds for macOS will not come with a packaged DMG or application. Instead, you have to run them from the command line.
+Unlike the stable releases, the unstable builds for macOS do not come with a packaged installer or application. Instead, they have to be ran from the command line.
 
 The latest unstable builds for packaged jellyfin can be obtained here:
 
 - [Intel Macs](https://repo.jellyfin.org/?path=/server/macos/latest-unstable/amd64)
 - [Apple Silicon Macs](https://repo.jellyfin.org/?path=/server/macos/latest-unstable/arm64)
 
-There is no difference in content between the `tar.gz` and the `tar.xz` archives; they are only compressed in different formats. Either one will work.
+There is no difference in content between the `tar.gz` and the `tar.xz` archives. They are only compressed in different formats and either one will work.
 
 ## Get Jellyfin FFmpeg
 
-The unstable version doesn't come with FFmpeg by default, so you need to obtain FFmpeg manually.
+The unstable builds don't come with FFmpeg bundled. Instead, the binaries have to be downloaded separately.
 
 Jellyfin's custom FFmpeg is available [here](https://repo.jellyfin.org/?path=/ffmpeg/macos).
 
@@ -34,9 +34,7 @@ Apple Silicon Macs should download the `ARM64` binaries.
 
 ## Prepare The Unstable Server
 
-After you have downloaded both the server and FFmpeg, you should extract them in a folder you like.
-
-Before running, we need to remove quarantine flag and do an ad-hoc sign to the server binaries:
+After downloading both the server and FFmpeg, extract them to a folder you like. Before running, the quarantine flag needs to be removed and an ad-hoc signature needs to be created for the binaries.
 
 Open a command line interface. You can use the `Terminal.app` come with macOS, then run following commands:
 
@@ -59,13 +57,13 @@ xattr -rd com.apple.quarantine .
 
 ## Run The Unstable Server
 
-At this point, you should be able to run unstable jellyfin with the specified ffmpeg in the command line:
+At this point, the binaries should be ready for testing. Run the following command in a terminal to start Jellyfin:
 
 ```shell
 /path/to/jellyfin-folder/jellyfin --ffmpeg /path/to/ffmpeg-folder/ffmpeg
 ```
 
-After pressing enter, you should see Jellyfin up and running, with logs appearing in the console.
+After running the command, Jellyfin should startup in the terminal window.
 
-To stop it, you press `CTRL+C` in the terminal window.
+To stop Jellyfin, press `CONTROL+C` in the terminal window, and Jellyfin will shutdown gracefully.
 Closing the terminal window will also stop Jellyfin.
