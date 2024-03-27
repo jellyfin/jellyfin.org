@@ -59,8 +59,8 @@ If you are not comfortable with command line, then this is not the version for y
 3. Open Terminal and type `cd` followed with a space then drag the jellyfin folder into the terminal.
 4. Type `xattr -rd com.apple.quarantine .` to remove the quarantine flag.
 5. Type `codesign -fs - --deep jellyfin` to create an ad-hoc signature for the server.
-4. Type `./jellyfin` to run jellyfin.
-5. Open your browser at [http://localhost:8096](http://localhost:8096).
+6. Type `./jellyfin` to run jellyfin.
+7. Open your browser at [http://localhost:8096](http://localhost:8096).
 
 Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmux can prevent this from happening.
 
