@@ -14,6 +14,7 @@ Before running the unstable builds, make sure to backup your current data from t
 ```shell
 ~/.config/jellyfin/
 ~/.local/share/jellyfin/
+~/Library/Application Support/Jellyfin/
 ```
 
 ## Get Unstable Server
