@@ -84,14 +84,14 @@ Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmu
 
 ### Using FFmpeg with the Portable Version
 
-The portable version doesn't come with FFmpeg by default, so to install FFmpeg you have following options:
+The portable version doesn't come with FFmpeg by default. There are a few options for installing FFmpeg:
 
-- download the jellyfin-ffmpeg from [jellyfin-repo](https://repo.jellyfin.org/?path=/ffmpeg/macos) (recommended)
+- download jellyfin-ffmpeg from the [Jellyfin repo](https://repo.jellyfin.org/?path=/ffmpeg/macos) (recommended)
 - use the package manager homebrew by typing `brew install ffmpeg` into your Terminal ([here's how to install homebrew if you don't have it already](https://treehouse.github.io/installation-guides/mac/homebrew)
 - download the most recent static build from [this link](https://evermeet.cx/ffmpeg/get/zip) (compiled by a third party see [this page](https://evermeet.cx/ffmpeg/) for options and information) (Apple Silicon builds are not available from this source)
 - compile from source available from the official [website](https://ffmpeg.org/download.html)
 
-Once downloaded, you need to do remove the quarantine flag for the `ffmpeg` and `ffprobe`.
+Once downloaded, remove the quarantine flag for the `ffmpeg` and `ffprobe`.
 
 Ensure that both `ffmpeg` and `ffprobe` are located at the same path, then execute the following command:
 
