@@ -17,7 +17,7 @@ For a Jellyfin server, the following is recommended:
 - CPU (Without dGPU): Intel Pentium G4560, Intel Core i3-7100 or better. (Intel 7th gen or newer Pentium or better, excluding J and N series)
 - RAM: 8GB or more
 - Storage: 60GB SSD storage for Jellyfin files and transcoding cache.
-- Graphics: Intel HD 6xx (7th gen integrated graphics) or newer, Nvidia GTX 16 / RTX 20 series or newer (excluding GTX 1650). Intel is recommended over Nvidia. AMD and Apple Silicon are not recommended.
+- Graphics: Intel HD 6xx (7th gen integrated graphics) or newer, Nvidia GTX 16 / RTX 20 series or newer (excluding GTX 1650). Intel is recommended over Nvidia. AMD is not recommended.
 
 :::note Intel "Atom" CPUs
 
@@ -43,15 +43,11 @@ Intel ARC GPUs are recommended when upgrading an existing system to be used as a
 
 :::
 
-:::tip Fully Utilizing Intel-based Macs
-
-It is recommended that Intel-based macs be used with Windows or Linux installed to host Jellyfin. Many hardware acceleration features aren't available on MacOS due to the custom [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg) fork not being available.
-
-:::
-
 ### Low Power Applications
 
 For low power applications, Intel 12th gen or newer Atom CPUs with integrated graphics are recommended. It is also recommended that [Low Power Encoding](/docs/general/administration/hardware-acceleration/intel/#low-power-encoding) be setup.
+
+Alternatively, you can use an Apple Silicon Mac for even lower power consumption.
 
 :::caution SBCs (Single Board Computers)
 
@@ -175,21 +171,23 @@ Please check the product page of your CPU for more info.
 
 Supported codecs are listed below:
 
-| Codec       | M1, M2 Family | M3 Family |
-| ----------- | ------------- | --------- |
-| H.264 8bit  | ✅            | ✅        |
-| H.264 10bit | 🔶            | 🔶        |
-| H.265 8bit  | ✅            | ✅        |
-| H.265 10bit | ✅            | ✅        |
-| VP9 8bit    | 🔶            | 🔶        |
-| VP9 10bit   | 🔶            | 🔶        |
-| AV1         | ❌            | 🔶        |
+| Codec       | M1, M2 Family | M3 Family     |
+| ----------- | ------------- | ---------     |
+| H.264 8bit  | ✅            | ✅            |
+| H.264 10bit | 🔶            | 🔶            |
+| H.265 8bit  | ✅            | ✅            |
+| H.265 10bit | ✅            | ✅            |
+| VP9 8bit    | 🔶            | 🔶            |
+| VP9 10bit   | 🔶            | 🔶            |
+| AV1         | ❌            | ❌<sup>1</sup>|
 
 ✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
 
+<sup>1</sup> Although the hardware does support AV1 decoding, [ffmpeg does not support it yet](https://trac.ffmpeg.org/ticket/10642).
+
 :::caution
 
-Many hardware acceleration features are not available on macOS for Jellyfin, as the custom [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg) fork isn't available for macOS. No Apple Silicon media engine drivers exist for other operating systems currently. You will NOT be able to use hardware acceleration if you are running [Asahi Linux](https://asahilinux.org/).
+No Apple Silicon media engine drivers currently exist for non-macOS operating systems. You will NOT be able to use hardware acceleration if you are running [Asahi Linux](https://asahilinux.org/).
 
 :::
 

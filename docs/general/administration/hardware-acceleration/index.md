@@ -67,14 +67,14 @@ Partial acceleration may result in slightly higher CPU usage and lower transcodi
 
 Jellyfin 10.8 supports full acceleration on mainstream Intel, NVIDIA and AMD (Windows only) GPUs.
 
-Jellyfin 10.9 enables full acceleration for AMD Polaris and newer GPUs on Linux via VA-API and Vulkan interop.
+Jellyfin 10.9 enables full acceleration for AMD Polaris and newer GPUs on Linux via VA-API and Vulkan interop and full acceleration for both Intel and Apple Silicon Macs on macOS 12 and above.
 
 Using [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg/releases) with Jellyfin is highly recommended, which has a `-Jellyfin` suffix in the version string.
 
 ```shell
 $ /usr/lib/jellyfin-ffmpeg/ffmpeg
 
-ffmpeg version 5.1.2-Jellyfin Copyright (c) 2000-2022 the FFmpeg developers
+ffmpeg version 6.0.1-Jellyfin Copyright (c) 2000-2023 the FFmpeg developers
   built with gcc 12.2.0 (crosstool-NG 1.25.0.90_cf9beb1)
 ...
 ```
@@ -118,6 +118,10 @@ Click [AMD GPU](/docs/general/administration/hardware-acceleration/amd).
 ### NVIDIA NVENC
 
 Click [NVIDIA GPU](/docs/general/administration/hardware-acceleration/nvidia).
+
+### Apple VideoToolbox
+
+Click [Apple Mac](/docs/general/administration/hardware-acceleration/apple).
 
 ### Raspberry Pi V4L2
 
@@ -164,12 +168,13 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
 :::
 
-| OS/Platform    | NVIDIA NVENC | AMD AMF | Intel QSV | Intel VA-API | AMD VA-API | Software |
-| -------------- | ------------ | ------- | --------- | ------------ | ---------- | -------- |
-| Windows        | ✔️           | ✔️      | ✔️       | N/A          | N/A        | WIP      |
-| Windows Docker | ✔️           | N/A     | N/A       | N/A          | N/A        | WIP      |
-| Linux          | ✔️           | ✔️      | ✔️       | ✔️           | ✔️         | WIP      |
-| Linux Docker   | ✔️           | ✔️      | ✔️       | ✔️           | ✔️         | WIP      |
+| OS/Platform    | NVIDIA NVENC | AMD AMF | Intel QSV | Intel VA-API | AMD VA-API | Apple VideoToolbox | Software |
+| -------------- | ------------ | ------- | --------- | ------------ | ---------- | ------------------ | -------- |
+| Windows        | ✔️           | ✔️      | ✔️       | N/A          | N/A        | N/A                | WIP      |
+| Windows Docker | ✔️           | N/A     | N/A       | N/A          | N/A        | N/A                | WIP      |
+| Linux          | ✔️           | ✔️      | ✔️       | ✔️           | ✔️         | N/A                | WIP      |
+| Linux Docker   | ✔️           | ✔️      | ✔️       | ✔️           | ✔️         | N/A                | WIP      |
+| macOS          | N/A          | N/A     | N/A       | N/A          | N/A        | ✔️                 | WIP      |
 
 ## Tips For Hardware Acceleration
 
