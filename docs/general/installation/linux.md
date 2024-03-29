@@ -96,7 +96,13 @@ However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` an
 
    :::
 
-6. Go to `localhost:8096` or `ip-address-of-jellyfin-server:8096` to finish setup in the web UI
+6. Reload the firewall to apply the new rules:
+
+   ```sh
+   sudo firewall-cmd --reload
+   ```
+
+7. Go to `localhost:8096` or `ip-address-of-jellyfin-server:8096` to finish setup in the web UI
 
 ## CentOS
 
