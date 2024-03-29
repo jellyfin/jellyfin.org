@@ -1,0 +1,71 @@
+---
+title: Testing 10.9.0
+description: We are now in feature freeze for 10.9.0; here's how to help test!
+authors: joshuaboniface
+date: 2024-03-27
+slug: testing-10.9.0
+tags: [release]
+---
+
+We are pleased to announce that we are now in our feature freeze window for the 10.9.0 release! That means that from now until the release, we'll be focusing only on merging bugfixes and other improvements, while all features will be on hold until the release is finalized.
+
+That also means it's time to start testing. As outlined in our last blog post, we're doing things a bit differently this release, so this post will provide the steps one would need to take to help us test the new release.
+
+If you want to help out, please read on!
+
+\- Joshua
+
+{/* truncate */}
+
+## What's Different and The Release Plan
+
+First, a quick rundown on what's different from our previous releases. The last few major releases, we went back and forth between various versions of `-beta` and `-rc` tags, but ultimately due to the complexity of 10.8.0 nearly two years ago, we've decided to abandon that idea going forward. As nice as it is to publish pre-release tags, we feel that doing so is not worth the burden and headache during this period and after, when we already have a better solution in our weekly unstable builds.
+
+So, in effect, our weekly unstable builds are now working double-duty as our beta/release candidate versions. Here's how they map over the coming weeks:
+
+* `20240325`: The first "beta". Feature freeze has begun.
+* `20240401`: The second "beta". One week of freeze.
+* `20240408`: The third "beta". Two weeks of freeze, and we hope to have most glaring bugs fixed by this point.
+* `20240415`: The first "release candidate". We hope that by this point everything is in good shape for a release, with only a few lingering bugs.
+* `20240422`: The second and, ideally, final "release candidate".
+* `10.9.0`: The actual release, during the weekend of April 26th-28th.
+
+All of this, of course, assumes a smooth window, we we are fairly hopeful of, but any number of things could throw a wrench in this plan, so we are continuing to play things by ear and see how each week turns out.
+
+## How You Can Test
+
+Testing this release should be very easy, in a way that our previous releases weren't. Since our pre-releases are "just" our unstable releases here, that means that following our normal "unstable" install process is all you need to do.
+
+To find that, visit our [main server downloads page](https://jellyfin.org/downloads/server), select the platform you require along the top centre, then on the top right, select "Unstable". The instructions and links will now be for the unstable release. You can also find [additional testing documentation in the docs](https://jellyfin.org/docs/general/testing/).
+
+For Docker this simply means pulling the `unstable` tag on the image. For Debian and Ubuntu repositories, this means adding `unstable` to your existing `jellyfin.sources` entry. For other platforms, please review the provided instructions as not all platforms will support unstable.
+
+Next, before installing an unstable release, ensure that you **back up your existing server configuration**. It is not possible to downgrade as there are a significant number of database changes. Just making a simple copy of your configuration directories is sufficient, and where those can be found depends on the platform.
+
+Next, if you use plugins, install the unstable plugin repository. Due to compatibility issues, we distribute plugins for unstable in a separate manifest, so this must be added manually, and on first start all incompatible plugins (i.e. all existing plugins on an upgrade) will be upgraded. To add the repository, navigate to the Administration Dashboard, Advanced, Plugins, then click the Repositories tab at the top. Click the "+" Add button, and enter "Unstable" for the name and "https://repo.jellyfin.org/files/plugin-unstable/manifest.json" for the Repository URL. We also recommend that you disable/remove the Stable repository at this time, as it's possible they will conflict, and under 10.9.0 the repository URL will change. After the initial update you may need to manually restart your Jellyfin instance one further time to ensure all plugins are activated properly.
+
+Finally, install the unstable version and run it. The upgrade should happen seamlessly in the background, and you'll be able to log in to your Jellyfin instance normally after this point. Ensure you perform a *hard* refresh in your browser, and restart all clients.
+
+Once 10.9.0 is fully released, you can switch back easily by reinstalling the new stable version, and changing back to the stable plugin manifest (URL "https://repo.jellyfin.org/files/plugin/manifest.json").
+
+## How To Report Bugs
+
+While running the unstable prereleases, reporting bugs is important. After all, if we don't know about bugs, we can't work to fix them!
+
+First, if you encounter a bug, ensure you're running the latest version, and try to reproduce it. If you can't, it's always possible it was a one-off occurrence, but if it happens again, definitely report it!
+
+Bugs can be reported on [our GitHub issues page](https://github.com/jellyfin/jellyfin) or [on our Forums](https://forum.jellyfin.org).
+
+You'll want to include two important pieces of information in your bug report, beyond the standard asks. First, ensure you include the "Build Version" as shown in the main dashboard page. This reports the exact unstable build you're using to help narrow down what might have caused the issue. This is doubly important if you see a new bug turn up in a future unstable build. Second, please make clear that you are running the unstable builds and not stable builds as well as if this is an upgrade or fresh install, as that can be an important piece of information.
+
+Once your bug is reported, please check back diligently to see if any additional information has been requested, and we hope to get it fixed soon.
+
+## Information for 3rd Party Clients
+
+At this point, with our feature freeze our APIs should be stable, though do please expect bugfixes to make minor changes over the next few weeks. Please feel free to begin testing compatibility and report any issues to us.
+
+## Information for Contributors
+
+If you're contributing to Jellyfin and your existing feature PRs have not yet been merged, please don't fret. 10.9.0 was an abnormally long release cycle and something we do not wish to repeat, so your changes *will* get in soon for 10.10.0, which we expect to happen in about 6 months at most.
+
+If you wish to help by submitting a bugfix, please do so as soon as you can, as we'd like to get as many fixes in and tested within the next ~3 weeks as possible, to give at least 2 weeks of final testing before the release. Ensure you clearly specify that it is a bugfix, and ensure you keep your changes to an absolute minimum needed to fix the bug. Bugfix PRs will target the `master` branch until the final release at which point they will target the `release-10.9.z` branch for upcoming point releases.

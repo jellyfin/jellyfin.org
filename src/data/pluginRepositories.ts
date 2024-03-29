@@ -17,7 +17,7 @@ export const OfficialPluginRepositories: Array<PluginRepository> = [
     id: 'jellyfin',
     name: 'Jellyfin',
     official: true,
-    url: 'https://repo.jellyfin.org/releases/plugin/manifest-stable.json',
+    url: 'https://repo.jellyfin.org/files/plugin/manifest.json',
     includes: {}
   },
   {
@@ -25,7 +25,7 @@ export const OfficialPluginRepositories: Array<PluginRepository> = [
     name: 'Jellyfin Unstable',
     official: true,
     unstable: true,
-    url: 'https://repo.jellyfin.org/releases/plugin/manifest-unstable.json',
+    url: 'https://repo.jellyfin.org/files/plugin-unstable/manifest.json',
     includes: {}
   }
 ];
