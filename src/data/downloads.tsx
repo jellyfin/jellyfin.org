@@ -248,12 +248,12 @@ sudo apt install jellyfin`}
   },
   {
     id: 'macos',
-    name: 'MacOS',
+    name: 'macOS',
     osTypes: [OsType.MacOS],
     status: DownloadStatus.Official,
-    features: [],
+    features: [Feature.CustomFFmpeg],
     platforms: [Platform.MacOS],
-    description: 'Both installers (.dmg) and manual ZIP archives (.tar.gz) are provided.',
+    description: 'Both installers (.dmg) and manual TAR archives (.tar.xz) are provided.',
     stableButtons: [
       {
         id: 'macos-manual-stable-link',

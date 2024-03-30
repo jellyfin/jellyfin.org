@@ -60,7 +60,7 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                   to='/downloads/macos'
                   className={clsx('pills__item', { 'pills__item--active': osType === OsType.MacOS })}
                 >
-                  MacOS
+                  macOS
                 </Link>
               </div>
             </div>
