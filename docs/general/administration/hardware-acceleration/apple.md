@@ -43,7 +43,7 @@ To have native Apple Silicon support, Jellyfin server 10.9.0+ and `jellyfin-ffmp
 
 While hardware acceleration via VideoToolbox might work on older series Macs, it is not officially supported.
 
-If your Mac does not have an internal display, you may need to connect it to a monitor or use an HDMI dummy plug to prevent the GPU from being throttled.
+If your Mac does not have an internal display, you may need to connect it to a monitor or use a dummy plug to prevent the GPU from being throttled.
 
 <sup>*</sup> VideoToolbox may fallback to software decoding/encoding or stop working when the task exceeds its hardware capability. The older your Mac, the more this will occur. Macs from 2017 and later, especially Apple Silicon Macs are strongly recommended.
 
