@@ -153,6 +153,17 @@ The script tries to handle as many common derivatives as possible, including, at
 
 :::
 
+### Repository (Using extrepo)
+
+extrepo is only supported on Debian currently. The advantage of extrepo is that it is packaged in Debian. So you don’t have to execute the `curl | sudo bash` combo from the previous Automatic section. The risk with that command is that it relies on the security of the webserver. extrepo avoids this by having the Jellyfin repo information including the GPG key in its [extrepo-data](https://salsa.debian.org/extrepo-team/extrepo-data/-/blob/master/repos/debian/jellyfin.yaml?ref_type=heads). extrepo-data is verified with GPG by the extrepo tool. So there is a chain of trust from Debian all the way to the Jellyfin repo information.
+
+```sh
+sudo apt install extrepo
+sudo extrepo enable jellyfin
+```
+
+Now you can continue at step 5. of the following Repository (Manual) section.
+
 ### Repository (Manual)
 
 If you would prefer to install everything manually, the full steps are as follows:
