@@ -41,7 +41,9 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <sup>8</sup>Chromium 104 does support HEVC decoding when launched with <code>--enable-features=PlatformHEVCDecoderSupport</code> argument. For more informations please look at <a href="https://github.com/StaZhu/enable-chromium-hevc-hardware-decoding#readme">enable-chromium-hevc-hardware-decoding</a>.
 <br />
 <sup>9</sup>HEVC decoding is only supported on 4K devices.
+<br />
 <sup>10</sup>VP9 decoding on Safari requires at least Safari 14.
+<br />
 <sup>11</sup>AV1 decoding is only available on devices with A17 or M3 series chips or newer and requires at least Safari 17.
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
