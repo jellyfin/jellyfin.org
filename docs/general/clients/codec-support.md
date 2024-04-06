@@ -21,8 +21,8 @@ The goal is to Direct Play all media. This means the container, video, audio and
 | [H.264 10Bit](https://caniuse.com/#feat=mpeg4 'H264 Browser Support Reference')                                    | ✅             | ✅             | ❌      | ❌             | ✅             | ✅             | ❌             | ✅             | ❌                                                                              | ✅   | ✅                                                           |
 | [H.265 8Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                      | 🔶<sup>8</sup> | ✅<sup>7</sup> | ❌      | 🔶<sup>1</sup> | 🔶<sup>2</sup> | ✅<sup>5</sup> | 🔶<sup>1</sup> | ✅<sup>6</sup> | 🔶<sup>9</sup>                                                                              | ✅   | ✅                                                           |
 | [H.265 10Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                     | 🔶<sup>8</sup> | ✅<sup>7</sup> | ❌      | 🔶<sup>1</sup> | 🔶<sup>2</sup> | 🔶<sup>5</sup> | 🔶<sup>1</sup> | ✅<sup>6</sup> | 🔶<sup>9</sup>                                                                              | ✅   | ✅                                                           |
-| [VP9](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#VP9 'V9 Browser Support Reference')  | ✅             | ✅             | ✅      | ❌             | ✅<sup>3</sup> | 🔶<sup>3</sup> | ❌             | ❌             | ✅                                                                              | ✅   | ✅                                                           |
-| [AV1](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#AV1 'AV1 Browser Support Reference') | ✅             | ✅             | ✅      | ❌             | ✅             | 🔶<sup>4</sup> | ❌             | ❌             | ✅                                                                              | ✅   | ✅                                                           |
+| [VP9](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#VP9 'V9 Browser Support Reference')  | ✅             | ✅             | ✅      | ✅<sup>10</sup>| ✅<sup>3</sup> | 🔶<sup>3</sup> | ❌             | ❌             | ✅                                                                              | ✅   | ✅                                                           |
+| [AV1](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#AV1 'AV1 Browser Support Reference') | ✅             | ✅             | ✅      | 🔶<sup>11</sup>| ✅             | 🔶<sup>4</sup> | ❌             | ❌  | ✅                                                                              | ✅   | ✅                                                           |
 
 <sup>1</sup>HEVC is only supported in MP4, M4V, and MOV containers.
 <br />
@@ -41,6 +41,10 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <sup>8</sup>Chromium 104 does support HEVC decoding when launched with <code>--enable-features=PlatformHEVCDecoderSupport</code> argument. For more informations please look at <a href="https://github.com/StaZhu/enable-chromium-hevc-hardware-decoding#readme">enable-chromium-hevc-hardware-decoding</a>.
 <br />
 <sup>9</sup>HEVC decoding is only supported on 4K devices.
+<br />
+<sup>10</sup>VP9 decoding on Safari requires at least Safari 14.
+<br />
+<sup>11</sup>AV1 decoding is only available on devices with A17 or M3 series chips or newer and requires at least Safari 17.
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
 
@@ -162,7 +166,7 @@ If the container is unsupported, this will result in remuxing. The video and aud
 | :-------------------------------------------------------------------: | :----: | :--: | :-----: | :----: | :-----: | :--------: | :--: | :--: |
 |    [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)<sup>1</sup>    |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
 |     [MKV](https://en.wikipedia.org/wiki/Matroska)<sup>2, 3</sup>      |   ❌   |  ✅  |   ❌    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
-|       [WebM](https://en.wikipedia.org/wiki/WebM)<sup>3, 5</sup>       |   ✅   |  ✅  |   ✅    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
+|       [WebM](https://en.wikipedia.org/wiki/WebM)<sup>3, 5, 6</sup>    |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
 | [TS](https://en.wikipedia.org/wiki/MPEG_transport_stream)<sup>4</sup> |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
 |         [OGG](https://en.wikipedia.org/wiki/Ogg)<sup>5</sup>          |   ✅   |  ✅  |   ✅    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
 
@@ -175,3 +179,5 @@ If the container is unsupported, this will result in remuxing. The video and aud
 <sup>4</sup>TS is one of the primary containers for streaming for Jellyfin.
 <br />
 <sup>5</sup>WebM and OGG have limited codec support (by design), refer to <a href="https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#WebM">this</a> for WebM and <a href="https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#Ogg">this</a> for OGG.
+<br />
+<sup>6</sup>WebM on Safari requires at least Safari 14.
