@@ -68,6 +68,7 @@ If the audio codec is unsupported or incompatible (such as playing a 5.1 channel
 |                             VORBIS<sup>3</sup>                              |       ✅       |  ✅  |   ✅    |       ❌       |   ✅    |     ❌     |       ❌       |       ✅       |       ✅       |  ✅  |   ✅    |
 |                               DTS<sup>4</sup>                               |       ❌       |  ❌  |   ❌    |       ❌       |   ✅    |     ✅     |       ❌       |       ✅       | ✅<sup>6</sup> |  ✅  |   ✅    |
 |                                    OPUS                                     |       ✅       |  ✅  |   ✅    | 🔶<sup>5</sup> |   ✅    |     ✅     | 🔶<sup>5</sup> |       ✅       |       ✅       |  ✅  |   ✅    |
+|                                    ALAC                                     |       ❌       |  ❌  |   ❌    |       ✅       |   ❌    |     ❌     |       ✅       |                |                |      |   ✅    |
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/Moving_Picture_Experts_Group#External_links)
 
