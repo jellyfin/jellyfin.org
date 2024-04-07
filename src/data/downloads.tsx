@@ -116,12 +116,12 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
         details: (
           <>
             <pre>
-              <code>{`curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}</code>
+              <code>{`curl -s https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}</code>
             </pre>
             <p>
               If you do not have <code>curl</code> installed, you can use{' '}
-              <code>wget -O-</code> instead of{' '}
-              <code>curl</code>.
+              <code>wget -q -O-</code> instead of{' '}
+              <code>curl -s</code>.
             </p>
             <p>
               For more advanced users, the full steps can be <a href="https://jellyfin.org/docs/general/installation/linux#debuntu-debian-ubuntu-and-derivatives-using-apt">
