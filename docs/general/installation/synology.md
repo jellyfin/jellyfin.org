@@ -60,19 +60,20 @@ This setting maps directories on the host to within the container. Use this sett
 To add a volume, click "Add Folder" and select the folder desired. The mount point is set in the middle column and the directory will be accessible at this path within the container. For media files, `/media` can be used, and for config files, `/config` can be used.
 
 #### Network Settings
+
 Set how the container connects to the network. DLNA requires `Host` mode to function.
 
 #### Settings for advanced users
+
 - Enviroment Variables
 
 #### Example
+
 Your settings should look like this:
 ![Advanced Settings](/images/docs/install-synology-3.png)
 ![Advanced Settings](/images/docs/install-synology-4.png)
 Click `Next` to proceed to the next step.
 
 Settings can be reviewed at this screen. Check the `Run this container after the wizard is finished` checkbox and click `Apply` if everything looks correct. The container should now be shown in the `Container` tab.
-
 Browse to `http://SERVER_IP:8096` in a browser on a other device to finish setting up the Jellyfin server.
 If a different port was used, replace `8096` with the port used instead.
-
