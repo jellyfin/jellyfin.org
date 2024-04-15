@@ -54,7 +54,7 @@ Since the chat rooms are much more likely to see users less experienced with tec
 
 2. You will generally **NOT** face punishment for simply saying something wrong occasionally. This rule is reserved for users who repeatedly demonstrate their unwillingness / inability to do basic research and / or take corrections from the community.
 
-3. You may **NOT** spread information that may violate the ToS (Terms of services) of other services (eg. Hosting Jellyfin behind CloudFlare). When the ToS is unclear, you should assume that it is against the ToS.
+3. You may **NOT** spread information that may violate the ToS (Terms of Service) of other services (eg. Hosting Jellyfin behind Cloudflare). When the ToS is unclear, you should assume that it is against the ToS.
 
 4. Discussion of topics related to technical misinformation should be limited to #offtopic only.
 
@@ -62,6 +62,6 @@ Since the chat rooms are much more likely to see users less experienced with tec
 
 1. If you see something against the rules, or something that makes you feel unsafe, let our staff know. We want this server to be a welcoming space for all users of Jellyfin.
 
-2. If you wish to contact moderators privately, please send an E-mail to us containing all the relevant info on your matter. Contact info can be found on the [contacts page](/contact).
+2. If you wish to contact moderators privately, please send an E-mail to us containing all the relevant info on your matter. Contact info can be found on the [contact page](/contact).
 
 3. Violation of these rules may result in the following punishments: an informal warning, a formal warning or a ban. If a formal warning has been issued, the next violation will result in a ban. See [Community Standards: Dispute Resolution and Moderation](/docs/general/community-standards/#dispute-resolution-and-moderation) for more info.
