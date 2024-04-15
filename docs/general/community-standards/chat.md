@@ -54,7 +54,7 @@ Since the chat rooms are much more likely to see users less experienced with tec
 
 2. You will generally **NOT** face punishment for simply saying something wrong occasionally. This rule is reserved for users who repeatedly demonstrate their unwillingness / inability to do basic research and / or take corrections from the community.
 
-3. You may **NOT** spread information that may violate the ToS (Terms of services) of other services (eg. Hosting Jellyfin behind CloudFlare). When the ToS is unclear, you should assume that it is against the ToS.
+3. You may **NOT** spread information that may violate the ToS (Terms of Services) of other services (eg. Hosting Jellyfin behind Cloudflare). When the ToS is unclear, you should assume that it is against the ToS.
 
 4. Discussion of topics related to technical misinformation should be limited to #offtopic only.
 
