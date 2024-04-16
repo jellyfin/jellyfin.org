@@ -25,15 +25,15 @@ There are several key changes with 10.9.0 that administrative users should be aw
 
 * As always, **ensure you back up your Jellyfin data and configuration directories before upgrading**. With a major release, it's possible you will hit a bug and want to revert, and to do so, you will need to restore from a backup.
 
-* Ubuntu users: We have dropped support for non-LTS Ubuntu releases with 10.9.0. That is, we have not built 10.9.0 packages for any releases except 20.04 LTS, 22.04 LTS, and 24.04 LTS, and we will not publish builds for any new non-LTS releases going forward. For an explanation of why, please see [our previous blog post](https://jellyfin.org/posts/new-ci-new-repo). If you use another release, please upgrade to 24.04 LTS or switch to Docker packages.
+* Ubuntu users: We have dropped support for non-LTS Ubuntu releases with 10.9.0. That is, we have not built 10.9.0 packages for any releases except 20.04 LTS, 22.04 LTS, and 24.04 LTS, and we will not publish builds for any new non-LTS releases going forward. For an explanation of why, please see [our previous blog post](https://jellyfin.org/posts/new-ci-new-repo). If you use another release, please upgrade to 24.04 LTS or switch to the Docker container.
 
-* Fedora/CentOS/RHEL/etc. users: We have dropped our official RPM packages and suggest moving to [the 3rd-party RPMFusion repository](https://admin.rpmfusion.org/pkgdb/package/free/jellyfin/). Support for RHEL-like distributions has been a major pain point for us for a very long time, and we feel that letting the community over at RPMFusion handle this is in our best interest going forward, similar to how Arch, Gentoo, etc. packages are handled. For more details, please see [our previous blog post](https://jellyfin.org/posts/new-ci-new-repo).
+* Fedora/CentOS/RHEL/etc. users: We have dropped our official RPM packages and suggest switching to [the 3rd-party RPMFusion repository](https://admin.rpmfusion.org/pkgdb/package/free/jellyfin/) or the Docker container. Support for RHEL-like distributions has been a major pain point for us for a very long time, and we feel that letting the community over at RPMFusion handle this is in our best interest going forward, similar to how Arch, Gentoo, etc. packages are handled. For more details, please see [our previous blog post](https://jellyfin.org/posts/new-ci-new-repo).
 
 * Docker users: We now offer GHCR as an alternative container registry in addition to DockerHub. You can pull images from the new registry via URIs like `ghcr.io/jellyfin/jellyfin:latest`. Don't worry, we have no plans to drop DockerHub as a container registry, but we feel providing both gives users more choice and flexibility.
 
 ## The Big Changes
 
-This release has been nearly (over?) two years in the making, so we're really glad to finally get it out to you. The long cycle does mean quite an extensive changelog however, with well over 1100 pull requests merged into our `master` branch since 10.8.0 first dropped back in 2022. This section will detail all the big changes, broken up by general function and area of the system. In addition to these big items, there are hundreds of smaller bugfixes, quality-of-life tweaks, and other minor changes that we won't touch on here, but if you want to see the full list, you can do so over on the GitHub releases for [the core server](https://github.com/jellyfin/jellyfin/releases/tag/v10.9.0) and [the Web UI](https://github.com/jellyfin/jellyfin-web/releases/tag/v10.9.0).
+This release has been over two years in the making, so we're really glad to finally get it out to you. The long cycle does mean quite an extensive changelog however, with well over 1100 pull requests merged into our `master` branch since 10.8.0 first dropped back in 2022. This section will detail all the big changes, broken up by general function and area of the system. In addition to these big items, there are hundreds of smaller bugfixes, quality-of-life tweaks, and other minor changes that we won't touch on here, but if you want to see the full list, you can do so over on the GitHub releases for [the core server](https://github.com/jellyfin/jellyfin/releases/tag/v10.9.0) and [the Web UI](https://github.com/jellyfin/jellyfin-web/releases/tag/v10.9.0).
 
 ### General
 
@@ -41,7 +41,7 @@ This release has been nearly (over?) two years in the making, so we're really gl
 
 * Web redirections are now handled more reliably, reducing the likelihood of hitting dead or invalid pages in the UI. Please ensure you force-refresh or clear any browser cache for your Jellyfin instance to see the full benefits.
 
-* DLNA support is now provided by a plugin and has been removed from the core server. This has several major benefits: first, it can be updated independently of the server to some degree; second, it will not be enabled for anyone unless they want it and explicitly install the plugin; and third, it reduces the potential of security holes around DLNA due to both previous benefits.
+* DLNA support is now provided by a plugin and has been removed from the core server. This has several major benefits: first, it can be updated independently of the server to some degree; second, it will not be enabled for anyone unless they want it and explicitly install the plugin; and third, it reduces the potential of security holes around DLNA due to both previous benefits. If you wish to use (or continue to use) DLNA, please install the plugin after upgrading.
 
 * We now support AVIF and WEBP images for Pictures libraries.
 
@@ -73,7 +73,7 @@ This release has been nearly (over?) two years in the making, so we're really gl
 
 * Our minimum FFmpeg version has been bumped from 4.0 to 4.4 to take advantage of many new features. For users of our Jellyfin FFmpeg build (Docker, `.deb`/Debuntu repo, and Windows installs), you're already on an even newer version now with FFmpeg 6.0.1, but this minimum change would affect any other platforms.
 
-* The server now supports in-process restarting, and removes the old hacky `restart.sh` method. This should make things like installing plugins much more robust.
+* The server now supports in-process restarting, and removes the old hacky `restart.sh` method. This should make things like installing plugins much more robust and ensure a consistent restart experience regardless of platform or install method.
 
 * Uploaded images are now subject to much more verification, helping plug several security holes in this feature.
 
@@ -95,7 +95,7 @@ This release has been nearly (over?) two years in the making, so we're really gl
 
 * Several audio improvements: support for Opus, FLAC, and ALAC codecs in the HLS engine; improved support and handling for transcoding DTS and TrueHD audio streams; new codec enforcement; better bitrate calculations; new audio normalization features; and stereo downmixing algorithm selection.
 
-* FFmpeg segments are now automatically deleted during transcoding, reducing the space of the transcoding temporary directory.
+* FFmpeg segments are now automatically deleted during transcoding, significantly reducing the space requirements of the transcoding temporary directory.
 
 * Support for direct stream playback of DVD and BluRay data folders, preferred over ISOs.
 
@@ -126,3 +126,11 @@ This release has been nearly (over?) two years in the making, so we're really gl
 ### Clients
 
 * Major fixes for Chromecast, including better support for a self-hosted cast receiver, better local network detection, and connectivity improvements. **We need Chromecast client developers badly - if you are interested please reach out.**
+
+## The Next Version
+
+With our CI improvements outlined previously, we're quite confident that this will be our last "very long" release cycle. Our plan is for the next major version (10.10.0) to be released at most 6 months from now, some time in October. We hope this increased cadence will help alleviate the problems with large releases such as a very long time-to-stable for new features, translations, etc.
+
+## Final Thoughts
+
+We want to thank everyone who contributed to the 10.9.0 release. According to GitHub over 100 people contributed across both repositories, and Jellyfin wouldn't be what it is without your help. We're really proud of this project we've built as a community, and hope to continue to be the go-to FLOSS video streaming solution for a long time to come. Happy watching!
