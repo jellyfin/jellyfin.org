@@ -33,7 +33,7 @@ There are several key changes with 10.9.0 that administrative users should be aw
 
 ## The Big Changes
 
-This release has been nearly (over?) two years in the making, so we're really glad to finally get it out to you. The long cycle does mean quite an extensive changelog however, with well over 1100 pull requests merged into our `master` branch since 10.8.0 first dropped back in 2022. This section will detail all the big changes, broken up by general function and area of the system. In addition to these big items, there are hundreds of smaller bugfixes, quality-of-life tweaks, and other minor changes that we won't touch on here, but if you want to see the full list, you can do so over on the GitHub releases for [the core server](https://github.com/jellyfin-sandbox/jellyfin/releases/tag/v10.9.0) and [the Web UI](https://github.com/jellyfin-sandbox/jellyfin-web/releases/tag/v10.9.0).
+This release has been nearly (over?) two years in the making, so we're really glad to finally get it out to you. The long cycle does mean quite an extensive changelog however, with well over 1100 pull requests merged into our `master` branch since 10.8.0 first dropped back in 2022. This section will detail all the big changes, broken up by general function and area of the system. In addition to these big items, there are hundreds of smaller bugfixes, quality-of-life tweaks, and other minor changes that we won't touch on here, but if you want to see the full list, you can do so over on the GitHub releases for [the core server](https://github.com/jellyfin/jellyfin/releases/tag/v10.9.0) and [the Web UI](https://github.com/jellyfin/jellyfin-web/releases/tag/v10.9.0).
 
 ### General
 
@@ -89,11 +89,13 @@ This release has been nearly (over?) two years in the making, so we're really gl
 
 ### Transcoding & FFmpeg
 
+* The `--ffmpeg` command-line flag is now the primary method of setting FFmpeg paths, and configuration of the FFmpeg paths via `encoding.xml` is now deprecated. All official packaging will revert to defaults unless explicitly set before upgrade.
+
 * Several audio improvements: support for Opus, FLAC, and ALAC codecs in the HLS engine; improved support and handling for transcoding DTS and TrueHD audio streams; new codec enforcement; better bitrate calculations; new audio normalization features; and stereo downmixing algorithm selection.
 
 * FFmpeg segments are now automatically deleted during transcoding, reducing the space of the transcoding temporary directory.
 
-* Support for direct playback of DVD and BluRay data folders, preferred over ISOs.
+* Support for direct stream playback of DVD and BluRay data folders, preferred over ISOs.
 
 * Support for AV1 hardware and software encoding.
 
@@ -115,7 +117,7 @@ This release has been nearly (over?) two years in the making, so we're really gl
 
 * Support for hearing-impaired subtitles (sdh/hi./cc).
 
-* Support for playlist ACLs with playlist sharing between users and enforcement of playlist ownership.
+* Support for playlist ACLs with playlist sharing between users and enforcement of playlist ownership. Existing playlists will become owner-only, and playlist permissions can be set when made global/shared. Playlists from library files will be global.
 
 * Invalid items will be automatically removed from playlists.
 
