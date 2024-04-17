@@ -99,11 +99,11 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     }
   },
   {
-    id: 'gh:DarkFighterLuke/TubeArchivistMetadata',
-    name: "DarkFighterLuke's Repo",
-    url: 'https://raw.githubusercontent.com/DarkFighterLuke/TubeArchivistMetadata/master/manifest.json',
+    id: 'gh:tubearchivist/tubearchivist-jf-plugin',
+    name: "TubeArchivist's Repo",
+    url: 'https://raw.githubusercontent.com/tubearchivist/tubearchivist-jf-plugin/master/manifest.json',
     includes: {
-      TubeArchivistMetadata: 'https://github.com/DarkFighterLuke/TubeArchivistMetadata'
+      TubeArchivistMetadata: 'https://github.com/tubearchivist/tubearchivist-jf-plugin'
     }
   }
 ];
