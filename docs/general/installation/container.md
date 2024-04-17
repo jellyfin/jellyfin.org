@@ -24,6 +24,12 @@ Additionally, there are several third parties providing unofficial container ima
 
 [Docker](https://www.docker.com/) allows you to run containers on Linux, Windows and MacOS.
 
+:::warning
+
+While it is possible to run Docker on Windows or macOS, it is an **UNSUPPORTED** configuration for Jellyfin. Please install Jellyfin natively if you wish to use Windows or macOS.
+
+:::
+
 The basic steps to create and run a Jellyfin container using Docker are as follows.
 
 1. Follow the [official installation guide to install Docker](https://docs.docker.com/engine/install).
