@@ -61,9 +61,7 @@ This release has been over two years in the making, so we're really glad to fina
 
 * LiveTV and Collection permissions are now discrete and configurable per-user.
 
-* All playback endpoints now enforce authentication, preventing anonymous users from streaming by potentially guessing item IDs (highly unlikely, but not impossible).
-
-* The EasyPassword feature has been removed as this was a big security risk especially for administrator accounts; PIN login is still supported.
+* The EasyPassword (PIN) feature has been removed as this was a big security risk especially for administrator accounts; QuickConnect login is still supported however.
 
 * User permission handling has been unified and numerous bugs fixed, ensuring a more secure server from untrusted users.
 
@@ -105,7 +103,7 @@ This release has been over two years in the making, so we're really glad to fina
 
 * Support for Vulkan-based tonemapping with AMD VA-API.
 
-* Support for hardware acceleration on Apple systems (both Apple Silicon and Intel).
+* Support for complete hardware acceleration on Apple systems (both Apple Silicon and Intel; previously was partial).
 
 * Support for Dolby Vision playback remuxing.
 
