@@ -55,7 +55,7 @@ For low power applications, Intel 12th gen or newer Atom CPUs with integrated gr
 
 :::caution SBCs (Single Board Computers)
 
-Most SBCs use low powered chipsets, often with less than ideal driver support from the chipset vendors. They are generally too slow for a good experience and/or have broken hardware acceleration support. Please avoid using SBCs such as Raspberry Pis (Including newer Raspberry Pi 5 Models) to run Jellyfin.
+Most SBCs use low powered chipsets, often with less than ideal driver support from the chipset vendors. They are generally too slow for a good experience and/or have broken hardware acceleration support. Please avoid using SBCs such as Raspberry Pis (Including newer Raspberry Pi 5 Models) to run Jellyfin. **One exception** is that the **Rockchip RK3588/3588S SoC based SBCs** provide excellent transcoding speed and power efficiency - H.264/HEVC up to 1080p@480fps or 4k@120fps transcoding with **single-digit** power consumption in watts. Another bonus is that it has **10-bit H.264 (High10) and AV1 decoding** support. Note that Rockchip hardware transcoding is only supported in **Jellyfin 10.9 or above**. Since these Arm based SBCs do not use an unified installation ISO image like x86-64 based PCs do. Please check with the SBC manufacturer or community maintainer for support and documentation before purchasing.
 
 :::
 
@@ -192,6 +192,27 @@ Supported codecs are listed below:
 Many hardware acceleration features are not available on macOS for Jellyfin, as the custom [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg) fork isn't available for macOS. No Apple Silicon media engine drivers exist for other operating systems currently. You will NOT be able to use hardware acceleration if you are running [Asahi Linux](https://asahilinux.org/).
 
 :::
+
+#### Rockchip VPU
+
+Currently only the VPU on RK3588/3588S SoC is recommended. It can handle most common video codecs, including AV1 decode.
+
+Supported codecs are listed below:
+
+| Codec          | RK3588/3588S  |
+| -------------- | ------------- |
+| MPEG1/2/4 8bit | 🔶            |
+| VC1 8bit       | ❌            |
+| H.264 8bit     | ✅            |
+| H.264 10bit    | 🔶            |
+| H.265 8bit     | ✅            |
+| H.265 10bit    | 🔶            |
+| VP8 8bit       | 🔶            |
+| VP9 8bit       | 🔶            |
+| VP9 10bit      | 🔶            |
+| AV1            | 🔶            |
+
+✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
 
 ### Storage
 
