@@ -7,6 +7,12 @@ title: Rockchip VPU
 
 This tutorial guides you on setting up full video hardware acceleration on Rockchip VPU via RKMPP.
 
+:::warning
+
+RKMPP hardware acceleration requires Jellyfin 10.9 or above.
+
+:::
+
 ## Acceleration Methods
 
 Hardware accelerated transcoding is supported and verified with the Rockchip VPU of RK3588/3588S SoC.
@@ -150,7 +156,7 @@ Root permission is required.
 
    - For the 6.1 LTS kernel on [Ubuntu-Rockchip](https://github.com/Joshua-Riek/ubuntu-rockchip) & [Armbian](https://github.com/armbian) and the legacy 5.10 LTS kernel, install [v1.9-1-2d267b0](https://github.com/tsukumijima/libmali-rockchip/releases/download/v1.9-1-2d267b0/libmali-valhall-g610-g13p0-gbm_1.9-1_arm64.deb).
 
-   - For the 6.1 LTS kernel on other SBC **vendor-made** distros, install [v1.9-1-b9619b9](https://github.com/tsukumijima/libmali-rockchip/releases/download/v1.9-1-b9619b9/libmali-valhall-g610-g13p0-gbm_1.9-1_arm64.deb).
+   - For the 6.1 LTS kernel on other SBC **vendor-made** distros, install [v1.9-1-55611b0](https://github.com/tsukumijima/libmali-rockchip/releases/download/v1.9-1-55611b0/libmali-valhall-g610-g13p0-gbm_1.9-1_arm64.deb).
 
 6. Check the OpenCL runtime status:
 
