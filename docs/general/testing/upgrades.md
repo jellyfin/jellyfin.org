@@ -87,9 +87,9 @@ Plugins are versioned in such a way that Unstable plugins will seamlessly upgrad
 
 1. Stop your Jellyfin container.
 
-2. Pull the `jellyfin/jellyfin:unstable` image tag.
+1. Pull the `jellyfin/jellyfin:unstable` image tag.
 
-3. Start a new Jellyfin container with the updated image.
+1. Start a new Jellyfin container with the updated image.
 
 ## Upgrading from Unstable to Stable upon Release
 
@@ -135,9 +135,9 @@ Plugins are versioned in such a way that Unstable plugins will seamlessly upgrad
 
 1. Stop your Jellyfin container.
 
-2. Pull the `jellyfin/jellyfin:latest` image tag.
+1. Pull the `jellyfin/jellyfin:latest` image tag.
 
-3. Start a new Jellyfin container with the updated image.
+1. Start a new Jellyfin container with the updated image.
 
 ### Post-Install (Unstable to Release)
 
@@ -175,9 +175,9 @@ We assume you are already running Jellyfin Unstable releases.
 
 1. Restore your backup of the configuration and data directories. Ensure you remove the current contents entirely (or move it out of the way) first.
 
-2. Pull the `jellyfin/jellyfin:latest` image tag.
+1. Pull the `jellyfin/jellyfin:latest` image tag.
 
-3. Start a new Jellyfin container with the updated image.
+1. Start a new Jellyfin container with the updated image.
 
 ### Post-Install (Unstable to Old Stable)
 
