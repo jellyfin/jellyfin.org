@@ -19,7 +19,7 @@ To install them, navigate to our [downloads page](/downloads/server) and choose 
 
 ![Downloads Page](/images/docs/testing/server/weekly-1.png)
 
-Follow the steps in [the Upgrade & Downgrade documentation](/docs/general/testing/upgrades-and-downgrades) for more detailed instructions.
+Follow the steps in the [Upgrade & Downgrade documentation](/docs/general/testing/upgrades-and-downgrades) for more detailed instructions.
 
 ## Testing from Master Branch
 

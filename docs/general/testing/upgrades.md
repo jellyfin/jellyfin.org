@@ -11,9 +11,9 @@ This document provides details on upgrading and downgrading between Stable and U
 
 Which install type to pick depends on your needs; ultimately, Unstable is for testing new things, while Stable is for running a server for others to use reliably.
 
-* Stable provides the most consistent and predictable user experience. A particular major release (e.g. 10.8.z, 10.9.z) will not introduce, remove, or change new major features or changes (with minor caveats for security). Bugfixes are provided in point releases, which are released as needed during the lifecycle of the major release in response to bugfixes and security advisories. Most users should generally use Stable releases, as this will ensure maximum uptime and consistency for your end users.
+* Stable provides the most consistent and predictable user experience. A particular major release (e.g. 10.8.z, 10.9.z) will not introduce, remove, or change major features or functionality (with minor caveats for security). Bugfixes are provided in point releases, which are released as needed during the lifecycle of the major release in response to bugfixes and security advisories. Most users should generally use Stable releases, as this will ensure maximum uptime and consistency for your end users.
 
-* Unstable provides the most up-to-date, cutting edge features, but may have rapid and unpredictable breaking changes or serious bugs, and have much more limited client support as API changes are made over time. Unstable releases are provided via weekly binary builds on Monday mornings around 5AM UTC, or by [building your own packages from the `master` code branches](https://github.com/jellyfin/jellyfin-packaging).
+* Unstable provides the most up-to-date, cutting edge features, but may have rapid and unpredictable breaking changes or serious bugs, and has more limited client support as API changes are made over time. Unstable releases are provided via weekly binary builds on Monday mornings around 5AM UTC, or by [building your own packages from the `master` code branches](https://github.com/jellyfin/jellyfin-packaging).
 
 In addition, Unstable is used to test forthcoming releases during the major release cycle since we provide no beta builds. If you want to help us test upcoming releases - and we ask that anyone able to do so does - you will need to run the Unstable builds for at least some amount of time, before switching back to Stable on release.
 
@@ -21,15 +21,15 @@ In addition, Unstable is used to test forthcoming releases during the major rele
 
 Because of the massive complexity of packaging Jellyfin for multiple unique platforms, not to mention 3rd party builds providing several more, with our 10.9.0 release and beyond we have decided not to provide explicitly tagged pre-release builds. This is quite unusual for free-and-open-source software, but is a practical necessity to streamline our major releases and increase their cadence.
 
-To compensate, we use a feature freeze window on major breaking changes before major releases, and leverage our scheduled weekly Unstable builds as an alternative. Before each major release, we will announce a schedule of the upcoming Unstable releases and how to map them to hypotehtical "beta" and "release candidate" prerelease versions. For instance, with a 4 week freeze, we might consider the first 3 weeks of Unstable builds as "beta" and the last week as "release candidate". If you want to get in some early testing, you can try it out in the first 3 weeks; if you'd rather wait until things are mostly settled, wait until the last week.
+To compensate, we use a feature freeze window on major breaking changes before major releases, and leverage our scheduled weekly Unstable builds as an alternative. Before each major release, we will announce a schedule of the upcoming Unstable releases and how to map them to hypothetical "beta" and "release candidate" pre-release versions. For instance, with a 4 week freeze, we might consider the first 3 weeks of Unstable builds as "beta" and the last week as "release candidate". If you want to get in some early testing, you can try it out in the first 3 weeks; if you'd rather wait until things are mostly settled, wait until the last week.
 
-While this system isn't perfect, it does streamline versioning significantly, helps us avoid a 3rd repository component/label, and helps give Unstable builds a bit more love around releases, while having very little additional administrative overhead versus explicit prerelease versions.
+While this system isn't perfect, it does streamline versioning significantly, helps us avoid a 3rd repository component/label, and helps give Unstable builds a bit more love around releases, while having very little additional administrative overhead versus explicit pre-release versions.
 
 ## Warnings & Notes
 
 ### Make Backups
 
-Generally, **once you've upgraded to an Unstable version** from a given Stable version, **you can't simply downgrade back to that original Stable version**. This is because Unstable versions will likely have made changes to the database schemas, configuration entires, and other metadata, which the older Stable version cannot handle.
+Generally, **once you've upgraded to an Unstable version** from a given Stable version, **you can't simply downgrade back to that original Stable version**. This is because Unstable versions will likely have made changes to the database schemas, configuration entries, and other metadata, which the older Stable version cannot handle.
 
 The only way to downgrade from an Unstable to an older Stable is to restore from a backup, or to completely clear out your data and start again. The exception is migrating from an Unstable to a newly released Stable major version at the time that Stable version is released.
 
@@ -43,11 +43,11 @@ How to back up your server depends on the exact platform, as each platform store
 
 ### Disable Automatic Updates on Unstable
 
-Running with automatic updates while on Unstable, or during a prerelease testing of Unstable, can cause problems. Always ensure you update manually and test things out afterwards. We generally recommend against automatic updates *in general* even on Stable, as it can result in missed release notes from new versions, but we understand how desirable this can be; avoid the temptation when running Unstable though to avoid missing important changes.
+Running with automatic updates while on Unstable, or during a pre-release testing of Unstable, can cause problems. Always ensure you update manually and test things out afterwards. We generally recommend against automatic updates *in general* even on Stable, as it can result in missed release notes from new versions, but we understand how desirable this can be; avoid the temptation when running Unstable though to avoid missing important changes.
 
 ## Upgrading from Stable to Unstable
 
-The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (e.g. manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of indvidual platforms, please see the child articles under ["Testing Jellyfin Server"](/docs/general/testing/server).
+The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (e.g. manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of individual platforms, please see the child articles under ["Testing Jellyfin Server"](/docs/general/testing/server).
 
 We assume you are already running Jellyfin Stable releases.
 
@@ -97,7 +97,7 @@ When a new major version of Jellyfin is released, it is possible - until the nex
 
 As part of the release process, Unstable weekly builds will be temporarily disabled for 1-2 weeks to provide a window for this to occur, after which they will resume as normal. If you wish to remain on Unstable, you can simply wait this out, otherwise follow the process here to "upgrade" back to the new Stable version.
 
-The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (e.g. manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of indvidual platforms, please see the child articles under ["Testing Jellyfin Server"](/docs/general/testing/server).
+The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (e.g. manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of individual platforms, please see the child articles under ["Testing Jellyfin Server"](/docs/general/testing/server).
 
 We assume you are already running Jellyfin Unstable releases.
 
@@ -147,7 +147,7 @@ Plugins are versioned in such a way that Unstable plugins will seamlessly upgrad
 
 As mentioned above, this process requires restoring from a backup taken before you first upgraded to Unstable.
 
-The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (e.g. manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of indvidual platforms, please see the child articles under ["Testing Jellyfin Server"](/docs/general/testing/server).
+The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (e.g. manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of individual platforms, please see the child articles under ["Testing Jellyfin Server"](/docs/general/testing/server).
 
 We assume you are already running Jellyfin Unstable releases.
 
