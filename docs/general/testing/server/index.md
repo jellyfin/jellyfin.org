@@ -19,6 +19,8 @@ To install them, navigate to our [downloads page](/downloads/server) and choose 
 
 ![Downloads Page](/images/docs/testing/server/weekly-1.png)
 
+Follow the steps in [the Upgrade & Downgrade documentation](/docs/general/testing/upgrades-and-downgrades) for more detailed instructions.
+
 ## Testing from Master Branch
 
-The Master branch of the server can be used to obtain the absolute bleeding edge. This is only intended for developers. Further info can be found [here](/docs/general/contributing/development).
+The Master branch of the server can be used to obtain the absolute bleeding edge. This is only intended for developers. Further info can be found [in the packaging repository itself](https://github.com/jellyfin/jellyfin-packaging) and [in the contributing docs](/docs/general/contributing/development).

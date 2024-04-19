@@ -1,6 +1,7 @@
 ---
 uid: testing-index
 title: Testing
+sidebar_position: 1
 ---
 
 # Testing Jellyfin
