@@ -70,6 +70,7 @@ Partial acceleration may result in slightly higher CPU usage and lower transcodi
 Jellyfin 10.8 supports full acceleration on mainstream Intel, NVIDIA and AMD (Windows only) GPUs.
 
 Jellyfin 10.9 enables full acceleration for:
+
 - AMD Polaris and newer GPUs on Linux via VA-API and Vulkan interop
 - Rockchip VPU of RK3588/3588S
 - Intel and Apple Silicon Macs on macOS 12 and above
