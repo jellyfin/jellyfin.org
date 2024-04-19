@@ -333,7 +333,7 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 10. The LTS kernel 6.6.26+ and the stable kernel 6.8.5+ have unresolved i915 driver bugs, which break HDR/DV tone-mapping on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please refrain from upgrading to those kernel versions.
 
-   - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
+    - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
 
 ### Configure On Linux Host
 
