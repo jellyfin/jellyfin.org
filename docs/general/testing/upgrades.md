@@ -58,10 +58,8 @@ We provide plugins for Stable and Unstable releases in separate repositories wit
 Plugins are versioned in such a way that Unstable plugins will seamlessly upgrade from the latest Stable plugin version to an Unstable plugin version, and then permit a seamless upgrade from the Unstable version to the next Stable version (e.g. 13.0.0.0 Stable -> 13.2024.0429.0 Unstable -> 14.0.0.0 Stable).
 
 1. In your Jellyfin server instance, navigate to the Dashboard -> Plugins -> Repositories.
-
-1. Delete the default "Stable" repository by clicking the trashcan button.
-
-1. Add a new repository with the "+" button. Name the repository whatever you wish, and use the following as the Repository URL.
+2. Delete the default "Stable" repository by clicking the trashcan button.
+3. Add a new repository with the "+" button. Name the repository whatever you wish, and use the following as the Repository URL.
 
    ```sh
    https://repo.jellyfin.org/files/plugin-unstable/manifest.json
@@ -70,26 +68,20 @@ Plugins are versioned in such a way that Unstable plugins will seamlessly upgrad
 ### Debian/Ubuntu Repositories (Stable to Unstable)
 
 1. Edit your `/etc/apt/sources.list.d/jellyfin.sources` and add `unstable` to the `Components:` line. **Do not** remove `main`, simply add `unstable` after it.
-
    ```sh
    ...
    Components: main unstable
    ...
    ```
-
-1. Run `sudo apt-get update`.
-
-1. Run `sudo apt-get upgrade` and apply the upgraded Jellyfin packages. Jellyfin will automatically restart.
-
-1. Once Jellyfin starts, if you updated your plugin repository above before upgrading, plugins will automatically upgrade to their newer Unstable versions. Wait until Jellyfin finishes starting, then restart the service again (either via the UI's "Restart" button or "systemctl" commands) to finish the upgrade.
+2. Run `sudo apt-get update`.
+3. Run `sudo apt-get upgrade` and apply the upgraded Jellyfin packages. Jellyfin will automatically restart.
+4. Once Jellyfin starts, if you updated your plugin repository above before upgrading, plugins will automatically upgrade to their newer Unstable versions. Wait until Jellyfin finishes starting, then restart the service again (either via the UI's "Restart" button or "systemctl" commands) to finish the upgrade.
 
 ### Docker (Stable to Unstable)
 
 1. Stop your Jellyfin container.
-
-1. Pull the `jellyfin/jellyfin:unstable` image tag.
-
-1. Start a new Jellyfin container with the updated image.
+2. Pull the `jellyfin/jellyfin:unstable` image tag.
+3. Start a new Jellyfin container with the updated image.
 
 ## Upgrading from Unstable to Stable upon Release
 
@@ -108,11 +100,8 @@ We provide plugins for Stable and Unstable releases in separate repositories wit
 Plugins are versioned in such a way that Unstable plugins will seamlessly upgrade from the latest Stable plugin version to an Unstable plugin version, and then permit a seamless upgrade from the Unstable version to the next Stable version (e.g. 13.0.0.0 Stable -> 13.2024.0429.0 Unstable -> 14.0.0.0 Stable).
 
 1. In your Jellyfin server instance, navigate to the Dashboard -> Plugins -> Repositories.
-
-1. Delete the "Unstable" repository by clicking the trashcan button.
-
-1. Add a new repository with the "+" button. Name the repository whatever you wish ("Stable" is the default), and use the following as the Repository URL.
-
+2. Delete the "Unstable" repository by clicking the trashcan button.
+3. Add a new repository with the "+" button. Name the repository whatever you wish ("Stable" is the default), and use the following as the Repository URL.
    ```sh
    https://repo.jellyfin.org/files/plugin/manifest.json
    ```
@@ -120,24 +109,19 @@ Plugins are versioned in such a way that Unstable plugins will seamlessly upgrad
 ### Debian/Ubuntu (Unstable to Release)
 
 1. Edit your `/etc/apt/sources.list.d/jellyfin.sources` and remove `unstable` from the `Components:` line.
-
    ```sh
    ...
    Components: main
    ...
    ```
-
-1. Run `sudo apt-get update`.
-
-1. Run `sudo apt-get install --reinstall jellyfin jellyfin-server jellyfin-web`. This will forcibly reinstall the new Stable version over top of the Unstable version. Jellyfin will automatically restart.
+2. Run `sudo apt-get update`.
+3. Run `sudo apt-get install --reinstall jellyfin jellyfin-server jellyfin-web`. This will forcibly reinstall the new Stable version over top of the Unstable version. Jellyfin will automatically restart.
 
 ### Docker (Unstable to Release)
 
 1. Stop your Jellyfin container.
-
-1. Pull the `jellyfin/jellyfin:latest` image tag.
-
-1. Start a new Jellyfin container with the updated image.
+2. Pull the `jellyfin/jellyfin:latest` image tag.
+3. Start a new Jellyfin container with the updated image.
 
 ### Post-Install (Unstable to Release)
 
@@ -154,30 +138,22 @@ We assume you are already running Jellyfin Unstable releases.
 ### Debian/Ubuntu (Unstable to Old Stable)
 
 1. Stop Jellyfin using the service manager e.g. `sudo service jellyfin stop` or `sudo systemctl stop jellyfin`. Ensure Jellyfin has actually stopped.
-
-1. Restore your backup of the configuration and data directories. Ensure you remove the current contents entirely (or move it out of the way) first.
-
-1. Edit your `/etc/apt/sources.list.d/jellyfin.sources` and remove `unstable` from the `Components:` line.
-
+2. Restore your backup of the configuration and data directories. Ensure you remove the current contents entirely (or move it out of the way) first.
+3. Edit your `/etc/apt/sources.list.d/jellyfin.sources` and remove `unstable` from the `Components:` line.
    ```sh
    ...
    Components: main
    ...
    ```
-
-1. Run `sudo apt-get update`.
-
-1. Run `sudo apt-get install --reinstall jellyfin jellyfin-server jellyfin-web`. This will forcibly reinstall the new Stable version over top of the Unstable version. Jellyfin should automatically start; if not, use the service manager e.g. `sudo service jellyfin start` or `sudo systemctl start jellyfin`.
+4. Run `sudo apt-get update`.
+5. Run `sudo apt-get install --reinstall jellyfin jellyfin-server jellyfin-web`. This will forcibly reinstall the new Stable version over top of the Unstable version. Jellyfin should automatically start; if not, use the service manager e.g. `sudo service jellyfin start` or `sudo systemctl start jellyfin`.
 
 ### Docker (Unstable to Old Stable)
 
 1. Stop your Jellyfin container.
-
-1. Restore your backup of the configuration and data directories. Ensure you remove the current contents entirely (or move it out of the way) first.
-
-1. Pull the `jellyfin/jellyfin:latest` image tag.
-
-1. Start a new Jellyfin container with the updated image.
+2. Restore your backup of the configuration and data directories. Ensure you remove the current contents entirely (or move it out of the way) first.
+3. Pull the `jellyfin/jellyfin:latest` image tag.
+4. Start a new Jellyfin container with the updated image.
 
 ### Post-Install (Unstable to Old Stable)
 
