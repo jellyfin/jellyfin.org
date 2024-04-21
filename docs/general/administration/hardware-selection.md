@@ -102,9 +102,12 @@ With modern systems, the media engines are usually located on the GPUs. Therefor
 
 Encoder Quality: Apple ≥ Intel ≥ Nvidia >>> AMD
 
-Intel graphics is recommended over Nvidia graphics because the driver is much easier to install on Linux.
+Intel is always recommended on non-apple hardware for the following reasons:
 
-AMD is not recommended because of poor quality H.264 and H.265(HEVC) output. While AMD has significantly improved AV1 encoder quality. However you are still more likely to transcode to H.264 or H.265 than to AV1 due to compatibility.
+- Intel provides a good quality encoder, slightly better than Nvidia and significantly better than AMD.
+- Intel drivers and the compute environment is much easier to setup than both Nvidia and AMD
+
+AMD is not recommended because of poor quality H.264 and H.265(HEVC) output, as well as being hard to setup the compute environment. While AMD has significantly improved AV1 encoder quality. However you are still more likely to transcode to H.264 or H.265 than to AV1 due to compatibility.
 
 A list of common codecs can be found [here](/docs/general/clients/codec-support/)
 
