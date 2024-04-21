@@ -23,7 +23,7 @@ Some component recommendations do not change regardless of the hardware configur
 
 Different vendors have different hardware encoder implementations and produce different results. Usually, newer generations within the same vendor will provide better results. The following is a quick comparison on the quality between vendors on modern products.
 
-Apple ≥ Intel > Nvidia >>> AMD
+Apple ≥ Intel ≥ Nvidia >>> AMD
 
 ### Server with Integrated Graphics
 
@@ -41,20 +41,24 @@ If you are planning to use a dedicated graphics card (including upgrading an old
 
 - CPU: Intel Core i5-2300， AMD FX-8100 or better (Geekbench 6 Multicore 1500 or better), CPU Vendor / Performance will **NOT** affect hardware encode speed or quality
 - RAM: 8GB (4GB should be enough for a server running Linux without a GUI)
-- Graphics: Intel Arc A series or newer, Nvidia GTX16/RTX20 series or newer (Excluding GTX1650), **AMD NOT recommended**.
+- Graphics: Intel Arc A series or newer, Nvidia GTX16/RTX20 series or newer (Excluding GTX1650), **AMD is NOT recommended**.
+
+Intel Drivers are much easier to install on Linux, with many distributions including them by default. If you do not need CUDA for other applications, it is highly recommended that you stick iwht Intel Graphics on Linux.
 
 ### Low Power Servers
 
 For users with expensive power or running servers on battery power:
 
-- Intel 12th gen N series platforms (Idle ~10w, Full ~15w)
-- Apple M Series mac mini (Idle ~5w, Full ~40w)
-- Rockchip RK3588 / RK3588S SBC (Idle ~5w, Full ~15w, **Advanced Users Only**)
+- Intel 12th gen N series platforms
+- Apple M Series mac mini
+- Rockchip RK3588 / RK3588S SBC (**Advanced Users Only**)
 
-### Do Not buy
+Power consumption: Intel 12th gen N series > Apple M series mac mini > Rockchip RK3588 / RK3588S
+
+### Watch Out for These Platforms
 
 - Intel "Atom" CPUs: Intel J/M/N/Y series low power CPUs up to 11th gen use a different architecture than higher end parts, leading to subpar performance despite what their names might suggest. Please be careful about these parts when shopping for a system to run Jellyfin.
-- Prebuilt NAS devices: Prebuilt NAS devices often have low powered CPUs underpowered for a good Jellyfin experience. Please lookout for the specs
+- Prebuilt NAS devices: The software environment on most Prebuilt NAS devices often causes 3rd party software to be hard to install and not work properly. They also often have low end processors that are too slow for a good Jellyfin experience (Intel Atom, Realtek ARM CPUs etc.).
 - Most SBCs (Single Board Computers): Most SBCs (Including Raspberry Pis) are too slow to provide a good Jellyfin experience. If You really want to run Jellyfin on a SBC, please look at models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
 - AMD Graphics: AMD Graphics have poor encoder quality and poor driver support. **This applies even on Linux**.
 - Low end GPUs: Certain low end GPUs (eg. GT1030, RX6400) don't have hardware encoding available. These models can't be used for Jellyfin hardware acceleration.
@@ -72,7 +76,7 @@ Audio codecs are very lightweight and most CPUs should be able to handle them wi
 
 Video in unsupported codecs are usually older formats that are easier to decode. Assuming hardware acceleration is properly configured, any modern CPU with 4 threads should be able to handle the workload.
 
-Newer codecs can also require software decoding if there are no available hardware decoders. HEVC, VP9 and AV1 can be **VERY** demanding even on modern CPUs if hardware acceleration isn't available.
+However, newer codecs can also require software decoding if there are no available hardware decoders. HEVC, VP9 and AV1 can be **VERY** demanding even on modern CPUs if hardware acceleration isn't available. This is why a hardware platform capable of HEVC 10bit hardware decoding is strongly recommended.
 
 #### Integrated Graphics
 
@@ -81,6 +85,8 @@ Integrated graphics can be useful for transcoding video. Please refer to [the GP
 #### Resizable BAR
 
 [Resizable Bar (ReBAR)](https://www.intel.com/content/www/us/en/support/articles/000090831/graphics.html) is a PCI Express feature that optimizes access to PCIe devices. This feature requires support from both the platform and the device. Intel 10th gen or above and AMD Ryzen 3000 Series or above have support for this feature.
+
+In BIOS settings of motherboards, it may also be called `Smart Access Memory` or `Clever Access Memory`
 
 When using Intel ARC Graphics, Resizable BAR is recommended. Disabling it will result in a 10% reduction in transcoding performance. However, given how fast the media engine on Intel ARC is, this will not be a problem for the vast majority of users.
 
@@ -94,11 +100,11 @@ It is recommended to add more memory on Windows 11 due to the OS being heavier.
 
 With modern systems, the media engines are usually located on the GPUs. Therefore, the available hardware acceleration options are determined by the choice of GPU.
 
-Encoder Quality: Apple ≥ Intel > Nvidia >>> AMD
+Encoder Quality: Apple ≥ Intel ≥ Nvidia >>> AMD
 
-Intel graphics is recommended over Nvidia graphics because of the quality. AMD is not recommended because of poor quality H.264 and H.265(HEVC) output.
+Intel graphics is recommended over Nvidia graphics because the driver is much easier to install on Linux.
 
-AMD has significantly improved AV1 encoder quality. However you are still more likely to transcode to H.264 or H.265 than to AV1 due to compatibility.
+AMD is not recommended because of poor quality H.264 and H.265(HEVC) output. While AMD has significantly improved AV1 encoder quality. However you are still more likely to transcode to H.264 or H.265 than to AV1 due to compatibility.
 
 A list of common codecs can be found [here](/docs/general/clients/codec-support/)
 
@@ -108,7 +114,7 @@ The following is a list of video codecs Jellyfin supports transocding to:
 - H.265 (Limited supported by clients)
 - AV1 (New in 10.9, supported by most modern browsers)
 
-For decoding support, the more codecs the better. However, there are only a few codecs that media is commonly available in, as listed above.
+For decoding support, the more codecs the better. However, there are only a few codecs that media is commonly available in. The most important one to look for is HEVC 10bit decoding support, as it can be very demanding on the CPU to decode.
 
 #### Intel Graphics
 
@@ -116,7 +122,13 @@ Please refer to [this table](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Vide
 
 Intel CPUs with a model description that ends with F don't have integrated graphics. These are intended to be used with a dedicated graphics card. Please beware if you intend to use Intel integrated graphics.
 
-If you are planning to use Linux with Intel 12/13th Gen integrated graphics or ARC, these GPUs only work on Linux Kernel 6.2 or newer. Please check your distribution to make sure it has a supported Linux Kernel version.
+If you are planning to use Linux with Intel 12/13th Gen integrated graphics or ARC, these GPUs only work on Linux Kernel 6.2 or newer. Please check your distribution to make sure it has a supported Linux Kernel version. Please read [Known Intel limitations on Linux](/docs/general/administration/hardware-acceleration/intel#known-issues-and-limitations-on-linux) for more info.
+
+:::caution Intel HDR Tonemapping on Windows
+
+HDR Tonemapping may not work on Intel driver versions `31.0.101.5186 / 31.0.101.5234` or newer on Windows. Please read [Known Intel limitations on Windows](docs/general/administration/hardware-acceleration/intel#known-issues-and-limitations-on-windows) for more info.
+
+:::
 
 #### Nvidia Graphics
 
