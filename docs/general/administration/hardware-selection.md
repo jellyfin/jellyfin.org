@@ -55,7 +55,9 @@ For users with expensive power or running servers on battery power:
 
 Power consumption: Intel 12th gen N series > Apple M series mac mini > Rockchip RK3588 / RK3588S
 
-### Watch Out for These Platforms
+### Potentially Problematic Hardware
+
+These hardware platforms might lead to a poor Jellyfin experience. Please be careful to avoid them when shopping for hardware.
 
 - Intel "Atom" CPUs: Intel J/M/N/Y series low power CPUs up to 11th gen use a different architecture than higher end parts, leading to subpar performance despite what their names might suggest. Please be careful about these parts when shopping for a system to run Jellyfin.
 - Prebuilt NAS devices: The software environment on most Prebuilt NAS devices often causes 3rd party software to be hard to install and not work properly. They also often have low end processors that are too slow for a good Jellyfin experience (Intel Atom, Realtek ARM CPUs etc.).
