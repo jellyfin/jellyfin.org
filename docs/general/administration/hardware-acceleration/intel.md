@@ -151,7 +151,7 @@ Intel improves the speed and video quality of its fixed-function encoders betwee
 
 They can be divided into 4 tiers by their performance：
 
-- **Entry-Level** - HD / UHD 500, 600, 605 and 61x
+- **Entry-Level** - HD / UHD 600, 605 and 61x
 
   :::tip
 
