@@ -82,6 +82,8 @@ Video in unsupported codecs are usually older formats that are easier to decode.
 
 However, newer codecs can also require software decoding if there are no available hardware decoders. HEVC, VP9 and AV1 can be **VERY** demanding even on modern CPUs if hardware acceleration isn't available. This is why a hardware platform capable of HEVC 10bit hardware decoding is strongly recommended.
 
+In our custom `jellyfin-ffmpeg` fork, the dav1d decoder is enabled, leading to faster software decoding compared to HEVC or VP9. However, it will still use significantly more resources compared to software decoding H.264 or older codecs. Since we have a more efficient AV1 software decoder, and AV1 media isn't common yet, you shouldn't worry about AV1 when shopping for hardware.
+
 #### Integrated Graphics
 
 Integrated graphics can be useful for transcoding video. Please refer to [the GPU section](/docs/general/administration/hardware-selection#graphics-cards-gpus) for a guide.
