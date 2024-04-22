@@ -23,7 +23,9 @@ Some component recommendations do not change regardless of the hardware configur
 
 Different vendors have different hardware encoder implementations and produce different results. Usually, newer generations within the same vendor will provide better results. The following is a quick comparison on the quality between vendors on modern products.
 
-Apple ≥ Intel ≥ Nvidia >>> AMD
+Apple ≥ Intel ≥ Nvidia >>> AMD<sup>\*</sup>
+
+<sup>\*</sup> This only represents the default Jellyfin settings. The quality may be different depending on your exact configuration.
 
 ### Server with Integrated Graphics
 
@@ -43,7 +45,7 @@ If you are planning to use a dedicated graphics card (including upgrading an old
 - RAM: 8GB (4GB should be enough for a server running Linux without a GUI)
 - Graphics: Intel Arc A series or newer, Nvidia GTX16/RTX20 series or newer (Excluding GTX1650), **AMD is NOT recommended**.
 
-Intel Drivers are much easier to install on Linux, with many distributions including them by default. If you do not need CUDA for other applications, it is highly recommended that you stick iwht Intel Graphics on Linux.
+Intel Drivers are much easier to install on Linux, with many distributions including them by default. If you do not need CUDA for other applications, it is highly recommended that you stick with Intel Graphics on Linux.
 
 ### Low Power Servers
 
@@ -102,7 +104,9 @@ It is recommended to add more memory on Windows 11 due to the OS being heavier.
 
 With modern systems, the media engines are usually located on the GPUs. Therefore, the available hardware acceleration options are determined by the choice of GPU.
 
-Encoder Quality: Apple ≥ Intel ≥ Nvidia >>> AMD
+Encoder Quality: Apple ≥ Intel ≥ Nvidia >>> AMD<sup>\*</sup>
+
+<sup>\*</sup> This only represents the default Jellyfin settings. The quality may be different depending on your exact configuration.
 
 Intel is always recommended on non-apple hardware for the following reasons:
 
