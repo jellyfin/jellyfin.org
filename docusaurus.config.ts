@@ -69,7 +69,7 @@ const config: Config = {
       logo: {
         alt: 'Jellyfin Logo',
         src: 'images/logo.svg',
-        width: 240,
+        width: 280,
         height: 80
       },
       links: [
