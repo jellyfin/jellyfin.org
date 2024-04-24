@@ -29,7 +29,7 @@ The core team consists of those with merge permissions on the main Jellyfin repo
 | Anthony Lavado | [GitHub](https://github.com/anthonylavado) |
 | Andrew Rabert  | [GitHub](https://github.com/nvllsvm) |
 | Bond-009 | [GitHub](https://github.com/Bond-009) |
-| dkanada | [GitHub](https://github.com/dkanada) |
 | Claus Vium | [GitHub](https://github.com/cvium) |
 | Bill Thornton | [GitHub](https://github.com/thornbill) |
 | Cody Robibero | [GitHub](https://github.com/crobibero) |
+| Niels van Velzen | [GitHub](https://github.com/nielsvanvelzen) |
