@@ -53,6 +53,7 @@ For users with expensive power or running servers on battery power:
 
 - Intel 12th gen N series platforms
 - Apple M Series mac mini
+- Intel-Based [Framework Laptop Mainboards](https://frame.work/marketplace/mainboards)
 - Rockchip RK3588 / RK3588S SBC (**Advanced Users Only**)
 
 ### Potentially Problematic Hardware
