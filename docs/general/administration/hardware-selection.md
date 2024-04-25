@@ -55,8 +55,6 @@ For users with expensive power or running servers on battery power:
 - Apple M Series mac mini
 - Rockchip RK3588 / RK3588S SBC (**Advanced Users Only**)
 
-Power consumption: Intel 12th gen N series > Apple M series mac mini > Rockchip RK3588 / RK3588S
-
 ### Potentially Problematic Hardware
 
 These hardware platforms might lead to a poor Jellyfin experience. Please be careful to avoid them when shopping for hardware.
