@@ -134,6 +134,8 @@ Root permission is required.
 
 4. Add the `jellyfin` user to the `render` and `video` group, then restart the `jellyfin` service:
 
+   You can skip this step if you intend to run Jellyfin in a container (eg. Docker)
+
    :::note
 
    On some distros, the group may be `input`.
@@ -176,6 +178,8 @@ Root permission is required.
 7. Enable RKMPP in Jellyfin and uncheck the unsupported codecs.
 
 ### Configure With Linux Virtualization
+
+Before proceeding, you should complete the [Configure on Linux Host](#configure-on-linux-host) section above.
 
 #### Official Docker
 
