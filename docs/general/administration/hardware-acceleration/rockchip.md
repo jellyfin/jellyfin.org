@@ -179,7 +179,7 @@ Root permission is required.
 
 ### Configure With Linux Virtualization
 
-Before proceeding, you should complete the [Configure on Linux Host](#configure-on-linux-host) section above.
+Before proceeding, please complete the [Configure on Linux Host](#configure-on-linux-host) section above.
 
 #### Official Docker
 
