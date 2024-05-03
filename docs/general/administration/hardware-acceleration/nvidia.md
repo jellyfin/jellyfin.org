@@ -123,7 +123,7 @@ NVENC/NVDEC performance tables:
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.8 the minimum required NVIDIA driver version is 471.41**.
+Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.9 the minimum required NVIDIA driver version is 522.25**.
 
 ### Configure On Windows Host
 
@@ -161,13 +161,13 @@ Refer to [Configure On Linux Host](/docs/general/administration/hardware-acceler
 
 ## Linux Setups
 
-A 64-bit Linux distribution is required. **In Jellyfin 10.8 the minimum required NVIDIA driver version is 470.57.02**.
+A 64-bit Linux distribution is required. **In Jellyfin 10.9 the minimum required NVIDIA driver version is 520.56.06**.
 
 ### Configure On Linux Host
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg5` deb package required by Jellyfin 10.8 doesn't include any NVIDIA proprietary driver.
+The `jellyfin-ffmpeg6` deb package required by Jellyfin 10.9 doesn't include any NVIDIA proprietary driver.
 
 You have to install the NVIDIA driver from the distro and configure the the permission of the `jellyfin` user.
 
@@ -179,10 +179,10 @@ Root permission is required.
 
 1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
 
-2. Install the `jellyfin-ffmpeg5` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
+2. Install the `jellyfin-ffmpeg6` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
    ```shell
-   sudo apt update && sudo apt install -y jellyfin-ffmpeg5
+   sudo apt update && sudo apt install -y jellyfin-ffmpeg6
    ```
 
 3. Install the NVIDIA proprietary driver by following these links. Then install two extra packages for NVENC and NVDEC support:
@@ -211,7 +211,7 @@ Root permission is required.
    $ nvidia-smi
 
    +-----------------------------------------------------------------------------+
-   | NVIDIA-SMI 470.161.03   Driver Version: 470.161.03   CUDA Version: 11.4     |
+   | NVIDIA-SMI 520.56.06    Driver Version: 520.56.06    CUDA Version: 11.8     |
    |-------------------------------+----------------------+----------------------+
    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
@@ -230,7 +230,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -276,7 +276,7 @@ They can be downloaded from one of these links:
 
 Minimum requirements for glibc and Linux versions:
 
-- x86_64 / amd64 - glibc >= 2.23, Linux >= 4.4 (most distros released in 2016 and later)
+- x86_64 / amd64 - glibc >= 2.28, Linux >= 4.18 (most distros released in 2018 and later)
 
 :::
 
@@ -436,7 +436,7 @@ Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](/
    $ nvidia-smi
 
    +-----------------------------------------------------------------------------+
-   | NVIDIA-SMI 470.161.03   Driver Version: 470.161.03   CUDA Version: 11.4     |
+   | NVIDIA-SMI 520.56.06    Driver Version: 520.56.06    CUDA Version: 11.8     |
    |-------------------------------+----------------------+----------------------+
    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
