@@ -41,7 +41,7 @@ There are two different methods that can be used on Windows and/or Linux. Pros a
 
    - Pros - Supports Dolby Vision P5, detailed fine-tuning options, widely supported hardware.
 
-   - Cons - Windows only, zero-copy supports all GCN+ GPUs.
+   - Cons - Zero-copy is not supported on Linux.
 
 2. **Vulkan**
 
