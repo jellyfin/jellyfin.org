@@ -16,8 +16,8 @@ All package builds begin with these two steps:
 1. Clone the repository.
 
    ```sh
-   git clone https://github.com/jellyfin/jellyfin.git
-   cd jellyfin
+   git clone https://github.com/jellyfin/jellyfin-packaging.git
+   cd jellyfin-packaging
    ```
 
 2. Initialize the submodules.
@@ -31,16 +31,24 @@ All package builds begin with these two steps:
 1. Build the container image using Docker or Podman.
 
    ```sh
-   docker build -t $USERNAME/jellyfin .
+   docker build -t $USERNAME/jellyfin --file docker/Dockerfile .
    ```
 
    or
 
    ```sh
-   podman build -t $USERNAME/jellyfin .
+   podman build -t $USERNAME/jellyfin --file docker/Dockerfile .
    ```
 
-2. Run Jellyfin in a new container using Docker or Podman from the built container image.
+   or use provided Python build script:
+
+   ```sh
+   ./build.py auto docker
+   ```
+
+   Replace "auto" with your own Jellyfin version tag if you want to.
+
+3. Run Jellyfin in a new container using Docker or Podman from the built container image.
 
    ```sh
    docker run -d -p 8096:8096 $USERNAME/jellyfin
