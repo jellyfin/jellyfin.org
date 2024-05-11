@@ -30,6 +30,8 @@ There are several key changes with 10.9.0 that administrative users should be aw
 
 * Docker users: We now offer GitHub Container Registry (GHCR) as an alternative container registry in addition to Docker Hub. You can pull images from the new registry via URIs like `ghcr.io/jellyfin/jellyfin:latest`. Don't worry, we have no plans to drop Docker Hub as a container registry, but we feel providing both gives users more choice and flexibility.
 
+* Docker users: If you encounter problems loading your homepage, you may need to remove the `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT` environment variable from your container, as this is no longer valid in Jellyfin 10.9.0. For more details [please see](https://github.com/jellyfin/jellyfin/issues/11533)[these issues](https://github.com/jellyfin/jellyfin/issues/11528).
+
 ## The Big Changes
 
 This release has been over two years in the making, so we're really glad to finally get it out to you. The long cycle does mean quite an extensive changelog however, with well over 1100 pull requests merged into our `master` branch since 10.8.0 first dropped back in 2022. This section will detail all the big changes, broken up by general function and area of the system. In addition to these big items, there are hundreds of smaller bugfixes, quality-of-life tweaks, and other minor changes that we won't touch on here, but if you want to see the full list, you can do so over on the GitHub releases for [the core server](https://github.com/jellyfin/jellyfin/releases/tag/v10.9.0) and [the Web UI](https://github.com/jellyfin/jellyfin-web/releases/tag/v10.9.0).
