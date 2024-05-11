@@ -12,6 +12,7 @@ sidebar_position: 5
 macOS Application packages and builds in TAR archive format are available [here](/downloads/macos).
 
 Jellyfin requires macOS 12 or newer to run.
+Jellyfin 10.9 or newer is required for Apple Silicon native support.
 
 ## Packaged Version(dmg)
 
