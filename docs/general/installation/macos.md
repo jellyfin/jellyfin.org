@@ -15,7 +15,6 @@ Jellyfin requires macOS 12 or newer to run.
 Jellyfin 10.9 or newer is required for Apple Silicon native support.
 
 ## Packaged Version(dmg)
-=======
 
 ### Install
 
