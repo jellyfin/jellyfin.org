@@ -11,9 +11,9 @@ This document provides details on upgrading and downgrading between Stable and U
 
 Which install type to pick depends on your needs; ultimately, Unstable is for testing new things, while Stable is for running a server for others to use reliably.
 
-* Stable provides the most consistent and predictable user experience. A particular major release (e.g. 10.8.z, 10.9.z) will not introduce, remove, or change major features or functionality (with minor caveats for security). Bugfixes are provided in point releases, which are released as needed during the lifecycle of the major release in response to bugfixes and security advisories. Most users should generally use Stable releases, as this will ensure maximum uptime and consistency for your end users.
+- Stable provides the most consistent and predictable user experience. A particular major release (e.g. 10.8.z, 10.9.z) will not introduce, remove, or change major features or functionality (with minor caveats for security). Bugfixes are provided in point releases, which are released as needed during the lifecycle of the major release in response to bugfixes and security advisories. Most users should generally use Stable releases, as this will ensure maximum uptime and consistency for your end users.
 
-* Unstable provides the most up-to-date, cutting edge features, but may have rapid and unpredictable breaking changes or serious bugs, and has more limited client support as API changes are made over time. Unstable releases are provided via weekly binary builds on Monday mornings around 5:00 AM UTC, or by [building your own packages from the `master` code branches](https://github.com/jellyfin/jellyfin-packaging).
+- Unstable provides the most up-to-date, cutting edge features, but may have rapid and unpredictable breaking changes or serious bugs, and has more limited client support as API changes are made over time. Unstable releases are provided via weekly binary builds on Monday mornings around 5:00 AM UTC, or by [building your own packages from the `master` code branches](https://github.com/jellyfin/jellyfin-packaging).
 
 In addition, Unstable is used to test forthcoming releases during the major release cycle since we provide no beta builds. If you want to help us test upcoming releases - and we ask that anyone able to do so does - you will need to run the Unstable builds for at least some amount of time, before switching back to Stable on release.
 
@@ -43,7 +43,7 @@ How to back up your server depends on the exact platform, as each platform store
 
 ### Disable Automatic Updates on Unstable
 
-Running with automatic updates while on Unstable, or during a pre-release testing of Unstable, can cause problems. Always ensure you update manually and test things out afterwards. We generally recommend against automatic updates *in general* even on Stable, as it can result in missed release notes from new versions, but we understand how desirable this can be; avoid the temptation when running Unstable though to avoid missing important changes.
+Running with automatic updates while on Unstable, or during a pre-release testing of Unstable, can cause problems. Always ensure you update manually and test things out afterwards. We generally recommend against automatic updates _in general_ even on Stable, as it can result in missed release notes from new versions, but we understand how desirable this can be; avoid the temptation when running Unstable though to avoid missing important changes.
 
 ## Upgrading from Stable to Unstable
 
@@ -120,7 +120,10 @@ Plugins are versioned in such a way that Unstable plugins will seamlessly upgrad
    ```
 
 2. Run `sudo apt-get update`.
-3. Run `sudo apt-get install --reinstall jellyfin jellyfin-server jellyfin-web`. This will forcibly reinstall the new Stable version over top of the Unstable version. Jellyfin will automatically restart.
+3. Run `sudo apt install jellyfin=<version> jellyfin-server=<version> jellyfin-web=<version>`.
+   Replace `<version>` with the desired version number, for example, `10.9.1+ubu2204`. This will reinstall the Stable version over top of the Unstable version. Jellyfin will automatically restart.
+
+   Example: `sudo apt install jellyfin=10.9.1+ubu2204 jellyfin-server=10.9.1+ubu2204 jellyfin-web=10.9.1+ubu2204`
 
 ### Docker (Unstable to Release)
 
