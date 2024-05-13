@@ -32,7 +32,7 @@ There are several key changes with 10.9.0 that administrative users should be aw
 
 * Docker users: If you encounter problems loading your homepage, you may need to remove the `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT` environment variable from your container, as this is no longer valid in Jellyfin 10.9.0. For more details [please see](https://github.com/jellyfin/jellyfin/issues/11533) [these issues](https://github.com/jellyfin/jellyfin/issues/11528).
 
-* NGINX reverse proxy users: If you have a block in your NGINX config that begins with `location ~ ^/web/$ {` and the comment `# location block for /web - This is purely for aesthetics [...]`, please remove that block as it will cause [occasional issues with 404's and/or slow performance](https://github.com/jellyfin/jellyfin/issues/11540) on 10.9.z.
+* Nginx reverse proxy users: If you have a block in your nginx config that begins with `location ~ ^/web/$ {` and the comment `# location block for /web - This is purely for aesthetics [...]`, please remove that block as it will cause [occasional issues with 404's and/or slow performance](https://github.com/jellyfin/jellyfin/issues/11540) on 10.9.z.
 
 ## The Big Changes
 
