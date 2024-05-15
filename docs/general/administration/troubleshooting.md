@@ -83,6 +83,7 @@ To restore normal logging, you can remove the override `logging.json` (if you cr
         }
     }
 }
+```
 
 ## Real Time Monitoring
 
