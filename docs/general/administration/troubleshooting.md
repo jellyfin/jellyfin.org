@@ -28,19 +28,40 @@ This would indicate either an incorrect address or an issue somewhere else on th
 
 ## Debug Logging
 
-To enable much more verbose debug logging, it is currently required to manually edit a configuration file, since Jellyfin does not yet have an option to enable debug functionality within the frontend UI.
+Debug logging can be very useful when troubleshooting issues. To enable debug logging, manually editing a configuration file is required as Jellyfin does not control this from the frontend UI.
 
-To make this change, go to the [Jellyfin configuration directory](/docs/general/administration/configuration#configuration-directory) and find the `logging.json` file if it exists, or create the file if it does not. Debug logging is then enabled by changing the minimum logging level to debug as in the example below. If `logging.json` already exists and contains existing keys, the `"MinimumLevel"` key should be added to the `"Serilog"` object as seen in the example. If `logging.json` does not already exist, or if it is empty, a configuration containing only the following example structure will enable debug logging.
+Logging options can be configured in the file `logging.json` in the [Jellyfin configuration directory](/docs/general/administration/configuration#configuration-directory). On some platforms, there is also `logging.default.json` which provides default values which can then be overridden by a custom `logging.json`.
+
+:::caution
+
+Enabling debug logging will create a **very** large amount of output; as an example, simply loading the homepage will generate over 4000 lines of logs with the debug configuration below. Leaving debug logging enabled on a productive Jellyfin instance for a long period of time is not recommended, and it should be enabled only during troubleshooting.
+
+:::
+
+:::note
+
+If you are requested to provide debug logs in an issue or during troubleshooting, please compress the resulting log files if possible as they will be very large otherwise.
+
+:::
+
+To enable debug logging, create the `logging.json` file and add the following contents to it:
 
 ```json
 {
-  "Serilog": {
-    "MinimumLevel": "Debug"
-  }
+    "Serilog": {
+        "MinimumLevel": {
+            "Default": "Debug",
+            "Override": {
+                "": "Debug"
+            }
+        }
+    }
 }
 ```
 
-Debug messages appear in the log with the `DBG` tag prefixed to each line.
+If a `logging.json` file already exists, edit the `Serilog` section to match the above but do not change any other values in the file.
+
+Debug messages will appear in the log with the `DBG` tag prefixed to each line, though some components will also log additional details at `INF` with this configuration.
 
 :::note
 
@@ -48,15 +69,20 @@ If the `logging.json` file existed before the last server start, Jellyfin will a
 
 :::
 
-Once the need for verbose logging has passed, debug logging can be disabled by changing the `"MinimumLevel"` key in `logging.json` to `"Information"`, as in the example below, in order to restore the default logging level. It is not necessary to delete the `logging.json` configuration after debugging is complete.
+To restore normal logging, you can remove the override `logging.json` (if you created a new file above) or restore the `logging.json` to its default values of:
 
 ```json
 {
-  "Serilog": {
-    "MinimumLevel": "Information"
-  }
+    "Serilog": {
+        "MinimumLevel": {
+            "Default": "Information",
+            "Override": {
+                "Microsoft": "Warning",
+                "System": "Warning"
+            }
+        }
+    }
 }
-```
 
 ## Real Time Monitoring
 
