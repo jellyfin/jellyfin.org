@@ -69,7 +69,7 @@ If the `logging.json` file existed before the last server start, Jellyfin will a
 
 :::
 
-To restore normal logging, you can remove the override `logging.json` (if you created a new file above) or restore the `logging.json` to its default values of:
+To restore normal logging, you can remove the override `logging.json` (if you created a new file above) or restore the `logging.json` `Serilog` `MinimumLevel` section to its default values of:
 
 ```json
 {
