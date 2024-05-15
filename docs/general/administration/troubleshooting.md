@@ -59,7 +59,7 @@ To enable debug logging, create the `logging.json` file and add the following co
 }
 ```
 
-If a `logging.json` file already exists, edit the `Serilog` section to match the above but do not change any other values in the file.
+If a `logging.json` file already exists, edit the `Serilog` `MinimumLevel` section to match the above but do not change any other values in the file.
 
 Debug messages will appear in the log with the `DBG` tag prefixed to each line, though some components will also log additional details at `INF` with this configuration.
 
