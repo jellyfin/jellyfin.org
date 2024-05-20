@@ -40,7 +40,7 @@ Enabling debug logging will create a **very** large amount of output; as an exam
 
 :::note
 
-If you are requested to provide debug logs in an issue or during troubleshooting, please compress the resulting log files if possible as they will be very large otherwise.
+If you are requested to provide extensive debug logs in an issue or during troubleshooting (e.g. more than just a few lines), please compress the resulting log files if possible as they will be very large otherwise.
 
 :::
 
