@@ -108,7 +108,7 @@ With AV1, AMD has significantly improved the quality of their encoders. However,
 
 A list of common codecs can be found [here](/docs/general/clients/codec-support/)
 
-The following is a list of codecs Jellyfin supports transocding to:
+The following is a list of codecs Jellyfin supports transcoding to:
 
 - H.264 (Most common transcode target)
 - H.265 (Limited supported by clients)
