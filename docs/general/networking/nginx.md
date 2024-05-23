@@ -35,8 +35,9 @@ server {
 #}
 
 #server {
-    # listen 443 ssl http2;
-    # listen [::]:443 ssl http2;
+    # listen 443 ssl;
+    # listen [::]:443 ssl;
+    http2 on;
     server_name DOMAIN_NAME;
 
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
