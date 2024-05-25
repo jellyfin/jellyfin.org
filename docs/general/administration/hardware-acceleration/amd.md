@@ -285,6 +285,20 @@ Root permission is required.
    ...
    ```
 
+   `VAEntrypointVLD` means that your card is capable to decode this format, `VAEntrypointEncSlice` means that you can encode to this format.
+
+   | Jellyfin Setting | VA-API Profil                                                                                         |
+   |------------------|-------------------------------------------------------------------------------------------------------|
+   | H264             | VAProfileH264Baseline<br/>VAProfileH264Main<br/>VAProfileH264High<br/>VAProfileH264ConstrainedBaseline   |
+   | HEVC             | VAProfileHEVCMain                                                                                     |
+   | MPEG2            | VAProfileMPEG2Simple<br/>VAProfileMPEG2Main                                                            |
+   | VC1              | VAProfileVC1Simple<br/>VAProfileVC1Main<br/>VAProfileVC1Advanced                                        |
+   | VP8              | VAProfileVP8Version0<br/>VAProfileVP8Version1<br/>VAProfileVP8Version2<br/>VAProfileVP8Version3          |
+   | VP9              | VAProfileVP9Profile0                                                                                  |
+   | AV1              | VAProfileAV1Profile0                                                                                  |
+   | HEVC 10bit       | VAProfileHEVCMain10                                                                                   |
+   | VP9 10bit        | VAProfileVP9Profile2                                                                                  |
+
 6. Check the Vulkan runtime status:
 
    ```shell
@@ -310,7 +324,7 @@ Root permission is required.
 
 7. If you wish to use the second GPU, change `renderD128` to `renderD129` in the Jellyfin dashboard.
 
-8. Enable VA-API in Jellyfin and uncheck the unsupported codecs.
+8. Enable VA-API in Jellyfin and uncheck the unsupported codecs based on the vainfo output.
 
 #### Linux Mint
 
