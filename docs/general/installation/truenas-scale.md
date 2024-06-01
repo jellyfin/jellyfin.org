@@ -8,6 +8,7 @@ sidebar_position: 5
 Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.com/truenas-scale/) community app. The source code for the app is available on the TrueNAS [GitHub](https://github.com/truenas/charts/tree/master/community/jellyfin).
 
 ### Notes
+
     - For setup/install/network questions, try the [TrueNAS Forums](https://forums.truenas.com/).
         - Seeking help for TrueNAS SCALE on the [Jellyfin Forums](https://forum.jellyfin.org/) will depened on active forum members having experience with SCALE.
     - TrueNAS SCALE is a NAS OS built on Debian that provides an interface to deploy apps. TrueNAS is provided and maintained by [iXsystems](https://www.ixsystems.com/).
@@ -23,7 +24,7 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.com/truenas-scale
 
 3. In the main Apps page, click on the `Discover Apps` button on the top-right of the page.
     - Note that by default, all apps will only be from the community train unless you install a 3rd party's repo.
-    
+
 4. When the discover page opens, use the search bar to search for `Jellyfin`.
 
 5. Click on the Jellyfin app to open it, then click on the `Install` button to be taken to the setup wizard.
