@@ -24,7 +24,7 @@ Since December 2018, the project has grown immensely, through several speedbumps
 The core team consists of those with merge permissions on the main Jellyfin repositories, and thus have the ultimate decision authority for contributions to the core Jellyfin server and web client. In addition, each member has various other roles and responsibilities as defined below.
 
 | Person | Contact | Role(s) |
-|---|---|
+|---|---|---|
 | Joshua Boniface | [GitHub](https://github.com/joshuaboniface) [Matrix](https://matrix.to/#/@joshuaboniface:bonifacelabs.ca) [Email](mailto:joshua@boniface.me) | **Project Leader**, Packaging, Releases, Finance, Infrastructure |
 | Anthony Lavado | [GitHub](https://github.com/anthonylavado) | Social Media, Outreach, Finance |
 | Andrew Rabert  | [GitHub](https://github.com/nvllsvm) | Finance |
