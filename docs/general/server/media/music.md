@@ -41,6 +41,8 @@ Album
 └── Disc 3 Track 3.ogg
 ```
 
+In case of formats that do not support the metadata tags `disc number` and `total discs`, like MP3 files that only have the `track number` tag, you can code the CD number into that tag. One way to do that is to add the disc number multiplied by 100, so track 1 of disc 1 becomes track 101 of the album and track 4 of disc 2 becomes track 204. Another way is to number all tracks sequentially through the album, so if disc 1 ends on track 14, the first track of the second disc should be 15 and so on.
+
 ## Images
 
 Images can come from a few different sources. For music, there are 3 image types, as shown in this image.
