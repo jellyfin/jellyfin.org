@@ -10,11 +10,11 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.com/truenas-scale
 ### Notes
 
 - For setup/install/network questions, try the [TrueNAS Forums](https://forums.truenas.com/).
-    - Seeking help for TrueNAS SCALE on the [Jellyfin Forums](https://forum.jellyfin.org/) will depened on active forum members having experience with SCALE.
+  - Seeking help for TrueNAS SCALE on the [Jellyfin Forums](https://forum.jellyfin.org/) will depened on active forum members having experience with SCALE.
 - TrueNAS SCALE is a NAS OS built on Debian that provides an interface to deploy apps. TrueNAS is provided and maintained by [iXsystems](https://www.ixsystems.com/).
-    - Up until SCALE v24.04 (Dragonfish), Kubernetes was used to deploy apps.
-    - According to [an iXsystems staff member's post](https://forums.truenas.com/t/the-future-of-electric-eel-and-apps/5409), starting with SCALE v24.10 (Electric Eel), Kubernetes will be replaced with Docker to deploy apps on SCALE. You'll be able to use Docker Compose on SCALE. The staff member states for those upgrading their SCALE system to v24.10, any installed community apps (only) will be auto-converted to Docker Compose format. This means custom and 3rd party app deployments on SCALE may need user intervention to reconfigure moving forward. Refer to the container installation guide for further assistance with Docker when the time comes.
-    - The steps outlined below apply to SCALE v24.04.
+  - Up until SCALE v24.04 (Dragonfish), Kubernetes was used to deploy apps.
+  - According to [an iXsystems staff member's post](https://forums.truenas.com/t/the-future-of-electric-eel-and-apps/5409), starting with SCALE v24.10 (Electric Eel), Kubernetes will be replaced with Docker to deploy apps on SCALE. You'll be able to use Docker Compose on SCALE. The staff member states for those upgrading their SCALE system to v24.10, any installed community apps (only) will be auto-converted to Docker Compose format. This means custom and 3rd party app deployments on SCALE may need user intervention to reconfigure moving forward. Refer to the container installation guide for further assistance with Docker when the time comes.
+  - The steps outlined below apply to SCALE v24.04.
 
 ---
 
