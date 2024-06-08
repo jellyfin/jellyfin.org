@@ -24,6 +24,12 @@ Movies
     └── Film-cd2.avi
 ```
 
+:::caution ISO Files and other Disc Images
+
+While Jellyfin _should_ work with .iso files and other images, it is **explicitly** unsupported. It is recommended that those be extracted to BDMV or VIDEO_TS folders or remuxed to .mkv video files. Regardless of the source format, menus are not supported and only the main titles will be played.
+
+:::
+
 ## Multiple Versions of a Movie
 
 Multiple versions of a movie can be stored together and presented as a single title. Place each movie version in the same folder and give each version a name with the folder name as a prefix as seen below.
@@ -196,7 +202,7 @@ To identify 3D content by filename, the first tag is `3D`, which must be combine
 - `fsbs` = full side by side
 - `htab` = half top and bottom
 - `ftab` = full top and bottom
-- `mvc`  = Multiview Video Coding
+- `mvc` = Multiview Video Coding
 
 The tags are case-insensitive and must be surrounded by either a space, hyphen `-`, dot `.` or underscore `_`.
 

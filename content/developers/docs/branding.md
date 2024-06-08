@@ -31,6 +31,12 @@ Specific examples include:
 
 ## Icons and Other Assets
 
+:::warning
+
+Jellyfin is currently rebranding, as such these guidelines (including the logo) are outdated. Join our [#jellyfin-ui-ux](https://matrix.to/#/#jellyfin-ui-ux:matrix.org) chat on Matrix for any questions.
+
+:::
+
 All iconography and other resources can be found in the [jellyfin-ux](https://github.com/jellyfin/jellyfin-ux) repository.
 
 - Icons

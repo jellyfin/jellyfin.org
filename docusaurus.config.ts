@@ -71,7 +71,7 @@ const config: Config = {
       logo: {
         alt: 'Jellyfin Logo',
         src: 'images/logo.svg',
-        width: 240,
+        width: 280,
         height: 80
       },
       links: [
@@ -102,6 +102,9 @@ const config: Config = {
 <br/>
 Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
     }
+  },
+  markdown: {
+    mermaid: true
   },
   plugins: [
     // Main content
@@ -190,7 +193,8 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
         ],
         explicitSearchResultPath: true
       } satisfies SearchLocal.PluginOptions
-    ]
+    ],
+    ['@docusaurus/theme-mermaid', {}]
   ]
 };
 

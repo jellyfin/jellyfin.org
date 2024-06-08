@@ -95,6 +95,12 @@ Native mode accesses your media files directly from the filesystem, bypassing th
 
 To use Native mode, first set up your libraries in Jellyfin with a remote path.
 
+:::caution
+
+Starting from Jellyfin 10.9 it is no longer possible to set the shared network folder.
+
+:::
+
 1. In the Jellyfin server, navigate to the Libraries section of the admin dashboard.
    - Select an existing library (or create a new one)
    - Select the media folder

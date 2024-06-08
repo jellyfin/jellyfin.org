@@ -98,8 +98,13 @@ services:
     volumes:
       - /path/to/config:/config
       - /path/to/cache:/cache
-      - /path/to/media:/media
-      - /path/to/media2:/media2:ro
+      - type: bind
+        source: /path/to/media
+        target: /media
+      - type: bind
+        source: /path/to/media2
+        target: /media2
+        read_only: true
     restart: 'unless-stopped'
     # Optional - alternative address used for autodiscovery
     environment:

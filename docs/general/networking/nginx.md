@@ -35,8 +35,9 @@ server {
 #}
 
 #server {
-    # listen 443 ssl http2;
-    # listen [::]:443 ssl http2;
+    # listen 443 ssl;
+    # listen [::]:443 ssl;
+    http2 on;
     server_name DOMAIN_NAME;
 
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
@@ -63,7 +64,6 @@ server {
     # Security / XSS Mitigation Headers
     # NOTE: X-Frame-Options may cause issues with the webOS app
     add_header X-Frame-Options "SAMEORIGIN";
-    add_header X-XSS-Protection "0"; # Do NOT enable. This is obsolete/dangerous
     add_header X-Content-Type-Options "nosniff";
 
     # COOP/COEP. Disable if you use external plugins/images/assets
@@ -99,18 +99,6 @@ server {
 
         # Disable buffering when the nginx proxy gets very resource heavy upon streaming
         proxy_buffering off;
-    }
-
-    # location block for /web - This is purely for aesthetics so /web/#!/ works instead of having to go to /web/index.html/#!/
-    location = /web/ {
-        # Proxy main Jellyfin traffic
-        proxy_pass http://$jellyfin:8096/web/index.html;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Protocol $scheme;
-        proxy_set_header X-Forwarded-Host $http_host;
     }
 
     location /socket {

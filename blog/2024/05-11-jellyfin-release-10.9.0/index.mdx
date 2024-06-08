@@ -1,0 +1,141 @@
+---
+title: Jellyfin 10.9.0
+description: We are pleased to announce the latest stable release of Jellyfin, version 10.9.0!
+authors: joshuaboniface
+slug: jellyfin-release-10.9.0
+tags: [release]
+---
+
+We are pleased to announce the latest stable release of Jellyfin, version 10.9.0!
+
+This major release brings many new features, improvements, and bugfixes to improve your Jellyfin experience.
+
+You may upgrade your Jellyfin instances at any time now, however please read on for a complete detailing of what's new and changed, including some very important release notes. For those who were running Unstable builds for testing, we thank you immensely, and you may now switch back to the Stable repository and forcibly reinstall/repull the latest version.
+
+Happy watching!
+
+\- Joshua
+
+{/* truncate */}
+
+## Key Release Notes/Breaking Changes
+
+There are several key changes with 10.9.0 that administrative users should be aware of, before getting into the more specific changes.
+
+* As always, **ensure you back up your Jellyfin data and configuration directories before upgrading**. With a major release, it's possible you will hit a bug and want to revert, and to do so, you will need to restore from a backup.
+
+* Ubuntu users: We have dropped support for non-LTS Ubuntu releases with 10.9.0. That is, we have not built 10.9.0 packages for any releases except 20.04 LTS, 22.04 LTS, and 24.04 LTS, and we will not publish builds for any new non-LTS releases going forward. For an explanation of why, please see [our previous blog post](https://jellyfin.org/posts/new-ci-new-repo). If you use another release, please upgrade to 24.04 LTS or switch to the Docker container.
+
+* Fedora/CentOS/RHEL/etc. users: We have dropped our official RPM packages and suggest switching to [the 3rd-party RPMFusion repository](https://admin.rpmfusion.org/pkgdb/package/free/jellyfin/) or the Docker container. Support for RHEL-like distributions has been a major pain point for us for a very long time, and we feel that letting the community over at RPMFusion handle this is in our best interest going forward, similar to how Arch, Gentoo, etc. packages are handled. For more details, please see [our previous blog post](https://jellyfin.org/posts/new-ci-new-repo).
+
+* Docker users: We now offer GitHub Container Registry (GHCR) as an alternative container registry in addition to Docker Hub. You can pull images from the new registry via URIs like `ghcr.io/jellyfin/jellyfin:latest`. Don't worry, we have no plans to drop Docker Hub as a container registry, but we feel providing both gives users more choice and flexibility.
+
+* Docker users: If you encounter problems loading your homepage, you may need to remove the `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT` environment variable from your container, as this is no longer valid in Jellyfin 10.9.0. For more details [please see](https://github.com/jellyfin/jellyfin/issues/11533) [these issues](https://github.com/jellyfin/jellyfin/issues/11528).
+
+* Nginx reverse proxy users: If you have a block in your nginx config that begins with `location ~ ^/web/$ {` and the comment `# location block for /web - This is purely for aesthetics [...]`, please remove that block as it will cause [occasional issues with 404's and/or slow performance](https://github.com/jellyfin/jellyfin/issues/11540) on 10.9.z.
+
+## The Big Changes
+
+This release has been over two years in the making, so we're really glad to finally get it out to you. The long cycle does mean quite an extensive changelog however, with well over 1100 pull requests merged into our `master` branch since 10.8.0 first dropped back in 2022. This section will detail all the big changes, broken up by general function and area of the system. In addition to these big items, there are hundreds of smaller bugfixes, quality-of-life tweaks, and other minor changes that we won't touch on here, but if you want to see the full list, you can do so over on the GitHub releases for [the core server](https://github.com/jellyfin/jellyfin/releases/tag/v10.9.0) and [the Web UI](https://github.com/jellyfin/jellyfin-web/releases/tag/v10.9.0).
+
+### General
+
+* We now support "trickplay" a.k.a. live video scrubbing. When scrubbing through a video with this enabled, you will be able to see a live preview of the video at that timestamp. Note that this requires explicit client support, which may require some time to become available depending on your client.
+
+* Web redirections are now handled more reliably, reducing the likelihood of hitting dead or invalid pages in the UI. Please ensure you force-refresh or clear any browser cache for your Jellyfin instance to see the full benefits.
+
+* DLNA support is now provided by a plugin and has been removed from the core server. This has several major benefits: first, it can be updated independently of the server to some degree; second, it will not be enabled for anyone unless they want it and explicitly install the plugin; and third, it reduces the potential of security holes around DLNA due to both previous benefits. If you wish to use (or continue to use) DLNA, please install the plugin after upgrading.
+
+* We now support AVIF and WEBP images for Pictures libraries.
+
+* Tags are now accounted for during searches, allowing one to search by tag.
+
+* We now support multiple simultaneous subtitle tracks (maximum of two, a primary and secondary) in the web player.
+
+* We've revamped the administrative dashboard UI to help improve usability and ease of finding options.
+
+### API & Security
+
+* All API endpoints now return proper return codes, ensuring that API endpoint results can be reliably interpreted without additional parsing.
+
+* Parental ratings are significantly improved, with better enforcement, inheritable ratings, and more.
+
+* LiveTV and Collection permissions are now discrete and configurable per-user.
+
+* The EasyPassword (PIN) feature has been removed as this was a big security risk especially for administrator accounts; QuickConnect login is still supported however.
+
+* User permission handling has been unified and numerous bugs fixed, ensuring a more secure server from untrusted users.
+
+### Core Server & Networking
+
+* The .NET version has been upgraded to version 8, the latest major and LTS release. This brings us many under-the-hood improvements and changes to help with our ongoing effort to streamline the codebase and improve overall performance.
+
+* Our minimum FFmpeg version has been bumped from 4.0 to 4.4 to take advantage of many new features. For users of our Jellyfin FFmpeg build (Docker, `.deb`/Debuntu repo, and Windows installs), you're already on a newer version with FFmpeg 6.0.1, but this minimum change would affect any other platforms.
+
+* The server now supports in-process restarting, and removes the old hacky `restart.sh` method. This should make things like installing plugins much more robust and ensure a consistent restart experience regardless of platform or install method.
+
+* Uploaded images are now subject to much more verification, helping plug several security holes in this feature.
+
+* The backend SQLite database now supports connection pooling, which should improve performance for database operations.
+
+* Support for the HappyEyeballs engine improving dual-stack IPv4/IPV6 network support.
+
+* Improved handling of IP binding to fully respect these settings (including DLNA and SSDP).
+
+### Packaging
+
+* The `jellyfin` service user is now automatically added to the `render` and `video` groups on Debian/Ubuntu systems for new installs, helping improve the onboarding for hardware acceleration.
+
+* Packaging is now unified with a new CI system, as outlined in [our previous blog post](https://jellyfin.org/posts/new-ci-new-repo). As a normal user you should see no change here, but this helps massively improve the build process, and if you are building your own packages please reference [the new packaging repository](https://github.com/jellyfin/jellyfin-packaging) for the updated process.
+
+### Transcoding & FFmpeg
+
+* The `--ffmpeg` command-line flag is now the primary method of setting FFmpeg paths, and configuration of the FFmpeg paths via `encoding.xml` is now deprecated. All official packaging will revert to defaults unless explicitly set before upgrade.
+
+* Several audio improvements: support for Opus, FLAC, and ALAC codecs in the HLS engine; improved support and handling for transcoding DTS and TrueHD audio streams; new codec enforcement; better bitrate calculations; new audio normalization features; and stereo downmixing algorithm selection.
+
+* FFmpeg segments can now be automatically deleted after the client requests them, significantly reducing the space requirements of the transcoding temporary directory. This optional feature is disabled by default and can be enabled in the transcoding settings.
+
+* Support for direct stream playback of DVD and Blu-ray data folders, preferred over ISOs.
+
+* Support for AV1 hardware and software encoding.
+
+* Support for RK3588 hardware acceleration via MPP.
+
+* Support for Vulkan-based tonemapping with AMD VA-API.
+
+* Support for complete hardware acceleration on Apple systems (both Apple Silicon and Intel; previously was partial).
+
+* Support for Dolby Vision playback remuxing.
+
+### Scanning, Library & Playlist Management
+
+* Support for scanning and displaying local lyric files (embedded or external files; Internet lyric provider searching is planned for 10.10).
+
+* Season names are now parsed from NFO files.
+
+* The MusicBrainz interface has been improved to better handle music libraries.
+
+* Support for hearing-impaired subtitles (sdh/hi./cc).
+
+* The visibility of playlists can now be made private
+  * User playlists are now private by default
+  * We're working on playlist sharing for a future release
+
+* Invalid items will be automatically removed from playlists.
+
+### Casting
+
+* Better local network detection
+* Connectivity improvements
+* Ability to self-host cast receiver
+
+We're looking for contributors for our [cast receiver](https://github.com/jellyfin/jellyfin-chromecast/). This is the application that loads on a TV when using the "Google Cast" feature. Please reach out if you're interested.
+
+## The Next Version
+
+With our continuous integrations improvements outlined previously, we're quite confident that this will be our last "very long" release cycle. Our plan is for the next major version (10.10.0) to be released at most 6 months from now, some time in October. We hope this increased cadence will help alleviate the problems with large releases such as a very long time-to-stable for new features, translations, etc. and help lower the number of major bugs at each major release, streamlining the upgrade process. But this needs everyone's help. Back in October 2023, we made a call for developers, and we've gotten a lot of interest, but this is not a one-and-done event. We need contributions now more than ever, especially around the web frontend to help implement our planned design changes. If this interests you, please reach out and we can help get you set up.
+
+## Final Thoughts
+
+We want to thank everyone who contributed to the 10.9.0 release. According to GitHub over 100 people contributed across both repositories, and Jellyfin wouldn't be what it is without your help. We're really proud of this project we've built as a community, and hope to continue to be the go-to FLOSS media system solution for a long time to come. Happy watching!

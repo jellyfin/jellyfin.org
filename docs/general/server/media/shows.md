@@ -9,7 +9,7 @@ The most common naming scheme for shows is categorizing the files by series and 
 
 :::tip
 
-In order to help with identifying a series, Jellyfin can make use of media provider identifiers. This can be specified in your show's folder name, for example: `Series (2018) [tmdbid-65567]` or `Series (2018) [tvdbid-65567]`
+In order to help with identifying a series, Jellyfin can make use of media provider identifiers. This can be specified in your show's folder name, for example: `Series Name (2018) [tmdbid-65567]` or `Series Name (2018) [tvdbid-65567]` (`imdbid` is not supported for shows)
 
 :::
 
@@ -30,10 +30,12 @@ Shows
 │       ├── Series Name A S02E03 Part 1.mkv
 │       └── Series Name A S02E03 Part 2.mkv
 └── Series Name B (2018)
-    ├── Series Name B S01E01.mkv
-    ├── Series Name B S01E02.mkv
-    ├── Series Name B S02E01-E02.mkv
-    └── Series Name B S02E03.mkv
+    ├── Season 01
+    |   ├── Series Name B S01E01.mkv
+    |   └── Series Name B S01E02.mkv
+    └── Season 02
+        ├── Series Name B S02E01-E02.mkv
+        └── Series Name B S02E03.mkv
 ```
 
 :::note
@@ -58,7 +60,7 @@ Season folders shouldn't contain the series name, otherwise Jellyfin can in cert
 
 ## Show Specials
 
-Show specials can be added in the `Season 00` folder. If supported by your metadata provider those files will be matched. In case your metadata provider does not provide information about the special, it is recommended to use a name which describes the content of the special instead of naming it `Episode S00Exy.mkv`. This is done to avoid wrong metadata being pulled for the special and to provide a proper presentation.
+Show specials can be added in the `Season 00` folder. If supported by your metadata provider those files will be matched. In case your metadata provider does not provide information about the special, it is recommended to use a name which describes the content of the special instead of naming it `Series Name S00Exy.mkv`. This is done to avoid wrong metadata being pulled for the special and to provide a proper presentation.
 
 :::note
 
@@ -70,7 +72,7 @@ Episode numbering for specials may vary from metadata provider to metadata provi
 
 Episodes that are split into multiple files can be stacked together if named correctly. Files should be named as follows:
 
-- `Series (2010)/Season 02/Series (2010) S02E01<separator><parttype><separator><partnumber>.mkv`
+- `Series Name (2010)/Season 02/Series Name (2010) S02E01<separator><parttype><separator><partnumber>.mkv`
 
 The separator is optional between `<parttype>` and `<partnumber>`. `<partnumber>` can be any number, or the letters a-d.
 
@@ -120,17 +122,17 @@ Supported folder types are:
 
 ```txt
 Shows
-└── Series (2010)
+└── Series Name (2010)
     ├── Season 01
-    │   ├── Episode S01E01.mkv
-    │   ├── Episode S01E02.mkv
+    │   ├── Series Name S01E01.mkv
+    │   ├── Series Name S01E02.mkv
     │   ├── featurettes
     │   │   └── Some Featurette.mkv
     │   └── interviews
     │       └── Interview with the Director.mp4
     ├── Season 02
-    │   ├── Episode S02E01.mkv
-    │   ├── Episode S02E02.mkv
+    │   ├── Series Name S02E01.mkv
+    │   ├── Series Name S02E02.mkv
     │   └── behind the scenes
     │       └── Behind the Scenes.mp4
     └── extras
@@ -161,10 +163,10 @@ If you would rather keep everything in a single folder, you can append special s
 
 ```txt
 Shows
-└── Series (2010)
+└── Series Name (2010)
     ├── Season 01
-    │   ├── Episode S01E01.mkv
-    │   ├── Episode S01E02.mkv
+    │   ├── Series Name S01E01.mkv
+    │   ├── Series Name S01E02.mkv
     │   ├── Alternate Ending-deleted.mkv
     │   └── Interview with the Director-interview.mp4
     └── Fantastic Extra-extra.mkv
@@ -195,14 +197,14 @@ Posters, Backdrops, and Logos may also be embedded into video containers that su
 
 Examples:
 
-- Series:
-  - Series (2010)/poster.jpg
+- Series Name:
+  - Series Name (2010)/poster.jpg
 - Season posters:
   - Numbered seasons:
-    - Series (2010)/Season 01/cover.jpg
-    - Series (2010)/season1-poster.jpg
+    - Series Name (2010)/Season 01/cover.jpg
+    - Series Name (2010)/season1-poster.jpg
   - Specials:
-    - Series (2010)/season-specials-poster.jpg
+    - Series Name (2010)/season-specials-poster.jpg
 
 ### Backdrop
 
@@ -214,9 +216,9 @@ Examples:
 
 Examples:
 
-Series (2010)/fanart.jpg _for the first backdrop image_
+Series Name (2010)/fanart.jpg _for the first backdrop image_
 
-Series (2010)/extrafanart/fanart1.jpg, Series (2010)/extrafanart/fanart2.jpg, _etc for additional backdrop images_
+Series Name (2010)/extrafanart/fanart1.jpg, Series Name (2010)/extrafanart/fanart2.jpg, _etc for additional backdrop images_
 
 ### Banner
 
@@ -224,7 +226,7 @@ Series (2010)/extrafanart/fanart1.jpg, Series (2010)/extrafanart/fanart2.jpg, _e
 
 Example:
 
-Series (2010)/banner.jpg
+Series Name (2010)/banner.jpg
 
 ### Thumb
 
@@ -233,9 +235,9 @@ Series (2010)/banner.jpg
 
 Examples:
 
-Series (2010)/landscape.jpg
+Series Name (2010)/landscape.jpg
 
-Series (2010)/Season 01/episode filename-thumb.jpg _for the thumbnail of an episode named "episode filename.mkv"_
+Series Name (2010)/Season 01/episode filename-thumb.jpg _for the thumbnail of an episode named "episode filename.mkv"_
 
 ### Logo
 
@@ -244,7 +246,7 @@ Series (2010)/Season 01/episode filename-thumb.jpg _for the thumbnail of an epis
 
 Example:
 
-Series (2010)/logo.png
+Series Name (2010)/logo.png
 
 ## Other
 
@@ -254,7 +256,7 @@ Series (2010)/logo.png
 
 Example:
 
-Series (2010)/backdrops/S1Intro.ext
+Series Name (2010)/backdrops/S1Intro.ext
 
 ### Theme Music
 
@@ -263,6 +265,6 @@ Series (2010)/backdrops/S1Intro.ext
 
 Examples:
 
-Series (2010)/theme.ext
+Series Name (2010)/theme.ext
 
-Series (2010)/theme-music/intro-song.ext
+Series Name (2010)/theme-music/intro-song.ext

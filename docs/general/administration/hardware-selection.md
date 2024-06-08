@@ -17,7 +17,7 @@ For a Jellyfin server, the following is recommended:
 - CPU (Without dGPU): Intel Pentium G4560, Intel Core i3-7100 or better. (Intel 7th gen or newer Pentium or better, excluding J and N series)
 - RAM: 8GB or more
 - Storage: 60GB SSD storage for Jellyfin files and transcoding cache.
-- Graphics: Intel HD 6xx (7th gen integrated graphics) or newer, Nvidia GTX 16 / RTX 20 series or newer (excluding GTX 1650). Intel is recommended over Nvidia. AMD and Apple Silicon are not recommended.
+- Graphics: Intel HD 6xx (7th gen integrated graphics) or newer, Nvidia GTX 16 / RTX 20 series or newer (excluding GTX 1650). Intel is recommended over Nvidia. AMD is not recommended.
 
 :::note Intel "Atom" CPUs
 
@@ -43,19 +43,15 @@ Intel ARC GPUs are recommended when upgrading an existing system to be used as a
 
 :::
 
-:::tip Fully Utilizing Intel-based Macs
-
-It is recommended that Intel-based macs be used with Windows or Linux installed to host Jellyfin. Many hardware acceleration features aren't available on MacOS due to the custom [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg) fork not being available.
-
-:::
-
 ### Low Power Applications
 
 For low power applications, Intel 12th gen or newer Atom CPUs with integrated graphics are recommended. It is also recommended that [Low Power Encoding](/docs/general/administration/hardware-acceleration/intel/#low-power-encoding) be setup.
 
+Alternatively, you can use an Apple Silicon Mac for even lower power consumption.
+
 :::caution SBCs (Single Board Computers)
 
-Most SBCs use low powered chipsets, often with less than ideal driver support from the chipset vendors. They are generally too slow for a good experience and/or have broken hardware acceleration support. Please avoid using SBCs such as Raspberry Pis (Including newer Raspberry Pi 5 Models) to run Jellyfin.
+Most SBCs use low powered chipsets, often with less than ideal driver support from the chipset vendors. They are generally too slow for a good experience and/or have broken hardware acceleration support. Please avoid using SBCs such as Raspberry Pis (Including newer Raspberry Pi 5 Models) to run Jellyfin. **One exception** is that the **Rockchip RK3588/3588S SoC based SBCs** provide excellent transcoding speed and power efficiency - H.264/HEVC up to 1080p@480fps or 4k@120fps transcoding with **single-digit** power consumption in watts. Another bonus is that it has **10-bit H.264 (High10) and AV1 decoding** support. Note that Rockchip hardware transcoding is only supported in **Jellyfin 10.9 or above**. Since these Arm based SBCs do not use an unified installation ISO image like x86-64 based PCs do. Please check with the SBC manufacturer or community maintainer for support and documentation before purchasing.
 
 :::
 
@@ -112,7 +108,7 @@ With AV1, AMD has significantly improved the quality of their encoders. However,
 
 A list of common codecs can be found [here](/docs/general/clients/codec-support/)
 
-The following is a list of codecs Jellyfin supports transocding to:
+The following is a list of codecs Jellyfin supports transcoding to:
 
 - H.264 (Most common transcode target)
 - H.265 (Limited supported by clients)
@@ -175,23 +171,46 @@ Please check the product page of your CPU for more info.
 
 Supported codecs are listed below:
 
-| Codec       | M1, M2 Family | M3 Family |
-| ----------- | ------------- | --------- |
-| H.264 8bit  | ✅            | ✅        |
-| H.264 10bit | 🔶            | 🔶        |
-| H.265 8bit  | ✅            | ✅        |
-| H.265 10bit | ✅            | ✅        |
-| VP9 8bit    | 🔶            | 🔶        |
-| VP9 10bit   | 🔶            | 🔶        |
-| AV1         | ❌            | 🔶        |
+| Codec       | M1, M2 Family | M3 Family     |
+| ----------- | ------------- | ---------     |
+| H.264 8bit  | ✅            | ✅            |
+| H.264 10bit | 🔶            | 🔶            |
+| H.265 8bit  | ✅            | ✅            |
+| H.265 10bit | ✅            | ✅            |
+| VP9 8bit    | 🔶            | 🔶            |
+| VP9 10bit   | 🔶            | 🔶            |
+| AV1         | ❌            | ❌<sup>1</sup>|
 
 ✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
 
+<sup>1</sup> Although the hardware does support AV1 decoding, [ffmpeg does not support it yet](https://trac.ffmpeg.org/ticket/10642).
+
 :::caution
 
-Many hardware acceleration features are not available on macOS for Jellyfin, as the custom [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg) fork isn't available for macOS. No Apple Silicon media engine drivers exist for other operating systems currently. You will NOT be able to use hardware acceleration if you are running [Asahi Linux](https://asahilinux.org/).
+No Apple Silicon media engine drivers currently exist for non-macOS operating systems. You will NOT be able to use hardware acceleration if you are running [Asahi Linux](https://asahilinux.org/).
 
 :::
+
+#### Rockchip VPU
+
+Currently only the VPU on RK3588/3588S SoC is recommended. It can handle most common video codecs, including AV1 decode.
+
+Supported codecs are listed below:
+
+| Codec          | RK3588/3588S  |
+| -------------- | ------------- |
+| MPEG1/2/4 8bit | 🔶            |
+| VC1 8bit       | ❌            |
+| H.264 8bit     | ✅            |
+| H.264 10bit    | 🔶            |
+| H.265 8bit     | ✅            |
+| H.265 10bit    | 🔶            |
+| VP8 8bit       | 🔶            |
+| VP9 8bit       | 🔶            |
+| VP9 10bit      | 🔶            |
+| AV1            | 🔶            |
+
+✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
 
 ### Storage
 
