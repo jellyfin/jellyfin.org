@@ -2,7 +2,7 @@
 uid: installation-macos
 title: macOS
 description: Install on macOS.
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 <!-- markdownlint-disable MD036 no-emphasis-as-heading -->
