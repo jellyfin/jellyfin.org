@@ -98,3 +98,13 @@ reverse_proxy /jellyfin/* 127.0.0.1:8096
 
 With that config, Caddy will only proxy requests that start with `/jellyfin/`.
 Note the trailing slash - that is optional, but recommended.
+
+## Videos Tutorials
+
+Free Domain Options
+
+[Windows Caddy + Duckdns](https://youtu.be/AEyhpuWeiTk)
+
+Using a Custom Domain
+
+[Windows Caddy + Cloudflare](https://youtu.be/zCyx4vmp4k0)
