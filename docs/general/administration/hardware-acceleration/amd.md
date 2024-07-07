@@ -129,9 +129,7 @@ There are some known Windows driver issues that can affect the AMD hardware tran
 
 :::
 
-1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue in `Adrenalin 24.1.1` and newer. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing videos. The last known working driver is [`Adrenalin 23.12.1`](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-23-12-1), and the problem can be solved by downgrading to it and disabling automatic updates. Note that if `Adrenalin 23.12.1` driver does not resolve the problem, you may need to try an older one such as `Adrenalin 23.11.1`. You can follow the status of this driver issue through the ticket below.
-
-   - Ticket: [https://github.com/ROCm/clr/issues/50](https://github.com/ROCm/clr/issues/50)
+1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue ranging from **Adrenalin 24.1.1 to 24.4.1**. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing videos. The driver **Adrenalin 24.5.1** and newer drivers fix this issue.
 
 ### Configure On Windows Host
 
