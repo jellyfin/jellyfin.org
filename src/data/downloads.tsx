@@ -337,6 +337,35 @@ makepkg -si`}
     otherButtons: []
   },
   {
+    id: 'gentoo',
+    name: 'Gentoo Linux',
+    osTypes: [OsType.Linux],
+    status: DownloadStatus.OsPackage,
+    features: [],
+    platforms: [Platform.Gentoo],
+    description: 'Install Jellyfin via the Gentoo Repository.',
+    stableButtons: [
+      {
+        id: 'gentoo-stable-button',
+        name: 'Install Instructions',
+        details: (
+          <>
+            <pre>
+              <code>emerge www-apps/jellyfin</code>
+            </pre>
+            <p className='margin-bottom--none'>
+              Once installed, Jellyfin will be running as a service. Manage it with{' '}
+              <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
+              <code>{'sudo rc-service jellyfin {action}'}</code>
+            </p>
+          </>
+        )
+      }
+    ],
+    unstableButtons: [],
+    otherButtons: []
+  },
+  {
     id: 'fedora-centos',
     name: 'Fedora/CentOS Linux',
     osTypes: [OsType.Linux],
@@ -363,35 +392,6 @@ makepkg -si`}
         id: 'rpmfusion-stable-link',
         name: 'RPMFusion',
         url: 'https://admin.rpmfusion.org/pkgdb/package/free/jellyfin/'
-      }
-    ],
-    unstableButtons: [],
-    otherButtons: []
-  },
-  {
-    id: 'gentoo',
-    name: 'Gentoo Linux',
-    osTypes: [OsType.Linux],
-    status: DownloadStatus.OsPackage,
-    features: [],
-    platforms: [Platform.Gentoo],
-    description: 'Install Jellyfin via the Gentoo Repository.',
-    stableButtons: [
-      {
-        id: 'gentoo-stable-button',
-        name: 'Install Instructions',
-        details: (
-          <>
-            <pre>
-              <code>emerge www-apps/jellyfin</code>
-            </pre>
-            <p className='margin-bottom--none'>
-              Once installed, Jellyfin will be running as a service. Manage it with{' '}
-              <code>{'sudo systemctl {action} jellyfin.service'}</code> or{' '}
-              <code>{'sudo rc-service jellyfin {action}'}</code>
-            </p>
-          </>
-        )
       }
     ],
     unstableButtons: [],
