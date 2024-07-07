@@ -340,7 +340,7 @@ makepkg -si`}
     id: 'fedora-centos',
     name: 'Fedora/CentOS Linux',
     osTypes: [OsType.Linux],
-    status: DownloadStatus.OsPackage,
+    status: DownloadStatus.Community,
     features: [],
     platforms: [Platform.Fedora, Platform.CentOS],
     description: 'Install Jellyfin via the RPMFusion Repository (Free).',
