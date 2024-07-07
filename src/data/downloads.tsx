@@ -119,13 +119,15 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
               <code>{`curl -s https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}</code>
             </pre>
             <p>
-              If you do not have <code>curl</code> installed, you can use{' '}
-              <code>wget -q -O-</code> instead of{' '}
+              If you do not have <code>curl</code> installed, you can use <code>wget -q -O-</code> instead of{' '}
               <code>curl -s</code>.
             </p>
             <p>
-              For more advanced users, the full steps can be <a href="https://jellyfin.org/docs/general/installation/linux#debuntu-debian-ubuntu-and-derivatives-using-apt">
-              found in the docs</a>.
+              For more advanced users, the full steps can be{' '}
+              <a href='https://jellyfin.org/docs/general/installation/linux#debuntu-debian-ubuntu-and-derivatives-using-apt'>
+                found in the docs
+              </a>
+              .
             </p>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
@@ -233,14 +235,14 @@ sudo apt install jellyfin`}
     stableButtons: [
       {
         id: 'windows-manual-stable-link',
-        name: "Downloads",
+        name: 'Downloads',
         url: 'https://repo.jellyfin.org/?path=/server/windows/latest-stable'
       }
     ],
     unstableButtons: [
       {
         id: 'windows-unstable-link',
-        name: "Downloads",
+        name: 'Downloads',
         url: 'https://repo.jellyfin.org/?path=/server/windows/latest-unstable'
       }
     ],
@@ -257,14 +259,14 @@ sudo apt install jellyfin`}
     stableButtons: [
       {
         id: 'macos-manual-stable-link',
-        name: "Downloads",
+        name: 'Downloads',
         url: 'https://repo.jellyfin.org/?path=/server/macos/latest-stable'
       }
     ],
     unstableButtons: [
       {
         id: 'macos-manual-unstable-link',
-        name: "Downloads",
+        name: 'Downloads',
         url: 'https://repo.jellyfin.org/?path=/server/macos/latest-unstable'
       }
     ],
@@ -288,7 +290,7 @@ sudo apt install jellyfin`}
       {
         id: 'portable-manual-unstable-link',
         url: 'https://repo.jellyfin.org/?path=/server/portable/latest-unstable'
-      },
+      }
     ],
     otherButtons: []
   },
@@ -349,7 +351,7 @@ makepkg -si`}
         details: (
           <>
             <p>
-              <a href="https://rpmfusion.org/Configuration">Configure the RPMFusion repository</a>
+              <a href='https://rpmfusion.org/Configuration'>Configure the RPMFusion repository</a>
             </p>
             <pre>
               <code>{`dnf install jellyfin`}</code>
@@ -365,42 +367,6 @@ makepkg -si`}
     ],
     unstableButtons: [],
     otherButtons: []
-  },
-  {
-    id: 'flatpak',
-    name: 'Flatpak',
-    osTypes: [OsType.Linux],
-    status: DownloadStatus.Community,
-    features: [Feature.CustomFFmpeg],
-    platforms: [Platform.Linux],
-    description: 'Install Jellyfin via Flathub.',
-    stableButtons: [
-      {
-        id: 'flatpak-stable-button',
-        name: 'Install Instructions',
-        details: (
-          <>
-            <pre>
-              <code>{`flatpak install flathub org.jellyfin.JellyfinServer`}</code>
-            </pre>
-            <p>
-              <b>Note:</b> If you are running on an Intel GPU an additional extension is required for HDR Tone mapping.
-            </p>
-            <pre>
-              <code>{`flatpak install flathub org.jellyfin.JellyfinServer.Plugin.IntelComputeRuntime`}</code>
-            </pre>
-          </>
-        )
-      },
-      {
-        id: 'flatpak-flathub-link',
-        name: 'Flathub',
-        url: 'https://flathub.org/apps/org.jellyfin.JellyfinServer'
-      }
-    ],
-    unstableButtons: [],
-    otherButtons: [
-    ]
   },
   {
     id: 'gentoo',
