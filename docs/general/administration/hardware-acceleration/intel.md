@@ -227,9 +227,7 @@ There are some known Windows driver issues that can affect the Intel hardware tr
 
 :::
 
-1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue in `31.0.101.5186 / 31.0.101.5234` and newer. You may encounter a **green screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The last known working driver is [`31.0.101.5085 / 31.0.101.5122`](https://www.intel.com/content/www/us/en/download/785597/813048/intel-arc-iris-xe-graphics-windows.html), and the problem can be solved by downgrading to it and disabling automatic updates. You can follow the status of this driver issue through the ticket below.
-
-   - Ticket: [https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/680](https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/680)
+1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue ranging from **31.0.101.5186 / 31.0.101.5234 to 31.0.101.5534**. You may encounter a **green screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The **31.0.101.5590** and newer drivers fix this issue.
 
 ### Configure On Windows Host
 
