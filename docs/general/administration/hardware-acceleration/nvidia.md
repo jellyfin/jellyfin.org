@@ -169,7 +169,7 @@ A 64-bit Linux distribution is required. **In Jellyfin 10.9 the minimum required
 
 The `jellyfin-ffmpeg6` deb package required by Jellyfin 10.9 doesn't include any NVIDIA proprietary driver.
 
-You have to install the NVIDIA driver from the distro and configure the the permission of the `jellyfin` user.
+You have to install the NVIDIA driver from the distro and configure the permission of the `jellyfin` user.
 
 :::note
 
