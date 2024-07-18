@@ -217,7 +217,7 @@ Alternatively, rebuild the Mesa driver with these options added to restore the s
 
 The `jellyfin-ffmpeg6` deb package required by Jellyfin 10.9 comes with all necessary user mode Mesa drivers.
 
-Besides that you only need to configure the the permission of the `jellyfin` user.
+Besides that you only need to configure the permission of the `jellyfin` user.
 
 :::note
 
