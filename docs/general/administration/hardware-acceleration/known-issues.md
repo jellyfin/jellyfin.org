@@ -33,3 +33,12 @@ This page lists all known issues and limitations of hardware acceleration with J
     ```shell
     -D video-codecs=all
     ```
+
+## Intel
+
+### Windows
+
+1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue ranging from **31.0.101.5186 / 31.0.101.5234 to 31.0.101.5534**. You may encounter a **green or blue screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The **31.0.101.5590** and newer drivers fix this issue.
+
+### Linux
+

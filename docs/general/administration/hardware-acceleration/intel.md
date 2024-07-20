@@ -221,13 +221,7 @@ Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-:::caution
-
-There are some known Windows driver issues that can affect the Intel hardware transcoding. Some of them can be fixed by downgrading or upgrading your graphics driver.
-
-:::
-
-1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue ranging from **31.0.101.5186 / 31.0.101.5234 to 31.0.101.5534**. You may encounter a **green screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The **31.0.101.5590** and newer drivers fix this issue.
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#windows-1) for known issues and limitations
 
 ### Configure On Windows Host
 

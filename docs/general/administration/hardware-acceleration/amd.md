@@ -123,7 +123,7 @@ Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#windows) for known issues and limitations
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#windows) for known issues and limitations.
 
 ### Configure On Windows Host
 
@@ -181,7 +181,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#linux) for known issues and limitations
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#linux) for known issues and limitations.
 
 ### Configure On Linux Host
 
