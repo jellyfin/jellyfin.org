@@ -82,3 +82,13 @@ This page lists all known issues and limitations of hardware acceleration with J
 
     - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
     - Ubuntu bug: [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755)
+
+## Nvidia
+
+Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) cards have an artificial limit on the number of concurrent NVENC encoding sessions. This restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
+
+| NVIDIA driver  | NVENC concurrent sessions |
+| -------------- | ------------------------- |
+| 550 and newer  | Up to 8 encoding sessions |
+| 530 to 546     | Up to 5 encoding sessions |
+| pre-530        | Up to 3 encoding sessions |
