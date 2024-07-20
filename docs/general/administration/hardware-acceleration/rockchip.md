@@ -134,8 +134,6 @@ Root permission is required.
 
 4. Add the `jellyfin` user to the `render` and `video` group, then restart the `jellyfin` service:
 
-   You can skip this step if you intend to run Jellyfin in a container (eg. Docker)
-
    :::note
 
    On some distros, the group may be `input`.
@@ -179,7 +177,7 @@ Root permission is required.
 
 ### Configure With Linux Virtualization
 
-Before proceeding, please complete the [Configure on Linux Host](#configure-on-linux-host) section above.
+Before proceeding, please complete **steps 2 and 5** in the [Configure on Linux Host](#configure-on-linux-host) section above.
 
 #### Official Docker
 
