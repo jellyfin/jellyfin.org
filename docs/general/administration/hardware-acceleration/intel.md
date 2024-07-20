@@ -329,9 +329,10 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 9. The kernel support for Intel Gen 12.7 MTL is incomplete before Linux 6.7.
 
-10. The LTS kernel 6.6.26+ and the stable kernel 6.8.5+ have unresolved i915 driver bugs, which break HDR/DV tone-mapping on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please refrain from upgrading to those kernel versions.
+10. The LTS kernel range 6.6.26 - 6.6.32 and the stable kernel range 6.8.5 - 6.9.3 have i915 driver bugs, which may cause problems on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please upgrade to kernel 6.6.33+ (LTS) or 6.9.4+. Ubuntu 24.04 with kernel versions 6.8.0-38+ are also affected by this issue, please downgrade to 6.8.0-36 until a fix is released.
 
     - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
+    - Ubuntu bug: [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755)
 
 ### Configure On Linux Host
 
