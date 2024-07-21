@@ -129,9 +129,7 @@ There are some known Windows driver issues that can affect the AMD hardware tran
 
 :::
 
-1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue in `Adrenalin 24.1.1` and newer. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing videos. The last known working driver is [`Adrenalin 23.12.1`](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-23-12-1), and the problem can be solved by downgrading to it and disabling automatic updates. Note that if `Adrenalin 23.12.1` driver does not resolve the problem, you may need to try an older one such as `Adrenalin 23.11.1`. You can follow the status of this driver issue through the ticket below.
-
-   - Ticket: [https://github.com/ROCm/clr/issues/50](https://github.com/ROCm/clr/issues/50)
+1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue ranging from **Adrenalin 24.1.1 to 24.4.1**. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing videos. The driver **Adrenalin 24.5.1** and newer drivers fix this issue.
 
 ### Configure On Windows Host
 
@@ -219,7 +217,7 @@ Alternatively, rebuild the Mesa driver with these options added to restore the s
 
 The `jellyfin-ffmpeg6` deb package required by Jellyfin 10.9 comes with all necessary user mode Mesa drivers.
 
-Besides that you only need to configure the the permission of the `jellyfin` user.
+Besides that you only need to configure the permission of the `jellyfin` user.
 
 :::note
 
@@ -285,6 +283,20 @@ Root permission is required.
    ...
    ```
 
+   `VAEntrypointVLD` means that your card is capable to decode this format, `VAEntrypointEncSlice` means that you can encode to this format.
+
+   | Jellyfin Setting | VA-API Profil                                                                                         |
+   |------------------|-------------------------------------------------------------------------------------------------------|
+   | H264             | VAProfileH264Baseline<br/>VAProfileH264Main<br/>VAProfileH264High<br/>VAProfileH264ConstrainedBaseline   |
+   | HEVC             | VAProfileHEVCMain                                                                                     |
+   | MPEG2            | VAProfileMPEG2Simple<br/>VAProfileMPEG2Main                                                            |
+   | VC1              | VAProfileVC1Simple<br/>VAProfileVC1Main<br/>VAProfileVC1Advanced                                        |
+   | VP8              | VAProfileVP8Version0<br/>VAProfileVP8Version1<br/>VAProfileVP8Version2<br/>VAProfileVP8Version3          |
+   | VP9              | VAProfileVP9Profile0                                                                                  |
+   | AV1              | VAProfileAV1Profile0                                                                                  |
+   | HEVC 10bit       | VAProfileHEVCMain10                                                                                   |
+   | VP9 10bit        | VAProfileVP9Profile2                                                                                  |
+
 6. Check the Vulkan runtime status:
 
    ```shell
@@ -310,7 +322,7 @@ Root permission is required.
 
 7. If you wish to use the second GPU, change `renderD128` to `renderD129` in the Jellyfin dashboard.
 
-8. Enable VA-API in Jellyfin and uncheck the unsupported codecs.
+8. Enable VA-API in Jellyfin and uncheck the unsupported codecs based on the vainfo output.
 
 #### Linux Mint
 

@@ -73,10 +73,10 @@ In the sample script:
 
 ### An example `record_post_process.py` script
 
-This script is too much to post here, so a link to a GitHub Gist is provided.
+This script is too much to post here, so a link to a GitHub repository is provided.
 Comments are listed that describes what each section does.
 
-[GitHub Gist Link to `record_post_process.py`](https://gist.github.com/AndrewBreyen/1ac109bb485d8523e28fe98b3a222602)
+[GitHub Link to `record_post_process.py`](https://github.com/AndrewBreyen/Jellyfin-TV-Post-Process/)
 
 ## Diving Deeper
 

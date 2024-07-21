@@ -227,9 +227,7 @@ There are some known Windows driver issues that can affect the Intel hardware tr
 
 :::
 
-1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue in `31.0.101.5186 / 31.0.101.5234` and newer. You may encounter a **green screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The last known working driver is [`31.0.101.5085 / 31.0.101.5122`](https://www.intel.com/content/www/us/en/download/785597/813048/intel-arc-iris-xe-graphics-windows.html), and the problem can be solved by downgrading to it and disabling automatic updates. You can follow the status of this driver issue through the ticket below.
-
-   - Ticket: [https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/680](https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/680)
+1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue ranging from **31.0.101.5186 / 31.0.101.5234 to 31.0.101.5534**. You may encounter a **green screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The **31.0.101.5590** and newer drivers fix this issue.
 
 ### Configure On Windows Host
 
@@ -331,9 +329,10 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 9. The kernel support for Intel Gen 12.7 MTL is incomplete before Linux 6.7.
 
-10. The LTS kernel 6.6.26+ and the stable kernel 6.8.5+ have unresolved i915 driver bugs, which break HDR/DV tone-mapping on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please refrain from upgrading to those kernel versions.
+10. The LTS kernel range 6.6.26 - 6.6.32 and the stable kernel range 6.8.5 - 6.9.3 have i915 driver bugs, which may cause problems on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please upgrade to kernel 6.6.33+ (LTS) or 6.9.4+. Ubuntu 24.04 with kernel versions 6.8.0-38+ are also affected by this issue, please downgrade to 6.8.0-36 until a fix is released.
 
     - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
+    - Ubuntu bug: [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755)
 
 ### Configure On Linux Host
 
