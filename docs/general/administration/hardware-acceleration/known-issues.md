@@ -2,45 +2,42 @@
 uid: admin-hardware-acceleration-issues
 title: Known Issues
 ---
+
 # Known Hardware Acceleration Issues and Limitations
 
 This page lists all known issues and limitations of hardware acceleration with Jellyfin.
 
-## AMD
-
-### Windows
+## AMD on Windows
 
 1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue ranging from **Adrenalin 24.1.1 to 24.4.1**. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing videos. The driver **Adrenalin 24.5.1** and newer drivers fix this issue.
 
-### Linux
+## AMD on Linux
 
 1. Some Linux distros intentionally disabled the H.264 and HEVC codecs from the Mesa VA-API driver.
 
-    Known affected distros:
+   Known affected distros:
 
-    - [Fedora](https://www.phoronix.com/news/Fedora-Disable-Bad-VA-API)
+   - [Fedora](https://www.phoronix.com/news/Fedora-Disable-Bad-VA-API)
 
-    - [OpenSUSE](https://www.webpronews.com/fedora-and-opensuse-disable-gpu-accelerated-video-over-patent-concerns/)
+   - [OpenSUSE](https://www.webpronews.com/fedora-and-opensuse-disable-gpu-accelerated-video-over-patent-concerns/)
 
-    - [Manjaro](https://forum.manjaro.org/t/stable-update-2022-12-06-kernels-mesa-plasma-cinnamon-nvidia-libreoffice-pipewire-virtualbox/128453)
+   - [Manjaro](https://forum.manjaro.org/t/stable-update-2022-12-06-kernels-mesa-plasma-cinnamon-nvidia-libreoffice-pipewire-virtualbox/128453)
 
-    This prevents you from using the AMD VA-API transcoding **on the server system**.
+   This prevents you from using the AMD VA-API transcoding **on the server system**.
 
-    You can use our Docker image instead or install third-party Mesa driver package.
+   You can use our Docker image instead or install third-party Mesa driver package.
 
-    Alternatively, rebuild the Mesa driver with these options added to restore the stripped hardware codecs:
+   Alternatively, rebuild the Mesa driver with these options added to restore the stripped hardware codecs:
 
-    ```shell
-    -D video-codecs=all
-    ```
+   ```shell
+   -D video-codecs=all
+   ```
 
-## Intel
-
-### Windows
+## Intel on Windows
 
 1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue ranging from **31.0.101.5186 / 31.0.101.5234 to 31.0.101.5534**. You may encounter a **green or blue screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The **31.0.101.5590** and newer drivers fix this issue.
 
-### Linux
+## Intel on Linux
 
 1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](/docs/general/administration/hardware-acceleration/intel#low-power-encoding) mode MUST be configured and enabled for correct VBR and CBR bitrate control that is required by Jellyfin.
 
@@ -87,8 +84,8 @@ This page lists all known issues and limitations of hardware acceleration with J
 
 Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) cards have an artificial limit on the number of concurrent NVENC encoding sessions. This restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
 
-| NVIDIA driver  | NVENC concurrent sessions |
-| -------------- | ------------------------- |
-| 550 and newer  | Up to 8 encoding sessions |
-| 530 to 546     | Up to 5 encoding sessions |
-| pre-530        | Up to 3 encoding sessions |
+| NVIDIA driver | NVENC concurrent sessions |
+| ------------- | ------------------------- |
+| 550 and newer | Up to 8 encoding sessions |
+| 530 to 546    | Up to 5 encoding sessions |
+| pre-530       | Up to 3 encoding sessions |

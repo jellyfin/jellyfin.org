@@ -221,7 +221,7 @@ Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#windows-1) for known issues and limitations
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#intel-on-windows) for known issues and limitations
 
 ### Configure On Windows Host
 
@@ -277,7 +277,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#linux-1) for known issues and limitations
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) for known issues and limitations
 
 ### Configure On Linux Host
 
@@ -528,7 +528,7 @@ What you need to do is pass the host's `render` group id to Docker and modify th
          image: jellyfin/jellyfin
          user: 1000:1000
          group_add:
-           - "122" # Change this to match your "render" host group id and remove this comment
+           - '122' # Change this to match your "render" host group id and remove this comment
          network_mode: 'host'
          volumes:
            - /path/to/config:/config
@@ -589,19 +589,19 @@ The devices in Kubernetes are added as host path mounts, they are not separated 
            supplementalGroups:
              - 122 # Change this to match your "render" host group id and remove this comment
          containers:
-           - name: "jellyfin"
+           - name: 'jellyfin'
              image: ...
              ports: ...
              env: ...
              securityContext:
                privileged: true # Container must run as privileged inside of the pod
              volumeMounts:
-               - name: "render-device"
-                 mountPath: "/dev/dri/renderD128"
+               - name: 'render-device'
+                 mountPath: '/dev/dri/renderD128'
          volumes:
-           - name: "render-device"
+           - name: 'render-device'
              hostPath:
-               path: "/dev/dri/renderD128"
+               path: '/dev/dri/renderD128'
    ```
 
 2. When the pod starts, you can check the QSV and VA-API codecs.

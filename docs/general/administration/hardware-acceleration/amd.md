@@ -123,7 +123,7 @@ Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#windows) for known issues and limitations.
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#amd-on-windows) for known issues and limitations.
 
 ### Configure On Windows Host
 
@@ -181,7 +181,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#linux) for known issues and limitations.
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#amd-on-linux) for known issues and limitations.
 
 ### Configure On Linux Host
 
@@ -257,17 +257,17 @@ Root permission is required.
 
    `VAEntrypointVLD` means that your card is capable to decode this format, `VAEntrypointEncSlice` means that you can encode to this format.
 
-   | Jellyfin Setting | VA-API Profil                                                                                         |
-   |------------------|-------------------------------------------------------------------------------------------------------|
-   | H264             | VAProfileH264Baseline<br/>VAProfileH264Main<br/>VAProfileH264High<br/>VAProfileH264ConstrainedBaseline   |
-   | HEVC             | VAProfileHEVCMain                                                                                     |
+   | Jellyfin Setting | VA-API Profil                                                                                          |
+   | ---------------- | ------------------------------------------------------------------------------------------------------ |
+   | H264             | VAProfileH264Baseline<br/>VAProfileH264Main<br/>VAProfileH264High<br/>VAProfileH264ConstrainedBaseline |
+   | HEVC             | VAProfileHEVCMain                                                                                      |
    | MPEG2            | VAProfileMPEG2Simple<br/>VAProfileMPEG2Main                                                            |
-   | VC1              | VAProfileVC1Simple<br/>VAProfileVC1Main<br/>VAProfileVC1Advanced                                        |
-   | VP8              | VAProfileVP8Version0<br/>VAProfileVP8Version1<br/>VAProfileVP8Version2<br/>VAProfileVP8Version3          |
-   | VP9              | VAProfileVP9Profile0                                                                                  |
-   | AV1              | VAProfileAV1Profile0                                                                                  |
-   | HEVC 10bit       | VAProfileHEVCMain10                                                                                   |
-   | VP9 10bit        | VAProfileVP9Profile2                                                                                  |
+   | VC1              | VAProfileVC1Simple<br/>VAProfileVC1Main<br/>VAProfileVC1Advanced                                       |
+   | VP8              | VAProfileVP8Version0<br/>VAProfileVP8Version1<br/>VAProfileVP8Version2<br/>VAProfileVP8Version3        |
+   | VP9              | VAProfileVP9Profile0                                                                                   |
+   | AV1              | VAProfileAV1Profile0                                                                                   |
+   | HEVC 10bit       | VAProfileHEVCMain10                                                                                    |
+   | VP9 10bit        | VAProfileVP9Profile2                                                                                   |
 
 6. Check the Vulkan runtime status:
 
@@ -436,7 +436,7 @@ Root permission is required.
          image: jellyfin/jellyfin
          user: 1000:1000
          group_add:
-           - "122" # Change this to match your "render" host group id and remove this comment
+           - '122' # Change this to match your "render" host group id and remove this comment
          network_mode: 'host'
          volumes:
            - /path/to/config:/config
