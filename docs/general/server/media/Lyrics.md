@@ -4,7 +4,7 @@ title: Lyrics
 ---
 
 # Lyrics
-Lyrics are contained in the same folder and must match the filenames for their corresponding item. For example: The lyric file for `01 Death Eternal.mp3` must be `01 Death Eternal.lrc` or `01 Death Eternal.txt`.
+Lyrics are contained in the same folder and must match the filenames for their corresponding item. For example: The lyric file for `01 Death Eternal.mp3` must be `01 Death Eternal.lrc`, `01 Death Eternal.elrc` or `01 Death Eternal.txt`.
 
 ```
 Music
@@ -18,11 +18,10 @@ Music
         └── Song 3.lrc
 ```
 
-The Lyrics file can be synchronized or unsynchronized. It can have some extra metadata, but that won't be registered by Jellyfin.
+The Lyrics file can be synchronized or unsynchronized. It can have some extra metadata, but won't be shown in the Jellyfin client.
 
 ### Synchronized
-You can either synchronize lyrics by hand (which can be time consuming and not precise) or use any lrics synchronization software, like minilyrics.
-![Sychronized Lyrics](https://github.com/JustJamie4realz/jellyfin.org/assets/92894671/443d2b4f-3d69-4d0a-8b55-dbcafef741fc)
+Synchronized lyrics are interactive, enabling users to click on any line to jump directly to the corresponding timestamp in the song. You have the option to either manually synchronize the text, which can be time-consuming and may lack accuracy, or utilize lyrics synchronization software such as MiniLyrics.
 
 ```
 [ar: Camila Cabello]
@@ -43,8 +42,7 @@ You can either synchronize lyrics by hand (which can be time consuming and not p
 ```
 
 ### Unsynchronized
-You can leave lyrics unsynchronized if you don't have the time to make lyrics by hand or don't have the software to do so.
-![Unsynchronized Lyrics](https://github.com/JustJamie4realz/jellyfin.org/assets/92894671/c9d6673a-3807-4eaa-8d0d-e2542c8924cc)
+Unlike syncronized lyrics, unsyncronized lyrics are easier to implament, but will be harder for users to sing along.
 
 ```Unsynchronized
 Dirty tissues, trust issues
