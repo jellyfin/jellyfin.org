@@ -26,7 +26,7 @@ Additionally, there are several third parties providing unofficial container ima
 
 :::warning
 
-While it is possible to run Docker on Windows or macOS, it is an **UNSUPPORTED** configuration for Jellyfin. Please install Jellyfin natively if you wish to use Windows or macOS.
+While it is possible to run Docker on Windows or macOS, it is not recommended for Jellyfin, as certain features would be unavailable. Please install Jellyfin natively if you wish to use Windows or macOS.
 
 :::
 
