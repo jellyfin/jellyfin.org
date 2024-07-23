@@ -24,7 +24,7 @@ Config
         </PathAndMask>
         <FailedLoginRegex>
           <![CDATA[
-              Authentication\s+request\s+for\s+\S+?(?<username>[^\s]+)\S+\s+has\s+been\s+(?<log>denied)\s+\(IP:\s+"(?<ipaddress>[^,]+)"\)
+              Authentication\s+request\s+for\s+\S+?(?<username>[^\s]+)\S+\s+has\s+been\s+(?<log>denied)\s+\(IP:\s+"(?<ipaddress>[^,"\s]+)"\)
           ]]>
         </FailedLoginRegex>
         <SuccessfulLoginRegex>
