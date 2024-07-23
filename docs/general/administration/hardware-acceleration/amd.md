@@ -436,7 +436,7 @@ Root permission is required.
          image: jellyfin/jellyfin
          user: 1000:1000
          group_add:
-           - '122' # Change this to match your "render" host group id and remove this comment
+           - "122" # Change this to match your "render" host group id and remove this comment
          network_mode: 'host'
          volumes:
            - /path/to/config:/config
