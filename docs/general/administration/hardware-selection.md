@@ -15,9 +15,12 @@ Below is a list of recommended specs to run Jellyfin. Even though Jellyfin will 
 
 Some component recommendations do not change regardless of the hardware configuration:
 
-- Storage: 100GB SSD for Jellyfin files and transcoding cache. (Consider adding more on Windows 11)
+- Storage: 100GB SSD for your OS, Jellyfin files and transcoding cache.<sup>1</sup> Consider adding more on Windows 11, or if you have many large media files that need transcoding.
 - Networking: Gigabit Ethernet Adapter or faster, WiFi or Powerline not recommended.
-- Internet Connection: At least 20mbps upload bandwidth (for remote access)
+- Internet Connection: At least 20mbps upload bandwidth for remote access.<sup>2</sup>
+
+<sup>1</sup>Your largest media file times the max number of concurrent streams all your users will consume can be used as a rule of thumb for the transcoding file size.
+<sup>2</sup>If you have less than 100mbps of total upload bandwidth, a bandwidth limit of 70% of your upload speed for Jellyfin is recommended. This option can be found in the dashboard.
 
 ### Hardware Encoder Quality
 
