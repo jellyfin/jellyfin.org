@@ -161,21 +161,23 @@ Please check the product page of your CPU for more info.
 
 Supported codecs are listed below:
 
-| Codec       | M1, M2 Family | M3 Family |
-| ----------- | ------------- | --------- |
-| H.264 8bit  | ✅            | ✅        |
-| H.264 10bit | 🔶            | 🔶        |
-| H.265 8bit  | ✅            | ✅        |
-| H.265 10bit | ✅            | ✅        |
-| VP9 8bit    | 🔶            | 🔶        |
-| VP9 10bit   | 🔶            | 🔶        |
-| AV1         | ❌            | 🔶        |
+| Codec       | M1, M2 Family | M3 Family     |
+| ----------- | ------------- | ---------     |
+| H.264 8bit  | ✅            | ✅            |
+| H.264 10bit | 🔶            | 🔶            |
+| H.265 8bit  | ✅            | ✅            |
+| H.265 10bit | ✅            | ✅            |
+| VP9 8bit    | 🔶            | 🔶            |
+| VP9 10bit   | 🔶            | 🔶            |
+| AV1         | ❌            | ❌<sup>1</sup>|
 
 ✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
 
+<sup>1</sup> Although the hardware does support AV1 decoding, [ffmpeg does not support it yet](https://trac.ffmpeg.org/ticket/10642).
+
 :::caution
 
-Many hardware acceleration features are not available on macOS for Jellyfin, as the custom [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg) fork isn't available for macOS. No Apple Silicon media engine drivers exist for other operating systems currently. You will NOT be able to use hardware acceleration if you are running [Asahi Linux](https://asahilinux.org/).
+No Apple Silicon media engine drivers currently exist for non-macOS operating systems. You will NOT be able to use hardware acceleration if you are running [Asahi Linux](https://asahilinux.org/).
 
 :::
 

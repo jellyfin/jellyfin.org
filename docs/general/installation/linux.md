@@ -313,6 +313,19 @@ The Gentoo ebuild repository includes the Jellyfin package which can be installe
    emerge www-apps/jellyfin
    ```
 
+## NixOS
+
+NixOS has a [module for Jellyfin](https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/misc/jellyfin.nix),
+it can be enabled as follows:
+
+   ```nix
+   {
+     services.jellyfin.enable = true;
+   }
+   ```
+
+For more information, refer to the [NixOS wiki](https://wiki.nixos.org/wiki/Jellyfin).
+
 ## Linux (generic amd64)
 
 Generic `amd64`, `arm64`, and `armhf` Linux builds in TAR archive format are available [in the main download repository](https://repo.jellyfin.org/?path=/server/).
