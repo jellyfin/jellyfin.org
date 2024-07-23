@@ -39,14 +39,14 @@ Click on the widget to open the **Jellyfin** application details screen.
 Click **Install** to open the Jellyfin application configuration screen.
 
 Application configuration settings are presented in several sections, each explained below.
-To find specific fields click in the **Search Input Fields** search field, scroll down to a particular section or click on the section heading on the navigation area in the upper-right corner.
+To find specific fields, click in the **Search Input Fields** search field, scroll down to a particular section or click on the section heading on the navigation area in the upper-right corner.
 
 ![Install Jellyfin Screen](/images/docs/install-truenas-3.png)
 
 ### Application Name Settings
 
 Accept the default value or enter a name in the **Application Name** field.
-In most cases use the default name, but if adding a second deployment of the application you must change this name.
+In most cases, use the default name, but if adding a second deployment of the application you must change this name.
 
 Accept the default version number in **Version**.
 When a new version becomes available, the application has an update badge.
@@ -106,7 +106,7 @@ Click **Add** next to **Additional Storage** to add the media library storage pa
 
 ![Additional Storage](/images/docs/install-truenas-11.png)
 
-Select **Host Path (Path that already exists on the system)** or **SMB Share (Mounts a persistent volume claim to a SMB share)** in **Type**.
+Select **Host Path (Path that already exists on the system)** or **SMB Share (Mounts a persistent volume claim to an SMB share)** in **Type**.
 You can select **iXvolume (dataset created automatically by the system)** to create a new library dataset, but this is not recommended.
 
 Mounting an SMB share allows data synchronization between the share and the app.
@@ -189,7 +189,7 @@ Default is 4000m, which means Jellyfin is allowed to use 4 CPU threads.
 Accept the default value 8Gi allocated memory or enter a new limit.
 Enter a plain integer followed by the measurement suffix, for example 4G.
 
-Systems with compatible GPU(s) display devices in **GPU Configuration**.
+Systems, with compatible GPU(s) display devices in **GPU Configuration**.
 Use the **GPU Resource** dropdown menu(s) to configure device allocation.
 
 See [Allocating GPUs](https://www.truenas.com/docs/scale/scaletutorials/apps/#allocating-gpu) for more information about allocating GPU devices in TrueNAS SCALE.
@@ -203,7 +203,7 @@ Afterward, the Jellyfin container runs as a non-root user (default: 568).
 Configured storage directory ownership is changed if the parent directory does not match the configured user.
 
 The system opens the **Installed Applications** screen with the Jellyfin app in the **Deploying** state.
-When the installation completes it changes to **Running**.
+When the installation completes, it changes to **Running**.
 
 ![Jellyfin Installed](/images/docs/install-truenas-4.png)
 
