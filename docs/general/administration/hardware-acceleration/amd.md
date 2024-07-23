@@ -41,7 +41,7 @@ There are two different methods that can be used on Windows and/or Linux. Pros a
 
    - Pros - Supports Dolby Vision P5, detailed fine-tuning options, widely supported hardware.
 
-   - Cons - The Pro or ROCm OpenCL runtime needs to be manually installed on Linux. No zero-copy support on Linux.
+   - Cons - Zero-copy is not supported on Linux.
 
 2. **Vulkan**
 
@@ -55,7 +55,7 @@ For beginners, please refer to the [Hardware Selection Guide](/docs/general/admi
 
 :::caution
 
-Most AMD dGPUs come with video encoders but be careful with certain models -  RX 6400/6500 series don't have video encoders.
+Most AMD dGPUs come with video encoders but be careful with certain models - RX 6400/6500 series don't have video encoders.
 
 :::
 
@@ -129,9 +129,7 @@ There are some known Windows driver issues that can affect the AMD hardware tran
 
 :::
 
-1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue in `Adrenalin 24.1.1` and newer. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing HDR videos that **require tone-mapping**. The last known working driver is [`Adrenalin 23.12.1`](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-23-12-1), and the problem can be solved by downgrading to it and disabling automatic updates. Note that if `Adrenalin 23.12.1` driver does not resolve the problem, you may need to try an older one such as `Adrenalin 23.11.1`. You can follow the status of this driver issue through the ticket below.
-
-   - Ticket: [https://github.com/ROCm/clr/issues/50](https://github.com/ROCm/clr/issues/50)
+1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue ranging from **Adrenalin 24.1.1 to 24.4.1**. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing videos. The driver **Adrenalin 24.5.1** and newer drivers fix this issue.
 
 ### Configure On Windows Host
 
@@ -210,16 +208,16 @@ You can use our Docker image instead or install third-party Mesa driver package.
 Alternatively, rebuild the Mesa driver with these options added to restore the stripped hardware codecs:
 
 ```shell
--D video-codecs=vc1dec,h264dec,h264enc,h265dec,h265enc
+-D video-codecs=all
 ```
 
 ### Configure On Linux Host
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg5` deb package required by Jellyfin 10.8 comes with all necessary user mode Mesa drivers.
+The `jellyfin-ffmpeg6` deb package required by Jellyfin 10.9 comes with all necessary user mode Mesa drivers.
 
-Besides that you only need to install the OpenCL runtime (optional for Vega+ in Jellyfin 10.9+) and configure the the permission of the `jellyfin` user.
+Besides that you only need to configure the permission of the `jellyfin` user.
 
 :::note
 
@@ -229,10 +227,10 @@ Root permission is required.
 
 1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
 
-2. Install the `jellyfin-ffmpeg5` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
+2. Install the `jellyfin-ffmpeg6` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
    ```shell
-   sudo apt update && sudo apt install -y jellyfin-ffmpeg5
+   sudo apt update && sudo apt install -y jellyfin-ffmpeg6
    ```
 
 3. Make sure at least one `renderD*` device exists in `/dev/dri`. Otherwise upgrade your kernel or enable the iGPU in the BIOS.
@@ -263,25 +261,7 @@ Root permission is required.
    sudo systemctl restart jellyfin
    ```
 
-5. Install the ROCm OpenCL runtime on host:
-
-   ```shell
-   sudo apt update && sudo apt install -y curl gpg
-   sudo mkdir -p /etc/apt/keyrings
-   curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/rocm.gpg
-   cat <<EOF | sudo tee /etc/apt/sources.list.d/rocm.sources
-   Types: deb
-   URIs: https://repo.radeon.com/rocm/apt/latest
-   Suites: ubuntu
-   Components: main
-   Architectures: amd64
-   Signed-By: /etc/apt/keyrings/rocm.gpg
-   EOF
-   sudo apt update && sudo apt install -y rocm-opencl-runtime
-   sudo sh -c "echo ROC_ENABLE_PRE_VEGA=1 >> /etc/profile"
-   ```
-
-6. Check the supported VA-API codecs:
+5. Check the supported VA-API codecs:
 
    :::note
 
@@ -303,18 +283,21 @@ Root permission is required.
    ...
    ```
 
-7. Check the OpenCL runtime status:
+   `VAEntrypointVLD` means that your card is capable to decode this format, `VAEntrypointEncSlice` means that you can encode to this format.
 
-   ```shell
-   sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device opencl=ocl:.0,device_vendor="Advanced Micro Devices"
+   | Jellyfin Setting | VA-API Profil                                                                                         |
+   |------------------|-------------------------------------------------------------------------------------------------------|
+   | H264             | VAProfileH264Baseline<br/>VAProfileH264Main<br/>VAProfileH264High<br/>VAProfileH264ConstrainedBaseline   |
+   | HEVC             | VAProfileHEVCMain                                                                                     |
+   | MPEG2            | VAProfileMPEG2Simple<br/>VAProfileMPEG2Main                                                            |
+   | VC1              | VAProfileVC1Simple<br/>VAProfileVC1Main<br/>VAProfileVC1Advanced                                        |
+   | VP8              | VAProfileVP8Version0<br/>VAProfileVP8Version1<br/>VAProfileVP8Version2<br/>VAProfileVP8Version3          |
+   | VP9              | VAProfileVP9Profile0                                                                                  |
+   | AV1              | VAProfileAV1Profile0                                                                                  |
+   | HEVC 10bit       | VAProfileHEVCMain10                                                                                   |
+   | VP9 10bit        | VAProfileVP9Profile2                                                                                  |
 
-   [AVHWDeviceContext @ 0x55d3ea4bfd00] 1 OpenCL platforms found.
-   [AVHWDeviceContext @ 0x55d3ea4bfd00] 1 OpenCL devices found on platform "AMD Accelerated Parallel Processing".
-   [AVHWDeviceContext @ 0x55d3ea4bfd00] 0.0: AMD Accelerated Parallel Processing / gfx900:xnack-
-   ...
-   ```
-
-8. Check the Vulkan runtime status:
+6. Check the Vulkan runtime status:
 
    ```shell
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
@@ -337,15 +320,15 @@ Root permission is required.
    ...
    ```
 
-9. If you wish to use the second GPU, change `renderD128` to `renderD129` in the Jellyfin dashboard.
+7. If you wish to use the second GPU, change `renderD128` to `renderD129` in the Jellyfin dashboard.
 
-10. Enable VA-API in Jellyfin and uncheck the unsupported codecs.
+8. Enable VA-API in Jellyfin and uncheck the unsupported codecs based on the vainfo output.
 
 #### Linux Mint
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -361,17 +344,14 @@ Root permission is required.
    sudo pacman -Syu jellyfin-ffmpeg
    ```
 
-2. User mode Mesa drivers and the ROCm OpenCL runtime are required to be manually installed for VA-API:
+2. User mode Mesa drivers are required to be manually installed for VA-API and RADV Vulkan:
 
    - [libva-mesa-driver](https://archlinux.org/packages/extra/x86_64/libva-mesa-driver/)
 
    - [vulkan-radeon](https://archlinux.org/packages/extra/x86_64/vulkan-radeon/)
 
-   - [rocm-opencl-runtime](https://archlinux.org/packages/extra/x86_64/rocm-opencl-runtime/)
-
    ```shell
-   sudo pacman -Syu libva-mesa-driver vulkan-radeon rocm-opencl-runtime
-   sudo sh -c "echo ROC_ENABLE_PRE_VEGA=1 >> /etc/profile"
+   sudo pacman -Syu libva-mesa-driver vulkan-radeon
    ```
 
 3. Check the VA-API codecs:
@@ -381,19 +361,13 @@ Root permission is required.
    sudo vainfo --display drm --device /dev/dri/renderD128
    ```
 
-4. Check the OpenCL runtime status:
-
-   ```shell
-   sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device opencl=ocl:.0,device_vendor="Advanced Micro Devices"
-   ```
-
-5. Check the Vulkan runtime status:
+4. Check the Vulkan runtime status:
 
    ```shell
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
    ```
 
-6. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux).
+5. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux).
 
 #### Other Distros
 
@@ -409,7 +383,7 @@ They can be downloaded from one of these links:
 
 Minimum requirements for glibc and Linux versions:
 
-- x86_64 / amd64 - glibc >= 2.23, Linux >= 4.4 (most distros released in 2016 and later)
+- x86_64 / amd64 - glibc >= 2.28, Linux >= 4.18 (most distros released in 2018 and later)
 
 :::
 
@@ -436,21 +410,13 @@ Install other necessary Intel driver packages and their dependencies that contai
 
 - Mesa vulkan driver - RADV
 
-- ROCm OpenCL runtime - OpenCL
-
 ### Configure With Linux Virtualization
 
 #### Official Docker
 
 The official Docker image comes with all necessary user mode Mesa drivers.
 
-What you need to do is install the OpenCL runtime and pass the host's `render` group id to Docker and modify the configurations to meet your requirements.
-
-:::note
-
-Note that as of **Jellyfin 10.8** the official Docker image uses Debian 11 which has a compatible version of Mesa for **AMD GPU HEVC** decoding. Earlier images may not provide a compatible version of Mesa.
-
-:::
+What you need to do is pass the host's `render` group id to Docker and modify the configurations to meet your requirements.
 
 :::note
 
@@ -483,12 +449,9 @@ Root permission is required.
       --volume /path/to/media:/media \
       --user 1000:1000 \
       --group-add="122" \ # Change this to match your "render" host group id and remove this comment
-      --group-add="123" \ # Change this to match your "video" host group id and remove this comment
       --net=host \
       --restart=unless-stopped \
       --device /dev/dri/renderD128:/dev/dri/renderD128 \
-      --device /dev/kfd:/dev/kfd \ # Remove this device if you don't use the OpenCL tone-mapping
-      --env ROC_ENABLE_PRE_VEGA=1 \
       jellyfin/jellyfin
      ```
 
@@ -502,7 +465,6 @@ Root permission is required.
          user: 1000:1000
          group_add:
            - "122" # Change this to match your "render" host group id and remove this comment
-           - "123" # Change this to match your "video" host group id and remove this comment
          network_mode: 'host'
          volumes:
            - /path/to/config:/config
@@ -510,53 +472,25 @@ Root permission is required.
            - /path/to/media:/media
          devices:
            - /dev/dri/renderD128:/dev/dri/renderD128
-           - /dev/kfd:/dev/kfd # Remove this device if you don't use the OpenCL tone-mapping
-         environment:
-           - ROC_ENABLE_PRE_VEGA=1
      ```
 
-3. Get into the Docker container and install the ROCm OpenCL runtime:
+3. If you wish to use the second GPU on your system, change `renderD128` to `renderD129`.
 
-   ```shell
-   sudo docker exec -u root -it jellyfin bash
-   apt update && apt install -y curl gpg
-   mkdir -p /etc/apt/keyrings
-   curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | gpg --dearmor -o /etc/apt/keyrings/rocm.gpg
-   cat <<EOF | tee /etc/apt/sources.list.d/rocm.sources
-   Types: deb
-   URIs: https://repo.radeon.com/rocm/apt/latest
-   Suites: ubuntu
-   Components: main
-   Architectures: amd64
-   Signed-By: /etc/apt/keyrings/rocm.gpg
-   EOF
-   apt update && apt install -y rocm-opencl-runtime
-   exit
-   ```
+4. For trying out the unstable build, change `jellyfin/jellyfin` to `jellyfin/jellyfin:unstable` on your own risk.
 
-4. If you wish to use the second GPU on your system, change `renderD128` to `renderD129`.
-
-5. For trying out the unstable build, change `jellyfin/jellyfin` to `jellyfin/jellyfin:unstable` on your own risk.
-
-6. Check the VA-API codecs:
+5. Check the VA-API codecs:
 
    ```shell
    docker exec -it jellyfin /usr/lib/jellyfin-ffmpeg/vainfo --display drm --device /dev/dri/renderD128
    ```
 
-7. Check the OpenCL runtime status:
-
-   ```shell
-   docker exec -it jellyfin /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device opencl
-   ```
-
-8. Check the Vulkan runtime status:
+6. Check the Vulkan runtime status:
 
    ```shell
    docker exec -it jellyfin /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device vulkan
    ```
 
-9. Enable VA-API in Jellyfin and uncheck the unsupported codecs.
+7. Enable VA-API in Jellyfin and uncheck the unsupported codecs.
 
 #### Linuxserver.io Docker
 
@@ -564,9 +498,7 @@ LSIO Docker images are maintained by [linuxserver.io](https://www.linuxserver.io
 
 :::note
 
-- The paths of Jellyfin config and data folders in the official and LSIO Docker images are different. So they cannot be easily exchanged.
-
-- A third-party LSIO Docker mod [jellyfin-amd](https://github.com/linuxserver/docker-mods/pull/544) can be used for enabling the OpenCL tone-mapping.
+The paths of Jellyfin config and data folders in the official and LSIO Docker images are different. So they cannot be easily exchanged.
 
 :::
 

@@ -21,15 +21,15 @@ Since December 2018, the project has grown immensely, through several speedbumps
 
 ### Core Team
 
-The core team consists of those with merge permissions on the main Jellyfin repositories, and thus have the ultimate decision authority for contributions to the core Jellyfin server and web client.
+The core team consists of those with merge permissions on the main Jellyfin repositories, and thus have the ultimate decision authority for contributions to the core Jellyfin server and web client. In addition, each member has various other roles and responsibilities as defined below.
 
-| Person | Contact |
-|---|---|
-| Joshua Boniface (Project Leader) | [GitHub](https://github.com/joshuaboniface) [Matrix](https://matrix.to/#/@joshuaboniface:bonifacelabs.ca) [Email](mailto:joshua@boniface.me) |
-| Anthony Lavado | [GitHub](https://github.com/anthonylavado) |
-| Andrew Rabert  | [GitHub](https://github.com/nvllsvm) |
-| Bond-009 | [GitHub](https://github.com/Bond-009) |
-| dkanada | [GitHub](https://github.com/dkanada) |
-| Claus Vium | [GitHub](https://github.com/cvium) |
-| Bill Thornton | [GitHub](https://github.com/thornbill) |
-| Cody Robibero | [GitHub](https://github.com/crobibero) |
+| Person | Contact | Role(s) |
+|---|---|---|
+| Joshua Boniface | [GitHub](https://github.com/joshuaboniface) [Matrix](https://matrix.to/#/@joshuaboniface:bonifacelabs.ca) [Email](mailto:joshua@boniface.me) | **Project Leader**, Packaging, Releases, Finance, Infrastructure |
+| Anthony Lavado | [GitHub](https://github.com/anthonylavado) | Social Media, Outreach, Finance |
+| Andrew Rabert  | [GitHub](https://github.com/nvllsvm) | Finance |
+| Bond-009 | [GitHub](https://github.com/Bond-009) | Server |
+| Claus Vium | [GitHub](https://github.com/cvium) | Server |
+| Bill Thornton | [GitHub](https://github.com/thornbill) | Web |
+| Cody Robibero | [GitHub](https://github.com/crobibero) | Server, Plugins |
+| Niels van Velzen | [GitHub](https://github.com/nielsvanvelzen) | Clients |

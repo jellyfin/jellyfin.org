@@ -49,7 +49,7 @@ Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-
 
 :::
 
-The QSV interface provided by Intel [OneVPL](https://github.com/oneapi-src/oneVPL) / [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK) is a high-level implementation based on Linux VA-API and Windows DXVA/D3D11VA providing better performance and more fine-tuning options on supported platforms.
+The QSV interface provided by Intel [OneVPL](https://github.com/intel/vpl-gpu-rt) / [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK) is a high-level implementation based on Linux VA-API and Windows DXVA/D3D11VA providing better performance and more fine-tuning options on supported platforms.
 
 QSV can be used together with VA-API and DXVA/D3D11VA for a more flexible hybrid transcoding pipeline.
 
@@ -139,7 +139,7 @@ Note that Jasper Lake and Elkhart Lake processors are 10th Gen Pentium/Celeron/A
 
 Please refer to these links:
 
-- [Intel Media Capabilities documentation](https://www.intel.com/content/www/us/en/develop/documentation/media-capabilities-of-intel-hardware/top.html)
+- [Intel Media Capabilities documentation](https://www.intel.com/content/www/us/en/docs/onevpl/developer-reference-media-intel-hardware/1-1/overview.html)
 
 - [Linux media-driver/iHD capabilities](https://github.com/intel/media-driver#decodingencoding-features)
 
@@ -151,7 +151,7 @@ Intel improves the speed and video quality of its fixed-function encoders betwee
 
 They can be divided into 4 tiers by their performance：
 
-- **Entry-Level** - HD / UHD 500, 600, 605 and 61x
+- **Entry-Level** - HD / UHD 600, 605 and 61x
 
   :::tip
 
@@ -185,7 +185,7 @@ They can be divided into 4 tiers by their performance：
 
 ### OneVPL And MediaSDK
 
-[OneVPL](https://github.com/oneapi-src/oneVPL) is a new QSV implementation to supersede [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK). Both provide the Quick Sync Video (QSV) runtime.
+[OneVPL](https://github.com/intel/vpl-gpu-rt) is a new QSV implementation to supersede [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK). Both provide the Quick Sync Video (QSV) runtime.
 
 Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, namely Tiger Lake & Rocket Lake).
 
@@ -199,7 +199,7 @@ Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, na
 
 ### ARC GPU Support
 
-Jellyfin server 10.8.9+ and the latest jellyfin-ffmpeg5 support Intel ARC discrete GPU on both Windows and Linux **6.2+**.
+Jellyfin server 10.8.9+ and the latest jellyfin-ffmpeg5+ support Intel ARC discrete GPU on both Windows and Linux **6.2+**.
 
 You only need to follow the [Windows Setups](/docs/general/administration/hardware-acceleration/intel#windows-setups) and [Linux Setups](/docs/general/administration/hardware-acceleration/intel#linux-setups) to configure and verify it.
 
@@ -227,9 +227,7 @@ There are some known Windows driver issues that can affect the Intel hardware tr
 
 :::
 
-1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue in `31.0.101.5186 / 31.0.101.5234` and newer. You may encounter a **green screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The last known working driver is [`31.0.101.5085 / 31.0.101.5122`](https://www.intel.com/content/www/us/en/download/785597/813048/intel-arc-iris-xe-graphics-windows.html), and the problem can be solved by downgrading to it and disabling automatic updates. You can follow the status of this driver issue through the ticket below.
-
-   - Ticket: [https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/680](https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/680)
+1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue ranging from **31.0.101.5186 / 31.0.101.5234 to 31.0.101.5534**. You may encounter a **green screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The **31.0.101.5590** and newer drivers fix this issue.
 
 ### Configure On Windows Host
 
@@ -331,15 +329,16 @@ There are some known upstream Linux Kernel and firmware issues that can affect t
 
 9. The kernel support for Intel Gen 12.7 MTL is incomplete before Linux 6.7.
 
-10. The LTS kernel 6.6.26+ and the stable kernel 6.8.5+ have unresolved i915 driver bugs, which break HDR/DV tone-mapping on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please refrain from upgrading to those kernel versions.
+10. The LTS kernel range 6.6.26 - 6.6.32 and the stable kernel range 6.8.5 - 6.9.3 have i915 driver bugs, which may cause problems on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please upgrade to kernel 6.6.33+ (LTS) or 6.9.4+. Ubuntu 24.04 with kernel versions 6.8.0-38+ are also affected by this issue, please downgrade to 6.8.0-36 until a fix is released.
 
     - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
+    - Ubuntu bug: [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755)
 
 ### Configure On Linux Host
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg5` deb package comes with all necessary user mode Intel media drivers except OpenCL (see below).
+The `jellyfin-ffmpeg6` deb package comes with all necessary user mode Intel media drivers except OpenCL (see below).
 
 :::note
 
@@ -353,10 +352,10 @@ Root permission is required.
    If you are running Debian, you will need to add "non-free" to your apt config.
    :::
 
-2. Install the `jellyfin-ffmpeg5` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
+2. Install the `jellyfin-ffmpeg6` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
    ```shell
-   sudo apt update && sudo apt install -y jellyfin-ffmpeg5
+   sudo apt update && sudo apt install -y jellyfin-ffmpeg6
    ```
 
 3. Make sure at least one `renderD*` device exists in `/dev/dri`. Otherwise upgrade your kernel or enable the iGPU in the BIOS.
@@ -452,7 +451,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg5` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -504,7 +503,7 @@ They can be downloaded from one of these links:
 
 Minimum requirements for glibc and Linux versions:
 
-- x86_64 / amd64 - glibc >= 2.23, Linux >= 4.4 (most distros released in 2016 and later)
+- x86_64 / amd64 - glibc >= 2.28, Linux >= 4.18 (most distros released in 2018 and later)
 
 :::
 

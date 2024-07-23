@@ -60,7 +60,7 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                   to='/downloads/macos'
                   className={clsx('pills__item', { 'pills__item--active': osType === OsType.MacOS })}
                 >
-                  MacOS
+                  macOS
                 </Link>
               </div>
             </div>
@@ -112,9 +112,11 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
               <p>
                 Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable version.
                 If you want to help test the latest improvements and features and can handle some occasional breakage,
-                use the Unstable version. New Unstable releases are published Weekly on Monday mornings (~midnight GMT-5).
+                use the Unstable version. New Unstable releases are published Weekly on Monday mornings (~05:00 UTC).
                 NOTE: Always back up your existing configuration before testing Unstable releases as there is NO
                 DOWNGRADE PATH; you must restore your Stable configuration from a backup.
+
+                For more details, [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
               </p>
             </Admonition>
           )}

@@ -9,7 +9,7 @@ The most common naming scheme for shows is categorizing the files by series and 
 
 :::tip
 
-In order to help with identifying a series, Jellyfin can make use of media provider identifiers. This can be specified in your show's folder name, for example: `Series Name (2018) [tmdbid-65567]` or `Series Name (2018) [tvdbid-65567]`
+In order to help with identifying a series, Jellyfin can make use of media provider identifiers. This can be specified in your show's folder name, for example: `Series Name (2018) [tmdbid-65567]` or `Series Name (2018) [tvdbid-65567]` (`imdbid` is not supported for shows)
 
 :::
 

@@ -93,7 +93,7 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
   {
     id: 'gh:ShokoAnime/Shokofin',
     name: "ShokoAnime's Repo",
-    url: 'https://raw.githubusercontent.com/ShokoAnime/Shokofin/master/manifest.json',
+    url: 'https://raw.githubusercontent.com/ShokoAnime/Shokofin/metadata/stable/manifest.json',
     includes: {
       Shokofin: 'https://github.com/ShokoAnime/Shokofin'
     }

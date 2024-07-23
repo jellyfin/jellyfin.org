@@ -38,7 +38,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <br />
 <sup>7</sup>HEVC decoding is only supported on Windows 10 with the HEVC Video Extension from the Microsoft <a href="https://www.microsoft.com/store/productId/9NMZLZ57R3T7">store</a>.
 <br />
-<sup>8</sup>Chromium 104 does support HEVC decoding when launched with <code>--enable-features=PlatformHEVCDecoderSupport</code> argument. For more informations please look at <a href="https://github.com/StaZhu/enable-chromium-hevc-hardware-decoding#readme">enable-chromium-hevc-hardware-decoding</a>.
+<sup>8</sup>Chromium 107 does support HEVC decoding when HEVC hardware decoding is available.
 <br />
 <sup>9</sup>HEVC decoding is only supported on 4K devices.
 <br />
