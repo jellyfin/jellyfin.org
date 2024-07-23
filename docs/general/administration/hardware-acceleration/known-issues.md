@@ -9,7 +9,7 @@ This page lists all known issues and limitations of hardware acceleration with J
 
 ## AMD on Windows
 
-1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue ranging from **Adrenalin 24.1.1 to 24.4.1**. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing videos. The driver **Adrenalin 24.5.1** and newer drivers fix this issue.
+1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have a Windows graphics driver issue ranging from **Adrenalin 24.1.1 to 24.4.1**. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing videos. The driver **Adrenalin 24.5.1** and newer drivers fix this issue.
 
 ## AMD on Linux
 
@@ -25,7 +25,7 @@ This page lists all known issues and limitations of hardware acceleration with J
 
    This prevents you from using the AMD VA-API transcoding **on the server system**.
 
-   You can use our Docker image instead or install third-party Mesa driver package.
+   You can use our Docker image instead or install a third-party Mesa driver package.
 
    Alternatively, rebuild the Mesa driver with these options added to restore the stripped hardware codecs:
 
@@ -35,7 +35,7 @@ This page lists all known issues and limitations of hardware acceleration with J
 
 ## Intel on Windows
 
-1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue ranging from **31.0.101.5186 / 31.0.101.5234 to 31.0.101.5534**. You may encounter a **green or blue screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The **31.0.101.5590** and newer drivers fix this issue.
+1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have a Windows graphics driver issue ranging from **31.0.101.5186 / 31.0.101.5234 to 31.0.101.5534**. You may encounter a **green or blue screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The **31.0.101.5590** and newer drivers fix this issue.
 
 ## Intel on Linux
 
@@ -43,7 +43,7 @@ This page lists all known issues and limitations of hardware acceleration with J
 
    - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/8080](https://gitlab.freedesktop.org/drm/intel/-/issues/8080)
 
-2. The default kernel 5.15 that comes with Ubuntu 22.04 LTS has a regression on Intel Gen 11 graphics (ICL, JSL and EHL) that prevent you from using the Low-Power encoding mode. Linux 5.16+ is not affected.
+2. The default kernel 5.15 that comes with Ubuntu 22.04 LTS has a regression on Intel Gen 11 graphics (ICL, JSL and EHL) that prevents you from using the Low-Power encoding mode. Linux 5.16+ is not affected.
 
    - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/4067](https://gitlab.freedesktop.org/drm/intel/-/issues/4067)
 
