@@ -589,19 +589,19 @@ The devices in Kubernetes are added as host path mounts, they are not separated 
            supplementalGroups:
              - 122 # Change this to match your "render" host group id and remove this comment
          containers:
-           - name: 'jellyfin'
+           - name: "jellyfin"
              image: ...
              ports: ...
              env: ...
              securityContext:
                privileged: true # Container must run as privileged inside of the pod
              volumeMounts:
-               - name: 'render-device'
-                 mountPath: '/dev/dri/renderD128'
+               - name: "render-device"
+                 mountPath: "/dev/dri/renderD128"
          volumes:
-           - name: 'render-device'
+           - name: "render-device"
              hostPath:
-               path: '/dev/dri/renderD128'
+               path: "/dev/dri/renderD128"
    ```
 
 2. When the pod starts, you can check the QSV and VA-API codecs.
