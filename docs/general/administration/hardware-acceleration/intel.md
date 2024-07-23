@@ -221,13 +221,7 @@ Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-:::caution
-
-There are some known Windows driver issues that can affect the Intel hardware transcoding. Some of them can be fixed by downgrading or upgrading your graphics driver.
-
-:::
-
-1. Intel 11th Gen and newer UHD, Xe and ARC series integrated and discrete GPUs have an Windows graphics driver issue ranging from **31.0.101.5186 / 31.0.101.5234 to 31.0.101.5534**. You may encounter a **green screen but normal sound** when transcoding and playing HDR videos that **require tone-mapping**. The **31.0.101.5590** and newer drivers fix this issue.
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#intel-on-windows) for known issues and limitations
 
 ### Configure On Windows Host
 
@@ -283,56 +277,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-:::caution
-
-There are some known upstream Linux Kernel and firmware issues that can affect the Intel hardware transcoding. Some of them can be fixed by upgrading your Linux distro, kernel and firmware packages, or adding the required kernel parameters.
-
-:::
-
-1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](/docs/general/administration/hardware-acceleration/intel#low-power-encoding) mode MUST be configured and enabled for correct VBR and CBR bitrate control that is required by Jellyfin.
-
-   - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/8080](https://gitlab.freedesktop.org/drm/intel/-/issues/8080)
-
-2. The default kernel 5.15 that comes with Ubuntu 22.04 LTS has a regression on Intel Gen 11 graphics (ICL, JSL and EHL) that prevent you from using the Low-Power encoding mode. Linux 5.16+ is not affected.
-
-   - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/4067](https://gitlab.freedesktop.org/drm/intel/-/issues/4067)
-
-   - Fixed by: [drm/i915/gen11: Moving WAs to icl_gt_workarounds_init()](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=52255ef662a5d490678fbad64a735f88fcba564d)
-
-   - You can fix this by switching to the [Hardware Enablement Stack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack) and rebooting your system
-
-   ```shell
-   sudo apt install --install-recommends linux-generic-hwe-22.04
-   ```
-
-   :::caution
-
-   This will move you off a 5.15 kernel which could have other implications. If it breaks something you can return to the normal kernel by installing the linux-generic package.
-
-   :::
-
-3. The kernel range from 5.18 to 6.1.3 have an issue that locks up and resets the i915 kernel driver when using OpenCL based HDR/DV tone-mapping. Linux 5.18-, 6.0.18+, 6.1.4+ are not affected.
-
-   - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/7627](https://gitlab.freedesktop.org/drm/intel/-/issues/7627)
-
-   - Fixed by: [drm/i915: improve the catch-all evict to handle lock contention](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3f882f2d4f689627c1566c2c92087bc3ff734953)
-
-4. The current Debian 11 and Ubuntu 22.04 LTS may not have the required GPU firmware for Intel 12th Gen processors and ARC GPU. Ubuntu 22.04 LTS can be switched to use Ubuntu's Hardware Enablement Stack (see #2 above) which uses a newer kernel that supports Intel 12th Gen+ and ARC GPUs.
-
-5. The kernel support for Intel Gen 12 TGL graphics is incomplete before Linux 5.9.
-
-6. The kernel support for Intel Gen 12 DG1 is incomplete in upstream. Intel DKMS and custom iHD driver are required.
-
-7. The kernel support for Intel Gen 12 ADL graphics is incomplete before Linux 5.17.
-
-8. The kernel support for Intel Gen 12.5 DG2 / ARC A-series is incomplete before Linux 6.2.
-
-9. The kernel support for Intel Gen 12.7 MTL is incomplete before Linux 6.7.
-
-10. The LTS kernel range 6.6.26 - 6.6.32 and the stable kernel range 6.8.5 - 6.9.3 have i915 driver bugs, which may cause problems on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please upgrade to kernel 6.6.33+ (LTS) or 6.9.4+. Ubuntu 24.04 with kernel versions 6.8.0-38+ are also affected by this issue, please downgrade to 6.8.0-36 until a fix is released.
-
-    - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
-    - Ubuntu bug: [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755)
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) for known issues and limitations
 
 ### Configure On Linux Host
 
