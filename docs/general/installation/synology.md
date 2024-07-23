@@ -13,7 +13,7 @@ Many pre-built NAS devices are underpowered. We generally do not recommend runni
 See: [Hardware Selection](/docs/general/administration/hardware-selection) for more information.
 
 :::
-For [Synology](https://www.synology.com/en-us/dsm), Jellyfin is installed using Docker. For this guide, the Synology Container Manager will be used to install Jellyfin.
+For [Synology](https://www.synology.com/en-us/dsm), Jellyfin is installed using Docker. In this guide, the Synology Container Manager will be used to install Jellyfin.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Install the "Container Manager" package from the Synology Package Center.
 Open the Package Center and search for "Container Manager" to find the package.
 For further information read this [guide](https://kb.synology.com/en-global/DSM/help/DSM/PkgManApp/install_buy?version=7).
 
-The creation and initialation of an Volume will not be touched in this guide. Further information is provided by [Synology](https://kb.synology.com/en-global/DSM/help/DSM/StorageManager/volume_create_volume?version=7)
+The creation and initialization of a volume will not be touched in this guide. Further information is provided by [Synology](https://kb.synology.com/en-global/DSM/help/DSM/StorageManager/volume_create_volume?version=7)
 
 ## Installation
 
@@ -36,7 +36,7 @@ Navigate to the "Registry" tab and search for "Jellyfin". You should see the off
 
 ![Downloading the Image](/images/docs/install-synology-0.png)
 
-A new window will open and a Jellyfin version can be selected for install. The latest version is recommended. Click `Apply` after selection a version.
+A new window will open and a Jellyfin version can be selected for installation. The latest version is recommended. Click `Apply` after selection a version.
 
 ![Downloading the Image](/images/docs/install-synology-1.png)
 
@@ -56,7 +56,7 @@ Allocate ports to the container. Jellyfin uses port 8096 for the web interface a
 
 #### Volume Settings
 
-This setting maps directories on the host to within the container. Use this setting to allow Jellyfin access to media and a place to store application data.
+This setting maps, directories on the host within the container. Use this setting to allow Jellyfin access to media and a place to store application data.
 To add a volume, click "Add Folder" and select the folder desired. The mount point is set in the middle column and the directory will be accessible at this path within the container. For media files, `/media` can be used, and for config files, `/config` can be used.
 
 #### Network Settings
@@ -74,6 +74,6 @@ Your settings should look like this:
 ![Advanced Settings](/images/docs/install-synology-4.png)
 Click `Next` to proceed to the next step.
 
-Settings can be reviewed at this screen. Check the `Run this container after the wizard is finished` checkbox and click `Apply` if everything looks correct. The container should now be shown in the `Container` tab.
+Settings can be reviewed on this screen. Check the `Run this container after the wizard is finished` checkbox and click `Apply` if everything looks correct. The container should now be shown in the `Container` tab.
 Browse to `http://SERVER_IP:8096` in a browser on a other device to finish setting up the Jellyfin server.
 If a different port was used, replace `8096` with the port used instead.
