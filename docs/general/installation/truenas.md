@@ -22,7 +22,7 @@ You can allow SCALE to create the datasets Jellyfin requires automatically durin
 Or before beginning app installation, [create the datasets](https://www.truenas.com/docs/scale/scaletutorials/storage/datasets/datasetsscale/) to use in the **Storage Configuration** section during installation.
 Jellyfin requires two datasets: **config** and **cache**.
 You can organize these as one parent with two child datasets, for example mnt/tank/jellyfin/config, mnt/tank/jellyfin/cache, and so on.
-You can choose to create a static **transcodes** dataset or use temporary storage in the disk or memory for transcoding.
+You can choose to create a static **transcodes** dataset or use temporary storage on the disk or in memory for transcoding.
 
 If you want to run the application with a user or group other than the default apps (568) user and group, [create them](https://www.truenas.com/docs/scale/scaletutorials/credentials/managelocalusersscale/) now.
 
@@ -110,7 +110,7 @@ Select **Host Path (Path that already exists on the system)** or **SMB Share (Mo
 You can select **iXvolume (dataset created automatically by the system)** to create a new library dataset, but this is not recommended.
 
 Mounting an SMB share allows data synchronization between the share and the app.
-The SMB share mount does not include ACL protections at this time. Permissions are currently limited to the permissions of the user that mounted the share. Alternate data streams (metadata), finder colors tags, previews, resource forks, and MacOS metadata is stripped from the share along with filesystem permissions, but this functionality is undergoing active development and implementation planned for a future TrueNAS SCALE release.
+The SMB share mount does not include ACL protections at this time. Permissions are currently limited to the permissions of the user that mounted the share. Alternate data streams (metadata), finder colors tags, previews, resource forks, and MacOS metadata are stripped from the share along with filesystem permissions, but this functionality is undergoing active development and implementation planned for a future TrueNAS SCALE release.
 
 For all types, enter a **Mount Path** to be used within the Jellyfin container.
 For example, the local **Host Path** /mnt/tank/video/movies could be assigned the **Mount Path** /media/movies.
@@ -179,7 +179,7 @@ For example, the local **Host Path** /mnt/tank/video/movies could be assigned th
 ### Resource Configuration Settings
 
 Accept the default values in **Resources Configuration** or enter new CPU and memory values
-By default, this application is limited to use no more than 4 CPU cores and 8 gibibytes available memory.
+By default, this application is limited to use no more than 4 CPU cores and 8 gibibytes of available memory.
 
 ![Resource Limits](/images/docs/install-truenas-12.png)
 
