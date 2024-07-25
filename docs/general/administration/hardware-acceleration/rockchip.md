@@ -177,6 +177,8 @@ Root permission is required.
 
 ### Configure With Linux Virtualization
 
+Before proceeding, please complete **steps 2 and 5** in the [Configure on Linux Host](#configure-on-linux-host) section above.
+
 #### Official Docker
 
 The official Docker image comes with all necessary user mode Rockchip MPP & RGA & OpenCL drivers.

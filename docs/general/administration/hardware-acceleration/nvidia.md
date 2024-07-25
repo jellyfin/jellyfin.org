@@ -15,17 +15,7 @@ On Windows and Linux **NVENC** is the only available method.
 
 The NVENC/NVDEC are the proprietary video codec APIs of NVIDIA GPUs, which can be used with CUDA to achieve full hardware acceleration.
 
-:::caution
-
-Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) cards have an artificial limit on the number of concurrent NVENC encoding sessions. This restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
-
-| NVIDIA driver  | NVENC concurrent sessions |
-| -------------- | ------------------------- |
-| 550 and newer  | Up to 8 encoding sessions |
-| 530 to 546     | Up to 5 encoding sessions |
-| pre-530        | Up to 3 encoding sessions |
-
-:::
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#nvidia) for known issues and limitations.
 
 :::note
 
@@ -169,7 +159,7 @@ A 64-bit Linux distribution is required. **In Jellyfin 10.9 the minimum required
 
 The `jellyfin-ffmpeg6` deb package required by Jellyfin 10.9 doesn't include any NVIDIA proprietary driver.
 
-You have to install the NVIDIA driver from the distro and configure the the permission of the `jellyfin` user.
+You have to install the NVIDIA driver from the distro and configure the permission of the `jellyfin` user.
 
 :::note
 
