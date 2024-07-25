@@ -294,3 +294,17 @@ SuccessExitStatus=0 143
 # Start by default on boot
 WantedBy=default.target
 ```
+### TrueNAS SCALE
+
+Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.com/truenas-scale/) community app deployable within a container. The source code for the app is available on the [TrueNAS GitHub](https://github.com/truenas/charts/tree/master/community/jellyfin).
+
+- For setup/install/network questions, try the [TrueNAS Forums](https://forums.truenas.com/).
+  - Seeking help for TrueNAS SCALE on the [Jellyfin Forums](https://forum.jellyfin.org/) depeneds on active forum members having experience with SCALE.
+- TrueNAS SCALE is a NAS OS built on Debian that provides an interface to deploy apps. TrueNAS is provided and maintained by [iXsystems](https://www.ixsystems.com/).
+
+#### Info about TrueCharts & Jellyfin on TrueNAS SCALE:
+TrueCharts is a 3rd party that created a repo containing kubernetes applications meant to be used on SCALE, one of which being Jellyfin.
+
+- Up until SCALE v24.04 (Dragonfish), Kubernetes was used to deploy apps. According to [an iXsystems staff member's post](https://forums.truenas.com/t/the-future-of-electric-eel-and-apps/5409), starting with SCALE v24.10 (Electric Eel), Kubernetes will be replaced with Docker to deploy apps on SCALE.
+- Due to the announcement of Kubernetes being dropped from SCALE, [TrueCharts is no longer supporting SCALE](https://truecharts.org/news/scale-deprecation/)
+- Furthermore, TrueCharts pulled their SCALE repo from the public, so their Jellyfin app is no longer available to the public.
