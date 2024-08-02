@@ -47,10 +47,10 @@ server {
     # ssl_protocols TLSv1.3 TLSv1.2;
 
     # use a variable to store the upstream proxy
-    # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
-    set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30s;
+    set $jellyfin 127.0.0.1;
+    # if you are using DNS to resolve a hostname (if the jellyfin server is not hosted on the same server as the nginx reverse proxy) then comment the above line and uncomment the 2 lines below instead
+    #set $jellyfin jellyfin;
+    #resolver 127.0.0.1 valid=30;
 
     #ssl_certificate /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem;
     #ssl_certificate_key /etc/letsencrypt/live/DOMAIN_NAME/privkey.pem;
@@ -144,10 +144,10 @@ server {
     #server_name jellyfin.local;
 
     # use a variable to store the upstream proxy
-    # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
-    set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30s;
+    set $jellyfin 127.0.0.1;
+    # if you are using DNS to resolve a hostname (if the jellyfin server is not hosted on the same server as the nginx reverse proxy) then comment the above line and uncomment the 2 lines below instead
+    #set $jellyfin jellyfin;
+    #resolver 127.0.0.1 valid=30;
 
     # Uncomment and create directory to also host static content
     #root /srv/http/media;
