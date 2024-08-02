@@ -43,7 +43,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "sass": "1.77.8",
-    "swiper": "11.1.7",
+    "swiper": "11.1.8",
     "url-loader": "4.1.1"
   },
   "browserslist": {
