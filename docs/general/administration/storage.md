@@ -26,8 +26,6 @@ For storage, a moderate size library database can grow anywhere from 10 to 100 G
 
 A popular choice for cloud storage has been the program [rclone](https://rclone.org/downloads/). It is supported on most Operating Systems. To facilitate combining local and cloud filesystems, rclone can be paired with another program such as [mergerfs](https://github.com/trapexit/mergerfs). For cloud storage, it is recommended to disable image extraction as this requires downloading the entire file to perform this task.
 
-- animostiy22's [repo](https://github.com/animosity22/homescripts) about rclone and mergerfs.
-
 ### MergerFS
 
 MergerFS isn't meant for everything, [see here](https://github.com/trapexit/mergerfs#what-should-mergerfs-not-be-used-for) for more.
