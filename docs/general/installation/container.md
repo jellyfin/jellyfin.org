@@ -293,29 +293,17 @@ SuccessExitStatus=0 143
 # Start by default on boot
 WantedBy=default.target
 ```
+### TrueNAS SCALE
 
-## TrueNAS SCALE / TrueCharts
+Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.com/truenas-scale/) community app deployable within a container. The source code for the app is available on the [TrueNAS GitHub](https://github.com/truenas/charts/tree/master/community/jellyfin).
 
-Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside the [TrueCharts](https://www.truecharts.org/) App Catalog with direct integration into the GUI, no CLI needed. Direct support is available on the [TrueCharts Discord](https://discord.gg/tVsPTHWTtr) and the source code is available on [GitHub](https://github.com/truecharts/charts).
+- For setup/install/network questions, try the [TrueNAS Forums](https://forums.truenas.com/).
+  - Seeking help for TrueNAS SCALE on the [Jellyfin Forums](https://forum.jellyfin.org/) depeneds on active forum members having experience with SCALE.
+- TrueNAS SCALE is a NAS OS built on Debian that provides an interface to deploy apps. TrueNAS is provided and maintained by [iXsystems](https://www.ixsystems.com/).
 
-1. Install the TrueCharts Catalog to TrueNAS SCALE, see [website](https://truecharts.org/manual/SCALE/guides/getting-started/#adding-truecharts) for more info.
+#### Info about TrueCharts & Jellyfin on TrueNAS SCALE:
+TrueCharts is a 3rd party that created a repo containing kubernetes applications meant to be used on SCALE, one of which being Jellyfin.
 
-   1. Go to Apps page from the top level SCALE menu
-   2. Select Manage Catalogs tab on the Apps page
-   3. Click Add Catalog
-   4. After reading the iXsystems notice, click Continue and enter the required information:
-      Name: truecharts
-      Repository: `https://github.com/truecharts/catalog`
-      Preferred Trains: `enterprise` and `stable`
-      Branch: main
-   5. Click Save and allow SCALE to refresh its catalog with TrueCharts (this may take a few minutes)
-
-2. Click `Available Applications` and search for `Jellyfin`
-
-3. Click `Install`, which will take you to the GUI Wizard and you'll be able to fill out the necessary info
-
-   - Server URL to publish in UDP Auto Discovery response.
-   - Networking, Ingress (Reverse Proxy), Security Options
-   - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/SCALE/guides/add-storage/). For Jellyfin the recommendation is to add storage as `Additional App Storage`
-
-4. Click Save and once it's up and running you'll be able to click Open to access `Jellyfin`.
+- Up until SCALE v24.04 (Dragonfish), Kubernetes was used to deploy apps. According to [an iXsystems staff member's post](https://forums.truenas.com/t/the-future-of-electric-eel-and-apps/5409), starting with SCALE v24.10 (Electric Eel), Kubernetes will be replaced with Docker to deploy apps on SCALE.
+- Due to the announcement of Kubernetes being dropped from SCALE, [TrueCharts is no longer supporting SCALE](https://truecharts.org/news/scale-deprecation/)
+- Furthermore, TrueCharts pulled their SCALE repo from the public, so their Jellyfin app is no longer available to the public.
