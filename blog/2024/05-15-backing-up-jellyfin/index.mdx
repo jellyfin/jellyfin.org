@@ -1,0 +1,67 @@
+---
+title: Backing up Jellyfin
+description: Backing up your instance before upgrading is important; here's how
+authors: joshuaboniface
+slug: backing-up-jellyfin
+tags: [guides]
+---
+
+Unfortunately, problems sometimes happen. Bugs are inevitable, and upgrades can fail. Jellyfin libraries and history data are often important to our users, and while we do our best to find and fix issues before releases, things slip through the cracks. This is especially common with major releases, where many new code changes, database migrations, and new features first land for the general public.
+
+With 10.9.0, we made sure to announce that users should back up before upgrading. Alas, we've had many reports of bugs and issues, where this wasn't the case. The point of this post then is to provide a bit more visibility on this topic, as well as a guide on how to perform a backup of your Jellyfin data before upgrading to a new version.
+
+Please read on for a detailed explanation of what to do!
+
+\- Joshua
+
+{/* truncate */}
+
+## Why Backing Up is Important
+
+Backups are important in general for all digital data. There are myriad possible bugs and issues that can arise and cause data loss. Within Jellyfin, as mentioned above, there is always a possibility of bugs showing up, especially when you upgrade major releases (for instance, from Jellyfin 10.8.x to Jellyfin 10.9.x).
+
+Jellyfin does not have a downgrade mechanism. This is very important to understand. Once your Jellyfin instance has been started with a new version, any pending migrations are immediately applied, and your Jellyfin data will no longer work with the old version. The **only** way to restore your active instance back to the old version is to restore a backup.
+
+This may also come in handy if you hit a bug. For instance, if a bug in the new version causes corruption of some aspect of the Jellyfin data, restoring from a backup means you can quickly restore to good data and apply any fixes to avoid a repeat. Without a backup, you would be completely out of luck in this situation.
+
+Finally, backups are critical if you want to test Unstable versions, for all the reasons above. In fact, when testing Unstable, it is best to back up much more regularly, perhaps using a cron job or similar automatic mechanism, to ensure that your data can be recovered if you hit a major issue.
+
+Hopefully this outlines why backups of your Jellyfin data are important. Next, we'll cover how to take backups and restore from them should you need to.
+
+## Taking a Backup
+
+Here is the process to take a Jellyfin backup, for every platform we support.
+
+1. Stop the running Jellyfin server process. This is extremely important, as otherwise the database will be locked and might not be recoverable when restoring.
+
+   * Any platform: Within the Jellyfin Dashboard, click "Shutdown". This should cleanly stop the process on all platforms, but if not, try one of the following.
+   * Docker: `sudo docker stop jellyfin`
+   * Debian/Ubuntu packages: `sudo systemctl stop jellyfin` or `sudo service jellyfin stop`
+   * Windows Installer: Right-click the Tray app, and select "Quit"; or, in Process Manager, find the Jellyfin process and terminate it.
+   * MacOS Installer (.dmg): In Activity Monitor, find the Jellyfin process and terminate it.
+   * Portable Installs (regardless of platform): Stop the running `jellyfin` or `jellyfin.exe` program, however it was started.
+
+2. Copy your data and configuration directories. What you name the copies is up to you; personally, I like to use dated and versioned directory names e.g. `jellyfin.2024-05-01_10.8.13`. Where these files are also depends on the platform. I provide terminal commands for Docker, Debian/Ubuntu, and MacOS but you can also perform these tasks from a graphical file browser via copy + paste + rename.
+
+  * Docker: Wherever your `/data` and `/config` volumes are sourced from. Assuming they're stored in somewhere like `/srv/jellyfin`, execute `sudo cp -a /srv/jellyfin/data /srv/jellyfin/data.2024-05-01_10.8.13` and `sudo cp -a /srv/jellyfin/config /srv/jellyfin/config.2024-05-01_10.8.13`.
+  * Debian/Ubuntu packages: Data is in `/var/lib/jellyfin` and config is in `/etc/jellyfin` by default. Execute `sudo cp -a /var/lib/jellyfin /var/lib/jellyfin.2024-05-01_10.8.13` and `sudo cp -a /etc/jellyfin /etc/jellyfin.2024-05-01_10.8.13`.
+  * Windows Installer:
+  * MacOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
+  * Portable Installs:
+     * Linux:
+     * Windows:
+     * MacOS: Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
+
+3. Start up Jellyfin again, either after upgrading or on the current version. You now have a safe copy of your data.
+
+## Restoring a Backup
+
+Here is the process to restore a Jellyfin backup. This assumes you followed the steps above to take the backup.
+
+1. Stop the running Jellyfin server process.
+
+2. Move your current data and configuration directories out of the way (e.g. by appending `.bak` to them). For example, `sudo mv /var/lib/jellyfin /var/lib/jellyfin.bak`.
+
+3. Copy - **do not move or rename** - your backup to the existing name. For example, `sudo cp -a /var/lib/jellyfin.2024-05-01_10.8.13 /var/lib/jellyfin`.
+
+4. Start up Jellyfin again.
