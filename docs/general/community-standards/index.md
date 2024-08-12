@@ -57,3 +57,4 @@ This document represents official Jellyfin project policy. Any changes to this d
 
 - 2020-09-14, Joshua Boniface: Initial version of the community standards document. Based _very_ loosely on several CoCs including the Contributor Covenant, and various Forum rules I've read and written over the years.
 - 2022-09-03, Joshua Boniface: Update header and footer sections; reduce redundant wording; make rules clearer.
+- 2024-08-12, JPVenson: Added section about respecting the TOS of other services
