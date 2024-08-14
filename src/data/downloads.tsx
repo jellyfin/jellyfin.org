@@ -16,7 +16,8 @@ export enum OsType {
   Docker,
   Linux,
   MacOS,
-  Windows
+  Windows,
+  DotNet,
 }
 
 export type Button = {
@@ -275,11 +276,11 @@ sudo apt install jellyfin`}
   {
     id: 'portable',
     name: 'Portable',
-    osTypes: [OsType.Linux, OsType.MacOS, OsType.Windows],
+    osTypes: [OsType.DotNet],
     status: DownloadStatus.Official,
     features: [],
     platforms: [Platform.DotNet],
-    description: 'The portable version can be run on any system with a .NET Core runtime.',
+    description: 'The portable version can be run on any system with a .NET runtime.',
     stableButtons: [
       {
         id: 'portable-manual-stable-link',
