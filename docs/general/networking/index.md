@@ -15,7 +15,8 @@ HTTP and HTTPS are the primary means of connecting to the server. If using a sel
 
 :::caution
 
-In order for Chromecast to work on a non-public routable connection, 8.8.8.8 must be blocked on the Chromecast's Gateway. Blocking 8.8.8.8 on your router is the easiest solution to this problem.
+In order for Chromecast to work on your local LAN, the easiest solution is to use IPv6 instead of IPv4. For a public routable IPv6 (not a link-local or ULA) there is no differentiation between public or local. An IPv6 address can simultaneously be publicly routable and accessible from the local LAN.
+For IPv4 connections, you need to use NAT reflection to redirect to your local LAN IPv4 or you need to block Chromecast from reaching the Google DNS servers (8.8.8.8) and add a override rules to your local DNS server to point to your local LAN IPv4
 
 :::
 
