@@ -16,8 +16,10 @@ HTTP and HTTPS are the primary means of connecting to the server. If using a sel
 :::caution
 
 In order for Chromecast to work on your local LAN, the easiest solution is to use IPv6 instead of IPv4.
-For IPv4 connections, you need to use NAT reflection to redirect to your local LAN IPv4 or add a override rules to your local DNS server to point to your local LAN IPv4 of Jellyfin. Because Chromecasts have hardcoded Google DNS servers, you need to block Chromecast from reaching these servers (8.8.8.8) so it makes use of your local DNS server instead. 
-For a public routable IPv6 (not a link-local or ULA) there is no differentiation between public or local. An IPv6 address can simultaneously be publicly routable and accessible from the local LAN. Because of that, there is no blocking, redirecting or DNS override needed.
+For IPv4, you need to use NAT reflection to redirect to your local LAN IPv4 or add a override rules to your local DNS server to point to your local LAN IPv4 (for example 192.168.1.10) of Jellyfin.  
+Because Chromecasts have hardcoded Google DNS servers, you need to block Chromecast from reaching these servers (8.8.8.8) so it makes use of your local DNS server instead.  
+For a public routable IPv6 (not a link-local or ULA) there is no difference between public or local. Such IPv6 address is simultaneously publicly routable and accessible from the local LAN.  
+Because of that, there is no blocking, redirecting or DNS override needed.
 
 :::
 
