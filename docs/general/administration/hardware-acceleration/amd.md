@@ -123,15 +123,7 @@ Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-:::caution
-
-There are some known Windows driver issues that can affect the AMD hardware transcoding. Some of them can be fixed by downgrading or upgrading your graphics driver.
-
-:::
-
-1. AMD Radeon RX 5000 and newer RDNA series integrated and discrete GPUs have an Windows graphics driver issue in `Adrenalin 24.1.1` and newer. You may experience **playback failure** and observe an **error code of `-60`** in the FFmpeg log when transcoding and playing videos. The last known working driver is [`Adrenalin 23.12.1`](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-23-12-1), and the problem can be solved by downgrading to it and disabling automatic updates. Note that if `Adrenalin 23.12.1` driver does not resolve the problem, you may need to try an older one such as `Adrenalin 23.11.1`. You can follow the status of this driver issue through the ticket below.
-
-   - Ticket: [https://github.com/ROCm/clr/issues/50](https://github.com/ROCm/clr/issues/50)
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#amd-on-windows) for known issues and limitations.
 
 ### Configure On Windows Host
 
@@ -189,29 +181,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-:::caution
-
-Some Linux distros intentionally disabled the H.264 and HEVC codecs from the Mesa VA-API driver.
-
-:::
-
-Known affected distros:
-
-- [Fedora](https://www.phoronix.com/news/Fedora-Disable-Bad-VA-API)
-
-- [OpenSUSE](https://www.webpronews.com/fedora-and-opensuse-disable-gpu-accelerated-video-over-patent-concerns/)
-
-- [Manjaro](https://forum.manjaro.org/t/stable-update-2022-12-06-kernels-mesa-plasma-cinnamon-nvidia-libreoffice-pipewire-virtualbox/128453)
-
-This prevents you from using the AMD VA-API transcoding **on the host system**.
-
-You can use our Docker image instead or install third-party Mesa driver package.
-
-Alternatively, rebuild the Mesa driver with these options added to restore the stripped hardware codecs:
-
-```shell
--D video-codecs=all
-```
+Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#amd-on-linux) for known issues and limitations.
 
 ### Configure On Linux Host
 
@@ -219,7 +189,7 @@ Alternatively, rebuild the Mesa driver with these options added to restore the s
 
 The `jellyfin-ffmpeg6` deb package required by Jellyfin 10.9 comes with all necessary user mode Mesa drivers.
 
-Besides that you only need to configure the the permission of the `jellyfin` user.
+Besides that you only need to configure the permission of the `jellyfin` user.
 
 :::note
 
@@ -287,17 +257,17 @@ Root permission is required.
 
    `VAEntrypointVLD` means that your card is capable to decode this format, `VAEntrypointEncSlice` means that you can encode to this format.
 
-   | Jellyfin Setting | VA-API Profil                                                                                         |
-   |------------------|-------------------------------------------------------------------------------------------------------|
-   | H264             | VAProfileH264Baseline<br/>VAProfileH264Main<br/>VAProfileH264High<br/>VAProfileH264ConstrainedBaseline   |
-   | HEVC             | VAProfileHEVCMain                                                                                     |
+   | Jellyfin Setting | VA-API Profil                                                                                          |
+   | ---------------- | ------------------------------------------------------------------------------------------------------ |
+   | H264             | VAProfileH264Baseline<br/>VAProfileH264Main<br/>VAProfileH264High<br/>VAProfileH264ConstrainedBaseline |
+   | HEVC             | VAProfileHEVCMain                                                                                      |
    | MPEG2            | VAProfileMPEG2Simple<br/>VAProfileMPEG2Main                                                            |
-   | VC1              | VAProfileVC1Simple<br/>VAProfileVC1Main<br/>VAProfileVC1Advanced                                        |
-   | VP8              | VAProfileVP8Version0<br/>VAProfileVP8Version1<br/>VAProfileVP8Version2<br/>VAProfileVP8Version3          |
-   | VP9              | VAProfileVP9Profile0                                                                                  |
-   | AV1              | VAProfileAV1Profile0                                                                                  |
-   | HEVC 10bit       | VAProfileHEVCMain10                                                                                   |
-   | VP9 10bit        | VAProfileVP9Profile2                                                                                  |
+   | VC1              | VAProfileVC1Simple<br/>VAProfileVC1Main<br/>VAProfileVC1Advanced                                       |
+   | VP8              | VAProfileVP8Version0<br/>VAProfileVP8Version1<br/>VAProfileVP8Version2<br/>VAProfileVP8Version3        |
+   | VP9              | VAProfileVP9Profile0                                                                                   |
+   | AV1              | VAProfileAV1Profile0                                                                                   |
+   | HEVC 10bit       | VAProfileHEVCMain10                                                                                    |
+   | VP9 10bit        | VAProfileVP9Profile2                                                                                   |
 
 6. Check the Vulkan runtime status:
 
