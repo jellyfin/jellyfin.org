@@ -134,7 +134,7 @@ Please refer to [this table](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Vide
 
 Intel CPUs with a model description that ends with F don't have integrated graphics. These are intended to be used with a dedicated graphics card. Please beware if you intend to use Intel integrated graphics.
 
-If you are planning to use Linux with Intel 12/13th Gen integrated graphics or ARC, these GPUs only work on Linux Kernel 6.2 or newer. Please check your distribution to make sure it has a supported Linux Kernel version. Please read [Known Intel limitations on Linux](/docs/general/administration/hardware-acceleration/intel#known-issues-and-limitations-on-linux) for more info.
+If you are planning to use Linux with Intel 12/13th Gen integrated graphics or ARC, these GPUs only work on Linux Kernel 6.2 or newer. Please check your distribution to make sure it has a supported Linux Kernel version. Please read [Known Intel limitations on Linux](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) for more info.
 
 :::caution Intel HDR Tonemapping on Windows
 
@@ -164,15 +164,15 @@ Please check the product page of your CPU for more info.
 
 Supported codecs are listed below:
 
-| Codec       | M1, M2 Family | M3 Family     |
-| ----------- | ------------- | ---------     |
-| H.264 8bit  | ✅            | ✅            |
-| H.264 10bit | 🔶            | 🔶            |
-| H.265 8bit  | ✅            | ✅            |
-| H.265 10bit | ✅            | ✅            |
-| VP9 8bit    | 🔶            | 🔶            |
-| VP9 10bit   | 🔶            | 🔶            |
-| AV1         | ❌            | ❌<sup>1</sup>|
+| Codec       | M1, M2 Family | M3 Family      |
+| ----------- | ------------- | -------------- |
+| H.264 8bit  | ✅            | ✅             |
+| H.264 10bit | 🔶            | 🔶             |
+| H.265 8bit  | ✅            | ✅             |
+| H.265 10bit | ✅            | ✅             |
+| VP9 8bit    | 🔶            | 🔶             |
+| VP9 10bit   | 🔶            | 🔶             |
+| AV1         | ❌            | ❌<sup>1</sup> |
 
 ✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
 
