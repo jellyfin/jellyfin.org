@@ -280,7 +280,7 @@ sudo apt install jellyfin`}
     status: DownloadStatus.Official,
     features: [],
     platforms: [Platform.DotNet],
-    description: 'The portable version can be run on any system with a .NET runtime.',
+    description: 'The .NET portable version can be run on any system with a .NET runtime using jellyfin.dll',
     stableButtons: [
       {
         id: 'portable-manual-stable-link',
