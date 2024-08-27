@@ -654,7 +654,27 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
 
 5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU `renderD128` if necessary.
 
-#### LXC On Proxmox
+#### LXC On Proxmox VE 8 or Newer
+
+1. Install the required drivers on the Proxmox host.
+
+2. Add your GPU to the container by adding a `Device Passthrough` for `/dev/dri/renderD128` via the `Resources` section of the web interface.
+   Be sure to set the correct GID via the advanced options of the dialog, e.g. `989` for the `render` group.
+   GIDs can be looked up in `/etc/group` inside the LXC.
+
+   :::note
+
+   You must be logged in as `root`. Other administrator accounts are not allowed to perform this action.
+
+   :::
+
+3. Restart your container and install the required drivers in your container.
+
+4. Add the `jellyfin` user to the group you chose in step 2.
+
+5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU `renderD128` if necessary.
+
+#### LXC On Proxmox VE 7 or Older
 
 :::note
 
