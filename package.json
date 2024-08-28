@@ -61,7 +61,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.5.2",
     "@docusaurus/tsconfig": "3.5.2",
-    "@types/react": "18.3.3",
+    "@types/react": "18.3.4",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "7.1.1",
