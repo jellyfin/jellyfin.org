@@ -66,7 +66,7 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                   to='/downloads/dotnet'
                   className={clsx('pills__item', { 'pills__item--active': osType === OsType.DotNet })}
                 >
-                  DotNet
+                  .NET
                 </Link>
               </div>
             </div>
