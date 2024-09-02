@@ -858,5 +858,34 @@ export const Clients: Array<Client> = [
         url: 'https://fintunes.app'
       }
     ]
+  },
+  {
+    id: "streamyfin",
+    name: "Streamyfin",
+    description:
+      "A third-party client for iOS, iPadOS and Android with download capability",
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Android, Platform.IOS, Platform.iPadOS],
+    primaryLinks: [
+      {
+        id: "app-store",
+        name: "App Store",
+        url: "https://apps.apple.com/de/app/streamyfin/id6593660679",
+      },
+      {
+        id: "play-store",
+        name: "Play Store",
+        url: "https://play.google.com/store/apps/details?id=com.fredrikburmester.streamyfin",
+      },
+    ],
+    secondaryLinks: [
+      {
+        id: "github",
+        name: "GitHub",
+        url: "https://github.com/fredrikburmester/streamyfin",
+      }
+    ],
   }
 ];
