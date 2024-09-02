@@ -62,6 +62,12 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                 >
                   macOS
                 </Link>
+                <Link
+                  to='/downloads/dotnet'
+                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.DotNet })}
+                >
+                  .NET
+                </Link>
               </div>
             </div>
 
