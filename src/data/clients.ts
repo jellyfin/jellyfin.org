@@ -889,7 +889,7 @@ export const Clients: Array<Client> = [
       {
         id: 'website',
         name: 'Website',
-        url: 'https://fintunes.app'
+        url: 'https://streamyfin.app'
       } 
     ]
   }
