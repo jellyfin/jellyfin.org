@@ -885,7 +885,12 @@ export const Clients: Array<Client> = [
         id: "github",
         name: "GitHub",
         url: "https://github.com/fredrikburmester/streamyfin",
-      }
-    ],
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://fintunes.app'
+      } 
+    ]
   }
 ];
