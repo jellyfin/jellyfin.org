@@ -796,3 +796,4 @@ Keep in mind that these posts may have been made under previous versions of Jell
 - [Jellyfin Netflix Dark - The Best Netflix Dark Theme for Jellyfin Around!](https://github.com/DevilsDesigns/Jellyfin-Netflix-Dark)
 - [Dark and Green - A Emby like night mode skin](https://github.com/mbcooper83/jellyfin-css-darkandgreen)
 - [Hint of Green](https://github.com/looi-wh/HintOfGreenCSS)
+- [Scyfin - A modern Jellyfin theme](https://github.com/loof2736/scyfin)
