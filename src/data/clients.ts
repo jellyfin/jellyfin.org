@@ -872,7 +872,7 @@ export const Clients: Array<Client> = [
       {
         id: "app-store",
         name: "App Store",
-        url: "https://apps.apple.com/de/app/streamyfin/id6593660679",
+        url: "https://apps.apple.com/app/streamyfin/id6593660679",
       },
       {
         id: "play-store",
