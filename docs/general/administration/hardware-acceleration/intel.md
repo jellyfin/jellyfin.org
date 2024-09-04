@@ -657,7 +657,7 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
 #### LXC On Proxmox
 
 1. Make sure your GPU is available as a DRI render device on the Proxmox host, e.g. `/dev/dri/renderD128`.
-   If not, [install the necessary drivers](./index.md#configure--verify-hardware-acceleration) on the host.
+   If not, [install the necessary drivers](#debian-and-ubuntu-linux) on the host.
 
 2. **Proxmox VE 8 or Newer**:
 
@@ -670,8 +670,6 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    You must be logged in as `root`. Other administrator accounts are not allowed to perform this action.
 
    :::
-
-   <br/>
 
    **Proxmox VE 7 or Older**:
 
@@ -699,11 +697,11 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
    ```
 
-3. Restart your container and [install the required drivers in your container](./index.md#configure--verify-hardware-acceleration).
+3. Restart your container and [install the required drivers in your container](#configure-on-linux-host).
 
 4. Add the `jellyfin` user to the group you chose in Step 2, i.e. the group that owns the DRI render device inside the LXC.
 
-5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU to `renderD128` if necessary.
+5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU `renderD128` if necessary.
 
 ### Verify On Linux
 
