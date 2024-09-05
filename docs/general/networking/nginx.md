@@ -25,6 +25,8 @@ Create the file `/etc/nginx/sites-available/jellyfin` which will forward request
 
 Note that a server listening on http port 80 is required for the Certbot / Let's Encrypt certificate renewal process.
 
+### HTTPS config example
+
 ```config
 server {
     listen 80;
@@ -105,7 +107,7 @@ server {
 }
 ```
 
-### HTTP Example
+### HTTP config example
 
 <details>
   <summary>Expand HTTP Example</summary>
