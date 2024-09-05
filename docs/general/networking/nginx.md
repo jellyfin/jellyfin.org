@@ -107,6 +107,7 @@ server {
 ```
 
 ### HTTP Example
+
 <details>
   <summary>Expand HTTP Example</summary>
 ```config
