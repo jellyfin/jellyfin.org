@@ -103,20 +103,20 @@ server {
         proxy_set_header X-Forwarded-Host $http_host;
     }
 }
-
 ```
 
 ### HTTP Example
 
 <details>
   <summary>Expand HTTP Example</summary>
+
 ```config
 server {
     listen 80;
     listen [::]:80;
     server_name DOMAIN_NAME;
 
-    # The default client_max_body_size is 1M, this might not be enough for some posters, etc.
+    ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
     client_max_body_size 20M;
 
     # use a variable to store the upstream proxy
@@ -169,8 +169,8 @@ server {
         proxy_set_header X-Forwarded-Host $http_host;
     }
 }
-
 ```
+
 </details>
 
 ## Nginx with Subpath (example.org/jellyfin)
@@ -417,7 +417,6 @@ In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  Thi
     # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
     # NOTE: The default CSP headers may cause issues with the webOS app
     #add_header Content-Security-Policy "default-src https: data: blob: http://image.tmdb.org; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com/cv/js/sender/v1/cast_sender.js https://www.gstatic.com/eureka/clank/95/cast_sender.js https://www.gstatic.com/eureka/clank/96/cast_sender.js https://www.gstatic.com/eureka/clank/97/cast_sender.js https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
-
 ```
 
 In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
