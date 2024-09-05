@@ -179,78 +179,6 @@ When connecting to server from a client application, enter `http(s)://DOMAIN_NAM
 
 Set the [base URL](/docs/general/networking#base-url) field in the Jellyfin server. This can be done by navigating to the Admin Dashboard -> Networking -> Base URL in the web client. Fill in this box with `/jellyfin` and click Save. The server will need to be restarted before this change takes effect.
 
-### HTTP config example
-
-:::caution
-
-HTTP is insecure. The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet you should setup HTTPS (see below for HTTPS configuration example). [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/).
-
-:::
-
-```conf
-# Jellyfin hosted on http://DOMAIN_NAME/jellyfin
-
-server {
-    listen 80;
-    listen [::]:80;
-
-    server_name DOMAIN_NAME;
-    # You can specify multiple domain names if you want
-    #server_name jellyfin.local;
-
-    # use a variable to store the upstream proxy
-    # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
-    set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30s;
-
-    # Uncomment and create directory to also host static content
-    #root /srv/http/media;
-    index index.html;
-
-    location / {
-        try_files $uri $uri/ =404;
-    }
-
-    # Jellyfin
-    location /jellyfin {
-        return 302 $scheme://$host/jellyfin/;
-    }
-
-    # The / at the end is significant.
-    # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
-    location /jellyfin/ {
-        # Proxy main Jellyfin traffic
-        proxy_pass http://$jellyfin:8096;
-        proxy_pass_request_headers on;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Host $http_host;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $http_connection;
-
-        # Disable buffering when the nginx proxy gets very resource heavy upon streaming
-        proxy_buffering off;
-    }
-
-    location /jellyfin/socket {
-        # Proxy Jellyfin Websockets traffic
-        proxy_pass http://$jellyfin:8096;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Protocol $scheme;
-        proxy_set_header X-Forwarded-Host $http_host;
-    }
-}
-```
-
 ### HTTPS config example
 
 ```conf
@@ -326,6 +254,83 @@ server {
     }
 }
 ```
+
+### HTTP config example
+
+:::caution
+
+HTTP is insecure. The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet you should setup HTTPS (see below for HTTPS configuration example). [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/).
+
+<details>
+  <summary>Expand HTTP Example</summary>
+
+:::
+
+```conf
+# Jellyfin hosted on http://DOMAIN_NAME/jellyfin
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name DOMAIN_NAME;
+    # You can specify multiple domain names if you want
+    #server_name jellyfin.local;
+
+    # use a variable to store the upstream proxy
+    # in this example we are using a hostname which is resolved via DNS
+    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
+    set $jellyfin jellyfin;
+    resolver 127.0.0.1 valid=30s;
+
+    # Uncomment and create directory to also host static content
+    #root /srv/http/media;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Jellyfin
+    location /jellyfin {
+        return 302 $scheme://$host/jellyfin/;
+    }
+
+    # The / at the end is significant.
+    # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
+    location /jellyfin/ {
+        # Proxy main Jellyfin traffic
+        proxy_pass http://$jellyfin:8096;
+        proxy_pass_request_headers on;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $http_host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $http_connection;
+
+        # Disable buffering when the nginx proxy gets very resource heavy upon streaming
+        proxy_buffering off;
+    }
+
+    location /jellyfin/socket {
+        # Proxy Jellyfin Websockets traffic
+        proxy_pass http://$jellyfin:8096;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Protocol $scheme;
+        proxy_set_header X-Forwarded-Host $http_host;
+    }
+}
+```
+
+</details>
 
 ## Extra Nginx Configurations
 
