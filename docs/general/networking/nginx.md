@@ -264,8 +264,6 @@ HTTP is insecure. The following configuration is provided for ease of use only. 
 <details>
   <summary>Expand HTTP Example</summary>
 
-:::
-
 ```conf
 # Jellyfin hosted on http://DOMAIN_NAME/jellyfin
 
