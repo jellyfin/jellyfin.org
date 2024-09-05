@@ -234,12 +234,24 @@ server {
         # Disable buffering when the nginx proxy gets very resource heavy upon streaming
         proxy_buffering off;
     }
+
+    location /jellyfin/socket {
+        # Proxy Jellyfin Websockets traffic
+        proxy_pass http://$jellyfin:8096;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Protocol $scheme;
+        proxy_set_header X-Forwarded-Host $http_host;
+    }
 }
 ```
 
 ### HTTPS config example
-
-The following config is meant to work with Certbot / Let's Encrypt.  Note that a server listening on http port 80 is required for the Certbot / Let's Encrypt certification creation / renewal process.
 
 ```conf
 # Jellyfin hosted on https://DOMAIN_NAME/jellyfin
@@ -260,14 +272,13 @@ server {
     server_name DOMAIN_NAME;
     # You can specify multiple domain names if you want
     #server_name jellyfin.local;
+
     ssl_certificate /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/DOMAIN_NAME/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-    add_header Strict-Transport-Security "max-age=31536000" always;
     ssl_trusted_certificate /etc/letsencrypt/live/DOMAIN_NAME/chain.pem;
-    ssl_stapling on;
-    ssl_stapling_verify on;
+
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
     # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
@@ -275,7 +286,7 @@ server {
     resolver 127.0.0.1 valid=30s;
 
     # Uncomment next line to disable TLS 1.0 and 1.1 (Might break older devices)
-    # ssl_protocols TLSv1.3 TLSv1.2;
+    ssl_protocols TLSv1.3 TLSv1.2;
 
     # Jellyfin
     location /jellyfin {
@@ -286,18 +297,13 @@ server {
     # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
     location /jellyfin/ {
         # Proxy main Jellyfin traffic
-
         proxy_pass http://$jellyfin:8096;
-
         proxy_pass_request_headers on;
-
         proxy_set_header Host $host;
-
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Host $http_host;
-
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection $http_connection;
 
@@ -305,6 +311,19 @@ server {
         proxy_buffering off;
     }
 
+    location /jellyfin/socket {
+        # Proxy Jellyfin Websockets traffic
+        proxy_pass http://$jellyfin:8096;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Protocol $scheme;
+        proxy_set_header X-Forwarded-Host $http_host;
+    }
 }
 ```
 
