@@ -181,7 +181,7 @@ When connecting to server from a client application, enter `http(s)://DOMAIN_NAM
 
 Set the [base URL](/docs/general/networking#base-url) field in the Jellyfin server. This can be done by navigating to the Admin Dashboard -> Networking -> Base URL in the web client. Fill in this box with `/jellyfin` and click Save. The server will need to be restarted before this change takes effect.
 
-### HTTPS config example
+### HTTPS subpath example
 
 ```conf
 # Jellyfin hosted on https://DOMAIN_NAME/jellyfin
@@ -257,7 +257,7 @@ server {
 }
 ```
 
-### HTTP config example
+### HTTP subpath example
 
 :::caution
 
