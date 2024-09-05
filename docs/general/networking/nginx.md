@@ -35,9 +35,8 @@ server {
 #}
 
 #server {
-    # listen 443 ssl;
-    # listen [::]:443 ssl;
-    http2 on;
+    # listen 443 ssl http2;
+    # listen [::]:443 ssl http2;
     server_name DOMAIN_NAME;
 
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
@@ -64,6 +63,7 @@ server {
     # Security / XSS Mitigation Headers
     # NOTE: X-Frame-Options may cause issues with the webOS app
     add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "0"; # Do NOT enable. This is obsolete/dangerous
     add_header X-Content-Type-Options "nosniff";
 
     # Permissions policy. May cause issues on some clients
@@ -179,7 +179,7 @@ server {
 
 ### HTTPS config example
 
-The following config is meant to work with Certbot / Let's Encrypt.
+The following config is meant to work with Certbot / Let's Encrypt.  Note that a server listening on http port 80 is required for the Certbot / Let's Encrypt certification creation / renewal process.
 
 ```conf
 # Jellyfin hosted on https://DOMAIN_NAME/jellyfin
