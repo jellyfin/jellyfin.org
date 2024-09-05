@@ -114,7 +114,7 @@ server {
 server {
     listen 80;
     listen [::]:80;
-    server_name DOMAIN_NAME
+    server_name DOMAIN_NAME;
 
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
     client_max_body_size 20M;
