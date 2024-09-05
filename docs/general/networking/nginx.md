@@ -261,6 +261,8 @@ server {
 
 HTTP is insecure. The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet you should setup HTTPS (see below for HTTPS configuration example). [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/).
 
+:::
+
 <details>
   <summary>Expand HTTP Example</summary>
 
