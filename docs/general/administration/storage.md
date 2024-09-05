@@ -31,6 +31,5 @@ A popular choice for cloud storage has been the program [rclone](https://rclone.
 MergerFS isn't meant for everything, [see here](https://github.com/trapexit/mergerfs#what-should-mergerfs-not-be-used-for) for more.
 
 - rclone recommended [config](https://forum.rclone.org/t/my-best-rclone-config-mount-for-plex/7441).
-- animostiy22's [repo](https://github.com/animosity22/homescripts) about rclone and mergerfs.
 
 To modify and examine your mergerfs mount, here's a quick [guide](https://zackreed.me/mergerfs-neat-tricks).
