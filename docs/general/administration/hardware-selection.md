@@ -136,12 +136,6 @@ Intel CPUs with a model description that ends with F don't have integrated graph
 
 If you are planning to use Linux with Intel 12/13th Gen integrated graphics or ARC, these GPUs only work on Linux Kernel 6.2 or newer. Please check your distribution to make sure it has a supported Linux Kernel version. Please read [Known Intel limitations on Linux](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) for more info.
 
-:::caution Intel HDR Tonemapping on Windows
-
-HDR Tonemapping may not work on Intel driver versions `31.0.101.5186 / 31.0.101.5234` or newer on Windows. Please read [Known Intel limitations on Windows](docs/general/administration/hardware-acceleration/intel#known-issues-and-limitations-on-windows) for more info.
-
-:::
-
 #### Nvidia Graphics
 
 Please refer to [this table](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) for supported codecs.
