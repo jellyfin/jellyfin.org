@@ -42,17 +42,17 @@ server {
     # Uncomment next line to Disable TLS 1.0 and 1.1 (Might break older devices)
     ssl_protocols TLSv1.3 TLSv1.2;
 
-    # use a variable to store the upstream proxy
-    # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
-    set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30s;
-
     ssl_certificate /etc/letsencrypt/live/DOMAIN.TLD/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/DOMAIN.TLD/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
     ssl_trusted_certificate /etc/letsencrypt/live/DOMAIN.TLD/chain.pem;
+
+    # use a variable to store the upstream proxy
+    # in this example we are using a hostname which is resolved via DNS
+    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
+    set $jellyfin jellyfin;
+    resolver 127.0.0.1 valid=30s;
 
     # Security / XSS Mitigation Headers
     # NOTE: X-Frame-Options may cause issues with the webOS app
@@ -202,15 +202,15 @@ server {
     # You can specify multiple domain names if you want
     #server_name jellyfin.local;
 
+    # Uncomment next line to disable TLS 1.0 and 1.1 (Might break older devices)
+    ssl_protocols TLSv1.3 TLSv1.2;
+
     ssl_certificate /etc/letsencrypt/live/DOMAIN.TLD/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/DOMAIN.TLD/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
     ssl_trusted_certificate /etc/letsencrypt/live/DOMAIN.TLD/chain.pem;
     
-    # Uncomment next line to disable TLS 1.0 and 1.1 (Might break older devices)
-    ssl_protocols TLSv1.3 TLSv1.2;
-
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
     # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
