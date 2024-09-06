@@ -32,8 +32,14 @@ server {
 }
 
 server {
+    # Nginx versions prior to 1.25
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
+
+    # Nginx versions 1.25+
+    #listen 443 ssl;
+    #listen [::]:443 ssl;
+    #http2 on;    
     server_name jellyfin.DOMAIN.TLD;
 
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
@@ -195,8 +201,14 @@ server {
 }
 
 server {
+    # Nginx versions prior to 1.25
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
+
+    # Nginx versions 1.25+
+    #listen 443 ssl;
+    #listen [::]:443 ssl;
+    #http2 on;
 
     server_name DOMAIN.TLD;
     # You can specify multiple domain names if you want
