@@ -39,7 +39,15 @@ server {
     # Nginx versions 1.25+
     #listen 443 ssl;
     #listen [::]:443 ssl;
-    #http2 on;    
+    #http2 on;
+
+    ## QUIC/HTTP3, requires Nginx 1.25+ w/http3 module
+    ## Can be used alongside http2 and http1.1
+    #listen 443 quic reuseport;
+    #listen [::]:443 quic reuseport;
+    ## required for browsers to direct them to quic port
+    #add_header Alt-Svc 'h3=":443"; ma=86400';
+
     server_name jellyfin.DOMAIN.TLD;
 
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
@@ -209,6 +217,13 @@ server {
     #listen 443 ssl;
     #listen [::]:443 ssl;
     #http2 on;
+
+    ## QUIC/HTTP3, requires Nginx 1.25+ w/http3 module
+    ## Can be used alongside http2 and http1.1
+    #listen 443 quic reuseport;
+    #listen [::]:443 quic reuseport;
+    ## required for browsers to direct them to quic port
+    #add_header Alt-Svc 'h3=":443"; ma=86400';
 
     server_name DOMAIN.TLD;
     # You can specify multiple domain names if you want
