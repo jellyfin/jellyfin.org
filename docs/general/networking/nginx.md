@@ -7,7 +7,7 @@ title: Nginx
 
 "[Nginx](https://www.nginx.com/) (pronounced "engine X") is a web server which can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. The software was created by Igor Sysoev and first publicly released in 2004.[9] A company of the same name was founded in 2011 to provide support and Nginx plus paid software." - [Wikipedia](https://en.wikipedia.org/wiki/Nginx)
 
-## Nginx from a subdomain (jellyfin.example.org)
+## Nginx from a subdomain (jellyfin.DOMAIN.TLD)
 
 :::tip
 
@@ -181,7 +181,7 @@ server {
 
 </details>
 
-## Nginx with Subpath (example.org/jellyfin)
+## Nginx with Subpath (DOMAIN.TLD/jellyfin)
 
 When connecting to server from a client application, enter `http(s)://DOMAIN.TLD/jellyfin` in the address field.
 
@@ -483,4 +483,4 @@ In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  Thi
     add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
 ```
 
-In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
+In the "SSL" tab, use the jellyfin.DOMAIN.TLD certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
