@@ -7,13 +7,7 @@ title: Nginx
 
 "[Nginx](https://www.nginx.com/) (pronounced "engine X") is a web server which can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. The software was created by Igor Sysoev and first publicly released in 2004.[9] A company of the same name was founded in 2011 to provide support and Nginx plus paid software." - [Wikipedia](https://en.wikipedia.org/wiki/Nginx)
 
-## Nginx from a subdomain (jellyfin.DOMAIN.TLD)
-
-:::tip
-
-The default X-Frame-Options header may cause issues with the webOS app, causing it to remain stuck at a black screen. If enabled, the default Content Security Policy may also cause issues.
-
-:::
+## Nginx from a subdomain (jellyfin.example.org)
 
 Create the file `/etc/nginx/sites-available/jellyfin` which will forward requests to Jellyfin.  After you've finished, you will need to symlink this file to /etc/nginx/sites-enabled and then reload nginx.  This example assumes you've already acquired certifications as documented in our [Let's Encrypt](https://jellyfin.org/docs/general/networking/letsencrypt#nginx) guide.
 
@@ -25,7 +19,7 @@ Note that a server listening on http port 80 is required for the Certbot / Let's
 server {
     listen 80;
     listen [::]:80;
-    server_name jellyfin.DOMAIN.TLD;
+    server_name jellyfin.example.org;
 
     # Uncomment to redirect HTTP to HTTPS
     return 301 https://$host$request_uri;
@@ -41,7 +35,7 @@ server {
     #listen [::]:443 ssl;
     #http2 on;
 
-    server_name jellyfin.DOMAIN.TLD;
+    server_name jellyfin.example.org;
 
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
     client_max_body_size 20M;
@@ -49,11 +43,11 @@ server {
     # Uncomment next line to Disable TLS 1.0 and 1.1 (Might break older devices)
     ssl_protocols TLSv1.3 TLSv1.2;
 
-    ssl_certificate /etc/letsencrypt/live/DOMAIN.TLD/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/DOMAIN.TLD/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-    ssl_trusted_certificate /etc/letsencrypt/live/DOMAIN.TLD/chain.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/example.org/chain.pem;
 
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
@@ -111,7 +105,7 @@ server {
 
 :::tip
 
-The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet you should setup HTTPS. [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/). Using only HTTP will expose passwords and API keys.
+If you are planning on exposing your server over the Internet you should setup HTTPS. [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/). Using only HTTP will expose passwords and API keys.
 
 :::
 
@@ -122,7 +116,7 @@ The following configuration is provided for ease of use only. If you are plannin
 server {
     listen 80;
     listen [::]:80;
-    server_name jellyfin.DOMAIN.TLD;
+    server_name jellyfin.example.org;
 
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
     client_max_body_size 20M;
@@ -181,21 +175,21 @@ server {
 
 </details>
 
-## Nginx with Subpath (DOMAIN.TLD/jellyfin)
+## Nginx with Subpath (example.org/jellyfin)
 
-When connecting to server from a client application, enter `http(s)://DOMAIN.TLD/jellyfin` in the address field.
+When connecting to server from a client application, enter `http(s)://example.org/jellyfin` in the address field.
 
 Set the [base URL](/docs/general/networking#base-url) field in the Jellyfin server. This can be done by navigating to the Admin Dashboard -> Networking -> Base URL in the web client. Fill in this box with `/jellyfin` and click Save. The server will need to be restarted before this change takes effect.
 
 ### HTTPS subpath example
 
 ```conf
-# Jellyfin hosted on https://DOMAIN.TLD/jellyfin
+# Jellyfin hosted on https://example.org/jellyfin
 
 server {
     listen 80;
     listen [::]:80;
-    server_name DOMAIN.TLD;
+    server_name example.org;
 
     # Uncomment to redirect HTTP to HTTPS
     return 301 https://$host$request_uri;
@@ -211,18 +205,18 @@ server {
     #listen [::]:443 ssl;
     #http2 on;
 
-    server_name DOMAIN.TLD;
+    server_name example.org;
     # You can specify multiple domain names if you want
     #server_name jellyfin.local;
 
     # Uncomment next line to disable TLS 1.0 and 1.1 (Might break older devices)
     ssl_protocols TLSv1.3 TLSv1.2;
 
-    ssl_certificate /etc/letsencrypt/live/DOMAIN.TLD/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/DOMAIN.TLD/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-    ssl_trusted_certificate /etc/letsencrypt/live/DOMAIN.TLD/chain.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/example.org/chain.pem;
     
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
@@ -291,13 +285,13 @@ server {
   <summary>Expand HTTP Example</summary>
 
 ```conf
-# Jellyfin hosted on http://DOMAIN.TLD/jellyfin
+# Jellyfin hosted on http://example.org/jellyfin
 
 server {
     listen 80;
     listen [::]:80;
 
-    server_name DOMAIN.TLD;
+    server_name example.org;
     # You can specify multiple domain names if you want
     #server_name jellyfin.local;
 
@@ -483,4 +477,4 @@ In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  Thi
     add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
 ```
 
-In the "SSL" tab, use the jellyfin.DOMAIN.TLD certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
+In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
