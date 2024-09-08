@@ -1,0 +1,82 @@
+---
+title: Release Roadmap for 10.10.0
+description: We are about to start the 10.10.0 release cycle; here is the roadmap. Please help us test!
+authors: joshuaboniface
+date: 2024-09-10
+slug: release-roadmap-10.10.0
+tags: [release, testing]
+---
+
+![Good heavens, lookat the time!](./10.10.0.jpg)
+
+We are pleased to announce that we are now beginning the process for the 10.10.0 release, with a *planned* release date of Saturday, October 12th, 2024! We said 6 months in our 10.9.0 release posts, and we're sticking by that! The feature freeze proper starts next week, with a soft "new PR freeze" today, so here's what you need to know about the the timeline and a recap of how to help us test 10.10.0 before release. Remember, the more people who help test it out before release, the less bugs we're likely to find *after* release, so fire up those secondary servers and warn your users: 10.10.0 is coming!
+
+Developers/contributors, and those users who want a bit more information, please read on!
+
+\- Joshua
+
+{/* truncate */}
+
+## The Release
+
+## What's Different This Time?
+
+Not much at all! We're following the same general process as the 10.9.0 release, though with a slightly tweaked timeline and with more defined steps.
+
+### The Release Timeline
+
+- Monday, September 9th, 2024 (unstable `20240909`): Feature PR last-call, first beta. Any *new* feature PRs should get in right now to avoid missing the feature freeze. This is your 1 week warning! Developers/contributors **please keep on top of your PR review fedback** or your PR may **miss the following deadlines and have to wait** until 10.11.0.
+- Monday, September 16th, 2024 (unstable `20240916`): Feature freeze, second beta. Any *new* feature PRs after this point must wait until 10.11.0 (in another ~6 months). In-flight feature PRs will likely make it assuming that all feedback is resolved before the API freezes. Again **developers/contributors please keep on top of your PR review feedback**. New PRs should be **bugfixes only** after this point. Users **should be safe to begin testing in earnest** with this unstable.
+- Monday, September 23rd, 2024 (unstable `20240923`): API freeze, third beta. **All feature PRs should be merged by this point**. If they're not, they will be moved to the 10.11.0 project and only merged to `master` once 10.10.0 is released. API is now soft-frozen so that **client developers can begin confidently working on any client support changes needed for 10.10.0**.
+- Monday, September 30th, 2024 (unstable `20240930`): API lock, first release candidate. **Major bugfix PRs should hopefully be either be merged or well in-flight** by this point. Only **non-API-changing bugfixes** after this point.
+- Monday, October 7th, 2024 (unstable `20241007`): Final planned unstable, second release candidate. **The release should basically be ready to go**, and any remaining bugfix PRs **should be merged before this unstable**.
+- Saturday, October 12th, 2024: Release of 10.10.0!
+
+### Possible Timeline Changes
+
+Since this is a much smaller and quicker release than 10.8.0 or 10.9.0 were, hopefully this is enough time to get everything sorted and ready to go. But if we find it's **not**, we reserve the right to add an extra week in one or both of the following places:
+
+- After the Feature freeze, if we find that there are any outstanding **major** bugfixes that require additional time to merge before the API freeze.
+- After the API lock, if we find that there are any outstanding **non-API-breaking** bugfixes that require additional time to merge before the final unstable.
+
+If neither of those happen, the release will proceed as planned; otherwise, an extra step will be added into the timeline after the given points that matches the previous stage. This might push the final unstable back to either October 14th or October 21st, and the final release to either October 19th or October 26th. If this is relevant to your interests please keep an eye on our [Announcements Matrix channel](https://matrix.to/#/#jellyfin-announce:matrix.org) for announcements.
+
+### Information for 3rd Party Clients
+
+After the API freeze, our API should ideally remain stable, though it's possible there might be minor changes up until the API lock step. Please feel free to begin testing compatibility and report any issues to us now, and keep an eye out on those dates for the final API specification.
+
+### Information for Contributors
+
+If you're contributing to Jellyfin and your feature PRs miss the deadline, **please don't fret**. We are committed to this shorter major release timeline going forward, so 10.11.0 is at most about 6 months away. Your feature should eventually make it in.
+
+If you wish to help by submitting a bugfix, please do so as soon as you can, as we'd like to get as many fixes in and tested before the API lock as possible, to give at least 2 weeks of final testing before the release. Ensure you clearly specify that it is a bugfix, and ensure you keep your changes to an absolute minimum needed to fix the bug. **Bugfix PRs will target the `master` branch until the final release**, at which point they will target the `release-10.10.z` branch for upcoming point releases.
+
+## How You Can Test
+
+Testing this release should be very easy, identical to 10.9.0. Since our pre-releases are "just" our unstable releases here, that means that following our normal "unstable" install process is all you need to do.
+
+To find that, visit our [main server downloads page](https://jellyfin.org/downloads/server), select the platform you require along the top centre, then on the top right, select "Unstable". The instructions and links will now be for the unstable release. You can also find [additional testing documentation in the docs](https://jellyfin.org/docs/general/testing/).
+
+For Docker this simply means pulling the `unstable` tag on the image. For Debian and Ubuntu repositories, this means adding `unstable` to your existing `jellyfin.sources` entry. For other platforms, please review the provided instructions as not all platforms will support unstable.
+
+Next, before installing an unstable release, ensure that you **back up your existing server configuration**. It is **not possible to downgrade in-place** as there are database changes. Just making a simple copy of your configuration directories **with Jellyfin stopped** is sufficient, and where those can be found depends on the platform.
+
+Next, if you use plugins, install the unstable plugin repository. Due to compatibility issues, we distribute plugins for unstable in a separate manifest, so this must be added manually, and on first start all incompatible plugins (i.e. all existing plugins on an upgrade) will be upgraded. To add the repository, navigate to the Administration Dashboard, Advanced, Plugins, then click the Repositories tab at the top. Click the "+" Add button, and enter "Unstable" for the name and "https://repo.jellyfin.org/files/plugin-unstable/manifest.json" for the Repository URL. We also recommend that you disable/remove the Stable repository at this time, as it's possible they will conflict. After the initial update you may need to manually restart your Jellyfin instance one further time to ensure all plugins are activated properly.
+
+Finally, install the unstable version and run it. The upgrade should happen seamlessly in the background, and you'll be able to log in to your Jellyfin instance normally after this point. Ensure you perform a _hard_ refresh in your browser, and restart all clients.
+
+Once 10.10.0 is fully released, you can switch back easily by reinstalling the new stable version, and changing back to the stable plugin manifest (URL "https://repo.jellyfin.org/files/plugin/manifest.json"). Unstable releases will be **paused for at least 2 weeks** after the release to give you plenty of time to switch.
+
+## How To Report Bugs
+
+While running the unstable prereleases, reporting bugs is important. After all, if we don't know about bugs, we can't work to fix them!
+
+First, if you encounter a bug, ensure you're running the latest unstable version, and try to reproduce it a couple times. If you can't, it's always possible it was a one-off occurrence, but if it happens again, definitely report it!
+
+Bugs can be reported on [our GitHub issues page](https://github.com/jellyfin/jellyfin) or [on our Forums](https://forum.jellyfin.org).
+
+You'll want to include two important pieces of information in your bug report, beyond the standard asks. First, ensure you include the "Build Version" as shown in the main dashboard page. This reports the exact unstable build you're using to help narrow down what might have caused the issue. This is doubly important if you see a new bug turn up in a future unstable build. Second, please make clear that you are running the unstable builds and not stable builds, as well as if this is an upgrade or fresh install, as that can be an important piece of information.
+
+Once your bug is reported, please check back diligently to see if any additional information has been requested, and we hope to get it fixed soon.
+
+Thanks, and happy watching!
