@@ -1,5 +1,5 @@
 ---
-uid: testing-web
+uid: testing-web-clients
 title: Testing Jellyfin Web Clients
 ---
 
