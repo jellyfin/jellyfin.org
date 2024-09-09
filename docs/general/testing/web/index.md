@@ -1,17 +1,23 @@
 ---
 uid: testing-web
-title: Testing Jellyfin Web
+title: Testing Jellyfin Web Clients
 ---
 
 ## Weekly Unstable Builds
 
-Weekly unstable builds ship server and web in a complete package. Please refer to [Testing Jellyfin Server](/docs/general/testing/server/) for more info.
+Weekly unstable builds ship Jellyfin Server and Jellyfin Web in a complete package. Please refer to [Testing Jellyfin Server](/docs/general/testing/server/) for more info.
 
 ## Testing PRs from Cloudflare Pages Deployments
 
-Each PR of Jellyfin Web is automatically deployed to Cloudflare Pages. Please follow the steps below on how to test them.
+Each PR of [Jellyfin Web](https://github.com/jellyfin/jellyfin-web) and [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue) is automatically deployed to Cloudflare Pages. Please follow the steps below on how to test them.
 
-1. Find the PR you would like to checkout in [the list of open PRs](https://github.com/jellyfin/jellyfin-web/pulls).
-2. There should be a comment from `jellyfin-bot` with a link to a deployed version of this PR.
+1. Find the PR you would like to checkout in the list of open PRs. [PRs for Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [PRs for Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls)
+2. There should be a comment from `jellyfin-bot` with a link to a deployed version of this PR. Click on the link next to `Preview URL` to open a hosted instance of the current PR.
    ![CF Pages Comment](/images/docs/testing/web/cf-pages-comment.png)
-3. Clicking on the link in the comment will open an instance of Jellyfin Web that is linked to a development instance of a Jellyfin demo server. You can login to the demo server with the credentials provided on the login page, or login to a different server by clicking `Change Server`.
+3. Clicking on the link in the comment will open an instance of the client you are testing. For Jellyfin Web, it will be linked to a demo server. If you wish to connect to a different server, simply click the `Change Server` button. For Jellyfin Vue, a demo server can be connected with this address: `https://demo.jellyfin.org/unstable/`. The demo instance can be logged in using credentials provided on the login page.
+
+:::caution
+
+Using a development version of clients may lead to data corruption or loss on the server. Please make regular backups of Jellyfin files. [Read More](/docs/general/administration/configuration#server-paths)
+
+:::
