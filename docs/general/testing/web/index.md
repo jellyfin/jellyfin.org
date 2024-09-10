@@ -21,10 +21,8 @@ Each PR of [Jellyfin Web](https://github.com/jellyfin/jellyfin-web) and [Jellyfi
 
 3. Clicking on the link in the comment will open an instance of the client you are testing. For Jellyfin Web, it will be linked automatically to our demo server. For Jellyfin Vue, you can connect to the demo server with this address: `https://demo.jellyfin.org/unstable/`. The credentials will be provided on the login page.
 
-If you wish to connect to a different server, click the `Change Server` button in the apps at the login screen. Alternatively, enter a different server address in Jellyfin Vue when first prompted to add a server.
+   If you wish to connect to a different server, click the `Change Server` button in the apps at the login screen. Alternatively, enter a different server address in Jellyfin Vue when first prompted to add a server.
 
 :::caution
-
 Using a development version of clients may lead to data corruption or loss on the server. Please use a dedicated test server and make regular backups of Jellyfin files. [Read More](/docs/general/administration/configuration#server-paths)
-
 :::
