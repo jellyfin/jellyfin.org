@@ -501,7 +501,7 @@ What you need to do is pass the host's `render` group id to Docker and modify th
    getent group render | cut -d: -f3
    ```
 
-2. Use docker command line **or** docker-compose:
+2. Use docker command line **or** docker compose:
 
    - Example command line:
 
@@ -519,10 +519,9 @@ What you need to do is pass the host's `render` group id to Docker and modify th
       jellyfin/jellyfin
      ```
 
-   - Example docker-compose (version 3) configuration file written in YAML:
+   - Example docker-compose configuration file written in YAML:
 
      ```yaml
-     version: '3'
      services:
        jellyfin:
          image: jellyfin/jellyfin
