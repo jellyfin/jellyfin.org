@@ -55,9 +55,9 @@ Below are a list of things to prepare before testing Jellyfin web clients.
 Installing Github CLI or Github Desktop will automatically install Git on the system.
 :::
 
-### Obtaining Jellyfin Web
+### Obtaining Source Code
 
-The Jellyfin Web source code can simply be cloned from the Github repository.
+The source code of the web clients can simply be cloned from their respective Github repositories: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/)
 Instructions on how to do so can be found [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 ### Checking out branches
