@@ -42,7 +42,7 @@
     "file-loader": "6.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "sass": "1.77.8",
+    "sass": "1.78.0",
     "swiper": "11.1.12",
     "url-loader": "4.1.1"
   },
