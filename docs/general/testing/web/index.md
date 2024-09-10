@@ -11,9 +11,14 @@ Weekly unstable builds ship Jellyfin Server and Jellyfin Web in a complete packa
 
 Each PR of [Jellyfin Web](https://github.com/jellyfin/jellyfin-web) and [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue) is automatically deployed to Cloudflare Pages. Please follow the steps below on how to test them.
 
-1. Find the PR you would like to checkout in the list of open PRs: [PRs for Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [PRs for Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls)
-2. On most PRs, there should be a comment from `jellyfin-bot` with a link to a deployed version of the current PR. Click on the link next to `Preview URL` to open a hosted instance of the current PR. Some PRs might not have this comment, or the link is otherwise not working. It will have to be built from source in this case.
+1. Find the PR you would like to test / review in the list of open PRs: [PRs for Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [PRs for Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls)
+2. On most PRs, there should be a comment from `jellyfin-bot` with a link to a deployed version of the current PR. Click on the link next to `Preview URL` to open a hosted instance of the current PR.
    ![CF Pages Comment](/images/docs/testing/web/cf-pages-comment.png)
+
+   :::note
+   Some PRs might not have this comment, or the link might otherwise not work. To test out these PRs, they will have to be built manually.
+   :::
+
 3. Clicking on the link in the comment will open an instance of the client you are testing. For Jellyfin Web, it will be linked automatically to our demo server. For Jellyfin Vue, you can connect to the demo server with this address: `https://demo.jellyfin.org/unstable/`. The credentials will be provided on the login page.
 
 If you wish to connect to a different server, click the `Change Server` button in the apps at the login screen. Alternatively, enter a different server address in Jellyfin Vue when first prompted to add a server.
