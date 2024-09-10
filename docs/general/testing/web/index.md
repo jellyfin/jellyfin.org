@@ -24,5 +24,5 @@ Each PR of [Jellyfin Web](https://github.com/jellyfin/jellyfin-web) and [Jellyfi
    If you wish to connect to a different server, click the `Change Server` button in the apps at the login screen. Alternatively, enter a different server address in Jellyfin Vue when first prompted to add a server.
 
 :::caution
-Using a development version of clients may lead to data corruption or loss on the server. Please use a dedicated test server and make regular backups of Jellyfin files. [Read More](/docs/general/administration/configuration#server-paths)
+Using a development version of clients may lead to data corruption or loss on the server. Please use a dedicated test server and make regular backups of Jellyfin files. [Click here for Jellyfin Server paths](/docs/general/administration/configuration#server-paths)
 :::
