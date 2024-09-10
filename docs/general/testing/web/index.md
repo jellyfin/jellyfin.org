@@ -37,18 +37,23 @@ They might compromise your system or track your activity!
 
 ## Testing from source code
 
-Jellfin Web can be hosted as a standalone application without being associated to a Jellyfin server. In that case, a separate Jellyfin server will need to be prepared.
+Jellyfin web clients can be hosted as a standalone application without being associated to a Jellyfin server. In that case, a separate Jellyfin server will need to be prepared.
 
-"Test server" below refers to the device hosting Jellyfin web in the test setup.
+"Test server" below refers to the device hosting the web client in the test setup.
 
 ### Prerequisites
 
-Below are a list of things to prepare before testing Jellyfin web
+Below are a list of things to prepare before testing Jellyfin web clients.
 
-- Have an instance of Jellyfin Server.
+- Have an instance of Jellyfin Server. A dedicated testing setup is recommended.
 - Install [NodeJS, npm and nvm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) on the test server.
-- Install [git](https://github.com/git-guides/install-git) on the test server.
+- Install [Git](https://github.com/git-guides/install-git) on the test server.
 - (Optional) Install [Github CLI](https://cli.github.com/) or [Github Desktop](https://github.com/apps/desktop) on the test server
+- (Optional) A text editor or web IDE to make changes during testing, eg. [VSCode](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/) ,[Jetbrains Webstorm](https://www.jetbrains.com/webstorm/).
+
+:::note
+Installing Github CLI or Github Desktop will automatically install Git on the system.
+:::
 
 ### Obtaining Jellyfin Web
 
@@ -66,8 +71,8 @@ The `master` branch is where the unstable build is built from. If you wish to te
 
 PRs are special branches submitted by contributors with the goal of eventually being merged into `master`. To checkout a PR, please follow the instructions below.
 
-1. Find the PR you would like to checkout in [the list of open PRs](https://github.com/jellyfin/jellyfin-web/pulls).
-2. Checkout the PR. [Git CLI and Github CLI](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally), [Github Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop)
+1. Find the PR you would like to checkout in the list of open PRs: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls).
+2. Checkout the PR in Git: [Git CLI and Github CLI](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally), [Github Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop)
 
 ### Install Dependencies
 
@@ -77,7 +82,7 @@ PRs are special branches submitted by contributors with the goal of eventually b
 
 ### Start Development Server
 
-1. Open a terminal window in the folder
-2. run `npm start` to start a development server. The server will start on port 8080. The server will auto update if the contents of the folder is changed.
-3. Connect devices to this server to start testing.
-4. Press `Ctrl+C` in the terminal window to stop the server.
+1. Open a terminal window in the folder of the cloned contents.
+2. run `npm start` to start a development server. Allow firewall access when prompted if you are using Windows. The server will start on port 8080 for Jellyfin Web and Port 3000 for Jellyfin Vue. The server will auto update if the contents of the folder is changed.
+3. Connect client devices to the server using its IP address in order to start testing. You will need to connect a server manually. To use the demo instance, enter `https://demo.jellyfin.org/unstable` in the server address field.
+4. When you have finished testing, or would like to switch to a different branch, press `Ctrl+C` in the terminal window to stop the server.
