@@ -86,3 +86,5 @@ PRs are special branches submitted by contributors with the goal of eventually b
 2. run `npm start` to start a development server. Allow firewall access when prompted if you are using Windows. The server will start on port 8080 for Jellyfin Web and Port 3000 for Jellyfin Vue. The server will auto update if the contents of the folder is changed.
 3. Connect client devices to the server using its IP address in order to start testing. You will need to connect a server manually. To use the demo instance, enter `https://demo.jellyfin.org/unstable` in the server address field.
 4. When you have finished testing, or would like to switch to a different branch, press `Ctrl+C` in the terminal window to stop the server.
+
+More info on how to setup Jellyfin Vue in a development environemt can be found [here](https://github.com/jellyfin/jellyfin-vue/wiki/Contributing#development-setup)
