@@ -331,10 +331,9 @@ Root permission is required.
       jellyfin/jellyfin
      ```
 
-   - Example docker-compose (version 3) configuration file written in YAML:
+   - Example docker-compose configuration file written in YAML:
 
      ```yaml
-     version: '3'
      services:
        jellyfin:
          image: jellyfin/jellyfin

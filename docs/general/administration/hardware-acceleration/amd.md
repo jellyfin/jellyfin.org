@@ -409,7 +409,7 @@ Root permission is required.
    getent group video | cut -d: -f3
    ```
 
-2. Use Docker command line **or** docker-compose:
+2. Use Docker command line **or** docker compose:
 
    - Example command line:
 
@@ -427,10 +427,9 @@ Root permission is required.
       jellyfin/jellyfin
      ```
 
-   - Example docker-compose (version 3) configuration file written in YAML:
+   - Example docker-compose configuration file written in YAML:
 
      ```yaml
-     version: '3'
      services:
        jellyfin:
          image: jellyfin/jellyfin

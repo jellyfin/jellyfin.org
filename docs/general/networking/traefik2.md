@@ -26,7 +26,6 @@ The configuration below creates a Traefik v2.x installation with access at entry
 ### docker-compose.yml
 
 ```yml
-version: '2.4'
 services:
   traefik:
     container_name: traefik
@@ -287,7 +286,7 @@ These configurations use DOMAIN_NAME (i.e.: example.com) and HOST_NAME (i.e.: se
 Launch the Traefik and Jellyfin services.
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 If you set a PathPrefix (i.e. /jellyfin), you need to configure Jellyfin to expect it. After starting the service, access Jellyfin directly (via the host's IP at port 8096) and change the 'Base URL' in Dashboard / Advanced / Networking to match the '/jellyfin' path (if you used one in this configuration). Afterward, you may wish to create a firewall rule to prevent direct access to Jellyfin at port 8096 on the host, or simply ensure the port is not accessible via the Internet.
