@@ -87,4 +87,4 @@ PRs are special branches submitted by contributors with the goal of eventually b
 3. Connect client devices to the server using its IP address in order to start testing. You will need to connect a server manually. To use the demo instance, enter `https://demo.jellyfin.org/unstable` in the server address field.
 4. When you have finished testing, or would like to switch to a different branch, press `Ctrl+C` in the terminal window to stop the server.
 
-More info on how to setup Jellyfin Vue in a development environemt can be found [here](https://github.com/jellyfin/jellyfin-vue/wiki/Contributing#development-setup)
+More info on how to setup Jellyfin Vue in a development environment can be found [here](https://github.com/jellyfin/jellyfin-vue/wiki/Contributing#development-setup)
