@@ -20,6 +20,6 @@ If you wish to connect to a different server, click the `Change Server` button i
 
 :::caution
 
-Using a development version of clients may lead to data corruption or loss on the server. Please make regular backups of Jellyfin files. [Read More](/docs/general/administration/configuration#server-paths)
+Using a development version of clients may lead to data corruption or loss on the server. Please use a dedicated test server and make regular backups of Jellyfin files. [Read More](/docs/general/administration/configuration#server-paths)
 
 :::
