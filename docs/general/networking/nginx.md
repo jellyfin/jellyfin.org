@@ -61,7 +61,7 @@ server {
     add_header X-XSS-Protection "0"; # Do NOT enable. This is obsolete/dangerous
     add_header X-Content-Type-Options "nosniff";
 
-    # Permissions policy. May cause issues on some clients
+    # Permissions policy. May cause issues with some clients
     add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
 
     # Content Security Policy
@@ -105,7 +105,7 @@ server {
 
 :::tip
 
-If you are planning on exposing your server over the Internet you should setup HTTPS. [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/). Using only HTTP will expose passwords and API keys.
+If you are planning on exposing your server over the Internet, you should setup HTTPS. [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/). Using only HTTP will expose passwords and API keys.
 
 :::
 
@@ -133,7 +133,7 @@ server {
     add_header X-XSS-Protection "0"; # Do NOT enable. This is obsolete/dangerous
     add_header X-Content-Type-Options "nosniff";
 
-    # Permissions policy. May cause issues on some clients
+    # Permissions policy. May cause issues with some clients
     add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
 
     # Content Security Policy
@@ -230,7 +230,7 @@ server {
     add_header X-XSS-Protection "0"; # Do NOT enable. This is obsolete/dangerous
     add_header X-Content-Type-Options "nosniff";
 
-    # Permissions policy. May cause issues on some clients
+    # Permissions policy. May cause issues with some clients
     add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
 
     # Content Security Policy
@@ -307,7 +307,7 @@ server {
     add_header X-XSS-Protection "0"; # Do NOT enable. This is obsolete/dangerous
     add_header X-Content-Type-Options "nosniff";
 
-    # Permissions policy. May cause issues on some clients
+    # Permissions policy. May cause issues with some clients
     add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
 
     # Content Security Policy
@@ -317,7 +317,7 @@ server {
     # NOTE: The default CSP headers may cause issues with the webOS app
     add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
 
-    # Uncomment and create directory to also host static content
+    # Uncomment and create a directory to also host static content
     #root /srv/http/media;
     index index.html;
 
