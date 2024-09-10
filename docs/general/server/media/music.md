@@ -78,8 +78,7 @@ Jellyfin supports most common music formats, with some exceptions:
 - MP4 with only audio: `.mp4` files won't be recognized as music. Please rename them to `.m4a`.
 - MKV / WebM with only audio: `.mkv` and `.webm` files won't be recognized as music. Please rename them to `.mka`.
 - WebA: `.weba` files aren't supported. Please rename them to `.mka`
-- `.flac` files with embedded WebP images may fail to play in Chromium based browsers (Chrome, Edge, Opera, Brave etc.).
-- `.flac` files with ID3 tags won't play in Firefox.
+- `.flac` files with embedded WebP images or ID3 tags may fail to play in Chromium based browsers (Chrome, Edge, Opera, Brave etc.) or Firefox. Please enable `Always remux FLAC audio files` in the client settings if you encounter this issue.
 
 :::tip Alternate containers
 
