@@ -677,7 +677,7 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
 
    - Jellyfin needs to run in a **privileged** LXC container.
 
-   - An existing unprivileged container can be converted to a priviledged container by taking a backup and restoring it as priviledged.
+   - An existing unprivileged container can be converted to a privileged container by taking a backup and restoring it as privileged.
 
    :::
 
