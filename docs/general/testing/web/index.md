@@ -28,9 +28,9 @@ Using a development version of clients may lead to data corruption or loss on th
 :::
 
 :::danger
-Although CloudFlare Pages deployments from Pull Requests are built in our CI/CD workflow
+Although Cloudflare Pages deployments from Pull Requests are built into our CI/CD workflow
 in a completely transparent and auditable manner, **some of them may come from external contributors that might not be good actors!**.
 
 By default, never trust any artifacts given by anyone outside the official channels if you can't inspect the source code first.
-They might compromise or trace your activity!
+They might compromise your system or track your activity!
 :::

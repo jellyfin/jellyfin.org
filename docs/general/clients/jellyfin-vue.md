@@ -37,7 +37,7 @@ the old `docker-compose`.
 * [`version` key is deprecated](https://docs.docker.com/reference/compose-file/version-and-name/#version-top-level-element-obsolete)
 in Docker Compose, hence not included below.
 
-We're going to use the following `docker-compose.yml` as an starting point:
+We're going to use the following `docker-compose.yml` as a starting point:
 
 ```yaml
 services:
@@ -68,7 +68,7 @@ services:
 <span id="why-updates-needed"></span>
 
 :::success
-Getting things up and running is as easy as doing `docker compose up` with your terminal
+Getting things up and running is as easy as doing `docker compose up -d` with your terminal
 located where the `docker-compose.yml` file is.
 :::
 
@@ -96,8 +96,8 @@ You can learn more about how the connection to your server works
 
 ### Using environment variables ###
 
-This is an example on how environment variables are set in the container by adding the
-following keys to the `jellyfin_vue` definition in [above's](#recommended-using-docker) `docker-compose.yml`:
+This is an example of how environment variables are set in the container by adding the
+following keys to the `jellyfin_vue` definition in [the above `docker-compose.yml`](#recommended-using-docker):
 
 ```yaml
 environment:
@@ -109,7 +109,7 @@ to further customize Jellyfin Vue to your liking at Jellyfin Vue's wiki.
 
 ### Using your own webserver ###
 
-Since Jellyfin Vue is an SPA web application, you can use any webserver to serve it:
+Since Jellyfin Vue is an SPA web application, you can use any web server to serve it:
 Apache, nginx (the one used in Jellyfin's Vue docker image), Traefik, etc...
 
 If you already have a [reverse proxy](../networking/index.md) set up, do you want to do more complex stuff
@@ -117,17 +117,17 @@ that it's out of the scope of this documentation like serving at a subpath, in a
 you might want to have Jellyfin Vue served by your own webserver instead of the nginx instance shipped with
 the Docker image.
 
-To achieve that, in the `jellyfin_vue` service definition of the `docker-compose.yml` shown [above](#recommended-using-docker):
+To achieve that, in the `jellyfin_vue` service definition of the [`docker-compose.yml` shown above](#recommended-using-docker):
 
 * Remove the `ports` key.
-* Add the following keys, **replacing** `_path_` **with the folder** where your webserver expects Jellyfin Vue's assets:
+* Add the following keys, **replacing** `_path_` **with the folder** where your web server expects Jellyfin Vue's assets:
 
 ```yaml
 network_mode: none
 volumes:
   - _𝘱𝘢𝘵𝘩_:/dest
 # This makes the container do nothing and sleep forever,
-# frontend will be copied to _𝘱𝘢𝘵𝘩_ and will be served by your webserver
+# frontend will be copied to _𝘱𝘢𝘵𝘩_ and will be served by your web server
 # /setup.sh applies 
 entrypoint: /bin/sh -c '/setup.sh && rm -rf /dest/* && cp -r /usr/share/nginx/html/* /dest && sleep infinity'
 
@@ -163,10 +163,10 @@ Check [these instructions instead](../testing/web/index.md)
 
 :::danger
 By default, never trust any assets given by anyone outside the official channels if you can't inspect the source code first.
-They might compromise or trace your activity!
+They might compromise your system or track your activity!
 :::
 
-Since Jellyfin Vue is a web application, using it it's a matter of setting up your own webserver
+Since Jellyfin Vue is a web application, using it it's a matter of setting up your own web server
 and pointing it to Jellyfin Vue's assets. You can get them:
 
 * By building your own version from our source. The repository's [wiki](https://github.com/jellyfin/jellyfin-vue/wiki)
