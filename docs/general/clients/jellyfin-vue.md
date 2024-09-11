@@ -2,7 +2,7 @@
 uid: jellyfin-vue
 title: Jellyfin Vue
 ---
-# Jellyfin Vue
+##
 
 [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue) is an experimental, alternative browser-based web client for Jellyfin written using Vue.js.
 
@@ -21,14 +21,14 @@ If you identify with at least one of the following options:
 You're probably better using [our hosted instance](https://jf-vue.pages.dev).
 More info at [Jellyfin Vue's repository](https://github.com/jellyfin/jellyfin-vue).
 
-# Deployment
+# Deployment #
 
 :::caution
 Since Jellyfin Vue is just an interface for a Jellyfin server, all of these instructions assume that you already have a server up and running.
 [Set it up now](../installation/index.mdx) if you haven't already.
 :::
 
-## RECOMMENDED: Using Docker
+## RECOMMENDED: Using Docker ##
 
 * In case you don't have Docker, follow [the official installation guide](https://docs.docker.com/engine/install) first.
 Learning about [Compose](https://docs.docker.com/compose) is also recommended.
@@ -64,6 +64,7 @@ services:
     # Needed so watchtower doesn't restart-loop when updating itself
     restart: on-failure
 ```
+
 <span id="why-updates-needed"></span>
 
 :::success
@@ -73,12 +74,12 @@ located where the `docker-compose.yml` file is.
 
 With this compose file:
 
-- Jellyfin Vue will be accessible on `8080` port of the machine that's running the containers
-- Watchtower takes care of updating the container to the latest commit available on the [repository](https://github.com/jellyfin/jellyfin-vue).
+* Jellyfin Vue will be accessible on `8080` port of the machine that's running the containers
+* Watchtower takes care of updating the container to the latest commit available on the [repository](https://github.com/jellyfin/jellyfin-vue).
 This is a good idea because:
-    * As of now, stable releases don't exist and there have only been prereleases that don't necessarily meet a quality criteria, but
+  * As of now, stable releases don't exist and there have only been prereleases that don't necessarily meet a quality criteria, but
     [major development milestones](https://jellyfin.org/posts/vue-vue3/).
-    * Only the latest `unstable` image is supported.
+  * Only the latest `unstable` image is supported.
 
 After accessing the instance in your browser of choice, you'll be prompted to add a server. You can use your own server or our demo
 instance, located at `https://demo.jellyfin.org/stable`
@@ -93,10 +94,10 @@ You can learn more about how the connection to your server works
 [in Jellyfin's Vue repository privacy disclaimer](https://github.com/jellyfin/jellyfin-vue#privacy-disclaimer-)
 :::
 
-### Using environment variables
+### Using environment variables ###
 
 This is an example on how environment variables are set in the container by adding the
-following keys to the `jellyfin_vue` definition in [above's](#recommended-using-docker-compose) `docker-compose.yml`:
+following keys to the `jellyfin_vue` definition in [above's](#recommended-using-docker) `docker-compose.yml`:
 
 ```yaml
 environment:
@@ -106,7 +107,7 @@ environment:
 See the [complete reference of environment variables available](https://github.com/jellyfin/jellyfin-vue/wiki/Configuration)
 to further customize Jellyfin Vue to your liking at Jellyfin Vue's wiki.
 
-### Using your own webserver
+### Using your own webserver ###
 
 Since Jellyfin Vue is an SPA web application, you can use any webserver to serve it:
 Apache, nginx (the one used in Jellyfin's Vue docker image), Traefik, etc...
@@ -116,7 +117,8 @@ that it's out of the scope of this documentation like serving at a subpath, in a
 you might want to have Jellyfin Vue served by your own webserver instead of the nginx instance shipped with
 the Docker image.
 
-To achieve that, in the `jellyfin_vue` service definition of the `docker-compose.yml` shown [above](#recommended-using-docker-compose):
+To achieve that, in the `jellyfin_vue` service definition of the `docker-compose.yml` shown [above](#recommended-using-docker):
+
 * Remove the `ports` key.
 * Add the following keys, **replacing** `_path_` **with the folder** where your webserver expects Jellyfin Vue's assets:
 
@@ -132,18 +134,19 @@ entrypoint: /bin/sh -c '/setup.sh && rm -rf /dest/* && cp -r /usr/share/nginx/ht
 ```
 
 This approach:
-* Keeps the client always updated in a hassle-free way, as explained [above](#recommended-using-docker-compose).
+
+* Keeps the client always updated in a hassle-free way, as explained [above](#recommended-using-docker).
 * In case you use [environment variables](#using-environment-variables),
 they will still be applied.
 
-## Manually
+## Manually ##
 
 :::caution
 Make sure you understand [the implications](#why-updates-needed) before using these methods first.
 None of them are supported by Jellyfin Vue.
 :::
 
-### `docker run`
+### `docker run` ###
 
 In case you don't want to use Docker Compose or automated updates, but still use Docker, this command is enough:
 
@@ -151,7 +154,7 @@ In case you don't want to use Docker Compose or automated updates, but still use
 docker run -d -p 8080:80 ghcr.io/jellyfin/jellyfin-vue:unstable
 ```
 
-### From source / build output
+### From source / build output ###
 
 :::info
 This might not be necessary if you just want to test a Pull Request.
@@ -174,7 +177,7 @@ has instructions for setting up the development environment.
   * All artifacts generated by GitHub Actions are [built with provenances](https://github.com/jellyfin/jellyfin-vue/attestations).
   * Our official Docker image is built from GitHub Actions and all the process is transparent and can be audited.
 
-## Other documentation
+## Other documentation ##
 
 * The rest of the documentation about Jellyfin Vue can be found on it's [wiki](https://github.com/jellyfin/jellyfin-vue/wiki).
 
