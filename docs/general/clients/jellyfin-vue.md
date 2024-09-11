@@ -13,10 +13,10 @@ Jellyfin Vue is not planned or targeted to replace the main Jellyfin Web client,
 Below are concise instructions to get your own instance of Jellyfin Vue up and running.
 If you identify with at least one of the following options:
 
-* Want to try it as quickly as possible for the first time
-* Are not sure whether you need to deploy your own instance
+* Want to try it quickly for the first time
+* Are not sure whether you want to deploy your own instance
 * Don't need to go beyond user customization to change app-wide behaviour.
-* Have a [reverse proxy](../networking/index.md) and a working HTTPS setup.
+* Have a working HTTPS setup.
 
 You're probably better using [our hosted instance](https://jf-vue.pages.dev).
 More info at [Jellyfin Vue's repository](https://github.com/jellyfin/jellyfin-vue).
@@ -24,20 +24,18 @@ More info at [Jellyfin Vue's repository](https://github.com/jellyfin/jellyfin-vu
 # Deployment
 
 :::caution
-Since Jellyfin Vue is just an interface for a Jellyfin server, all of these instructions assume that you already have one up and running.
+Since Jellyfin Vue is just an interface for a Jellyfin server, all of these instructions assume that you already have a server up and running.
 [Set it up now](../installation/index.mdx) if you haven't already.
 :::
 
 ## RECOMMENDED: Using Docker
 
-:::info
 * In case you don't have Docker, follow [the official installation guide](https://docs.docker.com/engine/install) first.
 Learning about [Compose](https://docs.docker.com/compose) is also recommended.
 * Docker Compose is now shipped with Docker, so you don't need to install it. It's recommended that you uninstall
 the old `docker-compose`.
 * [`version` key is deprecated](https://docs.docker.com/reference/compose-file/version-and-name/#version-top-level-element-obsolete)
 in Docker Compose, hence not included below.
-:::
 
 We're going to use the following `docker-compose.yml` as an starting point:
 
@@ -137,49 +135,6 @@ This approach:
 * Keeps the client always updated in a hassle-free way, as explained [above](#recommended-using-docker-compose).
 * In case you use [environment variables](#using-environment-variables),
 they will still be applied.
-
-
-### Replacing Jellyfin Web
-
-:::danger
-Be aware that some clients, like Android (not TV) and Jellyfin Media Player expects that your Jellyfin server
-has Jellyfin Web served alongisde its API, so they will stop working if you go ahead.
-:::
-
-We will follow the same approach we used [in the previous section](#using-your-own-webserver) but we
-can approach this in two different ways:
-
-* Change the directory from where Jellyfin Server serves Jellyfin Web to your own path.
-  * This approach has the advantage that keeps the rest of your setup intact,making it easy to recover it in case it's needed
-  * See [here](../administration/configuration.md#web-directory) to find how its location is determined
-  and how to change it
-
-* Replace Jellyfin Web entirely
-  1) Go to Server Dashboard > Paths in Jellyfin Web to find the route.
-  2) Stop Jellyfin Server.
-  3) **In Debian/Ubuntu**: Uninstall the package with `sudo apt remove jellyfin-web`
-  4) Follow [the previous section](#using-environment-variables) procedure,
-  using the path obtained in the first step.
-
-
-
-If you ever want to get Jellyfin Web back, revert those changesbuild the specific version you want from their repository
-and put the built assets in the corresponding directo
-
-:::info
-Even if you follow this procedure correctly, Jellyfin Web might still load, since stale cache might persist in your browser.
-Clear your browser's cache or try in private browsing to make sure that you did everything correctly.
-:::
-
-:::success
-Given not all administrator options are available in Jellyfin Vue, you might need to use Jellyfin Web
-at some point to change some settings.
-
-Jellyfin Web has [its own hosted instance](https://jellyfin-web.pages.dev)
-([in the same way as Jellyfin Vue](https://jf-vue.pages.dev)) pointing to the
-latest commit from its default branch that you can access at any time if you ever need it
-again.
-:::
 
 ## Manually
 
