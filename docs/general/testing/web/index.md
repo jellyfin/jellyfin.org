@@ -48,7 +48,7 @@ Below is a list of things to prepare before testing Jellyfin web clients.
 - Have an instance of Jellyfin Server. A dedicated testing setup is recommended.
 - Install [NodeJS, npm and nvm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) on the test server.
 - Install [Git](https://github.com/git-guides/install-git) on the test server.
-- (Optional) Install [GitHub CLI](https://cli.github.com/) or [GitHub Desktop](https://github.com/apps/desktop) on the test server
+- (Optional) Install [GitHub CLI](https://cli.github.com/) or [GitHub Desktop](https://github.com/apps/desktop) on the test server.
 - (Optional) A text editor or web IDE to make changes during testing, eg. [VSCode](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/), [Jetbrains Webstorm](https://www.jetbrains.com/webstorm/).
 
 :::note
@@ -57,7 +57,7 @@ Installing Github CLI or Github Desktop will automatically install Git on the sy
 
 ### Obtaining Source Code
 
-The source code of the web clients can simply be cloned from their respective GitHub repositories: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/)
+The source code of the web clients can be cloned from their respective GitHub repositories: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/).
 Instructions on how to do so can be found [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 ### Checking out branches
@@ -72,7 +72,7 @@ The `master` branch is where the unstable build is built from. If you wish to te
 Pull requests are special branches submitted by contributors with the goal of eventually being merged into `master`. To checkout a pull request, please follow the instructions below.
 
 1. Find the pull request you would like to checkout in the list of open pull requests: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls).
-2. Checkout the pull request in Git: [Git CLI and GitHub CLI](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally), [GitHub Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop)
+2. Checkout the pull request in Git: [Git CLI and GitHub CLI](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally), [GitHub Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop).
 
 ### Installing Dependencies and Starting a Development Server
 
