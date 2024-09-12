@@ -76,7 +76,9 @@ Pull requests are special branches submitted by contributors with the goal of ev
 
 ### Installing Dependencies and Starting a Development Server
 
-The web clients can be launched directly without being built. Please follow the instructions of the respective projects.
+The web clients can be launched directly without being built. Please open a terminal window in the folder with the cloned contents of the clients, then follow the instructions of the respective projects.
 
 For Jellyfin Web: Follow steps 2 and 3 of [these instructions](https://github.com/jellyfin/jellyfin-web?tab=readme-ov-file#getting-started)
 For Jellyfin Vue: Follow steps 2 - 4 of [these instructions](https://github.com/jellyfin/jellyfin-vue/wiki/Contributing#frontend)
+
+To exit the development server, simply press `Ctrl+C` in the terminal window.
