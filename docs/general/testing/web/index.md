@@ -26,3 +26,11 @@ Each pull request of [Jellyfin Web](https://github.com/jellyfin/jellyfin-web) an
 :::caution
 Using a development version of clients may lead to data corruption or loss on the server. Please use a dedicated test server and make regular backups of [Jellyfin files](/docs/general/administration/configuration#server-paths).
 :::
+
+:::danger
+Although Cloudflare Pages deployments from Pull Requests are built into our CI/CD workflow
+in a completely transparent and auditable manner, **some of them may come from external contributors that might not be good actors!**.
+
+By default, never trust any artifacts given by anyone outside the official channels if you can't inspect the source code first.
+They might compromise your system or track your activity!
+:::
