@@ -37,7 +37,7 @@ They might compromise your system or track your activity!
 
 ## Testing from source code
 
-Jellyfin web clients can be hosted as a standalone application without being associated with a Jellyfin server. In that case, a separate Jellyfin server will need to be prepared.
+Jellyfin web clients can be hosted as a standalone application without being associated with a Jellyfin server. In that case, a separate Jellyfin server will be needed.
 
 "Test server" below refers to the device hosting the web client in the test setup.
 
@@ -49,7 +49,7 @@ Below is a list of things to prepare before testing Jellyfin web clients.
 - Install [NodeJS, npm and nvm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) on the test server.
 - Install [Git](https://github.com/git-guides/install-git) on the test server.
 - (Optional) Install [GitHub CLI](https://cli.github.com/) or [GitHub Desktop](https://github.com/apps/desktop) on the test server
-- (Optional) A text editor or web IDE to make changes during testing, eg. [VSCode](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/) ,[Jetbrains Webstorm](https://www.jetbrains.com/webstorm/).
+- (Optional) A text editor or web IDE to make changes during testing, eg. [VSCode](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/), [Jetbrains Webstorm](https://www.jetbrains.com/webstorm/).
 
 :::note
 Installing Github CLI or Github Desktop will automatically install Git on the system.
