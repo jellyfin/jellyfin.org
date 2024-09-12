@@ -74,17 +74,9 @@ PRs are special branches submitted by contributors with the goal of eventually b
 1. Find the PR you would like to checkout in the list of open PRs: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls).
 2. Checkout the PR in Git: [Git CLI and GitHub CLI](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally), [GitHub Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop)
 
-### Install Dependencies
+### Installing Dependencies and Starting a Development Server
 
-1. Navigate to the web directory (the folder containing the cloned contents of the repository)
-2. Open a terminal window in the folder.
-3. Run `npm install` to install dependencies. This will need to be done every time you switch to a new branch, as different branches might have different versions of dependencies.
+The web clients can be launched directly without being built. Please follow the instructions of the respective projects.
 
-### Start Development Server
-
-1. Open a terminal window in the folder of the cloned contents.
-2. Run `npm start` to start a development server. Allow firewall access when prompted if you are using Windows. The server will start on port 8080 for Jellyfin Web and Port 3000 for Jellyfin Vue. The server will auto update if the contents of the folder is changed.
-3. Connect client devices to the server using its IP address in order to start testing. You will need to connect a server manually. To use the demo instance, enter `https://demo.jellyfin.org/unstable` in the server address field.
-4. When you have finished testing, or would like to switch to a different branch, press `Ctrl+C` in the terminal window to stop the server.
-
-More info on how to setup Jellyfin Vue in a development environment can be found [here](https://github.com/jellyfin/jellyfin-vue/wiki/Contributing#development-setup)
+For Jellyfin Web: Follow steps 2 and 3 of [these instructions](https://github.com/jellyfin/jellyfin-web?tab=readme-ov-file#getting-started)
+For Jellyfin Vue: Follow steps 2 - 4 of [these instructions](https://github.com/jellyfin/jellyfin-vue/wiki/Contributing#frontend)
