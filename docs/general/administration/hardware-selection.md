@@ -120,7 +120,7 @@ AMD is not recommended because of poor quality H.264 and H.265(HEVC) output, as 
 
 A list of common codecs can be found [here](/docs/general/clients/codec-support/)
 
-The following is a list of video codecs Jellyfin supports transocding to:
+The following is a list of video codecs Jellyfin supports transcoding to:
 
 - H.264 (Most common transcode target)
 - H.265 (Limited supported by clients)
