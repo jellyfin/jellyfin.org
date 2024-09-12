@@ -55,7 +55,7 @@ Below is a list of things to prepare before testing Jellyfin web clients.
 Installing Github CLI or Github Desktop will automatically install Git on the system.
 :::
 
-### Obtaining Source Code
+### Obtaining source code
 
 The source code of the web clients can be cloned from their respective GitHub repositories: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/).
 Instructions on how to do so can be found [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
@@ -74,7 +74,7 @@ Pull requests are special branches submitted by contributors with the goal of ev
 1. Find the pull request you would like to checkout in the list of open pull requests: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls).
 2. Checkout the pull request in Git: [Git CLI and GitHub CLI](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally), [GitHub Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop).
 
-### Installing Dependencies and Starting a Development Server
+### Installing dependencies and starting a development server
 
 The web clients can be launched directly without being built. Please open a terminal window in the folder with the cloned contents of the clients, then follow the instructions of the respective projects.
 
