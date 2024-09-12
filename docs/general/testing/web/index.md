@@ -67,12 +67,12 @@ The `master` branch is where the unstable build is built from. If you wish to te
 - Git CLI, GitHub CLI: open a terminal in the web folder and run `git checkout master`.
 - GitHub Desktop: Select the `master` branch in the branch dropdown menu.
 
-### Checking out PRs
+### Checking out pull requests
 
-PRs are special branches submitted by contributors with the goal of eventually being merged into `master`. To checkout a PR, please follow the instructions below.
+Pull requests are special branches submitted by contributors with the goal of eventually being merged into `master`. To checkout a pull request, please follow the instructions below.
 
-1. Find the PR you would like to checkout in the list of open PRs: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls).
-2. Checkout the PR in Git: [Git CLI and GitHub CLI](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally), [GitHub Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop)
+1. Find the pull request you would like to checkout in the list of open pull requests: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls).
+2. Checkout the pull request in Git: [Git CLI and GitHub CLI](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally), [GitHub Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop)
 
 ### Installing Dependencies and Starting a Development Server
 
