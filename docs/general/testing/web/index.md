@@ -78,8 +78,8 @@ Pull requests are special branches submitted by contributors with the goal of ev
 
 Branches won't be updated automatically by default. If it has been a while since you last pulled latest changes, the source code you have might be out of date. To pull in the latest changes, follow the instructions below:
 
-- Git CLI and GitHub CLI: Open a terminal window and run the command `git pull`
-- GitHub Desktop: Follow [these instructions from GitHub](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#pulling-to-your-local-branch-from-the-remote)
+- Git CLI and GitHub CLI: Open a terminal window in the folder with the cloned contents of the clients and run the command `git pull`.
+- GitHub Desktop: Follow [these instructions from GitHub](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#pulling-to-your-local-branch-from-the-remote).
 
 ### Installing dependencies and starting a development server
 
