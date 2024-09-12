@@ -74,6 +74,13 @@ Pull requests are special branches submitted by contributors with the goal of ev
 1. Find the pull request you would like to checkout in the list of open pull requests: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls).
 2. Checkout the pull request in Git: [Git CLI and GitHub CLI](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally), [GitHub Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop).
 
+### Pulling latest changes
+
+Branches won't be updated automatically by default. If it has been a while since you last pulled latest changes, the source code you have might be out of date. To pull in the latest changes, follow the instructions below:
+
+- Git CLI and GitHub CLI: Open a terminal window and run the command `git pull`
+- GitHub Desktop: Follow [these instructions from GitHub](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#pulling-to-your-local-branch-from-the-remote)
+
 ### Installing dependencies and starting a development server
 
 The web clients can be launched directly without being built. Please open a terminal window in the folder with the cloned contents of the clients, then follow the instructions of the respective projects.
