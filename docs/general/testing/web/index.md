@@ -62,7 +62,7 @@ Instructions on how to do so can be found [here](https://docs.github.com/en/repo
 
 ### Checking out branches
 
-The `master` branch is where the unstable build is built from. If you wish to test over there, please checkout that branch. To checkout the `master` branch, simply do the following.
+The `master` branch is the default branch and where the unstable build is built from. After cloning, it will be checked out by default. If you wish to go back to testing the `master` branch after testing pull requests, please checkout the `master` branch. To checkout the `master` branch, simply do the following:
 
 - Git CLI, GitHub CLI: open a terminal in the web folder and run `git checkout master`.
 - GitHub Desktop: Select the `master` branch in the branch dropdown menu.
