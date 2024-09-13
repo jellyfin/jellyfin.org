@@ -9,7 +9,7 @@ title: VPNs
 
 ## Commercial VPN services
 
-Commercial VPN services such as PIA, NordVPN or Windscribe are a great way to hide your IP and bypass georestrictions. While some of them do provide a port forwarding feature, hosting Jellyfin using one is not recommended.
+Commercial VPN services can be used to hide your IP and bypass georestrictions. While some of them do provide a port forwarding feature, hosting Jellyfin using one is not recommended.
 
 ## VPN Software
 
