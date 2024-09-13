@@ -13,13 +13,13 @@ Commercial VPN services such as PIA, NordVPN or Windscribe are a great way to hi
 
 ## VPN Software
 
-Services like Tailscale and Zerotier provide an easy eay to link devices together in a Virtual network. They are an easy way to allow access to devices without requiring much networking expertise. However, they require devices that support their apps in order to function.
+Services like Tailscale and Zerotier provide an easy way to link devices together in a Virtual network. They are an easy way to allow access to devices without requiring much networking expertise. However, they require devices that support their apps in order to function.
 
 ### Tailscale
 
-[Tailscale](https://tailscale.com/) is a VPN solution based on [WireGuard](https://www.wireguard.com/). The free tier of its service allows up to 100 connected devices. Tailscale is easy to setup but support is limited.
+[Tailscale](https://tailscale.com/) is a VPN solution based on [WireGuard](https://www.wireguard.com/). The free tier of its service allows up to 100 connected devices. Tailscale is easy to setup, but support is limited.
 
-To setup remote access to Jellyfin using Tailscale, please follow the steps below.
+To setup remote access to Jellyfin using Tailscale, please follow the steps below:
 
 1. Register an account at [their website](https://tailscale.com/).
 2. Download and install the Tailscale client from [here](https://tailscale.com/download/) on the Jellyfin server and all clients.
@@ -57,7 +57,7 @@ You can also host a VPN server yourself, either on premises or in the cloud. The
 
 ### WireGuard
 
-To quicky establish a link between 2 devices using WireGuard, [their quick start guide](https://www.wireguard.com/quickstart/) can be followed.
+To quickly establish a link between 2 devices using WireGuard, [their quick start guide](https://www.wireguard.com/quickstart/) can be followed.
 
 ### PiVPN
 
