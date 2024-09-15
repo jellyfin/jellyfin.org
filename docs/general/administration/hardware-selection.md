@@ -75,7 +75,7 @@ CPU: AMD Ryzen 9 5950X, Intel Core i7-12700F or better
 
 For users with expensive power or running servers on battery power:
 
-- Intel 12th gen N series platforms
+- Intel 12th gen or above N series platforms
 - Apple M Series mac mini
 - Rockchip RK3588 / RK3588S SBC (**Advanced Users Only**)
 
