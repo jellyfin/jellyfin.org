@@ -58,18 +58,7 @@ Intel Drivers are much easier to install on Linux, with many distributions inclu
 
 ### Servers without GPUs
 
-Not having a GPU is **NOT** recommended for Jellyfin. The following specs are provided for reference only.
-
-<details>
-- RAM: 16GB
-
-For software tone-mapping 4K 24fps Dolby Vision content to SDR:
-CPU: AMD Ryzen 7 5700X, Intel Core i5-12400F or better
-
-For 4K 60fps Dolby Vision content:
-CPU: AMD Ryzen 9 5950X, Intel Core i7-12700F or better
-
-</details>
+Not having a GPU is **NOT** recommended for Jellyfin, as video transcoding on the CPU is very performance demanding. HDR to SDR tone-mapping can make the situation even worse. Depending on your configuration, you may end up in situations where a Ryzen 9 5950X cannot handle even a single video stream. Please read the detailed section below.
 
 ### Low Power Servers
 
@@ -117,6 +106,10 @@ Integrated graphics can be useful for transcoding video. Please refer to [the GP
 In BIOS settings of motherboards, it may also be called `Smart Access Memory` or `Clever Access Memory`
 
 When using Intel ARC Graphics, Resizable BAR is recommended. Disabling it will result in a 10% reduction in transcoding performance. However, given how fast the media engine on Intel ARC is, this will not be a problem for the vast majority of users.
+
+#### Software HDR to SDR Tone-mapping
+
+If there is no GPU available, the CPU can also be used to tone-map HDR content to SDR. **This is very demanding on hardware, therefore a GPU is ALWAYS recommended.** When using software tone-mapping, a software encoder will always be used. Tone-mapping 4K 60fps Dolby Vision content to SDR H264 requires a Ryzen 9 5950X for faster than real time transcoding. If you would like to output in H265 or AV1, you may end up in situations where no current desktop CPUs have enough performance.
 
 ### System Memory (RAM)
 
