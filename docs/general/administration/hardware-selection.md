@@ -58,10 +58,18 @@ Intel Drivers are much easier to install on Linux, with many distributions inclu
 
 ### Servers without GPUs
 
-Not having a GPU is **NOT** recommended for Jellyfin. The following specs are provided for reference only, for software tone-mapping 4K content to SDR:
+Not having a GPU is **NOT** recommended for Jellyfin. The following specs are provided for reference only.
 
-- CPU: AMD Ryzen 9 5950X, Intel Core i7-12700K or better
+<details>
 - RAM: 16GB
+
+For software tone-mapping 4K 24fps Dolby Vision content to SDR:
+CPU: AMD Ryzen 7 5700X, Intel Core i5-12400F or better
+
+For 4K 60fps Dolby Vision content:
+CPU: AMD Ryzen 9 5950X, Intel Core i7-12700F or better
+
+</details>
 
 ### Low Power Servers
 
