@@ -63,15 +63,15 @@ The transcoding pipeline usually has multiple stages, which can be simplified to
 
 Some of these stages cannot be GPU accelerated due to software, hardware or driver limitations.
 
-Partial acceleration may result in slightly higher CPU usage and lower transcoding speed.
+Partial acceleration may result in higher CPU usage and lower transcoding speed.
 
 :::
 
-Jellyfin 10.8 supports full acceleration on mainstream Intel, NVIDIA and AMD (Windows only) GPUs.
+Jellyfin supports full acceleration for:
 
-Jellyfin 10.9 enables full acceleration for:
-
+- Mainstream Intel, Nvidia GPUs on Windows and Linux
 - AMD Polaris and newer GPUs on Linux via VA-API and Vulkan interop
+- Older AMD GPUs on Windows
 - Rockchip VPU of RK3588/3588S
 - Intel and Apple Silicon Macs on macOS 12 and above
 
@@ -186,7 +186,7 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
   :::tip
 
-  The hardware decoding of H.264 / AVC 10-bit (High 10 profile) video is not supported by any Intel, NVIDIA and AMD GPU. Jellyfin will always fallback to software decoding for it. Consider upgrading such video to H.265 / HEVC 10-bit (Main 10 profile).
+  The hardware decoding of H.264 / AVC 10-bit (High 10 profile) video is not supported by any Intel, NVIDIA and AMD GPU, and only supported by Apple Silicon. Jellyfin will always fallback to software decoding for it. Consider upgrading such video to H.265 / HEVC 10-bit (Main 10 profile).
 
   :::
 
