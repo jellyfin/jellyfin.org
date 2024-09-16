@@ -180,14 +180,6 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
 :::
 
-| OS/Platform    | NVIDIA NVENC | AMD AMF | Intel QSV | Intel VA-API | AMD VA-API | Apple VideoToolbox | Rockchip RKMPP | Software |
-| -------------- | ------------ | ------- | --------- | ------------ | ---------- | ------------------ | -------------- | -------- |
-| Windows        | ✔️           | ✔️      | ✔️        | N/A          | N/A        | N/A                | N/A            | ✔️       |
-| Windows Docker | ✔️           | N/A     | N/A       | N/A          | N/A        | N/A                | N/A            | ✔️       |
-| Linux          | ✔️           | ✔️      | ✔️        | ✔️           | ✔️         | N/A                | ✔️             | ✔️       |
-| Linux Docker   | ✔️           | ✔️      | ✔️        | ✔️           | ✔️         | N/A                | ✔️             | ✔️       |
-| macOS          | N/A          | N/A     | N/A       | N/A          | N/A        | ✔️                 | N/A            | ✔️       |
-
 ## Tips For Hardware Acceleration
 
 - Avoid H.264 / AVC 10-bit videos
