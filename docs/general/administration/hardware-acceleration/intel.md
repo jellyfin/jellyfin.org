@@ -5,7 +5,7 @@ title: Intel GPU
 
 # HWA Tutorial On Intel GPU
 
-This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API.
+This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](/docs/general/administration/hardware-acceleration/apple) instead
 
 ## Acceleration Methods
 
@@ -23,29 +23,7 @@ On Linux there are two methods:
 
 Linux VA-API supports nearly all Intel GPUs.
 
-Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-platforms) are limited to:
-
-- **BDW** (Broadwell)
-
-- **SKL** (Skylake)
-
-- **BXTx** (BXT: Broxton, APL: Apollo Lake, GLK: Gemini Lake)
-
-- **KBLx** (KBL: Kaby Lake, CFL: Coffe Lake, WHL: Whiskey Lake, CML: Comet Lake, AML: Amber Lake)
-
-- **ICL** (Ice Lake)
-
-- **JSL** (Jasper Lake) / **EHL** (Elkhart Lake)
-
-- **TGLx** (TGL: Tiger Lake, RKL: Rocket Lake, ADL-S/P/N: Alder Lake, RPL-S/P: Raptor Lake)
-
-- **DG1**/**SG1**
-
-- Alchemist (**DG2**)/ATSM
-
-- Meteor Lake (**MTL**)
-
-- Future platforms...
+Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-platforms) are limited to Broadwell (5th gen Core) and newer.
 
 :::
 
@@ -123,7 +101,7 @@ Intel GPUs are no exception:
 
 :::note
 
-Note that the 6th Gen Core lacks 10-bit support, it's best to choose 7th Gen and newer processors, which usually have HD / UHD 6xx series iGPU.
+Note that the 6th Gen Core with HD 5xx iGPUs lacks 10-bit support, it's best to choose 7th Gen and newer processors, which usually have HD / UHD 6xx series iGPUs.
 
 :::
 
@@ -163,7 +141,7 @@ They can be divided into 4 tiers by their performance：
 
   :::tip
 
-  These iGPUs usually come from mini PC boxes or Synology NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
+  These iGPUs usually come from mini PC boxes or NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
 
   :::
 
@@ -535,7 +513,7 @@ What you need to do is pass the host's `render` group id to Docker and modify th
          image: jellyfin/jellyfin
          user: 1000:1000
          group_add:
-           - "122" # Change this to match your "render" host group id and remove this comment
+           - '122' # Change this to match your "render" host group id and remove this comment
          network_mode: 'host'
          volumes:
            - /path/to/config:/config
@@ -596,19 +574,19 @@ The devices in Kubernetes are added as host path mounts, they are not separated 
            supplementalGroups:
              - 122 # Change this to match your "render" host group id and remove this comment
          containers:
-           - name: "jellyfin"
+           - name: 'jellyfin'
              image: ...
              ports: ...
              env: ...
              securityContext:
                privileged: true # Container must run as privileged inside of the pod
              volumeMounts:
-               - name: "render-device"
-                 mountPath: "/dev/dri/renderD128"
+               - name: 'render-device'
+                 mountPath: '/dev/dri/renderD128'
          volumes:
-           - name: "render-device"
+           - name: 'render-device'
              hostPath:
-               path: "/dev/dri/renderD128"
+               path: '/dev/dri/renderD128'
    ```
 
 2. When the pod starts, you can check the QSV and VA-API codecs.
