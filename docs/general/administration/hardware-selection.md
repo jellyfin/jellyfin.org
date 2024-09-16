@@ -109,7 +109,7 @@ When using Intel ARC Graphics, Resizable BAR is recommended. Disabling it will r
 
 #### Software HDR to SDR Tone-mapping
 
-If there is no GPU available, the CPU can also be used to tone-map HDR content to SDR. **This is very demanding on hardware, therefore a GPU is ALWAYS recommended.** When using software tone-mapping, a software encoder will always be used. Tone-mapping 4K 60fps Dolby Vision content to SDR H264 requires a Ryzen 9 5950X for faster than real time transcoding. If you would like to output in H265 or AV1, you may end up in situations where no current desktop CPUs have enough performance.
+If there is no GPU available, the CPU can also be used to tone-map HDR content to SDR. **This can be very demanding on the CPU, therefore a GPU is ALWAYS recommended.** When using software tone-mapping, a software encoder will always be used. Tone-mapping 4K 60fps Dolby Vision content to SDR H264 requires a Ryzen 9 5950X for faster than real time transcoding. If you would like to output in H265 or AV1, you may end up in situations where no current desktop CPUs have enough performance.
 
 ### System Memory (RAM)
 
