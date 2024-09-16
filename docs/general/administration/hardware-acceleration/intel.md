@@ -15,7 +15,7 @@ On Windows **QSV** is the only available method.
 
 On Linux there are two methods:
 
-- **QSV** - **Prefered on mainstream GPUs**, for better performance
+- **QSV** - **Preferred on mainstream GPUs**, for better performance
 
 - **VA-API** - Required by pre-Broadwell legacy GPUs, for compatibility
 
@@ -95,7 +95,7 @@ HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Visio
 
 Intel GPUs are no exception:
 
-- **Decoding & Encoding HEVC 8-bit** - Gen 9 Sky Lake (6th Gen Core) and newer
+- **Decoding & Encoding HEVC 8-bit** - Gen 9 Skylake (6th Gen Core) and newer
 
 - **Decoding & Encoding HEVC 10-bit** - Gen 9.5 Kaby Lake (7th Gen Core), Apollo Lake, Gemini Lake (Pentium and Celeron) and newer
 
