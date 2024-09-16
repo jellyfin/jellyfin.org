@@ -5,7 +5,7 @@ title: AMD GPU
 
 # HWA Tutorial On AMD GPU
 
-This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF and VA-API.
+This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF or VA-API. If you are on macOS, please use [VideoToolbox](/docs/general/administration/hardware-acceleration/apple) instead
 
 ## Acceleration Methods
 
@@ -15,7 +15,7 @@ On Windows **AMF** is the only available method.
 
 On Linux there are two methods:
 
-- **VA-API** - Prefered on all GPUs, full acceleration on Vega+ GPUs, open source.
+- **VA-API** - Prefered on all GPUs, full acceleration on Polaris(RX400/500)+ GPUs, open source.
 
 - **AMF** - Not recommended, limited support, hardware encoder only, closed source.
 
@@ -81,13 +81,7 @@ The HEVC support on AMD is complicated:
 
 - **Decoding HEVC 10-bit** - Radeon RX 400 series (Polaris) and newer
 
-- **Encoding HEVC 10-bit** - Ryzen 4000 series APU (Renoir), Radeon RX 5700 series (Navi 1x) and newer
-
-:::note
-
-Note that even though the RX 400 series have HEVC 10-bit decoding support, it doesn't support the [DRM-Vulkan format modifier](https://gitlab.freedesktop.org/mesa/mesa/-/issues/5882), which means full hardware acceleration is not possible for these cards on Linux for the time being. A Vega or newer GPU is recommended on Linux.
-
-:::
+- **Encoding HEVC 10-bit** - Ryzen 4000 series APU (Renoir), Radeon RX 5000 series (Navi 1x) and newer
 
 ### Transcode AV1
 
@@ -435,7 +429,7 @@ Root permission is required.
          image: jellyfin/jellyfin
          user: 1000:1000
          group_add:
-           - "122" # Change this to match your "render" host group id and remove this comment
+           - '122' # Change this to match your "render" host group id and remove this comment
          network_mode: 'host'
          volumes:
            - /path/to/config:/config
