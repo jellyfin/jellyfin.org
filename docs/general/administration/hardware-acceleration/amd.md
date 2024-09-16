@@ -15,7 +15,7 @@ On Windows **AMF** is the only available method.
 
 On Linux there are two methods:
 
-- **VA-API** - Prefered on all GPUs, full acceleration on Polaris(RX400/500)+ GPUs, open source.
+- **VA-API** - Preferred on all GPUs, full acceleration on Polaris(RX400/500)+ GPUs, open source.
 
 - **AMF** - Not recommended, limited support, hardware encoder only, closed source.
 
