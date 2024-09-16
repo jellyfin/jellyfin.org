@@ -58,7 +58,9 @@ Intel Drivers are much easier to install on Linux, with many distributions inclu
 
 ### Servers without GPUs
 
-Not having a GPU is **NOT** recommended for Jellyfin, as video transcoding on the CPU is very performance demanding. HDR to SDR tone-mapping can make the situation even worse. Depending on your configuration, you may end up in situations where a Ryzen 9 5950X cannot handle even a single video stream. Please read the detailed section below.
+Not having a GPU is **NOT** recommended for Jellyfin, as video transcoding on the CPU is very performance demanding. HDR
+to SDR tone-mapping can make the situation even worse. Depending on your configuration, you may end up in situations
+where a Ryzen 9 5950X cannot handle even a single video stream. Please read [the section below for more details](/docs/general/administration/hardware-selection#software-hdr-to-sdr-tone-mapping)
 
 ### Low Power Servers
 
@@ -109,7 +111,11 @@ When using Intel ARC Graphics, Resizable BAR is recommended. Disabling it will r
 
 #### Software HDR to SDR Tone-mapping
 
-If there is no GPU available, the CPU can also be used to tone-map HDR content to SDR. **This can be very demanding on the CPU, therefore a GPU is ALWAYS recommended.** When using software tone-mapping, a software encoder will always be used. Tone-mapping 4K 60fps Dolby Vision content to SDR H264 requires a Ryzen 9 5950X for faster than real time transcoding. If you would like to output in H265 or AV1, you may end up in situations where no current desktop CPUs have enough performance.
+If there is no GPU available, the CPU can also be used to tone-map HDR content to SDR. **This can be very demanding on
+the CPU, therefore a GPU is ALWAYS recommended.** When using software tone-mapping, a software encoder will always be
+used. Tone-mapping 4K 60fps Dolby Vision content to 4K 60fps H264 SDR requires a Ryzen 9 5950X for faster than real time
+transcoding. If you would like to output in H265 or AV1, you may end up in situations where no current desktop CPUs have
+enough performance.
 
 ### System Memory (RAM)
 
