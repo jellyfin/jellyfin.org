@@ -48,7 +48,7 @@ Below is a list of things to prepare before testing Jellyfin web clients.
 - Have an instance of Jellyfin Server. A dedicated testing setup is recommended.
 - Install the latest **LTS** version of [NodeJS and npm](https://nodejs.org/en/download/) on the test server.
 - Install [Git](https://github.com/git-guides/install-git) on the test server.
-- (Optional) Install nvm: [macOS, Linux](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating), [Windows](https://github.com/coreybutler/nvm-windows)
+- (Optional) Install nvm: [macOS, Linux](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating), [Windows](https://github.com/coreybutler/nvm-windows).
 - (Optional) Install [GitHub CLI](https://cli.github.com/) or [GitHub Desktop](https://github.com/apps/desktop) on the test server.
 - (Optional) A text editor or web IDE to make changes during testing, eg. [VSCode](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/), [Jetbrains Webstorm](https://www.jetbrains.com/webstorm/).
 
