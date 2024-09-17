@@ -34,3 +34,59 @@ in a completely transparent and auditable manner, **some of them may come from e
 By default, never trust any artifacts given by anyone outside the official channels if you can't inspect the source code first.
 They might compromise your system or track your activity!
 :::
+
+## Testing from source code
+
+Jellyfin web clients can be hosted as a standalone application without being associated with a Jellyfin server. In that case, a separate Jellyfin server will be needed.
+
+"Test server" below refers to the device hosting the web client in the test setup.
+
+### Prerequisites
+
+Below is a list of things to prepare before testing Jellyfin web clients.
+
+- Have an instance of Jellyfin Server. A dedicated testing setup is recommended.
+- Install the latest **LTS** version of [NodeJS and npm](https://nodejs.org/en/download/) on the test server.
+- Install [Git](https://github.com/git-guides/install-git) on the test server.
+- (Optional) Install nvm: [macOS, Linux](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating), [Windows](https://github.com/coreybutler/nvm-windows).
+- (Optional) Install [GitHub CLI](https://cli.github.com/) or [GitHub Desktop](https://github.com/apps/desktop) on the test server.
+- (Optional) A text editor or web IDE to make changes during testing, eg. [VSCode](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/), [Jetbrains Webstorm](https://www.jetbrains.com/webstorm/).
+
+:::note
+Installing Github CLI or Github Desktop will automatically install Git on the system.
+:::
+
+### Obtaining source code
+
+The source code of the web clients can be cloned from their respective GitHub repositories: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/).
+Instructions on how to do so can be found [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+
+### Checking out branches
+
+The `master` branch is the default branch and where the unstable build is built from. After cloning, it will be checked out by default. If you wish to go back to testing the `master` branch after testing pull requests, please checkout the `master` branch. To checkout the `master` branch, simply do the following:
+
+- Git CLI, GitHub CLI: open a terminal in the web folder and run `git checkout master`.
+- GitHub Desktop: Select the `master` branch in the branch dropdown menu.
+
+### Checking out pull requests
+
+Pull requests are special branches submitted by contributors with the goal of eventually being merged into `master`. To checkout a pull request, please follow the instructions below.
+
+1. Find the pull request you would like to checkout in the list of open pull requests: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/pulls), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/pulls).
+2. Checkout the pull request in Git: [Git CLI and GitHub CLI](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally), [GitHub Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop).
+
+### Pulling latest changes
+
+Branches won't be updated automatically by default. If it has been a while since you last pulled latest changes, the source code you have might be out of date. To pull in the latest changes, follow the instructions below:
+
+- Git CLI and GitHub CLI: Open a terminal window in the folder with the cloned contents of the clients and run the command `git pull`.
+- GitHub Desktop: Follow [these instructions from GitHub](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#pulling-to-your-local-branch-from-the-remote).
+
+### Installing dependencies and starting a development server
+
+The web clients can be launched directly without being built. Please open a terminal window in the folder with the cloned contents of the clients, then follow the instructions of the respective projects.
+
+For Jellyfin Web: Follow steps 2 and 3 of [these instructions](https://github.com/jellyfin/jellyfin-web?tab=readme-ov-file#getting-started)
+For Jellyfin Vue: Follow steps 2 - 4 of [these instructions](https://github.com/jellyfin/jellyfin-vue/wiki/Contributing#frontend)
+
+To exit the development server, simply press `Ctrl+C` in the terminal window.
