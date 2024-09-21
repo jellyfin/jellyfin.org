@@ -364,6 +364,16 @@ sudo mkdir data cache config log
 ### `FFmpeg` Installation
 
 If you are not running a Debian derivative, install `ffmpeg` through your OS's package manager, and skip this section.
+In case you run into trascoding and playback issues and you are running an Arch derivative, one which has `jellyfin-ffmpeg` bundled in its package manager, you can try installing `jellyfin-ffmpeg` to fix the issue. If still not working, also consider moving the `jellyfin-ffmpeg` installation folder from its default location at `/usr/lib/jellyfin-ffmpeg` to the one directory looked for by Jellyfin at run *i.e.:* `/usr/share/jellyfin-ffmpeg/`.
+```sh
+sudo pacman -S jellyfin-ffmpeg
+sudo cp -a /usr/lib/jellyfin-ffmpeg /usr/share/jellyfin-ffmpeg/
+```
+A further step into troubleshooting is to manually set the transcoding app path into the config file `encoding.xml` adding two new lines
+```sh
+<EncoderAppPath>/usr/share/jellyfin-ffmpeg/</EncoderAppPath>
+<EncoderAppPathDisplay>/usr/share/jellyfin-ffmpeg/ffmpeg</EncoderAppPathDisplay>
+```
 
 :::caution
 
