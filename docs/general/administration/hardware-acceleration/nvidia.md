@@ -348,7 +348,8 @@ Root permission is required.
            resources:
              reservations:
                devices:
-                 - capabilities: [gpu]
+                 - driver: nvidia
+                   capabilities: [gpu]
      ```
 
    :::note
