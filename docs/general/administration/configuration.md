@@ -115,7 +115,7 @@ Jellyfin uses fonts to render text in many places.
 
 The system fonts installed on the server are used for burning in subtitles and rendering cover images. How to install them depends on the operating system.
 
-### Server Fonts in Docker
+### Server Side System Fonts in Docker
 
 If you are running Jellyfin in Docker, it is possible to pass fonts you have on the host system into the Jellyfin container.  Simply add two additional volumes for /usr/share/fonts and /usr/share/fontconfig and map them to the same path inside the container.
 
