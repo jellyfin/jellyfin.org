@@ -119,7 +119,7 @@ The system fonts installed on the server are used for burning in subtitles and r
 
 If you are running Jellyfin in Docker, it is possible to pass fonts you have on the host system into the Jellyfin container.  Simply add two additional volumes for /usr/share/fonts and /usr/share/fontconfig and map them to the same path inside the container.
 
-**Docker Compose Example**
+Docker Compose Example
 
 ```yml
     volumes:
@@ -127,7 +127,7 @@ If you are running Jellyfin in Docker, it is possible to pass fonts you have on 
       - /usr/share/fontconfig:/usr/share/fontconfig
 ```
 
-**Docker Command Line Example**
+Docker Command Line Example
 
 ```sh
  --volume /usr/share/fonts:/usr/share/fonts
