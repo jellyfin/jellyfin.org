@@ -125,7 +125,7 @@ Jellyfin supports most common music formats, with some exceptions:
 - WebA: `.weba` files aren't supported. Please rename them to `.mka`
 - `.flac` files with embedded WebP images may fail to play in Chromium based browsers (Chrome, Edge, Opera, Brave etc.).
 - `.flac` files with ID3 tags won't play in Firefox.
-- Files with ID3v1 tags have a length limit of 30 bytes for most fields. Anything longer may not be scanned in properly. Please upgrade to ID3v2.
+- Files with ID3v1 tags have a length limit of 30 bytes for most fields. Anything longer will be truncated. Please upgrade to ID3v2.
 
 :::tip Alternate containers
 
