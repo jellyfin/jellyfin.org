@@ -9,7 +9,7 @@ Jellyfin is designed to directly read media from the filesystem. A network stora
 
 ### NFS
 
-In case you encounter performance issues where files take a long time to start playing while using NFSv3, you might be running in an issue with .NET locking without NFSv3 having locking enabled.
+In case you encounter performance issues where files take a long time to start playing while using NFSv3, you might be running into an issue with .NET locking without NFSv3 having locking enabled.
 
 To solve this, you have the following options:
 

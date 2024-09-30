@@ -5,10 +5,10 @@ title: DLNA
 
 ## DLNA
 
-DLNA is based on uPnP.
+DLNA is based on UPnP.
 DLNA will send a broadcast signal from Jellyfin.
 This broadcast is limited to Jellyfin's current subnet.
-If you are using docker, the network should use Host Mode, otherwise the broadcast signal will only be sent in the bridged network inside of docker.
+If you are using docker, the network should use Host Mode, otherwise the broadcast signal will only be sent on the bridged network inside of docker.
 
 If DLNA fails to bind properly, the message `[ERR] Failed to bind to port 1900: "Address already in use". DLNA will be unavailable` should appear in the logs.
 

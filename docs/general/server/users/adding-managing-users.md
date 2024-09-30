@@ -25,7 +25,7 @@ Directly under the tabs you have a link to `Edit this user's profile, image and 
 
 Under `name` you can change the user's name as it will be either displayed on or has to be typed into login screen.
 
-Under `Authentication Provider` you have the option to change the backend that handles the login, by default the only option here will be `default` which means Jellyfin will handle this user, this option is sufficient for most use cases. Currently, the only other possibility is to have a LDAP server handle the login by installing the LDAP-Auth plugin. Note that if you wish to change a user's provider to LDAP after creating it in Jellyfin the username needs to be identical to the user's UID in LDAP, including capitalization.
+Under `Authentication Provider` you have the option to change the backend that handles the login, by default the only option here will be `default` which means Jellyfin will handle this user, this option is sufficient for most use cases. Currently, the only other possibility is to have an LDAP server handle the login by installing the LDAP-Auth plugin. Note that if you wish to change a user's provider to LDAP after creating it in Jellyfin the username needs to be identical to the user's UID in LDAP, including capitalization.
 
 `Allow remote connections to this Jellyfin Server.` Unchecking this option will block login attempts this user makes from outside the networks defined as local, by default this will only be the subnet assigned to your network. But more can be added.
 
@@ -59,7 +59,7 @@ These checkboxes allow a user to remove media for either `All libraries`, or per
 
 #### Remote Control
 
-These allow a user to control other devices that are currently logged into Jellyfin, for example if you run a separate client on a HTPC without remote control.
+These allow a user to control other devices that are currently logged into Jellyfin, for example if you run a separate client on an HTPC without remote control.
 
 `Allow remote control of other users` Allows this user to control what other users are playing and send messages but does not give them administrative rights.
 
@@ -101,7 +101,7 @@ This user is currently disabled
 See below to reenable
 ```
 
-To reenable the user the administrator must navigate to the `Disable this user` option in the Additional options section uncheck the checkmark and hit `Save`. The disabled user should be able to login again.
+To re-enable the user the administrator must navigate to the `Disable this user` option in the Additional options section uncheck the checkmark and hit `Save`. The disabled user should be able to login again.
 
 ### Library Access
 

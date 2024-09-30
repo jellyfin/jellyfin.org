@@ -38,7 +38,7 @@ title: Windows
 
 ### Install
 
-1. Download installer exe and sha256sum from [the official repo](https://repo.jellyfin.org/releases/server/windows/stable/). The files to download are `installer/jellyfin_x.y.z_windows-x64.exe`.
+1. Download installer .exe and sha256sum from [the official repo](https://repo.jellyfin.org/releases/server/windows/stable/). The files to download are `installer/jellyfin_x.y.z_windows-x64.exe`.
 
     ![Windows Download Page](/images/docs/quick-start/windows/jellyfin-0.png)
 
@@ -52,7 +52,7 @@ title: Windows
 
     Installation Complete
 
-4. Look for a Jellyfin icon in your system tray. If it isn't present, search for `Jellyfin Tray App` and run it. No windows will popup after running this application.
+4. Look for a Jellyfin icon in your system tray. If it isn't present, search for `Jellyfin Tray App` and run it. Now Windows will pop up after running this application.
 
     ![Jellyfin Tray App Search](/images/docs/quick-start/windows/jellyfin-3.png)
 
@@ -93,7 +93,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
     ![Network Connection Details](/images/docs/quick-start/windows/router-3.png)
 
-5. go to [https://ipv4.icanhazip.com](https://ipv4.icanhazip.com) and note down the IP address
+5. Go to [https://ipv4.icanhazip.com](https://ipv4.icanhazip.com) and note down the IP address
 
 6. Go to the `IPv4 Default Gateway` IP in a browser (for this example, `http://192.168.50.1/`) and Login to your router. If you do not have the credentials, look for them on the bottom of your router or online with the model number of your router
 
@@ -116,7 +116,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 ### Install Caddy
 
 1. Go to the [official Caddy server download page](https://caddyserver.com/download)
-2. Choose `Windows amd64` for the platform and click download. Leave the standard features checkbox checked. You do NOT need any extra features.
+2. Choose `Windows amd64` for the platform and click download. Leave the standard feature checkbox checked. You do NOT need any extra features.
 
     ![Caddy Download](/images/docs/quick-start/windows/caddyinst-1.png)
 
@@ -124,16 +124,16 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
     ![Create Caddy folder](/images/docs/quick-start/windows/caddyinst-2.png)
 
-4. move the downloaded exe file to the folder and rename it to `caddy.exe`. Confirm the operation if prompted.
+4. Move the downloaded .exe file to the folder and rename it to `caddy.exe`. Confirm the operation if prompted.
 
-    ![Place Caddy exe](/images/docs/quick-start/windows/caddyinst-3.png)
+    ![Place Caddy .exe](/images/docs/quick-start/windows/caddyinst-3.png)
 
-5. go to `This PC` in Explorer, right click on blank space and click on `properties`
+5. Go to `This PC` in Explorer, right click on blank space and click on `properties`
 
     ![This PC Right Click Menu](/images/docs/quick-start/windows/caddyinst-4.png)
 
-6. Click `Advanced System Settings`. it will be after `Device Specifications` on Windows 11, or in the left sidebar on Windows 10
-7. Click on `Environment Variables` in the popup and doubleclick on `Path` under the `User variables for user` in the second popup
+6. Click `Advanced System Settings`. It will be after `Device Specifications` on Windows 11, or in the left sidebar on Windows 10
+7. Click on `Environment Variables` in the popup and double click on `Path` under the `User variables for user` in the second popup
 
     ![Environment Variables](/images/docs/quick-start/windows/caddyinst-5.png)
 
@@ -155,7 +155,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
     ![My IP](/images/docs/quick-start/windows/httptest-2.png)
 
-4. Attempt to access `http://<your IP here>` using another internet connection on another device such as your mobile data. For this case, the IP has changed to `1.171.xxx.xxx` so I will be accessing `http://1.171.xxx.xxx` using my mobile data on my phone.
+4. Attempt to access `http://<your IP here>` using another internet connection on another device such as your mobile data. In this case, the IP has changed to `1.171.xxx.xxx` so I will be accessing `http://1.171.xxx.xxx` using my mobile data on my phone.
 
 5. The page should look like the picture below. If it doesn't look this way or fails to connect, your ISP may be blocking incoming http connections or your IP is not routable. In this case, you should stop following this guide and look for other remote access options.
 
@@ -168,7 +168,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 ### DDNS
 
 1. Login to DuckDNS on the top right at the [DuckDNS homepage](https://www.duckdns.org/)
-2. Add a new domain in the middle. I am using jellyfintest12345.duckdns.org for this example but you can use anything as long as it hasn't been taken
+2. Add a new domain in the middle. I am using jellyfintest12345.duckdns.org for this example, but you can use anything as long as it hasn't been taken
 
     ![duckdns dashboard](/images/docs/quick-start/windows/ddns-1.png)
 
@@ -179,7 +179,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
 5. Unzip the downloaded file and move the `DuckDNS.exe` into the folder. Confirm the operation if prompted.
 
-    ![duckdns exe](/images/docs/quick-start/windows/ddns-3.png)
+    ![duckdns .exe](/images/docs/quick-start/windows/ddns-3.png)
 
 6. Run `DuckDNS.exe`
 7. Enter the Domain you just created and the Token from your DuckDNS dashboard, change interval to `5m` and click on `OK`
@@ -188,7 +188,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
 8. Make sure that no errors appeared and there is a yellow duck in your system tray. If the duck is red, check your configuration.
 
-9. hit `Win + R`, enter `taskschd.msc` and click `OK`
+9. Hit `Win + R`, enter `taskschd.msc` and click `OK`
 
     ![run task scheduler](/images/docs/quick-start/windows/ddns-5.png)
 
@@ -242,7 +242,7 @@ A reverse proxy is a server that sits in front of other services and forwards cl
 
 6. Open a terminal in the caddy folder and run `caddy run`. If there are errors, check your configs and try again. Keep this window running.
 7. Go to `http://<your (sub)domain here>` or `http://<your (sub)domain here>/jellyfin` in a browser to test if it is working. You should be able to see the Jellyfin Login Page.
-8. hit `Win + R`, enter `taskschd.msc` and click `OK`
+8. Hit `Win + R`, enter `taskschd.msc` and click `OK`
 
     ![run taskschd](/images/docs/quick-start/windows/reverseproxy-3.png)
 

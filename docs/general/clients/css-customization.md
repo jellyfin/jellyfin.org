@@ -11,7 +11,7 @@ In `Dashboard > General`, the "Custom CSS" field can be used to override current
 
 If you have little or no experience with CSS, various resources and tutorials can be found online. Using the tweaks and examples below makes it quite easy to get started with making your own changes to your Jellyfin instance.
 
-![Screenshot of the 'Custom CSS' setting in the administrator dashboard of the web client](/images/docs/custom-css-customcssfield.png)
+![Screenshot of the 'Custom CSS' setting on the administrator dashboard of the web client](/images/docs/custom-css-customcssfield.png)
 
 ## General Information About CSS
 
@@ -19,7 +19,7 @@ You can learn more about CSS using sites like [w3schools](https://www.w3schools.
 
 ### Colors
 
-CSS supports multiple color formats, but typically the hex color codes are used for specific colors. To get a specific color, exact color data such as the hex codes below have to be used.
+CSS support multiple color formats, but typically the hex color codes are used for specific colors. To get a specific color, exact color data such as the hex codes below have to be used.
 
 Some examples of hex color codes:
 
@@ -42,7 +42,7 @@ Go [here](https://www.w3schools.com/colors/colors_names.asp) for a list of color
 ### Comments
 
 A section of code or text in-between `/*` and `*/` indicates a comment, and will be ignored.
-This allows you to add descriptions for any particular section of code.
+This allows you to add descriptions to any particular section of code.
 It can also be used to disable code without deleting it.
 
 `/* This might be added above code to tell you what it does */`
@@ -92,7 +92,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
 
-### Transparant count indicators (eg. Series)
+### Transparant count indicators (e.g. Series)
 
 ```css
 /* Make count indicator icon dark and transparent */
@@ -101,7 +101,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ### Display external links in mobile layout
 
-The mobile app disables display of external links to IMDb, TheMovieDB, Trakt, etc by default.
+The mobile app disables display of external links to IMDb, TheMovieDB, Trakt, etc. by default.
 To enable the external links again, add the following snippet:
 
 ```css
@@ -227,7 +227,7 @@ div.starRatingContainer {
 }
 ```
 
-### Replace Latest TV Shows text with Custom Text such as "Recently Added TV Shows"
+### Replace Latest TV Show text with Custom Text such as "Recently Added TV Shows"
 
 ```css
 #homeTab
@@ -269,7 +269,7 @@ div.starRatingContainer {
 }
 ```
 
-### Background Image on Homepage
+### Background Image on Home page
 
 ```css
 .backdropImage {
@@ -327,7 +327,7 @@ Enlarges the tab buttons, suggested, genres, etc. By default they are really tin
 }
 ```
 
-**The enlarged tab buttons and transparent menu look like this:**
+**The enlarged tab buttons and transparent menu looks like this:**
 
 ![Screenshot of enlarged tab buttons and transparent menu](/images/docs/custom-css-transparenttopbarenlargedtabs.png)
 
@@ -386,7 +386,7 @@ The episode previews in season view are sized based on horizontal resolution. Th
 This will drastically change the style of cast info into something very similar to how Plex approaches it. This override will lead to somewhat smaller thumbnails, and also works with all themes.
 
 ```css
-/* Shrink and square (or round) cast thumnails */
+/* Shrink and square (or round) cast thumbnails */
 #castContent .card.overflowPortraitCard.personCard.card-hoverable.card-withuserdata {width: 4.2cm !important; font-size: 90% !important;}
 #castContent .card.overflowPortraitCard.personCard.card-withuserdata {width: 4.2cm !important; font-size: 90% !important;}
 
@@ -400,7 +400,7 @@ This will drastically change the style of cast info into something very similar 
 #castContent .cardScalable {width: 3.8cm !important; height: 3.8cm !important; border-radius: 2.5cm;}
 #castContent .cardOverlayContainer.itemAction {border-radius: 2.5cm;}
 
-/* Center the mouseover buttons */
+/* Center the mouse over buttons */
 #castContent .cardOverlayButton-br {bottom: 4%; right: 15%; width: 70%;}
 #castContent .cardOverlayButton.cardOverlayButton-hover.itemAction.paper-icon-button-light {margin:auto;}
 ```
@@ -766,7 +766,7 @@ Fontawesome Icons:
   @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css");
   ```
 
-- duotone:
+- Duotone:
 
   ```css
   @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css");
@@ -790,8 +790,8 @@ Keep in mind that these posts may have been made under previous versions of Jell
 
 ### Community Themes
 
-- [Ultrachromic - A custom theme for Jellyfin mediaserver created using CSS overrides](https://github.com/CTalvio/Ultrachromic)
-- [JellySkin - Vibrant Jellyfin theme with a lot a animations](https://github.com/prayag17/JellySkin)
+- [Ultrachromic - A custom theme for Jellyfin media server created using CSS overrides](https://github.com/CTalvio/Ultrachromic)
+- [JellySkin - Vibrant Jellyfin theme with a lot a animation](https://github.com/prayag17/JellySkin)
 - [JellyFlix - The Best Netflix Clone for Jellyfin](https://github.com/prayag17/JellyFlix)
 - [Jellyfin Netflix Dark - The Best Netflix Dark Theme for Jellyfin Around!](https://github.com/DevilsDesigns/Jellyfin-Netflix-Dark)
 - [Dark and Green - A Emby like night mode skin](https://github.com/mbcooper83/jellyfin-css-darkandgreen)

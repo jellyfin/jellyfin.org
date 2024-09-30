@@ -15,7 +15,7 @@ Settings > Dashboard > General > Enable Quick Connect on this server
 
 ## Using Quick Connect
 
-To sign in to a supported client, you have to enter the Quick Connect code in your user settings.
+To sign into a supported client, you have to enter the Quick Connect code in your user settings.
 
 Settings > Quick Connect
 

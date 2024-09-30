@@ -19,7 +19,7 @@ Before running the unstable builds, make sure to backup your current data from t
 
 ## Get Unstable Server
 
-Unlike the stable releases, the unstable builds for macOS do not come with a packaged installer or application. Instead, they have to be ran from the command line.
+Unlike the stable releases, the unstable builds for macOS do not come with a packaged installer or application. Instead, they have to be run from the command line.
 
 The latest unstable builds for packaged jellyfin can be obtained [here](https://repo.jellyfin.org/?path=/server/macos/latest-unstable).
 
@@ -64,7 +64,7 @@ At this point, the binaries should be ready for testing. Run the following comma
 /path/to/jellyfin-folder/jellyfin --ffmpeg /path/to/ffmpeg-folder/ffmpeg
 ```
 
-After running the command, Jellyfin should startup in the terminal window.
+After running the command, Jellyfin should start up in the terminal window.
 
-To stop Jellyfin, press `CONTROL+C` in the terminal window, and Jellyfin will shutdown gracefully.
+To stop Jellyfin, press `CONTROL+C` in the terminal window, and Jellyfin will shut down gracefully.
 Closing the terminal window will also stop Jellyfin.

@@ -13,9 +13,9 @@ Hardware accelerated transcoding is supported on AMD GPUs since GCN architecture
 
 On Windows **AMF** is the only available method.
 
-On Linux there are two methods:
+On Linux, there are two methods:
 
-- **VA-API** - Prefered on all GPUs, full acceleration on Vega+ GPUs, open source.
+- **VA-API** - Preferred on all GPUs, full acceleration on Vega+ GPUs, open source.
 
 - **AMF** - Not recommended, limited support, hardware encoder only, closed source.
 
@@ -25,7 +25,7 @@ The VA-API interface on Linux is an open source implementation. This open driver
 
 :::note
 
-- Unlike NVIDIA NVENC, there is no concurrent encoding sessions limit on AMD GPU.
+- Unlike NVIDIA NVENC, there is no concurrent encoding session limit on AMD GPU.
 
 - AMF and VA-API support headless server on both Windows and Linux, which means a connected monitor is not required.
 
@@ -85,7 +85,7 @@ The HEVC support on AMD is complicated:
 
 :::note
 
-Note that even though the RX 400 series have HEVC 10-bit decoding support, it doesn't support the [DRM-Vulkan format modifier](https://gitlab.freedesktop.org/mesa/mesa/-/issues/5882), which means full hardware acceleration is not possible for these cards on Linux for the time being. A Vega or newer GPU is recommended on Linux.
+Note that even though the RX 400 series has HEVC 10-bit decoding support, it doesn't support the [DRM-Vulkan format modifier](https://gitlab.freedesktop.org/mesa/mesa/-/issues/5882), which means full hardware acceleration is not possible for these cards on Linux for the time being. A Vega or newer GPU is recommended on Linux.
 
 :::
 
@@ -111,7 +111,7 @@ Please refer to these links:
 
 Due to the lack of B-frame support, the encoding quality of the AMD H.264 hardware encoder has been unsatisfactory. Although RX 6000/VCN3.0 brings back the B-frame support, the quality improvement is not great.
 
-The AMD HEVC encoder is far better than the AMD H.264 encoder, and the new AMD AV1 encoding support on RX 7000/VCN4.0 seems to be the savior of AMD encoding quality. Nonetheless they are currently no match for Intel QSV and NVIDIA NVENC. VCN4.0 additionally improved the encoding speed drastically.
+The AMD HEVC encoder is far better than the AMD H.264 encoder, and the new AMD AV1 encoding support on RX 7000/VCN4.0 seems to be the savior of AMD encoding quality. Nonetheless, they are currently no match for Intel QSV and NVIDIA NVENC. VCN4.0 additionally improved the encoding speed drastically.
 
 Encoding speed and quality:
 
@@ -119,7 +119,7 @@ Encoding speed and quality:
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Docker and WSL/WSL2.**
+Windows 10 64-bit and newer is recommended. **AMF is not available in Windows Docker and WSL/WSL2.**
 
 ### Known Issues And Limitations On Windows
 
@@ -135,7 +135,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
    - Type `gpedit.msc` in Win+R shortcut key dialog and run to open the "Local Group Policy Editor".
 
-   - Navigate in the left tree **[Computer Configuratoin > Administrative Templates > Windows Components]**
+   - Navigate in the left tree **[Computer Configuration > Administrative Templates > Windows Components]**
 
    - Here you can find **[Remote Desktop Services > Remote Desktop Session Host > Remote Session Environment]**
 
@@ -179,7 +179,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
 A 64-bit Linux distribution is required. **The supported GPU varies by kernel and firmware versions.**
 
-### Known Issues And Limitations On Linux
+### Known Issues And Limitations Of Linux
 
 Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#amd-on-linux) for known issues and limitations.
 
@@ -205,7 +205,7 @@ Root permission is required.
    sudo apt update && sudo apt install -y jellyfin-ffmpeg6
    ```
 
-3. Make sure at least one `renderD*` device exists in `/dev/dri`. Otherwise upgrade your kernel or enable the iGPU in the BIOS.
+3. Make sure at least one `renderD*` device exists in `/dev/dri`. Otherwise, upgrade your kernel or enable the iGPU in the BIOS.
    Note the permissions and group available to write to it, in this case it is `render` and `video`:
 
    ```shell
@@ -255,7 +255,7 @@ Root permission is required.
    ...
    ```
 
-   `VAEntrypointVLD` means that your card is capable to decode this format, `VAEntrypointEncSlice` means that you can encode to this format.
+   `VAEntrypointVLD` means that your card is capable to decode this format, `VAEntrypointEncSlice` means that you can encode this format.
 
    | Jellyfin Setting | VA-API Profil                                                                                          |
    | ---------------- | ------------------------------------------------------------------------------------------------------ |
@@ -300,7 +300,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also, make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -339,7 +339,7 @@ Root permission is required.
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
    ```
 
-5. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux).
+5. Check for the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux).
 
 #### Other Distros
 

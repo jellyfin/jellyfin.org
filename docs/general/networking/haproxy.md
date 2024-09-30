@@ -12,7 +12,7 @@ frontend jellyfin_proxy
     bind *:80
 
 # Note that haproxy requires you to concatenate the certificate and key into a single file
-# Uncomment the appropriate lines after you have acquired a SSL Certificate
+# Uncomment the appropriate lines after you have acquired an SSL Certificate
 #
 #  HAProxy <1.7
 #    bind *:443 ssl crt /etc/ssl/DOMAIN_NAME.pem

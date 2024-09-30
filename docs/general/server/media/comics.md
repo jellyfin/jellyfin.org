@@ -5,7 +5,7 @@ title: Comics
 
 # Comics / Mangas
 
-Comics and mangas, from now on referred to as comics, should usually be in the library root directory or in a subfolder for the individual comics. The subfolders allow for organization of metadata and images. They use the "Books" library type and metadata is provided with the Bookshelf plugin.
+Comics and mangas, from now on referred to as comics, should usually be in the library root directory or in a subfolder for the individual comics. The subfolders allow for organization of metadata and images. They use the "Books" library type and metadata are provided with the Bookshelf plugin.
 
 :::note
 

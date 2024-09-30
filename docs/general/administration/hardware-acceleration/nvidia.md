@@ -67,7 +67,7 @@ Maxwell+ GPUs provide support for HEVC:
 
 :::note
 
-Note that in Maxwell 2nd Gen series only the GM206 variants provide HEVC 10-bit decoding support. Its sucessor Pascal has full support for HEVC 10-bit and improved speed and quality.
+Note that in Maxwell 2nd Gen series, only the GM206 variants provide HEVC 10-bit decoding support. Its successor Pascal has full support for HEVC 10-bit and improved speed and quality.
 
 :::
 
@@ -113,7 +113,7 @@ NVENC/NVDEC performance tables:
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.9 the minimum required NVIDIA driver version is 522.25**.
+Windows 10 64-bit and newer is recommended. **In Jellyfin 10.9 the minimum required NVIDIA driver version is 522.25**.
 
 ### Configure On Windows Host
 
@@ -220,7 +220,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian and Ubuntu Linux](/docs/general/administration/hardware-acceleration/nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian and Ubuntu Linux](/docs/general/administration/hardware-acceleration/nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also, make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -299,7 +299,7 @@ Install the NVIDIA proprietary driver packages and their dependencies that conta
 
 The official Docker image doesn't include any NVIDIA proprietary driver.
 
-You have to install the NVIDIA driver and NVIDIA Container Toolkit on the host system to allow Docker access to your GPU.
+You have to install the NVIDIA driver and NVIDIA Container Toolkit, on the host system to allow Docker access to your GPU.
 
 :::note
 
@@ -309,7 +309,7 @@ Root permission is required.
 
 1. Install the NVIDIA proprietary driver on the host system. See above instructions.
 
-2. Install the NVIDIA Container Toolkit on the host system by following this link:
+2. Install the NVIDIA Container Toolkit, on the host system by following this link:
 
    - [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide)
 
@@ -353,7 +353,7 @@ Root permission is required.
 
    :::note
 
-   If you encounter the upsteam issue `CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected`, pass these extra devices to the Docker:
+   If you encounter the upstream issue `CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected`, pass these extra devices to the Docker:
 
    ```shell
    /dev/nvidia-caps:/dev/nvidia-caps
@@ -391,7 +391,7 @@ Root permission is required.
 
 :::note
 
-Note that the official Jellyfin Docker image already sets the required environment variables for NVIDIA GPUs. If you are building your own image don't forget the add two extra environment variables into the Docker configs.
+Note that the official Jellyfin Docker image already set the required environment variables for NVIDIA GPUs. If you are building your own image don't, forget the add two extra environment variables into the Docker configs.
 
 - `NVIDIA_DRIVER_CAPABILITIES=all`
 

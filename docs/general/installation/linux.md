@@ -57,7 +57,7 @@ However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` an
 
    :::note
 
-   You do not need to manually install `ffmpeg`; it will be installed by the Jellyfin server package as a dependency.
+   You do not need to manually install `ffmpeg`; It will be installed by the Jellyfin server package as a dependency.
 
    :::
 
@@ -89,10 +89,10 @@ However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` an
 
    This will open the following ports:
 
-   * `8096 TCP`, used by default for HTTP traffic; you can change this in the dashboard
-   * `8920 TCP`, used by default for HTTPS traffic; you can change this in the dashboard
-   * `1900 UDP`, used for service auto-discovery; this is not configurable
-   * `7359 UDP`, used for auto-discovery; this is not configurable
+   * `8096 TCP`, used by default for HTTP traffic; You can change this in the dashboard
+   * `8920 TCP`, used by default for HTTPS traffic; You can change this in the dashboard
+   * `1900 UDP`, used for service auto-discovery; This is not configurable
+   * `7359 UDP`, used for auto-discovery; This is not configurable
 
    :::
 
@@ -155,7 +155,7 @@ The script tries to handle as many common derivatives as possible, including, at
 
 ### Repository (Using extrepo)
 
-extrepo is only supported on Debian currently. The advantage of extrepo is that it is packaged in Debian. So you don’t have to execute the `curl | sudo bash` combo from the previous Automatic section. The risk with that command is that it relies on the security of the webserver. extrepo avoids this by having the Jellyfin repo information including the GPG key in its [extrepo-data](https://salsa.debian.org/extrepo-team/extrepo-data/-/blob/master/repos/debian/jellyfin.yaml?ref_type=heads). extrepo-data is verified with GPG by the extrepo tool. So there is a chain of trust from Debian all the way to the Jellyfin repo information.
+extrepo is only supported on Debian currently. The advantage of extrepo is that it is packaged in Debian. So you don’t have to execute the `curl | sudo bash` combo from the previous Automatic section. The risk with that command is that it relies on the security of the web server. extrepo avoids this by having the Jellyfin repo information including the GPG key in its [extrepo-data](https://salsa.debian.org/extrepo-team/extrepo-data/-/blob/master/repos/debian/jellyfin.yaml?ref_type=heads). extrepo-data is verified with GPG by the extrepo tool. So there is a chain of trust from Debian all the way to the Jellyfin repo information.
 
 ```sh
 sudo apt install extrepo
@@ -182,7 +182,7 @@ If you would prefer to install everything manually, the full steps are as follow
 
    :::note
 
-   If the above command fails you will need to install the following package `software-properties-common`.
+   If the above command fails, you will need to install the following package `software-properties-common`.
    This can be achieved with the following command `sudo apt-get install software-properties-common`
 
    :::
@@ -216,8 +216,8 @@ If you would prefer to install everything manually, the full steps are as follow
 
    The supported values for the above variables are:
 
-   * `${VERSION_OS}`: One of `debian` or `ubuntu`; if it is not, use the closest one for your distribution.
-   * `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
+   * `${VERSION_OS}`: One of `debian` or `ubuntu`; If it is not, use the closest one for your distribution.
+   * `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropping, so check the script to be sure yours is supported.
    * `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
 
    :::
@@ -255,7 +255,7 @@ If you would prefer to install everything manually, the full steps are as follow
 
 ### `.deb` Packages (Very Manual)
 
-Raw `.deb` packages, including old versions, source packages, and `dpkg` meta files, are available [in the main download repository](https://repo.jellyfin.org/?path=/server/).
+Raw `.deb` packages, including older versions, source packages, and `dpkg` meta files, are available [in the main download repository](https://repo.jellyfin.org/?path=/server/).
 
 :::note
 
@@ -271,7 +271,7 @@ The repository is the preferred way to obtain Jellyfin on Debian and Ubuntu syst
 
    :::note
 
-   If the above command fails you will need to install the following package `software-properties-common`.
+   If the above command fails, you will need to install the following package `software-properties-common`.
    This can be achieved with the following command `sudo apt-get install software-properties-common`
 
    :::
@@ -288,7 +288,7 @@ The repository is the preferred way to obtain Jellyfin on Debian and Ubuntu syst
 
    :::note
 
-   This step may throw errors; continue to the next step to resolve them.
+   This step may throw errors; Continue to the next step to resolve them.
 
    :::
 
@@ -367,7 +367,7 @@ If you are not running a Debian derivative, install `ffmpeg` through your OS's p
 
 :::caution
 
-Not being able to use `jellyfin-ffmpeg` will most likely break hardware acceleration and tonemapping.
+Not being able to use `jellyfin-ffmpeg` will most likely break hardware acceleration and tone mapping.
 
 :::
 
@@ -403,14 +403,14 @@ $JELLYFINDIR/jellyfin/jellyfin \
 ```
 
 Assuming you desire Jellyfin to run as a non-root user, `chmod` all files and directories to your normal login user and group.
-Also make the startup script above executable.
+Also, make the startup script above executable.
 
 ```sh
 sudo chown -R user:group *
 sudo chmod u+x jellyfin.sh
 ```
 
-Finally you can run it.
+Finally, you can run it.
 You will see lots of log information when run, this is normal.
 Setup is as usual in the web browser.
 

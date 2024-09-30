@@ -9,23 +9,23 @@ This section describes how to get basic connectivity to a Jellyfin server, and a
 
 ## Connectivity
 
-Many clients will automatically discover servers running on the same LAN and display them on login. If you are outside the network when you connect you can type in the complete IP address or domain name in the server field with the correct port to continue to the login page. You can find the default ports below to access the web frontend.
+Many clients will automatically discover servers running on the same LAN and display them on login. If you are outside the network when you connect, you can type in the complete IP address or domain name in the server field with the correct port to continue to the login page. You can find the default ports below to access the web frontend.
 
 HTTP and HTTPS are the primary means of connecting to the server. If using a self-signed certificate for HTTPS, some clients may not work such as Chromecast or Roku.
 
 :::caution
 
 In order for Chromecast to work on your local LAN, the easiest solution is to use IPv6 instead of IPv4.
-For IPv4, you need to use NAT reflection to redirect to your local LAN IPv4 or add a override rules to your local DNS server to point to your local LAN IPv4 (for example 192.168.1.10) of Jellyfin.  
+For IPv4, you need to use NAT reflection to redirect to your local LAN IPv4 or add an override rules to your local DNS server to point to your local LAN IPv4 (for example 192.168.1.10) of Jellyfin.  
 Because Chromecasts have hardcoded Google DNS servers, you need to block Chromecast from reaching these servers (8.8.8.8) so it makes use of your local DNS server instead.  
-For a public routable IPv6 (not a link-local or ULA) there is no difference between public or local. Such IPv6 address is simultaneously publicly routable and accessible from the local LAN.  
+For a public routable IPv6 (not a link-local or ULA), there is no difference between public or local. Such IPv6 address is simultaneously publicly routable and accessible from the local LAN.  
 Because of that, there is no blocking, redirecting or DNS override needed.
 
 :::
 
 ### Port Bindings
 
-This document aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
+This document aims to provide an administrator with the knowledge of what ports Jellyfin binds to and what purpose they serve.
 
 #### Static Ports
 
@@ -72,7 +72,7 @@ Omit `-nodes` to set a password interactively.
 
 Remove `-days 365` to make it 'permanent'.
 
-Add `-subj '/CN=localhost'` to make it not ask interactive questions about content of certificate.
+Add `-subj '/CN=localhost'` to make it not ask interactive questions about the content of the certificate.
 
 The above command creates `./privkey.pem` which will require one more step before use in Jellyfin.
 
@@ -84,7 +84,7 @@ openssl pkcs12 -export -out jellyfin.pfx -inkey privkey.pem -in /usr/local/etc/l
 
 It's possible to run Jellyfin behind another server acting as a reverse proxy. With a reverse proxy setup, this server handles all network traffic and proxies it back to Jellyfin. This provides the benefits of using DNS names and not having to remember port numbers, as well as easier integration and management of SSL certificates.
 
-In cases when you would like to not use host networking with docker, you may use the gateway ip as a known proxy to fix ip resolution for clients logging in.
+In cases when you would like to not use host networking with docker, you may use the gateway IP as a known proxy to fix IP resolution for clients logging in.
 
 :::caution
 
@@ -95,9 +95,9 @@ These examples assume you want to run Jellyfin under a sub-domain (e.g. jellyfin
 
 :::caution
 
-Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g `api_key` parameter), so logging the full request path can expose secrets to your logfile.
-We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
-The nginx documentation below includes an example how to censor sensitive information from a logfile.
+Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g. `api_key` parameter), so logging the full request path can expose the secrets to your log files.
+We recommend that you either protect your log files or do not log full request URLs or censor sensitive data from it.
+The nginx documentation below includes an example how to censor sensitive information from a log file.
 
 :::
 
@@ -153,4 +153,4 @@ There are three main caveats to this setting.
 
 ### Final Steps
 
-It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.
+It's strongly recommended that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.

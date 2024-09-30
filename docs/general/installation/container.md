@@ -161,26 +161,26 @@ Steps to run Jellyfin using Podman are similar to the Docker steps.
    sudo firewall-cmd --reload
    ```
 
-Podman doesn't require root access to run containers, although there are some details to be mindful of; see [the relevant documentation](https://docs.podman.io/en/latest/markdown/podman.1.html#rootless-mode).
+Podman doesn't require root access to run containers, although there are some details to be mindful of; See [the relevant documentation](https://docs.podman.io/en/latest/markdown/podman.1.html#rootless-mode).
 For security, the Jellyfin container should be run using rootless Podman.
 Furthermore, it is safer to run as a non-root user within the container.
 The `--user` option will run with the provided user id and group id _inside_ the container.
-The `--userns keep-id` flag ensures that current user's id is mapped to the non-root user's id inside the container.
+The `--userns keep-id` flag ensures that current user id is mapped to the non-root user id inside the container.
 This ensures that the permissions for directories bind-mounted inside the container are mapped correctly between the user running Podman and the user running Jellyfin inside the container.
 
 Keep in mind that the `--label "io.containers.autoupdate=image"` flag will allow the container to be automatically updated via `podman auto-update`.
 
-The `z` (shared volume) or `Z` (private volume) volume option and `relabel=shared` or `relabel=private` mount option tell Podman to relabel files inside the volumes as appropriate, for systems running SELinux.
+The `z` (shared volume) or `Z` (private volume) volume option and `relabel=shared` or `relabel=private` mount option tells Podman to relabel files inside the volumes as appropriate, for systems running SELinux.
 
 Replace `jellyfin-config` and `jellyfin-cache` with `/path/to/config` and `/path/to/cache` if you wish to use bind mounts.
 
-This example mounts your media library read-only by setting `ro=true`; set this to `ro=false` if you wish to give Jellyfin write access to your media.
+This example mounts your media library read-only by setting `ro=true`; Set this to `ro=false` if you wish to give Jellyfin write access to your media.
 
 ### Managing via Systemd
 
 To run as a systemd service see [podman-systemd.unit](https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html).
 
-As always it is recommended to run the container rootless. Therefore we want to manage the container with the `systemd --user` flag.
+As always, it is recommended to run the container rootless. Therefore we want to manage the container with the `systemd --user` flag.
 
 1. Create a new user that the rootless container will run under.
 
@@ -314,8 +314,8 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside 
 
 3. Click `Install`, which will take you to the GUI Wizard and you'll be able to fill out the necessary info
 
-   - Server URL to publish in UDP Auto Discovery response.
+   - Server URL to publish UDP Auto Discovery response.
    - Networking, Ingress (Reverse Proxy), Security Options
    - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/SCALE/guides/add-storage/). For Jellyfin the recommendation is to add storage as `Additional App Storage`
 
-4. Click Save and once it's up and running you'll be able to click Open to access `Jellyfin`.
+4. Click Save, and once it's up and running you'll be able to click Open to access `Jellyfin`.

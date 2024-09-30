@@ -14,7 +14,7 @@ You can reverse proxy to Jellyfin either with or without a config file, and eith
 If you aren't familiar with Caddy yet, check out its [Getting Started](https://caddyserver.com/docs/getting-started) guide.
 
 :::caution
-There are a some guides that have a Caddyfile which includes a `tls` section with the DNS provider's API key as shown in the following example.
+There is some guides that have a Caddyfile which includes a `tls` section with the DNS provider's API key as shown in the following example.
 
 ```Caddyfile
 example.com {
@@ -49,16 +49,16 @@ That is a simple but production-ready plaintext HTTP reverse proxy.
 
 If you have:
 
-- permission to bind to low ports, and
-- a public domain name's DNS records pointed at your machine,
+- Permission to bind to low ports, and
+- A public domain name's DNS records pointed at your machine,
 
-then you can serve over HTTPS just as easily:
+Then you can serve over HTTPS just as easily:
 
 ```bash
 caddy reverse-proxy --from example.com --to 127.0.0.1:8096
 ```
 
-You will see Caddy provision a TLS certificate for your site and if it succeeds, you can then access your Jellyfin server over HTTPS with your domain name.
+You will see Caddy provision of a TLS certificate for your site and if it succeeds, you can then access your Jellyfin server over HTTPS with your domain name.
 
 ## Caddyfile
 

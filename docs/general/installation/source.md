@@ -34,13 +34,13 @@ All package builds begin with these two steps:
    docker build -t $USERNAME/jellyfin --file docker/Dockerfile .
    ```
 
-   or
+   Or
 
    ```sh
    podman build -t $USERNAME/jellyfin --file docker/Dockerfile .
    ```
 
-   or use provided Python build script:
+   Or use provided Python build script:
 
    ```sh
    ./build.py auto docker
@@ -54,7 +54,7 @@ All package builds begin with these two steps:
    docker run -d -p 8096:8096 $USERNAME/jellyfin
    ```
 
-   or
+   Or
 
    ```sh
    podman run -d -p 8096:8096 $USERNAME/jellyfin
@@ -101,13 +101,13 @@ This will very likely be split out into a separate repository at some point in t
    windows\build-jellyfin.ps1 -verbose
    ```
 
-   - The `-WindowsVersion` and `-Architecture` flags can optimize the build for your current environment; the default is generic Windows x64.
+   - The `-WindowsVersion` and `-Architecture` flags can optimize the build for your current environment; The default is a generic Windows x64.
 
-   - The `-InstallLocation` flag lets you select where the compiled binaries go; the default is `$Env:AppData\Jellyfin-Server\`.
+   - The `-InstallLocation` flag lets you select where the compiled binaries go; The default is `$Env:AppData\Jellyfin-Server\`.
 
-   - The `-InstallFFMPEG` flag will automatically pull the stable `ffmpeg` binaries appropriate to your architecture (x86/x64 only for now) from [BtbN](https://github.com/BtbN/FFmpeg-Builds/releases) and place them in your Jellyfin directory.
+   - The `-InstallFFMPEG` flag will automatically pull the appropriate stable `ffmpeg` binaries for your architecture (x86/x64 only for now) from [BtbN](https://github.com/BtbN/FFmpeg-Builds/releases) and place them in your Jellyfin directory.
 
-   - The `-InstallNSSM` flag will automatically pull the stable `nssm` binary appropriate to your architecture (x86/x64 only for now) from [NSSM's Website](https://nssm.cc/) and place it in your Jellyfin directory.
+   - The `-InstallNSSM` flag will automatically pull the appropriate stable `nssm` binary for your architecture (x86/x64 only for now) from [NSSM's Website](https://nssm.cc/) and place it in your Jellyfin directory.
 
 7. (Optional) Use [NSSM](https://nssm.cc) to configure Jellyfin to run as a service.
 

@@ -29,7 +29,7 @@ The [RGA](https://github.com/airockchip/librga) interface is Rockchip's 2D post-
 
 :::note
 
-- Unlike NVIDIA NVENC, there is no concurrent encoding sessions limit on Rockchip VPU.
+- Unlike NVIDIA NVENC, there is no concurrent encoding session limit on Rockchip VPU.
 
 - RKMPP support headless server on Linux, which means a connected monitor is not required.
 
@@ -43,7 +43,7 @@ Hardware accelerated HDR to SDR tone-mapping is **only** supported on **RK3588/3
 
 ## Select SoC/VPU Hardware
 
-RK3588/3588S is currently the most recommended SoC. In addition to common codecs, it also supports **10-bit H.264 (High10)** and **AV1 decoding**, and has an H.264/HEVC **encoding speed** of up to **1080p@480fps or 4k@120fps**. Older chips may be supported but we were unable to test, such as RK356x and RK33xx. They have fairly limited encoding resolution support, as well as lacking of hardware HDR tone-mapping support. Best to check the datasheet of Rockchip SoC before purchasing a new SBC for hardware acceleration.
+RK3588/3588S is currently the most recommended SoC. In addition to common codecs, it also supports **10-bit H.264 (High10)** and **AV1 decoding**, and has an H.264/HEVC **encoding speed** of up to **1080p@480fps or 4k@120fps**. Older chips may be supported but we were unable to test, such as RK356x and RK33xx. They have fairly limited encoding resolution support, as well as lacking of hardware HDR tone-mapping support. Best to check the data sheet of Rockchip SoC before purchasing a new SBC for hardware acceleration.
 
 ### Transcode H.264
 
@@ -101,7 +101,7 @@ A 64-bit Linux distribution is recommended. **The Rockchip BSP kernel (6.1 or 5.
 
 The `jellyfin-ffmpeg6` deb package required by Jellyfin 10.9 comes with all necessary user mode Rockchip MPP & RGA drivers.
 
-Besides that you only need to install the OpenCL runtime (libmali) and configure the the device permissions.
+Besides that, you only need to install the OpenCL runtime (libmali) and configure the device permissions.
 
 :::note
 
@@ -111,7 +111,7 @@ Root permission is required.
 
 1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6`.
 
-2. Make sure `dma_heap`, `dri`, `mpp_service` and `rga` exist in `/dev`. Otherwise upgrade your BSP kernel to 5.10 LTS and newer.
+2. Make sure `dma_heap`, `dri`, `mpp_service` and `rga` exist in `/dev`. Otherwise, upgrade your BSP kernel to 5.10 LTS and newer.
 
    ```shell
    $ ls -l /dev | grep -E "mpp|rga|dri|dma_heap"
@@ -191,7 +191,7 @@ Root permission is required.
 
 :::
 
-1. Use Docker command line: (the extensive device names between `for...done` is used to ensure backward compatiblity)
+1. Use Docker command line: (the extensive device names between `for...done` is used to ensure backward compatibility)
 
    ```shell
    sudo docker run -d \

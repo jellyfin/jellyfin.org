@@ -51,7 +51,7 @@ server {
 
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
+    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address, e.g. `set $jellyfin 127.0.0.1`)
     set $jellyfin jellyfin;
     resolver 127.0.0.1 valid=30s;
 
@@ -81,7 +81,7 @@ server {
         proxy_set_header X-Forwarded-Protocol $scheme;
         proxy_set_header X-Forwarded-Host $http_host;
 
-        # Disable buffering when the nginx proxy gets very resource heavy upon streaming
+        # Disable buffering, when the nginx proxy gets very resource heavy upon streaming
         proxy_buffering off;
     }
 
@@ -123,7 +123,7 @@ server {
 
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
+    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address, e.g. `set $jellyfin 127.0.0.1`)
     set $jellyfin jellyfin;
     resolver 127.0.0.1 valid=30s;
 
@@ -153,7 +153,7 @@ server {
         proxy_set_header X-Forwarded-Protocol $scheme;
         proxy_set_header X-Forwarded-Host $http_host;
 
-        # Disable buffering when the nginx proxy gets very resource heavy upon streaming
+        # Disable buffering, when the nginx proxy gets very resource heavy upon streaming
         proxy_buffering off;
     }
 
@@ -177,7 +177,7 @@ server {
 
 ## Nginx with Subpath (example.org/jellyfin)
 
-When connecting to server from a client application, enter `http(s)://example.org/jellyfin` in the address field.
+When connecting to the server from a client application, enter `http(s)://example.org/jellyfin` in the address field.
 
 Set the [base URL](/docs/general/networking#base-url) field in the Jellyfin server. This can be done by navigating to the Admin Dashboard -> Networking -> Base URL in the web client. Fill in this box with `/jellyfin` and click Save. The server will need to be restarted before this change takes effect.
 
@@ -220,7 +220,7 @@ server {
     
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
+    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address, e.g. `set $jellyfin 127.0.0.1`)
     set $jellyfin jellyfin;
     resolver 127.0.0.1 valid=30s;
 
@@ -259,7 +259,7 @@ server {
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection $http_connection;
 
-        # Disable buffering when the nginx proxy gets very resource heavy upon streaming
+        # Disable buffering, when the nginx proxy gets very resource heavy upon streaming
         proxy_buffering off;
     }
 
@@ -297,7 +297,7 @@ server {
 
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
+    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address, e.g. `set $jellyfin 127.0.0.1`)
     set $jellyfin jellyfin;
     resolver 127.0.0.1 valid=30s;
 
@@ -344,7 +344,7 @@ server {
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection $http_connection;
 
-        # Disable buffering when the nginx proxy gets very resource heavy upon streaming
+        # , when the nginx proxy gets very resource heavy upon streaming
         proxy_buffering off;
     }
 
@@ -370,7 +370,7 @@ server {
 
 ### Censor sensitive information in logs
 
-This censors any <code>api_key</code> URL parameter from the logfile.
+This censors any <code>api_key</code> URL parameter from the log file.
 
 ```conf
 #Must be in HTTP block
@@ -385,14 +385,14 @@ map $request $secretfilter {
 }
 
 #Must be inside server block
-#Insert into all servers where you want filtering (e.g HTTP + HTTPS block)
+#Insert into all servers where you want filtering (e.g. HTTP + HTTPS block)
 access_log /var/log/nginx/access.log stripsecrets;
 ```
 
 ### Cache Images
 
 ```conf
-# Add this outside of you server block (i.e. http block)
+# Add this outside of your server block (i.e. http block)
 proxy_cache_path /var/cache/nginx/jellyfin levels=1:2 keys_zone=jellyfin:100m max_size=15g inactive=30d use_temp_path=off;
 
 # Cache images (inside server block)
@@ -417,7 +417,7 @@ Ensure that the directory /var/cache/nginx/jellyfin exists and the nginx user ha
 ### Rate Limit Downloads
 
 ```conf
-# Add this outside of you server block (i.e. http block)
+# Add this outside of your server block (i.e. http block)
 limit_conn_zone $binary_remote_addr zone=addr:10m;
 
 # Downloads limit (inside server block)
@@ -433,7 +433,7 @@ location ~ /Items/(.*)/Download$ {
    limit_rate 1700k; # Speed limit (here is on kb/s)
    limit_conn addr 3; # Number of simultaneous downloads per IP
    limit_conn_status 460; # Custom error handling
-   # proxy_buffering on; # Be sure buffering is on (it is by default on nginx), otherwise limits won't work
+   # proxy_buffering on; # Be sure buffering is on (it is by default on nginx). Otherwise, limits won't work
 }
 
 # Error page
@@ -448,12 +448,12 @@ error_page 460 http://your-page-telling-your-limit/;
 
 Create a proxy host and point it to your Jellyfin server's IP address and http port (usually 8096)
 
-Enable "Block Common Exploits", and "Websockets Support". Configure the access list if you intend to use them. Otherwise leave it on "publicly accessible".
+Enable "Block Common Exploits", and "Websockets Support". Configure the access list if you intend to use them. Otherwise, leave it on "publicly accessible".
 
 In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  This is optional, but recommended if you intend to make Jellyfin accessible outside of your home.
 
 ```config
-    # Disable buffering when the nginx proxy gets very resource heavy upon streaming
+    # Disable buffering, when the nginx proxy gets very resource heavy upon streaming
     proxy_buffering off;
 
     # Proxy main Jellyfin traffic

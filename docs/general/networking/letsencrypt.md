@@ -129,19 +129,19 @@ First, you need to determine a few things.
 1. **MAKE SURE YOU HAVE A CNAME FOR JELLYFIN WITH YOUR DNS PROVIDER BEFORE PROCEEDING**
 2. Where you wish to store information regarding Let's Encrypt (docker calls these "volumes")
 3. What subdomain or subfolder you wish to use with Let's Encrypt (ex. jellyfin.example.com)
-4. What timezone you wish to use
+4. What Timezone you wish to use
 5. If you'll be using either HTTP-01 or DNS-01 for challenges.
 6. What network you'll be running on (I'd recommend the default macvlan network called "br0")
 7. What IP you want your container running on
 8. What ports you'll be using (ex. 180 for port 80, and 1443 for 443)
 9. Make sure ports 80 (if using http validation) and 443 are forwarded to the docker container from your router (instructions vary upon manufacturer)
-10. What user will the container be running as (you can determine the PUID and PGID by running `id` (replacing "user" with the username of the user the container will be running as)
+10. What user will the container be run as (you can determine the PUID and PGID by running `id` (replacing "user" with the username of the user the container will be running as)
 
 List of DNS Plugins [here](https://certbot.eff.org/docs/using.html#dns-plugins) if using DNS-01 challenge.
 
 Then, depending on what those settings are, you'll need to adjust the values below as needed.
 
-For example, the docker create command from the LinuxServer team for the Swag Docker container:
+For example, the docker creates a command from the LinuxServer team for the Swag Docker container:
 
 ```sh
 docker create \
@@ -223,7 +223,7 @@ server {
 }
 ```
 
-The lines we're interested in is `set $upstream_app jellyfin`. Now, assuming Jellyfin and Let's Encrypt are on the same network within Docker, it _should_ see it and start handling reverse proxy without much issue. If it doesn't however, you'll just need to change `jellyfin` in that line to whatever the IP of your Jellyfin server is. We'll also look at the line `location ~ (/jellyfin)?/socket` and add a slash after socket, so the line should look like this `location ~ (/jellyfin)?/socket/`.
+The lines we're interested in is `set $upstream_app jellyfin`. Now, assuming Jellyfin and Let's Encrypt are on the same network within Docker, it _should_ see it and start handling reverse proxy without much issue. If it doesn't, however, you'll just need to change `jellyfin` in that line to whatever the IP of your Jellyfin server is. We'll also look at the line `location ~ (/jellyfin)?/socket` and add a slash after socket, so the line should look like this `location ~ (/jellyfin)?/socket/`.
 
 Then, within Jellyfin settings (Dashboard -> Networking), scroll down to "Public HTTP port number" and "Public HTTPS port number", and make sure HTTP Port number is 8096, while HTTPS port number is 8920.
 

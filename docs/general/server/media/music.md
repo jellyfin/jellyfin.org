@@ -5,7 +5,7 @@ title: Music
 
 # Music
 
-Albums are organized in folders, with one folder containing one and only one album. Jellyfin does not care how you organize albums together, as long as each album is contained within one folder. Filenames generally do not matter since the info will be scraped from the embedded metadata of the tracks. If no other metadata was found, Jellyfin uses the file names as track titles.
+Albums are organized in folders, with one folder containing one and only one album. Jellyfin does not care how you organize albums together, as long as each album is contained within one folder. Filenames generally do not matter since the info will be scraped from the embedded metadata of the tracks. If no other metadata were found, Jellyfin uses the file names as track titles.
 
 ```txt
 Music
@@ -96,7 +96,7 @@ Images can come from a few different sources. For music, there are 3 image types
 
 Images can be provided as external files within the media folders. When provided, they should be placed alongside the media files. In case they are provided, they will take precedence over other sources.
 
-If a cover image is not provided, Jellyfin will fallback to the first track with an embedded album image. If no backdrop or logo types are available, Jellyfin will fallback to these images of the album artist instead.
+If a cover image is not provided, Jellyfin will fall back to the first track with an embedded album image. If no backdrop or logotypes are available, Jellyfin will fall back to these images of the album artist instead.
 
 ```txt
 Album

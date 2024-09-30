@@ -11,7 +11,7 @@ Create docker-compose.yml, traefik.toml and acme.json in the **same** directory 
 
 :::note
 
-Ensure you enable Basic Auth protection for Traefik or disable its Dashboard. Otherwise your Dashboard will be accessible from the internet.
+Ensure you enable Basic Auth protection for Traefik or disable its Dashboard. Otherwise, your Dashboard will be accessible from the internet.
 
 :::
 
@@ -173,7 +173,7 @@ chmod 600 acme.json
 
 :::caution
 
-Change example.com to your domain name and update the acme.json file with your email address. Let's Encrypt does not require a valid email but example.com will be flagged as fake.
+Change example.com to your domain name and update the acme.json file with your email address. Let's Encrypt does not require a valid email, but example.com will be flagged as fake.
 
 :::
 

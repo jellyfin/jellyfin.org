@@ -34,9 +34,9 @@ You can set up your tuners manually if they were not automatically discovered. C
 
 - Allow hardware transcoding will allow the tuner to transcode the video on the fly which can reduce server load. Not all HDHomeRun devices support hardware transcoding.
 
-- Restrict to channels marked as favorite will only import channels that are designated as favorite channels on the tuner. This helps if your tuner autoscans and adds new channels that you do not want and/or adds channels that you are able to receive due to atmospheric conditions but later are not accessible.
+- Restrict to channels marked as favorite will only import channels that are designated as favorite channels on the tuner. This helps if your tuner automatically scans and adds new channels that you do not want and/or adds channels that you are able to receive due to atmospheric conditions but later are not accessible.
 
-To set a favorite, go to the [HDHomeRun website](http://my.hdhomerun.com), select your tuner and then click on the grey star next to the channel name to change the star to yellow. The yellow star indicates a favorited channel. In this example, only the channels with yellow stars will be imported into Jellyfin
+To set a favorite, go to the [HDHomeRun website](http://my.hdhomerun.com), select your tuner and then click on the grey star next to the channel name to change the star to yellow. The yellow star indicates a favorite channel. In this example, only the channels with yellow stars will be imported into Jellyfin
 
 ![Selecting favorites in HDHomeRun](/images/docs/live-tv-setup-hdhr_opt1.png)
 

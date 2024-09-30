@@ -45,7 +45,7 @@ While hardware acceleration via VideoToolbox might work on older series Macs, it
 
 If your Mac does not have an internal display, you may need to connect it to a monitor or use a dummy plug to prevent the GPU from being throttled.
 
-<sup>*</sup> VideoToolbox may fallback to software decoding/encoding or stop working when the task exceeds its hardware capability. The older your Mac, the more this will occur. Macs from 2017 and later, especially Apple Silicon Macs are strongly recommended.
+<sup>*</sup> VideoToolbox may fall back to software decoding/encoding or stop working when the task exceeds its hardware capability. The older your Mac, the more this will occur. Macs from 2017 and later, especially Apple Silicon Macs are strongly recommended.
 
 ### Transcode H.264
 

@@ -9,7 +9,7 @@ Jellyfin has two monitoring and metrics endpoints built-in: a basic health check
 
 ### Health check endpoint
 
-Jellyfin exposes the `/health` endpoint designated for checking the status of the underlying service. Currently this will verify HTTP and database connectivity and return a `200 OK` response if successful. You can see this for yourself by using `curl`:
+Jellyfin exposes the `/health` endpoint designated for checking the status of the underlying service. Currently, this will verify HTTP and database connectivity and return a `200 OK` response if successful. You can see this for yourself by using `curl`:
 
 ```sh
 curl -i http://myserver:8096/health

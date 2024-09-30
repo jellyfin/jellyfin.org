@@ -13,7 +13,7 @@ Hardware accelerated transcoding is supported on most Intel GPUs.
 
 On Windows **QSV** is the only available method.
 
-On Linux there are two methods:
+On Linux, there are two methods:
 
 - **QSV** - **Prefered on mainstream GPUs**, for better performance
 
@@ -55,7 +55,7 @@ QSV can be used together with VA-API and DXVA/D3D11VA for a more flexible hybrid
 
 :::note
 
-- Unlike NVIDIA NVENC, there is no concurrent encoding sessions limit on Intel iGPU and ARC dGPU.
+- Unlike NVIDIA NVENC, there is no concurrent encoding session limit on Intel iGPU and ARC dGPU.
 
 - QSV and VA-API support headless server on both Windows and Linux, which means a connected monitor is not required.
 
@@ -71,7 +71,7 @@ There are two different methods that can be used on Windows and/or Linux. Pros a
 
    - Pros - Supports Dolby Vision P5, detailed fine-tuning options, widely supported hardware.
 
-   - Cons - The OpenCL runtime sometimes need to be manually installed on Linux.
+   - Cons - The OpenCL runtime sometimes needs to be manually installed on Linux.
 
 2. **QSV VPP**
 
@@ -91,7 +91,7 @@ For beginners, please refer to the [Hardware Selection Guide](/docs/general/admi
 
 :::caution
 
-Do not use models of Intel processors ending with "F" - those do not have an integrated GPU.
+Do not use on models of Intel processors ending with "F" - those do not have an integrated GPU.
 
 :::
 
@@ -155,7 +155,7 @@ They can be divided into 4 tiers by their performance：
 
   :::tip
 
-  These iGPUs usually come from mini PC boxes or Synology NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
+  These iGPUs usually come from mini PC boxes or Synology NASes, and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
 
   :::
 
@@ -179,7 +179,7 @@ They can be divided into 4 tiers by their performance：
 
   :::tip
 
-  ARC A-series GPUs use the latest Gen 12.5 XeHPG architecture, which continues to improve on the basis of XeLP, supports [AV1 hardware encoding and improved H.264 and HEVC encoding](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-data-center-gpu-flex-series/intel-data-center-gpu-flex-series.rst). This makes it competitive with the medium preset of the x264 and x265 software encoders. All ARC A-series GPU models come with two MFX video engines.
+  ARC A-series GPUs, use the latest Gen 12.5 XeHPG architecture, which continues to improve on the basis of XeLP, supports [AV1 hardware encoding and improved H.264 and HEVC encoding](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-data-center-gpu-flex-series/intel-data-center-gpu-flex-series.rst). This makes it competitive with the medium preset of the x264 and x265 software encoders. All ARC A-series GPU models come with two MFX video engines.
 
   :::
 
@@ -193,7 +193,7 @@ Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, na
 
 - The most notable difference is that OneVPL supports the new AV1 hardware encoder on ARC GPU.
 
-- [FFmpeg 6.0](http://ffmpeg.org/download.html#release_6.0) enables OneVPL. This process is seamless for the end users.
+- [FFmpeg 6.0](http://ffmpeg.org/download.html#release_6.0) enables OneVPL. This process is seamless to the end users.
 
 :::
 
@@ -217,7 +217,7 @@ You only need to follow the [Windows Setups](/docs/general/administration/hardwa
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Docker and WSL/WSL2.**
+Windows 10 64-bit and newer is recommended. **QSV is not available on Windows Docker and WSL/WSL2.**
 
 ### Known Issues And Limitations On Windows
 
@@ -233,7 +233,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
    - Type `gpedit.msc` in Win+R shortcut key dialog and run to open the "Local Group Policy Editor".
 
-   - Navigate in the left tree **[Computer Configuratoin > Administrative Templates > Windows Components]**
+   - Navigate in the left tree **[Computer Configuration > Administrative Templates > Windows Components]**
 
    - Here you can find **[Remote Desktop Services > Remote Desktop Session Host > Remote Session Environment]**
 
@@ -275,7 +275,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
 A 64-bit Linux distribution is required. **The supported GPU varies by kernel and firmware versions.**
 
-### Known Issues And Limitations On Linux
+### Known Issues And Limitations Of Linux
 
 Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) for known issues and limitations
 
@@ -303,7 +303,7 @@ Root permission is required.
    sudo apt update && sudo apt install -y jellyfin-ffmpeg6
    ```
 
-3. Make sure at least one `renderD*` device exists in `/dev/dri`. Otherwise upgrade your kernel or enable the iGPU in the BIOS.
+3. Make sure at least one `renderD*` device exists in `/dev/dri`. Otherwise, upgrade your kernel or enable the iGPU in the BIOS.
 
    :::note
 
@@ -335,7 +335,7 @@ Root permission is required.
    sudo systemctl restart jellyfin
    ```
 
-5. Check the version of `intel-opencl-icd` thats the Linux distro provides:
+5. Check the version of `intel-opencl-icd` that's the Linux distro provides:
 
    ```shell
    $ apt policy intel-opencl-icd
@@ -346,7 +346,7 @@ Root permission is required.
    ...
    ```
 
-6. If the version is newer than `22.xx.xxxxx` just install it. For the latest products like N95/N100 and Arc A380, support is provided in `23.xx.xxxxx` and newer. Otherwise install from [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases).
+6. If the version is newer than `22.xx.xxxxx` just install it. For the latest products like N95/N100 and Arc A380, support is provided in `23.xx.xxxxx` and newer. Otherwise, install from [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases).
 
    ```shell
    sudo apt install -y intel-opencl-icd
@@ -396,7 +396,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also, make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -432,7 +432,7 @@ Root permission is required.
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
    ```
 
-4. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux).
+4. Check for the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux).
 
 #### Other Distros
 
@@ -571,7 +571,7 @@ This follows the same principles as for the Docker, with one small change that y
 
 The devices in Kubernetes are added as host path mounts, they are not separated into separate volumes like in the Docker example.
 
-1. Example Kubernetes (API version 1) configuraton file written in YAML:
+1. Example Kubernetes (API version 1) configuration file written in YAML:
 
    ```yaml
    # Example of an incomplete deployment spec
@@ -641,7 +641,7 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    lxc config device add <CONTAINER_NAME> gpu gpu gid=<GID_OF_HOST_RENDER_GROUP>
    ```
 
-4. Make sure you have the requied devices within the container:
+4. Make sure you have the required devices within the container:
 
    ```shell
    $ lxc exec jellyfin -- ls -l /dev/dri
@@ -767,7 +767,7 @@ Intel video encoders on Gen 9+ graphics support two encoding modes:
 
 - Low-Power / LP encoding (VDEnc + HuC)
 
-- non Low-Power / LP encoding (PAK + media kernel + VME)
+- Non Low-Power / LP encoding (PAK + media kernel + VME)
 
 Low-Power encoding can offload the GPU usage with the help of the [HuC firmware](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915).
 
@@ -783,7 +783,7 @@ More detail information about Intel video hardware can be found [here](https://g
 
 :::note
 
-Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
+Gen X refers to Intel graphics architechure instead of the CPU generation. (I.e. Gen 9 graphics ≠ 9th Gen processors)
 
 :::
 
@@ -821,7 +821,7 @@ Root permission is required.
 
 :::
 
-1. Install the latest linux firmware packages **on the host system**. The name varies between distros.
+1. Install the latest Linux firmware packages **on the host system**. The name varies between distros.
 
    - On Debian:
 
@@ -850,14 +850,14 @@ Root permission is required.
      sudo cp -r linux-firmware/i915 /usr/lib/firmware
      ```
 
-2. Add the required i915 kernel parameter on the host system to enable loading GuC and HuC firmware:
+2. Add the required i915 kernel parameter to the host system to enable loading GuC and HuC firmware:
 
    ```shell
    sudo mkdir -p /etc/modprobe.d
    sudo sh -c "echo 'options i915 enable_guc=2' >> /etc/modprobe.d/i915.conf"
    ```
 
-3. Update the initramfs and grub. The commands varies between distros.
+3. Update the initramfs and grub. The commands vary between distros.
 
    - On Debian & Ubuntu:
 

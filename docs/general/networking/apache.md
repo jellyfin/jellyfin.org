@@ -18,7 +18,7 @@ title: Apache
     CustomLog /var/log/apache2/DOMAIN_NAME-access.log combined
 </VirtualHost>
 
-# If you are not using a SSL certificate, replace the 'redirect'
+# If you are not using an SSL certificate, replace the 'redirect'
 # line above with all lines below starting with 'Proxy'
 <IfModule mod_ssl.c>
 <VirtualHost *:443>
@@ -60,7 +60,7 @@ title: Apache
 </IfModule>
 ```
 
-If you encouter errors, you may have to enable `mod_proxy`, `mod_ssl`, `proxy_wstunnel`, `http2`, `headers` and `remoteip` support manually.
+If you encounter errors, you may have to enable `mod_proxy`, `mod_ssl`, `proxy_wstunnel`, `http2`, `headers` and `remoteip` support manually.
 
 ```bash
 sudo a2enmod proxy proxy_http ssl proxy_wstunnel remoteip http2 headers
@@ -68,13 +68,13 @@ sudo a2enmod proxy proxy_http ssl proxy_wstunnel remoteip http2 headers
 
 ## Apache with Subpath (example.org/jellyfin)
 
-When connecting to server from a client application, enter `http(s)://DOMAIN_NAME/jellyfin` in the address field.
+When connecting to the server from a client application, enter `http(s)://DOMAIN_NAME/jellyfin` in the address field.
 
 Set the [base URL](/docs/general/networking#base-url) field in the Jellyfin server. This can be done by navigating to the Admin Dashboard -> Networking -> Base URL in the web client. Fill in this box with `/jellyfin` and click Save. The server will need to be restarted before this change takes effect.
 
 :::caution
 
-HTTP is insecure. The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet you should setup HTTPS. [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/).
+HTTP is insecure. The following configuration is provided for ease of use only. If you are planning on exposing your server over the Internet, you should setup HTTPS. [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/).
 
 :::
 

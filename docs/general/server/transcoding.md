@@ -9,7 +9,7 @@ These settings will relate to backend options that modify how the server transco
 
 ## Hardware Acceleration
 
-If your hardware supports this you can enable [hardware acceleration](/docs/general/administration/hardware-acceleration) for much faster transcoding. Some of the supported methods are listed below.
+If your hardware supports this, you can enable [hardware acceleration](/docs/general/administration/hardware-acceleration) for much faster transcoding. Some of the supported methods are listed below.
 
 - VAAPI
 - NVENC
@@ -20,7 +20,7 @@ This option will manually set the number of threads to use when transcoding. If 
 
 ## Types of Transcoding
 
-There are four types of playback; three of which involve transcoding. The type being used will be listed in the dashboard when playing a file. They are ordered below from lowest to highest load on the server:
+There are four types of playback; Three of which involve transcoding. The type being used will be listed in the dashboard when playing a file. They are ordered below from lowest to highest load on the server:
 
 - Direct Play: Delivers the file without transcoding. There is no modification to the file and almost no additional load on the server.
 - Remux: Changes the container but leaves both audio and video streams untouched.

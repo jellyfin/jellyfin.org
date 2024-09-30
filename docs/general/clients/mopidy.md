@@ -50,7 +50,7 @@ Utilizing a Raspberry Pi (or other small form factor computer) it's possible to 
    sudo apt install mopidy mopidy-mpd gstreamer1.0-plugins-bad python3-pip
    ```
 
-5. Install the Jellyfin extension and any other Mopidy related packages you may want:
+5. Install the Jellyfin extension, and any other Mopidy related packages you may want:
 
    ```sh
    sudo pip3 install mopidy-jellyfin mopidy-musicbox-webclient

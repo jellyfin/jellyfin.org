@@ -80,7 +80,7 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 ### Hotfix Release Procedure
 
-1. During normal work on the `master` branch, select PRs suitable for backporting by tagging them with the `stable-backport` label during the PR lifecycle. All PRs will target `master` and thus bugfixes for the stable release must include this label to be included.
+1. During normal work on the `master` branch, select PRs suitable for backporting by tagging them with the `stable-backport` label during the PR lifecycle. All PRs will target `master` and thus bug fixes for the stable release must include this label to be included.
 
 1. Collect the list of merged `stable-backport` PRs from all relevant repositories.
 
@@ -126,4 +126,4 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 1. Wait for builds to complete.
 
-1. Announce the new release in the [jellyfin-announce](https://matrix.to/#/#jellyfin-announce:matrix.org) channel and anywhere else as required.
+1. Announce the new release in the [jellyfin-announce](https://matrix.to/#/#jellyfin-announce:matrix.org) channel, and anywhere else as required.

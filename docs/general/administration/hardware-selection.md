@@ -5,7 +5,7 @@ title: Hardware Selection
 
 # Selecting Appropriate Hardware
 
-This page covers what you need to know in order to select appropriate hardware for a Jellyfin server and take full advantage of its features (e. g. hardware acceleration).
+This page covers what you need to know in order to select the appropriate hardware for a Jellyfin server and take full advantage of its features (e. g. hardware acceleration).
 
 ## TL;DR
 
@@ -20,7 +20,7 @@ Some component recommendations do not change regardless of the hardware configur
 - Internet Connection: At least 20mbps upload bandwidth for remote access.<sup>2</sup>
 
 <sup>1</sup>Your largest media file times the max number of concurrent streams all your users will consume can be used as a rule of thumb for the transcoding file size. <br />
-<sup>2</sup>If you have less than 100mbps of total upload bandwidth, a bandwidth limit of 70% of your upload speed for Jellyfin is recommended. This option can be found in the dashboard.
+<sup>2</sup>If you have less than 100mbps of total upload bandwidth, a bandwidth limit of 70% of your upload speed for Jellyfin is recommended. This option can be found on the dashboard.
 
 ### Hardware Encoder Quality
 
@@ -32,7 +32,7 @@ Apple ≥ Intel ≥ Nvidia >>> AMD<sup>\*</sup>
 
 ### Server with Integrated Graphics
 
-If you are not panning to use a dedicated graphics card, the following specs are recommended:
+If you are not planning to use a dedicated graphics card, the following specs are recommended:
 
 - CPU: Intel Core i3-7100, Apple M series or newer (excluding Intel J/M/N/Y series up to 11th gen)
 - RAM: 8GB System RAM (Consider adding more on Windows 11)
@@ -62,11 +62,11 @@ For users with expensive power or running servers on battery power:
 
 These hardware platforms might lead to a poor Jellyfin experience. Please be careful to avoid them when shopping for hardware.
 
-- Intel "Atom" CPUs: Intel J/M/N/Y series low power CPUs up to 11th gen use a different architecture than higher end parts, leading to subpar performance despite what their names might suggest. Please be careful about these parts when shopping for a system to run Jellyfin.
+- Intel "Atom" CPUs: Intel J/M/N/Y series low power CPUs up to 11th gen use a different architecture than higher end parts, leading to subpar performance, despite what their names might suggest. Please be careful about these parts when shopping for a system to run Jellyfin.
 - Prebuilt NAS devices: The software environment on most Prebuilt NAS devices often causes 3rd party software to be hard to install and not work properly. They also often have low end processors that are too slow for a good Jellyfin experience (Intel Atom, Realtek ARM CPUs etc.).
-- Most SBCs (Single Board Computers): Most SBCs (Including Raspberry Pis and **especially the Pi 5**) are too slow to provide a good Jellyfin experience. If You really want to run Jellyfin on a SBC, please look at models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
+- Most SBCs (Single Board Computers): Most SBCs (Including Raspberry Pis and **especially the Pi 5**) are too slow to provide a good Jellyfin experience. If you really want to run Jellyfin on an SBC, please look at models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
 - AMD Graphics: AMD Graphics have poor encoder quality and poor driver support. **This applies even on Linux**.
-- Low end GPUs: Certain low end GPUs (eg. GT1030, RX6400) don't have hardware encoding available. These models can't be used for Jellyfin hardware acceleration.
+- Low end GPUs: Certain low end GPUs (e.g. GT1030, RX6400) don't have hardware encoding available. These models can't be used for Jellyfin hardware acceleration.
 
 ## Detailed Guide
 
@@ -77,13 +77,13 @@ The CPU will be responsible for many tasks, notably:
 - Transcoding Audio
 - Decoding video in unsupported codecs
 
-Audio codecs are very lightweight and most CPUs should be able to handle them without issues (Ryzen 5950X FLAC -> AAC transcoding runs at ~110x real time). Please note that they will only use one core.
+Audio codecs are very lightweight, and most CPUs should be able to handle them without issues (Ryzen 5950X FLAC -> AAC transcoding runs at ~110x real time). Please note that they will only use one core.
 
-Video in unsupported codecs are usually older formats that are easier to decode. Assuming hardware acceleration is properly configured, any modern CPU with 4 threads should be able to handle the workload.
+Video in unsupported codecs is usually the older formats that are easier to decode. Assuming hardware acceleration is properly configured, any modern CPU with 4 threads should be able to handle the workload.
 
 However, newer codecs can also require software decoding if there are no available hardware decoders. HEVC, VP9 and AV1 can be **VERY** demanding even on modern CPUs if hardware acceleration isn't available. This is why a hardware platform capable of HEVC 10bit hardware decoding is strongly recommended.
 
-In our custom `jellyfin-ffmpeg` fork, the dav1d decoder is enabled, leading to faster software decoding compared to HEVC or VP9. However, it will still use significantly more resources compared to software decoding H.264 or older codecs. Since we have a more efficient AV1 software decoder, and AV1 media isn't common yet, you shouldn't worry about AV1 when shopping for hardware.
+In our custom `jellyfin-ffmpeg` fork, the dav1d decoder is enabled, leading to faster software decoding compared to HEVC or VP9. However, it will still use significantly more resources compared to software decoding H.264 or older codecs. Since we have a more efficient AV1 software decoder, and AV1 media aren't common yet, you shouldn't worry about AV1 when shopping for hardware.
 
 #### Integrated Graphics
 
@@ -114,9 +114,9 @@ Encoder Quality: Apple ≥ Intel ≥ Nvidia >>> AMD<sup>\*</sup>
 Intel is always recommended on non-apple hardware for the following reasons:
 
 - Intel provides a good quality encoder, slightly better than Nvidia and significantly better than AMD.
-- Intel drivers and the compute environment is much easier to setup than both Nvidia and AMD
+- Intel drivers and the compute environment are much easier to setup than both Nvidia and AMD
 
-AMD is not recommended because of poor quality H.264 and H.265(HEVC) output, as well as being hard to setup the compute environment. While AMD has significantly improved AV1 encoder quality. However you are still more likely to transcode to H.264 or H.265 than to AV1 due to compatibility.
+AMD is not recommended because of poor quality H.264 and H.265(HEVC) output, as well as being hard to setup the compute environment. While AMD has significantly improved AV1 encoder quality. However, you are still more likely to transcode H.264 or H.265 than AV1 due to compatibility.
 
 A list of common codecs can be found [here](/docs/general/clients/codec-support/)
 
@@ -126,7 +126,7 @@ The following is a list of video codecs Jellyfin supports transcoding to:
 - H.265 (Limited supported by clients)
 - AV1 (New in 10.9, supported by most modern browsers)
 
-For decoding support, the more codecs the better. However, there are only a few codecs that media is commonly available in. The most important one to look for is HEVC 10bit decoding support, as it can be very demanding on the CPU to decode.
+For decoding support, the more codecs the better. However, there are only a few codecs that media are commonly available in. The most important one to look for is HEVC 10bit decoding support, as it can be very demanding on the CPU to decode.
 
 #### Intel Graphics
 
@@ -140,13 +140,13 @@ If you are planning to use Linux with Intel 12/13th Gen integrated graphics or A
 
 Please refer to [this table](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) for supported codecs.
 
-Certain low end cards (e.g. GT 1030) don't have encoding hardware. Please be careful when choosing a GPU.
+Certain low end cards (e.g. GT 1030) don't have the encoding hardware. Please be careful when choosing a GPU.
 
 #### AMD Graphics
 
 AMD graphics is not recommended for Jellyfin, but the information is still provided for convenience. Please refer to [this article](https://en.wikipedia.org/wiki/Video_Coding_Engine) for supported codecs.
 
-Certain low end cards (e.g. RX 6400, RX 6500) don't have encoding hardware. Please be careful when choosing a GPU.
+Certain low end cards (e.g. RX 6400, RX 6500) don't have the encoding hardware. Please be careful when choosing a GPU.
 
 Many AMD CPUs don't have integrated graphics. These are intended to be used with a dedicated graphics card.
 
@@ -180,7 +180,7 @@ No Apple Silicon media engine drivers currently exist for non-macOS operating sy
 
 #### Rockchip VPU
 
-Currently only the VPU on RK3588/3588S SoC is recommended. It can handle most common video codecs, including AV1 decode.
+Currently, only the VPU on RK3588/3588S SoC is recommended. It can handle most common video codecs, including AV1 decode.
 
 Supported codecs are listed below:
 
