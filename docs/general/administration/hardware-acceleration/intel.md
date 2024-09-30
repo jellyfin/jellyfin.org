@@ -275,7 +275,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
 A 64-bit Linux distribution is required. **The supported GPU varies by kernel and firmware versions.**
 
-### Known Issues And Limitations Of Linux
+### Known Issues And Limitations On Linux
 
 Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) for known issues and limitations
 
@@ -335,7 +335,7 @@ Root permission is required.
    sudo systemctl restart jellyfin
    ```
 
-5. Check the version of `intel-opencl-icd` that's the Linux distro provides:
+5. Check the version of `intel-opencl-icd` that the Linux distro provides:
 
    ```shell
    $ apt policy intel-opencl-icd
@@ -783,7 +783,7 @@ More detail information about Intel video hardware can be found [here](https://g
 
 :::note
 
-Gen X refers to Intel graphics architechure instead of the CPU generation. (I.e. Gen 9 graphics ≠ 9th Gen processors)
+Gen X refers to Intel graphics architecture instead of the CPU generation (i.e. Gen 9 graphics ≠ 9th Gen processors).
 
 :::
 

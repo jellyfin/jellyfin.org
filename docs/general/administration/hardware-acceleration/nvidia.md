@@ -299,7 +299,7 @@ Install the NVIDIA proprietary driver packages and their dependencies that conta
 
 The official Docker image doesn't include any NVIDIA proprietary driver.
 
-You have to install the NVIDIA driver and NVIDIA Container Toolkit, on the host system to allow Docker access to your GPU.
+You have to install the NVIDIA driver and NVIDIA Container Toolkit on the host system to allow Docker access to your GPU.
 
 :::note
 
@@ -309,7 +309,7 @@ Root permission is required.
 
 1. Install the NVIDIA proprietary driver on the host system. See above instructions.
 
-2. Install the NVIDIA Container Toolkit, on the host system by following this link:
+2. Install the NVIDIA Container Toolkit on the host system by following this link:
 
    - [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide)
 
@@ -391,7 +391,7 @@ Root permission is required.
 
 :::note
 
-Note that the official Jellyfin Docker image already set the required environment variables for NVIDIA GPUs. If you are building your own image don't, forget the add two extra environment variables into the Docker configs.
+Note that the official Jellyfin Docker image already sets the required environment variables for NVIDIA GPUs. If you are building your own image don't, forget the add two extra environment variables into the Docker configs.
 
 - `NVIDIA_DRIVER_CAPABILITIES=all`
 

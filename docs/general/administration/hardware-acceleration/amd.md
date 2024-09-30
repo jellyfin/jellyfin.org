@@ -179,7 +179,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
 A 64-bit Linux distribution is required. **The supported GPU varies by kernel and firmware versions.**
 
-### Known Issues And Limitations Of Linux
+### Known Issues And Limitations On Linux
 
 Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#amd-on-linux) for known issues and limitations.
 

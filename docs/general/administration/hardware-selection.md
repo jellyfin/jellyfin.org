@@ -116,7 +116,7 @@ Intel is always recommended on non-apple hardware for the following reasons:
 - Intel provides a good quality encoder, slightly better than Nvidia and significantly better than AMD.
 - Intel drivers and the compute environment are much easier to setup than both Nvidia and AMD
 
-AMD is not recommended because of poor quality H.264 and H.265(HEVC) output, as well as being hard to setup the compute environment. While AMD has significantly improved AV1 encoder quality. However, you are still more likely to transcode H.264 or H.265 than AV1 due to compatibility.
+AMD is not recommended because of poor quality H.264 and H.265(HEVC) output, as well as being hard to setup the compute environment. While AMD has significantly improved AV1 encoder quality. However, you are still more likely to transcode to H.264 or H.265 than AV1 due to compatibility.
 
 A list of common codecs can be found [here](/docs/general/clients/codec-support/)
 
