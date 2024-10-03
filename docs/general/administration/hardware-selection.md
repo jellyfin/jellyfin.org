@@ -32,7 +32,7 @@ Apple ≥ Intel ≥ Nvidia >>> AMD<sup>\*</sup>
 
 ### Server with Integrated Graphics
 
-If you are not panning to use a dedicated graphics card, the following specs are recommended:
+If you are not planning to use a dedicated graphics card, the following specs are recommended:
 
 - CPU: Intel Core i3-7100, Apple M series or newer (excluding Intel J/M/N/Y series up to 11th gen)
 - RAM: 8GB System RAM (Consider adding more on Windows 11)
