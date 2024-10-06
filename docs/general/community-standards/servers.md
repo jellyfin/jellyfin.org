@@ -13,7 +13,7 @@ The Jellyfin Project itself, and members of the Jellyfin team, **do not provide 
 
 * **It is not us. We do not run that server.** Do not contact us, privately or publicly, for help with connecting, resetting your password, etc. We cannot help you because we do not run the server. Contact whoever you are paying. If you do not know who that is, we cannot help you.
 
-* **This is almost unequivocally piracy of some sort.** Do not discuss it with us [as per our community standards guidelines](/docs/general/community-standards). **We are in no way affiliated with "Mobilvids" or any similar pirate services**.
+* **This is almost unequivocally piracy of some sort.** Do not discuss it with us [as per our community standards guidelines](/docs/general/community-standards).
 
 Requests for support/help with other people's servers will be ignored.
 
