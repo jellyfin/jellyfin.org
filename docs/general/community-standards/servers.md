@@ -13,10 +13,14 @@ The Jellyfin Project itself, and members of the Jellyfin team, **do not provide 
 
 * **It is not us. We do not run that server.** Do not contact us, privately or publicly, for help with connecting, resetting your password, etc. We cannot help you because we do not run the server. Contact whoever you are paying. If you do not know who that is, we cannot help you.
 
-* **This is almost unequivocably piracy of some sort.** Do not discuss it with us [as per our community standards guidelines](/docs/general/community-standards). **We are in no way affiliated with "Mobilvids" or any similar pirate services**.
+* **This is almost unequivocally piracy of some sort.** Do not discuss it with us [as per our community standards guidelines](/docs/general/community-standards). **We are in no way affiliated with "Mobilvids" or any similar pirate services**.
 
 Requests for support/help with other people's servers will be ignored.
 
-## Running a Third Party Server
+## If You Run A Jellyfin Server
 
-If you are running such a third party server, **you are not "Jellyfin"**. Do not use our name. Do not insinuate to your users that we are the same people. Do not send them to us for "support". We will link your users to this page if they contact us. If you insist on continuing, and we become aware, we reserve the right to report you to your hosting provider for piracy.
+If you run a Jellyfin server instance, ensure that your users are aware that **you** are their contact for help and support, not us. We are not your server's "customer support" team. **You are not "Jellyfin"**. Do not use our name. Do not insinuate to your users that your server is run by us or that we are the same people.
+
+We will link your users to this page if they contact us for help with your server. If you are charging people for pirate access to a Jellyfin server and violate these guidelines, and we become aware, we reserve the right to report you to your hosting provider for piracy and ban your users from our support channels. This is [a violation of our community standards guidelines](/docs/general/community-standards) and will not be tolerated.
+
+You have been warned.
