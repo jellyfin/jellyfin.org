@@ -28,6 +28,7 @@ export default function Home() {
             Download Now
           </Link>
         </div>
+        <p><a href="/docs/community-standards/server-policy">Note: We do not run servers for users.</a></p>
       </Hero>
       <main>
         <HomepageFeatures />
