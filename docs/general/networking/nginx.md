@@ -58,7 +58,6 @@ server {
     # Security / XSS Mitigation Headers
     # NOTE: X-Frame-Options may cause issues with the webOS app
     add_header X-Frame-Options "SAMEORIGIN";
-    add_header X-XSS-Protection "0"; # Do NOT enable. This is obsolete/dangerous
     add_header X-Content-Type-Options "nosniff";
 
     # Permissions policy. May cause issues with some clients
