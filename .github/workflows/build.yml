@@ -86,7 +86,7 @@ jobs:
           path: build
       - name: Publish to Cloudflare
         id: cf
-        uses: cloudflare/wrangler-action@168bc28b7078db16f6f1ecc26477fc2248592143 # v3.8.0
+        uses: cloudflare/wrangler-action@9681c2997648301493e78cacbfb790a9f19c833f # v3.9.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
