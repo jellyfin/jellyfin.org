@@ -5,7 +5,7 @@ title: Intel GPU
 
 # HWA Tutorial On Intel GPU
 
-This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API.
+This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](/docs/general/administration/hardware-acceleration/apple) instead.
 
 ## Acceleration Methods
 
@@ -15,7 +15,7 @@ On Windows **QSV** is the only available method.
 
 On Linux there are two methods:
 
-- **QSV** - **Prefered on mainstream GPUs**, for better performance
+- **QSV** - **Preferred on mainstream GPUs**, for better performance
 
 - **VA-API** - Required by pre-Broadwell legacy GPUs, for compatibility
 
@@ -23,29 +23,7 @@ On Linux there are two methods:
 
 Linux VA-API supports nearly all Intel GPUs.
 
-Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-platforms) are limited to:
-
-- **BDW** (Broadwell)
-
-- **SKL** (Skylake)
-
-- **BXTx** (BXT: Broxton, APL: Apollo Lake, GLK: Gemini Lake)
-
-- **KBLx** (KBL: Kaby Lake, CFL: Coffe Lake, WHL: Whiskey Lake, CML: Comet Lake, AML: Amber Lake)
-
-- **ICL** (Ice Lake)
-
-- **JSL** (Jasper Lake) / **EHL** (Elkhart Lake)
-
-- **TGLx** (TGL: Tiger Lake, RKL: Rocket Lake, ADL-S/P/N: Alder Lake, RPL-S/P: Raptor Lake)
-
-- **DG1**/**SG1**
-
-- Alchemist (**DG2**)/ATSM
-
-- Meteor Lake (**MTL**)
-
-- Future platforms...
+Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-platforms) are limited to Broadwell (5th gen Core) and newer.
 
 :::
 
@@ -109,13 +87,13 @@ HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Visio
 
 Intel GPUs are no exception:
 
-- **Decoding & Encoding HEVC 8-bit** - Gen 9 Sky Lake (6th Gen Core) and newer
+- **Decoding & Encoding HEVC 8-bit** - Gen 9 Skylake (6th Gen Core) and newer
 
 - **Decoding & Encoding HEVC 10-bit** - Gen 9.5 Kaby Lake (7th Gen Core), Apollo Lake, Gemini Lake (Pentium and Celeron) and newer
 
 :::note
 
-Note that the 6th Gen Core lacks 10-bit support, it's best to choose 7th Gen and newer processors, which usually have HD / UHD 6xx series iGPU.
+Note that the 6th Gen Core with HD 5xx iGPUs lacks 10-bit support, it's best to choose 7th Gen and newer processors, which usually have HD / UHD 6xx series iGPUs.
 
 :::
 
@@ -155,7 +133,7 @@ They can be divided into 4 tiers by their performance：
 
   :::tip
 
-  These iGPUs usually come from mini PC boxes or Synology NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
+  These iGPUs usually come from mini PC boxes or NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
 
   :::
 
