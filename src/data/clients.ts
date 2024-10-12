@@ -720,6 +720,22 @@ export const Clients: Array<Client> = [
     ]
   },
   {
+    id: 'jellychord',
+    name: 'Jellychord',
+    description: 'A modern Discord music bot for Jellyfin using slash commands, written in python.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Discord],
+    primaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/felix920506/jellychord'
+      }
+    ]
+  },
+  {
     id: 'jellycli',
     name: 'Jellycli',
     description: 'A terminal player for Jellyfin, only for music at the moment.',
@@ -889,22 +905,6 @@ export const Clients: Array<Client> = [
         id: 'website',
         name: 'Website',
         url: 'https://streamyfin.app'
-      }
-    ]
-  },
-  {
-    id: 'jellychord',
-    name: 'Jellychord',
-    description: 'A modern Discord music bot using slash commands, written in python.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Discord],
-    primaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/felix920506/jellychord'
       }
     ]
   }
