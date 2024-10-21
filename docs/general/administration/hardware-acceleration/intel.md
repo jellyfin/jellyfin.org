@@ -55,7 +55,7 @@ QSV can be used together with VA-API and DXVA/D3D11VA for a more flexible hybrid
 
 :::caution
 
-**ICL** (Ice Lake) / **JSL** (Jasper Lake) / **EHL** (Elkhart Lake) and older generations are losing support for QSV on Linux, since the MediaSDK runtime has been deprecated by Intel, and may stop working in the future. Please use newer hardware if you are shopping for hardware.
+**ICL** (Ice Lake) / **JSL** (Jasper Lake) / **EHL** (Elkhart Lake) and older generations are losing support for QSV on Linux, since the MediaSDK runtime has been deprecated by Intel, and may stop working in a few years, by which point you will have to switch to VA-API. Please use newer hardware if you are shopping for hardware.
 
 :::
 

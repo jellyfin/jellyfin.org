@@ -42,7 +42,7 @@ AMD is **NOT** recommended if you plan to use integrated graphics for Jellyfin.
 
 :::caution
 
-Intel 7-10th gen CPUs have been removed from this list, since the toolkit for these generations has been deprecated by Intel, and may stop working at any time in the future. You will be required to switch to VA-API when that happens.
+Intel 7-10th gen CPUs have been removed from this list, since the toolkit for these generations has been deprecated by Intel. QSV on Linux for these iGPUs may stop working in a few years. You will be required to switch to VA-API when that happens.
 
 :::
 
