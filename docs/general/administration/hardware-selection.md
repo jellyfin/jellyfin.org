@@ -34,7 +34,7 @@ Apple ≥ Intel ≥ Nvidia >>> AMD<sup>\*</sup>
 
 If you are not planning to use a dedicated graphics card, the following specs are recommended:
 
-- CPU: Intel Core i5-11400, Intel Pentium Gold G7400, Apple M series or newer (excluding Intel J/M/N/Y series up to 11th gen)
+- CPU: Intel Core i5-11400, Intel Pentium Gold G7400, Intel N100, Apple M series or newer (excluding Intel J/M/N/Y series up to 11th gen)
 - RAM: 8GB System RAM (Consider adding more on Windows 11)
 - Graphics: Intel UHD 710, Apple M series or newer
 
