@@ -99,7 +99,7 @@ A 64-bit Linux distribution is recommended. **The Rockchip BSP kernel (6.1 or 5.
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg7` deb package required by Jellyfin 10.10 comes with all necessary user mode Rockchip MPP & RGA drivers.
+The `jellyfin-ffmpeg*` deb package required by Jellyfin comes with all necessary user mode Rockchip MPP & RGA drivers.
 
 Besides that you only need to install the OpenCL runtime (libmali) and configure the the device permissions.
 

@@ -181,7 +181,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg7` deb package required by Jellyfin 10.10 comes with all necessary user mode Mesa drivers.
+The `jellyfin-ffmpeg*` deb package required by Jellyfin comes with all necessary user mode Mesa drivers.
 
 Besides that you only need to configure the permission of the `jellyfin` user.
 

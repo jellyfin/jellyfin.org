@@ -269,7 +269,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg7` deb package comes with all necessary user mode Intel media drivers except OpenCL (see below).
+The `jellyfin-ffmpeg*` deb package comes with all necessary user mode Intel media drivers except OpenCL (see below).
 
 :::note
 
