@@ -5,7 +5,7 @@ title: Intel GPU
 
 # HWA Tutorial On Intel GPU
 
-This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API.
+This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](/docs/general/administration/hardware-acceleration/apple) instead.
 
 ## Acceleration Methods
 
@@ -15,7 +15,7 @@ On Windows **QSV** is the only available method.
 
 On Linux there are two methods:
 
-- **QSV** - **Prefered on mainstream GPUs**, for better performance
+- **QSV** - **Preferred on mainstream GPUs**, for better performance
 
 - **VA-API** - Required by pre-Broadwell legacy GPUs, for compatibility
 
@@ -23,29 +23,7 @@ On Linux there are two methods:
 
 Linux VA-API supports nearly all Intel GPUs.
 
-Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-platforms) are limited to:
-
-- **BDW** (Broadwell)
-
-- **SKL** (Skylake)
-
-- **BXTx** (BXT: Broxton, APL: Apollo Lake, GLK: Gemini Lake)
-
-- **KBLx** (KBL: Kaby Lake, CFL: Coffe Lake, WHL: Whiskey Lake, CML: Comet Lake, AML: Amber Lake)
-
-- **ICL** (Ice Lake)
-
-- **JSL** (Jasper Lake) / **EHL** (Elkhart Lake)
-
-- **TGLx** (TGL: Tiger Lake, RKL: Rocket Lake, ADL-S/P/N: Alder Lake, RPL-S/P: Raptor Lake)
-
-- **DG1**/**SG1**
-
-- Alchemist (**DG2**)/ATSM
-
-- Meteor Lake (**MTL**)
-
-- Future platforms...
+Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-platforms) are limited to Broadwell (5th gen Core) and newer.
 
 :::
 
@@ -117,13 +95,13 @@ HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Visio
 
 Intel GPUs are no exception:
 
-- **Decoding & Encoding HEVC 8-bit** - Gen 9 Sky Lake (6th Gen Core) and newer
+- **Decoding & Encoding HEVC 8-bit** - Gen 9 Skylake (6th Gen Core) and newer
 
 - **Decoding & Encoding HEVC 10-bit** - Gen 9.5 Kaby Lake (7th Gen Core), Apollo Lake, Gemini Lake (Pentium and Celeron) and newer
 
 :::note
 
-Note that the 6th Gen Core lacks 10-bit support, it's best to choose 7th Gen and newer processors, which usually have HD / UHD 6xx series iGPU.
+Note that the 6th Gen Core with HD 5xx iGPUs lacks 10-bit support, it's best to choose 7th Gen and newer processors, which usually have HD / UHD 6xx series iGPUs.
 
 :::
 
@@ -163,7 +141,7 @@ They can be divided into 4 tiers by their performance：
 
   :::tip
 
-  These iGPUs usually come from mini PC boxes or Synology NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
+  These iGPUs usually come from mini PC boxes or NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
 
   :::
 
@@ -291,7 +269,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg6` deb package comes with all necessary user mode Intel media drivers except OpenCL (see below).
+The `jellyfin-ffmpeg*` deb package comes with all necessary user mode Intel media drivers except OpenCL (see below).
 
 :::note
 
@@ -305,10 +283,10 @@ Root permission is required.
    If you are running Debian, you will need to add "non-free" to your apt config.
    :::
 
-2. Install the `jellyfin-ffmpeg6` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
+2. Install the `jellyfin-ffmpeg7` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
    ```shell
-   sudo apt update && sudo apt install -y jellyfin-ffmpeg6
+   sudo apt update && sudo apt install -y jellyfin-ffmpeg7
    ```
 
 3. Make sure at least one `renderD*` device exists in `/dev/dri`. Otherwise upgrade your kernel or enable the iGPU in the BIOS.
@@ -404,7 +382,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
