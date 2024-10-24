@@ -34,11 +34,17 @@ Apple ≥ Intel ≥ Nvidia >>> AMD<sup>\*</sup>
 
 If you are not planning to use a dedicated graphics card, the following specs are recommended:
 
-- CPU: Intel Core i3-7100, Apple M series or newer (excluding Intel J/M/N/Y series up to 11th gen)
+- CPU: Intel Core i5-11400, Intel Pentium Gold G7400, Intel N100, Apple M series or newer (excluding Intel J/M/N/Y series up to 11th gen)
 - RAM: 8GB System RAM (Consider adding more on Windows 11)
-- Graphics: Intel HD 630, Apple M series or newer
+- Graphics: Intel UHD 710, Apple M series or newer
 
 AMD is **NOT** recommended if you plan to use integrated graphics for Jellyfin.
+
+:::caution
+
+Intel 7-10th gen CPUs have been removed from this list, since the toolkit for these generations has been deprecated by Intel. QSV on Linux for these iGPUs may stop working in a few years. You will be required to switch to VA-API when that happens.
+
+:::
 
 ### Server with Dedicated Graphics
 
@@ -135,6 +141,12 @@ Please refer to [this table](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Vide
 Intel CPUs with a model description that ends with F don't have integrated graphics. These are intended to be used with a dedicated graphics card. Please beware if you intend to use Intel integrated graphics.
 
 If you are planning to use Linux with Intel 12/13th Gen integrated graphics or ARC, these GPUs only work on Linux Kernel 6.2 or newer. Please check your distribution to make sure it has a supported Linux Kernel version. Please read [Known Intel limitations on Linux](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) for more info.
+
+:::caution
+
+Intel 10th gen and older integrated graphics are losing support for QSV on Linux due to the SDK for these platforms being deprecated by Intel. Please choose a newer CPU if you plan on using Intel integrated graphics.
+
+:::
 
 #### Nvidia Graphics
 
