@@ -57,7 +57,7 @@ Note:
 The filter contains a set of rules which Fail2ban will use to identify a failed authentication attempt. Create the filter by running:
 
 ```bash
-sudo nano /etc/fail2ban/filter.d/jellyfin.conf
+SUDO_EDITOR=nano sudoedit /etc/fail2ban/filter.d/jellyfin.conf
 ```
 
 Paste:
