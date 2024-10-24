@@ -53,6 +53,14 @@ The QSV interface provided by Intel [OneVPL](https://github.com/intel/vpl-gpu-rt
 
 QSV can be used together with VA-API and DXVA/D3D11VA for a more flexible hybrid transcoding pipeline.
 
+:::caution
+
+**ICL** (Ice Lake) / **JSL** (Jasper Lake) / **EHL** (Elkhart Lake) and older generations are losing support for QSV on Linux, since the MediaSDK runtime has been deprecated by Intel, and may stop working in a few years, by which point you will have to switch to VA-API. Please use newer hardware if you are shopping for hardware.
+
+Please read [deprecation notice](https://github.com/Intel-Media-SDK/MediaSDK) and [legacy platforms support](https://github.com/intel/compute-runtime/blob/master/LEGACY_PLATFORMS.md) for more info.
+
+:::
+
 :::note
 
 - Unlike NVIDIA NVENC, there is no concurrent encoding sessions limit on Intel iGPU and ARC dGPU.
@@ -656,17 +664,32 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
 
 #### LXC On Proxmox
 
-:::note
+1. Make sure your GPU is available as a DRI render device on the Proxmox host, e.g. `/dev/dri/renderD128`.
+   If not, [install the necessary drivers](#debian-and-ubuntu-linux) on the host.
 
-- Jellyfin needs to run in a **privileged** LXC container.
+2. **Proxmox VE 8 or Newer**:
 
-- An existing unprivileged container can be converted to a priviledged container by taking a backup and restoring it as priviledged.
+   Setup a `Device Passthrough` for the render device via the `Resources` section of the web interface.
+   Be sure to set the correct GID via the advanced options of the dialog, e.g. `989` for the `render` group.
+   GIDs can be looked up in `/etc/group` inside the LXC.
 
-:::
+   :::note
 
-1. Install the required drivers on the Proxmox host.
+   You must be logged in as `root`. Other administrator accounts are not allowed to perform this action.
 
-2. Add your GPU to the container by editing `/etc/pve/lxc/<CONTAINER_ID>.conf`.
+   :::
+
+   **Proxmox VE 7 or Older**:
+
+   :::note
+
+   - Jellyfin needs to run in a **privileged** LXC container.
+
+   - An existing unprivileged container can be converted to a privileged container by taking a backup and restoring it as privileged.
+
+   :::
+
+   Add your GPU to the container by editing `/etc/pve/lxc/<CONTAINER_ID>.conf`.
 
    You may need to change the GIDs in the examples below to match those used on your host.
 
@@ -682,9 +705,9 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
    ```
 
-3. Restart your container and install the required drivers in your container.
+3. Restart your container and [install the required drivers in your container](#configure-on-linux-host).
 
-4. Add `jellyfin` user to the `video`, `render` and/or `input` groups depending on who owns the device inside the container.
+4. Add the `jellyfin` user to the group you chose in Step 2, i.e. the group that owns the DRI render device inside the LXC.
 
 5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU `renderD128` if necessary.
 

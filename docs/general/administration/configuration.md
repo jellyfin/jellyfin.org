@@ -113,7 +113,7 @@ Jellyfin uses fonts to render text in many places.
 
 ### Server Side System Fonts
 
-The system fonts installed on the server are used for burning in subtitles and rendering cover images. How to install them depends on the operating system.
+The system fonts installed on the server are used for burning in subtitles and rendering cover images. How to install them depends on the operating system or if a container is being used.
 
 ### Client Side System Fonts
 
@@ -121,7 +121,9 @@ The system fonts installed on the client devices are used to display the text in
 
 ### Fallback Fonts
 
-The `Fallback Fonts` option is currently used by the web client to render subtitles only. This can be set to a folder containing fonts for this purpose. These fonts are limited to a total size of 20MB. Lightweight formats optimized for web like woff2 are recommended. A tool to convert normal TrueType (`.ttf`) and OpenType (`.otf`) fonts to woff2 can be found [in their repo](https://github.com/google/woff2).
+The `Fallback Fonts` installed on the server are loaded up by the web client to render ASS subtitles. They will be used if no other existing fonts (such as MKV attachments or client-side fonts) can be used to render certain glyphs, such as CJK characters, instead of displaying an empty "tofu" block.
+
+This setting can be set to a folder on the server containing fonts for this purpose. These fonts are limited to a total size of 20 MB, since all of them will be always preloaded in the browser, regardless of whether they'll be needed or not. Lightweight formats optimized for web like woff2 are recommended. A tool to convert normal TrueType (`.ttf`) and OpenType (`.otf`) fonts to woff2 can be found [in their repo](https://github.com/google/woff2).
 
 ### Downloading Fonts
 
