@@ -113,7 +113,7 @@ NVENC/NVDEC performance tables:
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.9 the minimum required NVIDIA driver version is 522.25**.
+Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.10 the minimum required NVIDIA driver version is 522.25**.
 
 ### Configure On Windows Host
 
@@ -151,7 +151,7 @@ Refer to [Configure On Linux Host](/docs/general/administration/hardware-acceler
 
 ## Linux Setups
 
-A 64-bit Linux distribution is required. **In Jellyfin 10.9 the minimum required NVIDIA driver version is 520.56.06**.
+A 64-bit Linux distribution is required. **In Jellyfin 10.10 the minimum required NVIDIA driver version is 520.56.06**.
 
 ### Configure On Linux Host
 
