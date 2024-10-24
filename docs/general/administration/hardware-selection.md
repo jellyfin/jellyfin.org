@@ -76,7 +76,7 @@ These hardware platforms might lead to a poor Jellyfin experience. Please be car
 
 - Intel "Atom" CPUs: Intel J/M/N/Y series low power CPUs up to 11th gen use a different architecture than higher end parts, leading to subpar performance despite what their names might suggest. Please be careful about these parts when shopping for a system to run Jellyfin.
 - Prebuilt NAS devices: The software environment on most Prebuilt NAS devices often causes 3rd party software to be hard to install and not work properly. They also often have low end processors that are too slow for a good Jellyfin experience (Intel Atom, Realtek ARM CPUs etc.).
-- Most SBCs (Single Board Computers): Most SBCs (Including Raspberry Pis and **especially the Pi 5**) are too slow to provide a good Jellyfin experience since they often lack proper support for hardware acceleration. If You really want to run Jellyfin on an SBC, please look at models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
+- Most Single Board Computers (SBC): Most SBCs (Including Raspberry Pis and **especially the Pi 5**) are too slow to provide a good Jellyfin experience since they often lack proper support for hardware acceleration. If You really want to run Jellyfin on an SBC, please look at models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
 - AMD Graphics: AMD Graphics have poor encoder quality and poor driver support. **This applies even on Linux**.
 - Low end GPUs: Certain low end GPUs (eg. GT1030, RX6400) don't have hardware encoding available. These models can't be used for Jellyfin hardware acceleration.
 
