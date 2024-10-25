@@ -338,7 +338,7 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App in the 
        - If using NVIDIA, tick `Use this GPU` under your listed GPU. If you don't see your GPU, go to `Apps` -> `Configuration` -> `Settings` -> Install NVIDIA Drivers.
        - If using other vendors, tick `Passthrough available (non-NVIDIA) GPUs`.
        - Then in Jellyfin UI, configure it under `Dashboard` -> `Playback` -> `Transcoding`.
-       - Note that some newer Intel GPUs might require a newer kernel version than provided. If that's the case for your GPU, you may consider using a VM with PCIe pass-through instead of app containers.
+       - Note that [some newer Intel GPUs](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) might require a newer kernel version than provided. If that's the case for your GPU, you may consider using a VM with PCIe pass-through instead of app containers.
 
 4. Click `Install` and once it's up and running you'll be able to click `Web UI` button to access `Jellyfin`.
 
