@@ -331,7 +331,7 @@ Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App in the 
        - Store them on SSD storage if possible, as using HDD storage **will** lead to poor experience.
      - For `Jellyfin Transcode Storage`, consider using `Temporary` or `tmpfs`
        - `Temporary` places a Docker volume under your configured Apps dataset (`Apps` -> `Configuration` -> `Choose Pool`). Avoid if that's on HDD.
-       - `tmpfs` creates a temporary directory on the RAM (but swap usage is permitted). Ensure you set the limit to at least a few gigabytes. You may need to increase the limit if you have many large media files, or transcodes might fail. Note that total memory usage may also be capped in the `Resources Configuration` section.
+       - `tmpfs` creates a temporary directory on the RAM. Ensure you set the limit to at least a few gigabytes and that you have considerate amount of spare memory, since TrueNAS disables swap by default. You may need to increase the limit if you have many media files streamed with transcoding at once, or transcodes might fail. Note that total memory usage may also be capped in the `Resources Configuration` section.
        - If your only SSD storage is the boot drive, you may configure a Host Path mount to `/var/tmp/jellyfin_transcodes`.
      - For media, add your library directories as Additional Storage.
      - For hardware-accelerated transcoding, under the Resources Configuration:
