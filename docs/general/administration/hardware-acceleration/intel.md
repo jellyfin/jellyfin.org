@@ -53,6 +53,14 @@ The QSV interface provided by Intel [OneVPL](https://github.com/intel/vpl-gpu-rt
 
 QSV can be used together with VA-API and DXVA/D3D11VA for a more flexible hybrid transcoding pipeline.
 
+:::caution
+
+**ICL** (Ice Lake) / **JSL** (Jasper Lake) / **EHL** (Elkhart Lake) and older generations are losing support for QSV on Linux, since the MediaSDK runtime has been deprecated by Intel, and may stop working in a few years, by which point you will have to switch to VA-API. Please use newer hardware if you are shopping for hardware.
+
+Please read [deprecation notice](https://github.com/Intel-Media-SDK/MediaSDK) and [legacy platforms support](https://github.com/intel/compute-runtime/blob/master/LEGACY_PLATFORMS.md) for more info.
+
+:::
+
 :::note
 
 - Unlike NVIDIA NVENC, there is no concurrent encoding sessions limit on Intel iGPU and ARC dGPU.
