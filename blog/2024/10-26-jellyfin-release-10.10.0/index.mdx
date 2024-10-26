@@ -28,7 +28,7 @@ Happy watching!
 
 * The server will now refuse to start if `ffmpeg` cannot be found, is an incorrect version, or does not function properly (missing extensions, etc.). With how critical `ffmpeg` is to Jellyfin, this has become very important to avoid mis-reported issues. This can be explicitly bypassed if needed. See [PR #12463](https://github.com/jellyfin/jellyfin/pull/12463).
 
-* Network paths in libraries have been fully removed and will no longer work. This functionality has been deprecated for a long time, and most of it was removed in 10.9.0, but this removes the remainder. See [PR #12446](https://github.com/jellyfin/jellyfin/pull/12446). Third-party clients relying on this functionality should be able to reimplement it as required.
+* Network paths in libraries have been fully removed and will no longer work. This functionality has been deprecated for a long time, and most of it was removed in 10.9.0, but this removes the remainder. See [PR #12446](https://github.com/jellyfin/jellyfin/pull/12446). Third-party clients relying on this functionality should be able to re-implement it as required.
 
 * Systems with Trickplay enabled may see a relatively long database migration occurring during the upgrade. If Jellyfin seems to hang starting up after upgrading, please observe the logs and wait for the migration to complete. This helps enable the functionality below.
 
@@ -36,7 +36,7 @@ Happy watching!
 
 ### Media Segments
 
-The Jellyfin server now supports the mangement of Media Segments. This means that we store some additional information for certain timespans on a video that clients can then use to provide additional actions. For example, when there is a Media Segment of the type intro, a client may display a button to skip that particular segment. For 10.10, we only provide the general structure to store those Media Segments, and you will still require a plugin to create them. We have created one plugin that does this, based on the Chapter names of a movie or Episode, which you can find in the Plugin catalog, and others may be implemented in the future. The Web interface fully supports skipping segments; other client support is pending.
+The Jellyfin server now supports the management of Media Segments. This means that we store some additional information for certain time-spans on a video that clients can then use to provide additional actions. For example, when there is a Media Segment of the type intro, a client may display a button to skip that particular segment. For 10.10, we only provide the general structure to store those Media Segments, and you will still require a plugin to create them. We have created one plugin that does this, based on the Chapter names of a movie or Episode, which you can find in the Plugin catalogue, and others may be implemented in the future. The Web interface fully supports skipping segments; other client support is pending.
 
 ### Trickplay
 
