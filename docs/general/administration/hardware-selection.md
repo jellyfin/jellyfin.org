@@ -158,7 +158,7 @@ If you are planning to use Linux with Intel 12/13th Gen integrated graphics or A
 
 :::caution
 
-Intel 10th gen and older integrated graphics are losing support for QSV on Linux due to the SDK for these platforms being deprecated by Intel. If you own 7-10th gen CPUs with integrated graphics, please continue to use them. If you are making a purchase decision, please choose a newer CPU if you plan on using Intel integrated graphics.
+Intel 10th gen and older integrated graphics are losing support for QSV on Linux due to the SDK for these platforms being deprecated by Intel. If you own 7-10th gen CPUs with integrated graphics, please continue to use them for Jellyfin. If you are making a purchase decision, please choose a newer CPU if you plan on using Intel integrated graphics.
 
 :::
 
