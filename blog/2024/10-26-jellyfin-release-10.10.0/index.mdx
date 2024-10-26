@@ -8,7 +8,7 @@ tags: [release]
 
 We are pleased to announce the latest stable release of Jellyfin, version 10.10.0!
 
-This major release brings several new features, improvements, and bugfixes to improve your Jellyfin experience. With our faster release cadence between 10.9.0 and 10.10.0, this release should be far less daunting, so please read on for a quick peek at what's new!
+This major release brings several new features, improvements, and bugfixes to improve your Jellyfin experience. With our faster release cadence between 10.9.0 and 10.10.0, this release should be far less daunting, so please read on for a quick peek at what's new and some important-to-know breaking changes!
 
 You may upgrade your Jellyfin instances at any time now. For those who were running Unstable builds for testing, we thank you immensely, and you may now switch back to the Stable repository and forcibly reinstall/repull the latest version. As always, **ensure you back up your Jellyfin data and configuration directories before upgrading**. With a major release, it's possible you will hit a bug and want to revert, and to do so, you will need to restore from a backup.
 
@@ -20,9 +20,9 @@ Happy watching!
 
 ## Breaking Changes
 
-* There are no known client support issues in the transition from 10.9.0 to 10.10.0 - all your clients should continue to work as-is without any issues or any forced upgrades, though this may change in the future.
+* Most clients should continue to work as-is without any issues or any forced upgrades, though this may change in the future. The sole exception is Jellyfin4Kodi, which currently has issues due to point 5 below, though a fix is hopefully forthcoming shortly.
 
-* We have deprecated Raspberry Pi V4L2 hardware transcoding support, and are looking to deprecate Raspberry Pi (i.e. ARMv7) in general for releases past 10.10.0. Raspberry Pi has always been a tricky platform for us, as it's popular but extremely poor in performance, and this has caused a lot of people a lot of headaches. With the RPi5 entirely removing a hardware acceleration engine and the aging of the RPi4, we are taking this action now to ensure it's widely known. This also means that 10.10.x will likely be the last major release of Jellyfin to support 32-bit ARM (`armhf` in Debuntu land), which we will likely drop for 10.11.0. If you are running Jellyfin on old ARM hardware, now is the time to start upgrading. See [PR #1148](https://github.com/jellyfin/jellyfin.org/pull/1148).
+* We have deprecated Raspberry Pi V4L2 hardware transcoding support, and are looking to deprecate any Raspberry Pi-specific functionality in general for releases past 10.10.0. Raspberry Pi has always been a tricky platform for us, as it's popular but extremely poor in performance, and this has caused a lot of people a lot of headaches. With the RPi5 entirely removing a hardware acceleration engine and the aging of the RPi4, we are taking this action now to ensure it's widely known.  If you are running Jellyfin on old RPi hardware, now is the time to start looking at an upgrade. See [PR #1148](https://github.com/jellyfin/jellyfin.org/pull/1148).
 
 * We now use the system temporary storage engine (e.g. `/tmp` on Linux) for storing temporary files, to allow us to leverage temporary ramdisks and the like and avoid cluttering potentially slow storage. This may cause issues if you specifically depended on the previous behaviour. See [PR #12226](https://github.com/jellyfin/jellyfin/pull/12226).
 
@@ -30,15 +30,17 @@ Happy watching!
 
 * Network paths in libraries have been fully removed and will no longer work. This functionality has been deprecated for a long time, and most of it was removed in 10.9.0, but this removes the remainder. See [PR #12446](https://github.com/jellyfin/jellyfin/pull/12446).
 
+* Systems with Trickplay enabled may see a relatively long database migration occurring during the upgrade. If Jellyfin seems to hang starting up after upgrading, please observe the logs and wait for the migration to complete. This helps enable the functionality below.
+
 ## Cool New Features
 
 ### Media Segments
 
-The Jellyfin server now supports the mangement of Media Segments. This means that we store some additional information for certain timespans on a video that clients can then use to provide additional actions. For example, when there is a Media Segment of the type intro, a client may display a button to skip that particular segment. For 10.10, we only provide the general structure to store those Media Segments, and you will still require a plugin to create them. We have created one plugin that does this, based on the Chapter names of a movie or Episode, which you can find in the Plugin catalog, and others are welcome. The Web interface fully supports skipping segments.
+The Jellyfin server now supports the mangement of Media Segments. This means that we store some additional information for certain timespans on a video that clients can then use to provide additional actions. For example, when there is a Media Segment of the type intro, a client may display a button to skip that particular segment. For 10.10, we only provide the general structure to store those Media Segments, and you will still require a plugin to create them. We have created one plugin that does this, based on the Chapter names of a movie or Episode, which you can find in the Plugin catalog, and others may be implemented in the future. The Web interface fully supports skipping segments; other client support is pending.
 
 ### Trickplay
 
-We have significantly improved extraction by implementing keyframe extraction, which can boost image generating time significantly (around 100x, depending on configuration). This should mean no more multi-day Trickplay jobs!
+We have significantly improved extraction by implementing optional keyframe extraction, which can boost image generating time significantly (around 100x, depending on configuration) at the cost of some frame accuracy, which should be fine for most users with longer trickplay frame durations. This should mean no more multi-day Trickplay jobs!
 
 ### Playback/Transcoding
 
