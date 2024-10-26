@@ -18,9 +18,10 @@ After setting up Jellyfin i stuck around in the chat and later started to help o
 
 ## Media Segments Overview
 
-First lets start with the Basics of what a Media Segment is. A Media Segment exists only within our Database and defines a timespan within a Movie or Episode with a certain category.
+First lets start with the Basics of what a Media Segment is.
+A Media Segment exists only within our Database and defines a timespan within a Movie or Episode with a certain types.
 
-Those category can be currently one of the following:
+Those types can be currently one of the following:
 
 - Commercial
 - Preview
@@ -28,11 +29,21 @@ Those category can be currently one of the following:
 - Outro
 - Intro
 
-that means that JF is capable of "knowing" that a certain Episode has something like a Commercial at its time index `00:02:15` that lasts until `00:04:08`. 
-I did put "knowing" here in quotes because that is for 10.10 all the Jellyfin server supports. 
-We only currently allow storing those information, but we do not generate any of those information.
+### An example
 
-This is what you need Plugins for.
+An episode that is 16 minutes (00:16:00) long, can have multiple segments:
+
+1. from 00:00:00 until 00:03:08 there is an `Intro`
+2. from 00:08:03 until 00:08:59 there is an `Commerical`
+3. from 00:14:30 until 00:16:00 there is an `Outro`
+
+Jellyfin can now store this information and provide it via the new MediaSegmentApi to clients. 
+What we did not implement in 10.10 however, is the creation of those Segments. 
+Jellyfin only stores and provides this data to clients but to generate it you need a Plugin that provide this data to jellyfin to be stored.
+
+We did create a plugin to create segments based on Chapter names which sounds similar but is something different. 
+A Chapter is just any section of a video, but without any defined type. 
+A MediaSegment on the other hand is a section in a video, with a defined type.
 
 ## Media Segment Plugins
 
@@ -43,11 +54,9 @@ This does *NOT* make the existing plugins obsolete however as we still rely on t
 
 ## Media Segments on clients
 
-Currently the WebUI and the AndroidTV* client support MediaSegments. The server however just delivers the information about where the segment is in the video and of what type it is, it remains up the the individual client to decide what to do with that information.
+Currently the WebUI and the AndroidTV client support MediaSegments. The server however just delivers the information about where the segment is in the video and of what type it is, it remains up the the individual client to decide what to do with that information.
 
 As the whole system of Media Segments is quite new, please do not expect many clients to support it.
-
-* As of time of writing the support is still a work-in-progress.
 
 ## The Future
 
