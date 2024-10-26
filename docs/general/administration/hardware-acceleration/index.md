@@ -63,17 +63,17 @@ The transcoding pipeline usually has multiple stages, which can be simplified to
 
 Some of these stages cannot be GPU accelerated due to software, hardware or driver limitations.
 
-Partial acceleration may result in slightly higher CPU usage and lower transcoding speed.
+Partial acceleration may result in higher CPU usage and lower transcoding speed.
 
 :::
 
-Jellyfin 10.8 supports full acceleration on mainstream Intel, NVIDIA and AMD (Windows only) GPUs.
+Jellyfin supports full acceleration for:
 
-Jellyfin 10.9 enables full acceleration for:
-
+- Mainstream Intel and Nvidia GPUs on Windows and Linux
 - AMD Polaris and newer GPUs on Linux via VA-API and Vulkan interop
+- Older AMD GPUs on Windows
 - Rockchip VPU of RK3588/3588S
-- Intel and Apple Silicon Macs on macOS 12 and above
+- Intel and Apple Silicon on macOS 12 and above
 
 Using [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg/releases) with Jellyfin is highly recommended, which has a `-Jellyfin` suffix in the version string.
 
@@ -180,21 +180,15 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
 :::
 
-| OS/Platform    | NVIDIA NVENC | AMD AMF | Intel QSV | Intel VA-API | AMD VA-API |Apple VideoToolbox| Rockchip RKMPP | Software |
-| -------------- | ------------ | ------- | --------- | ------------ | ---------- | ---------------- | -------------- | -------- |
-| Windows        | ✔️           | ✔️      | ✔️        | N/A          | N/A        | N/A              | N/A           | WIP      |
-| Windows Docker | ✔️           | N/A     | N/A       | N/A          | N/A        | N/A              | N/A            | WIP      |
-| Linux          | ✔️           | ✔️      | ✔️        | ✔️           | ✔️        | N/A              | ✔️             | WIP      |
-| Linux Docker   | ✔️           | ✔️      | ✔️        | ✔️           | ✔️        | N/A              | ✔️             | WIP      |
-| macOS          | N/A          | N/A     | N/A       | N/A          | N/A        | ✔️               | N/A            | WIP      |
-
 ## Tips For Hardware Acceleration
 
 - Avoid H.264 / AVC 10-bit videos
 
   :::tip
 
-  The hardware decoding of H.264 / AVC 10-bit (High 10 profile) video is not supported by any Intel, NVIDIA and AMD GPU. Jellyfin will always fallback to software decoding for it. Consider upgrading such video to H.265 / HEVC 10-bit (Main 10 profile).
+  The hardware decoding of H.264 / AVC 10-bit (High 10 profile) video is not supported by any Intel, NVIDIA and AMD GPU.
+  It is only supported by Apple Silicon and Rockchip. Jellyfin will fall back to software decoding for it when there is
+  no hardware decoder available. Consider upgrading such video to H.265 / HEVC 10-bit (Main 10 profile).
 
   :::
 
