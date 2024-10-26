@@ -1,0 +1,54 @@
+---
+title: Jellyfin Media Segments Explained 10.10.0
+description: What are Media Segments and how to use them in version 10.10.0
+authors: JPVenson
+slug: jellyfin-media-segments-10.10.0
+tags: [release]
+---
+
+First of all things i would like to introduce myself as a new Server-Team member for the jellyfin FOSS project.
+
+I have been active for a bit now, first just as an Freelance software developer that created its own small media server because i did not wanted to pay for other serivces but then quickly learned what it all takes.
+
+After setting up Jellyfin i stuck around in the chat and later started to help out as a community moderator, while submitting some features and bugfixes. However with my last PR implementing Media Segments, i joined the Server Team to bring jellyfin new features (and some bugs ;-)).
+
+\- JPVenson
+
+{/* truncate */}
+
+## Media Segments Overview
+
+First lets start with the Basics of what a Media Segment is. A Media Segment exists only within our Database and defines a timespan within a Movie or Episode with a certain category.
+
+Those category can be currently one of the following:
+
+- Commercial
+- Preview
+- Recap
+- Outro
+- Intro
+
+that means that JF is capable of "knowing" that a certain Episode has something like a Commercial at its time index `00:02:15` that lasts until `00:04:08`. 
+I did put "knowing" here in quotes because that is for 10.10 all the Jellyfin server supports. 
+We only currently allow storing those information, but we do not generate any of those information.
+
+This is what you need Plugins for.
+
+## Media Segment Plugins
+
+Media Segment plugins can now utilise our new System to store their information about Intros/Outros/Commericals and all other types of segments. This information is then used by clients via our Api to provide actions like a "Skip" button in their UI.
+The big benefit here is that this approach generalises how Segments are handled so gone are the days where you needed to inject javascript into the webUI to get IntroSkipping.
+
+This does *NOT* make the existing plugins obsolete however as we still rely on them to generate the segments in the first place. But as more clients implement support, we can bring their Segments to more clients and provide for exmaple IntroSkipping.
+
+## Media Segments on clients
+
+Currently the WebUI and the AndroidTV* client support MediaSegments. The server however just delivers the information about where the segment is in the video and of what type it is, it remains up the the individual client to decide what to do with that information.
+
+As the whole system of Media Segments is quite new, please do not expect many clients to support it.
+
+* As of time of writing the support is still a work-in-progress.
+
+## The Future
+
+This is just the first step for MediaSegments. The underlying architecture allows for much more which we are now able to explore. We also allow for multiple plugins to provide segments, so you can pick any one plugin or all of them to provide the best experience.
