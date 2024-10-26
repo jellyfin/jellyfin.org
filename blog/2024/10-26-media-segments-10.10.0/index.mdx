@@ -47,14 +47,17 @@ A MediaSegment on the other hand is a section in a video, with a defined type.
 
 ## Media Segment Plugins
 
-Media Segment plugins can now utilise our new System to store their information about Intros/Outros/Commericals and all other types of segments. This information is then used by clients via our Api to provide actions like a "Skip" button in their UI.
+Media Segment plugins can now utilise our new System to store their information about Intros/Outros/Commericals and all other types of segments. 
+This information is then used by clients via our Api to provide actions like a "Skip" button in their UI.
 The big benefit here is that this approach generalises how Segments are handled so gone are the days where you needed to inject javascript into the webUI to get IntroSkipping.
 
-This does *NOT* make the existing plugins obsolete however as we still rely on them to generate the segments in the first place. But as more clients implement support, we can bring their Segments to more clients and provide for exmaple IntroSkipping.
+This does *NOT* make the existing plugins obsolete however as we still rely on them to generate the segments in the first place. 
+But as more clients implement support, we can bring their Segments to more clients and provide for exmaple IntroSkipping.
 
 ## Media Segments on clients
 
-Currently the WebUI and the AndroidTV client support MediaSegments. The server however just delivers the information about where the segment is in the video and of what type it is, it remains up the the individual client to decide what to do with that information.
+Currently the WebUI and the AndroidTV client support MediaSegments. 
+The server however just delivers the information about where the segment is in the video and of what type it is, it remains up the the individual client to decide what to do with that information.
 
 As the whole system of Media Segments is quite new, please do not expect many clients to support it.
 
