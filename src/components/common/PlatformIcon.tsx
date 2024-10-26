@@ -17,8 +17,7 @@ import {
   SiLinux,
   SiRoku,
   SiSailfishos,
-  SiUbuntu,
-  SiWindows
+  SiUbuntu
 } from '@icons-pack/react-simple-icons';
 import Icon from '@mdi/react';
 import { mdiMonitor, mdiWeb } from '@mdi/js';
@@ -104,8 +103,9 @@ const PlatformIcon = ({
     case Platform.WebOS:
       return <SiLg size={size} className={className} />;
 
-    case Platform.Windows:
-      return <SiWindows size={size} className={className} />;
+    // Removed due to Microsoft, see https://github.com/simple-icons/simple-icons/issues/11236
+    // case Platform.Windows:
+    //   return <SiWindows size={size} className={className} />;
 
     default:
       return null;
