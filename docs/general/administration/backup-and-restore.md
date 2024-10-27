@@ -69,4 +69,4 @@ This process assumes you followed the steps above to take the backup.
 
 ## The Future
 
-Some members of the team are working on a plugin to handle exporting the database without a server shutdown or manual copy operation. Once this is done, our goal is to bundle this plugin by default, but have it disabled by default, allowing administrators the flexibility to configure this as needed and enable it as it suits them. This document will be updated once that becomes available.
+Long-term, we have plans to provide an official backup and restore plugin bundled with Jellyfin, however this requires the completion of our EFCore rewrite, which is currently slated for our next major release 10.11.0. Once that becomes available, this document will be updated to reflect the process using that plugin.
