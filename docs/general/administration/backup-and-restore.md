@@ -30,7 +30,7 @@ Finally, administrative mistakes, normal operation issues (e.g. filling up a dis
 
 2. Copy your data and configuration directories to a destination of your choice. What you name the copies is up to you; personally, I like to use dated and versioned directory names e.g. `jellyfin.2024-05-01_10.8.13`. Where these files are also depends on the platform; generally these follow the [XDG Directory Specification](https://specifications.freedesktop.org/basedir-spec/latest/) for platforms that support it. For more information see [the configuration documentation](/docs/general/administration/configuration/#server-paths).
 
-  **NOTE**: These are default locations; if you've changed your data or config paths, use those instead.
+   **NOTE**: These are default locations; if you've changed your data or config paths, use those instead.
 
    * Official Docker: Wherever your `/data` and `/config` volumes are sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
    * LinuxServer.io Docker: Data and config are wherever your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
@@ -43,13 +43,13 @@ Finally, administrative mistakes, normal operation issues (e.g. filling up a dis
       * Windows: Data and config is in `C:\Users\<Username>\AppData\Local\Jellyfin`.
       * MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
 
-  As an example, on Debian, you can do this with these commands to make a copy of both directories into a single target directory:
+   As an example, on Debian, you can do this with these commands to make a copy of both directories into a single target directory:
 
-  ```bash
-  sudo mkdir -p /media/backups/jellyfin.2024-10-27_10.9.11  # Or change the path wherever in your system makes sense to you
-  sudo cp -a /var/lib/jellyfin /media/backups/jellyfin.2024-10-28_10.9.11/data
-  sudo cp -a /etc/jellyfin /media/backups/jellyfin.2024-10-28_10.9.11/config
-  ```
+   ```bash
+   sudo mkdir -p /media/backups/jellyfin.2024-10-27_10.9.11  # Or change the path wherever in your system makes sense to you
+   sudo cp -a /var/lib/jellyfin /media/backups/jellyfin.2024-10-28_10.9.11/data
+   sudo cp -a /etc/jellyfin /media/backups/jellyfin.2024-10-28_10.9.11/config
+   ```
 
 3. Start up Jellyfin again, either after upgrading or on the current version. You now have a safe copy of your data in the path chosen in step 2.
 
