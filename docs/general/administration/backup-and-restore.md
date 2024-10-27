@@ -65,7 +65,7 @@ This process assumes you followed the steps above to take the backup.
 
 4. If required, downgrade Jellyfin to the same version as your backup now.
 
-4. Start up Jellyfin again. It should start cleanly with the old data, assuming versions are correct. If you downgraded this may happen automatically.
+5. Start up Jellyfin again. It should start cleanly with the old data, assuming versions are correct. If you downgraded this may happen automatically.
 
 ## The Future
 
