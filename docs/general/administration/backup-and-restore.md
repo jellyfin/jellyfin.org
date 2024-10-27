@@ -45,7 +45,7 @@ Finally, administrative mistakes, normal operation issues (e.g. filling up a dis
 
   As an example, on Debian, you can do this with these commands to make a copy of both directories into a single target directory:
 
-  ```
+  ```bash
   sudo mkdir -p /media/backups/jellyfin.2024-10-27_10.9.11  # Or change the path wherever in your system makes sense to you
   sudo cp -a /var/lib/jellyfin /media/backups/jellyfin.2024-10-28_10.9.11/data
   sudo cp -a /etc/jellyfin /media/backups/jellyfin.2024-10-28_10.9.11/config
