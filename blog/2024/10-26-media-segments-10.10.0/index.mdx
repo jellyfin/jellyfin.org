@@ -1,19 +1,18 @@
 ---
-title: Jellyfin Media Segments Explained 10.10.0
-description: What are Media Segments and how to use them in version 10.10.0
+title: Media segments explained
+description: What are media segments and how to use them in Jellyfin 10.10
 authors: JPVenson
-slug: jellyfin-media-segments-10.10.0
+slug: media-segments-explained
 tags: [release]
 ---
 
 {/* truncate */}
 
-## Media Segments Overview
+## Media segments overview
 
-First lets start with the basics of what a Media Segment is.
-A Media Segment exists only within our database and defines a timespan within a movie or episode with a certain types.
+First lets start with the basics of what a media segment is. A media segment exists only within our database and defines a timespan within a movie or episode with a certain type.
 
-Those types can be currently one of the following:
+We currently support the following types:
 
 - Commercial
 - Preview
@@ -23,7 +22,7 @@ Those types can be currently one of the following:
 
 ### An example
 
-An episode that is 16 minutes (00:16:00) long, can have multiple segments:
+An episode that is 16 minutes (00:16:00) long could have the following segments:
 
 1. from 00:00:00 until 00:03:08 there is an `Intro`
 2. from 00:08:03 until 00:08:59 there is an `Commerical`
@@ -37,7 +36,7 @@ We did create a plugin to create segments based on Chapter names which sounds si
 A Chapter is just any section of a video, but without any defined type. 
 A MediaSegment on the other hand is a section in a video, with a defined type.
 
-## Media Segment Plugins
+## Plugin support
 
 Media Segment plugins can now utilise our new system to store their information about Intros/Outros/Commericals and all other types of segments. 
 This information is then used by clients via our Api to provide actions like a "Skip" button in their UI.
@@ -46,16 +45,18 @@ The big benefit here is that this approach generalises how Segments are handled,
 This does *NOT* make the existing plugins obsolete, however as we still rely on them to generate the segments in the first place. 
 But as more clients implement support, we can bring segments to more clients and provide for example IntroSkipping.
 
-## Media Segments on clients
+## Clients
 
-Currently the WebUI and the AndroidTV* client support MediaSegments. 
+Media segments are currently supported in the web interface and the Android TV[^1] app.
+
+[^1]: Available starting from 0.18, currently [in beta](/posts/android-betas)
 The server however just delivers the information about where the segment is in the video and of what type it is, it remains up the the individual client to decide what to do with that information.
 
 As the whole system of Media Segments is quite new, please do not expect many clients to support it.
 
 *The ATV client did not yet release a version with MediaSegment support.
 
-## The Future
+## The future
 
 This is just the first step for MediaSegments. 
 The underlying architecture allows for much more which we are now able to explore. 
