@@ -56,6 +56,19 @@ As the whole system of Media Segments is quite new, please do not expect many cl
 
 *The ATV client did not yet release a version with MediaSegment support.
 
+## Step by step
+
+If you want to utilise Media Segments you have to do the following:
+
+1. Update your jellyfin server to 10.10.
+2. Install a plugin that creates MediaSegments via the plugin catalog. For example our official "Chapter Segments Provider".
+3. Restart the jellyfin server to enable the plugin.
+4. Run the "Scan Mediasegments" scheduled task and wait for it to finish.
+
+This will populate the MediaSegments for use by a client. 
+For the WebUI you also need to set what should happen when there is a MediaSegment. 
+This needs to be set via each individual users "Profile -> Playback -> Media Segment Actions".
+
 ## The future
 
 This is just the first step for MediaSegments. 
