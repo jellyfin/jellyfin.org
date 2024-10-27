@@ -81,7 +81,53 @@ Media in Kodi's database is automatically kept in sync with the server in one of
      - Note that if you have a baseurl set, you should append that value to the end of the host field.
        - Host: `192.168.0.10:8096/jellyfin`
    - Select user account and input password, or select "Manual Login" and fill in your user information
-3. Once you are successfully authenticated with the server, you can proceed with [Library Syncing](/docs/general/clients/kodi#library-syncing).
+3. Once you are successfully authenticated with the server, you'll be asked about which mode you'd like to use, Add-on vs Native, which are outlined below.
+
+#### Add-on Mode
+
+Add-on mode uses the Jellyfin server to translate media files from the filesystem to Kodi. This is the default setting for the add-on, and is sufficient for most use cases. It will work both on the local network and over the Internet through a reverse proxy or VPN connection. Providing network speed is sufficient, Kodi will direct play nearly all files and put little overhead on the Jellyfin server.
+
+To use Add-on mode, simply choose "Add-on" at the dialog and proceed to [Library Syncing](/docs/general/clients/kodi#library-syncing)
+
+#### Native Mode
+
+Native mode accesses your media files directly from the filesystem, bypassing the Jellyfin server during playback. Native mode needs more setup and configuration, but it can, on rare occasions, lead to better performance where network bandwidth is a limitation. It requires your media to be available to the device Kodi is running on over either NFS or Samba, and therefore should only be used on a LAN or over a VPN connection.
+
+To use Native mode, first set up your libraries in Jellyfin with a remote path.
+
+:::caution
+
+Starting from Jellyfin 10.9 it is no longer possible to set the shared network folder.
+
+:::
+
+1. In the Jellyfin server, navigate to the Libraries section of the admin dashboard.
+   - Select an existing library (or create a new one)
+   - Select the media folder
+   - Enter the path to your network share in the "Shared network folder" textbox
+   - Possible formats:
+     - NFS
+       - `nfs://192.168.0.10:/path/to/media`
+     - Samba
+       - Guest User - `\\192.168.0.10\share_name`
+       - Custom User (Not Recommended) - `\\user:password@192.168.0.10\share_name`
+         - It's more secure to use the generic Guest mapping here and specify credentials from within Kodi
+     - Mounted share
+       - If you have mounted your network share, you can reference the local mount point. This can be more performant but generally means it only works for one type of operating system, given the difference between the file systems
+         - `/mnt/media` (Linux)
+         - `Z:\media` (Windows)
+         - `/Volumes/media` (Mac OS)
+2. Configure libraries in Kodi
+   - Skip the initial library selection. We need to add file shares to Kodi first
+   - Within Kodi, navigate to the settings menu and select "File manager"
+   - Select "Add source"
+   - Select "Browse" and "Add network location"
+   - Create either a NFS or SMB location from the selection box and fill in the necessary information about your network share
+     - If you are using a mounted share, browse to the mount point on your file system rather than the network share
+   - Select your newly created location and choose "Ok"
+   - Give your media source a name and choose "Ok"
+   - Go to Add-ons -> Jellyfin -> Manage Libraries -> Add Libraries
+3. Proceed to [Library Syncing](/docs/general/clients/kodi#library-syncing)
 
 #### Library Syncing
 
