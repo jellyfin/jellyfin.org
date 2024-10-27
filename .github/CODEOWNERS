@@ -1,3 +1,4 @@
 blog/                                  @jellyfin/core
+src/data/                              @jellyfin/core
 docs/general/about.md                  @jellyfin/core
 docs/general/community-standards.md    @joshuaboniface
