@@ -47,6 +47,7 @@ Want to know more about administering a Jellyfin server? Check out these pages!
 
 - [Quick-Start Guide](/docs/general/quick-start): What to do after you have installed Jellyfin to get it up and running.
 - [Migrating](/docs/general/administration/migrate): How to migrate Jellyfin.
+- [Backup and Restore](/docs/general/administration/backup-and-restore): How to back up or restore your Jellyfin metadata and configuration.
 - [Plugins](/docs/general/server/plugins): How to install and manage plugins.
 - [Networking](/docs/general/networking): Networking settings and troubleshooting.
 - [Monitoring](/docs/general/networking/monitoring): Integration with external monitoring software.
