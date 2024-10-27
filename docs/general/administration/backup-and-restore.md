@@ -34,13 +34,13 @@ Finally, administrative mistakes, normal operation issues (e.g. filling up a dis
 
    * Official Docker: Wherever your `/data` and `/config` volumes are sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
    * LinuxServer.io Docker: Data and config are wherever your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
-   * Debian/Ubuntu packages: Data is in `/var/lib/jellyfin` and config is in `/etc/jellyfin`.
-   * RPMFusion Fedora/CentOS packages: Data is in `/var/lib/jellyfin` and config is in `/etc/jellyfin`.
-   * Windows Tray/Installer (.exe): Data and config is in `C:\ProgramData\Jellyfin\Server` or `C:\Users\<Username>\AppData\Local\Jellyfin`.
+   * Debian/Ubuntu packages: Data is in `/var/lib/jellyfin` and config is in `/etc/jellyfin`; these are defined in `/etc/default/jellyfin`.
+   * RPMFusion Fedora/CentOS packages: Data is in `/var/lib/jellyfin` and config is in `/etc/jellyfin`; these are defined in `/etc/sysconfig/jellyfin`.
+   * Windows Tray/Installer (.exe): Data and config is in `C:\ProgramData\Jellyfin\Server` or `C:\Users\<Username>\AppData\Local\Jellyfin`, using `%PROGRAMDATA%` or `%LOCALAPPDATA%` respectively.
    * MacOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
    * Portable Installs:
       * Linux: Data is stored in `~/.local/share/jellyfin` and config in `~/.local/share/jellyfin`.
-      * Windows: Data and config is in `C:\Users\<Username>\AppData\Local\Jellyfin`.
+      * Windows: Data and config is in `C:\Users\<Username>\AppData\Local\Jellyfin`, using `%LOCALAPPDATA%`.
       * MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
 
    As an example, on Debian, you can do this with these commands to make a copy of both directories into a single target directory:
