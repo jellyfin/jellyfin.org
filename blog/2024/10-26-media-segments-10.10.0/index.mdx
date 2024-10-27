@@ -6,20 +6,12 @@ slug: jellyfin-media-segments-10.10.0
 tags: [release]
 ---
 
-First of all things i would like to introduce myself as a new Server-Team member for the jellyfin FOSS project.
-
-I have been active for a bit now, first just as an Freelance software developer that created its own small media server because i did not wanted to pay for other serivces but then quickly learned what it all takes.
-
-After setting up Jellyfin i stuck around in the chat and later started to help out as a community moderator, while submitting some features and bugfixes. However with my last PR implementing Media Segments, i joined the Server Team to bring jellyfin new features (and some bugs ;-)).
-
-\- JPVenson
-
 {/* truncate */}
 
 ## Media Segments Overview
 
-First lets start with the Basics of what a Media Segment is.
-A Media Segment exists only within our Database and defines a timespan within a Movie or Episode with a certain types.
+First lets start with the basics of what a Media Segment is.
+A Media Segment exists only within our database and defines a timespan within a movie or episode with a certain types.
 
 Those types can be currently one of the following:
 
@@ -38,8 +30,8 @@ An episode that is 16 minutes (00:16:00) long, can have multiple segments:
 3. from 00:14:30 until 00:16:00 there is an `Outro`
 
 Jellyfin can now store this information and provide it via the new MediaSegmentApi to clients. 
-What we did not implement in 10.10 however, is the creation of those Segments. 
-Jellyfin only stores and provides this data to clients but to generate it you need a Plugin that provide this data to jellyfin to be stored.
+What we did not implement in 10.10 however, is the creation of those segments. 
+Jellyfin only stores and provides this data to clients but to generate it you need a plugin that provide this data to jellyfin to be stored.
 
 We did create a plugin to create segments based on Chapter names which sounds similar but is something different. 
 A Chapter is just any section of a video, but without any defined type. 
@@ -47,20 +39,34 @@ A MediaSegment on the other hand is a section in a video, with a defined type.
 
 ## Media Segment Plugins
 
-Media Segment plugins can now utilise our new System to store their information about Intros/Outros/Commericals and all other types of segments. 
+Media Segment plugins can now utilise our new system to store their information about Intros/Outros/Commericals and all other types of segments. 
 This information is then used by clients via our Api to provide actions like a "Skip" button in their UI.
-The big benefit here is that this approach generalises how Segments are handled so gone are the days where you needed to inject javascript into the webUI to get IntroSkipping.
+The big benefit here is that this approach generalises how Segments are handled, so gone are the days where you needed to inject javascript into the webUI to get IntroSkipping.
 
-This does *NOT* make the existing plugins obsolete however as we still rely on them to generate the segments in the first place. 
-But as more clients implement support, we can bring their Segments to more clients and provide for exmaple IntroSkipping.
+This does *NOT* make the existing plugins obsolete, however as we still rely on them to generate the segments in the first place. 
+But as more clients implement support, we can bring segments to more clients and provide for example IntroSkipping.
 
 ## Media Segments on clients
 
-Currently the WebUI and the AndroidTV client support MediaSegments. 
+Currently the WebUI and the AndroidTV* client support MediaSegments. 
 The server however just delivers the information about where the segment is in the video and of what type it is, it remains up the the individual client to decide what to do with that information.
 
 As the whole system of Media Segments is quite new, please do not expect many clients to support it.
 
+*The ATV client did not yet release a version with MediaSegment support.
+
 ## The Future
 
-This is just the first step for MediaSegments. The underlying architecture allows for much more which we are now able to explore. We also allow for multiple plugins to provide segments, so you can pick any one plugin or all of them to provide the best experience.
+This is just the first step for MediaSegments. 
+The underlying architecture allows for much more which we are now able to explore. 
+We also allow for multiple plugins to provide segments, so you can pick any one plugin or all of them to provide the best experience.
+
+## Addendum
+
+Hi i am JPVenson and i would like to introduce myself as a new Server-Team member for the jellyfin FOSS project.
+
+I have been active for a bit now, first just as an Freelance software developer that created its own small media server because i did not wanted to pay for other serivces but then quickly learned what it all takes.
+
+After setting up Jellyfin i stuck around in the chat and later started to help out as a community moderator, while submitting some features and bugfixes. However with my last PR implementing Media Segments, i joined the Server Team to bring jellyfin new features (and some bugs ;-)).
+
+\- JPVenson
