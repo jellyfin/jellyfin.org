@@ -94,6 +94,7 @@ To use Add-on mode, simply choose "Add-on" at the dialog and proceed to [Library
 :::caution
 
 Do not use Native mode!  Use Addon-mode instead.
+
 Jellyfin 10.10 no longer provides the shared network folder via the API, and as such native mode does not get the required information to function.
 
 :::
