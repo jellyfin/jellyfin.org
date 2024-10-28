@@ -3,16 +3,15 @@ uid: server-memorydumps
 title: Server Memory Dumps
 ---
 
-# Memory Dumping of the Jellyfin server
+# Memory Dumping of the Jellyfin Server
 
-To troubleshoot a Jellyfin server that keeps allocating system memory it is necessary to dump the memory in a format that the developers then can later analyze.
+To troubleshoot a Jellyfin server that continuously allocates system memory, it is necessary to create a memory dump in a format that developers can later analyze.
 
-To dump the memory we will use the dotMemory tools from JetBrains.
+We will use the dotMemory tools from JetBrains to perform the memory dump.
 
 ## Linux Barebones
 
-First, we need to install the latest dotMemory command line tooling.
-To do this, pull the nuget package and extract it to a folder named `dotMemoryClt` and then set the permissions to be executable:
+First, install the latest dotMemory command line tools. To do this, download the NuGet package and extract it to a folder named `dotMemoryClt`, then set the permissions to make it executable:
 
 ```sh
 apt-get update -y && apt-get install -y wget && \
@@ -22,19 +21,19 @@ unzip dotMemoryclt.zip -d ./dotMemoryclt && \
 chmod +x -R dotMemoryclt/*
 ```
 
-afterwards we need to figure out the process ID of the Jellyfin server:
+Next, determine the process ID (PID) of the Jellyfin server:
 
 ```sh
 ps aux
 ```
 
-If the ps command is not available in your Linux distribution, install it with:
+If the `ps` command is not available in your Linux distribution, install it with:
 
 ```sh
 apt-get update && apt-get install procps
 ```
 
-This will show us a number of processes like this:
+This will display a list of processes similar to the following:
 
 ```cmd
 # ps aux
@@ -44,21 +43,21 @@ root       914  0.0  0.0   2480   580 pts/0    Ss   05:33   0:00 sh
 root      2171  0.0  0.0   6756  2940 pts/0    R+   12:55   0:00 ps aux
 ```
 
-Note the process ID (PID) of the Jellyfin server. That is the process that has the `/jellyfin/jellyfin` command. The left part of the path might differ if you have installed Jellyfin in a different directory, but the right most part of the path should always be `/jellyfin`.
+Note the process ID (PID) of the Jellyfin server, which is associated with the `/jellyfin/jellyfin` command. The left part of the path may differ if you installed Jellyfin in a different directory, but the rightmost part should always be `/jellyfin`.
 
-Then we run the memory profiler via this command with the `{PID}` replaced by the pid we noted earlier (In this case it would be 1):
+Run the memory profiler using the following command, replacing `{PID}` with the PID you noted earlier (in this case, it would be `1`):
 
 ```sh
-/dotMemoryclt/tools/dotmemory attach --temp-dir=/temp/dotMemoryclt/tmp --timeout=1m  --trigger-on-activation -m=1 --save-to-dir=/temp/dotMemoryclt/workspaces --log-file=/temp/dotMemoryclt/tmp/log.txt {PID} --all
+/dotMemoryclt/tools/dotmemory attach --temp-dir=/temp/dotMemoryclt/tmp --timeout=1m --trigger-on-activation -m=1 --save-to-dir=/temp/dotMemoryclt/workspaces --log-file=/temp/dotMemoryclt/tmp/log.txt {PID} --all
 ```
 
-This will then start the profiler, attach it to the Jellyfin process, make a memory dump and wait. After you see the output of:
+This command will start the profiler, attach it to the Jellyfin process, create a memory dump, and wait. After you see the output:
 
 ```sh
 [PID:{PID}] SNAPSHOT #1 READY.
 ```
 
-Press `CTRL+C` or wait for 1 minute. You will then get the information that the profiler ended and where the file was saved like this:
+Press `CTRL+C` or wait for one minute. You will receive a message indicating that the profiler has ended and where the file was saved:
 
 ```sh
 Profiler disconnected. PID:{PID}
@@ -67,35 +66,35 @@ WORKSPACE SAVED
 file:///temp/dotMemoryclt/workspaces/[1]-jellyfin.2024-09-05T06-27-14.471.dmw
 ```
 
-You must now upload the created file, in this case `/temp/dotMemoryclt/workspaces/[1]-jellyfin.2024-09-05T06-27-14.471.dmw` and provide it to the jellyfin developers.
+You must upload the created file, in this case `/temp/dotMemoryclt/workspaces/[1]-jellyfin.2024-09-05T06-27-14.471.dmw`, and provide it to the Jellyfin developers.
 
 ## Docker
 
-The docker process is essentially the same as the Linux barebones, plus you need to install `ps` every time and you need to pull the result file from the container.
+The process for Docker is essentially the same as for Linux barebones, but you will need to install `ps` each time and pull the result file from the container.
 
-First, you need to figure out the ID of your jellyfin process by running:
+First, identify the ID of your Jellyfin process by running:
 
 ```sh
 docker ps
 ```
 
-This will show you all your docker containers:
+This command will list all your Docker containers:
 
 ```sh
 CONTAINER ID   IMAGE                                                        COMMAND                  CREATED         STATUS                   PORTS                                                                                                                                               NAMES
 31e5d4f30c8b   jellyfin/jellyfin:10.9.9                                     "/jellyfin/jellyfin"     15 hours ago    Up 15 hours (healthy)    8096/tcp
 ```
 
-Note the `CONTAINER ID` and then attach your current console to that container via
+Note the `CONTAINER ID`, then attach your console to that container with:
 
 ```sh
 docker exec -it {CONTAINERID} sh
 ```
 
-For example: `docker exec -it 31e5d4f30c8b sh`. Then follow all the steps from the [Linux Barebones guide](/docs/general/administration/troubleshooting/memory-dumping.md#linux-barebones) above. After that you might want to transfer the result file back to your host, assuming the same result file from the above example you can do that on your host by calling:
+For example: `docker exec -it 31e5d4f30c8b sh`. Follow all the steps from the [Linux Barebones guide](/docs/general/administration/troubleshooting/memory-dumping.md#linux-barebones) above. Afterward, you may want to transfer the result file back to your host. Assuming the same result file from the previous example, you can do this on your host with:
 
-```ps
+```sh
 docker cp {CONTAINERID}:/temp/dotMemoryclt/workspaces/[1]-jellyfin.2024-09-05T06-27-14.471.dmw /opt/[1]-jellyfin.2024-09-05T06-27-14.471.dmw
 ```
 
-You can then proceed to upload the `/opt/[1]-jellyfin.2024-09-05T06-27-14.471.dmw` result file and provide it to the jellyfin developers.
+Finally, upload the `/opt/[1]-jellyfin.2024-09-05T06-27-14.471.dmw` result file and provide it to the Jellyfin developers.
