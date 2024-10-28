@@ -384,7 +384,7 @@ sudo apt install -f
 Due to the number of command line options that must be passed on to the Jellyfin binary, it is easiest to create a small script to run Jellyfin.
 
 ```sh
-SUDO_EDITOR=nano sudoedit jellyfin.sh
+sudoedit jellyfin.sh
 ```
 
 Then paste the following commands and modify as needed.
