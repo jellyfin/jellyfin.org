@@ -5,7 +5,7 @@ title: Server Memory Dumps
 
 # Memory Dumping of the Jellyfin Server
 
-To troubleshoot issues with Jellyfin server related to memory allocation, it is necessary to create a memory dump in a format that developers analyze.
+To troubleshoot issues with Jellyfin server related to memory allocation, it is necessary to create a memory dump in a format that developers can analyze.
 
 JetBrains dotMemory will be used for dumping memory in this guide.
 
