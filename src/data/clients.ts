@@ -907,5 +907,28 @@ export const Clients: Array<Client> = [
         url: 'https://streamyfin.app'
       }
     ]
+  },
+  {
+    id: 'manet',
+    name: 'Manet',
+    description: 'A third-party music client for iOS',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/manet-music/id6470928235'
+      },
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://tilo.dev/manet/'
+      }
+    ]
   }
 ];

@@ -37,9 +37,7 @@ The only way to downgrade from an Unstable to an older Stable is to restore from
 
 You can utilize certain plugins to help with this, for instance the Trakt plugin to synchronize watched status, but this will not necessarily preserve everything. So be careful here, and know the limitations before proceeding.
 
-How to back up your server depends on the exact platform, as each platform stores data in different places. [The exact locations are documented here](/docs/general/administration/configuration/#server-paths).
-
-**Ensure you stop Jellyfin from running before taking a backup**. If you don't, the database might still be locked and this can cause problems when restoring.
+Follow [the process listed in the documentation here](/docs/general/administration/backup-and-restore) for more details.
 
 ### Disable Automatic Updates on Unstable
 
