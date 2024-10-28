@@ -21,7 +21,7 @@ Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force 
 You need to create a jail for Fail2ban. If you're on Ubuntu and use nano as editor, run:
 
 ```bash
-sudo nano /etc/fail2ban/jail.d/jellyfin.local
+sudoedit /etc/fail2ban/jail.d/jellyfin.local
 ```
 
 Add this to the new file, replacing `/path_to_logs` with the path to the log files above, e.g. `/var/log/jellyfin/`:
@@ -57,7 +57,7 @@ Note:
 The filter contains a set of rules which Fail2ban will use to identify a failed authentication attempt. Create the filter by running:
 
 ```bash
-sudo nano /etc/fail2ban/filter.d/jellyfin.conf
+sudoedit /etc/fail2ban/filter.d/jellyfin.conf
 ```
 
 Paste:
