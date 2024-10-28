@@ -64,4 +64,4 @@ The design for the logo uses a gradient for the infill, and if the non-transpare
 
 ### Fonts
 
-The banner uses the [Quicksand](https://fonts.google.com/specimen/Quicksand) font.
+The banner uses the [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) font.

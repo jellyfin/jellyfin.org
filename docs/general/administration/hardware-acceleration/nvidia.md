@@ -113,7 +113,7 @@ NVENC/NVDEC performance tables:
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.9 the minimum required NVIDIA driver version is 522.25**.
+Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.10 the minimum required NVIDIA driver version is 522.25**.
 
 ### Configure On Windows Host
 
@@ -151,13 +151,13 @@ Refer to [Configure On Linux Host](/docs/general/administration/hardware-acceler
 
 ## Linux Setups
 
-A 64-bit Linux distribution is required. **In Jellyfin 10.9 the minimum required NVIDIA driver version is 520.56.06**.
+A 64-bit Linux distribution is required. **In Jellyfin 10.10 the minimum required NVIDIA driver version is 520.56.06**.
 
 ### Configure On Linux Host
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg6` deb package required by Jellyfin 10.9 doesn't include any NVIDIA proprietary driver.
+The `jellyfin-ffmpeg*` deb package required by Jellyfin doesn't include any NVIDIA proprietary driver.
 
 You have to install the NVIDIA driver from the distro and configure the permission of the `jellyfin` user.
 
@@ -169,10 +169,10 @@ Root permission is required.
 
 1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
 
-2. Install the `jellyfin-ffmpeg6` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
+2. Install the `jellyfin-ffmpeg7` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
    ```shell
-   sudo apt update && sudo apt install -y jellyfin-ffmpeg6
+   sudo apt update && sudo apt install -y jellyfin-ffmpeg7
    ```
 
 3. Install the NVIDIA proprietary driver by following these links. Then install two extra packages for NVENC and NVDEC support:
@@ -220,7 +220,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian and Ubuntu Linux](/docs/general/administration/hardware-acceleration/nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian and Ubuntu Linux](/docs/general/administration/hardware-acceleration/nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -331,10 +331,9 @@ Root permission is required.
       jellyfin/jellyfin
      ```
 
-   - Example docker-compose (version 3) configuration file written in YAML:
+   - Example docker-compose configuration file written in YAML:
 
      ```yaml
-     version: '3'
      services:
        jellyfin:
          image: jellyfin/jellyfin
@@ -349,7 +348,9 @@ Root permission is required.
            resources:
              reservations:
                devices:
-                 - capabilities: [gpu]
+                 - driver: nvidia
+                   count: all
+                   capabilities: [gpu]
      ```
 
    :::note

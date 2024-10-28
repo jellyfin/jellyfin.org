@@ -5,7 +5,7 @@ title: Intel GPU
 
 # HWA Tutorial On Intel GPU
 
-This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API.
+This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](/docs/general/administration/hardware-acceleration/apple) instead.
 
 ## Acceleration Methods
 
@@ -15,7 +15,7 @@ On Windows **QSV** is the only available method.
 
 On Linux there are two methods:
 
-- **QSV** - **Prefered on mainstream GPUs**, for better performance
+- **QSV** - **Preferred on mainstream GPUs**, for better performance
 
 - **VA-API** - Required by pre-Broadwell legacy GPUs, for compatibility
 
@@ -23,35 +23,21 @@ On Linux there are two methods:
 
 Linux VA-API supports nearly all Intel GPUs.
 
-Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-platforms) are limited to:
-
-- **BDW** (Broadwell)
-
-- **SKL** (Skylake)
-
-- **BXTx** (BXT: Broxton, APL: Apollo Lake, GLK: Gemini Lake)
-
-- **KBLx** (KBL: Kaby Lake, CFL: Coffe Lake, WHL: Whiskey Lake, CML: Comet Lake, AML: Amber Lake)
-
-- **ICL** (Ice Lake)
-
-- **JSL** (Jasper Lake) / **EHL** (Elkhart Lake)
-
-- **TGLx** (TGL: Tiger Lake, RKL: Rocket Lake, ADL-S/P/N: Alder Lake, RPL-S/P: Raptor Lake)
-
-- **DG1**/**SG1**
-
-- Alchemist (**DG2**)/ATSM
-
-- Meteor Lake (**MTL**)
-
-- Future platforms...
+Linux QSV [supported platforms](https://github.com/intel/media-driver#supported-platforms) are limited to Broadwell (5th gen Core) and newer.
 
 :::
 
 The QSV interface provided by Intel [OneVPL](https://github.com/intel/vpl-gpu-rt) / [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK) is a high-level implementation based on Linux VA-API and Windows DXVA/D3D11VA providing better performance and more fine-tuning options on supported platforms.
 
 QSV can be used together with VA-API and DXVA/D3D11VA for a more flexible hybrid transcoding pipeline.
+
+:::caution
+
+**ICL** (Ice Lake) / **JSL** (Jasper Lake) / **EHL** (Elkhart Lake) and older generations are losing support for QSV on Linux, since the MediaSDK runtime has been deprecated by Intel, and may stop working in a few years, by which point you will have to switch to VA-API. Please use newer hardware if you are shopping for hardware.
+
+Please read [deprecation notice](https://github.com/Intel-Media-SDK/MediaSDK) and [legacy platforms support](https://github.com/intel/compute-runtime/blob/master/LEGACY_PLATFORMS.md) for more info.
+
+:::
 
 :::note
 
@@ -109,13 +95,13 @@ HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Visio
 
 Intel GPUs are no exception:
 
-- **Decoding & Encoding HEVC 8-bit** - Gen 9 Sky Lake (6th Gen Core) and newer
+- **Decoding & Encoding HEVC 8-bit** - Gen 9 Skylake (6th Gen Core) and newer
 
 - **Decoding & Encoding HEVC 10-bit** - Gen 9.5 Kaby Lake (7th Gen Core), Apollo Lake, Gemini Lake (Pentium and Celeron) and newer
 
 :::note
 
-Note that the 6th Gen Core lacks 10-bit support, it's best to choose 7th Gen and newer processors, which usually have HD / UHD 6xx series iGPU.
+Note that the 6th Gen Core with HD 5xx iGPUs lacks 10-bit support, it's best to choose 7th Gen and newer processors, which usually have HD / UHD 6xx series iGPUs.
 
 :::
 
@@ -155,7 +141,7 @@ They can be divided into 4 tiers by their performance：
 
   :::tip
 
-  These iGPUs usually come from mini PC boxes or Synology NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
+  These iGPUs usually come from mini PC boxes or NASes and they can transcode HEVC 10-bit and apply tone-mapping filters. You can't expect much due to performance and power constraints, but it's still adequate for personal use.
 
   :::
 
@@ -283,7 +269,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg6` deb package comes with all necessary user mode Intel media drivers except OpenCL (see below).
+The `jellyfin-ffmpeg*` deb package comes with all necessary user mode Intel media drivers except OpenCL (see below).
 
 :::note
 
@@ -297,10 +283,10 @@ Root permission is required.
    If you are running Debian, you will need to add "non-free" to your apt config.
    :::
 
-2. Install the `jellyfin-ffmpeg6` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
+2. Install the `jellyfin-ffmpeg7` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
    ```shell
-   sudo apt update && sudo apt install -y jellyfin-ffmpeg6
+   sudo apt update && sudo apt install -y jellyfin-ffmpeg7
    ```
 
 3. Make sure at least one `renderD*` device exists in `/dev/dri`. Otherwise upgrade your kernel or enable the iGPU in the BIOS.
@@ -396,7 +382,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -501,7 +487,7 @@ What you need to do is pass the host's `render` group id to Docker and modify th
    getent group render | cut -d: -f3
    ```
 
-2. Use docker command line **or** docker-compose:
+2. Use docker command line **or** docker compose:
 
    - Example command line:
 
@@ -519,10 +505,9 @@ What you need to do is pass the host's `render` group id to Docker and modify th
       jellyfin/jellyfin
      ```
 
-   - Example docker-compose (version 3) configuration file written in YAML:
+   - Example docker-compose configuration file written in YAML:
 
      ```yaml
-     version: '3'
      services:
        jellyfin:
          image: jellyfin/jellyfin
@@ -657,17 +642,32 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
 
 #### LXC On Proxmox
 
-:::note
+1. Make sure your GPU is available as a DRI render device on the Proxmox host, e.g. `/dev/dri/renderD128`.
+   If not, [install the necessary drivers](#debian-and-ubuntu-linux) on the host.
 
-- Jellyfin needs to run in a **privileged** LXC container.
+2. **Proxmox VE 8 or Newer**:
 
-- An existing unprivileged container can be converted to a priviledged container by taking a backup and restoring it as priviledged.
+   Setup a `Device Passthrough` for the render device via the `Resources` section of the web interface.
+   Be sure to set the correct GID via the advanced options of the dialog, e.g. `989` for the `render` group.
+   GIDs can be looked up in `/etc/group` inside the LXC.
 
-:::
+   :::note
 
-1. Install the required drivers on the Proxmox host.
+   You must be logged in as `root`. Other administrator accounts are not allowed to perform this action.
 
-2. Add your GPU to the container by editing `/etc/pve/lxc/<CONTAINER_ID>.conf`.
+   :::
+
+   **Proxmox VE 7 or Older**:
+
+   :::note
+
+   - Jellyfin needs to run in a **privileged** LXC container.
+
+   - An existing unprivileged container can be converted to a privileged container by taking a backup and restoring it as privileged.
+
+   :::
+
+   Add your GPU to the container by editing `/etc/pve/lxc/<CONTAINER_ID>.conf`.
 
    You may need to change the GIDs in the examples below to match those used on your host.
 
@@ -683,9 +683,9 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
    ```
 
-3. Restart your container and install the required drivers in your container.
+3. Restart your container and [install the required drivers in your container](#configure-on-linux-host).
 
-4. Add `jellyfin` user to the `video`, `render` and/or `input` groups depending on who owns the device inside the container.
+4. Add the `jellyfin` user to the group you chose in Step 2, i.e. the group that owns the DRI render device inside the LXC.
 
 5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU `renderD128` if necessary.
 

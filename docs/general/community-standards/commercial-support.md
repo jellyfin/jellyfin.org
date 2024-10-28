@@ -18,3 +18,5 @@ Because of this policy, many within the project have mixed feelings about suppor
 Thus, while Jellyfin is a GNU GPL-licensed project which does not prevent or preclude commercial uses, please be aware that some members of our community do not look kindly on this and, as is their choice under our volunteer-only policy, may not be willing to provide support for commercial implementations. Not everyone feels this way, and such discussions are allowed here (subject to all other rules), but we want to ensure this is explicitly stated to avoid any misunderstandings or misaligned expectations.
 
 In short, if you are expecting support for the commercialization of Jellyfin, please do so respectfully and with the mutual understanding that this is not something everyone might wish to endorse, and no member of the team nor forum community is under any obligation to assist if they do not want to.
+
+Note that this policy is strictly in regards to **legitimate** business uses of Jellyfin. [Running pirate media instances is covered by our Server Policy.](/docs/general/community-standards/servers)

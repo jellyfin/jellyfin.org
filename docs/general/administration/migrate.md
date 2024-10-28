@@ -72,7 +72,6 @@ docker run -d \
 ### Using docker-compose yaml
 
 ```yml
-version: '3'
 services:
   jellyfin:
     image: jellyfin/jellyfin

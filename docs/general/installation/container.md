@@ -83,6 +83,18 @@ Multiple media libraries can be bind mounted if needed:
 ...etc
 ```
 
+Custom [server-side system fonts](/docs/general/administration/configuration/#server-side-system-fonts) directory can be optionally bind mounted in order to use these fonts during transcoding with subtitle burn-in:
+
+```sh
+--mount type=bind,source=/path/to/fonts,target=/usr/local/share/fonts/custom,readonly
+```
+
+A directory of [fallback fonts](/docs/general/administration/configuration/#fallback-fonts) can be mounted as well. In this case, you will have to set the directory of fallback fonts to `/fallback_fonts` in Jellyfin server settings panel:
+
+```sh
+--mount type=bind,source=/path/to/fallback/fonts,target=/fallback_fonts,readonly
+```
+
 ### Using Docker Compose
 
 Create a `docker-compose.yml` file with the following contents. Add in the UID and GID that you would like to run jellyfin as in the user line below, or remove the user line to use the default (root).
@@ -103,6 +115,11 @@ services:
       - type: bind
         source: /path/to/media2
         target: /media2
+        read_only: true
+      # Optional - extra fonts to be used during transcoding with subtitle burn-in
+      - type: bind
+        source: /path/to/fonts
+        target: /usr/local/share/fonts/custom
         read_only: true
     restart: 'unless-stopped'
     # Optional - alternative address used for autodiscovery

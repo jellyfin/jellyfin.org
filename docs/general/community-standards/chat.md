@@ -37,7 +37,7 @@ Version 2.0
 
 1. This chat lives primarily on Matrix, and is bridged to Discord and IRC. Because of this, you will see the following:
 
-   - On Discord, you will see many people, including most of our team members, with "BOT" next to their names. Most of these are humans, not bots. Our actual bots are called `Jeff (Bot)` and `jeffbridges`.
+   - On Discord, you will see many people, including most of our team members, with "APP" next to their names. Most of these are humans, not bots. Our actual bots are called `Jeff (Bot)` and `jeffbridges`.
    - On Matrix, you will see many accounts with the IDs `@jfdiscord_<some numbers>:im.jellyfin.org`. These are bridged users from Discord.
    - On Discord and Matrix, you will see messages sent from `jeffbridges`. These are users from IRC.
    - On IRC, you will see messages sent from `jeffbridges`. These are users from other platforms.

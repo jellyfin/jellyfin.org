@@ -1,0 +1,80 @@
+---
+title: Jellyfin 10.10.0
+description: We are pleased to announce the latest stable release of Jellyfin, version 10.10.0!
+authors: joshuaboniface
+slug: jellyfin-release-10.10.0
+tags: [release]
+---
+
+We are pleased to announce the latest stable release of Jellyfin, version 10.10.0!
+
+This major release brings several new features, improvements, and bugfixes to improve your Jellyfin experience. With our faster release cadence between 10.9.0 and 10.10.0, this release should be far less daunting, so please read on for a quick peek at what's new and some important-to-know breaking changes!
+
+You may upgrade your Jellyfin instances at any time now. For those who were running Unstable builds for testing, we thank you immensely, and you may now switch back to the Stable repository and forcibly reinstall/repull the latest version. As always, **ensure you [back up your Jellyfin data and configuration directories](/docs/general/testing/upgrades#make-backups) before upgrading**. With a major release, it's possible you will hit a bug and want to revert, and to do so, you will need to restore from a backup.
+
+Happy watching!
+
+\- Joshua
+
+{/* truncate */}
+
+## Breaking Changes
+
+* Most clients should continue to work as-is without any issues or any forced upgrades, though this may change in the future. The sole exception is Jellyfin4Kodi, which currently has issues due to point 5 below, though a fix is hopefully forthcoming shortly.
+
+* We have deprecated Raspberry Pi V4L2 hardware transcoding support, and are looking to deprecate 32-bit ARM support (i.e. `armv7` or `armhf`) in general for 10.10.0 and later, with a goal to remove 32-bit ARM support in 10.11.0. Older, slow ARM systems have always been tricky platforms for us: they're popular but extremely poor in performance, and this has caused a lot of people a lot of headaches. With the RPi5 entirely removing a hardware acceleration engine, and most ARM single-board computers now supporting ARM64, we are taking this action now to ensure it's widely known.  If you are running Jellyfin on old ARM hardware, now is the time to start [looking at an upgrade](https://jellyfin.org/docs/general/administration/hardware-selection). See [PR #1148](https://github.com/jellyfin/jellyfin.org/pull/1148).
+
+* We now use the system temporary storage engine (e.g. `/tmp` on Linux) for storing short-lived transient temporary files, to allow us to leverage temporary ramdisks and the like and avoid cluttering potentially slow storage. This may cause issues if you specifically depended on the previous behaviour. Note that this does not include transcoding temporary files. See [PR #12226](https://github.com/jellyfin/jellyfin/pull/12226).
+
+* The server will now refuse to start if `ffmpeg` cannot be found, is an incorrect version, or does not function properly (missing extensions, etc.). With how critical `ffmpeg` is to Jellyfin, this has become very important to avoid mis-reported issues. This can be explicitly bypassed if needed. See [PR #12463](https://github.com/jellyfin/jellyfin/pull/12463).
+
+* Network paths in libraries have been fully removed and will no longer work. This functionality has been deprecated for a long time, and most of it was removed in 10.9.0, but this removes the remainder. See [PR #12446](https://github.com/jellyfin/jellyfin/pull/12446). Third-party clients relying on this functionality should be able to re-implement it as required.
+
+* Systems with Trickplay enabled may see a relatively long migration occurring during the upgrade. If Jellyfin seems to hang starting up after upgrading, please observe the logs and wait for the migration to complete. This helps enable the functionality below.
+
+## Cool New Features
+
+### Media Segments
+
+The Jellyfin server now supports the management of Media Segments. This means that we store some additional information for certain time-spans on a video that clients can then use to provide additional actions. For example, when there is a Media Segment of the type intro, a client may display a button to skip that particular segment. For 10.10, we only provide the general structure to store those Media Segments, and you will still require a plugin to create them. We have created one plugin that does this, based on the Chapter names of a movie or Episode, which you can find in the Plugin catalogue, and others may be implemented in the future. The Web interface fully supports skipping segments; other client support is pending.
+
+### Trickplay
+
+We have significantly improved extraction by implementing optional keyframe extraction, which can boost image generating time significantly (around 100x, depending on configuration) at the cost of some frame accuracy, which should be fine for most users with longer trickplay frame durations. This should mean no more multi-day Trickplay jobs! Note that this **must be explicitly enabled** in the Trickplay settings.
+
+### Playback/Transcoding
+
+Many major enhancements to transcoding and playback, including support for software tonemapping of HDR10, HLG and DoVi, preliminary support for DoVi Profile 10, support for Dolby AC-4 audio, more stereo downmixing algorithms, QSV device selection, and more! Our FFmpeg is also now based off the upstream FFmpeg 7.0 release for additional features and improvements there.
+
+### Metadata
+
+It is now possible to select which plugins can provide lyrics to your music libraries, similar to how you can select the plugins providing metadata. This will provide more variety to Lyrics support.
+
+Audio tag scanning has been significantly improved, and will thus hopefully be much more reliable and consistent. 
+
+Home videos should also now keep their rotation metadata.
+
+### Web
+
+We have added support for CBT and CB7 books, client-side rendering of PGS subtitles, and auto-scrolling lyrics as well as a lyrics editor interface.
+
+## Full Changelogs
+
+Full changelogs are available on the various release pages:
+
+* [Server](https://github.com/jellyfin/jellyfin/releases/tag/v10.10.0)
+* [Web](https://github.com/jellyfin/jellyfin-web/releases/tag/v10.10.0)
+
+## The Next Version
+
+Our faster release cadence has generally been received fairly positively within the team, though lack of structure has been a bit of a problem. So right now, we are outlining the development roadmap for 10.11.0. This may change as time goes on, but this should give everyone an idea of roughly when 10.11.0 is coming.
+
+Target 10.11.z development window: November 2024 to March 2025  
+Target feature freeze: second week of April 2025  
+Target release date: end April 2025  
+
+A more detailed roadmap will be published closer to the feature freeze date.
+
+## Final Thoughts
+
+We want to thank everyone who contributed to the 10.10.0 release; Jellyfin wouldn't be what it is without your help. We're really proud of this project we've built as a community, and hope to continue to be the go-to FLOSS media system solution for a long time to come. Happy watching!

@@ -31,7 +31,6 @@ sudo docker network create traefik
 ### docker-compose.yml
 
 ```yml
-version: '3.5'
 networks:
   traefik:
     name: traefik
@@ -181,7 +180,7 @@ Change example.com to your domain name and update the acme.json file with your e
 Launch the Traefik and Jellyfin services.
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 Congratulations, your stack with Traefik and Jellyfin is running!

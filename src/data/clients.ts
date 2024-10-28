@@ -720,6 +720,22 @@ export const Clients: Array<Client> = [
     ]
   },
   {
+    id: 'jellychord',
+    name: 'Jellychord',
+    description: 'A modern Discord music bot for Jellyfin using slash commands, written in python.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Discord],
+    primaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/felix920506/jellychord'
+      }
+    ]
+  },
+  {
     id: 'jellycli',
     name: 'Jellycli',
     description: 'A terminal player for Jellyfin, only for music at the moment.',
@@ -860,37 +876,36 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: "streamyfin",
-    name: "Streamyfin",
-    description:
-      "A third-party client for iOS, iPadOS and Android with download capability",
+    id: 'streamyfin',
+    name: 'Streamyfin',
+    description: 'A third-party client for iOS, iPadOS and Android with download capability',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android, Platform.IOS, Platform.iPadOS],
     primaryLinks: [
       {
-        id: "app-store",
-        name: "App Store",
-        url: "https://apps.apple.com/app/streamyfin/id6593660679",
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/app/streamyfin/id6593660679'
       },
       {
-        id: "play-store",
-        name: "Play Store",
-        url: "https://play.google.com/store/apps/details?id=com.fredrikburmester.streamyfin",
-      },
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=com.fredrikburmester.streamyfin'
+      }
     ],
     secondaryLinks: [
       {
-        id: "github",
-        name: "GitHub",
-        url: "https://github.com/fredrikburmester/streamyfin",
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/fredrikburmester/streamyfin'
       },
       {
         id: 'website',
         name: 'Website',
         url: 'https://streamyfin.app'
-      } 
+      }
     ]
   }
 ];

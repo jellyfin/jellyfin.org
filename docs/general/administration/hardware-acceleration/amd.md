@@ -5,7 +5,7 @@ title: AMD GPU
 
 # HWA Tutorial On AMD GPU
 
-This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF and VA-API.
+This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF or VA-API. If you are on macOS, please use [VideoToolbox](/docs/general/administration/hardware-acceleration/apple) instead.
 
 ## Acceleration Methods
 
@@ -15,7 +15,7 @@ On Windows **AMF** is the only available method.
 
 On Linux there are two methods:
 
-- **VA-API** - Prefered on all GPUs, full acceleration on Vega+ GPUs, open source.
+- **VA-API** - Preferred on all GPUs, full acceleration on Polaris(RX400/500)+ GPUs, open source.
 
 - **AMF** - Not recommended, limited support, hardware encoder only, closed source.
 
@@ -81,13 +81,7 @@ The HEVC support on AMD is complicated:
 
 - **Decoding HEVC 10-bit** - Radeon RX 400 series (Polaris) and newer
 
-- **Encoding HEVC 10-bit** - Ryzen 4000 series APU (Renoir), Radeon RX 5700 series (Navi 1x) and newer
-
-:::note
-
-Note that even though the RX 400 series have HEVC 10-bit decoding support, it doesn't support the [DRM-Vulkan format modifier](https://gitlab.freedesktop.org/mesa/mesa/-/issues/5882), which means full hardware acceleration is not possible for these cards on Linux for the time being. A Vega or newer GPU is recommended on Linux.
-
-:::
+- **Encoding HEVC 10-bit** - Ryzen 4000 series APU (Renoir), Radeon RX 5000 series (Navi 1x) and newer
 
 ### Transcode AV1
 
@@ -187,7 +181,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
 #### Debian And Ubuntu Linux
 
-The `jellyfin-ffmpeg6` deb package required by Jellyfin 10.9 comes with all necessary user mode Mesa drivers.
+The `jellyfin-ffmpeg*` deb package required by Jellyfin comes with all necessary user mode Mesa drivers.
 
 Besides that you only need to configure the permission of the `jellyfin` user.
 
@@ -199,10 +193,10 @@ Root permission is required.
 
 1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
 
-2. Install the `jellyfin-ffmpeg6` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
+2. Install the `jellyfin-ffmpeg7` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
    ```shell
-   sudo apt update && sudo apt install -y jellyfin-ffmpeg6
+   sudo apt update && sudo apt install -y jellyfin-ffmpeg7
    ```
 
 3. Make sure at least one `renderD*` device exists in `/dev/dri`. Otherwise upgrade your kernel or enable the iGPU in the BIOS.
@@ -300,7 +294,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg6` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -409,7 +403,7 @@ Root permission is required.
    getent group video | cut -d: -f3
    ```
 
-2. Use Docker command line **or** docker-compose:
+2. Use Docker command line **or** docker compose:
 
    - Example command line:
 
@@ -427,10 +421,9 @@ Root permission is required.
       jellyfin/jellyfin
      ```
 
-   - Example docker-compose (version 3) configuration file written in YAML:
+   - Example docker-compose configuration file written in YAML:
 
      ```yaml
-     version: '3'
      services:
        jellyfin:
          image: jellyfin/jellyfin

@@ -18,7 +18,7 @@ To solve this, you have the following options:
 - Enable the lock service.
 - Use NFSv4 which has built-in lock support.
 
-## Docker or VM's
+## Docker or VMs
 
 For storage, a moderate size library database can grow anywhere from 10 to 100 GB. The [transcoding](/docs/general/server/transcoding) folder needs roughly the same size as the original media if it's being transcoded at the same bitrate. A single 50GB Blu-Ray Remux by itself can take up to approximately 60GB or as little as 15GB, depending on the quality selected. If the transcoding folder is held on the same storage as the database, this must be taken into consideration.
 

@@ -29,21 +29,21 @@
     "@docusaurus/plugin-sitemap": "3.5.2",
     "@docusaurus/theme-classic": "3.5.2",
     "@docusaurus/theme-mermaid": "3.5.2",
-    "@easyops-cn/docusaurus-search-local": "0.44.5",
-    "@fontsource/noto-sans": "5.0.22",
-    "@icons-pack/react-simple-icons": "9.5.0",
+    "@easyops-cn/docusaurus-search-local": "0.45.0",
+    "@fontsource/noto-sans": "5.1.0",
+    "@icons-pack/react-simple-icons": "10.0.0",
     "@img-comparison-slider/react": "8.0.2",
     "@mdi/js": "7.4.47",
     "@mdi/react": "1.6.1",
-    "@mdx-js/react": "3.0.1",
+    "@mdx-js/react": "3.1.0",
     "@svgr/webpack": "8.1.0",
     "clsx": "2.1.1",
     "docusaurus-plugin-sass": "0.2.5",
     "file-loader": "6.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "sass": "1.77.8",
-    "swiper": "11.1.11",
+    "sass": "1.80.3",
+    "swiper": "11.1.14",
     "url-loader": "4.1.1"
   },
   "browserslist": {
@@ -61,7 +61,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.5.2",
     "@docusaurus/tsconfig": "3.5.2",
-    "@types/react": "18.3.4",
+    "@types/react": "18.3.11",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "7.1.1",
@@ -78,7 +78,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "node-fetch": "3.3.2",
     "prettier": "3.3.3",
-    "typescript": "5.5.4",
+    "typescript": "5.6.3",
     "typescript-plugin-css-modules": "5.1.0"
   }
 }
