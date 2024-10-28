@@ -5,35 +5,36 @@ title: Server Memory Dumps
 
 # Memory Dumping of the Jellyfin Server
 
-To troubleshoot a Jellyfin server that continuously allocates system memory, it is necessary to create a memory dump in a format that developers can later analyze.
+To troubleshoot issues with Jellyfin server related to memory allocation, it is necessary to create a memory dump in a format that developers analyze.
 
-We will use the dotMemory tools from JetBrains to perform the memory dump.
+JetBrains dotMemory will be used for dumping memory in this guide.
 
 ## Linux Barebones
 
-First, install the latest dotMemory command line tools. To do this, download the NuGet package and extract it to a folder named `dotMemoryClt`, then set the permissions to make it executable:
+1. Install the latest dotMemory command line tools. To do this, download the NuGet package and extract it to a folder named `dotMemoryClt`, then set the permissions to make it executable:
 
 ```sh
-apt-get update -y && apt-get install -y wget && \
-wget -O dotMemoryclt.zip https://www.nuget.org/api/v2/package/JetBrains.dotMemory.Console.linux-x64/2024.2.2 && \
-apt-get install -y unzip && \
-unzip dotMemoryclt.zip -d ./dotMemoryclt && \
-chmod +x -R dotMemoryclt/*
+wget -O dotMemoryclt.zip https://www.nuget.org/api/v2/package/JetBrains.dotMemory.Console.linux-x64/2024.2.2
+unzip dotMemoryclt.zip -d ./dotMemoryclt
+sudo chmod +x -R dotMemoryclt/*
 ```
 
-Next, determine the process ID (PID) of the Jellyfin server:
+Next, determine the process ID (PID) of the Jellyfin server. You will need the `ps` command. If your system doesn't have this command, it can be installed using the package manager of your distribution.
+
+For Ubuntu:
+
+```sh
+sudo apt update -y
+sudo apt install procps
+```
+
+Run this command to determine the PID of the Jellyfin server:
 
 ```sh
 ps aux
 ```
 
-If the `ps` command is not available in your Linux distribution, install it with:
-
-```sh
-apt-get update && apt-get install procps
-```
-
-This will display a list of processes similar to the following:
+The above command will display a list of processes similar to the following:
 
 ```cmd
 # ps aux
@@ -43,15 +44,15 @@ root       914  0.0  0.0   2480   580 pts/0    Ss   05:33   0:00 sh
 root      2171  0.0  0.0   6756  2940 pts/0    R+   12:55   0:00 ps aux
 ```
 
-Note the process ID (PID) of the Jellyfin server, which is associated with the `/jellyfin/jellyfin` command. The left part of the path may differ if you installed Jellyfin in a different directory, but the rightmost part should always be `/jellyfin`.
+Note the process ID (PID) of the Jellyfin server, which is associated with the `jellyfin` command. The left part of the path may differ if you installed Jellyfin in a different directory, but the rightmost part should always be `/jellyfin`.
 
 Run the memory profiler using the following command, replacing `{PID}` with the PID you noted earlier (in this case, it would be `1`):
 
 ```sh
-/dotMemoryclt/tools/dotmemory attach --temp-dir=/temp/dotMemoryclt/tmp --timeout=1m --trigger-on-activation -m=1 --save-to-dir=/temp/dotMemoryclt/workspaces --log-file=/temp/dotMemoryclt/tmp/log.txt {PID} --all
+sudo ./dotMemoryclt/tools/dotmemory attach --temp-dir=/temp/dotMemoryclt/tmp --timeout=1m --trigger-on-activation -m=1 --save-to-dir=/temp/dotMemoryclt/workspaces --log-file=/temp/dotMemoryclt/tmp/log.txt {PID} --all
 ```
 
-This command will start the profiler, attach it to the Jellyfin process, create a memory dump, and wait. After you see the output:
+This command will start the profiler, attach it to the Jellyfin process, and create a memory dump. Wait until you see the output:
 
 ```sh
 [PID:{PID}] SNAPSHOT #1 READY.
