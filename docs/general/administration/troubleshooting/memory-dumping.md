@@ -19,7 +19,7 @@ unzip dotMemoryclt.zip -d ./dotMemoryclt
 sudo chmod +x -R dotMemoryclt/*
 ```
 
-Next, determine the process ID (PID) of the Jellyfin server. You will need the `ps` command. If your system doesn't have this command, it can be installed using the package manager of your distribution.
+2. Next, determine the process ID (PID) of the Jellyfin server. You will need the `ps` command. If your system doesn't have this command, it can be installed using the package manager of your distribution.
 
 For Ubuntu:
 
@@ -46,7 +46,7 @@ root      2171  0.0  0.0   6756  2940 pts/0    R+   12:55   0:00 ps aux
 
 Note the process ID (PID) of the Jellyfin server, which is associated with the `jellyfin` command. The left part of the path may differ if you installed Jellyfin in a different directory, but the rightmost part should always be `/jellyfin`.
 
-Run the memory profiler using the following command, replacing `{PID}` with the PID you noted earlier (in this case, it would be `1`):
+3. Run the memory profiler using the following command, replacing `{PID}` with the PID you noted earlier (in this case, it would be `1`):
 
 ```sh
 sudo ./dotMemoryclt/tools/dotmemory attach --temp-dir=/temp/dotMemoryclt/tmp --timeout=1m --trigger-on-activation -m=1 --save-to-dir=/temp/dotMemoryclt/workspaces --log-file=/temp/dotMemoryclt/tmp/log.txt {PID} --all
@@ -67,13 +67,13 @@ WORKSPACE SAVED
 file:///temp/dotMemoryclt/workspaces/[1]-jellyfin.2024-09-05T06-27-14.471.dmw
 ```
 
-You must upload the created file, in this case `/temp/dotMemoryclt/workspaces/[1]-jellyfin.2024-09-05T06-27-14.471.dmw`, and provide it to the Jellyfin developers.
+4. Upload the created file, in this case `/temp/dotMemoryclt/workspaces/[1]-jellyfin.2024-09-05T06-27-14.471.dmw`, and provide it to the Jellyfin developers.
 
 ## Docker
 
 The process for Docker is essentially the same as for Linux barebones, but you will need to install `ps` each time and pull the result file from the container.
 
-First, identify the ID of your Jellyfin process by running:
+1. Identify the ID of your Jellyfin process by running:
 
 ```sh
 docker ps
@@ -86,13 +86,19 @@ CONTAINER ID   IMAGE                                                        COMM
 31e5d4f30c8b   jellyfin/jellyfin:10.9.9                                     "/jellyfin/jellyfin"     15 hours ago    Up 15 hours (healthy)    8096/tcp
 ```
 
-Note the `CONTAINER ID`, then attach your console to that container with:
+Note the `CONTAINER ID`
+
+2. Attach your console to the Jellyfin container with the following command:
 
 ```sh
 docker exec -it {CONTAINERID} sh
 ```
 
-For example: `docker exec -it 31e5d4f30c8b sh`. Follow all the steps from the [Linux Barebones guide](/docs/general/administration/troubleshooting/memory-dumping.md#linux-barebones) above. Afterward, you may want to transfer the result file back to your host. Assuming the same result file from the previous example, you can do this on your host with:
+Replace `{CONTAINERID}` with the `CONTAINER ID` you noted down previously. For example: `docker exec -it 31e5d4f30c8b sh`.
+
+3. After attaching a console to the container, follow all the steps from the [Linux Barebones guide](/docs/general/administration/troubleshooting/memory-dumping.md#linux-barebones) above.
+
+4. Transfer the result file back to your host. Assuming the same result file from the previous example, you can do this on your host with:
 
 ```sh
 docker cp {CONTAINERID}:/temp/dotMemoryclt/workspaces/[1]-jellyfin.2024-09-05T06-27-14.471.dmw /opt/[1]-jellyfin.2024-09-05T06-27-14.471.dmw
