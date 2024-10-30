@@ -1,9 +1,9 @@
 ---
 uid: server-media-media-segments
-title: Media Segments
+title: Media segments
 ---
 
-# Media Segments
+# Media segments
 
 Media segments are a type of metadata for media files stored in Jellyfin. Unlike chapters, which have no type, media segements can contain type information, allowing different actions based on the type of a given time segment.
 
@@ -25,11 +25,11 @@ A video that is 16 minutes (00:16:00) long could have the following segments:
 2. From 00:08:03 until 00:08:59 there is a `Commercial` segment.
 3. From 00:14:30 until 00:16:00 there is an `Outro` segment.
 
-Jellyfin can store this information and provide it via the MediaSegment API to clients. Clients can then decide what they want to do with the provided information, such as displaying a "skip" button to allow convenient skipping.
+Jellyfin can store this information and provide it to clients. Clients can then decide what they want to do with the provided information, such as displaying a "skip" button to allow convenient skipping.
 
-## Creating Media Segments
+## Creating media segments
 
-As of Jellyfin 10.10, media segments can only be created by plugins. [Read more](#plugin-support)
+Media segments are provided by plugins. [Read more](#plugin-support)
 
 ## Clients
 
@@ -41,7 +41,7 @@ The server is only responsible for delivering the segment metadata to the client
 
 ## Plugin support
 
-Plugins can utilize this system to store their information about Intros, Outros, Commercials and all other types of segments. This information can then be used by clients to provide actions, such as a "Skip" button in their UI. This approach generalizes how segments are handled, so plugins no longer need to inject Javascript into the web client to get intro skipping, and similar functionality can be achieved without custom modifications to other clients.
+Plugins can utilize this system to store their information about intros, outros, commercials and all other types of segments. This information can then be used by clients to provide actions, such as a "skip" button in their user interface. This approach generalizes how segments are handled, so plugins no longer need to inject JavaScript into the web client to get intro skipping, and similar functionality can be achieved without custom modifications to other clients.
 
 There is an official `Chapter Segments Provider` plugin that creates media segments from chapters.
 
