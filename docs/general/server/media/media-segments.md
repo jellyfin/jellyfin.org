@@ -29,7 +29,7 @@ Jellyfin can store this information and provide it via the MediaSegment API to c
 
 ## Creating Media Segments
 
-As of Jellyfin 10.10, media segments can only be created by plugins. There is an official `Chapter Segments Provider` plugin that creates media segments from chapters.
+As of Jellyfin 10.10, media segments can only be created by plugins. [Read more](#plugin-support)
 
 ## Clients
 
@@ -42,5 +42,7 @@ The server simply delivers the information about where the segment is in the vid
 ## Plugin support
 
 Plugins can utilize this system to store their information about Intros, Outros, Commercials and all other types of segments. This information can then be used by clients to provide actions, such as a "Skip" button in their UI. This approach generalizes how segments are handled, so plugins no longer need to inject Javascript into the web client to get intro skipping, and similar functionality can be achieved without custom modifications to other clients.
+
+There is an official `Chapter Segments Provider` plugin that creates media segments from chapters.
 
 This does _NOT_ make the existing plugins obsolete, as we still rely on them to generate the segments. They would simply have to be updated to work with the media segments system.
