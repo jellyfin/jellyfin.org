@@ -19,13 +19,13 @@ The following types are currently available:
 
 ## An example
 
-An video that is 16 minutes (00:16:00) long could have the following segments:
+A video that is 16 minutes (00:16:00) long could have the following segments:
 
-1. from 00:00:00 until 00:03:08 there is an `Intro` segment.
-2. from 00:08:03 until 00:08:59 there is an `Commerical` segment.
-3. from 00:14:30 until 00:16:00 there is an `Outro` segment.
+1. From 00:00:00 until 00:03:08 there is an `Intro` segment.
+2. From 00:08:03 until 00:08:59 there is an `Commercial` segment.
+3. From 00:14:30 until 00:16:00 there is an `Outro` segment.
 
-Jellyfin can store this information and provide it via the MediaSegment Api to clients. Clients can then decide what they wants to do with the provided information, such as displaying a "skip" button to allow convenient skipping.
+Jellyfin can store this information and provide it via the MediaSegment API to clients. Clients can then decide what they wants to do with the provided information, such as displaying a "skip" button to allow convenient skipping.
 
 ## Creating Media Segments
 
@@ -41,6 +41,6 @@ The server simply delivers the information about where the segment is in the vid
 
 ## Plugin support
 
-Plugins can utilize this system to store their information about Intros, Outros, Commercials and all other types of segments. This information can then used by clients to provide actions, such as a "Skip" button in their UI. This approach generalizes how segments are handled, so plugins no longer need to inject javascript into the WebUI to get IntroSkipping, and similar functionality can be achieved without custom modifications to other clients.
+Plugins can utilize this system to store their information about Intros, Outros, Commercials and all other types of segments. This information can then be used by clients to provide actions, such as a "Skip" button in their UI. This approach generalizes how segments are handled, so plugins no longer need to inject javascript into the WebUI to get IntroSkipping, and similar functionality can be achieved without custom modifications to other clients.
 
 This does _NOT_ make the existing plugins obsolete, however as we still rely on them to generate the segments. They would simply have to be updated to work with the media segments system.
