@@ -22,7 +22,7 @@ The following types are currently available:
 A video that is 16 minutes (00:16:00) long could have the following segments:
 
 1. From 00:00:00 until 00:03:08 there is an `Intro` segment.
-2. From 00:08:03 until 00:08:59 there is an `Commercial` segment.
+2. From 00:08:03 until 00:08:59 there is a `Commercial` segment.
 3. From 00:14:30 until 00:16:00 there is an `Outro` segment.
 
 Jellyfin can store this information and provide it via the MediaSegment API to clients. Clients can then decide what they wants to do with the provided information, such as displaying a "skip" button to allow convenient skipping.
