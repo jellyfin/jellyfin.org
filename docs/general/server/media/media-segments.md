@@ -39,6 +39,6 @@ Upon receiving media segment information from the server, clients can choose to 
 
 ## Plugin support
 
-Plugins can utilize this system to store their information about intros, outros, commercials and all other types of segments. This information can then be used by clients to provide actions, such as a "skip" button in their user interface. This approach generalizes how segments are handled, so plugins no longer need to inject JavaScript into the web client to get intro skipping, and similar functionality can be achieved without custom modifications to other clients.
+Plugins can utilize this system to store their information about intros, outros, commercials and all other types of segments. This information can then be used by clients to provide actions, such as a "skip" button in their user interface. This approach generalizes how segments are handled, so more platforms can be easily supported, without custom modifications to clients.
 
 There is an official `Chapter Segments Provider` plugin that creates media segments from chapters.
