@@ -25,7 +25,7 @@ A video that is 16 minutes (00:16:00) long could have the following segments:
 2. From 00:08:03 until 00:08:59 there is a `Commercial` segment.
 3. From 00:14:30 until 00:16:00 there is an `Outro` segment.
 
-Jellyfin can store this information and provide it via the MediaSegment API to clients. Clients can then decide what they wants to do with the provided information, such as displaying a "skip" button to allow convenient skipping.
+Jellyfin can store this information and provide it via the MediaSegment API to clients. Clients can then decide what they want to do with the provided information, such as displaying a "skip" button to allow convenient skipping.
 
 ## Creating Media Segments
 
@@ -41,6 +41,6 @@ The server simply delivers the information about where the segment is in the vid
 
 ## Plugin support
 
-Plugins can utilize this system to store their information about Intros, Outros, Commercials and all other types of segments. This information can then be used by clients to provide actions, such as a "Skip" button in their UI. This approach generalizes how segments are handled, so plugins no longer need to inject javascript into the WebUI to get IntroSkipping, and similar functionality can be achieved without custom modifications to other clients.
+Plugins can utilize this system to store their information about Intros, Outros, Commercials and all other types of segments. This information can then be used by clients to provide actions, such as a "Skip" button in their UI. This approach generalizes how segments are handled, so plugins no longer need to inject Javascript into the web client to get intro skipping, and similar functionality can be achieved without custom modifications to other clients.
 
-This does _NOT_ make the existing plugins obsolete, however as we still rely on them to generate the segments. They would simply have to be updated to work with the media segments system.
+This does _NOT_ make the existing plugins obsolete, as we still rely on them to generate the segments. They would simply have to be updated to work with the media segments system.
