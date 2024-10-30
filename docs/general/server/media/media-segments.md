@@ -5,7 +5,7 @@ title: Media Segments
 
 # Media Segments
 
-Media segments are sections of media files with a defined type, stored within Jellyfin. They are different from chapters in that chapters don't have any defined type.
+Media segments are a type of metadata for media files stored in Jellyfin. Unlike chapters, which have no type, media segements can contain type information, allowing different actions based on the type of a given time segment.
 
 ## Types
 
@@ -37,7 +37,7 @@ Media segments are currently supported in the web interface and the Android TV[^
 
 [^1]: Available starting from 0.18, soon [in beta](/posts/android-betas)
 
-The server simply delivers the information about where the segment is in the video and of what type it is, it remains up the individual client to decide what to do with that information. Since media segments is a new feature, please do not expect many clients to support it.
+The server is only responsible for delivering the segment metadata to the client; it is up to each client to decide what to do with the information. For example, a client may implement a "skip intro" button when it encounters an "intro"-type segment. Because it is still a new feature, client support is very sparse and will take some time to become more wide-spread.
 
 ## Plugin support
 
