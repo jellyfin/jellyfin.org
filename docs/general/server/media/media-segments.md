@@ -33,9 +33,7 @@ Media segments are provided by plugins. [Read more](#plugin-support)
 
 ## Clients
 
-Media segments are currently supported in the web interface and the Android TV[^1] app.
-
-[^1]: Available starting from 0.18, soon [in beta](/posts/android-betas)
+Media segments are currently only supported by the web client.
 
 The server is only responsible for delivering the segment metadata to the client; it is up to each client to decide what to do with the information. For example, a client may implement a "skip intro" button when it encounters an "intro"-type segment. Because it is still a new feature, client support is very sparse and will take some time to become more wide-spread.
 
