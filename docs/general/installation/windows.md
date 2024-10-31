@@ -11,8 +11,8 @@ Windows installers and builds in ZIP archive format are available [here](/downlo
 
 :::caution
 
-If you installed a version prior to 10.4.0 using a PowerShell script, you will need to manually remove the service using the command `nssm remove Jellyfin` and uninstall the server by remove all the files manually.
-Also one might need to move the data files to the correct location, or point the installer at the old location.
+If you installed a version prior to 10.4.0 using a PowerShell script, you will need to manually remove the service using the command `nssm remove Jellyfin` and uninstall the server by removing all the files manually.
+Also, one might need to move the data files to the correct location, or point the installer at the old location.
 
 :::
 
@@ -23,7 +23,7 @@ Using the Advanced/Service mode may experience FFmpeg hardware acceleration issu
 
 :::
 
-## Install using installer
+## Install using the installer
 
 **Install**
 
@@ -42,7 +42,7 @@ Using the Advanced/Service mode may experience FFmpeg hardware acceleration issu
 
 **Uninstall**
 
-1. Go to `Add or remove programs` in Windows.
+1. Go to `Add or remove programs` on Windows.
 2. Search for Jellyfin.
 3. Click Uninstall.
 

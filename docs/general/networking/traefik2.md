@@ -17,11 +17,11 @@ Ensure you enable some basic firewall or auth protection for Traefik or disable 
 
 :::note
 
-Traefik has many options for the configuration of LetsEncrypt using your choice of challenges. If your server is accessible from the Internet via port 80 or 443, you can use the HTTP-01 or TLS-ALPN-01 challenges. If so, the certificatesresolvers.leresolver.acme.httpchallenge.entrypoint must be reachable by Let's Encrypt through port 80/443. You can also use a DNS-01 challenge via one of the available [providers](https://docs.traefik.io/https/acme/#providers). Configuration is beyond the scope of this guide. This guide can use both HTTP-01 and DNS-01 by commenting or uncommenting the various blocks. You are most likely to use HTTP-01 unless you have full access to your DNS configuration. The configuration below uses RFC2136 (as set by certificatesresolvers.leresolver.acme.dnsChallenge of `traefik.toml`) and the variables for that provider are shown in the `.env` file as a formatting guide. See provider documentation and comments about configuration of your ACME provider of choice, or change the configuration to HTTP-01 in `traefik.toml`'s comments.
+Traefik has many options for the configuration of LetsEncrypt using your choice of challenges. If your server is accessible from the Internet via port 80 or 443, you can use the HTTP-01 or TLS-ALPN-01 challenges. If so, the certificatesresolvers.leresolver.acme.httpchallenge.entrypoint must be reachable by Let's Encrypt through port 80/443. You can also use a DNS-01 challenge via one of the available [providers](https://docs.traefik.io/https/acme/#providers). Configuration is beyond the scope of this guide. This guide can use both HTTP-01 and DNS-01 by commenting or uncommenting the various blocks. You are most likely to use HTTP-01 unless you have full access to your DNS configuration. The configuration below uses RFC2136 (as set by certificatesresolvers.leresolver.acme.dnsChallenge of `traefik.toml`), and the variables for that provider are shown in the `.env` file as a formatting guide. See provider documentation and comments about configuration of your ACME provider of choice, or change the configuration to HTTP-01 in `traefik.toml`'s comments.
 
 :::
 
-The configuration below creates a Traefik v2.x installation with access at entryPoint ports 80 (labelled 'http'), 443 (labeled 'https'), and 9999 (labeled 'secure'). Unrelated to this Jellyfin configuration, it redirects all traffic from http (port 80) to https (port 443) to ensure all data is encrypted. As for Jellyfin, it makes the service accessible without a path on the secure entry point. This configuration is intended to be used as a starting point and some adaptation is likely required for your configuration. If you want Jellyfin to be accessible without using a port (using the default https port), simply change 'secure' to 'https' in `docker-compose.yml` where indicated and remove the ':9999' from the SSLHost parameter. If you want Jellyfin to be accessible with a path, simply add the PathPrefix (i.e. '/jellyfin') and see the note near the end of this document about configuring Jellyfin.
+The configuration below creates a Traefik v2.x installation with access at entryPoint ports 80 (labelled 'http'), 443 (labeled 'https'), and 9999 (labeled 'secure'). Unrelated to this Jellyfin configuration, it redirects all traffic from http (port 80) to https (port 443) to ensure all data is encrypted. As for Jellyfin, it makes the service accessible without a path on the secure entry point. This configuration is intended to be used as a starting point and some adaptation is likely required for your configuration. If you want Jellyfin to be accessed without using a port (using the default https port), simply change 'secure' to 'https' in `docker-compose.yml` where indicated and remove the ':9999' from the SSLHost parameter. If you want Jellyfin to be accessible with a path, simply add the PathPrefix (i.e. '/jellyfin') and see the note near the end of this document about configuring Jellyfin.
 
 ### docker-compose.yml
 
@@ -218,13 +218,13 @@ TOML files can't support environment variables, so all values must be hard coded
     provider = "rfc2136"
     delayBeforeCheck = 0
     # A DNS server used to check whether the DNS is set up correctly before
-    # making the ACME request. Ideally a DNS server that isn't going to cache an old entry.
+    # making the ACME request. Ideally, a DNS server that isn't going to cache an old entry.
     resolvers = ["8.8.8.8:53"]
 
 [retry]
 ```
 
-Due to a [quirk](https://github.com/containous/traefik/issues/5559) in Traefik, you cannot dynamically route to containers when network_mode=host. We have created a static route to the docker host (192.168.1.xx:8096) in `traefik-provider.toml`. The use of host networking (as in this doc) or macvlan are required to use DLNA or an HdHomeRun so it can utilize the multicast network. `traefik-provider.toml` defines the jellyfin-svc@file service which we are pointing the router to in the `docker-compose.yml` file. You can not set a URL in `docker-compose.yml` which is why we set up this service externally. Be sure to update the IP address below to the IP address of the host on the local network (in this case, 192.168.1.xx).
+Due to a [quirk](https://github.com/containous/traefik/issues/5559) in Traefik, you cannot dynamically route to containers when network_mode=host. We have created a static route to the docker host (192.168.1.xx:8096) in `traefik-provider.toml`. The use of host networking (as in this doc) or macvlan are required to use DLNA or an HdHomeRun so it can utilize the multicast network. `traefik-provider.toml` defines the jellyfin-svc@file service which we are pointing the router to in the `docker-compose.yml` file. You cannot set a URL in `docker-compose.yml` which is why we set up this service externally. Be sure to update the IP address below to the IP address of the host on the local network (in this case, 192.168.1.xx).
 
 ### traefik-provider.toml
 
@@ -279,7 +279,7 @@ chmod 600 acme.json traefik.log
 
 :::caution
 
-These configurations use DOMAIN_NAME (i.e.: example.com) and HOST_NAME (i.e.: servername) throughout it. You should replace these with your server's name. HOST_NAME.DOMAIN_NAME refers to the machine itself (ie: servername.example.com). Don't forget to update `traefik.toml`'s YOU@DOMAIN_NAME with your email address. Let's Encrypt does not require a valid email but invalid e-mails may be flagged as fake.
+These configurations use DOMAIN_NAME (i.e.: example.com) and HOST_NAME (i.e.: servername) throughout it. You should replace these with your server's name. HOST_NAME.DOMAIN_NAME refers to the machine itself (ie: servername.example.com). Don't forget to update `traefik.toml`'s YOU@DOMAIN_NAME with your email address. Let's Encrypt does not require a valid email, but invalid e-mails may be flagged as fake.
 
 :::
 

@@ -33,11 +33,11 @@ Jellyfin 10.9 or newer is required for Apple Silicon native support.
 ### Uninstall
 
 1. Stop the currently running server either via the dashboard or using the application icon.
-2. Move the `.app` package to the trash.
+2. Move the `.app` package in the trash.
 
 ### Deleting Configuration
 
-This will delete all settings and user information. This applies for the .app package and the portable version.
+This will delete all settings and user information. This applies to the .app package and the portable version.
 
 1. Delete the folder `~/.config/jellyfin/`
 2. Delete the folder `~/.local/share/jellyfin/`
@@ -84,14 +84,14 @@ Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmu
 
 The portable version doesn't come with FFmpeg by default. There are a few options for installing FFmpeg:
 
-- download jellyfin-ffmpeg from the [Jellyfin repo](https://repo.jellyfin.org/?path=/ffmpeg/macos) (recommended)
-- use the package manager homebrew by typing `brew install ffmpeg` into your Terminal ([here's how to install homebrew if you don't have it already](https://treehouse.github.io/installation-guides/mac/homebrew)
-- download the most recent static build from [this link](https://evermeet.cx/ffmpeg/get/zip) (compiled by a third party see [this page](https://evermeet.cx/ffmpeg/) for options and information) (Apple Silicon builds are not available from this source)
-- compile from source available from the official [website](https://ffmpeg.org/download.html)
+- Download jellyfin-ffmpeg from the [Jellyfin repo](https://repo.jellyfin.org/?path=/ffmpeg/macos) (recommended)
+- Use the package manager homebrew by typing `brew install ffmpeg` into your Terminal ([here's how to install homebrew if you don't have it already](https://treehouse.github.io/installation-guides/mac/homebrew)
+- Download the most recent static build from [this link](https://evermeet.cx/ffmpeg/get/zip) (compiled by a third party see [this page](https://evermeet.cx/ffmpeg/) for options and information) (Apple Silicon builds are not available from this source)
+- Compile from source available from the official [website](https://ffmpeg.org/download.html)
 
 Once downloaded, remove the quarantine flag for the `ffmpeg` and `ffprobe`.
 
-Ensure that both `ffmpeg` and `ffprobe` are located at the same path, then execute the following command:
+Ensure that both `ffmpeg` and `ffprobe` are located in the same path, then execute the following command:
 
 ```shell
 cd /path/to/ffmpeg/folder

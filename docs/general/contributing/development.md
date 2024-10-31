@@ -15,7 +15,7 @@ Summarized here are the two biggest ones, one for backend devs and another for f
 - [Jellyfin Server](https://github.com/jellyfin/jellyfin): The server portion, built using .NET 8 and C#.
 - [Jellyfin Web](https://github.com/jellyfin/jellyfin-web): The main client application built for browsers, but also used in some of our other clients that are just wrappers.
 
-Note that each of the repositories also has its own documentation on how to get started with that project, generally found in the repository README. You can also view the organization [source tree](/docs/general/contributing/source-tree) to see how some of the bigger projects are structured.
+Note that each of the repositories also has its own documentation on how to get started with that project, generally found in the repository as README. You can also view the organization [source tree](/docs/general/contributing/source-tree) to see how some of the bigger projects are structured.
 
 The best way to get going on some actual development is to look through the [issues list](https://github.com/jellyfin/jellyfin/issues) of the associated repository, find an issue you would like to work on, and start hacking! Issues are triaged regularly by the administrative team, and labels assigned that should help you find issues within your skill-set. Once you start working on an issue, please comment on it stating your intent to work on the issue, to avoid unnecessary duplication of work.
 
@@ -25,7 +25,7 @@ A list of issue types can be found on the [issue guidelines](/docs/general/contr
 
 ### What if there isn't an issue?
 
-If there isn't already an issue dealing with the changes you want to make, please [create an issue](/docs/general/contributing/issues) to track it first, then ensure your PR(s) reference the issue in question. This is especially useful for bugs that are found and then fixed by the author, so both the original issue and the fix can be documented and tracked in detail.
+If there isn't already an issue dealing with the changes you want to make, please [create an issue](/docs/general/contributing/issues) to track it first, then ensure your PR(s) reference to the issue in question. This is especially useful for bugs that are found and then fixed by the author, so both the original issue and the fix can be documented and tracked in detail.
 
 ## How should you make changes?
 
@@ -58,7 +58,7 @@ The first step is to set up a copy of the Git repository of the project you want
 
 5. Build the Jellyfin Web project with NPM, and copy the location of the resulting `dist` folder.
 
-6. In your `Jellyfin.Server` project add an environment variable named `JELLYFIN_WEB_DIR` with the value set to the full path of your `dist` folder.
+6. In your `Jellyfin.Server` project adds an environment variable named `JELLYFIN_WEB_DIR` with the value set to the full path of your `dist` folder.
 
 You will now be ready to begin building or modifying the project.
 
@@ -116,7 +116,7 @@ If it's your first time contributing code to a particular repository, please add
 
 From time to time, major projects may come up that require multiple PRs and contributions from multiple people. For these tasks, feature branches specific to the feature should be created, based off of `master`. This helps allow the work to progress without breaking `master` for long periods and allowing those interested in that particular project the ability to work at their own pace instead of racing to fix a broken feature before the next release. To create a feature branch, please communicate with a Core team member and that can be arranged.
 
-Once the feature a feature branch was created for is ready, it can be merged in one shot into `master` and the feature branch removed. Alternatively, for very-long-lived features, certain "stable" snapshots can be merged into `master` as required.
+Once the feature, a feature branch was created for is ready, it can be merged in one shot into `master` and the feature branch removed. Alternatively, for very-long-lived features, certain "stable" snapshots can be merged into `master` as required.
 
 ### The Master Branch
 
@@ -157,7 +157,7 @@ When submitting a new PR, please ensure you do the following things. If you have
 
 - Before submitting a PR, squash "junk" commits together to keep the overall history clean. A single commit should cover a single significant change: avoid squashing all your changes together, especially for large PRs that touch many files, but also don't leave "fixed this", "whoops typo" commits in your branch history as this is needless clutter in the final history of the project.
 
-- Write a good title that quickly describes what has been changed. For example, "Add LDAP support to Jellyfin". As mentioned in [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/), always use the imperative mood, and keep the title short but descriptive. The title will eventually be a changelog entry, so please try to use proper capitalization but no punctuation; note that the Core team may alter titles to better conform to this standard before merging.
+- Write a good title that quickly describes what has been changed. For example, "Add LDAP support to Jellyfin". As mentioned in [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/), always use the imperative mood, and keep the title short but descriptive. The title will eventually be a changelog entry, so please try to use proper capitalization but no punctuation; Note that the Core team may alter titles to better conform to this standard before merging.
 
 - For anything but the most trivial changes that can be described fully in the (short) title, follow the PR template and write a PR body to describe, in as much detail as possible:
 
@@ -165,7 +165,7 @@ When submitting a new PR, please ensure you do the following things. If you have
 
   2. How you approached the issue (if applicable) and briefly describe the changes, especially for large PRs.
 
-- If your pull request is not finished yet, please mark it as a "draft" when you open it. While this tag is in place, the pull request will not be merged, and reviews should remain as comments only. Once you are happy with the final state of your PR, please remove this tag; forgetting to do so might result in your PR being unintentionally ignored as still under active development! Inactive WIPs may occasionally elicit pings from the team inquiring on the status and closed if there is no response.
+- If your pull request is not finished yet, please mark it as a "draft" when you open it. While this tag is in place, the pull request will not be merged, and reviews should remain as comments only. Once you are happy with the final state of your PR, please remove this tag; Forgetting to do so might result in your PR being unintentionally ignored as still under active development! Inactive WIPs may occasionally elicit pings from the team inquiring on the status and closed if there is no response.
 
 - Avoid rebasing and force-pushing to large or complex pull requests if at all possible, and especially after reviews. It forces unnecessary reviews to verify the changes are still okay and build properly.
 

@@ -119,4 +119,4 @@ Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.
 
 ## SSL
 
-[CertifytheWeb](https://certifytheweb.com/); a very easy to use UI for getting certificates
+[CertifytheWeb](https://certifytheweb.com/); A very easy to use UI for getting certificates
