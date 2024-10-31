@@ -20,7 +20,7 @@ If a base URL is set, try removing it and restarting the server.
 
 Use these entries in `logging.default.json` to turn on DLNA debug logs.
 
-```diff
+```json
 {
   "Serilog": {
     "MinimumLevel": {
@@ -28,7 +28,7 @@ Use these entries in `logging.default.json` to turn on DLNA debug logs.
       "Override": {
         "Microsoft": "Warning",
         "System": "Warning",
-+        "Jellyfin.Plugin.Dlna": "Debug"
+        "Jellyfin.Plugin.Dlna": "Debug"
       }
     }
   }
