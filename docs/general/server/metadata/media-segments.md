@@ -1,5 +1,5 @@
 ---
-uid: server-media-media-segments
+uid: server-metadata-media-segments
 title: Media segments
 ---
 
