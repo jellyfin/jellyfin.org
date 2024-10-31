@@ -5,7 +5,16 @@ title: Media segments
 
 # Media segments
 
-Media segments are a type of metadata for media files stored in Jellyfin. Unlike chapters, which have no type, media segements can contain type information, allowing different actions based on the type of a given time segment.
+Media segments are a type of metadata for media files stored in Jellyfin. Unlike chapters, which have no type, media segments can contain type information, allowing different actions based on the type of each segment.
+
+## Getting started
+
+There's a few steps to follow if you want to use media segments:
+
+1. Update your server to version 10.10 or above.
+2. First, you'll need one or multiple plugins that can provide media segments. Read the [plugins section](#plugin-support) below to find out more.
+3. Run the `Media segment scan` task in the dashboard to create segments immediately, this task also runs automatically in the background.
+4. Enable actions for the different segment types, the way you do this differs per client, but they are generally found in the playback settings of the client.
 
 ## Types
 
