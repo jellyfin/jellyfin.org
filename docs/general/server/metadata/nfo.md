@@ -37,54 +37,54 @@ It's currently not possible to disable .nfo metadata. Local metadata will always
 User data importing is only possible for a single user. This user can be set in the .nfo settings.
 :::
 
-| Tag           | Note                                                                                                                  |
-| ------------- | --------------------------------------------------------------------------------------------------------------------- |
-| name          |                                                                                                                       |
-| title         | same as name                                                                                                          |
-| localtitle    | same as name                                                                                                          |
-| dateadded     |                                                                                                                       |
-| originaltitle |                                                                                                                       |
-| sortname      |                                                                                                                       |
-| criticrating  |                                                                                                                       |
-| sorttitle     |                                                                                                                       |
-| plot          |                                                                                                                       |
-| biography     | same as plot                                                                                                          |
-| review        | same as plot                                                                                                          |
-| language      |                                                                                                                       |
-| watched       | please see the note about user data                                                                                   |
-| playcount     | please see the note about user data                                                                                   |
-| lastplayed    | please see the note about user data                                                                                   |
-| countrycode   |                                                                                                                       |
-| lockedfields  |                                                                                                                       |
-| tagline       |                                                                                                                       |
-| country       |                                                                                                                       |
-| mpaa          |                                                                                                                       |
-| customrating  |                                                                                                                       |
-| runtime       |                                                                                                                       |
-| aspectratio   |                                                                                                                       |
-| lockdata      |                                                                                                                       |
-| studio        | multiple tags allowed                                                                                                 |
-| director      | multiple tags allowed                                                                                                 |
-| credits       | multiple tags allowed                                                                                                 |
-| writer        | multiple tags allowed                                                                                                 |
-| actor         | multiple tags allowed                                                                                                 |
-| trailer       | kodi format                                                                                                           |
-| displayorder  |                                                                                                                       |
-| year          |                                                                                                                       |
-| rating        | same as customrating                                                                                                  |
-| ratings       | multiple child tags allowed; name attribute of each tag will specify wheter the rating is critics or community rating |
-| aired         |                                                                                                                       |
-| formed        |                                                                                                                       |
-| premiered     |                                                                                                                       |
-| releasedate   |                                                                                                                       |
-| enddate       |                                                                                                                       |
-| genre         | multiple tags allowed                                                                                                 |
-| tag           | multiple tags allowed                                                                                                 |
-| style         | multiple tags allowed                                                                                                 |
-| fileinfo      |                                                                                                                       |
-| uniqueid      | type attribute specifies id provider                                                                                  |
-| thumb         | please see the [section about images](#image-paths-and-urls-in-nfo-files)                                             |
-| fanart        | please see the [section about images](#image-paths-and-urls-in-nfo-files)                                             |
+| Tag           | Note                                                                                                                   |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| name          |                                                                                                                        |
+| title         | same as name                                                                                                           |
+| localtitle    | same as name                                                                                                           |
+| dateadded     |                                                                                                                        |
+| originaltitle |                                                                                                                        |
+| sortname      |                                                                                                                        |
+| criticrating  |                                                                                                                        |
+| sorttitle     |                                                                                                                        |
+| plot          |                                                                                                                        |
+| biography     | same as plot                                                                                                           |
+| review        | same as plot                                                                                                           |
+| language      |                                                                                                                        |
+| watched       | please see the note about user data                                                                                    |
+| playcount     | please see the note about user data                                                                                    |
+| lastplayed    | please see the note about user data                                                                                    |
+| countrycode   |                                                                                                                        |
+| lockedfields  |                                                                                                                        |
+| tagline       |                                                                                                                        |
+| country       |                                                                                                                        |
+| mpaa          |                                                                                                                        |
+| customrating  |                                                                                                                        |
+| runtime       |                                                                                                                        |
+| aspectratio   |                                                                                                                        |
+| lockdata      |                                                                                                                        |
+| studio        | multiple tags allowed                                                                                                  |
+| director      | multiple tags allowed                                                                                                  |
+| credits       | multiple tags allowed                                                                                                  |
+| writer        | multiple tags allowed                                                                                                  |
+| actor         | multiple tags allowed                                                                                                  |
+| trailer       | kodi format                                                                                                            |
+| displayorder  |                                                                                                                        |
+| year          |                                                                                                                        |
+| rating        | same as customrating                                                                                                   |
+| ratings       | multiple child tags allowed; name attribute of each tag will specify whether the rating is critics or community rating |
+| aired         |                                                                                                                        |
+| formed        |                                                                                                                        |
+| premiered     |                                                                                                                        |
+| releasedate   |                                                                                                                        |
+| enddate       |                                                                                                                        |
+| genre         | multiple tags allowed                                                                                                  |
+| tag           | multiple tags allowed                                                                                                  |
+| style         | multiple tags allowed                                                                                                  |
+| fileinfo      |                                                                                                                        |
+| uniqueid      | type attribute specifies id provider                                                                                   |
+| thumb         | please see the [section about images](#image-paths-and-urls-in-nfo-files)                                              |
+| fanart        | please see the [section about images](#image-paths-and-urls-in-nfo-files)                                              |
 
 Provider id tags are supported as well if they follow the scheme: `<PROVIDER_NAME`+ `id>`.
 
@@ -94,61 +94,61 @@ For more information about .nfo files, please also see the [Kodi wiki](https://k
 
 ## Writing metadata to .nfo files
 
-Jellyfin can write metadata to .nfo files. To enable this option, select the "Nfo saver" in the settings of you library. While writing .nfo files, the following tags are supported for saving:
+Jellyfin can write metadata to .nfo files. To enable this option, select the "Nfo saver" in the settings of your library. While writing .nfo files, the following tags are supported for saving:
 
-| .nfo tag                  | Note                                                                                                                          |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| title                     |                                                                                                                               |
-| id                        | IMDb id for moves, TVDb id for tv shows,                                                                                      |
-| originaltitle             |                                                                                                                               |
-| seasonnumber              | only for tv show seasons                                                                                                      |
-| showtitle                 | only for tv show episodes                                                                                                     |
-| episode                   | only for tv show episode                                                                                                      |
-| season                    | only for tv show episode                                                                                                      |
-| aired                     | only for tv show episode                                                                                                      |
-| airsafter_season          | only for tv show episode                                                                                                      |
-| airsbefore_episode        | only for tv show episode                                                                                                      |
-| airsbefore_season         | only for tv show episode                                                                                                      |
-| displayepisode            | only for tv show episode; which episode this special airs before                                                              |
-| displayseason             | only for tv show episode; season the special aired in                                                                         |
-| director                  | new tag for each director                                                                                                     |
-| writer                    | new tag for each writer                                                                                                       |
-| credits                   | new tag for each credit                                                                                                       |
-| trailer                   | YouTube URL in the Kodi format `plugin://plugin.video.youtube/?action=play_video&videoid=<Youtube Video ID>`                  |
-| rating                    |                                                                                                                               |
-| year                      |                                                                                                                               |
-| sorttitle                 |                                                                                                                               |
-| mpaa                      |                                                                                                                               |
-| aspectratio               |                                                                                                                               |
-| dateadded                 | in UTC                                                                                                                        |
-| collectionnumber          | TMDb collection id                                                                                                            |
-| set                       | collection name; only for movies                                                                                              |
-| imdb_id                   | only for TV shows                                                                                                             |
-| imdbid                    | for all other media types                                                                                                     |
-| tvdbid                    |                                                                                                                               |
-| idmbid                    |                                                                                                                               |
-| tmdbid                    |                                                                                                                               |
-| language                  |                                                                                                                               |
-| countrycode               |                                                                                                                               |
-| formed                    | only for music artists                                                                                                        |
-| premiered                 |                                                                                                                               |
-| enddate                   |                                                                                                                               |
-| releasedate               |                                                                                                                               |
-| criticrating              |                                                                                                                               |
-| runtime                   |                                                                                                                               |
-| country                   | new tag for each production country                                                                                           |
-| genre                     | new tag for each genre                                                                                                        |
-| studio                    | new tag for each studio                                                                                                       |
-| disbanded                 | only for music artists                                                                                                        |
-| audiodbartistid           | only for music                                                                                                                |
-| audiodbalbumid            | only for                                                                                                                      |
-| zap2itid                  | only for tv shows                                                                                                             |
-| musicbrainzalbumid        | only for music                                                                                                                |
-| musicbrainzalbumartistid  | only for music                                                                                                                |
-| musicbrainzartistid       | only for music                                                                                                                |
-| musicbrainzreleasegroupid | only for music                                                                                                                |
-| tvrageid                  |                                                                                                                               |
-| art                       | only if save image paths is enabled in the nfo settings; backdrops with child element `fanart`, posters with the tag `poster` |
+| .nfo tag                  | Note                                                                                                                           |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| title                     |                                                                                                                                |
+| id                        | IMDb id for moves, TVDb id for tv shows,                                                                                       |
+| originaltitle             |                                                                                                                                |
+| seasonnumber              | only for tv show seasons                                                                                                       |
+| showtitle                 | only for tv show episodes                                                                                                      |
+| episode                   | only for tv show episode                                                                                                       |
+| season                    | only for tv show episode                                                                                                       |
+| aired                     | only for tv show episode                                                                                                       |
+| airsafter_season          | only for tv show episode                                                                                                       |
+| airsbefore_episode        | only for tv show episode                                                                                                       |
+| airsbefore_season         | only for tv show episode                                                                                                       |
+| displayepisode            | only for tv show episode; which episode this special airs before                                                               |
+| displayseason             | only for tv show episode; season the special aired in                                                                          |
+| director                  | new tag for each director                                                                                                      |
+| writer                    | new tag for each writer                                                                                                        |
+| credits                   | new tag for each credit                                                                                                        |
+| trailer                   | YouTube URL in the Kodi format `plugin://plugin.video.youtube/?action=play_video&videoid=<Youtube Video ID>`                   |
+| rating                    |                                                                                                                                |
+| year                      |                                                                                                                                |
+| sorttitle                 |                                                                                                                                |
+| mpaa                      |                                                                                                                                |
+| aspectratio               |                                                                                                                                |
+| dateadded                 | in UTC                                                                                                                         |
+| collectionnumber          | TMDb collection id                                                                                                             |
+| set                       | collection name; only for movies                                                                                               |
+| imdb_id                   | only for TV shows                                                                                                              |
+| imdbid                    | for all other media types                                                                                                      |
+| tvdbid                    |                                                                                                                                |
+| idmbid                    |                                                                                                                                |
+| tmdbid                    |                                                                                                                                |
+| language                  |                                                                                                                                |
+| countrycode               |                                                                                                                                |
+| formed                    | only for music artists                                                                                                         |
+| premiered                 |                                                                                                                                |
+| enddate                   |                                                                                                                                |
+| releasedate               |                                                                                                                                |
+| criticrating              |                                                                                                                                |
+| runtime                   |                                                                                                                                |
+| country                   | new tag for each production country                                                                                            |
+| genre                     | new tag for each genre                                                                                                         |
+| studio                    | new tag for each studio                                                                                                        |
+| disbanded                 | only for music artists                                                                                                         |
+| audiodbartistid           | only for music                                                                                                                 |
+| audiodbalbumid            | only for                                                                                                                       |
+| zap2itid                  | only for tv shows                                                                                                              |
+| musicbrainzalbumid        | only for music                                                                                                                 |
+| musicbrainzalbumartistid  | only for music                                                                                                                 |
+| musicbrainzartistid       | only for music                                                                                                                 |
+| musicbrainzreleasegroupid | only for music                                                                                                                 |
+| tvrageid                  |                                                                                                                                |
+| art                       | only if save image paths are enabled in the nfo settings; backdrops with child element `fanart`, posters with the tag `poster` |
 
 Additional provider ids are supported as well. They will be exported with the tag `<providernameid>`.
 

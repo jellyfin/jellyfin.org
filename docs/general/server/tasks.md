@@ -9,7 +9,7 @@ Tasks are operations that are scheduled to run periodically. They can also be tr
 
 ## Default Jellyfin Tasks
 
-Below is a list of tasks that Jellyfin runs peoridically by default:
+Below is a list of tasks that Jellyfin runs periodically by default:
 
 ### Libraries
 

@@ -21,7 +21,7 @@ title: Quick Start
 
 1. Secure the server with a method of your choice.
 
-   - Create an SSL certificate and add it on the **Networking** page.
+   - Create an SSL certificate and add it to the **Networking** page.
    - Put your server behind a [reverse proxy](/docs/general/networking/index.md#running-jellyfin-behind-a-reverse-proxy).
    - Only allow local connections and refrain from forwarding any ports.
 

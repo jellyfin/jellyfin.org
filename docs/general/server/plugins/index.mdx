@@ -18,7 +18,7 @@ The _plugins folder_ is located in different locations depending on your install
 - `%UserProfile%\AppData\Local\jellyfin\plugins` for direct installs
 - `%ProgramData%\Jellyfin\Server\plugins` for tray installs
 
-After that start Jellyfin back up, and reinstall each plugin you want to update using the above method from the catalog.
+After that, start Jellyfin back up, and reinstall each plugin you want to update using the above method from the catalog.
 Plugin settings should be retained if you do not delete the `.xml` files from the `<direct or tray path>\plugins\configurations` folder.
 
 **Authentication:** Add new authentication providers, such as LDAP.
@@ -35,7 +35,7 @@ Plugin settings should be retained if you do not delete the `.xml` files from th
 
 ### Manual
 
-All plugins hosted on the repository can be built from source and manually added to your server as well. They just need to be placed in the plugin directory, which is something like `/var/lib/jellyfin/plugins/` on most Linux distributions. Once the server is restarted any additions should automatically show up in your list of installed plugins. If you can't see the new plugin there may be a file permission issue.
+All plugins hosted in the repository can be built from source and manually added to your server as well. They just need to be placed in the plugin directory, which is something like `/var/lib/jellyfin/plugins/` on most Linux distributions. Once the server is restarted, any additions should automatically show up in your list of installed plugins. If you can't see the new plugin, there may be a file permission issue.
 
 ## List
 

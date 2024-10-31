@@ -5,7 +5,7 @@ title: Excluding a directory
 
 # Excluding a directory
 
-Directories, and their respective media files, can be excluded from the library scan. This can be achieved by placing a `.ignore` file in the directory you want to exclude. As a result, the directory, and it's subdirectories, will be excluded from being scanned and shown to the end user.
+Directories, and their respective media files, can be excluded from the library scan. This can be achieved by placing a `.ignore` file in the directory you want to exclude. As a result, the directory, and its subdirectories, will be excluded from being scanned and shown to the end user.
 
 :::tip
 

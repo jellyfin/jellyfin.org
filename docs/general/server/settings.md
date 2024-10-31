@@ -13,7 +13,7 @@ This name will be displayed to users when they select a server, and clients migh
 
 ## Login Disclaimer
 
-This message will be shown to users when they login on your server.
+This message will be shown to users when they login to your server.
 
 ## Custom Style
 

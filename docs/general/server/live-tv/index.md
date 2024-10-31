@@ -16,7 +16,7 @@ Jellyfin has support for the following tuners:
 - HDHomeRun
 - M3U
 
-HDHomeRun is a special case because they will usually get detected automatically by the server. Otherwise you can manually add tuners by navigating to **Live TV** in the settings and adding one there.
+HDHomeRun is a special case because they will usually get detected automatically by the server. Otherwise, you can manually add tuners by navigating to **Live TV** in the settings and adding one there.
 
 :::note
 

@@ -89,7 +89,7 @@ The first movie version in the list is the one selected by default.
 
 :::note
 
-To group media manually, long-click or right-click media to highlight then select additional media to merge. Use the new bar that appears to 'Group Versions'.
+To group media manually, long-click or right-click the media to highlight then select additional media to merge. Use the new bar that appears to 'Group Versions'.
 
 :::
 

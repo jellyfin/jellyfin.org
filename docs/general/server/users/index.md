@@ -11,7 +11,7 @@ Many features are configurable for each user individually to allow administrator
 
 ### Administrators
 
-To add another administrator, you can simply check the box labeled `allow this user to manage the server` at the top of the user options. This will give someone full access to all pages and features on the site so be careful who gets access.
+To add another administrator, you can simply check the box labeled `allow this user to manage the server` at the top of the user options. This will give someone full access to all pages and features on the site, so be careful who gets access.
 
 ### Playback
 
@@ -27,7 +27,7 @@ You can set a maximum of failed login attempts before a user gets locked out. Th
 
 ### Other
 
-If you disable a user, they will be kicked off the server immediately and unable to login until the option is deselected. This is useful if you do not want to expose unused credentials on a public server but might want to keep the account around for a while. You can also hide a user from the login screen and require manual entry of both the username and password. This will prevent users from knowing what accounts have been created on the server when they login.
+If you disable a user, they will be kicked off the server immediately and unable to login until the option is deselected. This is useful if you do not want to expose unused credentials on a public server, but might want to keep the account around for a while. You can also hide a user from the login screen and require manual entry of both the username and password. This will prevent users from knowing what accounts have been created on the server when they login.
 
 ## Advanced Overview
 

@@ -51,7 +51,7 @@ The parameters Change parameters, Streaming and Video recoder must be marked as 
 
 :::note
 
-By default the the _TVHeadend Hostname or IP Address_ section is configured by default with the hostname _localhost_, it is preferable to use the IP address _127.0.0.1_ instead of _localhost_. [Reference](https://emby.media/community/index.php?/topic/55768-tv-headend-plugin-where-does-it-store-data/#entry542181)
+By default the _TVHeadend Hostname or IP Address_ section is configured by default with the hostname _localhost_, it is preferable to use the IP address _127.0.0.1_ instead of _localhost_. [Reference](https://emby.media/community/index.php?/topic/55768-tv-headend-plugin-where-does-it-store-data/#entry542181)
 
 :::
 

@@ -9,7 +9,7 @@ This document provides details on upgrading and downgrading between Stable and U
 
 ## Stable vs. Unstable
 
-Which install type to pick depends on your needs; ultimately, Unstable is for testing new things, while Stable is for running a server for others to use reliably.
+Which install type to pick depends on your needs; Ultimately, Unstable is for testing new things, while Stable is for running a server for others to use reliably.
 
 - Stable provides the most consistent and predictable user experience. A particular major release (e.g. 10.8.z, 10.9.z) will not introduce, remove, or change major features or functionality (with minor caveats for security). Bugfixes are provided in point releases, which are released as needed during the lifecycle of the major release in response to bugfixes and security advisories. Most users should generally use Stable releases, as this will ensure maximum uptime and consistency for your end users.
 
@@ -19,9 +19,9 @@ In addition, Unstable is used to test forthcoming releases during the major rele
 
 ### What do you mean "no beta builds"
 
-Because of the massive complexity of packaging Jellyfin for multiple unique platforms, not to mention 3rd party builds providing several more, with our 10.9.0 release and beyond we have decided not to provide explicitly tagged pre-release builds. This is quite unusual for free-and-open-source software, but is a practical necessity to streamline our major releases and increase their cadence.
+Because of the massive complexity of packaging Jellyfin for multiple unique platforms, not to mention 3rd party builds providing several more, with our 10.9.0 release and beyond, we have decided not to provide explicitly tagged pre-release builds. This is quite unusual for free-and-open-source software, but is a practical necessity to streamline our major releases and increase their cadence.
 
-To compensate, we use a feature freeze window on major breaking changes before major releases, and leverage our scheduled weekly Unstable builds as an alternative. Before each major release, we will announce a schedule of the upcoming Unstable releases and how to map them to hypothetical "beta" and "release candidate" pre-release versions. For instance, with a 4 week freeze, we might consider the first 3 weeks of Unstable builds as "beta" and the last week as "release candidate". If you want to get in some early testing, you can try it out in the first 3 weeks; if you'd rather wait until things are mostly settled, wait until the last week.
+To compensate, we use a feature freeze window on major breaking changes before major releases, and leverage our scheduled weekly Unstable builds as an alternative. Before each major release, we will announce a schedule of the upcoming Unstable releases and how to map them to hypothetical "beta" and "release candidate" pre-release versions. For instance, with a 4 week freeze, we might consider the first 3 weeks of Unstable builds as "beta" and the last week as "release candidate". If you want to get in some early testing, you can try it out in the first 3 weeks; If you'd rather wait until things are mostly settled, wait until the last week.
 
 While this system isn't perfect, it does streamline versioning significantly, helps us avoid a 3rd repository component/label, and helps give Unstable builds a bit more love around releases, while having very little additional administrative overhead versus explicit pre-release versions.
 
@@ -41,7 +41,7 @@ Follow [the process listed in the documentation here](/docs/general/administrati
 
 ### Disable Automatic Updates on Unstable
 
-Running with automatic updates while on Unstable, or during a pre-release testing of Unstable, can cause problems. Always ensure you update manually and test things out afterwards. We generally recommend against automatic updates _in general_ even on Stable, as it can result in missed release notes from new versions, but we understand how desirable this can be; avoid the temptation when running Unstable though to avoid missing important changes.
+Running with automatic updates while on Unstable, or during a pre-release testing of Unstable, can cause problems. Always ensure you update manually and test things out afterwards. We generally recommend against automatic updates _in general_ even on Stable, as it can result in missed release notes from new versions, but we understand how desirable this can be; Avoid the temptation when running Unstable though to avoid missing important changes.
 
 ## Upgrading from Stable to Unstable
 
@@ -95,7 +95,7 @@ We assume you are already running Jellyfin Unstable releases.
 
 ### Plugins (Unstable to Release)
 
-We provide plugins for Stable and Unstable releases in separate repositories with separate versioning. You will need to switch (back) to the Stable plugin repository if you use any plugins, to avoid installing future incompatible versions of the Unstable plugins onto your Stable install. Note that plugins may not be available for a few hours to a few days after a new release, depending on the plugin; if they are already ready and you follow these steps, they should automatically upgrade when switching back to Stable.
+We provide plugins for Stable and Unstable releases in separate repositories with separate versioning. You will need to switch (back) to the Stable plugin repository if you use any plugins, to avoid installing future incompatible versions of the Unstable plugins onto your Stable install. Note that plugins may not be available for a few hours to a few days after a new release, depending on the plugin; If they are already ready and you follow these steps, they should automatically upgrade when switching back to Stable.
 
 Plugins are versioned in such a way that Unstable plugins will seamlessly upgrade from the latest Stable plugin version to an Unstable plugin version, and then permit a seamless upgrade from the Unstable version to the next Stable version (e.g. 13.0.0.0 Stable -> 13.2024.0429.0 Unstable -> 14.0.0.0 Stable).
 

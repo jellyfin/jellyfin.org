@@ -16,10 +16,10 @@ External audio files and containers are supported on Jellyfin 10.8 and later.
 
 ## Naming
 
-Jellyfin will search for external files that exactly match the video filename.
+Jellyfin will search for external files that exactly match the video file name.
 They can optionally include a language which will only be used if the language cannot be determined from the file metadata.
 
-If multiple languages are defined within the filename the last one will be used and the others ignored.
+If multiple languages are defined within the file name, the last one will be used and the others ignored.
 
 ### Simple example
 
@@ -45,7 +45,7 @@ Support for naming flags is coming with the next feature release for Jellyfin. U
 
 :::
 
-Additional flags can be appended to the filename (separated by the `.` delimiter) to add metadata. Supported metadata and flags are:
+Additional flags can be appended to the file name (separated by the `.` delimiter) to add metadata. Supported metadata and flags are:
 
 - Default: `default`
   - Marks the stream as the default.

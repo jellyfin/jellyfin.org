@@ -9,7 +9,7 @@ You can use notifications to get alerts when certain events happen on your serve
 
 ## Services
 
-Notifications can be sent using different services depending on what kind of integration you want. Jellyfin will show notifications on the dashboard by default, but you can install alternative services on the **Plugins** page. Most services will require additional configuration but can be extremely useful for those who want instant updates for activity on their server.
+Notifications can be sent using different services depending on what kind of integration you want. Jellyfin will show notifications in the dashboard by default, but you can install alternative services on the **Plugins** page. Most services will require additional configuration but can be extremely useful for those who want instant updates for activity on their server.
 
 ## Configuration
 

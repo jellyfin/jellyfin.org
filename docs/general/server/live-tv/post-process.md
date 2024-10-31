@@ -37,15 +37,15 @@ With the settings above, the server executes this command when running the post 
 "/path/to/run_post_process.sh" "\"/path/to/LiveTV/Shows/Series/Season/Episode.ts\""
 ```
 
-## Run Post Processor Shell Script (to be run directly by Jellyfin Server)
+## Run Post Processor Shell Script (to be run directly from Jellyfin Server)
 
 Quote interpretation is one of the hardest things to manage when using a post-processor script. Because of this, one easy way to run your post-processor is to have Jellyfin start a "runner" shell script, which then calls your actual post-processor script. This shell script then can be put into Jellyfin settings and have a "clean" shell environment where it is easier to configure, look at logs, and more.
 
 In the sample script below:
 
-- Logging is enabled, and a logfile is created at some location accessible by your Jellyfin instance.
-- The first command line argument, `$1` is written to the logfile (majorly for debugging purposes). This argument will be a path to the show to be post-processed. This argument is in the format of `/path/to/LiveTV/Shows/Series/Season/Episode.ts`
-- The actual post processor Python script `record_post_process.py` is then called with s command line argument of the file name.
+- Logging is enabled, and a log file is created at some location accessible by your Jellyfin instance.
+- The first command line argument, `$1` is written to the log file (majorly for debugging purposes). This argument will be a path to the show to be post-processed. This argument is in the format of `/path/to/LiveTV/Shows/Series/Season/Episode.ts`
+- The actual post processor Python script `record_post_process.py` is then called with command line argument of the file name.
 
 ### An example `run_post_processor.sh` script
 
@@ -64,11 +64,11 @@ In this example, a python script is where it all goes down. I chose to use Pytho
 
 In the sample script:
 
-- Logging is enabled, and a logfile is created at some location accessible by your Jellyfin instance.
+- Logging is enabled, and a log file is created at some location accessible by your Jellyfin instance.
 - Command line arguments are checked, if no argument provided, script exits.
-- Variables are determined for things such as the full non-transcoded file path, the basename, the file to be transcoded with extension, transcoded file name and path, and more.
+- Variables are determined for things such as the full non-transcoded file path, the basename, the file to be transcoded with extension, transcoded filename and path, and more.
 - FFMPEG command is created and ran.
-  - In this example, the `h264_videotoolbox` video codec is used, and the audio is copied from source. Change the ffmpeg command to fit your requirements.
+  - In this example, the `h264_videotoolbox` video codec is used, and the audio is copied from the source. Change the ffmpeg command to fit your requirements.
 - Nontranscoded file is moved out of the Series/Season directory, into a folder not accessible by Jellyfin, called OLDFILES (This portion could also be configured to delete the non-transcoded file)
 
 ### An example `record_post_process.py` script

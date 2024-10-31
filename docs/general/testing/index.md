@@ -34,7 +34,7 @@ There are 2 types of items that need to be tested on Jellyfin:
 
 ### Testing for General Bugs
 
-To test for general bugs, use Jellyfin normally, or try to come up with edge cases that you think might break Jellyfin and / or edge cases that have broken other pieces of software before. If you have successfully broken Jellyfin, congratulations! You might have found a previously unknown bug.
+To test for general bugs, use Jellyfin normally, or try to come up with edge cases that you think might break Jellyfin and/or edge cases that have broken other pieces of software before. If you have successfully broken Jellyfin, congratulations! You might have found a previously unknown bug.
 
 ### Reproducing Unconfirmed Issues
 
