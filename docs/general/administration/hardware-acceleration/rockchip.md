@@ -29,7 +29,7 @@ The [RGA](https://github.com/airockchip/librga) interface is Rockchip's 2D post-
 
 :::note
 
-- Unlike NVIDIA NVENC, there is no concurrent encoding sessions limit on Rockchip VPU.
+- Unlike NVIDIA NVENC, there is no concurrent encoding session limit on Rockchip VPU.
 
 - RKMPP support headless server on Linux, which means a connected monitor is not required.
 
@@ -101,7 +101,7 @@ A 64-bit Linux distribution is recommended. **The Rockchip BSP kernel (6.1 or 5.
 
 The `jellyfin-ffmpeg*` deb package required by Jellyfin comes with all necessary user mode Rockchip MPP & RGA drivers.
 
-Besides that you only need to install the OpenCL runtime (libmali) and configure the the device permissions.
+Besides that, you only need to install the OpenCL runtime (libmali) and configure the device permissions.
 
 :::note
 
@@ -111,7 +111,7 @@ Root permission is required.
 
 1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7`.
 
-2. Make sure `dma_heap`, `dri`, `mpp_service` and `rga` exist in `/dev`. Otherwise upgrade your BSP kernel to 5.10 LTS and newer.
+2. Make sure `dma_heap`, `dri`, `mpp_service` and `rga` exist in `/dev`. Otherwise, upgrade your BSP kernel to 5.10 LTS and newer.
 
    ```shell
    $ ls -l /dev | grep -E "mpp|rga|dri|dma_heap"
@@ -191,7 +191,7 @@ Root permission is required.
 
 :::
 
-1. Use Docker command line: (the extensive device names between `for...done` is used to ensure backward compatiblity)
+1. Use Docker command line: (the extensive device names between `for...done` is used to ensure backward compatibility)
 
    ```shell
    sudo docker run -d \

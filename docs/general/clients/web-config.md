@@ -25,7 +25,7 @@ Overriding the default `config.json` can be done with an additional volume param
 
 :::caution
 
-If the config.json file doesn't exist on the first run, Docker will map it to a directory instead of a file, which won't work.
+If the config.json file doesn't exist in the first run, Docker will map it to a directory instead of a file, which won't work.
 
 :::
 
@@ -54,7 +54,7 @@ By default, the "link" icon will be used.
 
 ## Privacy-focused changes
 
-Our default settings for the Jellyfin Web `config.json` file include some features that privacy-focused or completely-offline users may want to disable. Each option is detailed below.
+Our default settings for the Jellyfin Web `config.json` file includes some features that privacy-focused or completely-offline users may want to disable. Each option is detailed below.
 
 ### Google Chromecast
 
@@ -66,7 +66,7 @@ To disable it, edit `config.json` and remove the line:
 "plugins/chromecastPlayer/plugin"
 ```
 
-in the `plugins` section. Be sure to remove the last comma from the line above if this is the last line in the list.
+In the `plugins` section. Be sure to remove the last comma from the line above if this is the last line in the list.
 
 ### YouTube Trailers
 
@@ -78,4 +78,4 @@ To disable it, edit `config.json` and remove the line:
 "plugins/youtubePlayer/plugin"
 ```
 
-in the `plugins` section.
+In the `plugins` section.

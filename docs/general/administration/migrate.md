@@ -100,7 +100,7 @@ We have found many subtle bugs due to the inconsistent database schemas that res
 
 :::
 
-The original procedure is provided below for reference however we cannot support it nor guarantee that a system upgraded in this way will work properly, if at all.
+The original procedure is provided below for reference. We cannot support it nor guarantee that a system upgraded in this way will work properly, if at all.
 If anyone is interested in writing a database migration script which will correct the deficiencies in the existing database and properly import them into Jellyfin, [we would welcome it however](/docs/general/contributing)!
 
 :::caution
@@ -156,7 +156,7 @@ This procedure is written for Debian-based Linux distributions, but can be trans
    sudo chown -R jellyfin:jellyfin /var/lib/jellyfin
    ```
 
-9. Mark Startup Wizard as completed - if not marked as completed then it can be a security risk especially if remote access is enabled:
+9. Mark Startup Wizard as completed - if not marked as completed then it can be a security risk, especially if remote access is enabled:
 
    ```sh
    sudo sed -i '/IsStartupWizardCompleted/s/false/true/' /etc/jellyfin/system.xml

@@ -92,7 +92,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
 
-### Transparant count indicators (eg. Series)
+### Transparant count indicators (e.g. Series)
 
 ```css
 /* Make count indicator icon dark and transparent */
@@ -101,7 +101,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ### Display external links in mobile layout
 
-The mobile app disables display of external links to IMDb, TheMovieDB, Trakt, etc by default.
+The mobile app disables display of external links to IMDb, TheMovieDB, Trakt, etc. by default.
 To enable the external links again, add the following snippet:
 
 ```css
@@ -327,7 +327,7 @@ Enlarges the tab buttons, suggested, genres, etc. By default they are really tin
 }
 ```
 
-**The enlarged tab buttons and transparent menu look like this:**
+**The enlarged tab buttons and transparent menu looks like this:**
 
 ![Screenshot of enlarged tab buttons and transparent menu](/images/docs/custom-css-transparenttopbarenlargedtabs.png)
 
@@ -386,7 +386,7 @@ The episode previews in season view are sized based on horizontal resolution. Th
 This will drastically change the style of cast info into something very similar to how Plex approaches it. This override will lead to somewhat smaller thumbnails, and also works with all themes.
 
 ```css
-/* Shrink and square (or round) cast thumnails */
+/* Shrink and square (or round) cast thumbnails */
 #castContent .card.overflowPortraitCard.personCard.card-hoverable.card-withuserdata {width: 4.2cm !important; font-size: 90% !important;}
 #castContent .card.overflowPortraitCard.personCard.card-withuserdata {width: 4.2cm !important; font-size: 90% !important;}
 
@@ -766,7 +766,7 @@ Fontawesome Icons:
   @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css");
   ```
 
-- duotone:
+- Duotone:
 
   ```css
   @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css");
@@ -790,7 +790,7 @@ Keep in mind that these posts may have been made under previous versions of Jell
 
 ### Community Themes
 
-- [Ultrachromic - A custom theme for Jellyfin mediaserver created using CSS overrides](https://github.com/CTalvio/Ultrachromic)
+- [Ultrachromic - A custom theme for Jellyfin media server created using CSS overrides](https://github.com/CTalvio/Ultrachromic)
 - [JellySkin - Vibrant Jellyfin theme with a lot a animations](https://github.com/prayag17/JellySkin)
 - [JellyFlix - The Best Netflix Clone for Jellyfin](https://github.com/prayag17/JellyFlix)
 - [Jellyfin Netflix Dark - The Best Netflix Dark Theme for Jellyfin Around!](https://github.com/DevilsDesigns/Jellyfin-Netflix-Dark)

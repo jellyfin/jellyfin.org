@@ -105,7 +105,7 @@ If you are running Debian, RedHat, or another similar Linux distribution, run th
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl -p
 ```
 
-If you are running ArchLinux, run the following command instead:
+If you are running Arch Linux, run the following command instead:
 
 ```sh
 echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
@@ -124,7 +124,7 @@ rm -Rfv ~/.cache/jellyfin
 rm -Rfv ~/.local/share/jellyfin
 ```
 
-## Unlock locked user account
+## Unlock a locked user account
 
 When the admin account is locked out and the Forgot Password feature is not working, you have to unlock the user manually.
 To do that, you need to find the `jellyfin.db` file on your system.
@@ -135,7 +135,7 @@ For paths in other environments, see [server paths](/docs/general/administration
 
 Before continuing, make sure that you have sqlite3 installed.
 When sqlite3 is not installed, you can install it under Debian based systems with `apt install sqlite3`.
-After that do the following commands/SQL query:
+After that, do the following commands/SQL query:
 
 ```bash
 sqlite3 /PATH/TO/JELLYFIN/DB/jellyfin.db
@@ -163,13 +163,13 @@ UPDATE Permissions SET Value = 0 WHERE Kind = 2 AND UserId IN (SELECT Id FROM Us
 If the permissions for your admin account break, you can restore them using simple SQL queries.
 
 :::caution
-Manual changes to the database can destroy your instance beyond repair. to prevent this create a copy of your database before executing:
+Manual changes to the database can destroy your instance beyond repair. To prevent this create a copy of your database before executing:
 `cp /PATH/TO/JELLYFIN/DB/jellyfin.db  /PATH/TO/JELLYFIN/DB/jellyfin.db.bck`
 :::
 
 Before continuing, make sure that you have sqlite3 installed.
 When sqlite3 is not installed, you can install it under Debian based systems with `apt install sqlite3`.
-After that do the following commands/SQL query:  
+After that, do the following commands/SQL query:  
 *You can find a list of default Paths [here](../configuration#configuration-directory)*
 
 ```bash
@@ -192,7 +192,7 @@ SELECT Value,Kind FROM Permissions WHERE UserId IN (SELECT Id FROM Users WHERE U
 ```
 
 <br />
-The first row with an value of 1 or 0 shows if the permission is assigned or not. The second row displays the kind of permission. To get a summary for every permission you can look [here](https://github.com/jellyfin/jellyfin/blob/master/Jellyfin.Data/Enums/PermissionKind.cs)
+The first row with a value of 1 or 0 shows if the permission is assigned or not. The second row displays the kind of permission. To get a summary for every permission you can look [here](https://github.com/jellyfin/jellyfin/blob/master/Jellyfin.Data/Enums/PermissionKind.cs)
 
 ### Repair Permissions
 

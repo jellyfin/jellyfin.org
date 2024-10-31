@@ -13,7 +13,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 [Test your browser's compatibility for any codec profile.](https://cconcolato.github.io/media-mime-support/)
 
-| Sorted by efficency (excluding bit depth)                                                                          | Chrome         | Edge           | Firefox | Safari         | Android        | Android TV     | iOS            | SwiftFin (iOS) | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | [Desktop](/docs/general/clients/index.html#jellyfin-desktop) |
+| Sorted by efficiency (excluding bit depth)                                                                          | Chrome         | Edge           | Firefox | Safari         | Android        | Android TV     | iOS            | SwiftFin (iOS) | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | [Desktop](/docs/general/clients/index.html#jellyfin-desktop) |
 | ------------------------------------------------------------------------------------------------------------------ | -------------- | -------------- | ------- | -------------- | -------------- | -------------- | -------------- | -------------- | ------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------ |
 | [MPEG-4 Part 2/SP](https://en.wikipedia.org/wiki/DivX)                                                             | ❌             | ❌             | ❌      | ❌             | ❌             | ❌             | ❌             | ✅             | ✅                                                                              | ✅   | ✅                                                           |
 | [MPEG-4 Part 2/ASP](<https://en.wikipedia.org/wiki/MPEG-4_Part_2#Advanced_Simple_Profile_(ASP)>)                   | ❌             | ❌             | ❌      | ❌             | ❌             | ❌             | ❌             | ✅             |                                                                                 | ✅   | ✅                                                           |
@@ -28,9 +28,9 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <br />
 <sup>2</sup>Android playback is currently broken. Client reports that HEVC is supported and attempts to Direct Stream.
 <br />
-<sup>3</sup>May be (partially) dependent on Hardware support (can be compensated with CPU decoding on Android). Most new Android phones in the higher price range and many "4K" Android TV devices have VP9 hardware decoding support. Refer to you manufacturer for supported codecs.
+<sup>3</sup>May be (partially) dependent on Hardware support (can be compensated with CPU decoding on Android). Most new Android phones in the higher price range and many "4K" Android TV devices have VP9 hardware decoding support. Refer to your manufacturer for supported codecs.
 <br />
-<sup>4</sup>Needs atleast Android TV 10.
+<sup>4</sup>Needs at least Android TV 10.
 <br />
 <sup>5</sup>As of <a href="https://github.com/jellyfin/jellyfin-androidtv/pull/671">version 0.12</a>, HEVC is enabled on all devices running Android 5.0+, but early generations of the Amazon Fire may not work yet. 10Bit may be supported depending on your device. Before Client 0.12, HEVC support was enabled on specific devices.
 <br />
@@ -56,7 +56,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 |                              MPEG-2 Video                               |                                     DivX                                      |                                 MPEG-4 AVC                                 |                                                                     |                                       HEVC                                       |
 |                                DVD-Video                                |                                     DX50                                      |                                                                            |                                                                     |                                                                                  |
 
-<sup>1</sup><a href="https://www.afterdawn.com/glossary/term.cfm/mpeg_4_part_10">MPEG-4 Part-2 vs Part-10</a>
+<sup>1</sup><a href="https://www.afterdawn.com/glossary/term.cfm/mpeg_4_part_10">MPEG-4 Part-2 vs. Part-10</a>
 <br />
 <sup>2</sup><a href="https://en.wikipedia.org/wiki/MPEG-4_Part_17">MPEG-4 Part 17: MP4TT Subtitles</a>
 
@@ -93,13 +93,13 @@ If the audio codec is unsupported or incompatible (such as playing a 5.1 channel
 <br />
 <sup>5</sup>Safari only supports opus in <code>.caf</code> files
 <br />
-<sup>6</sup>Supported via passthrough on all devices. Native support for AC3 & E-AC3 on Roku TVs & Ultra.
+<sup>6</sup>Supported via pass-through on all devices. Native support for AC3 & E-AC3 on Roku TVs & Ultra.
 
 ATSC Standard for [AC-3 and EAC-3](https://www.atsc.org/wp-content/uploads/2015/03/A52-201212-17.pdf).
 
 ## [Subtitle Compatibility](https://en.wikipedia.org/wiki/Comparison_of_video_container_formats#Subtitle/caption_formats_support "Wikipedia's subtitle codec tables")
 
-Subtitles can be a subtle issue for transcoding. Containers have a limited number of subtitles that are supported. If subtitles need to be transcoded, it will happen one of two ways: they can be converted into another format that is supported, or burned into the video due to the subtitle transcoding not being supported. Burning in subtitles is the most intensive method of transcoding. This is due to two transcodings happening at once; applying the subtitle layer on top of the video layer.
+Subtitles can be a subtle issue for transcoding. Containers have a limited number of subtitles that are supported. If subtitles need to be transcoded, it will happen one of two ways: they can be converted into another format that is supported, or burned into the video due to the subtitle transcoding not being supported. Burning in subtitles is the most intensive method of transcoding. This is due to two transcodes happening at once; applying the subtitle layer on top of the video layer.
 
 Here is a [breakdown](https://www.afterdawn.com/guides/archive/subtitle_formats_explained.cfm) of common subtitle formats.
 
@@ -117,7 +117,7 @@ Here is a [breakdown](https://www.afterdawn.com/guides/archive/subtitle_formats_
 <br />
 <sup>2</sup>DVB-SUB <a href="https://forum.videohelp.com/threads/261451-Difference-between-SUB-and-IDX-file">(SUB + IDX)</a> is another name for VobSub files.
 <br />
-<sup>3</sup>EIA-608/708 subtitles are embedded in private channels (channel 21) in a MPEG video codec. EIA-608 are standard CC subtitles with the black bar background, while EIA-708 are typically SDH.
+<sup>3</sup>EIA-608/708 subtitles are embedded in private channels (channel 21) in an MPEG video codec. EIA-608 are standard CC subtitles with the black bar background, while EIA-708 are typically SDH.
 
 ### Types of Subtitles
 
@@ -137,7 +137,7 @@ SDH and CC are subtitles for the Deaf and Hard of Hearing. They include extra co
 
 #### Forced
 
-"Forced subtitles are common on movies and only provide subtitles when the characters speak a foreign or alien language, or a sign, flag, or other text in a scene is not translated in the localization and dubbing process. In some cases, foreign dialogue may be left untranslated if the movie is meant to be seen from the point of view of a particular character who does not speak the language in question." - [Wikipedia](https://en.wikipedia.org/wiki/Subtitles#Categories)
+"Forced subtitles are common in movies and only provide subtitles when the characters speak a foreign or alien language, or a sign, flag, or other text in a scene is not translated in the localization and dubbing process. In some cases, foreign dialogue may be left untranslated if the movie is meant to be seen from the point of view of a particular character who does not speak the language in question." - [Wikipedia](https://en.wikipedia.org/wiki/Subtitles#Categories)
 
 ### Extracting Subtitles
 

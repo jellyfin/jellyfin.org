@@ -5,11 +5,11 @@ title: Hardware Acceleration
 
 # Hardware Acceleration
 
-The Jellyfin server can offload on the fly video transcoding by utilizing an integrated or discrete graphics card ([GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)) suitable to accelerate this workloads very efficiently without straining your CPU.
+The Jellyfin server can offload on the fly video transcoding by utilizing an integrated or discrete graphics card ([GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)) suitable to accelerate these workloads very efficiently without straining your CPU.
 
 ## Supported Acceleration Methods
 
-The Jellyfin server uses a modified version of [FFmpeg](http://ffmpeg.org/) as its transcoder, namely [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg). It enables the Jellyfin server to access the fixed-function video codecs, video processors and [GPGPU](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) computing interfaces provided by vendor of the installed GPU and the operating system.
+The Jellyfin server uses a modified version of [FFmpeg](http://ffmpeg.org/) as its transcoder, namely [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg). It enables the Jellyfin server to access the fixed-function video codecs, video processors and [GPGPU](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) computing interfaces provided by the vendor of the installed GPU and the operating system.
 
 The supported and validated video [hardware acceleration (HWA)](https://trac.ffmpeg.org/wiki/HWAccelIntro) methods are:
 
@@ -146,7 +146,7 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
 - Intel VPP HDR10 tone-mapping is supported on Intel QSV and VA-API on Linux.
 
-- VPP is prefered if both tone-mapping options are enabled.
+- VPP is preferred if both tone-mapping options are enabled.
 
 - Rockchip RKMPP currently only support HDR10 and HLG tone-mapping.
 
@@ -159,7 +159,7 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
   :::tip
 
   The hardware decoding of H.264 / AVC 10-bit (High 10 profile) video is not supported by any Intel, NVIDIA and AMD GPU.
-  It is only supported by Apple Silicon and Rockchip. Jellyfin will fall back to software decoding for it when there is
+  It is only supported by Apple Silicon and Rockchip. Jellyfin will fallback to software decoding for it when there is
   no hardware decoder available. Consider upgrading such video to H.265 / HEVC 10-bit (Main 10 profile).
 
   :::
@@ -176,7 +176,7 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
   :::tip
 
-  On modern GPUs the peak throughput of video transcoding can be limited by the I/O speed of your hard drives. In this case, an SSD or RamDisk can be used for caching the transcoded temporary video segments.
+  On modern GPUs, the peak throughput of video transcoding can be limited by the I/O speed of your hard drives. In this case, an SSD or RamDisk can be used for caching the transcoded temporary video segments.
 
   :::
 
