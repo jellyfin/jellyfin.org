@@ -100,6 +100,8 @@ Jellyfin 10.10 no longer provides the shared network folder via the API, and as 
 :::
 Native mode accesses your media files directly from the filesystem, bypassing the Jellyfin server during playback. Native mode needs more setup and configuration, but it can, on rare occasions, lead to better performance where network bandwidth is a limitation. It requires your media to be available to the device Kodi is running on over either NFS or Samba, and therefore should only be used on a LAN or over a VPN connection.
 
+Native mode also provides a better experience for subtitles users. Text/audio synchronization issues are common with addon-mode mode.
+
 To use Native mode, first set up your libraries in Jellyfin with a remote path.
 
 :::caution
