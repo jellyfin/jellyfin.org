@@ -64,7 +64,7 @@ jobs:
     needs: build
     steps:
       - name: Add comment
-        uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         if: github.event_name == 'pull_request_target'
         with:
           GITHUB_TOKEN: ${{ secrets.JF_BOT_TOKEN }}
@@ -97,7 +97,7 @@ jobs:
             }} --commit-hash=${{ github.event.pull_request.head.sha || github.sha }}
       - name: Update status comment (Success)
         if: ${{ github.event_name == 'pull_request_target' && success() }}
-        uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           GITHUB_TOKEN: ${{ secrets.JF_BOT_TOKEN }}
           message: |
@@ -113,7 +113,7 @@ jobs:
           mode: recreate
       - name: Update status comment (Failure)
         if: ${{ github.event_name == 'pull_request_target' && failure() }}
-        uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           GITHUB_TOKEN: ${{ secrets.JF_BOT_TOKEN }}
           message: |
