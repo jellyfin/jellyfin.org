@@ -24,7 +24,7 @@ EFCore is the C#/.NET database handling framework, which simplifies database que
 
 Our original database code was written by Emby in a time long before .NET Core existed, when Mono ruled the world in terms of cross-platform C# compatibility. As such, it handled the database poorly: SQLite queries embedded directly in the code, and a fairly horrific schema with no migration capabilities. This has caused us a lot of problems over the years as we try to change and improve the codebase and add new features, and as such, the team began migrating to EFCore quite a while ago.
 
-We were able to move many of the databases quickly, mostly due to the dilligent work of [@BarronPM](https://github.com/barronpm); those have been live for several major releases now. But the Library database has remained as it was, due to its massive complexity and exceptionally poor schema. This has caused a lot of probems, for instance very slow search, problems adding new media types (or deprecating old ones), and lots of complexity inside the codebase around handling "non-standard" (i.e. not Movies/TV Shows/Music Albums) media types, resulting in bugs.
+We were able to move many of the databases quickly, mostly due to the diligent work of [@BarronPM](https://github.com/barronpm); those have been live for several major releases now. But the Library database has remained as it was, due to its massive complexity and exceptionally poor schema. This has caused a lot of problems, for instance very slow search, problems adding new media types (or deprecating old ones), and lots of complexity inside the codebase around handling "non-standard" (i.e. not Movies/TV Shows/Music Albums) media types, resulting in bugs.
 
 Now, thanks to [@JPVenson](https://github.com/JPVenson), we finally have the library database EFCore implementation ready to go. But there is a big catch.
 
@@ -46,15 +46,15 @@ The downside of this is, though, that we might not be able to cleanly implement 
 
 2. About 1-2 weeks after this blog post, we will merge the Library EFCore migration into our `master` branch and begin preliminary testing. If you want to help here, you will have to [build Jellyfin from source](/docs/general/installation/source), and the more people who can help here the better!
 
-3. About 2 weeks after merging, assuming everything looks generally OK, we will **reenable unstable builds for the general public**. At this point, all unstable builds will apply the initial migrations on startup. That will bring us to about 4 weeks (give or take a week) from the 10.10.0 release.
+3. About 2 weeks after merging, assuming everything looks generally OK, we will **re-enable unstable builds for the general public**. At this point, all unstable builds will apply the initial migrations on startup. That will bring us to about 4 weeks (give or take a week) from the 10.10.0 release.
 
-4. Over the following weeks, we will take bug reports and try to mitigte them. This is the possible sticking point: if it's not possible for us to implement a clean set of migrations, we may decide to only focus the migration on stable-to-unstable conversions, rather than unstable-to-unstable. If this happens, you may need to restore a previous version and apply the new migrations to it.
+4. Over the following weeks, we will take bug reports and try to correct them. This is the possible sticking point: if it's not possible for us to implement a clean set of migrations, we may decide to only focus the migration on stable-to-unstable conversions, rather than unstable-to-unstable. If this happens, you may need to restore a previous version and apply the new migrations to it.
 
 ## What this actually means for you
 
-First and foremost, if this is too much for you, this is your warning for the offramp. Switch away from unstable **now** before we restore the unstable builds in a few weeks.
+First and foremost, if this is too much for you, this is your warning for the off-ramp. Switch away from unstable **now** before we restore the unstable builds in a few weeks.
 
-Second, **ensure you have a robust backup strategy [based on our suggested backup process](general/administration/backup-and-restore)**. Take backups regularly, and, to help us test, try to also have a backup of your last stable release so you can run that through the migrations as well. Take backups **before** applying the next unstable build, every time.
+Second, **ensure you have a robust backup strategy [based on our suggested backup process](/docs/general/administration/backup-and-restore)**. Take backups regularly, and, to help us test, try to also have a backup of your last stable release so you can run that through the migrations as well. Take backups **before** applying the next unstable build, every time.
 
 Third, **ensure you disable automatic upgrades**. We generally recommend this anyways, but if you're still doing this, now is the time to stop.
 
