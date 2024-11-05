@@ -179,6 +179,12 @@ Root permission is required.
 
 Before proceeding, please complete **steps 2 and 5** in the [Configure on Linux Host](#configure-on-linux-host) section above.
 
+:::warning
+
+That should be the case as for docker so for LXC container setup!
+
+:::
+
 #### Official Docker
 
 The official Docker image comes with all necessary user mode Rockchip MPP & RGA & OpenCL drivers.
@@ -228,6 +234,74 @@ Root permission is required.
    ```
 
 3. Enable RKMPP in Jellyfin and uncheck the unsupported codecs.
+
+#### Non-official LXC (Linux Containers)
+
+This setup might be useful for those, who use RK3588/3588S SoC as [Proxmox](https://www.proxmox.com/en/) host, where LXC is the official and the only supported way of doing lightweight virtualiztion with the help of system containers (LXC) vs application containers (docker). As of today Proxmox team does not support ARM platforms as hosts - and probably will never do - however successful deployments on ARM devices [are possible](https://github.com/jiangcuo/Proxmox-Port?tab=readme-ov-file).
+
+LXC setup idea is a bit similar to docker - you need to pass the **device files** of VPU from host to LXC and enable the **privileged mode** (see also important "_note_" below about privileged LXC containers).
+1. To find the list of device files to pass inside container, use the next one-liner in Linux host:
+
+```
+root@pve:~# for dev in dri dma_heap mali0 rga mpp_service iep mpp-service vpu_service vpu-service hevc_service hevc-service rkvdec rkvenc vepu h265e ; do [ -e "/dev/$dev" ] && echo "device /dev/$dev";  done
+device /dev/dri
+device /dev/dma_heap
+device /dev/mali0
+device /dev/rga
+device /dev/mpp_service
+```
+
+Example of the minumum requried extra (not full) container configuration to make VPU hardware accelearion working is presented below:
+
+```
+lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
+lxc.mount.entry: /dev/dma_heap dev/dma_heap none bind,optional,create=dir
+lxc.mount.entry: /dev/mpp_service dev/mpp_service none bind,optional,create=file
+lxc.mount.entry: /dev/rga dev/rga none bind,optional,create=file
+lxc.mount.entry: /dev/mali0 dev/mali0 none bind,optional,create=file
+lxc.cgroup2.devices.allow: a
+```
+
+Use [lxc.container.conf](https://linuxcontainers.org/lxc/manpages//man5/lxc.container.conf.5.html) man page for reference, what _lxc.mount.entry_ and _lxc.cgroup2.devices_ options are used for.
+If you want - and you have concerns about it - you can replace _lxc.cgroup2.devices.allow: a_ rule with more restricted "_allowlist device program_" (example could be found inside the same man page) enumerating each character VPU device, that container namespace should have access inside the host.
+
+:::note
+
+Privileged LXC containers are considered unsafe by design - read more [here](https://linuxcontainers.org/lxc/security/). This guide however does not cover steps required to make jellyfin VPU hardware acceleration working in unprivileged container.
+
+:::
+
+2. Install [jellyfin package](https://jellyfin.org/docs/general/installation/linux) for your Linux flavor into LXC container or optionally you can even use an official docker image inside LXC container.
+3. Verify OpenCL runtime status as following - example is collected from LXC runtime of Ubuntu Jammy - steps are literally the same as in case of docker deployment:
+ - libmali user-space drivers should be installed inside LXC container, otherwise opencl=ocl@rk device won't be initialized
+
+```
+root@jellyfin:~# dpkg -l | egrep "libmali|clinfo|jellyfin"
+ii  clinfo                          3.0.21.02.21-1                          arm64        Query OpenCL system information
+ii  jellyfin                        10.9.11+ubu2204                         all          Jellyfin is the Free Software Media System.
+ii  jellyfin-ffmpeg6                6.0.1-8-jammy                           arm64        Tools for transcoding, streaming and playing of multimedia files
+ii  jellyfin-server                 10.10.0+ubu2204                         arm64        Jellyfin is the Free Software Media System.
+ii  jellyfin-web                    10.10.0+ubu2204                         all          Jellyfin is the Free Software Media System.
+ii  libmali-valhall-g610-g13p0-gbm  1.9-1                                   arm64        Mali GPU User-Space Binary Drivers
+
+root@jellyfin:~# /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device rkmpp=rk -init_hw_device opencl=ocl@rk
+ffmpeg version 6.0.1-Jellyfin Copyright (c) 2000-2023 the FFmpeg developers
+  built with gcc 11 (Ubuntu 11.4.0-1ubuntu1~22.04)
+  configuration: --prefix=/usr/lib/jellyfin-ffmpeg --target-os=linux --extra-version=Jellyfin --disable-doc --disable-ffplay --disable-ptx-compression --disable-static --disable-libxcb --disable-sdl2 --disable-xlib --enable-lto --enable-gpl --enable-version3 --enable-shared --enable-gmp --enable-gnutls --enable-chromaprint --enable-opencl --enable-libdrm --enable-libxml2 --enable-libass --enable-libfreetype --enable-libfribidi --enable-libfontconfig --enable-libbluray --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libopenmpt --enable-libdav1d --enable-libsvtav1 --enable-libwebp --enable-libvpx --enable-libx264 --enable-libx265 --enable-libzvbi --enable-libzimg --enable-libfdk-aac --arch=arm64 --cross-prefix=/usr/bin/aarch64-linux-gnu- --toolchain=hardened --enable-cross-compile --enable-rkmpp --enable-rkrga
+...
+
+arm_release_ver: g13p0-01eac0, rk_so_ver: 10
+[AVHWDeviceContext @ 0x55a5b30a00] 1 OpenCL platforms found.
+[AVHWDeviceContext @ 0x55a5b30a00] 1 OpenCL devices found on platform "ARM Platform".
+[AVHWDeviceContext @ 0x55a5b30a00] 0.0: ARM Platform / Mali-G610 r0p0
+[AVHWDeviceContext @ 0x55a5b30a00] cl_arm_import_memory found as platform extension.
+[AVHWDeviceContext @ 0x55a5b30a00] cl_khr_image2d_from_buffer found as platform extension.
+[AVHWDeviceContext @ 0x55a5b30a00] DRM to OpenCL mapping on ARM function found (clImportMemoryARM).
+Successfully parsed a group of options.
+...
+```
+3. Enable RKMPP in Jellyfin and uncheck the unsupported codecs
+
 
 ### Verify On Linux
 
