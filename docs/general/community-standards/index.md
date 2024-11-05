@@ -21,7 +21,7 @@ This document outlines the standards by which all participants in the Jellyfin c
 
 At all times when interacting with the Jellyfin community via any method (Matrix, Forums, etc.), you must abide by the following:
 
-- **Respect others and remember the Human.** Do exhibit kindness and empathy to others and make them feel welcome. **Do not antagonize, flame, insult, demean, abuse, or harass others.** Do not use slurs or sexualized language. Do not dox or otherwise expose others' private information, even if it is shared publicly elsewhere. **Always act in good faith and give other contributors the benefit of the doubt.** Try to read positivity rather than negativity into communications where at all possible.
+- **Respect others and remember they're Human.** Do exhibit kindness and empathy to others and make them feel welcome. **Do not antagonize, flame, insult, demean, abuse, or harass others.** Do not use slurs or sexualized language. Do not dox or otherwise expose others' private information, even if it is shared publicly elsewhere. **Always act in good faith and give other contributors the benefit of the doubt.** Try to read positivity rather than negativity into communications where at all possible.
 
 - **Do not engage in, encourage, facilitate or discuss piracy in any Jellyfin communities.** Jellyfin is a media server system for your own media collection; how you obtain media is not our concern and is not to be discussed in our communities in any form. **Do not ask about where or how to obtain media**, **do not ask about, sell, trade, or otherwise facilitate access to other users' servers** or **discuss any piracy related topics. This includes discussing technologies commonly used for piracy and personal philosophies about it**, in our communities. Please also refrain from discussing any topic that is closely related to piracy or accompanying topics and technology.
 
@@ -58,3 +58,5 @@ This document represents official Jellyfin project policy. Any changes to this d
 - 2020-09-14, Joshua Boniface: Initial version of the community standards document. Based _very_ loosely on several CoCs including the Contributor Covenant, and various Forum rules I've read and written over the years.
 - 2022-09-03, Joshua Boniface: Update header and footer sections; reduce redundant wording; make rules clearer.
 - 2024-08-12, JPVenson: Added section about respecting the TOS of other services
+- 2024-11-05, T-Gander: Fixed small typo in code of conduct.
+
