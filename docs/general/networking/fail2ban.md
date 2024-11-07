@@ -95,7 +95,7 @@ To enhance security, Fail2Ban can manage IP bans on an upstream reverse proxy se
 
 This guide offers a configuration for setting up Fail2Ban to manage IP bans on an upstream reverse proxy server using **Dynamic Chains**, where each Fail2Ban jail creates and manages its own `iptables` chain on the upstream server.
 
-### Prerequisites
+### Assumptions
 
 - **Fail2Ban** is installed on your local server (where Jellyfin is running).
 - **iptables** is configured on the upstream server.
