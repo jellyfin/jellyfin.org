@@ -265,14 +265,14 @@ lxc.cgroup2.devices.allow: a
 Use [lxc.container.conf](https://linuxcontainers.org/lxc/manpages//man5/lxc.container.conf.5.html) man page for reference, what _lxc.mount.entry_ and _lxc.cgroup2.devices_ options are used for.
 If you want - and you have concerns about it - you can replace _lxc.cgroup2.devices.allow: a_ rule with more restricted "_allowlist device program_" (example could be found inside the same man page) enumerating each character VPU device, that container namespace should have access inside the host.
 
-:::note
+:::warning
 
 Privileged LXC containers are considered unsafe by design - read more [here](https://linuxcontainers.org/lxc/security/). This guide however does not cover steps required to make jellyfin VPU hardware acceleration working in unprivileged container.
 
 :::
 
 2. Install [jellyfin package](https://jellyfin.org/docs/general/installation/linux) for your Linux flavor into LXC container or optionally you can even use an official docker image inside LXC container.
-3. Verify OpenCL runtime status as following - example is collected from LXC runtime of Ubuntu Jammy - steps are literally the same as in case of docker deployment:
+3. Verify OpenCL runtime status as following - example is collected from LXC runtime of Ubuntu Jammy - steps are the same as docker deployments:
  - libmali user-space drivers should be installed inside LXC container, otherwise opencl=ocl@rk device won't be initialized
 
 ```
