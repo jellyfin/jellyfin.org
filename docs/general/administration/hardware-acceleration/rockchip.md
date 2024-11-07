@@ -177,13 +177,7 @@ Root permission is required.
 
 ### Configure With Linux Virtualization
 
-Before proceeding, please complete **steps 2 and 5** in the [Configure on Linux Host](#configure-on-linux-host) section above.
-
-:::warning
-
-That should be the case as for docker so for LXC container setup!
-
-:::
+Before proceeding, please complete **steps 2 and 5** in the [Configure on Linux Host](#configure-on-linux-host) section above. That should be the case as for docker so for LXC container setup!
 
 #### Official Docker
 
@@ -235,15 +229,15 @@ Root permission is required.
 
 3. Enable RKMPP in Jellyfin and uncheck the unsupported codecs.
 
-#### Non-official LXC (Linux Containers)
+#### LXC (Linux Containers)
 
 This setup might be useful for those, who use RK3588/3588S SoC as [Proxmox](https://www.proxmox.com/en/) host, where LXC is the official and the only supported way of doing lightweight virtualiztion with the help of system containers (LXC) vs application containers (docker). As of today Proxmox team does not support ARM platforms as hosts - and probably will never do - however successful deployments on ARM devices [are possible](https://github.com/jiangcuo/Proxmox-Port?tab=readme-ov-file).
 
 LXC setup idea is a bit similar to docker - you need to pass the **device files** of VPU from host to LXC and enable the **privileged mode** (see also important "_note_" below about privileged LXC containers).
 1. To find the list of device files to pass inside container, use the next one-liner in Linux host:
 
-```
-root@pve:~# for dev in dri dma_heap mali0 rga mpp_service iep mpp-service vpu_service vpu-service hevc_service hevc-service rkvdec rkvenc vepu h265e ; do [ -e "/dev/$dev" ] && echo "device /dev/$dev";  done
+```shell
+for dev in dri dma_heap mali0 rga mpp_service iep mpp-service vpu_service vpu-service hevc_service hevc-service rkvdec rkvenc vepu h265e ; do [ -e "/dev/$dev" ] && echo "device /dev/$dev";  done
 device /dev/dri
 device /dev/dma_heap
 device /dev/mali0
@@ -253,7 +247,7 @@ device /dev/mpp_service
 
 Example of the minumum requried extra (not full) container configuration to make VPU hardware accelearion working is presented below:
 
-```
+```shell
 lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry: /dev/dma_heap dev/dma_heap none bind,optional,create=dir
 lxc.mount.entry: /dev/mpp_service dev/mpp_service none bind,optional,create=file
@@ -271,11 +265,11 @@ Privileged LXC containers are considered unsafe by design - read more [here](htt
 
 :::
 
-2. Install [jellyfin package](https://jellyfin.org/docs/general/installation/linux) for your Linux flavor into LXC container or optionally you can even use an official docker image inside LXC container.
+2. Install supported [jellyfin package](https://jellyfin.org/docs/general/installation/linux) into LXC container or optionally you can even use an official docker image inside LXC container.
 3. Verify OpenCL runtime status as following - example is collected from LXC runtime of Ubuntu Jammy - steps are the same as docker deployments:
  - libmali user-space drivers should be installed inside LXC container, otherwise opencl=ocl@rk device won't be initialized
 
-```
+```shell
 root@jellyfin:~# dpkg -l | egrep "libmali|clinfo|jellyfin"
 ii  clinfo                          3.0.21.02.21-1                          arm64        Query OpenCL system information
 ii  jellyfin                        10.9.11+ubu2204                         all          Jellyfin is the Free Software Media System.
@@ -300,8 +294,7 @@ arm_release_ver: g13p0-01eac0, rk_so_ver: 10
 Successfully parsed a group of options.
 ...
 ```
-3. Enable RKMPP in Jellyfin and uncheck the unsupported codecs
-
+3. Enable RKMPP in Jellyfin GUI, check supported (and desired) codecs and uncheck the unsupported - see "**Select SoC/VPU Hardware**" section for more details.
 
 ### Verify On Linux
 
