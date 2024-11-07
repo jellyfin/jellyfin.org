@@ -100,7 +100,7 @@ This guide offers a configuration for setting up Fail2Ban to manage IP bans on a
 - **Fail2Ban** is installed on your local server (where Jellyfin is running).
 - **iptables** is configured on the upstream server.
 
-### Step 1: Set Up SSH Key-Based Authentication
+### Step one: Set Up SSH Key-Based Authentication
 
 Ensure the Fail2Ban server can SSH into the upstream server without needing a password. This is crucial for automating the IP ban/unban process.
 
@@ -126,7 +126,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
    ssh -i /root/.ssh/id_rsa root@<upstream-server-ip>
    ```
 
-### Step 2: Configure Fail2Ban for Dynamic Chains
+### Step two: Configure Fail2Ban for Dynamic Chains
 
 1. **Create the Fail2Ban Action File**:
 
@@ -199,7 +199,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
 
    After making chaneges, save and close the file.
 
-### Step 4: Restart Fail2Ban and Test the Setup
+### Step three: Restart Fail2Ban and Test the Setup
 
 1. **Restart Fail2Ban**:
 
@@ -249,7 +249,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
    ssh root@<upstream-server-ip> "iptables -L f2b-jellyfin"
    ```
 
-### Step 5: Monitor Logs
+### Step four: Monitor Logs
 
 Monitor the Fail2Ban log to ensure that actions are being executed properly:
 
