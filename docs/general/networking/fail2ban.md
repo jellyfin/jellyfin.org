@@ -227,7 +227,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
 
 4. **Verify on Upstream Server**:
 
-   Check if the IP is banned in the corresponding jail's chain on the upstream server ('f2b-<jail-name>'):
+   Check if the IP is banned in the corresponding jail's chain on the upstream server ('f2b-jail-name'):
 
    ```bash
    ssh root@<upstream-server-ip> "iptables -L f2b-jellyfin"
@@ -243,7 +243,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
 
 6. **Verify Unban**:
 
-    Verify that the IP is removed from the corresponding jail's chain ('f2b-<jail-name>'):
+    Verify that the IP is removed from the corresponding jail's chain ('f2b-jail-name'):
 
    ```bash
    ssh root@<upstream-server-ip> "iptables -L f2b-jellyfin"
