@@ -114,7 +114,7 @@ Root permission is required.
 2. Make sure `dma_heap`, `dri`, `mpp_service` and `rga` exist in `/dev`. Otherwise upgrade your BSP kernel to 5.10 LTS and newer.
 
    ```shell
-   $ ls -l /dev | grep -E "mpp|rga|dr#select-soc-vpu-hardwarei|dma_heap"
+   $ ls -l /dev | grep -E "mpp|rga|dri|dma_heap"
    drwxr-xr-x  2 root       root          80 Jan  1  1970 dma_heap
    drwxr-xr-x  3 root       root         140 Jan 18 18:50 dri
    crw-rw----  1 root       video   241,   0 Jan 18 18:50 mpp_service
