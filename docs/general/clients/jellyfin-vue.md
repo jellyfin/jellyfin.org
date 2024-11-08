@@ -128,8 +128,7 @@ volumes:
   - _𝘱𝘢𝘵𝘩_:/dest
 # This makes the container do nothing and sleep forever,
 # frontend will be copied to _𝘱𝘢𝘵𝘩_ and will be served by your web server
-# /setup.sh applies 
-entrypoint: /bin/sh -c '/setup.sh && rm -rf /dest/* && cp -r /usr/share/nginx/html/* /dest && sleep infinity'
+command: /bin/sh -c 'rm -rf /dest/* && cp -r . /dest && sleep infinity'
 
 ```
 
