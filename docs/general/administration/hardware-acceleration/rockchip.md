@@ -272,16 +272,11 @@ Privileged LXC containers are considered unsafe by design - read more [here](htt
 ```shell
 root@jellyfin:~# dpkg -l | egrep "libmali|clinfo|jellyfin"
 ii  clinfo                          3.0.21.02.21-1                          arm64        Query OpenCL system information
-ii  jellyfin                        10.9.11+ubu2204                         all          Jellyfin is the Free Software Media System.
-ii  jellyfin-ffmpeg6                6.0.1-8-jammy                           arm64        Tools for transcoding, streaming and playing of multimedia files
-ii  jellyfin-server                 10.10.0+ubu2204                         arm64        Jellyfin is the Free Software Media System.
-ii  jellyfin-web                    10.10.0+ubu2204                         all          Jellyfin is the Free Software Media System.
+ii  jellyfin                        10.10.1+ubu2204                         all          Jellyfin is the Free Software Media System.
+ii  jellyfin-ffmpeg7                7.0.2-5-jammy                           arm64        Tools for transcoding, streaming and playing of multimedia files
+ii  jellyfin-server                 10.10.1+ubu2204                         arm64        Jellyfin is the Free Software Media System.
+ii  jellyfin-web                    10.10.1+ubu2204                         all          Jellyfin is the Free Software Media System.
 ii  libmali-valhall-g610-g13p0-gbm  1.9-1                                   arm64        Mali GPU User-Space Binary Drivers
-
-root@jellyfin:~# /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device rkmpp=rk -init_hw_device opencl=ocl@rk
-ffmpeg version 6.0.1-Jellyfin Copyright (c) 2000-2023 the FFmpeg developers
-  built with gcc 11 (Ubuntu 11.4.0-1ubuntu1~22.04)
-  configuration: --prefix=/usr/lib/jellyfin-ffmpeg --target-os=linux --extra-version=Jellyfin --disable-doc --disable-ffplay --disable-ptx-compression --disable-static --disable-libxcb --disable-sdl2 --disable-xlib --enable-lto --enable-gpl --enable-version3 --enable-shared --enable-gmp --enable-gnutls --enable-chromaprint --enable-opencl --enable-libdrm --enable-libxml2 --enable-libass --enable-libfreetype --enable-libfribidi --enable-libfontconfig --enable-libbluray --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libopenmpt --enable-libdav1d --enable-libsvtav1 --enable-libwebp --enable-libvpx --enable-libx264 --enable-libx265 --enable-libzvbi --enable-libzimg --enable-libfdk-aac --arch=arm64 --cross-prefix=/usr/bin/aarch64-linux-gnu- --toolchain=hardened --enable-cross-compile --enable-rkmpp --enable-rkrga
 ...
 
 arm_release_ver: g13p0-01eac0, rk_so_ver: 10
