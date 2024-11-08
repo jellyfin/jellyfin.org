@@ -177,7 +177,7 @@ Root permission is required.
 
 ### Configure With Linux Virtualization
 
-Before proceeding, please complete **steps 2 and 5** in the [Configure on Linux Host](#configure-on-linux-host) section above. That should be the case as for docker so for LXC container setup!
+Before proceeding, please complete **steps 2 and 5** in the [Configure on Linux Host](#configure-on-linux-host) section above. This applies to both Docker and LXC setups.
 
 #### Official Docker
 
