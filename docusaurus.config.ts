@@ -19,7 +19,7 @@ const config: Config = {
   organizationName: 'jellyfin',
   projectName: 'jellyfin.org',
   themeConfig: {
-    image: 'images/social.png',
+    image: 'images/social.png?v2',
     metadata: [
       { name: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
