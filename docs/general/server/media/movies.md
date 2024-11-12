@@ -93,6 +93,36 @@ To group media manually, long-click or right-click media to highlight then selec
 
 :::
 
+## Movies Split Across Multiple Parts
+
+Movies that are split into multiple files can be stacked together if named correctly. Files should be named as follows:
+
+- `Movie Name (2010)/Movie Name<separator><parttype><separator><partnumber>.mkv`
+
+The separator is optional between `<parttype>` and `<partnumber>`. `<partnumber>` can be any number, or the letters a-d.
+
+Supported part types are:
+
+- `cd`
+- `dvd`
+- `part`
+- `pt`
+- `disc`
+- `disk`
+
+Supported separators are:
+
+- `(space)`
+- `. (period)`
+- `- (dash)`
+- `_ (underscore)`
+
+:::note
+
+This does not work in conjunction with multiple versions or merging.
+
+:::
+
 ## Movie Extras
 
 Movie extras can include deleted scenes, interviews, and other various things that you would want to include alongside your movie. Jellyfin supports several different methods of adding these files.
