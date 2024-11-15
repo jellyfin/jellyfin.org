@@ -21,14 +21,14 @@
     "test:web-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-web-urls.json"
   },
   "dependencies": {
-    "@docusaurus/core": "3.5.2",
-    "@docusaurus/plugin-client-redirects": "3.5.2",
-    "@docusaurus/plugin-content-blog": "3.5.2",
-    "@docusaurus/plugin-content-docs": "3.5.2",
-    "@docusaurus/plugin-content-pages": "3.5.2",
-    "@docusaurus/plugin-sitemap": "3.5.2",
-    "@docusaurus/theme-classic": "3.5.2",
-    "@docusaurus/theme-mermaid": "3.5.2",
+    "@docusaurus/core": "3.6.1",
+    "@docusaurus/plugin-client-redirects": "3.6.1",
+    "@docusaurus/plugin-content-blog": "3.6.1",
+    "@docusaurus/plugin-content-docs": "3.6.1",
+    "@docusaurus/plugin-content-pages": "3.6.1",
+    "@docusaurus/plugin-sitemap": "3.6.1",
+    "@docusaurus/theme-classic": "3.6.1",
+    "@docusaurus/theme-mermaid": "3.6.1",
     "@easyops-cn/docusaurus-search-local": "0.45.0",
     "@fontsource/noto-sans": "5.1.0",
     "@icons-pack/react-simple-icons": "10.1.0",
@@ -59,8 +59,8 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.5.2",
-    "@docusaurus/tsconfig": "3.5.2",
+    "@docusaurus/module-type-aliases": "3.6.1",
+    "@docusaurus/tsconfig": "3.6.1",
     "@types/react": "18.3.12",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
