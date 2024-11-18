@@ -935,7 +935,7 @@ export const Clients: Array<Client> = [
     id: 'symfonium',
     name: 'Symfonium',
     description:
-      'An offline-first third-party music player that enhances your Jellyfin experience with streaming, syncing, and full personalization',
+      'An offline-first third-party music player that enhances your Jellyfin experience with streaming, syncing and full personalization',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.Proprietary,
