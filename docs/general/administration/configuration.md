@@ -91,7 +91,6 @@ The main server configuration is built upon the ASP .NET [configuration framewor
 5. **Command line options**: Certain command line options are loaded into the configuration system and have the highest priority. The following command line options are mapped to associated configuration options.
 
    - `--nowebclient` sets the `hostwebclient` configuration setting to false
-   - `--plugin-manifest-url` sets a value for the `InstallationManager:PluginManifestUrl` configuration setting
 
 ### Main Configuration Options
 
@@ -100,11 +99,8 @@ This section lists all the configuration options available and explains their fu
 | Key                                     | Default Value                                                                                     | Description                                                                                                                                                             |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `hostwebclient`                         | `True`                                                                                            | Set to `True` if the server should host the web client.                                                                                                                 |
-| `HttpListenerHost:DefaultRedirectPath`  | `"web/index.html"` if `hostwebclient` is true; `"swagger/index.html"` if `hostwebclient` is false | The default redirect path to use for requests where the URL base prefix is invalid or missing                                                                           |
-| `InstallationManager:PluginManifestUrl` | `"https://repo.jellyfin.org/releases/plugin/manifest.json"`                                       | The URL for the plugin repository JSON manifest.                                                                                                                        |
 | `FFmpeg:probesize`                      | `"1G"`                                                                                            | Value to set for the FFmpeg `probesize` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.           |
 | `FFmpeg:analyzeduration`                | `"200M"`                                                                                          | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
-| `playlists:allowDuplicates`             | `True`                                                                                            | Whether playlists should allow duplicate items or automatically filter out duplicates.                                                                                  |
 | `PublishedServerUrl`                    | Server Url based on primary IP address                                                            | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
 
 ## Fonts
