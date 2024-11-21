@@ -48,9 +48,12 @@ Maxr1998:
 
 nielsvanvelzen:
   name: Niels van Velzen
+  page: true
   title: Core Team, Android Lead
-  url: https://github.com/nielsvanvelzen
   image_url: https://avatars.githubusercontent.com/u/2305178?v=4
+  socials:
+    github: nielsvanvelzen
+    mastodon: https://mastodon.social/@hetisniels
 
 Shadowghost:
   name: Tim Eisele
