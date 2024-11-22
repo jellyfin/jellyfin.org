@@ -944,7 +944,7 @@ export const Clients: Array<Client> = [
       {
         id: 'play-store',
         name: 'Play Store',
-        url: 'https://play.google.com/store/apps/details?id=app.symfonik.music.player&referrer=utm_source%3Djellyfin%26utm_medium%3Ddownload'
+        url: 'https://play.google.com/store/apps/details?id=app.symfonik.music.player'
       }
     ],
     secondaryLinks: [
