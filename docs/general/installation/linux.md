@@ -9,7 +9,7 @@ sidebar_position: 2
 
 ### Debuntu (Debian, Ubuntu, and derivatives using `apt`) with official repository
 
-The Jellyfin team provides 3rd-party Debian and Ubuntu repositories, to help ensure your Jellyfin install is always kept up-to-date.
+The Jellyfin team provides 3rd-party Debian and Ubuntu repositories, to help ensure your Jellyfin install is always kept up-to-date. For Ubuntu, only LTS distributions from the past 5 years are supported.
 
 #### Repository (Automatic)
 
@@ -77,10 +77,9 @@ The `Extra` repository contains builds for both [`jellyfin-server`](https://arch
 Both packages, server and web, can also be built from source at the tip of the master branch using [`jellyfin-git`](https://aur.archlinux.org/packages/jellyfin-git/).
 The AUR also offers each separately at [`jellyfin-server-git`](https://aur.archlinux.org/packages/jellyfin-server-git/) and [`jellyfin-web-git`](https://aur.archlinux.org/packages/jellyfin-web-git/).
 
-### Fedora
+### Fedora, CentOS and other RPM distributions
 
-Fedora builds in RPM package format are available [in the main download repository](https://repo.jellyfin.org/?path=/server/). We do not yet have an official Fedora repository, but one is planned for the future.  
-However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` and `jellyfin-web` for Fedora version `38` and above.
+Builds in RPM package format are provided by RPM Fusion. Official packages are no longer provided starting with 10.9.
 
 #### RPM Fusion
 
@@ -157,28 +156,15 @@ However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` an
    sudo firewall-cmd --reload
    ```
 
-7. Go to `localhost:8096` or `ip-address-of-jellyfin-server:8096` to finish setup in the web UI
-
-### CentOS
-
-CentOS/RHEL 7 builds in RPM package format are available [in the main download repository](https://repo.jellyfin.org/?path=/server/). We do not yet have an official CentOS/RHEL repository, but one is planned for the future.
-
-The default CentOS/RHEL repositories don't provide FFmpeg, which the RPM requires.
-You will need to add a third-party repository which provide FFmpeg, such as [RPM Fusion's Free repository](https://rpmfusion.org/Configuration).
-
-You can also build [Jellyfin's version](https://github.com/jellyfin/jellyfin-ffmpeg) on your own.
-This includes gathering the dependencies and compiling and installing them.
-Instructions can be found at [the FFmpeg wiki](https://trac.ffmpeg.org/wiki/CompilationGuide/Centos).
-
-The general process should follow the above Fedora instructions.
+7. Go to `localhost:8096` or `ip-address-of-jellyfin-server:8096` to finish setup in the web UI.
 
 ### Gentoo
 
 The Gentoo ebuild repository includes the Jellyfin package which can be installed like other software:
 
-   ```sh
-   emerge www-apps/jellyfin
-   ```
+```sh
+emerge www-apps/jellyfin
+```
 
 ### NixOS
 
@@ -249,9 +235,9 @@ If you would prefer to install everything manually, the full steps are as follow
 
    The supported values for the above variables are:
 
-   * `${VERSION_OS}`: One of `debian` or `ubuntu`; if it is not, use the closest one for your distribution.
-   * `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
-   * `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
+   - `${VERSION_OS}`: One of `debian` or `ubuntu`; if it is not, use the closest one for your distribution.
+   - `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
+   - `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
 
    :::
 
