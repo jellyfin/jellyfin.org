@@ -5,7 +5,7 @@ description: Install on Linux.
 sidebar_position: 2
 ---
 
-## Official Methods
+## Official packages and methods
 
 ### Debuntu (Debian, Ubuntu, and derivatives using `apt`) with official repository
 
@@ -54,7 +54,11 @@ sudo extrepo enable jellyfin
 
 Now you can continue at step 5. of the [Repository (Manual) section](#repository-manual).
 
-## Unofficial Methods
+### Containers
+
+For non Debian/Ubuntu systems, containers are the recommended way to install Jellyfin. Please follow the instructions [here](/docs/general/installation/container).
+
+## Community maintained packages
 
 ### Alpine Linux
 
@@ -465,3 +469,7 @@ sudo systemctl start jellyfin.service
 
 Platform-agnostic .NET Core DLL builds in TAR archive format are available [here](/downloads#portable).
 These builds use the binary `jellyfin.dll` and must be loaded with `dotnet`.
+
+### Building from source
+
+Jellyfin can be built from source directly. Please read [Building from source](/docs/general/installation/source) for more info.
