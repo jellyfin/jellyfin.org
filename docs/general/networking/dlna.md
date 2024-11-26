@@ -28,8 +28,7 @@ Use these entries in `logging.default.json` to turn on DLNA debug logs.
       "Override": {
         "Microsoft": "Warning",
         "System": "Warning",
-        "Emby.Dlna": "Debug",
-        "Emby.Dlna.Eventing": "Debug"
+        "Jellyfin.Plugin.Dlna": "Debug"
       }
     }
   }

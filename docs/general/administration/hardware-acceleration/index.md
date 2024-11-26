@@ -25,22 +25,6 @@ The supported and validated video [hardware acceleration (HWA)](https://trac.ffm
 
 - **Rockchip** RKMPP (Linux only)
 
-- **Raspberry Pi** Video4Linux2 (V4L2, Linux only)
-
-:::danger RPi5
-
-Please AVOID Raspberry Pi 5 for Jellyfin. The Raspberry Pi 5 lacks hardware encoders altogether. The Raspberry Pi Foundation has also not responded to requests for official comment from the Jellyfin team.
-
-:::
-
-:::caution
-
-While hardware acceleration is supported on Raspberry Pi hardware, it is recommended that Jellyfin NOT be hosted on Raspberry Pis or other SBCs. Many hardware acceleration features are not supported and will fallback to software. In addition, they are generally too slow to provide a good experience when transcoding is needed. Please consider getting a more powerful system to host Jellyfin.
-
-Please refer to the [Hardware Selection Guide](/docs/general/administration/hardware-selection) for more info on selecting hardware.
-
-:::
-
 ## Full & Partial Acceleration
 
 The transcoding pipeline usually has multiple stages, which can be simplified to:
@@ -63,17 +47,17 @@ The transcoding pipeline usually has multiple stages, which can be simplified to
 
 Some of these stages cannot be GPU accelerated due to software, hardware or driver limitations.
 
-Partial acceleration may result in slightly higher CPU usage and lower transcoding speed.
+Partial acceleration may result in higher CPU usage and lower transcoding speed.
 
 :::
 
-Jellyfin 10.8 supports full acceleration on mainstream Intel, NVIDIA and AMD (Windows only) GPUs.
+Jellyfin supports full acceleration for:
 
-Jellyfin 10.9 enables full acceleration for:
-
+- Mainstream Intel and Nvidia GPUs on Windows and Linux
 - AMD Polaris and newer GPUs on Linux via VA-API and Vulkan interop
+- Older AMD GPUs on Windows
 - Rockchip VPU of RK3588/3588S
-- Intel and Apple Silicon Macs on macOS 12 and above
+- Intel and Apple Silicon on macOS 12 and above
 
 Using [jellyfin-ffmpeg](https://github.com/jellyfin/jellyfin-ffmpeg/releases) with Jellyfin is highly recommended, which has a `-Jellyfin` suffix in the version string.
 
@@ -133,18 +117,6 @@ Click [Apple Mac](/docs/general/administration/hardware-acceleration/apple).
 
 Click [Rockchip VPU](/docs/general/administration/hardware-acceleration/rockchip).
 
-### Raspberry Pi V4L2
-
-:::caution
-
-As of **Jellyfin 10.8** hardware acceleration on Raspberry Pi via `OpenMAX OMX` was dropped and is no longer available.
-
-This decision was made because Raspberry Pi is currently migrating to a `V4L2` based hardware acceleration, which is already available in Jellyfin but does not support all features other hardware acceleration methods provide due to lacking support in FFmpeg. Jellyfin will fallback to software de/encoding for those usecases.
-
-The current state of hardware acceleration support in FFmpeg can be checked on the [rpi-ffmpeg repository](https://github.com/jc-kynesim/rpi-ffmpeg).
-
-:::
-
 ## Enable Hardware Acceleration
 
 Hardware acceleration options can be found in the Admin Dashboard under the **Transcoding** section of the **Playback** tab.
@@ -180,21 +152,15 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
 :::
 
-| OS/Platform    | NVIDIA NVENC | AMD AMF | Intel QSV | Intel VA-API | AMD VA-API |Apple VideoToolbox| Rockchip RKMPP | Software |
-| -------------- | ------------ | ------- | --------- | ------------ | ---------- | ---------------- | -------------- | -------- |
-| Windows        | ✔️           | ✔️      | ✔️        | N/A          | N/A        | N/A              | N/A           | WIP      |
-| Windows Docker | ✔️           | N/A     | N/A       | N/A          | N/A        | N/A              | N/A            | WIP      |
-| Linux          | ✔️           | ✔️      | ✔️        | ✔️           | ✔️        | N/A              | ✔️             | WIP      |
-| Linux Docker   | ✔️           | ✔️      | ✔️        | ✔️           | ✔️        | N/A              | ✔️             | WIP      |
-| macOS          | N/A          | N/A     | N/A       | N/A          | N/A        | ✔️               | N/A            | WIP      |
-
 ## Tips For Hardware Acceleration
 
 - Avoid H.264 / AVC 10-bit videos
 
   :::tip
 
-  The hardware decoding of H.264 / AVC 10-bit (High 10 profile) video is not supported by any Intel, NVIDIA and AMD GPU. Jellyfin will always fallback to software decoding for it. Consider upgrading such video to H.265 / HEVC 10-bit (Main 10 profile).
+  The hardware decoding of H.264 / AVC 10-bit (High 10 profile) video is not supported by any Intel, NVIDIA and AMD GPU.
+  It is only supported by Apple Silicon and Rockchip. Jellyfin will fall back to software decoding for it when there is
+  no hardware decoder available. Consider upgrading such video to H.265 / HEVC 10-bit (Main 10 profile).
 
   :::
 
@@ -221,3 +187,9 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
   Hardware encoder presets can greatly affect encoding speed. You can lower this preset in the Jellyfin dashboard to sacrifice encoding quality to maximize speed, or raise the preset to optimize encoding quality on an overkill GPU.
 
   :::
+
+## Raspberry Pi Hardware Acceleration Support Deprecation
+
+Jellyfin previously supported hardware acceleration on Raspberry Pi via `OpenMAX OMX` in Jellyfin 10.8, with partial support for Raspberry Pi via `V4L2` in 10.9. However, the support never reached the level of maturity seen with other acceleration methods. Many operations fell back to the already underperforming CPU, due to the lacking of full hardware acceleration. The situation worsened with the release of the latest generation of Raspberry Pi 5, which lacks hardware encoders entirely, rendering further development of hardware acceleration on this platform impractical.
+
+As a result, we have to deprecate `V4L2` support for Raspberry Pi, unfortunately. While it may continue to work for now, future updates to the Linux kernel or FFmpeg could break this support, and it's unlikely that we'll address any resulting issues. This decision may be reversed if future Raspberry Pi models reintroduce hardware encoders.

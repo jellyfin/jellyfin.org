@@ -17,8 +17,7 @@ import {
   SiLinux,
   SiRoku,
   SiSailfishos,
-  SiUbuntu,
-  SiWindows
+  SiUbuntu
 } from '@icons-pack/react-simple-icons';
 import Icon from '@mdi/react';
 import { mdiMonitor, mdiWeb } from '@mdi/js';
@@ -105,7 +104,14 @@ const PlatformIcon = ({
       return <SiLg size={size} className={className} />;
 
     case Platform.Windows:
-      return <SiWindows size={size} className={className} />;
+      // Not available in simple-icons because it was removed due to Microsoft (https://github.com/simple-icons/simple-icons/issues/11236)
+      // using the Font Awesome icon instead
+      // Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+      return (
+        <svg xmlns='http://www.w3.org/2000/svg' width={size} height={size} className={className} viewBox='0 0 448 512'>
+          <path d='M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z' />
+        </svg>
+      );
 
     default:
       return null;

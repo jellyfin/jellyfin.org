@@ -16,7 +16,7 @@ LinuxServer.io image: `linuxserver/jellyfin` <a href="https://hub.docker.com/r/l
 hotio image: `hotio/jellyfin` <a href="https://hub.docker.com/r/hotio/jellyfin"><img alt="Docker Pull Count" src="https://img.shields.io/docker/pulls/hotio/jellyfin.svg" /></a>.
 
 Jellyfin distributes [official container images on Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin/) for multiple architectures.
-These images are based on Debian and [built directly from the Jellyfin source code](https://github.com/jellyfin/jellyfin/blob/master/Dockerfile).
+These images are based on Debian and [built directly from the Jellyfin source code](https://github.com/jellyfin/jellyfin-packaging/blob/master/docker/Dockerfile).
 
 Additionally, there are several third parties providing unofficial container images, including the [LinuxServer.io](https://www.linuxserver.io/) ([Dockerfile](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile)) project and [hotio](https://github.com/hotio) ([Dockerfile](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile)), which offer images based on Ubuntu and the official Jellyfin Ubuntu binary packages.
 
@@ -83,6 +83,18 @@ Multiple media libraries can be bind mounted if needed:
 ...etc
 ```
 
+Custom [server-side system fonts](/docs/general/administration/configuration/#server-side-system-fonts) directory can be optionally bind mounted in order to use these fonts during transcoding with subtitle burn-in:
+
+```sh
+--mount type=bind,source=/path/to/fonts,target=/usr/local/share/fonts/custom,readonly
+```
+
+A directory of [fallback fonts](/docs/general/administration/configuration/#fallback-fonts) can be mounted as well. In this case, you will have to set the directory of fallback fonts to `/fallback_fonts` in Jellyfin server settings panel:
+
+```sh
+--mount type=bind,source=/path/to/fallback/fonts,target=/fallback_fonts,readonly
+```
+
 ### Using Docker Compose
 
 Create a `docker-compose.yml` file with the following contents. Add in the UID and GID that you would like to run jellyfin as in the user line below, or remove the user line to use the default (root).
@@ -103,6 +115,11 @@ services:
       - type: bind
         source: /path/to/media2
         target: /media2
+        read_only: true
+      # Optional - extra fonts to be used during transcoding with subtitle burn-in
+      - type: bind
+        source: /path/to/fonts
+        target: /usr/local/share/fonts/custom
         read_only: true
     restart: 'unless-stopped'
     # Optional - alternative address used for autodiscovery
@@ -294,28 +311,35 @@ SuccessExitStatus=0 143
 WantedBy=default.target
 ```
 
-## TrueNAS SCALE / TrueCharts
+## TrueNAS SCALE
 
-Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside the [TrueCharts](https://www.truecharts.org/) App Catalog with direct integration into the GUI, no CLI needed. Direct support is available on the [TrueCharts Discord](https://discord.gg/tVsPTHWTtr) and the source code is available on [GitHub](https://github.com/truecharts/charts).
+Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App in the official app catalog with direct integration into the GUI, no CLI needed.
 
-1. Install the TrueCharts Catalog to TrueNAS SCALE, see [website](https://truecharts.org/manual/SCALE/guides/getting-started/#adding-truecharts) for more info.
+1. Go to Apps page from the top level SCALE menu
 
-   1. Go to Apps page from the top level SCALE menu
-   2. Select Manage Catalogs tab on the Apps page
-   3. Click Add Catalog
-   4. After reading the iXsystems notice, click Continue and enter the required information:
-      Name: truecharts
-      Repository: `https://github.com/truecharts/catalog`
-      Preferred Trains: `enterprise` and `stable`
-      Branch: main
-   5. Click Save and allow SCALE to refresh its catalog with TrueCharts (this may take a few minutes)
+2. Click `Discover Apps` and search for `Jellyfin`
 
-2. Click `Available Applications` and search for `Jellyfin`
+3. Click `Install`, which will take you to the GUI installation wizard and you'll be able to fill out the necessary info
 
-3. Click `Install`, which will take you to the GUI Wizard and you'll be able to fill out the necessary info
+   - Published Server URL to publish in UDP Auto Discovery response
+   - User and Group Configuration: adjust only if needed, defaults to `568:568` which is `apps:apps` user/group
+   - Network Configuration
+     - Tick `Host Network` if DLNA is used, otherwise it's optional.
+     - You may optionally change the `WebUI Port` to the Jellyfin's default of `8096` if it's not occupied already by another app.
+   - Storage Configuraton
+     - For `Jellyfin Config Storage` and `Jellyfin Cache Storage`, consider mapping Host Paths for ease of backup.
+       - Store them on SSD storage if possible, as using HDD storage **will** lead to poor experience.
+     - For `Jellyfin Transcode Storage`, consider using `Temporary` or `tmpfs`
+       - `Temporary` places a Docker volume under your configured Apps dataset (`Apps` -> `Configuration` -> `Choose Pool`). Avoid if that's on HDD.
+       - `tmpfs` creates a temporary directory on the RAM. Ensure you set the limit to at least a few gigabytes, and that you have considerate amount of spare memory, since TrueNAS disables swap by default. You may need to increase the limit if you have many large media files streamed with transcoding at once, or transcodes might fail. Note that total memory usage may also be capped in the `Resources Configuration` section.
+       - If your only SSD storage is the boot drive, you may configure a Host Path mount to `/var/tmp/jellyfin_transcodes`.
+     - For media, add your library directories as Additional Storage.
+     - For hardware-accelerated transcoding, under the Resources Configuration:
+       - If using NVIDIA, tick `Use this GPU` under your listed GPU. If you don't see your GPU, go to `Apps` -> `Configuration` -> `Settings` -> Install NVIDIA Drivers.
+       - If using other vendors, tick `Passthrough available (non-NVIDIA) GPUs`.
+       - Then in Jellyfin UI, configure it under `Dashboard` -> `Playback` -> `Transcoding`.
+       - Note that [some newer Intel GPUs](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) might require a newer kernel version than provided. If that's the case for your GPU, you may consider using a VM with PCIe pass-through instead of app containers.
 
-   - Server URL to publish in UDP Auto Discovery response.
-   - Networking, Ingress (Reverse Proxy), Security Options
-   - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/SCALE/guides/add-storage/). For Jellyfin the recommendation is to add storage as `Additional App Storage`
+4. Click `Install` and once it's up and running you'll be able to click `Web UI` button to access `Jellyfin`.
 
-4. Click Save and once it's up and running you'll be able to click Open to access `Jellyfin`.
+Additional documentation is available on [TrueNAS Documentation Hub](https://www.truenas.com/docs/truenasapps/communityapps/jellyfin/).

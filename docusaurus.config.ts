@@ -19,7 +19,7 @@ const config: Config = {
   organizationName: 'jellyfin',
   projectName: 'jellyfin.org',
   themeConfig: {
-    image: 'images/social.png',
+    image: 'images/social.png?v2',
     metadata: [
       { name: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
@@ -119,7 +119,9 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
         id: 'blog-main',
         routeBasePath: 'posts',
         showReadingTime: true,
-        path: 'blog'
+        path: 'blog',
+        onInlineAuthors: 'ignore',
+        onUntruncatedBlogPosts: 'ignore'
       } satisfies Blog.Options
     ],
     ['@docusaurus/plugin-content-pages', {} satisfies Pages.Options],
