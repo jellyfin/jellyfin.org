@@ -143,10 +143,10 @@ Builds in RPM package format are provided by RPM Fusion. Official packages are n
 
    This will open the following ports:
 
-   * `8096 TCP`, used by default for HTTP traffic; you can change this in the dashboard
-   * `8920 TCP`, used by default for HTTPS traffic; you can change this in the dashboard
-   * `1900 UDP`, used for service auto-discovery; this is not configurable
-   * `7359 UDP`, used for auto-discovery; this is not configurable
+   - `8096 TCP`, used by default for HTTP traffic; you can change this in the dashboard
+   - `8920 TCP`, used by default for HTTPS traffic; you can change this in the dashboard
+   - `1900 UDP`, used for service auto-discovery; this is not configurable
+   - `7359 UDP`, used for auto-discovery; this is not configurable
 
    :::
 
@@ -171,11 +171,11 @@ emerge www-apps/jellyfin
 NixOS has a [module for Jellyfin](https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/misc/jellyfin.nix),
 it can be enabled as follows:
 
-   ```nix
-   {
-     services.jellyfin.enable = true;
-   }
-   ```
+```nix
+{
+  services.jellyfin.enable = true;
+}
+```
 
 For more information, refer to the [NixOS wiki](https://wiki.nixos.org/wiki/Jellyfin).
 
