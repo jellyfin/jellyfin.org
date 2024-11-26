@@ -73,6 +73,12 @@ docker run -d \
  jellyfin/jellyfin
 ```
 
+:::note
+
+Replace `uid:gid` if you want to run jellyfin as a specific user/group (must exist in the host `/etc/passwd` file). Exclude the `--user` argument entirely if you want to use the default user.
+
+:::
+
 Bind Mounts are needed to pass folders from the host OS to the container OS whereas volumes are maintained by Docker and can be considered easier to backup and control by external programs.
 For a simple setup, it's considered easier to use Bind Mounts instead of volumes.
 Multiple media libraries can be bind mounted if needed:
