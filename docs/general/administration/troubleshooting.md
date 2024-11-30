@@ -158,6 +158,20 @@ UPDATE Users SET InvalidLoginAttemptCount = 0 WHERE Username = 'LockedUserName';
 UPDATE Permissions SET Value = 0 WHERE Kind = 2 AND UserId IN (SELECT Id FROM Users WHERE Username = 'LockedUserName');
 ```
 
+## Admin Account inaccessible after ldap misconfiguration
+
+Using the ldap plugin can be extreamly useful when streamlining authentication across multiple apps but in some cases it can leave your admin accounts inacciesslbe. If this occurs the simplest way to restore them is to take a copy of the jellyfin.db and open it in sqlite browser. Select `browse data` table: `users` and there you will see your list of users.
+
+For the following columns update the appropriate entries by removing the ldap provider and inserting the jellyfin provider
+
+```shell
+AuthenticationProviderId: Jellyfin.Server.Implementations.Users.DefaultAuthenticationProvider
+PasswordResetProviderId:  Jellyfin.Server.Implementations.Users.DefaultPasswordResetProvider
+```
+
+![Password ID](https://imgur.com/sbV3ppO)
+![Password Reset](https://imgur.com/XTtP3ia)
+
 ## Fix Admin User Permissions
 
 If the permissions for your admin account break, you can restore them using simple SQL queries.
