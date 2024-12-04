@@ -20,13 +20,18 @@ IIS with default selections + Application Development->WebSocket Protocol (minim
 ```powershell
 Set-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/proxy" -name "enabled" -value "True"
 Set-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/proxy/cache" -name "enabled" -value "False"
-Set-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/proxy" -name "httpVersion" -value "Http11"
 Set-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/proxy" -name "preserveHostHeader" -value "True"
 Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/rewrite/allowedServerVariables" -name "." -value @{name='HTTP_X_FORWARDED_PROTOCOL'}
 Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/rewrite/allowedServerVariables" -name "." -value @{name='HTTP_X_FORWARDED_PROTO'}
 Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/rewrite/allowedServerVariables" -name "." -value @{name='HTTP_X_REAL_IP'}
 Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/rewrite/allowedServerVariables" -name "." -value @{name='HTTP_X_FORWARDED_HOST'}
 Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.webServer/rewrite/allowedServerVariables" -name "." -value @{name='HTTP_X_FORWARDED_PORT'}
+```
+
+Long running streams may freeze due to limits within IIS, the following (powershell) command resolves it.
+
+```powershell
+Set-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.applicationHost/webLimits" -name "minBytesPerSecond" -value 25
 ```
 
 ## web.config
@@ -88,18 +93,18 @@ Add-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST'  -filter "system.
                     <action type="Rewrite" url="http://localhost:8096/{R:0}" logRewrittenUrl="true" />
                 </rule>
             </rules>
-              <outboundRules><!-- Add Cache -->
+            <outboundRules><!-- Add Cache -->
                 <rule name="Add Cache" preCondition="images" enabled="true" patternSyntax="ECMAScript">
                     <match serverVariable="RESPONSE_Cache_Control" pattern="(.*)" />
                     <action type="Rewrite" value="max-age=604800" />
                 </rule>
-             <preConditions><!-- Pre-Condition for images -->
-                        <preCondition name="images" logicalGrouping="MatchAny">
+                <preConditions><!-- Pre-Condition for images -->
+                    <preCondition name="images" logicalGrouping="MatchAny">
                         <add input="{REQUEST_URI}" pattern="Items/.+/Images/.*" />
                         <add input="{RESPONSE_CONTENT_TYPE}" pattern="^image/.+" />
-                        </preCondition>
-        </preConditions>
-      </outboundRules>
+                    </preCondition>
+                </preConditions>
+            </outboundRules>
         </rewrite>
         <caching enabled="false" enableKernelCache="false" />
         <httpProtocol>
