@@ -29,7 +29,7 @@
     "@docusaurus/plugin-sitemap": "3.6.3",
     "@docusaurus/theme-classic": "3.6.3",
     "@docusaurus/theme-mermaid": "3.6.3",
-    "@easyops-cn/docusaurus-search-local": "0.45.0",
+    "@easyops-cn/docusaurus-search-local": "0.46.1",
     "@fontsource/noto-sans": "5.1.0",
     "@icons-pack/react-simple-icons": "10.1.0",
     "@img-comparison-slider/react": "8.0.2",
