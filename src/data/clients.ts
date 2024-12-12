@@ -921,13 +921,37 @@ export const Clients: Array<Client> = [
         id: 'app-store',
         name: 'App Store',
         url: 'https://apps.apple.com/us/app/manet-music/id6470928235'
-      },
+      }
     ],
     secondaryLinks: [
       {
         id: 'website',
         name: 'Website',
         url: 'https://tilo.dev/manet/'
+      }
+    ]
+  },
+  {
+    id: 'symfonium',
+    name: 'Symfonium',
+    description:
+      'An offline-first third-party music player that enhances your Jellyfin experience with streaming, syncing and full personalization',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.Android],
+    primaryLinks: [
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=app.symfonik.music.player'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://symfonium.app/'
       }
     ]
   }
