@@ -68,6 +68,16 @@ Episode numbering for specials may vary from metadata provider to metadata provi
 
 :::
 
+Specials can also be shown within a season if so desired. This can be helpful when they are part of a continued storyline during the season. This requires 2 settings:
+
+1. The option `Display specials within their series they aired in` under `Dashboard -> Library -> Display` must be enabled
+2. The season and episode they aired before/after must be set within the metadata.
+    - These can be set in the Metadata editor or in an NFO using the `airsbefore_season`, `airsafter_season`, and `airsbefore_episode` tags.
+    - The `Airs before series` field can be set to show (and play) the special at the start of the season. It can also be combined with the `Airs before episode` field to insert it as a mid-season special before the specified episode.
+    - With `Airs after series`, set the Special will be shown (and played) at the end of the specified Season and the `Airs before series/episode` fields (if set) will have no effect.
+
+Note that this will show them in both the `Specials` season, as well as the season specified.
+
 ## Episodes Split Across Multiple Parts
 
 Episodes that are split into multiple files can be stacked together if named correctly. Files should be named as follows:
