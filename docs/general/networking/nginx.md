@@ -40,8 +40,8 @@ server {
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
     client_max_body_size 20M;
 
-    # Uncomment next line to disable TLS 1.0 and 1.1 (Might break older devices)
-    #ssl_protocols TLSv1.3 TLSv1.2;
+    # Next line disables TLS 1.0 and 1.1 (Might break older devices)
+    ssl_protocols TLSv1.3 TLSv1.2;
 
     ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
@@ -208,8 +208,8 @@ server {
     # You can specify multiple domain names if you want
     #server_name jellyfin.local;
 
-    # Uncomment next line to disable TLS 1.0 and 1.1 (Might break older devices)
-    #ssl_protocols TLSv1.3 TLSv1.2;
+    # Next line to disables TLS 1.0 and 1.1 (Might break older devices)
+    ssl_protocols TLSv1.3 TLSv1.2;
 
     ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem; # managed by Certbot
