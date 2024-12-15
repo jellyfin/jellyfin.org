@@ -7,7 +7,7 @@ sidebar_position: 4
 
 Jellyfin can be installed on iX-systems' [TrueNAS SCALE](https://www.truenas.com/truenas-scale/).
 
-This documentation is written for TrueNAS SCALE v24.10.0 (Electric Eel) or higher.
+This document is written for TrueNAS SCALE v24.10.0 (Electric Eel) or higher.
 
 Consider reviewing the [TrueNAS Apps documentation](https://www.truenas.com/docs/truenasapps/) if you have not previously configured applications on your system.
 
