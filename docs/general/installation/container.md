@@ -310,36 +310,3 @@ SuccessExitStatus=0 143
 # Start by default on boot
 WantedBy=default.target
 ```
-
-## TrueNAS SCALE
-
-Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App in the official app catalog with direct integration into the GUI, no CLI needed.
-
-1. Go to Apps page from the top level SCALE menu
-
-2. Click `Discover Apps` and search for `Jellyfin`
-
-3. Click `Install`, which will take you to the GUI installation wizard and you'll be able to fill out the necessary info
-
-   - Published Server URL to publish in UDP Auto Discovery response
-   - User and Group Configuration: adjust only if needed, defaults to `568:568` which is `apps:apps` user/group
-   - Network Configuration
-     - Tick `Host Network` if DLNA is used, otherwise it's optional.
-     - You may optionally change the `WebUI Port` to the Jellyfin's default of `8096` if it's not occupied already by another app.
-   - Storage Configuraton
-     - For `Jellyfin Config Storage` and `Jellyfin Cache Storage`, consider mapping Host Paths for ease of backup.
-       - Store them on SSD storage if possible, as using HDD storage **will** lead to poor experience.
-     - For `Jellyfin Transcode Storage`, consider using `Temporary` or `tmpfs`
-       - `Temporary` places a Docker volume under your configured Apps dataset (`Apps` -> `Configuration` -> `Choose Pool`). Avoid if that's on HDD.
-       - `tmpfs` creates a temporary directory on the RAM. Ensure you set the limit to at least a few gigabytes, and that you have considerate amount of spare memory, since TrueNAS disables swap by default. You may need to increase the limit if you have many large media files streamed with transcoding at once, or transcodes might fail. Note that total memory usage may also be capped in the `Resources Configuration` section.
-       - If your only SSD storage is the boot drive, you may configure a Host Path mount to `/var/tmp/jellyfin_transcodes`.
-     - For media, add your library directories as Additional Storage.
-     - For hardware-accelerated transcoding, under the Resources Configuration:
-       - If using NVIDIA, tick `Use this GPU` under your listed GPU. If you don't see your GPU, go to `Apps` -> `Configuration` -> `Settings` -> Install NVIDIA Drivers.
-       - If using other vendors, tick `Passthrough available (non-NVIDIA) GPUs`.
-       - Then in Jellyfin UI, configure it under `Dashboard` -> `Playback` -> `Transcoding`.
-       - Note that [some newer Intel GPUs](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) might require a newer kernel version than provided. If that's the case for your GPU, you may consider using a VM with PCIe pass-through instead of app containers.
-
-4. Click `Install` and once it's up and running you'll be able to click `Web UI` button to access `Jellyfin`.
-
-Additional documentation is available on [TrueNAS Documentation Hub](https://www.truenas.com/docs/truenasapps/communityapps/jellyfin/).
