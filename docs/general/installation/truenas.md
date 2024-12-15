@@ -5,9 +5,13 @@ description: Install on TrueNAS SCALE.
 sidebar_position: 4
 ---
 
-- Jellyfin can be installed on iX-systems' [TrueNAS SCALE](https://www.truenas.com/truenas-scale/).
-- This documentation is written for TrueNAS SCALE v24.10.0 (Electric Eel) or higher.
-- Consider reviewing the [TrueNAS Apps documentation](https://www.truenas.com/docs/truenasapps/) if you have not previously configured applications on your system.
+Jellyfin can be installed on iX-systems' [TrueNAS SCALE](https://www.truenas.com/truenas-scale/).
+
+This documentation is written for TrueNAS SCALE v24.10.0 (Electric Eel) or higher.
+
+Consider reviewing the [TrueNAS Apps documentation](https://www.truenas.com/docs/truenasapps/) if you have not previously configured applications on your system.
+
+- Note: TrueNAS CORE and TrueNAS SCALE are different. Jellyfin is not supported on TrueNAS CORE.
 
 ## Introduction and Preparation
 
@@ -19,11 +23,11 @@ There are two supported methods of installing Jellyfin on your TrueNAS SCALE ser
 2. Community 3rd Party App provided by ix-systems
 
 Both methods use the official Jellyfin-provided Docker image.
-This documentation will cover both install methods.
+This document will cover both install methods.
 
 You can configure environment variables at any time after deploying the application.
 
-It's recommend to set the TrueNAS SCALE App system to a storage pool comprised of SSDs.
+It is recommend to set the TrueNAS SCALE App system to a storage pool comprised of SSDs.
 
 ---
 
@@ -38,15 +42,17 @@ The official Jellyfin Docker image internally creates the following necessary di
 If you use the community app, you can allow SCALE to create datasets for the directories Jellyfin requires automatically during app installation.
 You can also choose to create a static **transcodes** dataset or use temporary storage on the disk or in memory (system RAM) for transcoding.
 
+- Note that using RAM for transcodes can be a bad idea as transcodes can take up a lot of space. If there isn't enough memory available in RAM for a transcode, the transcode will fail. It is recommended that you place the transcode directory on a drive with a decent amount of free space to avoid this issue. Consider using an SSD instead of an HDD to avoid possible slowdowns.
+
 You can also [create your own custom datasets](https://www.truenas.com/docs/scale/scaletutorials/storage/datasets/datasetsscale/) to use in the **Storage Configuration** section as `host paths` during installation.
 
 You can organize datasets as one parent with two child datasets, for example `/mnt/tank/jellyfin/config`, `/mnt/tank/jellyfin/cache`, and so on.
-With Docker, you can organzie these in any way as long as you mount them under the correct name to the Docker container.
+With Docker, you can organize these in any way as long as you mount them under the correct name to the Docker container.
 
-It's recommended to set Jellyfin's config directory to an accessible dataset.
-This will make it easy to [backup/restore your server](https://jellyfin.org/docs/general/administration/backup-and-restore).
+It is recommended to set Jellyfin's config directory to an accessible dataset.
+This will make it easy to [backup/restore your server](/docs/general/administration/backup-and-restore).
 
-It's also recommended to use datasets located on an SSD Storage Pool for Jellyfin's configuration and cache data.
+It is also recommended to use datasets located on an SSD Storage Pool for Jellyfin's configuration and cache data.
 
 ---
 
@@ -88,7 +94,7 @@ A tab will open from the right side of the page where you launch your custom app
 
 Here, give the custom app a name and write/paste the lines for your compose file.
 
-See here for [documentation on using Docker Compose with Jellyfin](https://jellyfin.org/docs/general/installation/container#using-docker-compose).
+See here for [documentation on using Docker Compose with Jellyfin](/docs/general/installation/container#using-docker-compose).
 Alternatively, here's a basic compose file where you should edit the volumes to use on your system, then copy & paste it into the editor to launch Jellyfin:
 
 ```yml
@@ -122,10 +128,12 @@ services:
 - Make sure your spacing is correct for each option. Compose files use spacing to parse the options correctly.
 - You can determine the time zone identifier for you region [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 - Note that lines with `#` in front indicate a comment. They will not apply until you remove it.
-- Uncomment the `group_add` and `devices` options if you have a GPU and want to use [hardware acceleration](https://jellyfin.org/docs/general/administration/hardware-acceleration/).
+- Uncomment the `group_add` and `devices` options if you have a GPU and want to use [hardware acceleration](/docs/general/administration/hardware-acceleration/).
   - If you have an NVIDIA GPU, [please read this](#nvidia-gpus-on-scale-v2410).
   - Unless you set the container to run as root, you need to add the render group ID to the container with `group_add`.
   - In case the render group's ID is not `107` on all SCALE servers by default, go to your system shell and run the following command to get your render group's ID: `cat /etc/group | grep render`
+- Jellyfin's auto discovery ports should also be configured if possible.
+  - [See more info here](/docs/general/networking/#static-ports)
 
 <details>
   <summary>Docker Compose Options</summary>
@@ -167,7 +175,7 @@ services:
       <tr>
         <td>environment</td>
         <td>`TZ=<timezone-name>`</td>
-        <td>Environment variables that affect the container. You can set variables here such as `TZ` for declaring a time zone. See more [**environment configs here**](https://jellyfin.org/docs/general/administration/configuration/).</td>
+        <td>Environment variables that affect the container. You can set variables here such as `TZ` for declaring a time zone. See more [**environment configs here**](/docs/general/administration/configuration/).</td>
       </tr>
       <tr>
         <td>network_mode</td>
@@ -219,7 +227,7 @@ If you used the previous example compose file and your server's IP address is `1
 
 Once you navigate to your server on a web browser, you're now in your Jellyfin server.
 Proceed with the first-time setup wizard to setup your Jellyfin server.
-You can also [refer to the Jellyfin docs for further assistance](https://jellyfin.org/docs/).
+You can also [refer to the Jellyfin docs for further assistance](/docs/).
 
 ### Adding the Jellyfin Logo to Custom Apps
 
@@ -304,7 +312,7 @@ You can accept the defaults in the **Jellyfin Configuration** settings, or enter
 
 You can enter a **Published Server URL** for use in UDP autodiscovery, or leave it blank.
 
-If needed, click **Add** to define **Additional Environment Variables**, see [Configuration](https://jellyfin.org/docs/general/administration/configuration/) for options.
+If needed, click **Add** to define **Additional Environment Variables**, see [Configuration](/docs/general/administration/configuration/) for options.
 
 ### User and Group Settings
 
@@ -337,8 +345,8 @@ Jellyfin requires three app storage datasets for:
 2. Jellyfin Cache Storage
 3. Jellyfin Transcodes Storage
 
-Solid state storage is recommended for config and cache storage.
-Do not use datasets located on spinning disks where your media storage/libraries are found for the config and cache storge.
+Solid state storage is recommended for config, cache, and transcode storage.
+Do not use datasets located on spinning disks where your media storage/libraries are found for these datasets to avoid slowdowns.
 
 You can install Jellyfin using the default setting **ixVolume (dataset created automatically by the system)** or use the host path option with datasets [created before installing the app](#datasets--jellyfin).
 
@@ -355,7 +363,7 @@ For **Jellyfin Transcodes Storage**, in **Type**, select:
 - **Temporary (Temporary directory created on the disk)** to use a temporary storage directory created somewhere on the storage pool you set for the Apps system
 - **tmpfs (Temporary directory created on the RAM)** to use a temporary storage directory created on the system RAM
 
-It's recommended to link the transcode directory to a location with decent amount of available storage.
+It is recommended to link the transcode directory to a location with decent amount of available storage.
 Transcodes can take up a lot of space depending on the type of content that is being transcoded.
 If there's not enough storage here, you will run into playback issues when a transcode doesn't have space to continue being written out.
 
@@ -447,12 +455,12 @@ For all types, enter a **Mount Path** to be used within the Jellyfin container.
 You can customize limits on the CPU and memory allocated to the container Jellyfin will reside in.
 
 - **CPUs** expects a value in **number of threads** to assign as a max CPU thread limit.
-  - The default is **2** which means the container will use 2 CPU threads at most.
-  - [Refer here for reasonable CPU limits based on your SCALE server's CPU](https://jellyfin.org/docs/general/administration/hardware-selection#cpu)
+  - You should set this option to the number of threads your CPU contains.
+  - [Refer here for reasonable CPU limits based on your SCALE server's CPU](/docs/general/administration/hardware-selection#cpu)
 - **Memory (in MB)** expects a value in **megabytes**.
   - The default is **4096** which means the container will be limited to 4GB of RAM usage.
   - To calculate a value in gigabytes, use this formula where **X** is a number in MB: `X * 1024`
-  - [Refer here for sensible RAM limits for your Jellyfin server](https://jellyfin.org/docs/general/administration/hardware-selection#system-memory-ram)
+  - [Refer here for sensible RAM limits for your Jellyfin server](/docs/general/administration/hardware-selection#system-memory-ram)
 - The max limit you can assign to either limit depends on your SCALE server's specs.
 
 For the GPU Configuration, check the **Passthrough available (non-NVIDIA) GPUs** option if you need to pass a GPU device for hardware acceleration use with Jellyfin.
@@ -521,7 +529,7 @@ You can choose to pull from Jellyfin's [Docker Hub](https://hub.docker.com/r/jel
 
 - To pull from Docker Hub, use: `jellyfin/jellyin`
 - To pull from from GHCR, use: `ghcr.io/jellyfin/jellyfin`
-- [You can check this blog post for more info about GHCR:](https://jellyfin.org/posts/jellyfin-release-10.9.0#key-release-notesbreaking-changes)
+- [You can check this blog post for more info about GHCR:](/posts/jellyfin-release-10.9.0#key-release-notesbreaking-changes)
   - "Docker users: We now offer GitHub Container Registry (GHCR) as an alternative container registry in addition to Docker Hub. You can pull images from the new registry via URIs like `ghcr.io/jellyfin/jellyfin:latest`. Don't worry, we have no plans to drop Docker Hub as a container registry, but we feel providing both gives users more choice and flexibility."
 - Also check out [this forum post](https://forum.jellyfin.org/t-new-jellyfin-server-web-release-10-9-6?pid=25895#pid25895) about how Docker image tags can be used.
 
