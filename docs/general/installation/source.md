@@ -2,7 +2,7 @@
 uid: installation-source
 title: Building from source
 description: Compile and run Jellyfin yourself.
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 <!-- markdownlint-disable MD029 ol-prefix -->
