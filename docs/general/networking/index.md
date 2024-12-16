@@ -77,7 +77,7 @@ Add `-subj '/CN=localhost'` to make it not ask interactive questions about conte
 The above command creates `./privkey.pem` which will require one more step before use in Jellyfin.
 
 ```sh
-openssl pkcs12 -export -out jellyfin.pfx -inkey privkey.pem -in /usr/local/etc/letsencrypt/live/domain.org/cert.pem -passout pass:
+openssl pkcs12 -export -out jellyfin.pfx -inkey privkey.pem -in cert.pem -passout pass:
 ```
 
 ## Running Jellyfin Behind a Reverse Proxy
