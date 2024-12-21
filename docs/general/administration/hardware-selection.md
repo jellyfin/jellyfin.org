@@ -5,11 +5,7 @@ title: Hardware Selection
 
 # Selecting Appropriate Hardware
 
-This page covers what you need to know in order to select appropriate hardware for a Jellyfin server and take full advantage of its features (e. g. hardware acceleration).
-
-## TL;DR
-
-Below is a list of recommended specs to run Jellyfin. Even though Jellyfin will work on even lower end hardware, the following specs are recommended for a good experience.
+This page provides essential information for selecting the right hardware for a Jellyfin server to fully utilize its features, such as hardware acceleration. While Jellyfin can run on lower-end hardware, the following recommended specifications ensure a better overall experience.
 
 ### Shared Items
 
