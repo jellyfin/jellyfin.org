@@ -69,13 +69,17 @@ This page lists all known issues and limitations of hardware acceleration with J
 
 6. The kernel support for Intel Gen 12 DG1 is incomplete in upstream. Intel DKMS and custom iHD driver are required.
 
-7. The kernel support for Intel Gen 12 ADL graphics is incomplete before Linux 5.17.
+7. The kernel support for Intel Gen 12 ADL graphics is incomplete before Linux 5.17. (ADL-N Refresh N150/N250/N350 iGPU requires Linux 6.9+)
 
 8. The kernel support for Intel Gen 12.5 DG2 / ARC A-series is incomplete before Linux 6.2.
 
 9. The kernel support for Intel Gen 12.7 MTL is incomplete before Linux 6.7.
 
-10. The LTS kernel range 6.6.26 - 6.6.32 and the stable kernel range 6.8.5 - 6.9.3 have i915 driver bugs, which may cause problems on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please upgrade to kernel 6.6.33+ (LTS) or 6.9.4+. Ubuntu 24.04 with kernel versions 6.8.0-38 thru 6.8.0-41 are also affected by this issue.  Upgrade to Ubuntu kernel 6.8.0-44+ if you are on the affected kernels.
+10. The kernel support for Intel Gen 12.7 ARL is incomplete before Linux 6.11.
+
+11. The kernel support for Intel Gen 13 (or Gen 20?) LNL and BMG / ARC B-series are incomplete before Linux 6.12.
+
+12. The LTS kernel range 6.6.26 - 6.6.32 and the stable kernel range 6.8.5 - 6.9.3 have i915 driver bugs, which may cause problems on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please upgrade to kernel 6.6.33+ (LTS) or 6.9.4+. Ubuntu 24.04 with kernel versions 6.8.0-38 thru 6.8.0-41 are also affected by this issue.  Upgrade to Ubuntu kernel 6.8.0-44+ if you are on the affected kernels.
 
     - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
     - Ubuntu bug: [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755)
