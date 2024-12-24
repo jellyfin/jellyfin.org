@@ -61,7 +61,7 @@ Most AMD dGPUs come with video encoders but be careful with certain models - RX 
 
 AMD Ryzen APU (G/GE/H/HS/HX suffixed models) and Zen 4 based processors have integrated graphics.
 
-Best to check the video codec support via the [AMD product specifications](https://www.amd.com/en/products/specifications) before buying a GPU for hardware acceleration.
+Best to check the video codec support via the [AMD product specifications](https://www.amd.com/en/products/graphics/radeon-for-creators/video-editing.html#tabs-b6a36ad588-item-0cb6dbfc4b-tab) before buying a GPU for hardware acceleration.
 
 ### Transcode H.264
 
