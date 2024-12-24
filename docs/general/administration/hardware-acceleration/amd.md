@@ -91,7 +91,7 @@ AMD added support for AV1 acceleration in their latest GPUs:
 
 - **Decoding AV1 8/10-bit** - Radeon RX 6000 series (Navi 2x), Ryzen 6000 mobile APU and newer (except RX 6400/6500)
 
-- **Encoding AV1 8/10-bit** - Radeon RX 7000 series (Navi 3x), Ryzen 7000 mobile APU and newer
+- **Encoding AV1 8/10-bit** - Radeon RX 7000 series (Navi 3x), Ryzen 7000/8000, AI 7/9 HX mobile APU, Ryzen 8000G desktop APU and newer
 
 ### Transcode Other Codecs
 
