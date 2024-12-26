@@ -24,6 +24,8 @@ The goal is to Direct Play all media. This means the container, video, audio and
 | [VP9](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#VP9 'V9 Browser Support Reference')  | ✅             | ✅             | ✅      | ✅<sup>10</sup>| ✅<sup>3</sup> | 🔶<sup>3</sup> | ❌             | ❌             | ✅                                                                              | ✅   | ✅                                                           |       ✅         |
 | [AV1](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#AV1 'AV1 Browser Support Reference') | ✅             | ✅             | ✅      | 🔶<sup>11</sup>| ✅             | 🔶<sup>4</sup> | ❌             | ❌  | ✅                                                                              | ✅   | ✅                                                           |       ✅        |
 | 
+
+
 <sup>1</sup>HEVC is only supported in MP4, M4V, and MOV containers.
 <br />
 <sup>2</sup>Android playback is currently broken. Client reports that HEVC is supported and attempts to Direct Stream.
@@ -46,8 +48,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <br />
 <sup>11</sup>AV1 decoding is only available on devices with A17 or M3 series chips or newer and requires at least Safari 17.
 <br />
-<sup>12</sup>Need to be manually enabled in Settings > Playback > Enable H.264 High 10 Profile. Playback on Apple Silicon Macs with macOS version < 14 and Intel Macs with all macOS versions may result in blank frames if this is enabled.
-
+<sup>12</sup>Need to be manually enabled in Settings > Playback > Enable H.264 High 10 Profile. Playback on Apple Silicon Macs with macOS version < 14 and Intel Macs with all macOS versions may result in blank frames if this is enabled.<br />
 <sup>13</sup> The official codec support [documentation](https://github.com/jellyfin/Swiftfin/blob/main/Documentation/players.md) does not mention bitrates only codecs
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
