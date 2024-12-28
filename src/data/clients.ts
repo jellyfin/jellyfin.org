@@ -938,7 +938,7 @@ export const Clients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.IOS, Platform.Browser],
+    platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
     primaryLinks: [
       {
         id: "play-store",
