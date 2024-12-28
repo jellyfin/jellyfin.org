@@ -72,9 +72,11 @@ Specials can also be shown within a season if so desired. This can be helpful wh
 
 1. The option `Display specials within their series they aired in` under `Dashboard -> Library -> Display` must be enabled
 2. The season and episode they aired before/after must be set within the metadata.
-    - These can be set in the Metadata editor or in an NFO using the `airsbefore_season`, `airsafter_season`, and `airsbefore_episode` tags.
-    - The `Airs before series` field can be set to show (and play) the special at the start of the season. It can also be combined with the `Airs before episode` field to insert it as a mid-season special before the specified episode.
-    - With `Airs after series`, set the Special will be shown (and played) at the end of the specified Season and the `Airs before series/episode` fields (if set) will have no effect.
+   - These can be set in the Metadata editor or in an NFO using the `airsbefore_season`, `airsafter_season`, and `airsbefore_episode` tags.
+   - When the `Airs before season` field is set but `Airs before episode` is not set, the special will play at the start of the specified season, before the first episode.
+   - The `Airs before season` can also be combined with the `Airs before episode` field to insert it as a mid-season special before the specified episode. For example, if `Airs before season` is set to `2` and `Airs before episode` is set to `7`, the special will play between S02E06 and S02E07.
+   - With `Airs after series`, set the Special will be shown (and played) at the end of the specified Season. This will take priority over the `Airs before season/episode` fields if they are set.
+   - When multiple specials have the same position, they will play in the order in which they are stored in the specials season. For example, if S00E01 and S00E03 both have `Airs before season` set to `3` and `Airs before episode` set to `7`, the order the content will play in is: S03E06 → S00E01 → S00E03 → S03E07.
 
 Note that this will show them in both the `Specials` season, as well as the season specified.
 
