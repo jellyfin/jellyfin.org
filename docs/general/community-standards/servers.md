@@ -19,8 +19,10 @@ Requests for support/help with other people's servers will be ignored.
 
 ## If You Run A Jellyfin Server
 
-If you run a Jellyfin server instance for other people, ensure that your users are aware that **you** are their contact for help and support, not us. We are not your server's "customer support" team. **You are not "Jellyfin"**. Do not use our name. Do not insinuate to your users that your server is run by us or that we are the same people.
+If you run a Jellyfin server instance for other people, ensure that your users are aware that **you** are their contact for help and support, not us as a project. We are not your server's "customer support" team. **You are not "Jellyfin"**. Do not insinuate to your users that your server is run by us or that we are the same people.
 
-We will link your users to this page if they contact us for help with your server. If you are charging people for pirate access to a Jellyfin server and violate these guidelines, and we become aware, we reserve the right to report you to your hosting provider for piracy and ban you and your users from our support channels. This is [a violation of our community standards](/docs/general/community-standards) and will not be tolerated.
+The best way to avoid problems here is to use the "Branding" -> "Login disclaimer" field in the server "General" settings. In this field, give your users a help link, contact form, or something that directs them to **you**, so they know who to contact when they need help with the server.
+
+We will link your users to this page if they contact us for help with specific issues on **your** server. If you are charging people for pirate access to a Jellyfin server and violate these guidelines, and we become aware, we reserve the right to report you to your hosting provider for piracy and ban you and your users from our support channels. This is [a violation of our community standards](/docs/general/community-standards) and will not be tolerated.
 
 You have been warned.

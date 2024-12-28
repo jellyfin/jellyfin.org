@@ -74,7 +74,7 @@ If labels are not added to the end of filenames, as shown above, each file will 
 
 ### Order of Versions
 
-Movie versions are presented in an alphabetically sorted list. An exception applies to resolution names, which are sorted in descending order from highest to lowest resolution. A version name qualifies as a resolution name when ending with either a `p` or an `i`.
+Movie versions are sorted by the width of the resolution in a descending order. The resolution from the media info is used. Multiple items with the same resolution will be sorted alphabetically.
 
 :::note
 

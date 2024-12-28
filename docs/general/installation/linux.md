@@ -5,7 +5,62 @@ description: Install on Linux.
 sidebar_position: 2
 ---
 
-## Alpine Linux
+## Official packages and methods
+
+### Debuntu (Debian, Ubuntu, and derivatives using `apt`) with official repository
+
+The Jellyfin team provides 3rd-party Debian and Ubuntu repositories, to help ensure your Jellyfin install is always kept up-to-date. For Ubuntu, only LTS distributions from the past 5 years are supported.
+
+#### Repository (Automatic)
+
+To simplify deployment and help automate this for as many users as possible, we provide a BASH script to handle repo installation as well as installing Jellyfin.
+All you need to do is run this command on your system (requires `curl`, or subsitute `curl` with `wget -O-`):
+
+```sh
+curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
+```
+
+:::note
+
+You can verify the script download integrity with (requires `sha256sum`):
+
+```sh
+diff <( curl -s https://repo.jellyfin.org/install-debuntu.sh -o install-debuntu.sh; sha256sum install-debuntu.sh ) <( curl -s https://repo.jellyfin.org/install-debuntu.sh.sha256sum )
+```
+
+An empty output means everything is correct. Then you can inspect the script to see what it does (optional but recommended) and execute it with:
+
+```sh
+less install-debuntu.sh
+sudo bash install-debuntu.sh
+```
+
+:::
+
+:::note
+
+The script tries to handle as many common derivatives as possible, including, at least, Linux Mint (Ubuntu and Debian editions), Raspbian/Raspberry Pi OS, and KDE Neon. We welcome PRs [to the script](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh) for any other common derivatives, or you can use the steps below instead.
+
+:::
+
+#### Repository (Using extrepo)
+
+extrepo is only supported on Debian currently. The advantage of extrepo is that it is packaged in Debian. So you don’t have to execute the `curl | sudo bash` combo from the previous Automatic section. The risk with that command is that it relies on the security of the webserver. extrepo avoids this by having the Jellyfin repo information including the GPG key in its [extrepo-data](https://salsa.debian.org/extrepo-team/extrepo-data/-/blob/master/repos/debian/jellyfin.yaml?ref_type=heads). extrepo-data is verified with GPG by the extrepo tool. So there is a chain of trust from Debian all the way to the Jellyfin repo information.
+
+```sh
+sudo apt install extrepo
+sudo extrepo enable jellyfin
+```
+
+Now you can continue at step 5. of the [Repository (Manual) section](#repository-manual).
+
+### Containers
+
+For non Debian/Ubuntu systems, containers are the recommended way to install Jellyfin. Please follow the instructions [here](/docs/general/installation/container).
+
+## Community maintained packages
+
+### Alpine Linux
 
 Jellyfin can be found in the `community` repository as
 [`jellyfin`](https://pkgs.alpinelinux.org/package/edge/community/x86_64/jellyfin) and
@@ -14,7 +69,7 @@ Jellyfin can be found in the `community` repository as
 To enable the web UI after installing `jellyfin-web`, make sure to remove the `--nowebclient` option from
 `/etc/conf.d/jellyfin`.
 
-## Arch Linux
+### Arch Linux
 
 The `Extra` repository contains builds for both [`jellyfin-server`](https://archlinux.org/packages/?name=jellyfin-server) and [`jellyfin-web`](https://archlinux.org/packages/?name=jellyfin-web).
 `jellyfin-server` includes a hard dependency on [`jellyfin-ffmpeg`](https://archlinux.org/packages/?name=jellyfin-ffmpeg).
@@ -22,12 +77,11 @@ The `Extra` repository contains builds for both [`jellyfin-server`](https://arch
 Both packages, server and web, can also be built from source at the tip of the master branch using [`jellyfin-git`](https://aur.archlinux.org/packages/jellyfin-git/).
 The AUR also offers each separately at [`jellyfin-server-git`](https://aur.archlinux.org/packages/jellyfin-server-git/) and [`jellyfin-web-git`](https://aur.archlinux.org/packages/jellyfin-web-git/).
 
-## Fedora
+### Fedora, CentOS and other RPM distributions
 
-Fedora builds in RPM package format are available [in the main download repository](https://repo.jellyfin.org/?path=/server/). We do not yet have an official Fedora repository, but one is planned for the future.  
-However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` and `jellyfin-web` for Fedora version `38` and above.
+Builds in RPM package format are provided by RPM Fusion. Official packages are no longer provided starting with 10.9.
 
-### RPM Fusion
+#### RPM Fusion
 
 1. `rpmfusion` must be enabled first
 
@@ -47,7 +101,7 @@ However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` an
    sudo systemctl enable --now jellyfin
    ```
 
-### Manual installation via the .rpm packages
+#### Manual installation via the .rpm packages
 
 1. You will need to enable `rpmfusion`, as `ffmpeg` is a dependency of the `jellyfin` server package
 
@@ -89,10 +143,10 @@ However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` an
 
    This will open the following ports:
 
-   * `8096 TCP`, used by default for HTTP traffic; you can change this in the dashboard
-   * `8920 TCP`, used by default for HTTPS traffic; you can change this in the dashboard
-   * `1900 UDP`, used for service auto-discovery; this is not configurable
-   * `7359 UDP`, used for auto-discovery; this is not configurable
+   - `8096 TCP`, used by default for HTTP traffic; you can change this in the dashboard
+   - `8920 TCP`, used by default for HTTPS traffic; you can change this in the dashboard
+   - `1900 UDP`, used for service auto-discovery; this is not configurable
+   - `7359 UDP`, used for auto-discovery; this is not configurable
 
    :::
 
@@ -102,69 +156,34 @@ However [`rpmfusion`](https://rpmfusion.org/) provides both `jellyfin-server` an
    sudo firewall-cmd --reload
    ```
 
-7. Go to `localhost:8096` or `ip-address-of-jellyfin-server:8096` to finish setup in the web UI
+7. Go to `localhost:8096` or `ip-address-of-jellyfin-server:8096` to finish setup in the web UI.
 
-## CentOS
+### Gentoo
 
-CentOS/RHEL 7 builds in RPM package format are available [in the main download repository](https://repo.jellyfin.org/?path=/server/). We do not yet have an official CentOS/RHEL repository, but one is planned for the future.
-
-The default CentOS/RHEL repositories don't provide FFmpeg, which the RPM requires.
-You will need to add a third-party repository which provide FFmpeg, such as [RPM Fusion's Free repository](https://rpmfusion.org/Configuration).
-
-You can also build [Jellyfin's version](https://github.com/jellyfin/jellyfin-ffmpeg) on your own.
-This includes gathering the dependencies and compiling and installing them.
-Instructions can be found at [the FFmpeg wiki](https://trac.ffmpeg.org/wiki/CompilationGuide/Centos).
-
-The general process should follow the above Fedora instructions.
-
-## Debuntu (Debian, Ubuntu, and derivatives using `apt`)
-
-The Jellyfin team provides 3rd-party Debian and Ubuntu repositories, to help ensure your Jellyfin install is always kept up-to-date.
-
-### Repository (Automatic)
-
-To simplify deployment and help automate this for as many users as possible, we provide a BASH script to handle repo installation as well as installing Jellyfin.
-All you need to do is run this command on your system (requires `curl`, or subsitute `curl` with `wget -O-`):
+The Gentoo ebuild repository includes the Jellyfin package which can be installed like other software:
 
 ```sh
-curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
+emerge www-apps/jellyfin
 ```
 
-:::note
+### NixOS
 
-You can verify the script download integrity with (requires `sha256sum`):
+NixOS has a [module for Jellyfin](https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/misc/jellyfin.nix),
+it can be enabled as follows:
 
-```sh
-diff <( curl -s https://repo.jellyfin.org/install-debuntu.sh -o install-debuntu.sh; sha256sum install-debuntu.sh ) <( curl -s https://repo.jellyfin.org/install-debuntu.sh.sha256sum )
+```nix
+{
+  services.jellyfin.enable = true;
+}
 ```
 
-An empty output means everything is correct. Then you can inspect the script to see what it does (optional but recommended) and execute it with:
+For more information, refer to the [NixOS wiki](https://wiki.nixos.org/wiki/Jellyfin).
 
-```sh
-less install-debuntu.sh
-sudo bash install-debuntu.sh
-```
+## Advanced
 
-:::
+### Manual installation on Debian, Ubuntu and derivatives
 
-:::note
-
-The script tries to handle as many common derivatives as possible, including, at least, Linux Mint (Ubuntu and Debian editions), Raspbian/Raspberry Pi OS, and KDE Neon. We welcome PRs [to the script](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh) for any other common derivatives, or you can use the steps below instead.
-
-:::
-
-### Repository (Using extrepo)
-
-extrepo is only supported on Debian currently. The advantage of extrepo is that it is packaged in Debian. So you don’t have to execute the `curl | sudo bash` combo from the previous Automatic section. The risk with that command is that it relies on the security of the webserver. extrepo avoids this by having the Jellyfin repo information including the GPG key in its [extrepo-data](https://salsa.debian.org/extrepo-team/extrepo-data/-/blob/master/repos/debian/jellyfin.yaml?ref_type=heads). extrepo-data is verified with GPG by the extrepo tool. So there is a chain of trust from Debian all the way to the Jellyfin repo information.
-
-```sh
-sudo apt install extrepo
-sudo extrepo enable jellyfin
-```
-
-Now you can continue at step 5. of the following Repository (Manual) section.
-
-### Repository (Manual)
+#### Repository (Manual)
 
 If you would prefer to install everything manually, the full steps are as follows:
 
@@ -216,9 +235,9 @@ If you would prefer to install everything manually, the full steps are as follow
 
    The supported values for the above variables are:
 
-   * `${VERSION_OS}`: One of `debian` or `ubuntu`; if it is not, use the closest one for your distribution.
-   * `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
-   * `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
+   - `${VERSION_OS}`: One of `debian` or `ubuntu`; if it is not, use the closest one for your distribution.
+   - `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
+   - `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
 
    :::
 
@@ -253,7 +272,7 @@ If you would prefer to install everything manually, the full steps are as follow
    sudo service jellyfin {action}
    ```
 
-### `.deb` Packages (Very Manual)
+#### `.deb` Packages (Very Manual)
 
 Raw `.deb` packages, including old versions, source packages, and `dpkg` meta files, are available [in the main download repository](https://repo.jellyfin.org/?path=/server/).
 
@@ -305,32 +324,11 @@ The repository is the preferred way to obtain Jellyfin on Debian and Ubuntu syst
    sudo service jellyfin {action}
    ```
 
-## Gentoo
-
-The Gentoo ebuild repository includes the Jellyfin package which can be installed like other software:
-
-   ```sh
-   emerge www-apps/jellyfin
-   ```
-
-## NixOS
-
-NixOS has a [module for Jellyfin](https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/misc/jellyfin.nix),
-it can be enabled as follows:
-
-   ```nix
-   {
-     services.jellyfin.enable = true;
-   }
-   ```
-
-For more information, refer to the [NixOS wiki](https://wiki.nixos.org/wiki/Jellyfin).
-
-## Linux (generic amd64)
+### Linux (generic amd64)
 
 Generic `amd64`, `arm64`, and `armhf` Linux builds in TAR archive format are available [in the main download repository](https://repo.jellyfin.org/?path=/server/).
 
-### Base Installation Process
+#### Base Installation Process
 
 Create a directory in `/opt` for jellyfin and its files, and enter that directory.
 
@@ -361,7 +359,7 @@ Create four sub-directories for Jellyfin data.
 sudo mkdir data cache config log
 ```
 
-### `FFmpeg` Installation
+#### `FFmpeg` Installation
 
 If you are not running a Debian derivative, install `ffmpeg` through your OS's package manager, and skip this section.
 
@@ -379,7 +377,7 @@ If you run into any dependency errors, run this and it will install them and `je
 sudo apt install -f
 ```
 
-### Running Jellyfin
+#### Running Jellyfin
 
 Due to the number of command line options that must be passed on to the Jellyfin binary, it is easiest to create a small script to run Jellyfin.
 
@@ -418,7 +416,7 @@ Setup is as usual in the web browser.
 ./jellyfin.sh
 ```
 
-#### Starting Jellyfin on boot (optional)
+##### Starting Jellyfin on boot (optional)
 
 Create a `systemd` unit file.
 
@@ -453,7 +451,11 @@ sudo systemctl enable jellyfin.service
 sudo systemctl start jellyfin.service
 ```
 
-## Portable DLL
+### Portable DLL
 
 Platform-agnostic .NET Core DLL builds in TAR archive format are available [here](/downloads#portable).
 These builds use the binary `jellyfin.dll` and must be loaded with `dotnet`.
+
+### Building from source
+
+Jellyfin can be built from source directly. Please read [Building from source](/docs/general/installation/source) for more info.

@@ -161,11 +161,11 @@ They can be divided into 4 tiers by their performance：
 
   :::
 
-- **Hardcore** - ARC A-series discrete and integrated GPU
+- **Hardcore** - ARC A & B-series discrete and integrated GPU
 
   :::tip
 
-  ARC A-series GPUs use the latest Gen 12.5 XeHPG architecture, which continues to improve on the basis of XeLP, supports [AV1 hardware encoding and improved H.264 and HEVC encoding](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-data-center-gpu-flex-series/intel-data-center-gpu-flex-series.rst). This makes it competitive with the medium preset of the x264 and x265 software encoders. All ARC A-series GPU models come with two MFX video engines.
+  ARC A-series GPUs use Gen 12.5 XeHPG architecture, which continues to improve on the basis of XeLP, supports [AV1 hardware encoding and improved H.264 and HEVC encoding](https://github.com/intel/media-delivery/blob/master/doc/benchmarks/intel-data-center-gpu-flex-series/intel-data-center-gpu-flex-series.rst). This makes it competitive with the medium preset of the x264 and x265 software encoders. All ARC A-series GPU models come with two MFX video engines. The encoding quality on the ARC B-series is similar to its predecessor, but with slightly improved encoding speeds.
 
   :::
 
@@ -185,7 +185,7 @@ Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, na
 
 ### ARC GPU Support
 
-Jellyfin server 10.8.9+ and the latest jellyfin-ffmpeg5+ support Intel ARC discrete GPU on both Windows and Linux **6.2+**.
+Jellyfin server support Intel ARC **Alchemist/A-series** discrete GPU on both Windows and Linux **6.2+**. For using ARC **Battlemage/B-series** discrete GPU on Linux, kernel version **6.12+** is required. Windows is also supported, just install the GPU driver.
 
 You only need to follow the [Windows Setups](/docs/general/administration/hardware-acceleration/intel#windows-setups) and [Linux Setups](/docs/general/administration/hardware-acceleration/intel#linux-setups) to configure and verify it.
 
@@ -198,6 +198,8 @@ You only need to follow the [Windows Setups](/docs/general/administration/hardwa
 - Low-Power encoding is used by default on ARC GPUs. **GuC & HuC firmware can be missing on older distros**, you might need to manually download it from the [Kernel firmware git](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915).
 
 - Old kernel build configs [may not have the MEI modules enabled](https://gitlab.freedesktop.org/drm/intel/-/issues/7732), which are necessary for using ARC GPU on Linux.
+
+- Starting from ARC **Battlemage/B-series** discrete GPUs, Intel has enabled the **xe** kernel driver by default on new GPUs (Xe-2 and newer architectures) to replace the long-standing **i915** kernel driver. Low-power encoding, GuC and HuC firmware are automatically enabled, and users should not refer to settings like `i915.enable_guc=xxx`, which are no longer relevant.
 
 :::
 
@@ -783,7 +785,7 @@ Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e.
 
 - Gen 12.5 DG2/ARC A-Series - Only support LP encoding mode.
 
-- Gen 12.7 MTL and newer - Only support LP encoding mode.
+- Gen 12.7 MTL/ARL, Gen 13 (or Gen 20?) LNL/BMG and newer - Only support LP encoding mode.
 
 ### LP Mode System Support
 
@@ -797,7 +799,7 @@ Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e.
 
 :::caution
 
-The setup is not necessary unless you are using an Intel **Jasper Lake** or **Elkhart Lake** processor, or you want faster OpenCL tone-mapping speed on Linux. This also applies to the bleeding edge hardware such as **12th Gen Intel processors**, **ARC GPU** and newer **but step 2 should be skipped**.
+The setup is not necessary unless you are using an Intel **Jasper Lake** or **Elkhart Lake** processor, or you want faster OpenCL tone-mapping speed on Linux.
 
 :::
 
@@ -833,10 +835,37 @@ Root permission is required.
      cd ~/
      git clone --depth=1 https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
      sudo mkdir -p /usr/lib/firmware
-     sudo cp -r linux-firmware/i915 /usr/lib/firmware
+     sudo cp -r linux-firmware/i915 linux-firmware/xe /usr/lib/firmware
      ```
 
 2. Add the required i915 kernel parameter on the host system to enable loading GuC and HuC firmware:
+
+   - Check the kernel module in use, goto step 3 if **xe** kernel driver is in use.
+
+   :::note
+
+   **ARC Battlemage/B-series, Core Ultra 200V-series (Lunar Lake) and newer GPUs (Xe-2 and newer architectures)**, have switch to using the **xe** kernel driver instead of the **i915** driver. This step is no longer relevant.
+
+   :::
+
+   ```shell
+   lspci -knn | grep -E "i915|xe|VGA|Display"
+
+   00:02.0 Display controller [0380]: Intel Corporation Alder Lake-P GT2 [Iris Xe Graphics] [8086:46a6] (rev 0c)
+           Kernel driver in use: i915
+           Kernel modules: i915, xe
+   03:00.0 VGA compatible controller [0300]: Intel Corporation DG1 [Iris Xe MAX Graphics] [8086:4905] (rev 01)
+           Kernel driver in use: i915
+           Kernel modules: i915, xe
+   ```
+
+   - Enable GuC loading HuC firmware in **i915** kernel driver:
+
+   :::note
+
+   **DG1, 12th (ADL-P), 13th, 14th generation and ARC Alchemist/A-series GPUs** have enabled `enable_guc=3` by default. This step should be skipped on these GPUs, otherwise you will disable some features that are enabled by default.
+
+   :::
 
    ```shell
    sudo mkdir -p /etc/modprobe.d
@@ -861,16 +890,16 @@ Root permission is required.
 
    ```shell
    sudo reboot
-   sudo dmesg | grep i915
-   sudo cat /sys/kernel/debug/dri/0/gt/uc/guc_info
-   sudo cat /sys/kernel/debug/dri/0/gt/uc/huc_info
+   sudo dmesg | grep -E "i915|xe"
+   sudo sh -c "cat /sys/kernel/debug/dri/0/gt*/uc/guc_info"
+   sudo sh -c "cat /sys/kernel/debug/dri/0/gt*/uc/huc_info"
    ```
 
    - If you get a `No such file or directory` error when running the last two commands, try querying a `dri` device with a different number, for example `1`:
 
      ```shell
-     sudo cat /sys/kernel/debug/dri/1/gt/uc/guc_info
-     sudo cat /sys/kernel/debug/dri/1/gt/uc/huc_info
+     sudo sh -c "cat /sys/kernel/debug/dri/1/gt*/uc/guc_info"
+     sudo sh -c "cat /sys/kernel/debug/dri/1/gt*/uc/huc_info"
      ```
 
    - On very old kernels (4.16-) the last two commands can be like this:

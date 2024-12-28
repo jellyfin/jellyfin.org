@@ -86,3 +86,175 @@ Assuming you've at least one failed authentication attempt, you can test this ne
 ```bash
 sudo fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
 ```
+
+---
+
+## Advanced Fail2Ban Setup: Forwarding and Managing Bans on an Upstream Proxy Server
+
+To enhance security, Fail2Ban can manage IP bans on an upstream reverse proxy server instead of directly on the Jellyfin server. This setup allows you to block malicious IPs closer to your network’s entry point, potentially benefiting other services using the same proxy.
+
+This guide offers a configuration for setting up Fail2Ban to manage IP bans on an upstream reverse proxy server using **Dynamic Chains**, where each Fail2Ban jail creates and manages its own `iptables` chain on the upstream server.
+
+### Assumptions
+
+- **Fail2Ban** is installed on your local server (where Jellyfin is running).
+- **iptables** is configured on the upstream server.
+
+### Step one: Set Up SSH Key-Based Authentication
+
+Ensure the Fail2Ban server can SSH into the upstream server without needing a password. This is crucial for automating the IP ban/unban process.
+
+Replace `<upstream-server-ip>` with the actual IP address of your upstream server.
+
+1. **Generate SSH Key (if not already done):**
+
+   ```bash
+   ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa
+   ```
+
+2. **Copy the SSH Key to the Upstream Server:**
+
+   ```bash
+   ssh-copy-id -i /root/.ssh/id_rsa.pub root@<upstream-server-ip>
+   ```
+
+3. **Test SSH Access:**
+
+   Ensure the SSH connection works without needing a password:
+
+   ```bash
+   ssh -i /root/.ssh/id_rsa root@<upstream-server-ip>
+   ```
+
+### Step two: Configure Fail2Ban for Dynamic Chains
+
+1. **Create the Fail2Ban Action File**:
+
+   On the Fail2Ban server, create a new action file:
+
+   ```bash
+   sudo nano /etc/fail2ban/action.d/proxy-iptables-dynamic.conf
+   ```
+
+   And add the Following Configuration, which will dynamically create, manage, and remove `iptables` chains on the upstream server per jail:
+
+   Remember to replace `<upstream-server-ip>` with the actual IP address of your upstream server.
+
+   ```ini
+   [Definition]
+
+   # Option: actionban
+   # 1. Create the chain if it doesn't exist
+   # 2. Add the banned IP to the dynamic chain based on the jail name
+   # 3. Log the event
+   actionban = ssh -i /root/.ssh/id_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@<upstream-server-ip> \
+                   'iptables -N f2b-<name> 2>/dev/null || true; \
+                    iptables -C INPUT -j f2b-<name> 2>/dev/null || iptables -I INPUT -j f2b-<name>; \
+                    iptables -I f2b-<name> 1 -s <ip> -j DROP' && \
+                    echo "Banned <ip> from jail <name> via upstream proxy" >> /var/log/fail2ban.log
+   
+   # Option: actionunban
+   # 1. Remove the banned IP from the dynamic chain
+   # 2. Remove the chain if it becomes empty (cleanup)
+   # 3. Log the event
+   actionunban = ssh -i /root/.ssh/id_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@<upstream-server-ip> \
+                   'iptables -D f2b-<name> -s <ip> -j DROP; \
+                    if ! iptables -L f2b-<name> | grep -q "DROP"; then \
+                        iptables -D INPUT -j f2b-<name>; \
+                        iptables -F f2b-<name>; \
+                        iptables -X f2b-<name>; \
+                    fi' && \
+                    echo "Unbanned <ip> from jail <name> via upstream proxy and cleaned up chain if empty" >> /var/log/fail2ban.log
+   ```
+
+   After making chaneges, save and close the file.
+
+2. **Update Fail2Ban Jails to Use the Dynamic Chain Action**:
+
+   Open your jail configuration file, usually located at `/etc/fail2ban/jail.local`:
+
+   ```bash
+   sudo nano /etc/fail2ban/jail.local
+   ```
+
+   And for each jail you want to manage via the upstream proxy, add or modify the action line to use the proxy-iptables-dynamic action. Here’s an example configuration for two jails:
+
+   ```ini
+   [jellyfin]
+   enabled  = true
+   filter   = jellyfin
+   logpath  = /path/to/jellyfin/log
+   maxretry = 3
+   bantime  = 3600
+   action   = proxy-iptables-dynamic
+
+   [nginx-http-auth]
+   enabled  = true
+   filter   = nginx-http-auth
+   logpath  = /var/log/nginx/error.log
+   maxretry = 5
+   bantime  = 3600
+   action   = proxy-iptables-dynamic
+   ```
+
+   After making chaneges, save and close the file.
+
+### Step three: Restart Fail2Ban and Test the Setup
+
+1. **Restart Fail2Ban**:
+
+   After making the configuration changes, restart Fail2Ban to apply the new settings:
+
+   ```bash
+   sudo systemctl restart fail2ban
+   ```
+
+2. **Check Jail Status**:
+
+   Verify the status of your jails to ensure they are running correctly:
+
+   ```bash
+   sudo fail2ban-client status jellyfin
+   ```
+
+3. **Test a Ban**:
+
+   Trigger a ban by performing invalid login attempts or by manually banning an IP. For example:
+
+   ```bash
+   sudo fail2ban-client set jellyfin banip 192.168.1.100
+   ```
+
+4. **Verify on Upstream Server**:
+
+   Check if the IP is banned in the corresponding jail's chain on the upstream server ('f2b-jail-name'):
+
+   ```bash
+   ssh root@<upstream-server-ip> "iptables -L f2b-jellyfin"
+   ```
+
+5. **Test Unbanning**:
+
+   To test unbanning, manually unban the IP:
+
+   ```bash
+   sudo fail2ban-client set jellyfin unbanip 192.168.1.100
+   ```
+
+6. **Verify Unban**:
+
+    Verify that the IP is removed from the corresponding jail's chain ('f2b-jail-name'):
+
+   ```bash
+   ssh root@<upstream-server-ip> "iptables -L f2b-jellyfin"
+   ```
+
+### Step four: Monitor Logs
+
+Monitor the Fail2Ban log to ensure that actions are being executed properly:
+
+```bash
+tail -f /var/log/fail2ban.log
+```
+
+This log will display messages whenever an IP is banned or unbanned, helping you confirm that the configuration is working as expected.
