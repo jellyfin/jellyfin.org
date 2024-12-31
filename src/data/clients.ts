@@ -930,5 +930,37 @@ export const Clients: Array<Client> = [
         url: 'https://tilo.dev/manet/'
       }
     ]
-  }
+  },
+  {
+    id: 'lineageos-twelve',
+    name: 'Twelve (LineageOS)',
+    description: 'LineageOS 22 built-in music app ("Music") with Jellyfin support.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Android],
+    primaryLinks: [
+      {
+        id: 'lineageos',
+        name: 'Main LineageOS Page',
+        url: 'https://lineageos.org/'
+      {
+        id: 'github',
+        name: 'GitHub (Official)',
+        url: 'https://github.com/lineageos/android_packages_apps_glimpse/actions/workflows/build.yml?query=branch%3alineage-21.0'
+      },
+      {
+        id: 'sebaubuntu',
+        name: 'SebaUbuntu (Mirror)',
+        url: 'https://www.sebaubuntu.dev/lineageapps.html'
+      },
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/LineageOS/android_packages_apps_Twelve'
+      }
+    ]
+  },
 ];
