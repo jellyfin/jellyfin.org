@@ -7,18 +7,34 @@ title: Hardware Selection
 
 This page provides essential information for selecting the right hardware for a Jellyfin server to fully utilize its features, such as hardware acceleration. While Jellyfin can run on lower-end hardware, the following recommended specifications ensure a better overall experience.
 
-### Shared Items
+## Potentially Problematic Hardware
 
-Some component recommendations do not change regardless of the hardware configuration:
+These hardware platforms might lead to a poor Jellyfin experience. Please be careful to avoid them when shopping for hardware.
 
-- Storage: 100GB SSD for your OS, Jellyfin files and transcoding cache.<sup>1</sup> Consider adding more on Windows 11, or if you have many large media files that need transcoding.
-- Networking: Gigabit Ethernet Adapter or faster, WiFi or Powerline not recommended.
-- Internet Connection: At least 20mbps upload bandwidth for remote access.<sup>2</sup>
+- Intel "Atom" CPUs: Intel J/M/N/Y series low power CPUs up to 11th gen use a different architecture than higher end parts, leading to subpar performance despite what their names might suggest. Please be careful about these parts when shopping for a system to run Jellyfin.
+- Prebuilt NAS devices: The software environment on most Prebuilt NAS devices often causes 3rd party software to be hard to install and not work properly. They also often have low end processors that are too slow for a good Jellyfin experience (Intel Atom, Realtek ARM CPUs etc.).
+- Most Single Board Computers (SBC): Most SBCs (Including Raspberry Pis and **especially the Pi 5**) are too slow to provide a good Jellyfin experience since they often lack proper support for hardware acceleration. If You really want to run Jellyfin on an SBC, please look at models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
+- AMD Graphics: AMD Graphics have poor encoder quality and poor driver support. **This applies even on Linux**.
+- Low end GPUs: Certain low end GPUs (eg. GT1030, RX6400) don't have hardware encoding available. These models can't be used for Jellyfin hardware acceleration.
 
-<sup>1</sup>Your largest media file times the max number of concurrent streams all your users will consume can be used as a rule of thumb for the transcoding file size. <br />
-<sup>2</sup>If you have less than 100mbps of total upload bandwidth, a bandwidth limit of 70% of your upload speed for Jellyfin is recommended to avoid affecting normal internet usage. This option can be found in the dashboard.
+## Quick Selection Guide
 
-### Hardware Encoder Quality
+If you are looking for general hardware recommendations without in-depth details, this chapter is for you. For more specific guidance, refer to the detailed selection guide below.
+
+### Storage
+
+100GB SSD for your OS, Jellyfin files and transcoding cache. Consider adding more on Windows 11, or if you have many large media files that need transcoding.
+
+Your largest media file times the max number of concurrent streams all your users will consume can be used as a rule of thumb for the transcoding file size.
+
+### Networking
+
+- Gigabit Ethernet Adapter or faster, WiFi or Powerline not recommended.
+- Internet Connection: At least 20mbps upload bandwidth for remote access.
+
+If you have less than 100mbps of total upload bandwidth, a bandwidth limit of 70% of your upload speed for Jellyfin is recommended to avoid affecting normal internet usage. This option can be found in the dashboard.
+
+### GPU
 
 Different vendors have different hardware encoder implementations and produce different results. Usually, newer generations within the same vendor will provide better results. The following is a quick comparison on the quality between vendors on modern products.
 
@@ -26,11 +42,36 @@ Apple ≥ Intel ≥ Nvidia >>> AMD<sup>\*</sup>
 
 <sup>\*</sup> This only represents the default Jellyfin settings. The quality may be different depending on your exact configuration.
 
+Not having a GPU is **NOT** recommended for Jellyfin, as video transcoding on the CPU is very performance demanding. HDR
+to SDR tone-mapping can make the situation even worse. Depending on your configuration, you may end up in situations
+where a Ryzen 9 5950X cannot handle even a single video stream. Please read [the section below for more details](/docs/general/administration/hardware-selection#software-hdr-to-sdr-tone-mapping)
+
+### CPU
+
+The choice between integrated and dedicated graphics affects the recommended CPU specifications for your Jellyfin server.
+
+If you are not planning to use a dedicated graphics card, the following specs are recommended for a server with integrated graphics:
+
+- Intel Core i5-11400, Intel Pentium Gold G7400, Intel N100, Apple M series or newer <br/>
+_(excluding Intel J/M/N/Y series up to 11th gen)_
+
+Note: AMD is NOT recommended if you plan to use integrated graphics for Jellyfin.
+
+If you are planning to use a dedicated graphics card (including upgrading an old system with a dedicated GPU), the following specs are recommended:
+
+- Intel Core i5-2300, AMD FX-8100 or better <br/>
+_(Geekbench 6 Multicore 1500 or better)_
+
+In this case CPU vendor and performance will NOT affect hardware encode speed or quality.
+
+### RAM
+
+
+
 ### Server with Integrated Graphics
 
 If you are not planning to use a dedicated graphics card, the following specs are recommended:
 
-- CPU: Intel Core i5-11400, Intel Pentium Gold G7400, Intel N100, Apple M series or newer (excluding Intel J/M/N/Y series up to 11th gen)
 - RAM: 8GB System RAM (Consider adding more on Windows 11)
 - Graphics: Intel UHD 710, Apple M series or newer
 
@@ -52,11 +93,6 @@ If you are planning to use a dedicated graphics card (including upgrading an old
 
 Intel Drivers are much easier to install on Linux, with many distributions including them by default. If you do not need CUDA for other applications, it is highly recommended that you stick with Intel Graphics on Linux.
 
-### Servers without GPUs
-
-Not having a GPU is **NOT** recommended for Jellyfin, as video transcoding on the CPU is very performance demanding. HDR
-to SDR tone-mapping can make the situation even worse. Depending on your configuration, you may end up in situations
-where a Ryzen 9 5950X cannot handle even a single video stream. Please read [the section below for more details](/docs/general/administration/hardware-selection#software-hdr-to-sdr-tone-mapping)
 
 ### Low Power Servers
 
@@ -66,17 +102,8 @@ For users with expensive power or running servers on battery power:
 - Apple M Series mac mini
 - Rockchip RK3588 / RK3588S SBC (**Advanced Users Only**)
 
-### Potentially Problematic Hardware
-
-These hardware platforms might lead to a poor Jellyfin experience. Please be careful to avoid them when shopping for hardware.
-
-- Intel "Atom" CPUs: Intel J/M/N/Y series low power CPUs up to 11th gen use a different architecture than higher end parts, leading to subpar performance despite what their names might suggest. Please be careful about these parts when shopping for a system to run Jellyfin.
-- Prebuilt NAS devices: The software environment on most Prebuilt NAS devices often causes 3rd party software to be hard to install and not work properly. They also often have low end processors that are too slow for a good Jellyfin experience (Intel Atom, Realtek ARM CPUs etc.).
-- Most Single Board Computers (SBC): Most SBCs (Including Raspberry Pis and **especially the Pi 5**) are too slow to provide a good Jellyfin experience since they often lack proper support for hardware acceleration. If You really want to run Jellyfin on an SBC, please look at models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
-- AMD Graphics: AMD Graphics have poor encoder quality and poor driver support. **This applies even on Linux**.
-- Low end GPUs: Certain low end GPUs (eg. GT1030, RX6400) don't have hardware encoding available. These models can't be used for Jellyfin hardware acceleration.
-
 ## Detailed Guide
+
 
 ### CPU
 
