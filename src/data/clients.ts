@@ -932,6 +932,29 @@ export const Clients: Array<Client> = [
     ]
   },
   {
+    id: "fladder",
+    name: "Fladder",
+    description: "A simple, cross-platform Jellyfin frontend built on top of Flutter.",
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
+    primaryLinks: [
+      {
+        id: "play-store",
+        name: "Play Store",
+        url: "https://play.google.com/store/apps/details?id=nl.jknaapen.fladder",
+      },
+    ],
+    secondaryLinks: [
+      {
+        id: "github",
+        name: "GitHub",
+        url: "https://github.com/DonutWare/Fladder",
+      },
+    ],
+  },
+  {
     id: 'symfonium',
     name: 'Symfonium',
     description:
