@@ -209,3 +209,11 @@ UPDATE Permissions SET Value = 1 WHERE (Kind = 0 OR Kind = 3 OR Kind = 4 OR Kind
 ## Text Not Rendering Properly
 
 Text may show up as boxes ☐☐☐☐☐☐ if fonts for the characters are not available. Installing fonts for the affected languages can solve the problem. For library cover images, please install system fonts on the server system. For subtitles, the source of fonts depends on the client. Please refer to [Fonts](/docs/general/administration/configuration#fonts) on where to install them.
+
+## Not Showing Active Devices
+
+If your active devices section in the dashboard is not showing progress of the content being played by any devices, this may be because your system clock is out of sync. To resolve this on systemd based Linux systems, you can run the following command to enable syncing with an online NTP server (which in turn will start and enable either the `chronyd` or `ntpd` service). Make sure to restart Jellyfin afterwards.
+
+```bash
+timedatectl set-ntp true
+```
