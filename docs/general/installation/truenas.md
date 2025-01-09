@@ -37,7 +37,7 @@ The official Jellyfin Docker image internally creates the following necessary di
 
 1. cache
 2. config
-3. config/transcodes
+3. cache/transcodes
 
 If you use the community app, you can allow SCALE to create datasets for the directories Jellyfin requires automatically during app installation.
 You can also choose to create a static **transcodes** dataset or use temporary storage on the disk or in memory (system RAM) for transcoding.
