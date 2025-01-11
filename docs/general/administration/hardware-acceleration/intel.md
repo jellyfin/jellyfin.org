@@ -221,7 +221,7 @@ Please refer to [this section](/docs/general/administration/hardware-acceleratio
 
    - Type `gpedit.msc` in Win+R shortcut key dialog and run to open the "Local Group Policy Editor".
 
-   - Navigate in the left tree **[Computer Configuratoin > Administrative Templates > Windows Components]**
+   - Navigate in the left tree **[Computer Configuration > Administrative Templates > Windows Components]**
 
    - Here you can find **[Remote Desktop Services > Remote Desktop Session Host > Remote Session Environment]**
 
