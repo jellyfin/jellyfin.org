@@ -37,6 +37,10 @@ It's currently not possible to disable .nfo metadata. Local metadata will always
 User data importing is only possible for a single user. This user can be set in the .nfo settings.
 :::
 
+:::note
+Music Albums and Music Artists are currently not compatible with the genre tag, that will just be ignored.
+:::
+
 | Tag           | Note                                                                                                                  |
 | ------------- | --------------------------------------------------------------------------------------------------------------------- |
 | name          |                                                                                                                       |
