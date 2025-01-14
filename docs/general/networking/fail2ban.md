@@ -199,7 +199,23 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
 
    After making chaneges, save and close the file.
 
-### Step three: Restart Fail2Ban and Test the Setup
+### Step three: Add proxy IPs to Jellyfin
+
+1. **Get Proxy IPs**
+
+   Since you're using a proxy server, we need Jellyfin to output the correct IPs in logs for fail2ban to read.
+
+   Depending on your hosting setup, these IP ranges could be from internal Docker IPs, haproxy, or some other service.
+
+   Jellyfin accepts IPs with subnet masks such as `172.18.0.1/24`. You'll need a comma-separated list of these.
+
+2. **Add Proxies to Jellyfin**
+
+   Open your Jellyfin server's dashboard, go to `Advanced` -> `Networking`, and then scroll down to `Known proxies`.
+
+   Enter your comma-seperated list of proxy IP ranges. You'll need to reboot the Jellyfin server as indicated.
+
+### Step four: Restart Fail2Ban and Test the Setup
 
 1. **Restart Fail2Ban**:
 
