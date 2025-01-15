@@ -913,9 +913,9 @@ export const Clients: Array<Client> = [
     name: 'Manet',
     description: 'A third-party music client for iOS',
     clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.Proprietary,
-    platforms: [Platform.IOS],
+    platforms: [Platform.IOS, Platform.MacOS],
     primaryLinks: [
       {
         id: 'app-store',
