@@ -28,7 +28,7 @@ This is the directory that will hold all Jellyfin data and is also used as a def
 1. Command line option `--datadir`, if specified
 2. Environment variable `JELLYFIN_DATA_DIR`, if specified
 3. `<%ProgramData%>\Jellyfin\Server`, if launching from the Windows Tray app.
-4. `<%LocalAppData%\jellyfin`, if launching the Windows server directly. 
+4. `<%LocalAppData%\jellyfin`, if launching the Windows server directly.
 5. `$XDG_DATA_HOME/jellyfin`, if `$XDG_DATA_HOME` exists
 6. `$HOME/.local/share/jellyfin`
 
