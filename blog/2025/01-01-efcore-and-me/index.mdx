@@ -1,0 +1,48 @@
+---
+title: EFCore refactoring is here
+description: EFCore, Jellyfin and me.
+authors: JPVenson
+slug: efcore-refactoring
+tags: [unstable, warning, efcore]
+---
+
+EFCore is here and this will have consequences.
+
+We finally reached our first milestone in cleaning up the legacy code we inherited from emby regarding the database access, that means all sql builders that were targeting SqLite directly are now removed from code.
+
+This marks the first step towards a completely new Database design. But we now need to take a quick look ahead and see whats next.
+
+Please continue to read further to see what exactly that means and what the future brings.
+
+\- JP
+
+{/* truncate */}
+
+## What exactly have we done
+
+Josh already made a blog post in November 2024 explaining a lot of what we were planning to achive and i now want to take the feedback and questions we have gotten and clarify a few points.
+
+The old Emby code contained a lot of code that were directly accessing the underlying used database using SqLite. SqLite is a file based database where jellyfin is storying most of its important data. This has been an issue for 3 reasons.
+1. The old code was very poorly written in terms of extensibility
+2. The old code was extreamly complex
+3. It was explicitly written to support SqLite only
+
+We were not able to quickly extend our database and do it in a way that was reliable. The new code uses EntityFramework migrations which is the industry standard for this sort of database migrations.
+
+## What haven't we done
+
+While we are currently working on it, the current PR does __not__ add support for alternative database providers on its own. 
+This is a huge change in of itself and when we add it, it will likely be a highly experimental change that we will keep that way for quite some time.
+
+Very importantly, we also have not yet optimised the rest of jellyfin to work with the new database access. That means it is quite possible that unstable builds might be significatly slower while we are rewriting the rest of the code to utilise the new structures.
+
+## The Future
+
+We will soon reenable unstable builds so you can test out the EFCore migration. 
+The migration will aggregate the old `library.db` into the `jellyfin.db` file and then rename it to `library.db` so the unstable builds will no longer be compatiable with previous versions.
+
+To migrate, we explicitly __do not support older version then 10.10.3__. That means if you want to test the migrations, you have to do so from an up-to-date database.
+
+Thank you and if you have questions dont hesitate to join our matrix channel.
+
+\- JPVenson.
