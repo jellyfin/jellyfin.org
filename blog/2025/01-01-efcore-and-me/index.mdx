@@ -25,7 +25,7 @@ Please continue to read further to see what exactly that means and what the futu
 The old Emby code contained a lot of code that were directly accessing the underlying used database using SqLite. 
 SqLite is a file based database where jellyfin is storing most of its important data.
 This has been an issue for 3 reasons.
-1. The old code was very poorly written in terms of extensibility
+1. The old code was very poorly written
 2. The old code was very complex
 3. It was explicitly written to support SQLite only and nothing else  
 
@@ -38,7 +38,8 @@ Other database provider will be a significant change in itself, and when introdu
 
 Very importantly, we also have not yet optimised the rest of Jellyfin to work with the new database access. That means it is quite possible that unstable builds might be significatly slower while we are rewriting the rest of the code to utilise the new structures.  
 
-
+There are also already plans that build upon the new architecture to provide proper means to backup a jellyfin instance now everything is strongly typed. This could mean a plugin that can backup the whole jellyfin instance, while it is running which is currently not possible to do reliably.
+Further would this export/import plugin be needed if we really want to support multiple database providers to export data to other databases.
 
 ## The Future
 
