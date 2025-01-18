@@ -39,7 +39,7 @@ Very importantly, we also have not yet optimised the rest of jellyfin to work wi
 ## The Future
 
 We will soon reenable unstable builds so you can test out the EFCore migration. 
-The migration will aggregate the old `library.db` into the `jellyfin.db` file and then rename it to `library.db` so the unstable builds will no longer be compatiable with previous versions.
+The migration will aggregate the old `library.db` into the `jellyfin.db` file and then rename it to `library.db.old` so the unstable builds will no longer be compatiable with previous versions.
 
 To migrate, we explicitly __do not support older version then 10.10.3__. That means if you want to test the migrations, you have to do so from an up-to-date database.
 
