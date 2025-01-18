@@ -8,7 +8,7 @@ tags: [unstable, warning, efcore]
 
 EFCore is here and this will have consequences.
 
-We finally reached our first milestone in cleaning up the legacy code regarding the database access, that means all sql builders that were targeting SqLite directly are now removed from code.  
+We finally reached our first milestone in cleaning up the legacy code regarding the database access, that means all SQL builders that were targeting SQLite directly are now removed from code.  
 
 This marks the first step towards a completely new Database design. But we now need to take a quick look ahead and see whats next.
 
@@ -22,8 +22,8 @@ Please continue to read further to see what exactly that means and what the futu
 
 [Josh’s blog post](../../2024/11-03-efcore-refactoring-incoming/index.mdx) in November 2024 outlined much of what we aimed to achieve, and I want to take this opportunity to address the feedback and questions we've received, clarifying a few key points.  
 
-The old Emby code contained a lot of code that were directly accessing the underlying used database using SqLite. 
-SqLite is a file based database where jellyfin is storing most of its important data.
+The old code contained a lot of code that was directly accessing the underlying SQLite database. 
+SQLite is a file based database where Jellyfin is storing most of its important data.
 This has been an issue for 3 reasons.
 1. The old code was very poorly written
 2. The old code was very complex
@@ -34,12 +34,12 @@ Because of this, we were not able to quickly extend our database it in a reliabl
 ## What haven't we done
 
 While we are currently working on it, the current PR does __not__ add support for alternative database providers on its own. 
-Other database provider will be a significant change in itself, and when introduced, it will likely remain highly experimental for quite some time.  
+Other database providers will be a significant change in itself, and when introduced, it will likely remain highly experimental for quite some time.  
 
 Very importantly, we also have not yet optimised the rest of Jellyfin to work with the new database access. That means it is quite possible that unstable builds might be significatly slower while we are rewriting the rest of the code to utilise the new structures.  
 
-There are also already plans that build upon the new architecture to provide proper means to backup a jellyfin instance now everything is strongly typed. This could mean a plugin that can backup the whole jellyfin instance, while it is running which is currently not possible to do reliably.
-Further would this export/import plugin be needed if we really want to support multiple database providers to export data to other databases.
+There are also already plans that build upon the new architecture to provide proper means to backup a Jellyfin instance now everything is strongly typed. This could mean a plugin that can backup the whole Jellyfin instance, while it is running which is currently not possible to do reliably.
+Further would this export/import plugin be needed if we want to support multiple database providers to export data to other databases.
 
 ## The Future
 
