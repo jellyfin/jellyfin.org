@@ -10,7 +10,7 @@ EFCore is here and this will have consequences.
 
 We finally reached our first milestone in cleaning up the legacy code regarding the database access, that means all SQL builders that were targeting SQLite directly are now removed from code.  
 
-This marks the first step towards a completely new Database design. But we now need to take a quick look ahead and see whats next.
+This marks the first step towards a completely new database design. But we now need to take a quick look ahead and see what's next.
 
 Please continue to read further to see what exactly that means and what the future brings.
 
@@ -22,14 +22,14 @@ Please continue to read further to see what exactly that means and what the futu
 
 [Josh’s blog post](../../2024/11-03-efcore-refactoring-incoming/index.mdx) in November 2024 outlined much of what we aimed to achieve, and I want to take this opportunity to address the feedback and questions we've received, clarifying a few key points.  
 
-The old code contained a lot of code that was directly accessing the underlying SQLite database. 
+The old code included many instances of direct access to the underlying SQLite database.
 SQLite is a file based database where Jellyfin is storing most of its important data.
 This has been an issue for 3 reasons.
 1. The old code was very poorly written
 2. The old code was very complex
 3. It was explicitly written to support SQLite only and nothing else  
 
-Because of this, we were not able to quickly extend our database it in a reliable way. The new code uses EntityFramework migrations which is the industry standard for database migrations.  
+Because of this, we were unable to quickly and reliably extend our database. The new code uses EntityFramework migrations, which is the industry standard for database migrations.  
 
 ## What haven't we done
 
@@ -38,8 +38,8 @@ Other database providers will be a significant change in itself, and when introd
 
 Very importantly, we also have not yet optimised the rest of Jellyfin to work with the new database access. That means it is quite possible that unstable builds might be significatly slower while we are rewriting the rest of the code to utilise the new structures.  
 
-There are also already plans that build upon the new architecture to provide proper means to backup a Jellyfin instance now everything is strongly typed. This could mean a plugin that can backup the whole Jellyfin instance, while it is running which is currently not possible to do reliably.
-Further would this export/import plugin be needed if we want to support multiple database providers to export data to other databases.
+There are also already plans that build upon the new architecture to provide proper means to back up a Jellyfin instance now that everything is strongly typed. This means a plugin can now back up the entire Jellyfin instance while it is running, something that was previously not possible to do reliably.
+Furthermore, this export/import plugin would be necessary if we aim to support multiple database providers and allow exporting data to other databases.
 
 ## The Future
 
@@ -48,7 +48,7 @@ We will soon re-enable unstable builds so you can test out the EFCore migration.
 The migration will aggregate the old `library.db` into the `jellyfin.db` file and then rename it to `library.db.old`, so the unstable builds will no longer be compatible with the previous versions.  
 
 
-To migrate, we explicitly __do not support older version then 10.10.3__. That means if you want to test the migrations, you have to do so from an up-to-date database.
+To migrate, we explicitly __do not support versions older than 10.10.3__. This means that if you want to test the migrations, you must start with an up-to-date database.
 
 Thank you, and if you have questions, don't hesitate to join our matrix channel.  
 
