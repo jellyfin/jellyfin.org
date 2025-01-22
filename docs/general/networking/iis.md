@@ -7,6 +7,12 @@ title: IIS
 
 "[Internet Information Services](https://www.iis.net) is an extensible web server software created by Microsoft for use with the Windows NT family. IIS supports HTTP, HTTP/2, HTTPS, FTP, FTPS, SMTP and NNTP. It has been an integral part of the Windows NT family since Windows NT 4.0" - [Wikipedia](https://en.wikipedia.org/wiki/Internet_Information_Services)
 
+:::caution
+
+People who know IIS are few and far between in our community. You will **VERY LIKELY NOT** receive **ANY** help from our community if you run into issues. Please use one of the other reverse proxies listed unless you know **EXACTLY** what you are doing with IIS.
+
+:::
+
 ## Requirements
 
 IIS with default selections + Application Development->WebSocket Protocol (minimal)
