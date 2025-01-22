@@ -52,6 +52,8 @@ server {
     # use a variable to store the upstream proxy
     # in this example we are using a hostname which is resolved via DNS
     # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
+    # NOTE: Implementations using systemd-resolved should replace the resolver address with 127.0.0.53 and
+    # those running nginx in docker should ensure the resolver is 127.0.0.11
     set $jellyfin jellyfin;
     resolver 127.0.0.1 valid=30s;
 
