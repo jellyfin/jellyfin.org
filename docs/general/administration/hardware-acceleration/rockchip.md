@@ -200,7 +200,6 @@ Root permission is required.
     --volume /path/to/config:/config \
     --volume /path/to/cache:/cache \
     --volume /path/to/media:/media \
-    --user 1000:1000 \
     --net=host \
     --restart=unless-stopped \
    `for dev in dri dma_heap mali0 rga mpp_service \
