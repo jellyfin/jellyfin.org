@@ -188,6 +188,7 @@ What you need to do is to pass the **device files** of VPU from host to Docker a
 :::note
 
 Root permission is required.
+
 :::
 
 1. Use Docker command line: (the extensive device names between `for...done` is used to ensure backward compatiblity)
