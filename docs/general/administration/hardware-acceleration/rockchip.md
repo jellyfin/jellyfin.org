@@ -188,7 +188,6 @@ What you need to do is to pass the **device files** of VPU from host to Docker a
 :::note
 
 Root permission is required.
-
 :::
 
 1. Use Docker command line: (the extensive device names between `for...done` is used to ensure backward compatiblity)
@@ -200,7 +199,6 @@ Root permission is required.
     --volume /path/to/config:/config \
     --volume /path/to/cache:/cache \
     --volume /path/to/media:/media \
-    --user 1000:1000 \
     --net=host \
     --restart=unless-stopped \
    `for dev in dri dma_heap mali0 rga mpp_service \
