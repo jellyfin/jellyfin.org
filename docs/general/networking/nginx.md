@@ -300,9 +300,11 @@ In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  Thi
 
 ### Nginx Proxy Manager Subpaths
 
+To use subpaths with Jellyfin you will need to add a custom location with the following location block.  Replace "SERVER_IP" with your Jellyfin server's actual IP.
+
 ```config
 location ^~ /jellyfin/ {
-    proxy_pass http://192.168.1.2:8096/;
+    proxy_pass http://SERVER_IP:8096/;
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
