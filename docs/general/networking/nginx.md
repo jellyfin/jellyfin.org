@@ -94,16 +94,6 @@ server {
 }
 ```
 
-### HTTP config example
-
-:::tip
-
-If you are planning on exposing your server over the Internet, you should setup HTTPS. [Let's Encrypt](https://letsencrypt.org/getting-started/) can provide free TLS certificates which can be installed easily via [certbot](https://certbot.eff.org/). Using only HTTP will expose passwords and API keys.
-
-:::
-
-</details>
-
 ## Nginx with Subpath (example.org/jellyfin)
 
 When connecting to server from a client application, enter `http(s)://example.org/jellyfin` in the address field.
