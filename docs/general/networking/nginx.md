@@ -40,7 +40,7 @@ server {
     ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
     client_max_body_size 20M;
 
-    # Uncomment next line to Disable TLS 1.0 and 1.1 (Might break older devices)
+    # Comment next line to allow TLSv1.0 and TLSv1.1 if you have very old clients
     ssl_protocols TLSv1.3 TLSv1.2;
 
     ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem;
@@ -50,16 +50,9 @@ server {
     ssl_trusted_certificate /etc/letsencrypt/live/example.org/chain.pem;
 
     # use a variable to store the upstream proxy
-    # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
-    # NOTE: Implementations using systemd-resolved should replace the resolver address with 127.0.0.53 and
-    # those running nginx in docker should ensure the resolver is 127.0.0.11
-    set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30s;
+    set $jellyfin 127.0.0.1;
 
     # Security / XSS Mitigation Headers
-    # NOTE: X-Frame-Options may cause issues with the webOS app
-    add_header X-Frame-Options "SAMEORIGIN";
     add_header X-Content-Type-Options "nosniff";
 
     # Permissions policy. May cause issues with some clients
@@ -69,8 +62,7 @@ server {
     # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
     # Enforces https content and restricts JS/CSS to origin
     # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
-    # NOTE: The default CSP headers may cause issues with the webOS app
-    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
+    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self'";
 
     location / {
         # Proxy main Jellyfin traffic
@@ -110,70 +102,6 @@ If you are planning on exposing your server over the Internet, you should setup 
 
 :::
 
-<details>
-  <summary>Expand HTTP Example</summary>
-
-```config
-server {
-    listen 80;
-    listen [::]:80;
-    server_name jellyfin.example.org;
-
-    ## The default `client_max_body_size` is 1M, this might not be enough for some posters, etc.
-    client_max_body_size 20M;
-
-    # use a variable to store the upstream proxy
-    # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
-    set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30s;
-
-    # Security / XSS Mitigation Headers
-    # NOTE: X-Frame-Options may cause issues with the webOS app
-    add_header X-Frame-Options "SAMEORIGIN";
-    add_header X-XSS-Protection "0"; # Do NOT enable. This is obsolete/dangerous
-    add_header X-Content-Type-Options "nosniff";
-
-    # Permissions policy. May cause issues with some clients
-    add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
-
-    # Content Security Policy
-    # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-    # Enforces https content and restricts JS/CSS to origin
-    # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
-    # NOTE: The default CSP headers may cause issues with the webOS app
-    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self' data:";
-
-    location / {
-        # Proxy main Jellyfin traffic
-        proxy_pass http://$jellyfin:8096;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Protocol $scheme;
-        proxy_set_header X-Forwarded-Host $http_host;
-
-        # Disable buffering when the nginx proxy gets very resource heavy upon streaming
-        proxy_buffering off;
-    }
-
-    location /socket {
-        # Proxy Jellyfin Websockets traffic
-        proxy_pass http://$jellyfin:8096;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Protocol $scheme;
-        proxy_set_header X-Forwarded-Host $http_host;
-    }
-}
-```
-
 </details>
 
 ## Nginx with Subpath (example.org/jellyfin)
@@ -210,7 +138,7 @@ server {
     # You can specify multiple domain names if you want
     #server_name jellyfin.local;
 
-    # Uncomment next line to disable TLS 1.0 and 1.1 (Might break older devices)
+    # Comment next line to allow TLSv1.0 and TLSv1.1 if you have very old clients
     ssl_protocols TLSv1.3 TLSv1.2;
 
     ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem; # managed by Certbot
@@ -220,15 +148,9 @@ server {
     ssl_trusted_certificate /etc/letsencrypt/live/example.org/chain.pem;
     
     # use a variable to store the upstream proxy
-    # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
-    set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30s;
+    set $jellyfin 127.0.0.1;
 
     # Security / XSS Mitigation Headers
-    # NOTE: X-Frame-Options may cause issues with the webOS app 
-    add_header X-Frame-Options "SAMEORIGIN";
-    add_header X-XSS-Protection "0"; # Do NOT enable. This is obsolete/dangerous
     add_header X-Content-Type-Options "nosniff";
 
     # Permissions policy. May cause issues with some clients
@@ -238,8 +160,7 @@ server {
     # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
     # Enforces https content and restricts JS/CSS to origin
     # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
-    # NOTE: The default CSP headers may cause issues with the webOS app
-    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
+    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self'";
 
     # Jellyfin
     location /jellyfin {
@@ -279,93 +200,6 @@ server {
     }
 }
 ```
-
-### HTTP subpath example
-
-<details>
-  <summary>Expand HTTP Example</summary>
-
-```conf
-# Jellyfin hosted on http://example.org/jellyfin
-
-server {
-    listen 80;
-    listen [::]:80;
-
-    server_name example.org;
-    # You can specify multiple domain names if you want
-    #server_name jellyfin.local;
-
-    # use a variable to store the upstream proxy
-    # in this example we are using a hostname which is resolved via DNS
-    # (if you aren't using DNS remove the resolver line and change the variable to point to an IP address e.g `set $jellyfin 127.0.0.1`)
-    set $jellyfin jellyfin;
-    resolver 127.0.0.1 valid=30s;
-
-    # Security / XSS Mitigation Headers
-    # NOTE: X-Frame-Options may cause issues with the webOS app 
-    add_header X-Frame-Options "SAMEORIGIN";
-    add_header X-XSS-Protection "0"; # Do NOT enable. This is obsolete/dangerous
-    add_header X-Content-Type-Options "nosniff";
-
-    # Permissions policy. May cause issues with some clients
-    add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
-
-    # Content Security Policy
-    # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-    # Enforces https content and restricts JS/CSS to origin
-    # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
-    # NOTE: The default CSP headers may cause issues with the webOS app
-    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
-
-    # Uncomment and create a directory to also host static content
-    #root /srv/http/media;
-    index index.html;
-
-    location / {
-        try_files $uri $uri/ =404;
-    }
-
-    # Jellyfin
-    location /jellyfin {
-        return 302 $scheme://$host/jellyfin/;
-    }
-
-    # The / at the end is significant.
-    # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
-    location /jellyfin/ {
-        # Proxy main Jellyfin traffic
-        proxy_pass http://$jellyfin:8096;
-        proxy_pass_request_headers on;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Host $http_host;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $http_connection;
-
-        # Disable buffering when the nginx proxy gets very resource heavy upon streaming
-        proxy_buffering off;
-    }
-
-    location /jellyfin/socket {
-        # Proxy Jellyfin Websockets traffic
-        proxy_pass http://$jellyfin:8096;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Protocol $scheme;
-        proxy_set_header X-Forwarded-Host $http_host;
-    }
-}
-```
-
-</details>
 
 ## Extra Nginx Configurations
 
@@ -465,17 +299,35 @@ In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  Thi
     proxy_headers_hash_bucket_size 128; 
     
     # Security / XSS Mitigation Headers
-    # NOTE: X-Frame-Options may cause issues with the webOS app
-    add_header X-Frame-Options "SAMEORIGIN";
-    add_header X-XSS-Protection "0";
     add_header X-Content-Type-Options "nosniff";
 
     # Content Security Policy
     # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
     # Enforces https content and restricts JS/CSS to origin
     # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
-    # NOTE: The default CSP headers may cause issues with the webOS app
-    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
+    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self'";
+```
+
+### Nginx Proxy Manager Subpaths
+
+```config
+location ^~ /jellyfin/ {
+    proxy_pass http://192.168.1.2:8096/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Host $http_host;
+    proxy_buffering off;
+
+    sub_filter '/web/' '/jellyfin/web/';
+    sub_filter '/socket' '/jellyfin/socket';
+    sub_filter '/api/' '/jellyfin/api/';
+    sub_filter '/touchicon' '/jellyfin/web/touchicon'; # Redireccionar iconos
+    sub_filter_once off;
+
+    rewrite /jellyfin/(.*) /$1 break;
+}
 ```
 
 In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
