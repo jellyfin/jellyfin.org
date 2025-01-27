@@ -239,34 +239,6 @@ location ~ /Items/(.*)/Images {
 
 Ensure that the directory /var/cache/nginx/jellyfin exists and the nginx user has write permissions on it! All the cache options used are explained on [Nginx blog](https://www.nginx.com/blog/nginx-caching-guide/) and [Nginx proxy module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html).
 
-### Rate Limit Downloads
-
-```conf
-# Add this outside of you server block (i.e. http block)
-limit_conn_zone $binary_remote_addr zone=addr:10m;
-
-# Downloads limit (inside server block)
-location ~ /Items/(.*)/Download$ {
-   proxy_pass http://$jellyfin:8096;
-   proxy_set_header Host $host;
-   proxy_set_header X-Real-IP $remote_addr;
-   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-   proxy_set_header X-Forwarded-Proto $scheme;
-   proxy_set_header X-Forwarded-Protocol $scheme;
-   proxy_set_header X-Forwarded-Host $http_host;
-
-   limit_rate 1700k; # Speed limit (here is on kb/s)
-   limit_conn addr 3; # Number of simultaneous downloads per IP
-   limit_conn_status 460; # Custom error handling
-   # proxy_buffering on; # Be sure buffering is on (it is by default on nginx), otherwise limits won't work
-}
-
-# Error page
-error_page 460 http://your-page-telling-your-limit/;
-```
-
-[See here for more](https://www.nginx.com/blog/rate-limiting-nginx/)
-
 ## Nginx Proxy Manager
 
 [Nginx Proxy Manager](https://nginxproxymanager.com/) provides an easy-to-use web GUI for Nginx.
