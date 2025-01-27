@@ -94,103 +94,6 @@ server {
 }
 ```
 
-## Nginx with Subpath (example.org/jellyfin)
-
-When connecting to server from a client application, enter `http(s)://example.org/jellyfin` in the address field.
-
-Set the [base URL](/docs/general/networking#base-url) field in the Jellyfin server. This can be done by navigating to the Admin Dashboard -> Networking -> Base URL in the web client. Fill in this box with `/jellyfin` and click Save. The server will need to be restarted before this change takes effect.
-
-### HTTPS subpath example
-
-```conf
-# Jellyfin hosted on https://example.org/jellyfin
-
-server {
-    listen 80;
-    listen [::]:80;
-    server_name example.org;
-
-    # Uncomment to redirect HTTP to HTTPS
-    return 301 https://$host$request_uri;
-}
-
-server {
-    # Nginx versions prior to 1.25
-    listen 443 ssl http2;
-    listen [::]:443 ssl http2;
-
-    # Nginx versions 1.25+
-    #listen 443 ssl;
-    #listen [::]:443 ssl;
-    #http2 on;
-
-    server_name example.org;
-    # You can specify multiple domain names if you want
-    #server_name jellyfin.local;
-
-    # Comment next line to allow TLSv1.0 and TLSv1.1 if you have very old clients
-    ssl_protocols TLSv1.3 TLSv1.2;
-
-    ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-    ssl_trusted_certificate /etc/letsencrypt/live/example.org/chain.pem;
-    
-    # use a variable to store the upstream proxy
-    set $jellyfin 127.0.0.1;
-
-    # Security / XSS Mitigation Headers
-    add_header X-Content-Type-Options "nosniff";
-
-    # Permissions policy. May cause issues with some clients
-    add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
-
-    # Content Security Policy
-    # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-    # Enforces https content and restricts JS/CSS to origin
-    # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
-    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self'";
-
-    # Jellyfin
-    location /jellyfin {
-        return 302 $scheme://$host/jellyfin/;
-    }
-
-    # The / at the end is significant.
-    # https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/
-    location /jellyfin/ {
-        # Proxy main Jellyfin traffic
-        proxy_pass http://$jellyfin:8096;
-        proxy_pass_request_headers on;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Host $http_host;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $http_connection;
-
-        # Disable buffering when the nginx proxy gets very resource heavy upon streaming
-        proxy_buffering off;
-    }
-
-    location /jellyfin/socket {
-        # Proxy Jellyfin Websockets traffic
-        proxy_pass http://$jellyfin:8096;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Protocol $scheme;
-        proxy_set_header X-Forwarded-Host $http_host;
-    }
-}
-```
-
 ## Extra Nginx Configurations
 
 ### Censor sensitive information in logs
@@ -268,30 +171,6 @@ In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  Thi
     # Enforces https content and restricts JS/CSS to origin
     # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
     add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self'";
-```
-
-### Nginx Proxy Manager Subpaths
-
-To use subpaths with Jellyfin you will need to add a custom location with the following location block.  Replace "SERVER_IP" with your Jellyfin server's actual IP.
-
-```config
-location ^~ /jellyfin/ {
-    proxy_pass http://SERVER_IP:8096/;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_set_header X-Forwarded-Host $http_host;
-    proxy_buffering off;
-
-    sub_filter '/web/' '/jellyfin/web/';
-    sub_filter '/socket' '/jellyfin/socket';
-    sub_filter '/api/' '/jellyfin/api/';
-    sub_filter '/touchicon' '/jellyfin/web/touchicon'; # Redireccionar iconos
-    sub_filter_once off;
-
-    rewrite /jellyfin/(.*) /$1 break;
-}
 ```
 
 In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
