@@ -120,11 +120,11 @@ access_log /var/log/nginx/access.log stripsecrets;
 ### Cache Images
 
 ```conf
-# Add this outside of you server block (i.e. http block)
-proxy_cache_path /var/cache/nginx/jellyfin levels=1:2 keys_zone=jellyfin:100m max_size=15g inactive=30d use_temp_path=off;
-
-# Cache images (inside server block)
+# This configuration goes outside of your proxy file and into the http block, can be found under /etc/nginx/nginx.conf.
+proxy_cache_path /var/cache/nginx/jellyfin-images levels=1:2 keys_zone=jellyfin-images:100m max_size=1g inactive=30d use_temp_path=off;
+# This configuration goes inside the server block for Caching of images. 
 location ~ /Items/(.*)/Images {
+  # Set the IP:Port if your jellyfin server, you can also use an upstream block and reference that. 
   proxy_pass http://$jellyfin:8096;
   proxy_set_header Host $host;
   proxy_set_header X-Real-IP $remote_addr;
@@ -132,14 +132,67 @@ location ~ /Items/(.*)/Images {
   proxy_set_header X-Forwarded-Proto $scheme;
   proxy_set_header X-Forwarded-Protocol $scheme;
   proxy_set_header X-Forwarded-Host $http_host;
-
-  proxy_cache jellyfin;
+  # Cache settings
+  # Its good to seperate your cache into different locations, images will not use much data, 1gb ramdisk has worked fine for this location. 
+  proxy_cache jellyfin-images;
   proxy_cache_revalidate on;
   proxy_cache_lock on;
-  # add_header X-Cache-Status $upstream_cache_status; # This is only to check if cache is working
+  # Remove Cache-Control header sent by Jellyfin, this forces images to be cached. 
+  proxy_hide_header Cache-Control;
+  proxy_cache_key "$scheme$host$request_uri";
+  proxy_cache_valid 200 206 301 302 30d;
+  proxy_ignore_headers Expires Cache-Control Set-Cookie X-Accel-Expires;
+  # Overrides default Cache-Control header.
+  add_header Cache-Control "public, max-age=3600"; 
+  # This is only to check if cache is working, uncomment this, inspect element in browser and view the network tab, you should see images with a header of X-Cache-Status now. 
+  # add_header X-Cache-Status $upstream_cache_status;
 }
 ```
 
+Ensure that the directory /var/cache/nginx/jellyfin exists and the nginx user has write permissions on it! All the cache options used are explained on [Nginx blog](https://www.nginx.com/blog/nginx-caching-guide/) and [Nginx proxy module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html).
+
+### Cache Video
+
+In /etc/nginx/nginx.conf, add the following in the HTTP block. 
+```conf
+        proxy_cache_path  /cache/nginx/jellyfin-videos levels=1:2 keys_zone=jellyfin-videos:100m inactive=90d max_size=9G; map $request_uri $h264Level { ~(h264-level=)(.+?)& $2; }
+        map $request_uri $h264Level { ~(h264-level=)(.+?)& $2; }
+        map $request_uri $h264Profile { ~(h264-profile=)(.+?)& $2; }
+
+```
+In your /etc/nginx/sites-available/reverse-proxy file add the following in the server block for Jellyfin. 
+```conf
+location ~* ^/Videos/(.*)/(?!live)
+{
+  # Set size of a slice (this amount will be always requested from the backend by nginx)
+  # Higher value means more latency, lower more overhead
+  # This size is independent of the size clients/browsers can request
+  slice 2m;
+
+  proxy_cache jellyfin-videos;
+  proxy_cache_valid 200 206 301 302 5d;
+  proxy_ignore_headers Expires Cache-Control Set-Cookie X-Accel-Expires;
+  proxy_cache_use_stale error timeout invalid_header updating http_500 http_502 http_503 http_504;
+  proxy_connect_timeout 15s;
+  proxy_http_version 1.1;
+  proxy_set_header Connection "";
+  # Transmit slice range to the backend
+  proxy_set_header Range $slice_range;
+
+  # This saves bandwidth between the proxy and jellyfin, as a file is only downloaded one time instead of multiple times when multiple clients want to at the same time
+  # The first client will trigger the download, the other clients will have to wait until the slice is cached
+  # Esp. practical during SyncPlay
+  proxy_cache_lock on;
+  proxy_cache_lock_age 60s;
+
+  # This is your jellyfin IP:port, this example refers to an upstream block being configured.
+  proxy_pass http://jellyfin;
+  proxy_cache_key "jellyvideo$uri?MediaSourceId=$arg_MediaSourceId&VideoCodec=$arg_VideoCodec&AudioCodec=$arg_AudioCodec&AudioStreamIndex=$arg_AudioStreamIndex&VideoBitrate=$arg_VideoBitrate&AudioBitrate=$arg_AudioBitrate&SubtitleMethod=$arg_SubtitleMethod&TranscodingMaxAudioChannels=$arg_TranscodingMaxAudioChannels&RequireAvc=$arg_RequireAvc&SegmentContainer=$arg_SegmentContainer&MinSegments=$arg_MinSegments&BreakOnNonKeyFrames=$arg_BreakOnNonKeyFrames&h264-profile=$h264Profile&h264-level=$h264Level&slicerange=$slice_range";
+  
+   add_header X-Cache-Status $upstream_cache_status;
+
+}
+```
 Ensure that the directory /var/cache/nginx/jellyfin exists and the nginx user has write permissions on it! All the cache options used are explained on [Nginx blog](https://www.nginx.com/blog/nginx-caching-guide/) and [Nginx proxy module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html).
 
 ## Nginx Proxy Manager
