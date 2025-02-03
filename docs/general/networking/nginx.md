@@ -117,31 +117,6 @@ map $request $secretfilter {
 access_log /var/log/nginx/access.log stripsecrets;
 ```
 
-### Cache Images
-
-```conf
-# Add this outside of you server block (i.e. http block)
-proxy_cache_path /var/cache/nginx/jellyfin levels=1:2 keys_zone=jellyfin:100m max_size=15g inactive=30d use_temp_path=off;
-
-# Cache images (inside server block)
-location ~ /Items/(.*)/Images {
-  proxy_pass http://$jellyfin:8096;
-  proxy_set_header Host $host;
-  proxy_set_header X-Real-IP $remote_addr;
-  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-  proxy_set_header X-Forwarded-Proto $scheme;
-  proxy_set_header X-Forwarded-Protocol $scheme;
-  proxy_set_header X-Forwarded-Host $http_host;
-
-  proxy_cache jellyfin;
-  proxy_cache_revalidate on;
-  proxy_cache_lock on;
-  # add_header X-Cache-Status $upstream_cache_status; # This is only to check if cache is working
-}
-```
-
-Ensure that the directory /var/cache/nginx/jellyfin exists and the nginx user has write permissions on it! All the cache options used are explained on [Nginx blog](https://www.nginx.com/blog/nginx-caching-guide/) and [Nginx proxy module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html).
-
 ## Nginx Proxy Manager
 
 [Nginx Proxy Manager](https://nginxproxymanager.com/) provides an easy-to-use web GUI for Nginx.
