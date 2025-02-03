@@ -117,31 +117,6 @@ map $request $secretfilter {
 access_log /var/log/nginx/access.log stripsecrets;
 ```
 
-### Cache Images
-
-```conf
-# Add this outside of you server block (i.e. http block)
-proxy_cache_path /var/cache/nginx/jellyfin levels=1:2 keys_zone=jellyfin:100m max_size=15g inactive=30d use_temp_path=off;
-
-# Cache images (inside server block)
-location ~ /Items/(.*)/Images {
-  proxy_pass http://$jellyfin:8096;
-  proxy_set_header Host $host;
-  proxy_set_header X-Real-IP $remote_addr;
-  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-  proxy_set_header X-Forwarded-Proto $scheme;
-  proxy_set_header X-Forwarded-Protocol $scheme;
-  proxy_set_header X-Forwarded-Host $http_host;
-
-  proxy_cache jellyfin;
-  proxy_cache_revalidate on;
-  proxy_cache_lock on;
-  # add_header X-Cache-Status $upstream_cache_status; # This is only to check if cache is working
-}
-```
-
-Ensure that the directory /var/cache/nginx/jellyfin exists and the nginx user has write permissions on it! All the cache options used are explained on [Nginx blog](https://www.nginx.com/blog/nginx-caching-guide/) and [Nginx proxy module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html).
-
 ## Nginx Proxy Manager
 
 [Nginx Proxy Manager](https://nginxproxymanager.com/) provides an easy-to-use web GUI for Nginx.
@@ -155,22 +130,6 @@ In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  Thi
 ```config
     # Disable buffering when the nginx proxy gets very resource heavy upon streaming
     proxy_buffering off;
-
-    # Proxy main Jellyfin traffic
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-Protocol $scheme;
-    proxy_set_header X-Forwarded-Host $http_host;
-    proxy_headers_hash_max_size 2048;
-    proxy_headers_hash_bucket_size 128; 
-    
-    # Security / XSS Mitigation Headers
-    add_header X-Content-Type-Options "nosniff";
-
-    # Content Security Policy
-    # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-    # Enforces https content and restricts JS/CSS to origin
-    # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
-    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self'";
 ```
 
 In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
