@@ -26,7 +26,14 @@ Additionally, there are several third parties providing unofficial container ima
 
 :::warning
 
-While it is possible to run Jellyfin in Docker on a Windows or macOS host, it is not supported. Docker on Windows or macOS runs a Linux virtual machine, then runs containers in that VM. Because of this, some features will not work properly, notably hardware acceleration. Please install Jellyfin natively if you wish to use [Windows](/docs/general/installation/windows) or [macOS](/docs/general/installation/macos).
+If you wish to use Windows or macOS, please install Jellyfin natively instead. [Windows](/docs/general/installation/windows) [macOS](/docs/general/installation/macos).
+
+While it is possible to run Jellyfin in Docker on a Windows or macOS host, it is NOT supported. Some features are known to be broken when running in Docker on platforms other than Linux, Notably:
+
+- Hardware Accelerated Transcoding
+- [Scanning on macOS in Docker](https://github.com/jellyfin/jellyfin/issues/13093)
+
+You WILL NOT receive any support for running Jellyfin in Docker on platforms other than Linux.
 
 :::
 
