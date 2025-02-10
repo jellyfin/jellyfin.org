@@ -37,6 +37,11 @@ const redirects: ClientRedirects.Options['redirects'] = [
   {
     from: '/docs/general/administration/building',
     to: '/docs/general/installation/source'
+  },
+  // "traefik2" moved
+  {
+    from: '/docs/general/networking/traefik2',
+    to: '/docs/general/networking/traefik'
   }
 ];
 export default redirects;
