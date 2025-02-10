@@ -31,6 +31,7 @@
   "/docs/general/networking/letsencrypt.html",
   "/docs/general/networking/monitoring.html",
   "/docs/general/networking/nginx.html",
+  "/docs/general/networking/traefik.html",
   "/docs/general/networking/traefik2.html",
   "/docs/general/quick-start.html",
   "/docs/general/server/devices.html",
