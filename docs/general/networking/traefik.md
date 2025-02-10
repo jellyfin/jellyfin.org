@@ -1,5 +1,5 @@
 ---
-uid: network-reverse-proxy-traefik2
+uid: network-reverse-proxy-traefik
 title: Traefik v2.x
 ---
 
