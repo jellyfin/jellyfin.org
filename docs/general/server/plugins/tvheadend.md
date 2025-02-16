@@ -81,3 +81,18 @@ If the guide is not updated, restart the Jellyfin server.
 :::
 
 Once the update of the guide is finished, the Live TV will already be able to see the guide related to the synchronized channels and will be able to visualize the content.
+
+## Integrating TVHeadend without a plugin
+
+It's possible to use TVHeadend with Jellyfin through as an M3U/XMLTV integrations. 
+This integration requires more CPU processing, and the plugin is therefore recommended.
+This approach is recommended when the plugin fails for some reason.
+
+1. Go to LiveTV, Tuner devices, and add a new M3U Tuner
+2. Set the URL to point to `http://your.tvheadend.server:port/playlist/channels.m3u`
+3. Press save
+4. Go to LiveTV, TV Guide Data Providers, and add a new XMLTV source
+5. Set the URL to point to `http://your.tvheadend.server:port/xmltv/channels`
+6. Press save
+
+Wait for the Guide data to refresh.
