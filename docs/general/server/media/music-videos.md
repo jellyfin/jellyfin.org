@@ -3,7 +3,7 @@ uid: server-media-music-videos
 title: Music Videos
 ---
 
-# Music Videos
+# Music videos
 
 The `Music Videos` library type can be used to organize music videos.
 
