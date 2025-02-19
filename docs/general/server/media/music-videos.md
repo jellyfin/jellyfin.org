@@ -5,7 +5,7 @@ title: Music videos
 
 # Music videos
 
-The `Music Videos` library type can be used to organize music videos.
+The `Music videos` library type can be used to organize music videos.
 
 The music videos are organized into folders, and the folder structure will be presented
 directly to the users.
