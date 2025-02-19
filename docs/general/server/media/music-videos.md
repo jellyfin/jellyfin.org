@@ -1,6 +1,6 @@
 ---
 uid: server-media-music-videos
-title: Music Videos
+title: Music videos
 ---
 
 # Music videos
