@@ -21,7 +21,6 @@ If you created the file with a password, then you will have to enter that value 
 
 If you can access the server locally but not outside of your LAN, then you likely have an issue with the router configuration.
 Check the port forwarding settings on your router to ensure the server is visible from outside your local network.
-You can also enable the "Enable automatic port mapping" option on the **Networking** page of the server settings to have the server attempt to configure port forwarding on the router automatically if your router supports it.
 
 If there are no logs at all relating to web traffic, even over a LAN connection, then the server hasn't been reached at all yet.
 This would indicate either an incorrect address or an issue somewhere else on the network.
@@ -48,14 +47,14 @@ To enable debug logging, create the `logging.json` file and add the following co
 
 ```json
 {
-    "Serilog": {
-        "MinimumLevel": {
-            "Default": "Debug",
-            "Override": {
-                "": "Debug"
-            }
-        }
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Debug",
+      "Override": {
+        "": "Debug"
+      }
     }
+  }
 }
 ```
 
@@ -73,15 +72,15 @@ To restore normal logging, you can remove the override `logging.json` (if you cr
 
 ```json
 {
-    "Serilog": {
-        "MinimumLevel": {
-            "Default": "Information",
-            "Override": {
-                "Microsoft": "Warning",
-                "System": "Warning"
-            }
-        }
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "System": "Warning"
+      }
     }
+  }
 }
 ```
 
@@ -170,7 +169,7 @@ Manual changes to the database can destroy your instance beyond repair. to preve
 Before continuing, make sure that you have sqlite3 installed.
 When sqlite3 is not installed, you can install it under Debian based systems with `apt install sqlite3`.
 After that do the following commands/SQL query:  
-*You can find a list of default Paths [here](../configuration#configuration-directory)*
+_You can find a list of default Paths [here](../configuration#configuration-directory)_
 
 ```bash
 sqlite3 /PATH/TO/JELLYFIN/DB/jellyfin.db
@@ -185,7 +184,7 @@ SELECT Permissions.Value,Permissions.Kind,Users.Username  FROM Permissions INNER
 ```
 
 To just check permissions on your admin account, run the following query:  
-*Please change `AdminUsername` to the username of your admin account*
+_Please change `AdminUsername` to the username of your admin account_
 
 ```sql
 SELECT Value,Kind FROM Permissions WHERE UserId IN (SELECT Id FROM Users WHERE Username = 'AdminUsername');
