@@ -64,7 +64,7 @@ Paste:
 
 ```bash
 [Definition]
-failregex = ^.*Authentication request for .* has been denied \(IP: "<ADDR>"\)\.
+failregex = ^.*Authentication request for .* has been denied \(IP: <ADDR>\)\.
 ```
 
 Save and exit, then reload Fail2ban:
