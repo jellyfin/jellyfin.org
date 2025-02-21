@@ -30,6 +30,7 @@ Below is a list of tasks that Jellyfin runs peoridically by default:
 - Clear Cache Folder
 - Clear Activity Logs
 - Clear Transcodes Folder
+- Clean up collections and playlists
 
 ## Plugin Tasks
 
