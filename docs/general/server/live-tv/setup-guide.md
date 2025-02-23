@@ -68,7 +68,7 @@ This tuner allows you to add IPTV channel to Jellyfin by using the appropriate M
 
 Here is a list of legal samples to use to test connectivity.
 
-[LegalStream Live News Playlist](https://raw.githubusercontent.com/notanewbie/LegalStream/master/packages/news/live.m3u8)
+[LegalStream Live News Playlist](https://raw.githubusercontent.com/notanewbie/LegalStream/master/packages/news/live.m3u8) - Deprecated as of 2022.
 
 :::
 
