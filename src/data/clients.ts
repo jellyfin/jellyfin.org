@@ -882,7 +882,7 @@ export const Clients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Android, Platform.IOS, Platform.iPadOS],
+    platforms: [Platform.Android, Platform.IOS, Platform.IpadOS],
     primaryLinks: [
       {
         id: 'app-store',
@@ -932,27 +932,27 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: "fladder",
-    name: "Fladder",
-    description: "A simple, cross-platform Jellyfin frontend built on top of Flutter.",
+    id: 'fladder',
+    name: 'Fladder',
+    description: 'A simple, cross-platform Jellyfin frontend built on top of Flutter.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
     primaryLinks: [
       {
-        id: "play-store",
-        name: "Play Store",
-        url: "https://play.google.com/store/apps/details?id=nl.jknaapen.fladder",
-      },
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=nl.jknaapen.fladder'
+      }
     ],
     secondaryLinks: [
       {
-        id: "github",
-        name: "GitHub",
-        url: "https://github.com/DonutWare/Fladder",
-      },
-    ],
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/DonutWare/Fladder'
+      }
+    ]
   },
   {
     id: 'symfonium',
@@ -975,6 +975,29 @@ export const Clients: Array<Client> = [
         id: 'website',
         name: 'Website',
         url: 'https://symfonium.app/'
+      }
+    ]
+  },
+  {
+    id: 'finer',
+    name: 'Finer',
+    description: 'Jellyfin Music Player for macOS/iPadOS/iOS, built with native technologies.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.MacOS, Platform.IpadOS, Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/finer-player/id6738301953'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://monk-studio.com/finer'
       }
     ]
   }
