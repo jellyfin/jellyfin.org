@@ -9,6 +9,16 @@ title: Media
 
 File names containing special characters are known to cause problems. The following characters are known to cause issues: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`. Jellyfin does not support the use of these characters in file names.
 
+## External Images
+
+| Type     | Allowed Names                                  |
+| -------- | ---------------------------------------------- |
+| Primary  | folder, poster, cover, default                 |
+| Backdrop | backdrop, fanart, background, art, extrafanart |
+| Logo     | logo                                           |
+| Banner   | banner                                         |
+| Thumb    | thumb, landscape                               |
+
 ## Excluding a directory
 
 Directories, and their respective media files, can be excluded from the library scan. This can be achieved by placing a `.ignore` file in the directory you want to exclude. As a result, the directory and it's subdirectories will be excluded from being scanned.
