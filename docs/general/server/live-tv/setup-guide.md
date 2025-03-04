@@ -1,6 +1,7 @@
 ---
 uid: server-live-tv-setup-guide
 title: Setup Guide
+sidebar_position: 1
 ---
 
 # Setup Guide

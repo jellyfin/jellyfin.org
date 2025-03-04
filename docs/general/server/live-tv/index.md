@@ -1,6 +1,6 @@
 ---
 uid: server-live-tv-index
-title: Live TV
+title: Live TV and Internet Radio
 ---
 
 # Live TV
