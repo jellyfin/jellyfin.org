@@ -5,6 +5,12 @@ title: Books
 
 # Books
 
+:::note
+
+How Jellyfin handles books are undergoing a major redesign. This is very likely to change with future releases.
+
+:::
+
 The most common organization scheme for books is separation by Audiobook then by Author.
 
 ```txt
@@ -37,19 +43,19 @@ Either the `content.opf` or the `metadata.opf` file can tell Jellyfin which file
 
 ## Primary
 
-* folder
-* poster
-* cover
+- folder
+- poster
+- cover
 
 ## Banner
 
-* banner
+- banner
 
 ## Logo
 
-* logo
+- logo
 
 ## Thumb
 
-* thumb
-* landscape
+- thumb
+- landscape
