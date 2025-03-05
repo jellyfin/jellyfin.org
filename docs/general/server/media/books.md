@@ -7,55 +7,56 @@ title: Books
 
 :::note
 
-How Jellyfin handles books are undergoing a major redesign. This is very likely to change with future releases.
+How Jellyfin handles books are undergoing a major redesign. Information on this page is very likely to change with future releases.
 
 :::
 
-The most common organization scheme for books is separation by Audiobook then by Author.
+The bookshelf plugin is required for books libraries.
+
+Books should be organized by type (Audiobooks, Books, Comics), then optionally by Author. Each book should be in their own folder.
 
 ```txt
 Books
 ├── Audiobooks
 │   ├── Author
-│   │   ├── Book1.flac
-│   │   └── Book2.flac
+│   │   ├── Book1
+│   │   │   └── Book1.flac
+│   │   └── Book2
+│   │       └── Book2.flac
 │   └── Book
 │       ├── Chapter1.flac
 │       └── Chapter2.flac
-└── Books
-    └── Author
-        ├── Book1.epub
-        ├── Book2.epub
-        ├── Book
-        │   ├── Book1.epub
-        │   ├── cover.ext
-        │   └── metadata.opf
-        └── Book3.mp3
+├── Books
+│   └── Author
+│       ├── Book1.epub
+│       ├── Book2.epub
+│       ├── Book
+│       │   ├── Book1.epub
+│       │   ├── cover.ext
+│       │   └── metadata.opf
+│       └── Book3.mp3
+└── Comics
+    ├── Plastic Man #002 (1944).cbz
+    ├── Attack on Titan #001 (2012).cbz
+    └── Comic (2008)
+        ├── ComicInfo.xml
+        └── Comic #001 (2008).cbr
 ```
 
-File extensions supported include azw, azw3, cb7, cbr, cbt, cbz, epub, mobi, and pdf.
+For audiobooks, most common audio extensions are supported.
+For other books, the following formats are supproted: azw, azw3, cb7, cbr, cbt, cbz, epub, mobi, pdf, zip, rar, 7z.
 
 ## Local Metadata
 
-In case the book is stored in the epub format, internal metadata can be provided. For every other format, metadata has to be provided externally in a `content.opf` or `metadata.opf` file. When multiple books have been published by the same author, it is recommended to place each book into a seperate folder. This allows to provide local metadata for every book.
+For books in epub format, embedded metadata can be provided, For other formats, the metadata has to be provided in an external `content.opf`, `metadata.opf` or `ComicInfo.xml` file. The ComicInfo (from ComicRack) and ComicBookInfo (from ComicBookLover) formats are supported for `ComicInfo.xml` files.
 
-Either the `content.opf` or the `metadata.opf` file can tell Jellyfin which file should be used for the books cover. Usually, this is the `cover.ext` file. The abbreviation `ext` stands for extension, e.g. `.png` or `.jpg`.
+Additionally, information about year and issue number can be provided in the file names, as seen in the example above.
 
-## Primary
+The files above can contain info about what images to use for cover images. Alternatively, They can be provided as external image files named in a specific manner, as listed below.
 
-- folder
-- poster
-- cover
-
-## Banner
-
-- banner
-
-## Logo
-
-- logo
-
-## Thumb
-
-- thumb
-- landscape
+| Type    | Names                       |
+| ------- | --------------------------- |
+| Primary | `folder`, `poster`, `cover` |
+| Banner  | `banner`                    |
+| Logo    | `logo`                      |
+| Thumb   | `thumb`, `landscape`        |
