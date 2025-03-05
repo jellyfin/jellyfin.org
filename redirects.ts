@@ -42,6 +42,11 @@ const redirects: ClientRedirects.Options['redirects'] = [
   {
     from: '/docs/general/networking/traefik2',
     to: '/docs/general/networking/traefik'
+  },
+  // Merge comic and books
+  {
+    from: '/docs/general/server/media/comics',
+    to: '/docs/general/server/media/books'
   }
 ];
 export default redirects;
