@@ -28,16 +28,20 @@ Books
 │       └── Chapter2.flac
 ├── Books
 │   └── Author
-│       ├── Book1.epub
-│       ├── Book2.epub
+│       ├── Book1
+│       │   └── Book1.epub
+│       ├── Book2
+│       │   └── Book2.epub
 │       ├── Book
 │       │   ├── Book1.epub
 │       │   ├── cover.ext
 │       │   └── metadata.opf
 │       └── Book3.mp3
 └── Comics
-    ├── Plastic Man #002 (1944).cbz
-    ├── Attack on Titan #001 (2012).cbz
+    ├── Plastic Man (1944)
+    │   └── Plastic Man #002 (1944).cbz
+    ├── Attack on Titan (2012)
+    │   └── Attack on Titan #001 (2012).cbz
     └── Comic (2008)
         ├── ComicInfo.xml
         └── Comic #001 (2008).cbr
@@ -46,11 +50,13 @@ Books
 For audiobooks, most common audio extensions are supported.
 For other books, the following formats are supproted: azw, azw3, cb7, cbr, cbt, cbz, epub, mobi, pdf, zip, rar, 7z.
 
-## Local Metadata
+## Metadata
+
+Online metadata is not supported for the books library type.
 
 For books in epub format, embedded metadata can be provided, For other formats, the metadata has to be provided in an external `content.opf`, `metadata.opf` or `ComicInfo.xml` file. The ComicInfo (from ComicRack) and ComicBookInfo (from ComicBookLover) formats are supported for `ComicInfo.xml` files.
 
-Additionally, information about year and issue number can be provided in the file names, as seen in the example above.
+Additionally, information about year and issue number can be provided in the file names, as seen in the example above. For comics or magazines with issues across multiple years, the year of the first issue should be used.
 
 The files above can contain info about what images to use for cover images. Alternatively, They can be provided as external image files named in a specific manner, as listed below.
 
