@@ -1,6 +1,6 @@
 ---
 uid: server-live-tv-internet-radio
-title: Internet radio
+title: Internet Radio
 sidebar_position: 3
 ---
 
