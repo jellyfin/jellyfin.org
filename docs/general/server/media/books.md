@@ -5,12 +5,6 @@ title: Books
 
 # Books
 
-:::note
-
-How Jellyfin handles books are undergoing a major redesign. Information on this page is very likely to change with future releases.
-
-:::
-
 The bookshelf plugin is required for books libraries.
 
 Books should be organized by type (Audiobooks, Books, Comics), then optionally by Author. Each book should be in their own folder.
