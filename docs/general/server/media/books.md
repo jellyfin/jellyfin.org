@@ -47,12 +47,13 @@ Books
         └── Comic #001 (2008).cbr
 ```
 
-For audiobooks, most common audio extensions are supported.
-For other books, the following formats are supproted: azw, azw3, cb7, cbr, cbt, cbz, epub, mobi, pdf, zip, rar, 7z.
+For audiobooks, most common audio extensions are supported. For other books, the following formats are supproted: azw, azw3, cb7, cbr, cbt, cbz, epub, mobi, pdf, zip, rar, 7z. Read-along audiobooks are not supported by Jellyfin.
 
 ## Metadata
 
 Online metadata is not supported for the books library type.
+
+For media in audio formats, the metadata is read from the embedded tags of the audio files. FLAC files with WebP embedded images or ID3 tags might fail to play on some browsers. Enable the `Always remux flac option` in the settings if you are experiencing this problem.
 
 For books in epub format, embedded metadata can be provided, For other formats, the metadata has to be provided in an external `content.opf`, `metadata.opf` or `ComicInfo.xml` file. The ComicInfo (from ComicRack) and ComicBookInfo (from ComicBookLover) formats are supported for `ComicInfo.xml` files.
 
