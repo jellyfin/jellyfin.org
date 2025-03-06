@@ -49,7 +49,7 @@ Books
         └── Comic #001 (2008).cbr
 ```
 
-For audiobooks, most common audio extensions are supported. For other books, the following formats are supproted: azw, azw3, cb7, cbr, cbt, cbz, epub, mobi, pdf, zip, rar, 7z. Read-along audiobooks are not supported by Jellyfin.
+For audiobooks, most common audio extensions are supported. For other books, the following formats are supported: azw, azw3, cb7, cbr, cbt, cbz, epub, mobi, pdf, zip, rar, 7z. Read-along audiobooks are not supported by Jellyfin.
 
 ## Metadata
 
