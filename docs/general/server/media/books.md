@@ -22,26 +22,28 @@ Books
 │   │   ├── Book1
 │   │   │   └── Book1.flac
 │   │   └── Book2
-│   │       └── Book2.flac
-│   └── Book
-│       ├── Chapter1.flac
-│       └── Chapter2.flac
+│   │       └── Book2.mp3
+│   └── Book3
+│       ├── Book3.aac
+│       ├── content.opf
+│       └── cover.jpg
 ├── Books
 │   └── Author
-│       ├── Book1
-│       │   └── Book1.epub
-│       ├── Book2
-│       │   └── Book2.epub
-│       ├── Book
-│       │   ├── Book1.epub
-│       │   ├── cover.ext
+│       ├── Book4
+│       │   └── Book4.epub
+│       ├── Book5
+│       │   └── Book5.epub
+│       ├── Book6
+│       │   ├── Book6.epub
+│       │   ├── cover.png
 │       │   └── metadata.opf
-│       └── Book3.mp3
+│       └── Book7
+│           └── Book7.pdf
 └── Comics
     ├── Plastic Man (1944)
     │   └── Plastic Man #002 (1944).cbz
     ├── Attack on Titan (2012)
-    │   └── Attack on Titan #001 (2012).cbz
+    │   └── Attack on Titan #001 (2012).pdf
     └── Comic (2008)
         ├── ComicInfo.xml
         └── Comic #001 (2008).cbr
