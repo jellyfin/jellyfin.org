@@ -1,6 +1,7 @@
 ---
-uid: server-media-internet-radio
+uid: server-live-tv-internet-radio
 title: Internet radio
+sidebar_position: 3
 ---
 
 # Internet radio
