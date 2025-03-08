@@ -42,6 +42,11 @@ const redirects: ClientRedirects.Options['redirects'] = [
   {
     from: '/docs/general/networking/traefik2',
     to: '/docs/general/networking/traefik'
+  },
+  // Internet radio moved to live tv
+  {
+    from: '/docs/general/server/media/internet-radio',
+    to: '/docs/general/server/live-tv/internet-radio'
   }
 ];
 export default redirects;
