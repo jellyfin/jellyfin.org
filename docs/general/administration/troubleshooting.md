@@ -111,7 +111,7 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 ```
 
 Then paste it in your terminal and press on enter to run it. For Docker, this needs to be done on the host, not the container.
-See [here](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) for more information.
+See [here](https://github.com/guard/listen/blob/master/README.md#increasing-the-amount-of-inotify-watchers) for more information.
 
 ## Uninstalling Jellyfin on MacOS
 
