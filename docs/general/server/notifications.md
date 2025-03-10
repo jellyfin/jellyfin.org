@@ -13,4 +13,4 @@ Notifications can be sent using different services depending on what kind of int
 
 ## Configuration
 
-You can properly configure this feature on the **Notifications** page in the settings. All notification types will be shown in a list as well as their current status. They can be enabled individually and can be set to only monitor specific users. Any installed notification services will show up in a list in this section.
+After installing the **Webhook** plugin, you will navigate to "My Plugins" in the dashboard and then select the Webhook plugin to configure notifications. All notification types will be shown in a list as well as their current status. They can be enabled individually and can be set to only monitor specific users. Any installed notification services will show up in a list in this section.
