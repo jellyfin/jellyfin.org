@@ -1,9 +1,10 @@
 ---
-uid: server-media-internet-radio
-title: Internet radio
+uid: server-live-tv-internet-radio
+title: Internet Radio
+sidebar_position: 3
 ---
 
-# Internet radio
+# Internet Radio
 
 It is possible to add Internet radio stations (e.g. shoutcast) to Jellyfin by utilizing the Live TV M3U Tuner device type. Directly entering links into the M3U tuner is supported, but it depends on the provider.
 
