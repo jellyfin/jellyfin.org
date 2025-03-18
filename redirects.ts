@@ -47,6 +47,11 @@ const redirects: ClientRedirects.Options['redirects'] = [
   {
     from: '/docs/general/server/media/internet-radio',
     to: '/docs/general/server/live-tv/internet-radio'
+  },
+  // Merge comic and books
+  {
+    from: '/docs/general/server/media/comics',
+    to: '/docs/general/server/media/books'
   }
 ];
 export default redirects;
