@@ -13,7 +13,7 @@ This name will be displayed to users when they select a server, and clients migh
 
 ## Splash Screen Image
 
-The plash screen image is used by some clients as a background for login screens or similar.
+The splash screen image is used by some clients as a background for login screens or similar.
 The default image is generated from images of the content on your server and is visible without authenticating and therefore can expose what content may be present on your server.
 Only content with a rating equivalent to PG-13 or lower is used for generating the image, but this depends on the content having accurate rating data.
 
