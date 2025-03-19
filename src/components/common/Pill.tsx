@@ -8,10 +8,7 @@ type PillParams = {
 };
 
 const Pill: FunctionComponent<PillParams> = ({ children, active, onClick }: PillParams) => (
-  <li
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-    role='button'
-    tabIndex={0}
+  <button
     className={clsx('pills__item', { 'pills__item--active': active })}
     onClick={onClick}
     onKeyUp={(keyEvent) => {
@@ -21,7 +18,7 @@ const Pill: FunctionComponent<PillParams> = ({ children, active, onClick }: Pill
     }}
   >
     {children}
-  </li>
+  </button>
 );
 
 export default Pill;

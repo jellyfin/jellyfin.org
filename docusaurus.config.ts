@@ -27,8 +27,8 @@ const config: Config = {
     ],
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: true,
-      respectPrefersColorScheme: false
+      disableSwitch: false,
+      respectPrefersColorScheme: true
     },
     navbar: {
       logo: {
@@ -98,7 +98,7 @@ const config: Config = {
 <img alt="Current Release" src="https://img.shields.io/github/release/jellyfin/jellyfin.svg"/>
 </a>
 <br/>
-Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
+Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/' class="footer__link-item">CC-BY-ND-4.0</a>`
     }
   },
   markdown: {

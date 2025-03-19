@@ -28,7 +28,11 @@ export default function Home() {
             Download Now
           </Link>
         </div>
-        <p><a href="/docs/general/community-standards/servers">Note: We do not run servers for users.</a></p>
+        <p className='margin-bottom--none margin-top--md'>
+          <a href='/docs/general/community-standards/servers' className='secondary-link'>
+            Note: We do not run servers for users.
+          </a>
+        </p>
       </Hero>
       <main>
         <HomepageFeatures />

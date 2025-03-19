@@ -43,11 +43,20 @@
   margin-left: 1rem;
 }
 
+.details-card__footer .button--primary:not(.button--outline) {
+  border-color: #007ca6;
+  background-color: #007ca6;
+}
+
 .details-card__footer .button:first-child {
   margin-left: 0;
 }
 .details-card .card__body .card__body__helptext {
-  color: rgb(157, 148, 136);
+  color: var(--ifm-color-gray-700);
+}
+
+[data-theme='dark'] .details-card .card__body .card__body__helptext {
+  color: var(--ifm-color-gray-500);
 }
 
 @media (max-width: 420px) {

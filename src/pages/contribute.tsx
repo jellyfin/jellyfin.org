@@ -46,6 +46,7 @@ export default function Contribute() {
               data='https://opencollective.com/jellyfin/contributors.svg?width=1000&button=false'
               type='image/svg+xml'
               width='1000'
+              title='Jellyfin Contributors'
             >
               Jellyfin Contributors
             </object>

@@ -6,6 +6,7 @@
 .button--discord {
   background-color: #5865f2;
   border-color: #5865f2;
+  color: #000000;
 }
 .button--discord:hover {
   background-color: #3949f0;
@@ -19,6 +20,7 @@
 .button--matrix {
   background-color: #0dbd8b;
   border-color: #0dbd8b;
+  color: var(--jf-contact-button-color);
 }
 .button--matrix:hover {
   background-color: #0caa7d;
@@ -30,21 +32,23 @@
 }
 
 .button--twitter {
-  background-color: #1da1f2;
-  border-color: #1da1f2;
+  background-color: var(--jf-color-primary);
+  border-color: var(--jf-color-primary);
+  color: var(--jf-contact-button-color);
 }
 .button--twitter:hover {
   background-color: #0d94e7;
-  border-color: #0d94e7;
+  border-color: var(--jf-color-primary);
 }
 .button--twitter:active {
   background-color: #0d8cda;
-  border-color: #0d8cda;
+  border-color: var(--jf-color-primary);
 }
 
 .button--mastodon {
   background-color: #6364ff;
   border-color: #6364ff;
+  color: #000000;
 }
 .button--mastodon:hover {
   background-color: #563acc;
@@ -56,14 +60,15 @@
 }
 
 .button--forum {
-  background-color: #00a4dc;
-  border-color: #00a4dc;
+  background-color: var(--jf-color-primary);
+  border-color: var(--jf-color-primary);
+  color: var(--jf-contact-button-color);
 }
 .button--forum:hover {
   background-color: #0094cc;
-  border-color: #0094cc;
+  border-color: var(--jf-color-primary);
 }
 .button--forum:active {
   background-color: #0084bc;
-  border-color: #0084bc;
+  border-color: var(--jf-color-primary);
 }
