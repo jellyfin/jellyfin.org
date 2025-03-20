@@ -1,6 +1,6 @@
 ---
-title: "Jellyfin Release - v10.5.0"
-description: "Our biggest release yet"
+title: 'Jellyfin Release - v10.5.0'
+description: 'Our biggest release yet'
 authors:
   - name: Julien Machiels
     url: https://github.com/MrTimscampi
@@ -17,9 +17,13 @@ A myriad of improvements, bugfixes, and a look towards the future.
 
 With **over 200 contributions** and **over 500 issues closed**, this is our biggest release yet. We're releasing a bit before the expected Christmas deadline, but our anniversary release packs a lot of new features.
 
-<div className="margin-bottom--md">
-    <a href="/downloads/" className="button button--primary margin-right--md">Download Jellyfin 10.5.0</a>
-    <a href="https://github.com/jellyfin/jellyfin/releases/tag/v10.5.0" className="button button--secondary">Read the full release notes</a>
+<div className='margin-bottom--md'>
+  <a href='/downloads/' className='button button--primary margin-right--md'>
+    <span>Download Jellyfin 10.5.0</span>
+  </a>
+  <a href='https://github.com/jellyfin/jellyfin/releases/tag/v10.5.0' className='button button--secondary'>
+    <span>Read the full release notes</span>
+  </a>
 </div>
 
 This post will feature some of the main enhancements available in Jellyfin version 10.5.0. For an exhaustive list of all the changes, you can find a complete list on [GitHub](https://github.com/jellyfin/jellyfin/releases/tag/v10.5.0).
@@ -28,27 +32,27 @@ This post will feature some of the main enhancements available in Jellyfin versi
 
 This cycle, part of our focus was on improving the look and feel of the web client.
 
-<ImgComparisonSlider className="margin-bottom--md">
-    <img slot="before" src={require("./old-home.jpg").default} />
-    <img slot="after" src={require("./new-home.jpg").default} />
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./old-home.jpg').default} alt='web client before' />
+  <img slot='after' src={require('./new-home.jpg').default} alt='web client after' />
 </ImgComparisonSlider>
 
 The web client now uses the **Noto Sans** font for all the languages we ship with. This makes for a more consistent experience and ensures that **multilingual libraries look unified**.
 
 Jellyfin 10.5.0 ships with the Latin, Greek, Chinese, Japanese, Korean, Arabic, Cyrillic, Hebrew, Vietnamese and Devanagari versions of the Noto font, optimized for the web.
 
-<ImgComparisonSlider className="margin-bottom--md">
-    <img slot="before" src={require("./old-details.png").default} />
-    <img slot="after" src={require("./new-details.png").default} />
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./old-details.png').default} alt='design before' />
+  <img slot='after' src={require('./new-details.png').default} alt='design after' />
 </ImgComparisonSlider>
 
 The most noticeable visual change is the **new details page layout**. It puts the artwork of your library front and center while looking more modern and polished.
 
-We have also completely **overhauled SSA/ASS subtitle support**. Through the use of asm.js and Web Assembly, we now provide improved rendering for these formats, fixing some long-standing issues for anime lovers. Note that this feature is still experimental. If you notice lag in the rendering of complex effects, you can enable burn-in by selecting *All complex formats* in *User Settings > Subtitles > Burn subtitles*.
+We have also completely **overhauled SSA/ASS subtitle support**. Through the use of asm.js and Web Assembly, we now provide improved rendering for these formats, fixing some long-standing issues for anime lovers. Note that this feature is still experimental. If you notice lag in the rendering of complex effects, you can enable burn-in by selecting _All complex formats_ in _User Settings > Subtitles > Burn subtitles_.
 
 However, most of the new developments in the web client are not immediately visible. We spent a lot of time preparing and cleaning the code for future improvements.
 
-<img data-label="10.5.0" src={require("./webos-icons.png").default} />
+<img data-label='10.5.0' src={require('./webos-icons.png').default} alt='webOS icons' />
 
 A few long-standing issues for WebOS have been fixed as well, bringing us a bit closer to the release of the WebOS app. Among these, icons are now properly working and the client has been reported to work on both WebOS 3 and WebOS 4. We also have plans for the next release that should improve compatibility with earlier WebOS versions and streamline the support of clients using older browser versions as a base. Navigation in the TV layout has also been substantially improved, paving the way for navigation using a remote.
 
@@ -80,36 +84,36 @@ With the influx of contributors, we have a few large scale projects for both the
 
 We'd like to thank all the contributors to this release for their hard work and dedication to making the best FOSS media server possible.
 
-* [Abbe98](https://github.com/Abbe98/)
-* [anthonylavado](https://github.com/anthonylavado/)
-* [Artiume](https://github.com/Artiume/)
-* [Bond-009](https://github.com/Bond-009/)
-* [bugfixin](https://github.com/bugfixin/)
-* [cvium](https://github.com/cvium/)
-* [dhartung](https://github.com/dhartung/)
-* [dinki](https://github.com/dinki/)
-* [dkanada](https://github.com/dkanada/)
-* [dmitrylyzo](https://github.com/dmitrylyzo/)
-* [DrPandemic](https://github.com/DrPandemic/)
-* [EraYaN](https://github.com/EraYaN/)
-* [ferferga](https://github.com/ferferga/)
-* [grafixeyehero](https://github.com/grafixeyehero/)
-* [joshuaboniface](https://github.com/joshuaboniface/)
-* [JustAMan](https://github.com/JustAMan/)
-* [LogicalPhallacy](https://github.com/LogicalPhallacy/)
-* [mark-monteiro](https://github.com/mark-monteiro/)
-* [MrTimscampi](https://github.com/MrTimscampi/)
-* [Narfinger](https://github.com/Narfinger/)
-* [Nickbert7](https://github.com/Nickbert7/)
-* [nvllsvm](https://github.com/nvllsvm/)
-* [nyanmisaka](https://github.com/nyanmisaka/)
-* [oddstr13](https://github.com/oddstr13/)
-* [ploughpuff](https://github.com/ploughpuff/)
-* [redSpoutnik](https://github.com/redSpoutnik/)
-* [sparky8251](https://github.com/sparky8251/)
-* [thornbill](https://github.com/thornbill/)
-* [vitorsemeano](https://github.com/vitorsemeano/)
-* [Wunax](https://github.com/Wunax/)
-* [YouKnowBlom](https://github.com/YouKnowBlom/)
+- [Abbe98](https://github.com/Abbe98/)
+- [anthonylavado](https://github.com/anthonylavado/)
+- [Artiume](https://github.com/Artiume/)
+- [Bond-009](https://github.com/Bond-009/)
+- [bugfixin](https://github.com/bugfixin/)
+- [cvium](https://github.com/cvium/)
+- [dhartung](https://github.com/dhartung/)
+- [dinki](https://github.com/dinki/)
+- [dkanada](https://github.com/dkanada/)
+- [dmitrylyzo](https://github.com/dmitrylyzo/)
+- [DrPandemic](https://github.com/DrPandemic/)
+- [EraYaN](https://github.com/EraYaN/)
+- [ferferga](https://github.com/ferferga/)
+- [grafixeyehero](https://github.com/grafixeyehero/)
+- [joshuaboniface](https://github.com/joshuaboniface/)
+- [JustAMan](https://github.com/JustAMan/)
+- [LogicalPhallacy](https://github.com/LogicalPhallacy/)
+- [mark-monteiro](https://github.com/mark-monteiro/)
+- [MrTimscampi](https://github.com/MrTimscampi/)
+- [Narfinger](https://github.com/Narfinger/)
+- [Nickbert7](https://github.com/Nickbert7/)
+- [nvllsvm](https://github.com/nvllsvm/)
+- [nyanmisaka](https://github.com/nyanmisaka/)
+- [oddstr13](https://github.com/oddstr13/)
+- [ploughpuff](https://github.com/ploughpuff/)
+- [redSpoutnik](https://github.com/redSpoutnik/)
+- [sparky8251](https://github.com/sparky8251/)
+- [thornbill](https://github.com/thornbill/)
+- [vitorsemeano](https://github.com/vitorsemeano/)
+- [Wunax](https://github.com/Wunax/)
+- [YouKnowBlom](https://github.com/YouKnowBlom/)
 
 If you'd like to take part in the development of Jellyfin, most of the contributors are available on [GitHub](https://github.com/jellyfin/) or via [any of the ways on our contact page](/contact/).

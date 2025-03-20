@@ -18,7 +18,7 @@
   --ifm-color-primary-dark: #00749b;
   --ifm-color-primary-darker: #006b90;
   --ifm-color-primary-darkest: #006385;
-  --ifm-color-primary-light: #008dbd;
+  --ifm-color-primary-light: #05c1ff;
   --ifm-color-primary-lighter: #009ed4;
   --ifm-color-primary-lightest: #00afeb;
   --ifm-background-color: #e9f6ff;
@@ -36,7 +36,7 @@
   --ifm-footer-background-color: #333c44;
   --ifm-footer-link-color: #ffffff;
   --ifm-footer-color: #ffffff;
-  --ifm-footer-link-hover-color: #df7bff;
+  --ifm-footer-link-hover-color: var(--ifm-color-primary-light);
   /* navbar */
   --ifm-navbar-link-color: #ffffff;
   --ifm-navbar-link-hover-color: #0099cd;
@@ -61,7 +61,7 @@
   --jf-gradient-color-secondary-dark: #00a4dc;
   --jf-color-primary: #0099cd;
   --jf-contact-button-color: #000b25;
-  --jf-landing-background-color: #aec7ff;
+  --jf-landing-background-color: #e0f0ff;
   --jf-landing-border-color: #172138;
 }
 
@@ -129,8 +129,12 @@ a code {
   --ifm-code-background: #292d3e;
 }
 
-.clean-btn {
+button.clean-btn {
   color: var(--ifm-color-secondary);
+
+  &:hover {
+    background: #444950;
+  }
 }
 
 .button--outline:hover,
@@ -146,13 +150,19 @@ a code {
 .button--primary:active,
 .button--primary.button--active {
   --ifm-button-background-color: var(--ifm-background-color);
-  --ifm-button-border-color: var(--ifm-color-primary-darker);
+  --ifm-button-border-color: var(--ifm-font-color-base);
   color: var(--ifm-font-color-base);
 }
 
 :where(.button--secondary) {
   --ifm-button-background-color: var(--ifm-color-secondary);
   --ifm-button-border-color: var(--ifm-font-color-base);
+  // TODO fix hover state
+}
+:where(.button--primary) {
+  --ifm-button-border-color: var(--ifm-font-color-base);
+  --ifm-button-background-color: var(--ifm-color-primary-light);
+  --ifm-button-color: var(--ifm-navbar-background-color);
   // TODO fix hover state
 }
 
@@ -162,11 +172,11 @@ a code {
 }
 
 .secondary-link {
-  color: var(--ifm-color-secondary);
+  color: var(--ifm-font-color-base);
 
   &:hover,
   &:active {
-    color: var(--ifm-color-secondary);
+    color: var(--ifm-font-color-base);
   }
 }
 

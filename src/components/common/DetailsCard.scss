@@ -10,7 +10,8 @@
   display: flex;
 }
 
-.details-card__header__start h3 {
+.details-card__header__start h2 {
+  font-size: var(--ifm-h3-font-size);
   margin-bottom: 0;
 }
 
@@ -46,6 +47,7 @@
 .details-card__footer .button--primary:not(.button--outline) {
   border-color: #007ca6;
   background-color: #007ca6;
+  color: #ffffff;
 }
 
 .details-card__footer .button:first-child {

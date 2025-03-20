@@ -1,6 +1,6 @@
 ---
-title: "Packaging Updates for 10.6.0"
-description: "Some backend packaging changes are here: what you should know"
+title: 'Packaging Updates for 10.6.0'
+description: 'Some backend packaging changes are here: what you should know'
 authors: joshuaboniface
 date: 2020-06-21
 slug: packaging-updates
@@ -14,7 +14,7 @@ For a brief TL;DR: for most users of our stable releases, not much will change, 
 
 <!-- truncate -->
 
-### Split Builds
+## Split Builds
 
 The first main component of the packaging changes is split builds. Previously, we were relying on some serious hackery in order to build both the Web UI ([https://github.com/jellyfin/jellyfin-web](https://github.com/jellyfin/jellyfin-web)) and Server ([https://github.com/jellyfin/jellyfin](https://github.com/jellyfin/jellyfin)) and combine them into one package. Ultimately, with the sheer number of changes in both repositories and speed at which updates happen, along with our eventual goal to decouple the two from each other for releases, this sort of solution had reached its limits. This is perhaps best exemplified by the mostly-unseen work I had to do to get 10.5.4 and 10.5.5 to build at all.
 
@@ -22,15 +22,15 @@ With split packages, the two repositories are now built completely independently
 
 The main difference is the naming - the `jellyfin-web` repository binaries are named, well, `jellyfin-web`, and the `jellyfin` repository binaries are named `jellyfin-server`. So, to use Debian as an example, where there was once `jellyfin`, there is now `jellyfin-web` and `jellyfin-server`. But don't worry, `jellyfin` is not gone - we'll get to that shortly.
 
-### Azure Pipelines builds
+## Azure Pipelines builds
 
-Our previous build infrastructure consisted of a veritable spaghetti factory of Bash, Python, and Docker scripts that were executed on our build server, a DigitalOcean droplet. For the most part, it worked, but the process was very fragile, opaque (I'm not even sure *I* understand how it all worked all the time, and I wrote it all!), and resource-intensive.
+Our previous build infrastructure consisted of a veritable spaghetti factory of Bash, Python, and Docker scripts that were executed on our build server, a DigitalOcean droplet. For the most part, it worked, but the process was very fragile, opaque (I'm not even sure _I_ understand how it all worked all the time, and I wrote it all!), and resource-intensive.
 
 As we've moved more and more functions to Azure for testing, verification, linting, etc. in the various repositories, it became obvious that Azure Pipelines had a lot of flexibility, and would be able to perform nearly all of our build steps for us. This eliminated at least 2/3 of the build server, and gives us another cool option - unstable builds, which I'll touch on shortly.
 
 The Azure Pipelines build handles the actual building of all the archives for both repositories mentioned in the previous section, uploads the binary artifacts to the build server, and then kicks off a single script to handle the last 1/3 of the process, making things much clearer, more obvious, and with results visible to everyone in our Azure project page.
 
-### Metapackages and Metaimages
+## Metapackages and Metaimages
 
 I previously mentioned that the package which used to be called `jellyfin` is now called `jellyfin-server`, and does not contain the Web UI. So, how do you get it all? And how will upgrades be seamless? The answer is metapackages, metaarchives, and metaimages! These new components can be found in [this repository page](https://github.com/jellyfin/jellyfin-metapackages), specifically the Docker images which will now be the source of truth for those configurations. I'll outline how each platform behaves below.
 
@@ -44,15 +44,15 @@ For Windows installers and MacOS `.app` packages, the process remains a little m
 
 For the remaining platforms, including the archive packages for Windows, MacOS, Linux, and .NET portable, the process takes the two separate `.tar.gz` / `.zip` archives from the build process, and combines them into a single `jellyfin` archive of the same type, which puts the two component parts in their respective places. Thus, like all the others mentioned above, the change should be invisible to users by downloading the "combined" version of the archives.
 
-### Unstable builds
+## Unstable builds
 
 One of the cool things that this new setup enables is "unstable" builds. For quite a while now, we've been providing (when not broken) "nightly" builds, which as their name implies are build every night if there were merged PRs from the previous day. However, these had a number of drawbacks. First, they broke a lot; second, on a busy day it would be possible for there to be up to a dozen separate PRs that made up the nightly changeset; third, they could often be totally messed up in terms of contents, for instance if the unsplit build grabbed the wrong version of Web.
 
-The new split builds, Azure builds, and metapackages/metaimages instead let us do something far superior: build "unstable" releases for *every merged PR*. We don't have to worry about resource usage (Azure provides this), disk space, or other aspects of the build process. We can know immediately if something breaks. And most importantly, it lets anyone test our master branch in a very clear way, knowing *exactly* what version of the repository you are using and what the last merged PR was if something goes wrong.
+The new split builds, Azure builds, and metapackages/metaimages instead let us do something far superior: build "unstable" releases for _every merged PR_. We don't have to worry about resource usage (Azure provides this), disk space, or other aspects of the build process. We can know immediately if something breaks. And most importantly, it lets anyone test our master branch in a very clear way, knowing _exactly_ what version of the repository you are using and what the last merged PR was if something goes wrong.
 
 Unstable builds are versioned based on the Azure build ID, which is in the format "[date].[id]", for example "20200620.12" for the 12th build on June 20th 2020. Thus this version string will tell you exactly which Azure build generated the binary, and thus which PR in which repository triggered it. For those binaries with changelogs (`.deb` and `.rpm` packages only for now), the changelog data includes the PR ID explicitly as well.
 
-### Using Unstable builds
+## Using Unstable builds
 
 Using unstable builds is a bit different than the previous nightlies. For those, the packages/images were named `jellyfin-nightly` or `jellyfin:nightly` (for Docker) and were stored in the same repositories. This has now changed somewhat, and I'll detail the changes to each platform below. Note that, at least until 10.6.0 is released, we will continue to build `nightly` images as we always have, after which they will be turned off in favour of `unstable` builds exclusively, so if you like to live on the bleeding edge, please review this section in detail and make the required changes as soon as you can.
 
@@ -62,7 +62,7 @@ For Debian and Ubuntu, where the unstable images are stored has changed. As ment
 
 For all other releases, since the source was always files downloaded from [our repository site](https://repo.jellyfin.org/releases), not much will change - instead of downloading files from the `nightly/` folder of your platform, download from the `unstable/` folder. Note that these folders will, because of the split builds, contain separate subfolders for `server`, `web`, and `combined`; generally you will want `combined`. You can then use these archives as you always have.
 
-### Conclusions
+## Conclusions
 
 Thank you for reading this description of our build changes. We continue to test these extensively to work out any bugs, but if you have questions or feedback, please drop us a message on Matrix!
 

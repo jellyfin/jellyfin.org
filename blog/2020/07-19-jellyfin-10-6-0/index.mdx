@@ -1,6 +1,6 @@
 ---
-title: "Jellyfin Release - v10.6.0"
-description: "Party together while social distancing"
+title: 'Jellyfin Release - v10.6.0'
+description: 'Party together while social distancing'
 authors:
   - name: Julien Machiels
     url: https://github.com/MrTimscampi
@@ -15,9 +15,13 @@ After months of work, here comes another behemoth of a release, this time with o
 
 {/* truncate */}
 
-<div className="margin-bottom--md">
-    <a href="/downloads/" className="button button--primary margin-right--md">Download Jellyfin 10.6.0</a>
-    <a href="https://github.com/jellyfin/jellyfin/releases/tag/v10.6.0" className="button button--secondary">Read the full release notes</a>
+<div className='margin-bottom--md'>
+  <a href='/downloads/' className='button button--primary margin-right--md'>
+    <span>Download Jellyfin 10.6.0</span>
+  </a>
+  <a href='https://github.com/jellyfin/jellyfin/releases/tag/v10.6.0' className='button button--secondary'>
+    <span>Read the full release notes</span>
+  </a>
 </div>
 
 At **more than 500 pull requests** merged between the server and the web client, Jellyfin 10.6.0 brings an incredible number of new features, improvements and bug fixes. It's a huge release and we have a lot to cover, so let's get to it!
@@ -74,16 +78,16 @@ Further changes to the server include fixes for collection metadata issues ([jf#
 
 As we used the new 10.5 details screen over the last few months, we noticed some improvements we could make to the experience. Team member [MrTimscampi](https://github.com/MrTimscampi), along with input from the rest of the web team and some of our users, did a second pass on that screen ([jf-web#949](https://github.com/jellyfin/jellyfin-web/pull/949), [jf-web#1206](https://github.com/jellyfin/jellyfin-web/pull/1206)), tightening the design and cleaning some visual issues along the way. [Delgan](https://github.com/jellyfin/jellyfin-web/pull/1406) put in the final touches to the page by avoiding a jump in the content when rendering the track selectors on the page ([jf-web#1406](https://github.com/jellyfin/jellyfin-web/pull/1406))
 
-<ImgComparisonSlider className="margin-bottom--md">
-    <img slot="before" src={require("./details-10-5.png").default} />
-    <img slot="after" src={require("./details-10-6.png").default} />
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./details-10-5.png').default} alt='details before' />
+  <img slot='after' src={require('./details-10-6.png').default} alt='details after' />
 </ImgComparisonSlider>
 
 Team member [ferferga](https://github.com/ferferga) and contributor [samuel9554](https://github.com/samuel9554) have been working on redesigning our music experience. For 10.6, they overhauled our mobile music player interface and made significant changes to the mini player and the remote player UI ([jf-web#1056](https://github.com/jellyfin/jellyfin-web/pull/1056), [jf-web#1430](https://github.com/jellyfin/jellyfin-web/pull/1430)).
 
-<ImgComparisonSlider className="margin-bottom--md">
-    <img slot="before" src={require("./player-10-5.png").default} />
-    <img slot="after" src={require("./player-10-6.png").default} />
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./player-10-5.png').default} alt='music player before' />
+  <img slot='after' src={require('./player-10-6.png').default} alt='music player after' />
 </ImgComparisonSlider>
 
 [MrTimscampi](https://github.com/MrTimscampi) also reworked the image loading system ([jf-web#1065](https://github.com/jellyfin/jellyfin-web/pull/1065)), fixing some visual issues and improving memory usage by unloading out of view images. Along with this improvement, [ferferga](https://github.com/ferferga), [GranPC](https://github.com/GranPC), [JustAMan](https://github.com/JustAMan) and [Bond-009](https://github.com/Bond-009) have implemented [Blurhash](https://blurha.sh/) placeholder support on both the server and the web client, which brings further visual refinement to the user interface.
@@ -118,82 +122,82 @@ We want to stress that, while some of our contributors individually accept finan
 
 As an final note, we would like to thank all the contributors who worked on making Jellyfin 10.6 a reality:
 
-* [adavier](https://github.com/adavier/)
-* [aled](https://github.com/aled/)
-* [alset333](https://github.com/alset333/)
-* [anthonylavado](https://github.com/anthonylavado/)
-* [Artiume](https://github.com/Artiume/)
-* [balu92](https://github.com/balu92/)
-* [BaronGreenback](https://github.com/BaronGreenback/)
-* [barronpm](https://github.com/barronpm/)
-* [bendardenne](https://github.com/bendardenne/)
-* [Bond-009](https://github.com/Bond-009)
-* [Brissot](https://github.com/Brissot/)
-* [Camc314](https://github.com/Camc314/)
-* [ConfusedPolarBear](https://github.com/ConfusedPolarBear/)
-* [crobibero](https://github.com/crobibero/)
-* [cromefire](https://github.com/cromefire/)
-* [cvium](https://github.com/cvium/)
-* [dafo90](https://github.com/dafo90/)
-* [danieladov](https://github.com/danieladov/)
-* [Delgan](https://github.com/Delgan/)
-* [dkanada](https://github.com/dkanada/)
-* [dmitrylyzo](https://github.com/dmitrylyzo/)
-* [dtparr](https://github.com/dtparr/)
-* [EraYaN](https://github.com/EraYaN/)
-* [ferferga](https://github.com/ferferga/)
-* [fhriley](https://github.com/fhriley/)
-* [grafixeyehero](https://github.com/grafixeyehero/)
-* [GranPC](https://github.com/GranPC/)
-* [h1nk](https://github.com/h1nk/)
-* [hauntingEcho](https://github.com/hauntingEcho/)
-* [itegulov](https://github.com/itegulov/)
-* [iwalton3](https://github.com/iwalton3/)
-* [jairbubbles](https://github.com/jairbubbles/)
-* [joshuaboniface](https://github.com/joshuaboniface/)
-* [JustAMan](https://github.com/JustAMan/)
-* [kesslern](https://github.com/kesslern/)
-* [KGT1](https://github.com/KGT1/)
-* [KristupasSavickas](https://github.com/KristupasSavickas/)
-* [KucharczykL](https://github.com/KucharczykL/)
-* [lfoust](https://github.com/lfoust/)
-* [lyonzy](https://github.com/lyonzy/)
-* [macr](https://github.com/macr/)
-* [mark-monteiro](https://github.com/mark-monteiro)
-* [masterkoppa](https://github.com/masterkoppa/)
-* [mijofa](https://github.com/mijofa/)
-* [MrTimscampi](https://github.com/MrTimscampi/)
-* [Nazar78](https://github.com/Nazar78/)
-* [neilsb](https://github.com/neilsb/)
-* [Nickbert7](https://github.com/Nickbert7/)
-* [nielsvanvelzen](https://github.com/nielsvanvelzen/)
-* [nyanmisaka](https://github.com/nyanmisaka/)
-* [OancaAndrei](https://github.com/OancaAndrei/)
-* [oddstr13](https://github.com/oddstr13)
-* [ox0spy](https://github.com/ox0spy/)
-* [Polpetta](https://github.com/Polpetta/)
-* [PrplHaz4](https://github.com/PrplHaz4/)
-* [puschie286](https://github.com/puschie286/)
-* [pusta](https://github.com/pusta/)
-* [randrey](https://github.com/randrey/)
-* [redSpoutnik](https://github.com/redSpoutnik/)
-* [rexbron](https://github.com/rexbron/)
-* [rigtorp](https://github.com/rigtorp/)
-* [rotvel](https://github.com/rotvel/)
-* [samuel9554](https://github.com/samuel9554/)
-* [sarab97](https://github.com/sarab97/)
-* [Shawmon](https://github.com/Shawmon/)
-* [shayaantx](https://github.com/shayaantx/)
-* [sparky8251](https://github.com/sparky8251/)
-* [Stampede10343](https://github.com/Stampede10343/)
-* [telans](https://github.com/telans/)
-* [ThibaultNocchi](https://github.com/ThibaultNocchi/)
-* [thornbill](https://github.com/thornbill/)
-* [twinkybot](https://github.com/twinkybot/)
-* [Ullmie02](https://github.com/Ullmie02/)
-* [viaregio](https://github.com/viaregio/)
-* [villagra](https://github.com/villagra/)
-* [whooo](https://github.com/whooo/)
-* [xumix](https://github.com/xumix/)
-* [YouKnowBlom](https://github.com/YouKnowBlom/)
-* [ZadenRB](https://github.com/ZadenRB/)
+- [adavier](https://github.com/adavier/)
+- [aled](https://github.com/aled/)
+- [alset333](https://github.com/alset333/)
+- [anthonylavado](https://github.com/anthonylavado/)
+- [Artiume](https://github.com/Artiume/)
+- [balu92](https://github.com/balu92/)
+- [BaronGreenback](https://github.com/BaronGreenback/)
+- [barronpm](https://github.com/barronpm/)
+- [bendardenne](https://github.com/bendardenne/)
+- [Bond-009](https://github.com/Bond-009)
+- [Brissot](https://github.com/Brissot/)
+- [Camc314](https://github.com/Camc314/)
+- [ConfusedPolarBear](https://github.com/ConfusedPolarBear/)
+- [crobibero](https://github.com/crobibero/)
+- [cromefire](https://github.com/cromefire/)
+- [cvium](https://github.com/cvium/)
+- [dafo90](https://github.com/dafo90/)
+- [danieladov](https://github.com/danieladov/)
+- [Delgan](https://github.com/Delgan/)
+- [dkanada](https://github.com/dkanada/)
+- [dmitrylyzo](https://github.com/dmitrylyzo/)
+- [dtparr](https://github.com/dtparr/)
+- [EraYaN](https://github.com/EraYaN/)
+- [ferferga](https://github.com/ferferga/)
+- [fhriley](https://github.com/fhriley/)
+- [grafixeyehero](https://github.com/grafixeyehero/)
+- [GranPC](https://github.com/GranPC/)
+- [h1nk](https://github.com/h1nk/)
+- [hauntingEcho](https://github.com/hauntingEcho/)
+- [itegulov](https://github.com/itegulov/)
+- [iwalton3](https://github.com/iwalton3/)
+- [jairbubbles](https://github.com/jairbubbles/)
+- [joshuaboniface](https://github.com/joshuaboniface/)
+- [JustAMan](https://github.com/JustAMan/)
+- [kesslern](https://github.com/kesslern/)
+- [KGT1](https://github.com/KGT1/)
+- [KristupasSavickas](https://github.com/KristupasSavickas/)
+- [KucharczykL](https://github.com/KucharczykL/)
+- [lfoust](https://github.com/lfoust/)
+- [lyonzy](https://github.com/lyonzy/)
+- [macr](https://github.com/macr/)
+- [mark-monteiro](https://github.com/mark-monteiro)
+- [masterkoppa](https://github.com/masterkoppa/)
+- [mijofa](https://github.com/mijofa/)
+- [MrTimscampi](https://github.com/MrTimscampi/)
+- [Nazar78](https://github.com/Nazar78/)
+- [neilsb](https://github.com/neilsb/)
+- [Nickbert7](https://github.com/Nickbert7/)
+- [nielsvanvelzen](https://github.com/nielsvanvelzen/)
+- [nyanmisaka](https://github.com/nyanmisaka/)
+- [OancaAndrei](https://github.com/OancaAndrei/)
+- [oddstr13](https://github.com/oddstr13)
+- [ox0spy](https://github.com/ox0spy/)
+- [Polpetta](https://github.com/Polpetta/)
+- [PrplHaz4](https://github.com/PrplHaz4/)
+- [puschie286](https://github.com/puschie286/)
+- [pusta](https://github.com/pusta/)
+- [randrey](https://github.com/randrey/)
+- [redSpoutnik](https://github.com/redSpoutnik/)
+- [rexbron](https://github.com/rexbron/)
+- [rigtorp](https://github.com/rigtorp/)
+- [rotvel](https://github.com/rotvel/)
+- [samuel9554](https://github.com/samuel9554/)
+- [sarab97](https://github.com/sarab97/)
+- [Shawmon](https://github.com/Shawmon/)
+- [shayaantx](https://github.com/shayaantx/)
+- [sparky8251](https://github.com/sparky8251/)
+- [Stampede10343](https://github.com/Stampede10343/)
+- [telans](https://github.com/telans/)
+- [ThibaultNocchi](https://github.com/ThibaultNocchi/)
+- [thornbill](https://github.com/thornbill/)
+- [twinkybot](https://github.com/twinkybot/)
+- [Ullmie02](https://github.com/Ullmie02/)
+- [viaregio](https://github.com/viaregio/)
+- [villagra](https://github.com/villagra/)
+- [whooo](https://github.com/whooo/)
+- [xumix](https://github.com/xumix/)
+- [YouKnowBlom](https://github.com/YouKnowBlom/)
+- [ZadenRB](https://github.com/ZadenRB/)

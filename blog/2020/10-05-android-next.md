@@ -13,7 +13,7 @@ This will be a net benefit for users and developers alike!
 Everyone will enjoy the native video player spearheaded by [Stampede10343](https://github.com/Stampede10343) and [vitorsemeano](https://github.com/vitorsemeano) over the course of several months.
 [Maxr1998](https://github.com/Maxr1998) valiantly ported the Cordova portions to Kotlin (and a bit of Java) which means Android developers will feel right at home with the new codebase!
 
-### Migration
+## Migration
 
 The new release will be a drop-in replacement for the deprecated Cordova client, meaning you can just update from GitHub, Google Play, or Amazon App Store as you would have previously.
 One minor issue is that you'll have to add your server and credentials again since we couldn't pull the information from Cordova.
@@ -23,7 +23,7 @@ Older versions will remain on [our repository](https://repo.jellyfin.org) for th
 
 > Please note that this client has a new set of translations, so if you speak more than one language head on over to Weblate to help out the new client!
 
-### ExoPlayer
+## ExoPlayer
 
 The key feature for this release is ExoPlayer, so we've reserved a whole section for news regarding the player and its functionality.
 It's currently disabled by default since there may be small issues, but it works quite well in our experience.
@@ -36,7 +36,7 @@ H265 should be working without transcodes, and several other problematic codecs 
 
 > Note that the included device profile still needs some tweaking to actually mark every codec that the phone supports as supported to the server. You can follow the progress on this at [jellyfin/jellyfin-android#28](https://github.com/jellyfin/jellyfin-android/issues/28).
 
-### Future
+## Future
 
 The goal is to use a mobile-first interface for ExoPlayer so we can focus more on desktop for the normal web player.
 Bigger, easier clickable buttons and double tap to seek are some of the changes setting the new interface apart from the HTML5 video player.
