@@ -88,7 +88,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
     <Layout title='Clients'>
       <h1 className='text--center margin-top--lg'>Downloads</h1>
 
-      <main className='margin-vert--lg'>
+      <main className='margin-vert--lg' aria-live='polite'>
         <section className='container'>
           <div className='row'>
             <div className='col margin-bottom--md'>
@@ -132,6 +132,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                   'button--icon',
                   styles['filters-button']
                 )}
+                aria-expanded={isFiltersVisible}
                 onClick={() => {
                   setIsFiltersVisible(!isFiltersVisible);
                 }}

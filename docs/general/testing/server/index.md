@@ -7,7 +7,7 @@ title: Testing Jellyfin Server
 
 :::caution Backups!
 
-Unstable often makes irreversible changes to existing Jellyfin setups. Please make regular backups of Jellyfin files. [Read More](/docs/general/administration/configuration#server-paths)
+Unstable often makes irreversible changes to existing Jellyfin setups. Please make regular backups of Jellyfin files. [Learn how to create backups.](/docs/general/administration/configuration#server-paths)
 
 :::
 

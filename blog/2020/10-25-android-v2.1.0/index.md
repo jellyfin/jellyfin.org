@@ -20,6 +20,8 @@ Starting with this update we now support playing music in cars. This change was 
 <video controls loop autoPlay muted playsInline className="inline justify" height="500">
  <source src={require("./android-auto.webm").default} type="video/webm" />
 </video>
+<!-- Need video transcript for accessibility. -->
+The above video shows how to enable shuffling albums by navigating to Albums > Selecting an Album > Selecting Shuffle.
 
 _**Note:** since we do not have offline-support at the moment all music playback needs an active network connection to work. Be aware this may cause additional charges in your mobile plan._
 
