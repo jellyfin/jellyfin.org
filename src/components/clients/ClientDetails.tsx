@@ -43,7 +43,7 @@ const ClientDetails = ({ client }: { client: Client }) => (
       </a>
     ))}
     secondaryButtons={client.secondaryLinks?.map(({ id, url, name }) => (
-      <a key={id} href={url} className='button button--outline button--primary'>
+      <a key={id} href={url} className='button button--outline'>
         {name}
       </a>
     ))}

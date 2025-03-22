@@ -24,7 +24,7 @@ const PluginRepositoryDetails = ({ repository }: { repository: PluginRepository 
 
         {Object.entries(repository.includes).length > 0 && (
           <>
-            <h4>Includes</h4>
+            <h3>Includes</h3>
             <ul>
               {Object.entries(repository.includes).map(([name, url]) => (
                 <li key={url}>

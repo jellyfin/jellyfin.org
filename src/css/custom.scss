@@ -30,8 +30,8 @@
   --ifm-card-background-color: var(-ifm-color-primary-lightest);
   /* code blocks */
   --ifm-code-font-size: 95%;
-  --jf-code-color: #bfc7d5; /* match code blocks */
-  --ifm-code-background: #292d3e; /* match code blocks */
+  --jf-code-color: #d6deeb; /* match code blocks */
+  --ifm-code-background: #011627; /* match code blocks */
   /* footer */
   --ifm-footer-background-color: #333c44;
   --ifm-footer-link-color: #ffffff;
@@ -75,6 +75,7 @@ html[data-theme='dark'] {
   --ifm-toc-link-color: var(--ifm-color-content-secondary);
   --ifm-menu-color-background-hover: var(--ifm-hover-overlay);
   --ifm-hover-overlay: rgba(0, 0, 0, 0.05);
+  --ifm-code-background: #011627;
   /* cards */
   --ifm-card-background-color: #172138;
   --ifm-hero-text-color: var(--ifm-color-emphasis-800);
@@ -105,10 +106,16 @@ mark {
   padding-right: 2px;
   background-color: var(--ifm-color-primary);
   color: var(--ifm-font-color-base);
+  font-weight: bold;
 }
 
 code {
   color: var(--jf-code-color);
+
+  & .token.comment {
+    color: #888d72 !important;
+    font-style: italic;
+  }
 }
 
 a code {
@@ -126,7 +133,7 @@ a code {
 }
 
 .alert {
-  --ifm-code-background: #292d3e;
+  --ifm-code-background: #011627;
 }
 
 button.clean-btn {
@@ -141,7 +148,12 @@ button.clean-btn {
 .button--outline:focus,
 .button--outline:active,
 .button--outline.button--active {
+  --ifm-button-background-color: var(--ifm-button-border-color);
   --ifm-button-color: var(--ifm-color-content-inverse);
+  color: var(--ifm-button-color);
+}
+
+.button.button--secondary.button--outline:not(.button--active):not(:hover) {
   color: var(--ifm-button-color);
 }
 
@@ -157,13 +169,11 @@ button.clean-btn {
 :where(.button--secondary) {
   --ifm-button-background-color: var(--ifm-color-secondary);
   --ifm-button-border-color: var(--ifm-font-color-base);
-  // TODO fix hover state
 }
 :where(.button--primary) {
   --ifm-button-border-color: var(--ifm-font-color-base);
   --ifm-button-background-color: var(--ifm-color-primary-light);
   --ifm-button-color: var(--ifm-navbar-background-color);
-  // TODO fix hover state
 }
 
 /* don't hide content unless its for screen readers only */
