@@ -19,22 +19,26 @@ But I'll do my best, here goes.
 {/* truncate */}
 
 ### Trickplay Images
+
 ![Screenshot of trickplay images in the Jellyfin Roku channel](./trickplay.jpg)
 When seeking through your videos, if you've enabled and generated trickplay images on your server, you will see a small still frame image from the video at that timestamp. This image allows you to easily find the exact time in the video you're looking for.
 
 **Note:** Older Roku devices and lower powered Roku devices (such as Roku TVs) will likely require your trickplay tiles be a 5x5 grid and not the default 10x10 grid. [Click Here](https://github.com/jellyfin/jellyfin-roku/issues/14) for more information and detailed instructions.
 
 ### Timed Lyrics
+
 ![Screenshot of a song playing and displaying lyrics timed with the audio track](./timedLyrics.jpg)
 
 Support for timed lyrics has been added. If you have lrc files with timestamps, the music player will display the lyrics and move the highlight along automatically. Just in time for your next karaoke party!
 
 ### Media Segments
+
 ![Skip Intro button displayed over TV show introduction](./skipIntro.jpg)
 
 Stop manually skipping intros and outros! Jellyfin on Roku now supports media segments. If you have media segments configured on your server, the video player will recognize the segments and take whatever action you set in the Roku settings. Auto-skip? Display a skip button? Nothing? You have the power to decide.
 
 ### Audio Mini Player
+
 ![Audio mini player on the bottom of the home screen](./audioMiniPlayer.jpg)
 
 You can now play audio and navigate around the channel. Simply start playing audio and press the back button. The audio mini player will appear at the bottom of your screen and continue playing the audio queue.
@@ -46,29 +50,33 @@ To move the cursor back out of the audio mini player, simply press the replay bu
 **Note:** The audio mini player will only appear if only audio media is in the queue. If any other type of media is in the queue it will not appear and pressing back will simply stop playback.
 
 ### My List - Your Own Personal \"Watch Later\" list
+
 ![Home screen showing the my list row](./myList.jpg)
 
-Want to mark a video to watch later? Add it to your list. From the detail screen click on the add to my list button or using the new item option menu, move the cursor over an item on the home screen or in a library and press the * button on your remote and choose add to my list.
+Want to mark a video to watch later? Add it to your list. From the detail screen click on the add to my list button or using the new item option menu, move the cursor over an item on the home screen or in a library and press the \* button on your remote and choose add to my list.
 
-There are two easy ways to view your list. On the home screen, scroll down to the My List row, or select the My List item from the my media row.
+There are two easy ways to view your list. On the home screen, scroll down to the my list row, or select the my list item from the my media row.
 
 Currently, only video files are supported by my list.
 
 ### Item Option Menu
+
 ![Option menu displayed when you have an item focused and press the * button](./itemOptionMenu.jpg)
 
-On Roku you can't right-click on an item to get an option menu, so we made one using the * key.
+On Roku you can't right-click on an item to get an option menu, so we made one using the \* key.
 
-With the cursor on an item, press * on your remote to get the option menu. Depending on the context of the screen you are on, an assortment of functions will be presented to you.
+With the cursor on an item, press \* on your remote to get the option menu. Depending on the context of the screen you are on, an assortment of functions will be presented to you.
 
 Options such as add to my list, add to playlist, mark as played/unplayed, go to series/season, remove from playlist, and more.
 
 ### Audio/Subtitle Track Selection Updates
+
 ![Popup dialog showing user selecting subtitles prior to playing a movie](./selectSubtitles.jpg)
 
 A much requested feature, you can now select your subtitle and audio tracks prior to playing a video. Simply click on the options button from the detail screen and make your selections.
 
 ### Remote Subtitle Management
+
 ![Popup dialog showing user searching for subtitles to download to their server](./remoteSubtitles.jpg)
 
 Ever start watching a movie and realize you need subtitles, but find you don't have any loaded in Jellyfin?
@@ -82,25 +90,29 @@ Simply choose your language and press search. A list of found subtitles will dis
 **Note:** The manage subtitles button will only display for users who are allowed to edit subtitles.
 
 ### Audiobook Support
+
 ![Audio player playing Salem's Lot (Part 2) audiobook](./audioBook.jpg)
 
 Audiobooks are books, but not all books are audiobooks. Jellyfin on Roku now has basic audiobook support so you can listen to your collection.
 
 ### Force Transcoding Options
+
 ![Popup dialog showing Force Transcoding option](./forceTranscoding.jpg)
 
 Sometimes you have media Roku believes it can directplay, but can't. In the past the only method to get it to play was to force low bitrate limits, or other weird hurdles to make it transcode.
 
 Now you can click the options button on the detail screen and force transcoding on this one item.
 
-Or, if you prefer, you can enable the new user setting to force transcoding for all playback. *TRANSCODE ALL THE THINGS!*
+Or, if you prefer, you can enable the new user setting to force transcoding for all playback. _TRANSCODE ALL THE THINGS!_
 
 ### Search Updates
+
 ![Search results showing songs and people](./searchUpdates.jpg)
 
 Live TV programs, people, and playlists are now included in search results.
 
 ### Refreshed UI on many screens
+
 ![Redesigned TV episode screen](./refreshedUI.jpg)
 
 As you navigate around the channel you'll see both major and minor UI changes. Some were necessary to support new features. Some were necessary to remove minor annoyances. ...and some were necessary to stop all of us yelling at our TVs. 😆
@@ -109,23 +121,24 @@ There are simply too many amazing things in this release to name them all! To re
 
 ## 👥 Contributors
 
-Jellyfin is developed by volunteer contributors, and we couldn't do without their great skills and dedication. 
-They don't get paid by any organizations, so consider donating if you appreciate their work. 
+Jellyfin is developed by volunteer contributors, and we couldn't do without their great skills and dedication.
+They don't get paid by any organizations, so consider donating if you appreciate their work.
 A big shout-out to all contributors that made this release possible:
 
 **Jellyfin Team**
+
 - [@1hitsong](https://github.com/1hitsong) - Sponsor via [GitHub sponsors](https://github.com/sponsors/1hitsong)
 - [@jimdogx](https://github.com/jimdogx)
 
 **Other contributors**
+
 - [@K-Money](https://github.com/K-Money)
 - [@Insprill](https://github.com/Insprill)
-
 
 ## 💾 Downloads & Changelog
 
 The complete list of changes for this release, including all merged pull requests, can be found on
 [GitHub](https://github.com/jellyfin/jellyfin-roku/releases/tag/3.0.0).
 
-Your installed Jellyfin channel should automatically update once available or you can install Jellyfin 
+Your installed Jellyfin channel should automatically update once available or you can install Jellyfin
 from the [Roku Channel Store](https://channelstore.roku.com/en-ca/details/4d9e526a7d972d4decf98ea6a84000f7:c617f4902629cc0bd1e1411db1775cf3/jellyfin).
