@@ -43,6 +43,7 @@
   --ifm-navbar-background-color: #000b25;
   --ifm-navbar-search-input-background-color: #172138;
   --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>');
+  --ifm-navbar-search-input-color: #ffffff;
   /* tabs */
   --ifm-tabs-padding-vertical: 0.5rem;
   /* breadcrumb */
@@ -55,8 +56,9 @@
   --ifm-hover-overlay: #ffffff;
   --ifm-hero-text-color: #000b25;
   --ifm-button-border-width: 2px;
+  --search-local-muted-color: var(--ifm-link-color);
 
-  /* custom Jellyfin colors */
+  /* custom Jellyfin variables */
   --jf-gradient-color-primary-dark: #aa5cc3;
   --jf-gradient-color-secondary-dark: #00a4dc;
   --jf-color-primary: #0099cd;
@@ -66,20 +68,22 @@
 }
 
 html[data-theme='dark'] {
+  /* base theme overrides */
   --ifm-background-color: #000b25;
   --ifm-font-color-base: #ffffff;
   --ifm-color-primary: #0099cd;
+  /* component and tag variable overrides */
   --ifm-breadcrumb-item-background-active: rgba(0, 0, 0, 0.05);
   --ifm-menu-color-background-active: rgba(0, 0, 0, 0.05);
   --ifm-menu-color: var(--ifm-color-emphasis-700);
-  --ifm-toc-link-color: var(--ifm-color-content-secondary);
   --ifm-menu-color-background-hover: var(--ifm-hover-overlay);
+  --ifm-toc-link-color: var(--ifm-color-content-secondary);
   --ifm-hover-overlay: rgba(0, 0, 0, 0.05);
   --ifm-code-background: #011627;
-  /* cards */
   --ifm-card-background-color: #172138;
   --ifm-hero-text-color: var(--ifm-color-emphasis-800);
 
+  /* Jellyfin variable overrides */
   --jf-gradient-color-primary-dark: #003c50;
   --jf-gradient-color-secondary-dark: #3e2247;
   --jf-landing-background-color: #172138;
@@ -105,7 +109,7 @@ mark {
   padding-left: 2px;
   padding-right: 2px;
   background-color: var(--ifm-color-primary);
-  color: var(--ifm-font-color-base);
+  color: var(--ifm-color-content-inverse);
   font-weight: bold;
 }
 
@@ -122,7 +126,7 @@ a code {
   color: var(--ifm-footer-link-hover-color);
 }
 
-/* The default text color for this badge is very low contrast */
+/* The default text color for these badges are very low contrast */
 .badge--info,
 .badge--warning {
   color: var(--ifm-color-black);
@@ -136,12 +140,44 @@ a code {
   --ifm-code-background: #011627;
 }
 
-button.clean-btn {
+.theme-doc-toc-mobile {
+  background: var(--ifm-color-content-inverse);
+}
+
+/* Navbar */
+.navbar--fixed-top button.clean-btn {
   color: var(--ifm-color-secondary);
 
   &:hover {
+    color: var(--ifm-color-secondary);
     background: #444950;
   }
+}
+
+.navbar-sidebar__items .navbar-sidebar__item {
+  background-color: var(--jf-landing-background-color);
+}
+
+.navbar__toggle,
+.navbar-sidebar__close {
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.theme-doc-toc-mobile,
+.navbar-sidebar__item {
+  button.clean-btn {
+    color: var(--ifm-color-primary);
+  }
+}
+
+.navbar__search button {
+  color: var(--ifm-navbar-link-color);
+}
+
+/* Buttons */
+.theme-back-to-top-button {
+  border: 2px solid var(--ifm-font-color-base);
 }
 
 .button--outline:hover,
@@ -166,6 +202,11 @@ button.clean-btn {
   color: var(--ifm-font-color-base);
 }
 
+.button--secondary:active,
+.button--secondary.button--active {
+  --ifm-button-color: var(--ifm-navbar-background-color);
+}
+
 :where(.button--secondary) {
   --ifm-button-background-color: var(--ifm-color-secondary);
   --ifm-button-border-color: var(--ifm-font-color-base);
@@ -176,11 +217,64 @@ button.clean-btn {
   --ifm-button-color: var(--ifm-navbar-background-color);
 }
 
+.button--icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Links */
+.secondary-link {
+  color: var(--ifm-font-color-base);
+
+  &:hover,
+  &:active {
+    color: var(--ifm-font-color-base);
+  }
+}
+
+a.pills__item {
+  text-decoration: none;
+}
+
+a.pills__item:not(.pills__item--active) {
+  color: var(--ifm-font-color-base);
+}
+
 /* don't hide content unless its for screen readers only */
 .hash-link {
   opacity: 1 !important;
 }
 
+/* Cards */
+.card--outline {
+  background-color: transparent;
+  border: 2px solid #172138;
+  box-shadow: none;
+}
+
+/* Pills */
+.pills__item {
+  border: none;
+  font: var(--ifm-font-size-base) / var(--ifm-line-height-base) var(--ifm-font-family-base);
+  font-weight: var(--ifm-font-weight-bold);
+
+  &:not(.pills__item--active) {
+    background: none;
+  }
+}
+
+/* Flexbox Utilities */
+.row--center {
+  justify-content: center;
+}
+
+.align-self--center {
+  align-self: center;
+}
+
+/* Utility classes */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -192,58 +286,11 @@ button.clean-btn {
   border: 0;
 }
 
-.secondary-link {
-  color: var(--ifm-font-color-base);
-
-  &:hover,
-  &:active {
-    color: var(--ifm-font-color-base);
-  }
-}
-
-.pills__item {
-  border: none;
-  font: var(--ifm-font-size-base) / var(--ifm-line-height-base) var(--ifm-font-family-base);
-  font-weight: var(--ifm-font-weight-bold);
-
-  &:not(.pills__item--active) {
-    background: none;
-  }
-}
-
-a.pills__item {
-  text-decoration: none;
-}
-a.pills__item:not(.pills__item--active) {
-  color: var(--ifm-font-color-base);
-}
-
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-}
-
-.button--icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.card--outline {
-  background-color: transparent;
-  border: 2px solid #172138;
-  box-shadow: none;
-}
-
-.row--center {
-  justify-content: center;
-}
-
-.align-self--center {
-  align-self: center;
 }
 
 /* To toggle the visibility of an image using the path fragment */
@@ -268,8 +315,8 @@ a.pills__item:not(.pills__item--active) {
   }
 
   /* Hide search keyboard hint on mobile to avoid overlap */
-  .navbar [class^='searchHintContainer_'] {
-    display: none;
+  .navbar input::placeholder {
+    opacity: 0;
   }
 }
 
