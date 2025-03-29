@@ -35,7 +35,7 @@ const PlatformIcon = ({
   size: string | number;
   className?: string;
 }) => {
-  className = clsx(className, 'fill--white');
+  className = clsx(className);
 
   switch (platform) {
     // TODO: AndroidTV should have a unique icon

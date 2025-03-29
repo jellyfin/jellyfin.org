@@ -1,11 +1,11 @@
 .client-icon {
   display: block;
   max-width: 7rem;
-  color: white;
+  color: var(--ifm-font-color-base);
 }
 
 .client-icon > svg {
   display: block;
   margin: 0 auto;
-  color: white;
+  fill: var(--ifm-font-color-base);
 }

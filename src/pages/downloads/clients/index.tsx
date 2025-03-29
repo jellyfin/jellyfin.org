@@ -145,7 +145,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
           {isFiltersVisible && (
             <div className='card card--outline margin-bottom--md'>
               <div className='card__body'>
-                <ul className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
+                <div className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
                   <Pill
                     active={filter.deviceTypes.length === 0}
                     onClick={() => {
@@ -168,9 +168,9 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                       {deviceType}
                     </Pill>
                   ))}
-                </ul>
+                </div>
 
-                <ul className={clsx('pills', styles['filter-pills'])}>
+                <div className={clsx('pills', styles['filter-pills'])}>
                   <Pill
                     active={filter.platforms.length === 0}
                     onClick={() => {
@@ -195,7 +195,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                         {platform}
                       </Pill>
                     ))}
-                </ul>
+                </div>
               </div>
             </div>
           )}

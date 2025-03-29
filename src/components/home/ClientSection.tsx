@@ -36,36 +36,30 @@ export default function ClientSection() {
           </Link>
           <Link
             to='/downloads/clients?platform=Android,Android TV'
-            className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
+            className={clsx('col', styles['client-icon'], 'margin-top--md')}
           >
             <SiAndroid color='#ffffff' size={48} />
             <div className='margin-top--sm'>Android</div>
           </Link>
           <Link
             to='/downloads/clients?platform=iOS,tvOS'
-            className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
+            className={clsx('col', styles['client-icon'], 'margin-top--md')}
           >
             <SiApple color='#ffffff' size={48} />
             <div className='margin-top--sm'>Apple</div>
           </Link>
           <Link
             to='/downloads/clients?platform=Fire TV'
-            className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
+            className={clsx('col', styles['client-icon'], 'margin-top--md')}
           >
             <SiAmazon color='#ffffff' size={48} />
             <div className='margin-top--sm'>Amazon</div>
           </Link>
-          <Link
-            to='/downloads/clients?platform=Roku'
-            className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
-          >
+          <Link to='/downloads/clients?platform=Roku' className={clsx('col', styles['client-icon'], 'margin-top--md')}>
             <SiRoku color='#ffffff' size={48} />
             <div className='margin-top--sm'>Roku</div>
           </Link>
-          <Link
-            to='/downloads/clients?platform=Kodi'
-            className={clsx('col', 'fill--white', styles['client-icon'], 'margin-top--md')}
-          >
+          <Link to='/downloads/clients?platform=Kodi' className={clsx('col', styles['client-icon'], 'margin-top--md')}>
             <SiKodi color='#ffffff' size={48} />
             <div className='margin-top--sm'>Kodi</div>
           </Link>
