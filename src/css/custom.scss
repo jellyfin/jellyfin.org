@@ -181,6 +181,17 @@ button.clean-btn {
   opacity: 1 !important;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .secondary-link {
   color: var(--ifm-font-color-base);
 
@@ -231,13 +242,27 @@ a.pills__item:not(.pills__item--active) {
   justify-content: center;
 }
 
+.align-self--center {
+  align-self: center;
+}
+
 /* To toggle the visibility of an image using the path fragment */
 [data-theme='light'] img[src$='#hidden--light-mode'],
 [data-theme='dark'] img[src$='#hidden--dark-mode'] {
   display: none;
 }
 
+@media (min-width: 997px) {
+  .hidden--desktop {
+    display: none;
+  }
+}
+
 @media (max-width: 996px) {
+  .col-md-6 {
+    --ifm-col-width: 50%;
+  }
+
   .hidden--mobile {
     display: none;
   }
@@ -248,8 +273,8 @@ a.pills__item:not(.pills__item--active) {
   }
 }
 
-@media (min-width: 997px) {
-  .hidden--desktop {
-    display: none;
+@media (max-width: 600px) {
+  .col-sm-12 {
+    --ifm-col-width: 100%;
   }
 }

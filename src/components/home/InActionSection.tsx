@@ -1,15 +1,10 @@
 import clsx from 'clsx';
 import React from 'react';
-import { Autoplay, Pagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
 import HomeImageUrl from '../../../static/images/screenshots/home/10.8-home.png';
 import LibraryImageUrl from '../../../static/images/screenshots/home/10.8-library.png';
 import DetailsImageUrl from '../../../static/images/screenshots/home/10.8-details.png';
 import PlaybackImageUrl from '../../../static/images/screenshots/home/10.8-playback.png';
 
-import 'swiper/css';
-import 'swiper/css/pagination';
 import landingSectionStyles from './LandingSection.module.scss';
 
 const screenshots = [
@@ -51,28 +46,37 @@ export default function InActionSection() {
             <h2 className='text--center'>See Jellyfin in Action</h2>
           </div>
         </div>
-        <div className='row row--center'>
-          <div className='col col--10 padding--none'>
-            <Swiper
-              autoplay
-              pagination={{ clickable: true }}
-              modules={[Autoplay, Pagination]}
-              className='swiper-pagination--below'
-            >
-              {screenshots.map(({ id, caption, url, alt }) => (
-                <SwiperSlide key={`slide-${id}`}>
-                  <figure className='margin--none'>
-                    <img src={url} alt={alt} />
-                    <figcaption className='text--center'>{caption}</figcaption>
-                  </figure>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
+
+        {screenshots.map(({ id, caption, url, alt }, index) => {
+          const isEven = index % 2 === 0;
+
+          const leftClass = clsx('col', isEven ? 'col--8' : 'col--4', 'align-self--center');
+          const rightClass = clsx('col', !isEven ? 'col--8' : 'col--4', 'align-self--center');
+
+          return (
+            <div className='row row--center margin-vert--lg' data-id={id} key={`${id}-${index}`}>
+              <div className={leftClass}>
+                {isEven ? (
+                  <img src={url} alt={alt} />
+                ) : (
+                  <p className='hidden--mobile text--center margin-vert--md'>{caption}</p>
+                )}
+              </div>
+              <div className={rightClass}>
+                {!isEven ? <img src={url} alt={alt} /> : <p className='text--center margin-vert--md'>{caption}</p>}
+              </div>
+              {!isEven && (
+                <div className='hidden--desktop col col--5 align-self--center'>
+                  <p className='text--center margin-vert--md'>{caption}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+
         <div className='row'>
-          <div className='col margin-top--md text--center'>
-            <a href='https://demo.jellyfin.org/stable' className='button button--outline button--secondary'>
+          <div className='col margin-top--lg text--center'>
+            <a href='https://demo.jellyfin.org/stable' className='button button--outline button--secondary button--lg'>
               Try the Demo
             </a>
           </div>
