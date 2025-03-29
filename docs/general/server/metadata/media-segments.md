@@ -38,7 +38,7 @@ Jellyfin can store this information and provide it to clients. Clients can then 
 
 ## Creating media segments
 
-Media segments are provided by plugins. [Read more](#plugin-support)
+Media segments are provided by plugins. Learn more in the [plugin support section](#plugin-support).
 
 ## Clients
 

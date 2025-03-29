@@ -56,7 +56,7 @@ Now you can continue at step 5. of the [Repository (Manual) section](#repository
 
 ### Containers
 
-For non Debian/Ubuntu systems, containers are the recommended way to install Jellyfin. Please follow the instructions [here](/docs/general/installation/container).
+For non-Debian/Ubuntu systems, containers are the recommended way to install Jellyfin. Please follow the [container installation instructions](/docs/general/installation/container).
 
 ## Community maintained packages
 
@@ -453,7 +453,7 @@ sudo systemctl start jellyfin.service
 
 ### Portable DLL
 
-Platform-agnostic .NET Core DLL builds in TAR archive format are available [here](/downloads#portable).
+Platform-agnostic .NET Core DLL builds in TAR archive format are available from the [portable downloads section](/downloads#portable).  
 These builds use the binary `jellyfin.dll` and must be loaded with `dotnet`.
 
 ### Building from source

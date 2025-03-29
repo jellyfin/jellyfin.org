@@ -58,8 +58,7 @@ Installing Github CLI or Github Desktop will automatically install Git on the sy
 
 ### Obtaining source code
 
-The source code of the web clients can be cloned from their respective GitHub repositories: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/).
-Instructions on how to do so can be found [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+The source code of the web clients can be cloned from their respective GitHub repositories: [Jellyfin Web](https://github.com/jellyfin/jellyfin-web/), [Jellyfin Vue](https://github.com/jellyfin/jellyfin-vue/). You can find step-by-step instructions for cloning a repository in the [GitHub documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 ### Checking out branches
 
