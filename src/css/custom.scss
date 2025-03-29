@@ -43,6 +43,7 @@
   --ifm-navbar-background-color: #000b25;
   --ifm-navbar-search-input-background-color: #172138;
   --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>');
+  --ifm-navbar-search-input-color: #ffffff;
   /* tabs */
   --ifm-tabs-padding-vertical: 0.5rem;
   /* breadcrumb */
@@ -55,6 +56,7 @@
   --ifm-hover-overlay: #ffffff;
   --ifm-hero-text-color: #000b25;
   --ifm-button-border-width: 2px;
+  --search-local-muted-color: var(--ifm-link-color);
 
   /* custom Jellyfin variables */
   --jf-gradient-color-primary-dark: #aa5cc3;
@@ -107,7 +109,7 @@ mark {
   padding-left: 2px;
   padding-right: 2px;
   background-color: var(--ifm-color-primary);
-  color: var(--ifm-font-color-base);
+  color: var(--ifm-color-content-inverse);
   font-weight: bold;
 }
 
@@ -169,6 +171,10 @@ a code {
   }
 }
 
+.navbar__search button {
+  color: var(--ifm-navbar-link-color);
+}
+
 /* Buttons */
 .theme-back-to-top-button {
   border: 2px solid var(--ifm-font-color-base);
@@ -198,7 +204,7 @@ a code {
 
 .button--secondary:active,
 .button--secondary.button--active {
-  --ifm-button-color: --ifm-color-content;
+  --ifm-button-color: var(--ifm-navbar-background-color);
 }
 
 :where(.button--secondary) {

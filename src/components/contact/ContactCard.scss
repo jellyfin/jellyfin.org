@@ -7,68 +7,58 @@
   background-color: #5865f2;
   border-color: #5865f2;
   color: #000000;
-}
-.button--discord:hover {
-  background-color: #3949f0;
-  border-color: #3949f0;
-}
-.button--discord:active {
-  background-color: #2a3bee;
-  border-color: #2a3bee;
+
+  &:hover,
+  &:active {
+    background-color: var(--ifm-navbar-background-color);
+    border-color: #3949f0;
+  }
 }
 
 .button--matrix {
   background-color: #0dbd8b;
   border-color: #0dbd8b;
   color: var(--jf-contact-button-color);
-}
-.button--matrix:hover {
-  background-color: #0caa7d;
-  border-color: #0caa7d;
-}
-.button--matrix:active {
-  background-color: #0ba176;
-  border-color: #0ba176;
+
+  &:hover,
+  &:active {
+    background-color: var(--ifm-navbar-background-color);
+    border-color: #0ba176;
+  }
 }
 
 .button--twitter {
   background-color: var(--jf-color-primary);
   border-color: var(--jf-color-primary);
   color: var(--jf-contact-button-color);
-}
-.button--twitter:hover {
-  background-color: #0d94e7;
-  border-color: var(--jf-color-primary);
-}
-.button--twitter:active {
-  background-color: #0d8cda;
-  border-color: var(--jf-color-primary);
+
+  &:hover,
+  &:active {
+    background-color: var(--ifm-navbar-background-color);
+    border-color: #0d94e7;
+  }
 }
 
 .button--mastodon {
   background-color: #6364ff;
   border-color: #6364ff;
   color: #000000;
-}
-.button--mastodon:hover {
-  background-color: #563acc;
-  border-color: #563acc;
-}
-.button--mastodon:active {
-  background-color: #2f0c7a;
-  border-color: #2f0c7a;
+
+  &:hover,
+  &:active {
+    background-color: var(--ifm-navbar-background-color);
+    border-color: #563acc;
+  }
 }
 
 .button--forum {
   background-color: var(--jf-color-primary);
   border-color: var(--jf-color-primary);
   color: var(--jf-contact-button-color);
-}
-.button--forum:hover {
-  background-color: #0094cc;
-  border-color: var(--jf-color-primary);
-}
-.button--forum:active {
-  background-color: #0084bc;
-  border-color: var(--jf-color-primary);
+
+  &:hover,
+  &:active {
+    background-color: var(--ifm-navbar-background-color);
+    border-color: var(--jf-color-primary);
+  }
 }
