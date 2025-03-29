@@ -1,9 +1,4 @@
 import React, { ComponentType, HTMLProps, ReactNode } from 'react';
-import { Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
 import landingSectionStyles from './LandingSection.module.scss';
 import styles from './HomepageFeatures.module.scss';
 import clsx from 'clsx';
@@ -81,21 +76,10 @@ export default function HomepageFeatures() {
         </div>
         <div className='row row--center padding-horiz--sm'>
           {FeatureList.map((feature) => (
-            <div key={`column-${feature.title}`} className='col col--3 hidden--mobile'>
-              <SwiperSlide>
-                <FeatureCard {...feature} />
-              </SwiperSlide>
+            <div key={`column-${feature.title}`} className='col col--3 col-sm-12 col-md-6'>
+              {<FeatureCard {...feature} />}
             </div>
           ))}
-          <div className='col hidden--desktop'>
-            <Swiper navigation modules={[Navigation]}>
-              {FeatureList.map((feature) => (
-                <SwiperSlide key={`slide-${feature.title}`}>
-                  <FeatureCard {...feature} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
         </div>
       </div>
     </section>
