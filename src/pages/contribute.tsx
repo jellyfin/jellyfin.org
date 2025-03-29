@@ -47,9 +47,7 @@ export default function Contribute() {
               type='image/svg+xml'
               width='1000'
               title='Jellyfin Contributors'
-            >
-              Jellyfin Contributors
-            </object>
+            ></object>
           </div>
 
           <h3>Sponsors</h3>
