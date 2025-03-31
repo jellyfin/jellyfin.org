@@ -911,11 +911,11 @@ export const Clients: Array<Client> = [
   {
     id: 'manet',
     name: 'Manet',
-    description: 'A third-party music client for iOS',
+    description: 'A third-party music client for iOS and macOS',
     clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.Proprietary,
-    platforms: [Platform.IOS],
+    platforms: [Platform.IOS, Platform.MacOS],
     primaryLinks: [
       {
         id: 'app-store',
@@ -927,7 +927,7 @@ export const Clients: Array<Client> = [
       {
         id: 'website',
         name: 'Website',
-        url: 'https://tilo.dev/manet/'
+        url: 'https://tilosoftware.io/manet/'
       }
     ]
   },

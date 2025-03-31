@@ -24,6 +24,19 @@ Additionally, there are several third parties providing unofficial container ima
 
 [Docker](https://www.docker.com/) allows you to run containers on Linux, Windows and MacOS.
 
+:::warning
+
+If you wish to use Windows or macOS, please install Jellyfin natively instead. [Windows](/docs/general/installation/windows) [macOS](/docs/general/installation/macos).
+
+While it is possible to run Jellyfin in Docker on a Windows or macOS host, it is NOT supported. Some features are known to be broken when running in Docker on platforms other than Linux, Notably:
+
+- Hardware Accelerated Transcoding
+- [Scanning on macOS in Docker](https://github.com/jellyfin/jellyfin/issues/13093)
+
+You WILL NOT receive any support for running Jellyfin in Docker on platforms other than Linux.
+
+:::
+
 The basic steps to create and run a Jellyfin container using Docker are as follows.
 
 1. Follow the [official installation guide to install Docker](https://docs.docker.com/engine/install).

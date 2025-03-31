@@ -37,6 +37,21 @@ const redirects: ClientRedirects.Options['redirects'] = [
   {
     from: '/docs/general/administration/building',
     to: '/docs/general/installation/source'
+  },
+  // "traefik2" moved
+  {
+    from: '/docs/general/networking/traefik2',
+    to: '/docs/general/networking/traefik'
+  },
+  // Internet radio moved to live tv
+  {
+    from: '/docs/general/server/media/internet-radio',
+    to: '/docs/general/server/live-tv/internet-radio'
+  },
+  // Merge comic and books
+  {
+    from: '/docs/general/server/media/comics',
+    to: '/docs/general/server/media/books'
   }
 ];
 export default redirects;
