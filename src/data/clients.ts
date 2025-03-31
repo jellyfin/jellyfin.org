@@ -635,11 +635,11 @@ export const Clients: Array<Client> = [
   {
     id: 'infuse',
     name: 'Infuse',
-    description: 'A third-party client for iOS, iPadOS, and tvOS devices.',
+    description: 'A third-party client for iOS, macOS, iPadOS, tvOS, and visionOS devices.',
     clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile, DeviceType.TV],
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop, DeviceType.TV],
     licenseType: LicenseType.Proprietary,
-    platforms: [Platform.IOS, Platform.TVOS],
+    platforms: [Platform.IOS, Platform.MacOS, Platform.TVOS],
     primaryLinks: [
       {
         id: 'apple-store',
@@ -882,7 +882,7 @@ export const Clients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Android, Platform.IOS, Platform.iPadOS],
+    platforms: [Platform.Android, Platform.IOS],
     primaryLinks: [
       {
         id: 'app-store',
@@ -932,27 +932,27 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: "fladder",
-    name: "Fladder",
-    description: "A simple, cross-platform Jellyfin frontend built on top of Flutter.",
+    id: 'fladder',
+    name: 'Fladder',
+    description: 'A simple, cross-platform Jellyfin frontend built on top of Flutter.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
     primaryLinks: [
       {
-        id: "play-store",
-        name: "Play Store",
-        url: "https://play.google.com/store/apps/details?id=nl.jknaapen.fladder",
-      },
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=nl.jknaapen.fladder'
+      }
     ],
     secondaryLinks: [
       {
-        id: "github",
-        name: "GitHub",
-        url: "https://github.com/DonutWare/Fladder",
-      },
-    ],
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/DonutWare/Fladder'
+      }
+    ]
   },
   {
     id: 'symfonium',
