@@ -22,7 +22,7 @@ If you identify with at least one of the following options:
 You're probably better using [our hosted instance](https://jf-vue.pages.dev).
 More info at [Jellyfin Vue's repository](https://github.com/jellyfin/jellyfin-vue).
 
-# Deployment
+## Deployment
 
 :::caution
 Since Jellyfin Vue is just an interface for a Jellyfin server, all of these instructions assume that you already have a server up and running.
