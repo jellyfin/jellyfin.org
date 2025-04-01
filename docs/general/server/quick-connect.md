@@ -15,7 +15,13 @@ Settings > Dashboard > General > Enable Quick Connect on this server
 
 ## Using Quick Connect
 
-To sign in to a supported client, you have to enter the Quick Connect code in your user settings.
+The sign in page of the client has a "**Use Quick Connect**" button which will generate a 6 digit code, take note of the code.
+
+![image](https://user-images.githubusercontent.com/12074633/115973542-c99ed480-a523-11eb-9d61-17ccd628e123.png)
+
+
+To sign in to a supported client, you have to enter the Quick Connect code in your user settings where you are already logged on.
+Click your profile picture on the top right and the quick connect dialog is the second item on the settings page.
 
 Settings > Quick Connect
 
@@ -23,6 +29,3 @@ Settings > Quick Connect
 
 If the code is validated successfully, your new device will be signed in without entering your Jellyfin username or password on the new device.
 
-The client will generate a 6 digit code, which you have to enter in the already signed in client in your user settings.
-
-![image](https://user-images.githubusercontent.com/12074633/115973542-c99ed480-a523-11eb-9d61-17ccd628e123.png)
