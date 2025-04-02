@@ -64,6 +64,15 @@ server {
     # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
     add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self'";
 
+    # HSTS settings  
+    # if you have HSTS preload enabled (see https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security#preloading_strict_transport_security) uncomment and use the second line.  
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;  
+    # add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;  
+
+    # SSL settings
+    ssl_stapling on;
+    ssl_stapling_verify on;
+
     location / {
         # Proxy main Jellyfin traffic
         proxy_pass http://$jellyfin:8096;
