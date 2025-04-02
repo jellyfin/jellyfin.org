@@ -54,6 +54,8 @@ server {
 
     # Security / XSS Mitigation Headers
     add_header X-Content-Type-Options "nosniff";
+    # this could break some clients
+    # add_header X-Frame-Options "SAMEORIGIN";
 
     # Permissions policy. May cause issues with some clients
     add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
