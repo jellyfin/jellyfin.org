@@ -29,16 +29,27 @@ While Jellyfin generally doesn't use the file names for identification, file nam
 
 ## Discs
 
-Albums with several discs are identified by the metadata tags with the `disc number` and `total discs` fields. Place the tracks for all discs in one folder.
+Albums with several discs are identified by the metadata tags with the `disc number` and `total discs` fields. Place the tracks for all discs in one folder. They can optionally be separated into disc folders, but embedded metadata takes priority.
 
 ```txt
-Album
-├── Disc 1 Track 1.ogg
-├── Disc 1 Track 2.ogg
-├── Disc 2 Track 1.ogg
-├── Disc 3 Track 1.ogg
-├── Disc 3 Track 2.ogg
-└── Disc 3 Track 3.ogg
+Music
+├── Album 1
+│   ├── Disc 1 Track 1.ogg
+│   ├── Disc 1 Track 2.ogg
+│   ├── Disc 2 Track 1.ogg
+│   ├── Disc 3 Track 1.ogg
+│   ├── Disc 3 Track 2.ogg
+│   └── Disc 3 Track 3.ogg
+└── Album 2
+    ├── Disc 1
+    │   ├── Disc 1 Track 1.aiff
+    │   └── Disc 1 Track 2.aiff
+    ├── Disc 2
+    │   ├── Disc 2 Track 1.aiff
+    │   ├── Disc 2 Track 2.aiff
+    │   └── Disc 2 Track 3.aiff
+    └── Disc 3
+        └── Disc 3 Track 1.aiff
 ```
 
 ## Lyrics
