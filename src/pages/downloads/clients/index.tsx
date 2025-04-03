@@ -88,7 +88,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
     <Layout title='Clients'>
       <h1 className='text--center margin-top--lg'>Downloads</h1>
 
-      <main className='margin-vert--lg'>
+      <main className='margin-vert--lg' aria-live='polite'>
         <section className='container'>
           <div className='row'>
             <div className='col margin-bottom--md'>
@@ -127,11 +127,12 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                 className={clsx(
                   'button',
                   'button--outline',
-                  'button--primary',
+                  'button--secondary',
                   { 'button--active': isFiltersVisible },
                   'button--icon',
                   styles['filters-button']
                 )}
+                aria-expanded={isFiltersVisible}
                 onClick={() => {
                   setIsFiltersVisible(!isFiltersVisible);
                 }}
@@ -145,7 +146,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
           {isFiltersVisible && (
             <div className='card card--outline margin-bottom--md'>
               <div className='card__body'>
-                <ul className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
+                <div className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
                   <Pill
                     active={filter.deviceTypes.length === 0}
                     onClick={() => {
@@ -168,9 +169,9 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                       {deviceType}
                     </Pill>
                   ))}
-                </ul>
+                </div>
 
-                <ul className={clsx('pills', styles['filter-pills'])}>
+                <div className={clsx('pills', styles['filter-pills'])}>
                   <Pill
                     active={filter.platforms.length === 0}
                     onClick={() => {
@@ -195,7 +196,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                         {platform}
                       </Pill>
                     ))}
-                </ul>
+                </div>
               </div>
             </div>
           )}

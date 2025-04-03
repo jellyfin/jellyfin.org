@@ -13,16 +13,13 @@
 
 .button--jetbrains {
   background-color: #fff;
-  border-color: #fff;
   color: #000 !important;
 }
-.button--jetbrains:hover {
+
+.button--jetbrains:hover,
+.button--jetbrains:active {
   background-color: #e6e6e6;
   border-color: #e6e6e6;
-}
-.button--jetbrains:active {
-  background-color: #d9d9d9;
-  border-color: #d9d9d9;
 }
 
 .sponsor-list {

@@ -31,7 +31,13 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                   Server
                 </Link>
                 <Link to='https://repo.jellyfin.org' className='pills__item'>
-                  Full Repository
+                  Full Repository{' '}
+                  <svg width='17' height='13.5' aria-hidden='true' viewBox='0 0 24 24' className='iconExternalLink'>
+                    <path
+                      fill='currentColor'
+                      d='M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z'
+                    ></path>
+                  </svg>
                 </Link>
               </div>
             </div>
@@ -72,7 +78,7 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
             </div>
 
             <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}>
-              <ul className={clsx('pills', 'margin-bottom--none', styles['stable-links'])}>
+              <div className={clsx('pills', 'margin-bottom--none', styles['stable-links'])}>
                 <Pill
                   active={!isStableLinks}
                   onClick={() => {
@@ -91,7 +97,7 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                 >
                   Stable
                 </Pill>
-              </ul>
+              </div>
 
               <button
                 className='button button--link'
@@ -116,13 +122,12 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
           {isStableHelpVisible && (
             <Admonition type='tip' title='Stable or Unstable?'>
               <p>
-                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable version.
-                If you want to help test the latest improvements and features and can handle some occasional breakage,
-                use the Unstable version. New Unstable releases are published Weekly on Monday mornings (~05:00 UTC).
-                NOTE: Always back up your existing configuration before testing Unstable releases as there is NO
-                DOWNGRADE PATH; you must restore your Stable configuration from a backup.
-
-                For more details, [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
+                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable
+                version. If you want to help test the latest improvements and features and can handle some occasional
+                breakage, use the Unstable version. New Unstable releases are published Weekly on Monday mornings
+                (~05:00 UTC). NOTE: Always back up your existing configuration before testing Unstable releases as there
+                is NO DOWNGRADE PATH; you must restore your Stable configuration from a backup. For more details,
+                [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
               </p>
             </Admonition>
           )}

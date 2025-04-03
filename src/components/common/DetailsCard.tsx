@@ -28,7 +28,7 @@ const DetailsCard: FunctionComponent<DetailsCardProps> = ({
   <div id={id} className='card details-card margin-bottom--md'>
     <div className='card__header details-card__header'>
       <div className='details-card__header__start'>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
         <div className='details-card__header__start__badges'>{badges}</div>
       </div>
       <div className='details-card__icons'>{icons}</div>
