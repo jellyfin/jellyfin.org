@@ -27,13 +27,13 @@ server {
 
 server {
     # Nginx versions prior to 1.25
-    listen 443 ssl http2;
-    listen [::]:443 ssl http2;
+    #listen 443 ssl http2;
+    #listen [::]:443 ssl http2;
 
     # Nginx versions 1.25+
-    #listen 443 ssl;
-    #listen [::]:443 ssl;
-    #http2 on;
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
 
     server_name jellyfin.example.org;
 
