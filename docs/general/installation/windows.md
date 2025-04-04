@@ -7,7 +7,7 @@ sidebar_position: 3
 
 <!-- markdownlint-disable MD036 no-emphasis-as-heading -->
 
-Windows installers and builds in ZIP archive format are available [here](/downloads/windows).
+Windows installers and ZIP archive builds are available from the [Windows downloads page](/downloads/windows).
 
 :::caution
 

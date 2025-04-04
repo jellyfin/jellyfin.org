@@ -122,7 +122,7 @@ echo "0 0 * * *  root  certbot renew --quiet --no-self-upgrade --post-hook 'syst
 
 This section assumes that Jellyfin is running in a Docker container (on Linux). This section also assumes that you wish to run Let's Encrypt in a Docker container as well. The Linuxserver/swag Docker container has a built-in nginx webserver to handle the reverse proxy.
 
-Linuxserver/letsencrypt is deprecated in favor of linuxserver/swag, see [here](https://github.com/linuxserver/docker-swag#migrating-from-the-old-linuxserverletsencrypt-image) for information on how to migrate if needed.
+`linuxserver/letsencrypt` is deprecated in favor of `linuxserver/swag`. See the [SWAG migration guide on GitHub](https://github.com/linuxserver/docker-swag#migrating-from-the-old-linuxserverletsencrypt-image) for information on how to migrate if needed.
 
 First, you need to determine a few things.
 
@@ -137,7 +137,7 @@ First, you need to determine a few things.
 9. Make sure ports 80 (if using http validation) and 443 are forwarded to the docker container from your router (instructions vary upon manufacturer)
 10. What user will the container be running as (you can determine the PUID and PGID by running `id` (replacing "user" with the username of the user the container will be running as)
 
-List of DNS Plugins [here](https://certbot.eff.org/docs/using.html#dns-plugins) if using DNS-01 challenge.
+If you're using the DNS-01 challenge, you can find the [list of supported DNS plugins in the Certbot documentation](https://certbot.eff.org/docs/using.html#dns-plugins).
 
 Then, depending on what those settings are, you'll need to adjust the values below as needed.
 

@@ -21,7 +21,7 @@ Before running the unstable builds, make sure to backup your current data from t
 
 Unlike the stable releases, the unstable builds for macOS do not come with a packaged installer or application. Instead, they have to be ran from the command line.
 
-The latest unstable builds for packaged jellyfin can be obtained [here](https://repo.jellyfin.org/?path=/server/macos/latest-unstable).
+The latest unstable builds of the packaged Jellyfin server for macOS can be obtained from the [Jellyfin macOS unstable builds repository](https://repo.jellyfin.org/?path=/server/macos/latest-unstable).
 
 Intel Macs should download the `AMD64` binaries.
 
@@ -33,7 +33,7 @@ There is no difference in content between the `tar.gz` and the `tar.xz` archives
 
 The unstable builds don't come with FFmpeg bundled. Instead, the binaries have to be downloaded separately.
 
-Jellyfin's custom FFmpeg is available [here](https://repo.jellyfin.org/?path=/ffmpeg/macos).
+Jellyfin's custom FFmpeg build for macOS is available from the [Jellyfin FFmpeg macOS repository](https://repo.jellyfin.org/?path=/ffmpeg/macos).
 
 Select the version corresponding to the unstable version of the server.
 

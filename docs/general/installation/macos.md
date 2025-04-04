@@ -9,7 +9,7 @@ sidebar_position: 6
 
 # Install on macOS
 
-macOS Application packages and builds in TAR archive format are available [here](/downloads/macos).
+macOS application packages and TAR archive builds are available from the [macOS downloads page](/downloads/macos).
 
 Jellyfin requires macOS 12 or newer to run.
 Jellyfin 10.9 or newer is required for Apple Silicon native support.
@@ -86,7 +86,7 @@ The portable version doesn't come with FFmpeg by default. There are a few option
 
 - download jellyfin-ffmpeg from the [Jellyfin repo](https://repo.jellyfin.org/?path=/ffmpeg/macos) (recommended)
 - use the package manager homebrew by typing `brew install ffmpeg` into your Terminal ([here's how to install homebrew if you don't have it already](https://treehouse.github.io/installation-guides/mac/homebrew)
-- download the most recent static build from [this link](https://evermeet.cx/ffmpeg/get/zip) (compiled by a third party see [this page](https://evermeet.cx/ffmpeg/) for options and information) (Apple Silicon builds are not available from this source)
+- download the most recent [static build](https://evermeet.cx/ffmpeg/get/zip) (compiled by a third party see [evermeet.cx](https://evermeet.cx/ffmpeg/) for options and information) (Apple Silicon builds are not available from this source)
 - compile from source available from the official [website](https://ffmpeg.org/download.html)
 
 Once downloaded, remove the quarantine flag for the `ffmpeg` and `ffprobe`.
