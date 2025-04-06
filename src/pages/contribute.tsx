@@ -17,7 +17,7 @@ export default function Contribute() {
           Jellyfin is a community project run by volunteers. We&apos;re always looking for additional help.
         </p>
       </Hero>
-
+      <hr className='margin--none' />
       <main className='margin-vert--lg text--center'>
         <h2>Find a way to contribute</h2>
         <section className='container margin-bottom--lg'>

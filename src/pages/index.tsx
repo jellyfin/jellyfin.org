@@ -21,7 +21,7 @@ export default function Home() {
           device from your own server, with no strings attached. Your media, your server, your way.
         </p>
         <div className='hero__buttons'>
-          <a href='https://demo.jellyfin.org/stable' className='button button--lg button--secondary button--outline'>
+          <a href='https://demo.jellyfin.org/stable' className='button button--lg button--outline'>
             See it in Action
           </a>
           <Link to='/downloads/server' className='button button--lg button--primary'>

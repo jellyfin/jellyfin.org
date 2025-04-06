@@ -127,7 +127,6 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                 className={clsx(
                   'button',
                   'button--outline',
-                  'button--secondary',
                   { 'button--active': isFiltersVisible },
                   'button--icon',
                   styles['filters-button']

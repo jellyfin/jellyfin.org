@@ -4,9 +4,9 @@
 
   &:hover,
   &:active {
-    color: #fff;
-    background-color: var(--ifm-background-color);
-    border-color: #e6e6e6;
+    color: var(--ifm-navbar-link-color);
+    background-color: var(--ifm-navbar-background-color);
+    border-color: var(--ifm-font-color-base);
   }
 }
 

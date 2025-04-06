@@ -76,7 +76,7 @@ export default function InActionSection() {
 
         <div className='row'>
           <div className='col margin-top--lg text--center'>
-            <a href='https://demo.jellyfin.org/stable' className='button button--outline button--secondary button--lg'>
+            <a href='https://demo.jellyfin.org/stable' className='button button--outline button--lg'>
               Try the Demo
             </a>
           </div>

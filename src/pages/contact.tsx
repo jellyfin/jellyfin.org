@@ -33,7 +33,7 @@ export default function Contact() {
           <div className='row'>
             <div className='col margin-bottom--md text--center'>
               <button
-                className='button button--sm button--secondary button--outline'
+                className='button button--sm button--outline'
                 onClick={() => {
                   setOtherChatVisible(!isOtherChatVisible);
                 }}
