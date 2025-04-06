@@ -9,7 +9,7 @@
   /* base font */
   --ifm-font-family-base: 'Noto Sans', sans-serif;
   --ifm-line-height-base: 1.7;
-  --ifm-font-color-base: #000b25;
+  --ifm-font-color-base: #091e4e;
   /* headings */
   --ifm-h1-font-size: 2.074em;
   --ifm-h2-font-size: 1.728em;
@@ -21,11 +21,17 @@
   --ifm-color-primary-light: #05c1ff;
   --ifm-color-primary-lighter: #009ed4;
   --ifm-color-primary-lightest: #00afeb;
-  --ifm-background-color: #e9f6ff;
+  --ifm-background-color: #d6efff;
+  --ifm-color-success: #69e269;
+  --ifm-color-info: #66d9ff;
+  --ifm-color-warning: #ffba00;
+  --ifm-color-danger: #fa383e;
   /* buttons */
-  --ifm-button-color: #ffffff;
+  --ifm-button-color: #d6efff;
   --ifm-button-border-radius: 30px;
   --ifm-button-border-color: var(--ifm-font-color-base);
+  /* links */
+  --ifm-link-color: #005bbd;
   /* cards */
   --ifm-card-background-color: var(-ifm-color-primary-lightest);
   /* code blocks */
@@ -36,10 +42,10 @@
   --ifm-footer-background-color: #333c44;
   --ifm-footer-link-color: #ffffff;
   --ifm-footer-color: #ffffff;
-  --ifm-footer-link-hover-color: var(--ifm-color-primary-light);
+  --ifm-footer-link-hover-color: #00f6fa;
   /* navbar */
   --ifm-navbar-link-color: #ffffff;
-  --ifm-navbar-link-hover-color: #0099cd;
+  --ifm-navbar-link-hover-color: #75e8ff;
   --ifm-navbar-background-color: #000b25;
   --ifm-navbar-search-input-background-color: #172138;
   --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>');
@@ -49,39 +55,43 @@
   /* breadcrumb */
   --ifm-breadcrumb-item-background-active: #ffffff;
   /* menu */
-  --ifm-menu-color-background-active: #ffffff;
-  --ifm-menu-color-background-hover: #ffffff;
+  --ifm-menu-color-background-active: var(--ifm-font-color-base);
+  --ifm-menu-color-background-hover: var(--ifm-font-color-base);
   --ifm-menu-color: var(--ifm-color-emphasis-900);
   --ifm-toc-link-color: var(--ifm-color-emphasis-900);
-  --ifm-hover-overlay: #ffffff;
+  --ifm-hover-overlay: #d6efff;
   --ifm-hero-text-color: #000b25;
   --ifm-button-border-width: 2px;
   --search-local-muted-color: var(--ifm-link-color);
 
   /* custom Jellyfin variables */
-  --jf-gradient-color-primary-dark: #aa5cc3;
-  --jf-gradient-color-secondary-dark: #00a4dc;
+  --jf-gradient-color-primary-dark: #bdeeff;
+  --jf-gradient-color-secondary-dark: #f7e0ff;
   --jf-color-primary: #0099cd;
   --jf-contact-button-color: #000b25;
-  --jf-landing-background-color: #e0f0ff;
+  --jf-landing-background-color: #f0f9ff;
   --jf-landing-border-color: #172138;
+  --jf-link-decoration: underline;
 }
 
 html[data-theme='dark'] {
   /* base theme overrides */
   --ifm-background-color: #000b25;
-  --ifm-font-color-base: #ffffff;
-  --ifm-color-primary: #0099cd;
+  --ifm-font-color-base: #ede7de;
+  --ifm-color-primary: #75e8ff;
   /* component and tag variable overrides */
   --ifm-breadcrumb-item-background-active: rgba(0, 0, 0, 0.05);
   --ifm-menu-color-background-active: rgba(0, 0, 0, 0.05);
   --ifm-menu-color: var(--ifm-color-emphasis-700);
-  --ifm-menu-color-background-hover: var(--ifm-hover-overlay);
+  --ifm-menu-color-background-hover: var(--ifm-font-color-base);
   --ifm-toc-link-color: var(--ifm-color-content-secondary);
   --ifm-hover-overlay: rgba(0, 0, 0, 0.05);
   --ifm-code-background: #011627;
   --ifm-card-background-color: #172138;
   --ifm-hero-text-color: var(--ifm-color-emphasis-800);
+  --ifm-link-color: #77dcfd;
+
+  --docusaurus-tag-list-border: var(--ifm-font-color-base);
 
   /* Jellyfin variable overrides */
   --jf-gradient-color-primary-dark: #003c50;
@@ -145,6 +155,15 @@ a code {
 }
 
 /* Navbar */
+.navbar__link:hover,
+.footer__link-item:hover,
+.navbar__link--active {
+  border-radius: var(--ifm-pagination-nav-border-radius);
+  box-shadow:
+    inset 0 0 0 2px var(--ifm-navbar-background-color),
+    inset 0 0 0 4px var(--ifm-navbar-link-color);
+}
+
 .navbar--fixed-top button.clean-btn {
   color: var(--ifm-color-secondary);
 
@@ -175,6 +194,11 @@ a code {
   color: var(--ifm-navbar-link-color);
 }
 
+nav[class*='sidebar'] {
+  overflow-x: hidden;
+  padding: 0.25rem;
+}
+
 /* Buttons */
 .theme-back-to-top-button {
   border: 2px solid var(--ifm-font-color-base);
@@ -193,23 +217,22 @@ a code {
   color: var(--ifm-button-color);
 }
 
-.button--primary:hover,
-.button--primary:focus,
-.button--primary:active,
-.button--primary.button--active {
-  --ifm-button-background-color: var(--ifm-background-color);
-  --ifm-button-border-color: var(--ifm-font-color-base);
-  color: var(--ifm-font-color-base);
-}
-
-.button--secondary:active,
-.button--secondary.button--active {
-  --ifm-button-color: var(--ifm-navbar-background-color);
+.button--primary,
+.button--secondary {
+  &:hover,
+  &:focus,
+  &:active,
+  &.button--active {
+    --ifm-button-border-color: var(--ifm-font-color-base);
+    --ifm-button-background-color: var(--ifm-color-content-inverse);
+    color: var(--ifm-font-color-base);
+  }
 }
 
 :where(.button--secondary) {
   --ifm-button-background-color: var(--ifm-color-secondary);
   --ifm-button-border-color: var(--ifm-font-color-base);
+  --ifm-button-color: var(--ifm-navbar-background-color);
 }
 :where(.button--primary) {
   --ifm-button-border-color: var(--ifm-font-color-base);
@@ -227,21 +250,108 @@ a code {
 /* Links */
 .secondary-link {
   color: var(--ifm-font-color-base);
+  text-decoration: underline;
 
   &:hover,
   &:active {
     color: var(--ifm-font-color-base);
+    text-decoration-style: double;
   }
 }
 
-a.pills__item {
-  text-decoration: none;
+a {
+  font-weight: var(--ifm-font-weight-semibold);
+
+  &:not(.menu__link, .navbar__item, .navbar__brand, .button, [class*='skipToContent']) {
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+    z-index: 5;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: calc(100% + 8px);
+      height: 0%;
+      top: 0;
+      left: -4px;
+      background-color: var(--ifm-font-color-base);
+      border-radius: var(--ifm-pagination-nav-border-radius);
+      z-index: -1;
+    }
+
+    &:hover {
+      --ifm-color-content-secondary: var(--ifm-color-content-inverse);
+      color: var(--ifm-color-content-inverse);
+
+      &::after {
+        height: 100%;
+      }
+    }
+  }
 }
 
-a.pills__item:not(.pills__item--active) {
-  color: var(--ifm-font-color-base);
+a,
+button {
+  &.pills__item {
+    text-decoration: none;
+    overflow: hidden;
+
+    &:not(.pills__item--active) {
+      border: var(--ifm-button-border-width) solid transparent;
+      &:hover {
+        border-color: var(--ifm-button-border-color);
+      }
+
+      &:not(:hover) {
+        color: var(--ifm-font-color-base);
+      }
+    }
+  }
 }
 
+.footer__link-item {
+  padding: var(--ifm-toc-padding-vertical) var(--ifm-toc-padding-horizontal);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul:not(.menu__list, .table-of-contents),
+ol,
+article,
+.card,
+span {
+  a:not(.button, [class*='tag']) {
+    text-decoration: var(--jf-link-decoration);
+  }
+}
+
+.menu__link:hover {
+  color: var(--ifm-color-content-inverse);
+}
+
+.menu__link:hover,
+.menu__link--active,
+.table-of-contents__link--active,
+.theme-edit-this-page,
+.button--link {
+  text-decoration: var(--jf-link-decoration);
+}
+
+a[class*='sidebarItemLink'] {
+  text-decoration: underline !important;
+}
+
+.pagination-nav__link,
+[class*='tag'] {
+  --docusaurus-tag-list-border: var(--ifm-font-color-base);
+  border-color: var(--docusaurus-tag-list-border);
+}
 /* don't hide content unless its for screen readers only */
 .hash-link {
   opacity: 1 !important;
@@ -262,6 +372,10 @@ a.pills__item:not(.pills__item--active) {
 
   &:not(.pills__item--active) {
     background: none;
+  }
+
+  &.pills__item--active {
+    border: var(--ifm-button-border-width) solid var(--ifm-button-border-color);
   }
 }
 
@@ -284,6 +398,10 @@ a.pills__item:not(.pills__item--active) {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.d-inline-block {
+  display: inline-block;
 }
 
 .docusaurus-highlight-code-line {
