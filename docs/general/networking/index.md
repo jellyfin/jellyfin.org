@@ -125,7 +125,11 @@ Ports 80 and 443 (pointing to the proxy server) need to be opened on your router
 
 ### Known Proxies
 
-Add the IP address/hostname of your reverse proxy to the `Known Proxies` (under Admin Dashboard -> Networking). This is a comma separated list of IP addresses/hostnames of known proxies used when connecting to your Jellyfin instance and is required to make proper use of X-Forwarded-For headers. Requires a server restart after saving.
+When a reverse proxy handles incomming http requests it terminates the request and then creates a new to your jellyfin server. This will result in jellyfin seeing the sender IP as the ip of the reverse proxy instead of the actual client. To compensate for that, reverse proxies set the original sender IP in a header. This header is usually one of `X-Forwarded-For`, `X-Forwarded-Proto` or `X-Forwarded-Host` all 3 are supported by jellyfin. However as blindly trusting those headers from any source is a security risk, Jellyfin has to be configured to trust your reverse proxy. For jellyfin to know which reverse proxy is trusted, the IP, Hostname or Subnet has to be set in the `Known Proxies` (under Admin Dashboard -> Networking) setting. You can add multiple IP's/Subnets/Hostnames by seperating them with a comma (`,`) like `192.168.178.5,10.10.0.6,127.0.0.0/26,MyReverseProxyHostname`.
+
+This is required for reverse proxies as otherwise all incoming traffic will be seen as originating from your reverse proxy which can be a security risk.
+
+Changes to the KnownProxies setting requires a server restart after saving to take effect.
 
 ### Base URL
 
