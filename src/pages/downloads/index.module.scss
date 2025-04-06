@@ -5,7 +5,7 @@
 
 .header-pills-end {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: end;
 }
 
 .filter-pills {
@@ -16,7 +16,6 @@
 
 .stable-links {
   display: inline-flex;
-  flex-direction: row-reverse;
 }
 
 @media (max-width: 996px) {

@@ -80,15 +80,6 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
             <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}>
               <div className={clsx('pills', 'margin-bottom--none', styles['stable-links'])}>
                 <Pill
-                  active={!isStableLinks}
-                  onClick={() => {
-                    setIsStableLinks(false);
-                    setActiveButton(null);
-                  }}
-                >
-                  Unstable
-                </Pill>
-                <Pill
                   active={isStableLinks}
                   onClick={() => {
                     setIsStableLinks(true);
@@ -96,6 +87,15 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
                   }}
                 >
                   Stable
+                </Pill>
+                <Pill
+                  active={!isStableLinks}
+                  onClick={() => {
+                    setIsStableLinks(false);
+                    setActiveButton(null);
+                  }}
+                >
+                  Unstable
                 </Pill>
               </div>
 

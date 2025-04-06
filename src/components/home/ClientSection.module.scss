@@ -2,10 +2,14 @@
   display: block;
   max-width: 7rem;
   color: var(--ifm-font-color-base);
-}
 
-.client-icon > svg {
-  display: block;
-  margin: 0 auto;
-  fill: var(--ifm-font-color-base);
+  & > svg {
+    display: block;
+    margin: 1rem auto 0;
+    fill: var(--ifm-font-color-base);
+  }
+
+  &:hover > svg {
+    fill: var(--ifm-color-content-inverse);
+  }
 }

@@ -1,25 +1,13 @@
-.button--digitalocean {
-  background-color: #0080ff;
-  border-color: #0080ff;
-}
-.button--digitalocean:hover {
-  background-color: #0073e6;
-  border-color: #0073e6;
-}
-.button--digitalocean:active {
-  background-color: #006dd9;
-  border-color: #006dd9;
-}
-
 .button--jetbrains {
   background-color: #fff;
-  color: #000 !important;
-}
+  color: #000;
 
-.button--jetbrains:hover,
-.button--jetbrains:active {
-  background-color: #e6e6e6;
-  border-color: #e6e6e6;
+  &:hover,
+  &:active {
+    color: #fff;
+    background-color: var(--ifm-background-color);
+    border-color: #e6e6e6;
+  }
 }
 
 .sponsor-list {

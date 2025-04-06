@@ -4,61 +4,57 @@
 
 /* Brand button styles */
 .button--discord {
-  background-color: #5865f2;
-  border-color: #5865f2;
+  background-color: #c6caf0;
+  border-color: var(--ifm-navbar-background-color);
   color: #000000;
 
   &:hover,
   &:active {
     background-color: var(--ifm-navbar-background-color);
-    border-color: #3949f0;
   }
 }
 
 .button--matrix {
-  background-color: #0dbd8b;
-  border-color: #0dbd8b;
+  background-color: #00e6a4;
+  border-color: var(--ifm-navbar-background-color);
   color: var(--jf-contact-button-color);
 
   &:hover,
   &:active {
     background-color: var(--ifm-navbar-background-color);
-    border-color: #0ba176;
   }
 }
 
-.button--twitter {
-  background-color: var(--jf-color-primary);
-  border-color: var(--jf-color-primary);
-  color: var(--jf-contact-button-color);
+.button--twitter,
+.button--forum {
+  border-color: var(--ifm-navbar-background-color);
 
   &:hover,
   &:active {
-    background-color: var(--ifm-navbar-background-color);
-    border-color: #0d94e7;
+    border-color: var(--ifm-color-content);
   }
 }
 
 .button--mastodon {
-  background-color: #6364ff;
-  border-color: #6364ff;
+  background-color: #c7c7ff;
+  border-color: var(--ifm-navbar-background-color);
   color: #000000;
 
   &:hover,
   &:active {
     background-color: var(--ifm-navbar-background-color);
-    border-color: #563acc;
   }
 }
 
-.button--forum {
-  background-color: var(--jf-color-primary);
-  border-color: var(--jf-color-primary);
-  color: var(--jf-contact-button-color);
-
-  &:hover,
-  &:active {
-    background-color: var(--ifm-navbar-background-color);
-    border-color: var(--jf-color-primary);
+html[data-theme='dark'] {
+  .button--matrix,
+  .button--discord,
+  .button--mastodon,
+  .button--twitter,
+  .button--forum {
+    &:hover,
+    &:active {
+      border-color: var(--ifm-color-content);
+    }
   }
 }

@@ -54,7 +54,7 @@ export default function Contribute() {
           <div className={styles['sponsor-list']}>
             <a
               href='https://www.digitalocean.com'
-              className={clsx('button', 'button--lg', styles['button--digitalocean'])}
+              className={clsx('button', 'button--lg', 'button--primary')}
               style={{ display: 'inline-flex' }}
             >
               <SiDigitalocean size={28} className='margin-right--sm' />
