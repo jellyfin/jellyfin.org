@@ -9,7 +9,7 @@ sidebar_position: 6
 
 # Install on macOS
 
-macOS application packages and TAR archive builds are available from the [macOS downloads page](/downloads/macos).
+macOS application packages and portable TAR archive builds are available from the [macOS downloads page](/downloads/macos).
 
 Jellyfin requires macOS 12 or newer to run.
 Jellyfin 10.9 or newer is required for Apple Silicon native support.

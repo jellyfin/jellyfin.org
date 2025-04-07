@@ -7,7 +7,7 @@ title: Live Broadcast
 
 Jellyfin allows you to watch and record live television using supported hardware, as well as listen to internet radio. The first step is setting up a tuner to send data to Jellyfin, and then configure a source for the program guide data.
 
-See the [Live TV setup guide](/docs/general/server/live-tv/setup-guide) for step-by-step instructions.
+See the [Live TV setup guide](/docs/general/server/live-tv/setup-guide) for detailed instructions.
 
 ## Tuner
 
