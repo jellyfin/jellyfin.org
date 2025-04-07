@@ -63,10 +63,10 @@ export default function ClientSection() {
             <SiKodi color='#ffffff' size={48} />
             <div className='margin-top--sm'>Kodi</div>
           </Link>
-          <Link to='/downloads/clients' className={clsx('col', styles['client-icon'], 'margin-top--md')}>
+          <div className={clsx('col', styles['client-icon'], 'margin-top--md')}>
             <Icon path={mdiPlusThick} size='48px' className='fill-white' />
             <div className='margin-top--sm'>And more</div>
-          </Link>
+          </div>
         </div>
 
         <div className='row'>
