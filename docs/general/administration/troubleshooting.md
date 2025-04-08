@@ -169,7 +169,7 @@ Manual changes to the database can destroy your instance beyond repair. to preve
 Before continuing, make sure that you have sqlite3 installed.
 When sqlite3 is not installed, you can install it under Debian based systems with `apt install sqlite3`.
 After that do the following commands/SQL query:  
-_You can find a list of default Paths [here](../configuration#configuration-directory)_
+_You can find a list of default Paths [here](/docs/general/administration/configuration#configuration-directory)_
 
 ```bash
 sqlite3 /PATH/TO/JELLYFIN/DB/jellyfin.db
@@ -191,7 +191,7 @@ SELECT Value,Kind FROM Permissions WHERE UserId IN (SELECT Id FROM Users WHERE U
 ```
 
 <br />
-The first row with an value of 1 or 0 shows if the permission is assigned or not. The second row displays the kind of permission. To get a summary for every permission you can look [here](https://github.com/jellyfin/jellyfin/blob/master/Jellyfin.Data/Enums/PermissionKind.cs)
+The first row with an value of 1 or 0 shows if the permission is assigned or not. The second row displays the kind of permission. To get a summary for every permission you can look [here](https://github.com/jellyfin/jellyfin/blob/master/src/Jellyfin.Database/Jellyfin.Database.Implementations/Enums/PermissionKind.cs)
 
 ### Repair Permissions
 
