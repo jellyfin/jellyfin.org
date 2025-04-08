@@ -98,11 +98,11 @@ const config: Config = {
           to: '/contact'
         }
       ],
-      copyright: `<a href="https://github.com/jellyfin/jellyfin/releases/latest">
+      copyright: `<a href="https://github.com/jellyfin/jellyfin/releases/latest" class="footer__link-item">
 <img alt="Current Release" src="https://img.shields.io/github/release/jellyfin/jellyfin.svg"/>
 </a>
 <br/>
-Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/' class="footer__link-item">CC-BY-ND-4.0</a>`
+<p class="margin-top--sm">Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/' class="footer__link-item">CC-BY-ND-4.0</a></p>`
     }
   },
   markdown: {

@@ -169,7 +169,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                     </Pill>
                   ))}
                 </div>
-
+                <hr />
                 <div className={clsx('pills', styles['filter-pills'])}>
                   <Pill
                     active={filter.platforms.length === 0}

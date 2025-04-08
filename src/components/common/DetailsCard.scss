@@ -26,6 +26,11 @@
 .details-card__footer__buttons {
   display: flex;
   overflow-x: auto;
+
+  .button--primary:not(:hover, :focus) {
+    background-color: var(--ifm-color-primary-dark);
+    color: var(--ifm-navbar-link-color);
+  }
 }
 
 .details-card__footer .row {
