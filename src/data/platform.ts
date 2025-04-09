@@ -7,6 +7,7 @@ enum Platform {
   Discord = 'Discord',
   FireOS = 'Fire TV',
   IOS = 'iOS',
+  IpadOS = 'iPadOS',
   Kodi = 'Kodi',
   Roku = 'Roku',
   SailfishOS = 'Sailfish OS',
