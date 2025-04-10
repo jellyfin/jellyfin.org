@@ -105,12 +105,12 @@ The main server configuration is built upon the ASP .NET [configuration framewor
 
 This section lists all the configuration options available and explains their function.
 
-| Key                                     | Default Value                                                                                     | Description                                                                                                                                                             |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hostwebclient`                         | `True`                                                                                            | Set to `True` if the server should host the web client.                                                                                                                 |
-| `FFmpeg:probesize`                      | `"1G"`                                                                                            | Value to set for the FFmpeg `probesize` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.           |
-| `FFmpeg:analyzeduration`                | `"200M"`                                                                                          | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
-| `PublishedServerUrl`                    | Server Url based on primary IP address                                                            | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
+| Key                      | Default Value                          | Description                                                                                                                                                             |
+| ------------------------ | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hostwebclient`          | `True`                                 | Set to `True` if the server should host the web client.                                                                                                                 |
+| `FFmpeg:probesize`       | `"1G"`                                 | Value to set for the FFmpeg `probesize` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.           |
+| `FFmpeg:analyzeduration` | `"200M"`                               | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
+| `PublishedServerUrl`     | Server Url based on primary IP address | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
 
 ## Fonts
 

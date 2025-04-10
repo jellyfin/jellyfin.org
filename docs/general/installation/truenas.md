@@ -126,7 +126,7 @@ services:
 - Remember to add your media datasets as extra volumes on your compose file so that the container can access them.
 - The user & group you set are only to run the container. They are not used to create a Jellyfin account.
 - Make sure your spacing is correct for each option. Compose files use spacing to parse the options correctly.
-- You can determine the time zone identifier for you region [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+- You can determine the time zone identifier for you region [on wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 - Note that lines with `#` in front indicate a comment. They will not apply until you remove it.
 - Uncomment the `group_add` and `devices` options if you have a GPU and want to use [hardware acceleration](/docs/general/administration/hardware-acceleration/).
   - If you have an NVIDIA GPU, [please read this](#nvidia-gpus-on-scale-v2410).

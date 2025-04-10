@@ -19,10 +19,10 @@ To sign in to a supported client, you have to enter the Quick Connect code in yo
 
 Settings > Quick Connect
 
-![image](https://user-images.githubusercontent.com/12074633/115973526-aecc6000-a523-11eb-9ed6-59bee41bac7b.png)
+![Quick Connect sign in](https://user-images.githubusercontent.com/12074633/115973526-aecc6000-a523-11eb-9ed6-59bee41bac7b.png)
 
 If the code is validated successfully, your new device will be signed in without entering your Jellyfin username or password on the new device.
 
 The client will generate a 6 digit code, which you have to enter in the already signed in client in your user settings.
 
-![image](https://user-images.githubusercontent.com/12074633/115973542-c99ed480-a523-11eb-9d61-17ccd628e123.png)
+![Quick Connect error](https://user-images.githubusercontent.com/12074633/115973542-c99ed480-a523-11eb-9d61-17ccd628e123.png)
