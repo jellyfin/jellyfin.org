@@ -31,7 +31,7 @@
   --ifm-button-border-radius: 30px;
   --ifm-button-border-color: var(--ifm-font-color-base);
   /* links */
-  --ifm-link-color: #004c9e;
+  --ifm-link-color: #004085;
   /* cards */
   --ifm-card-background-color: var(-ifm-color-primary-lightest);
   /* code blocks */
@@ -66,6 +66,8 @@
   --search-local-muted-color: var(--ifm-link-color);
   --ifm-hr-background-color: var(--ifm-font-color-base);
   --ifm-menu-link-sublist-icon-filter: none;
+  /* tables */
+  --ifm-table-border-color: var(--ifm-font-color-base);
 
   /* custom Jellyfin variables */
   --jf-gradient-color-primary-dark: #bdeeff;
@@ -133,7 +135,7 @@ code {
   color: var(--jf-code-color);
 
   & .token.comment {
-    color: #888d72 !important;
+    color: #d2ceb6 !important;
     font-style: italic;
   }
 }
@@ -297,7 +299,7 @@ a {
     vertical-align: middle;
   }
 
-  &:not(.menu__link, .navbar__item, .navbar__brand, .button, [class*='skipToContent'], .footer__link-item) {
+  &:not(.menu__link, .navbar__item, .navbar__brand, .button, [class*='skipToContent'], .footer__link-item, .card) {
     position: relative;
     display: inline-block;
     transition: color 0.3s ease;
@@ -312,6 +314,7 @@ a {
       left: -4px;
       background: var(--ifm-font-color-base);
       border-radius: var(--ifm-pagination-nav-border-radius);
+      transform: none;
       z-index: -1;
     }
 
@@ -361,7 +364,7 @@ ol,
 article,
 .card,
 span {
-  a:not(.button, .table-of-contents__link, [class*='tag']) {
+  a:not(.button, .card, .table-of-contents__link, [class*='tag']) {
     text-decoration: var(--jf-link-decoration);
   }
 }
@@ -399,12 +402,14 @@ a[class*='sidebarItemLink'] {
   border-color: var(--docusaurus-tag-list-border);
 }
 
-/* don't hide content unless its for screen readers only */
-.hash-link {
-  opacity: 1 !important;
-}
-
 a {
+  /* don't hide content unless its for screen readers only */
+  &.hash-link {
+    opacity: 1 !important;
+    padding-left: 0px;
+    margin-left: 0.5rem;
+  }
+
   &.menu__link--active,
   &[class*='sidebarItemLinkActive'] {
     border: 2px solid var(--ifm-font-color-base);
@@ -436,6 +441,10 @@ button[class*='tocCollapsibleButton']::after {
 }
 
 /* Cards */
+.card {
+  --ifm-pre-color: var(--jf-code-color);
+}
+
 .card--outline {
   background-color: transparent;
   border: var(--ifm-button-border-width) solid var(--ifm-button-border-color);
