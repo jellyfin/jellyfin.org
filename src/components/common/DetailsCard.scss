@@ -10,7 +10,8 @@
   display: flex;
 }
 
-.details-card__header__start h3 {
+.details-card__header__start h2 {
+  font-size: var(--ifm-h3-font-size);
   margin-bottom: 0;
 }
 
@@ -25,6 +26,11 @@
 .details-card__footer__buttons {
   display: flex;
   overflow-x: auto;
+
+  .button--primary:not(:hover, :focus) {
+    background-color: var(--ifm-color-primary-dark);
+    color: var(--ifm-navbar-link-color);
+  }
 }
 
 .details-card__footer .row {
@@ -47,7 +53,11 @@
   margin-left: 0;
 }
 .details-card .card__body .card__body__helptext {
-  color: rgb(157, 148, 136);
+  color: var(--ifm-color-gray-700);
+}
+
+[data-theme='dark'] .details-card .card__body .card__body__helptext {
+  color: var(--ifm-color-gray-500);
 }
 
 @media (max-width: 420px) {

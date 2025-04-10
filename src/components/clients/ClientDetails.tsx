@@ -17,7 +17,7 @@ const ClientTypeBadge = ({ clientType }: { clientType: ClientType }) => {
 
 const LicenseTypeBadge = ({ licenseType }: { licenseType: LicenseType }) => {
   if (licenseType === LicenseType.OpenSource) {
-    return <span className='badge badge--success margin-right--sm'>Open Source</span>;
+    return <span className='badge badge--success badge--secondary margin-right--sm'>Open Source</span>;
   } else if (licenseType === LicenseType.Proprietary) {
     return <span className='badge badge--warning margin-right--sm'>Proprietary</span>;
   }
@@ -43,7 +43,7 @@ const ClientDetails = ({ client }: { client: Client }) => (
       </a>
     ))}
     secondaryButtons={client.secondaryLinks?.map(({ id, url, name }) => (
-      <a key={id} href={url} className='button button--outline button--primary'>
+      <a key={id} href={url} className='button button--outline'>
         {name}
       </a>
     ))}

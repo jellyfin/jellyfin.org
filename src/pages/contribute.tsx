@@ -17,7 +17,7 @@ export default function Contribute() {
           Jellyfin is a community project run by volunteers. We&apos;re always looking for additional help.
         </p>
       </Hero>
-
+      <hr className='margin--none' />
       <main className='margin-vert--lg text--center'>
         <h2>Find a way to contribute</h2>
         <section className='container margin-bottom--lg'>
@@ -46,16 +46,15 @@ export default function Contribute() {
               data='https://opencollective.com/jellyfin/contributors.svg?width=1000&button=false'
               type='image/svg+xml'
               width='1000'
-            >
-              Jellyfin Contributors
-            </object>
+              title='Jellyfin Contributors'
+            ></object>
           </div>
 
           <h3>Sponsors</h3>
           <div className={styles['sponsor-list']}>
             <a
               href='https://www.digitalocean.com'
-              className={clsx('button', 'button--lg', styles['button--digitalocean'])}
+              className={clsx('button', 'button--lg', 'button--primary')}
               style={{ display: 'inline-flex' }}
             >
               <SiDigitalocean size={28} className='margin-right--sm' />

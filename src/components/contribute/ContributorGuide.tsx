@@ -385,7 +385,7 @@ export default function ContributorGuide() {
                 Jellyfin has several other sub-projects that use various languages. If any of these suit you, head over
                 to the relevant project page and begin hacking.
               </p>
-              <ul>
+              <ul className='d-inline-block text--left'>
                 <li>
                   <b>Kotlin/Java:</b> The <a href='https://github.com/jellyfin/jellyfin-androidtv'>Android TV</a> and{' '}
                   <a href='https://github.com/jellyfin/jellyfin-android'>Android</a> apps are written in Kotlin and Java

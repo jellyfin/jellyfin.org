@@ -7,6 +7,7 @@ import * as ClientRedirects from '@docusaurus/plugin-client-redirects';
 import * as ThemeClassic from '@docusaurus/theme-classic';
 import * as SearchLocal from '@easyops-cn/docusaurus-search-local';
 import redirects from './redirects';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
   title: 'Jellyfin',
@@ -20,6 +21,9 @@ const config: Config = {
   projectName: 'jellyfin.org',
   themeConfig: {
     image: 'images/social.png?v2',
+    prism: {
+      theme: prismThemes.nightOwl
+    },
     metadata: [
       { name: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
@@ -27,8 +31,8 @@ const config: Config = {
     ],
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: true,
-      respectPrefersColorScheme: false
+      disableSwitch: false,
+      respectPrefersColorScheme: true
     },
     navbar: {
       logo: {
@@ -94,11 +98,11 @@ const config: Config = {
           to: '/contact'
         }
       ],
-      copyright: `<a href="https://github.com/jellyfin/jellyfin/releases/latest">
+      copyright: `<a href="https://github.com/jellyfin/jellyfin/releases/latest" class="footer__link-item">
 <img alt="Current Release" src="https://img.shields.io/github/release/jellyfin/jellyfin.svg"/>
 </a>
 <br/>
-Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/'>CC-BY-ND-4.0</a>`
+<p class="margin-top--sm">Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/' class="footer__link-item">CC-BY-ND-4.0</a></p>`
     }
   },
   markdown: {
@@ -141,11 +145,7 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
     [
       '@docusaurus/theme-classic',
       {
-        customCss: [
-          require.resolve('@fontsource/noto-sans/index.css'),
-          require.resolve('./src/css/custom.scss'),
-          require.resolve('./src/css/swiper.scss')
-        ]
+        customCss: [require.resolve('@fontsource/noto-sans/index.css'), require.resolve('./src/css/custom.scss')]
       } satisfies ThemeClassic.Options
     ],
     [

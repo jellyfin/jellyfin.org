@@ -21,14 +21,18 @@ export default function Home() {
           device from your own server, with no strings attached. Your media, your server, your way.
         </p>
         <div className='hero__buttons'>
-          <a href='https://demo.jellyfin.org/stable' className='button button--lg button--secondary button--outline'>
+          <a href='https://demo.jellyfin.org/stable' className='button button--lg button--outline'>
             See it in Action
           </a>
           <Link to='/downloads/server' className='button button--lg button--primary'>
             Download Now
           </Link>
         </div>
-        <p><a href="/docs/general/community-standards/servers">Note: We do not run servers for users.</a></p>
+        <p className='margin-bottom--none margin-top--md'>
+          <a href='/docs/general/community-standards/servers' className='secondary-link'>
+            Note: We do not run servers for users.
+          </a>
+        </p>
       </Hero>
       <main>
         <HomepageFeatures />

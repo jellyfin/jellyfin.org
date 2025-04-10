@@ -15,7 +15,7 @@ const TwitterCard = () => (
       Follow us on Twitter for release announcements and other updates, along with general musings.
     </div>
     <div className='card__footer'>
-      <a href='https://www.twitter.com/jellyfin' className='button button--block button--twitter'>
+      <a href='https://www.twitter.com/jellyfin' className='button button--primary button--block button--twitter'>
         @jellyfin
       </a>
     </div>
