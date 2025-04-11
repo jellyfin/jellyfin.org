@@ -9,7 +9,7 @@ title: Jellyfin Web Configuration
 
 The Jellyfin Web default interface can be configured using the `config.json` file in the webroot. Where this is and how to edit it depends on the installation method.
 
-We recommend obtaining the [stable](https://github.com/jellyfin/jellyfin-web/blob/release-10.8.z/src/config.json) or the [unstable](https://github.com/jellyfin/jellyfin-web/blob/master/src/config.json) default version of the file to pre-populate your configuration directory before starting Jellyfin for the first time; unlike most other components of this directory, it will not be created automatically.
+We recommend obtaining the [stable](https://github.com/jellyfin/jellyfin-web/blob/release-10.10.z/src/config.json) or the [unstable](https://github.com/jellyfin/jellyfin-web/blob/master/src/config.json) default version of the file to pre-populate your configuration directory before starting Jellyfin for the first time; unlike most other components of this directory, it will not be created automatically.
 
 ### Debian/Ubuntu/Fedora/CentOS Packages
 
