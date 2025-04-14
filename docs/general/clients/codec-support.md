@@ -69,7 +69,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 If the audio codec is unsupported or incompatible (such as playing a 5.1 channel stream on a stereo device), the audio codec must be transcoded. This is not nearly as intensive as video transcoding.
 
-|                                                                             |     Chrome     | Edge | Firefox |        Safari        | Android | Android TV |         iOS          | SwiftFin (iOS) |      Roku      | Kodi | Desktop |
+|                                    Codec                                    |     Chrome     | Edge | Firefox |        Safari        | Android | Android TV |         iOS          | SwiftFin (iOS) |      Roku      | Kodi | Desktop |
 | :-------------------------------------------------------------------------: | :------------: | :--: | :-----: | :------------------: | :-----: | :--------: | :------------------: | :------------: | :------------: | :--: | :-----: |
 |                                    FLAC                                     |       ✅       |  ✅  |   ✅    |          ✅          |   ✅    |     ✅     |          ✅          |       ✅       |       ✅       |  ✅  |   ✅    |
 |                                     MP3                                     | 🔶<sup>1</sup> |  ✅  |   🔶    |          ✅          |   ✅    |     ✅     |          ✅          |       ✅       |       ✅       |  ✅  |   ✅    |
@@ -112,7 +112,7 @@ Subtitles can be a subtle issue for transcoding. Containers have a limited numbe
 
 Here is a [breakdown](https://www.afterdawn.com/guides/archive/subtitle_formats_explained.cfm) of common subtitle formats.
 
-|                                                                  |     Format     | TS  | MP4 | MKV | AVI |
+|                         Subtitle Format                          |     Format     | TS  | MP4 | MKV | AVI |
 | :--------------------------------------------------------------: | :------------: | :-: | :-: | :-: | :-: |
 |    [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip)     |      Text      | ❌  | 🔶  | ✅  | 🔶  |
 | [WebVTT (VTT)](https://en.wikipedia.org/wiki/WebVTT)<sup>1</sup> |      Text      | ❌  | ❌  | ✅  | 🔶  |
@@ -174,7 +174,7 @@ Text-based subtitle formats require fonts to render properly. Please refer to [F
 
 If the container is unsupported, this will result in remuxing. The video and audio codec will remain intact but wrapped in a supported container. This is the least intensive process. Most video containers will be remuxed to use the HLS streaming protocol and TS containers. Remuxing shouldn't be a concern even for an RPi3.
 
-|                                                                       | Chrome | Edge | Firefox | Safari | Android | Android TV | Kodi | Roku |
+|                               Container                               | Chrome | Edge | Firefox | Safari | Android | Android TV | Kodi | Roku |
 | :-------------------------------------------------------------------: | :----: | :--: | :-----: | :----: | :-----: | :--------: | :--: | :--: |
 |    [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)<sup>1</sup>    |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
 |     [MKV](https://en.wikipedia.org/wiki/Matroska)<sup>2, 3</sup>      |   ❌   |  ✅  |   ❌    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |

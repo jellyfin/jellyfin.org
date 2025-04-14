@@ -20,7 +20,7 @@ The installation method for the repository varies depending on what kind of devi
 
 #### General Use Devices (PCs and Tablets)
 
-1. Download the repository installer found [here](https://kodi.jellyfin.org/repository.jellyfin.kodi.zip).
+1. Download the repository installer from the [Jellyfin Kodi repository ZIP file](https://kodi.jellyfin.org/repository.jellyfin.kodi.zip).
    - It will be saved as `repository.jellyfin.kodi.zip`
 2. Install the Jellyfin repository.
    - Open Kodi, go to the settings menu, and navigate to "Add-on Browser"
@@ -93,7 +93,7 @@ To use Add-on mode, simply choose "Add-on" at the dialog and proceed to [Library
 
 :::caution
 
-Do not use Native mode!  Use Addon-mode instead.
+Do not use Native mode! Use Addon-mode instead.
 
 Jellyfin 10.10 no longer provides the shared network folder via the API, and as such native mode does not get the required information to function.
 
