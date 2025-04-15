@@ -1,13 +1,11 @@
 ---
-uid: installation-portable
-title: Portable Packages
-description: Install using an portable package.
+uid: installation-manual
+title: Manual Installation
+description: Install Jellyfin Manually.
 sidebar_position: 5
 ---
 
 <!-- markdownlint-disable MD036 no-emphasis-as-heading -->
-
-These are the more advanced installation methods intended for advanced users.
 
 ## Portable Windows Package
 
@@ -240,3 +238,155 @@ sudo systemctl start jellyfin.service
 
 Platform-agnostic .NET Core DLL builds in TAR archive format are available from the [portable downloads section](/downloads#portable).  
 These builds use the binary `jellyfin.dll` and must be loaded with `dotnet`.
+
+## Debian (using extrepo)
+
+extrepo is only supported on Debian currently. The advantage of extrepo is that it is packaged in Debian. So you don’t have to execute the `curl | sudo bash` combo from the previous Automatic section. The risk with that command is that it relies on the security of the webserver. extrepo avoids this by having the Jellyfin repo information including the GPG key in its [extrepo-data](https://salsa.debian.org/extrepo-team/extrepo-data/-/blob/master/repos/debian/jellyfin.yaml?ref_type=heads). extrepo-data is verified with GPG by the extrepo tool. So there is a chain of trust from Debian all the way to the Jellyfin repo information.
+
+```sh
+sudo apt install extrepo
+sudo extrepo enable jellyfin
+```
+
+Now you can continue at step 5. of the [Repository (Manual) section](#repository-manual).
+
+## Official Linux Repository (Manual)
+
+If you would prefer to install everything manually, the full steps are as follows:
+
+1. Install `curl` and `gnupg` if you haven't already:
+
+   ```sh
+   sudo apt install curl gnupg
+   ```
+
+2. On Ubuntu (and derivatives) only, enable the Universe repository to obtain all the FFmpeg dependencies:
+
+   ```sh
+   sudo add-apt-repository universe
+   ```
+
+   :::note
+
+   If the above command fails you will need to install the following package `software-properties-common`.
+   This can be achieved with the following command `sudo apt-get install software-properties-common`
+
+   :::
+
+   On Debian, you can also enable the `non-free` components of your base repositories for additional FFmpeg dependencies, but this is optional.
+
+3. Download the GPG signing key (signed by the Jellyfin Team) and install it:
+
+   ```sh
+   sudo mkdir -p /etc/apt/keyrings
+   curl -fsSL https://repo.jellyfin.org/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+   ```
+
+4. Add a repository configuration at `/etc/apt/sources.list.d/jellyfin.sources`:
+
+   ```sh
+   export VERSION_OS="$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )"
+   export VERSION_CODENAME="$( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )"
+   export DPKG_ARCHITECTURE="$( dpkg --print-architecture )"
+   cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
+   Types: deb
+   URIs: https://repo.jellyfin.org/${VERSION_OS}
+   Suites: ${VERSION_CODENAME}
+   Components: main
+   Architectures: ${DPKG_ARCHITECTURE}
+   Signed-By: /etc/apt/keyrings/jellyfin.gpg
+   EOF
+   ```
+
+   :::note
+
+   The supported values for the above variables are:
+
+   - `${VERSION_OS}`: One of `debian` or `ubuntu`; if it is not, use the closest one for your distribution.
+   - `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
+   - `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
+
+   :::
+
+5. Update your APT repositories:
+
+   ```sh
+   sudo apt update
+   ```
+
+6. Install the Jellyfin metapackage, which will automatically fetch the various sub-packages:
+
+   ```sh
+   sudo apt install jellyfin
+   ```
+
+   :::note
+
+   If you want to be explicit, instead of the metapackage, you can install the sub-packages individually:
+
+   ```sh
+   sudo apt install jellyfin-server jellyfin-web
+   ```
+
+   The `jellyfin-server` package will automatically select the right `jellyfin-ffmpeg` package for you as well.
+
+   :::
+
+7. Manage the Jellyfin system service:
+
+   ```sh
+   sudo systemctl {action} jellyfin
+   sudo service jellyfin {action}
+   ```
+
+## `.deb` Packages (Very Manual)
+
+Raw `.deb` packages, including old versions, source packages, and `dpkg` meta files, are available [in the main download repository](https://repo.jellyfin.org/?path=/server/).
+
+:::note
+
+The repository is the preferred way to obtain Jellyfin on Debian and Ubuntu systems, as this ensures you get automatic updates and that all dependencies are properly resolved. Use these steps only if you really know what you're doing.
+
+:::
+
+1. On Ubuntu (and derivatives) only, enable the Universe repository to obtain all the FFmpeg dependencies:
+
+   ```sh
+   sudo add-apt-repository universe
+   ```
+
+   :::note
+
+   If the above command fails you will need to install the following package `software-properties-common`.
+   This can be achieved with the following command `sudo apt-get install software-properties-common`
+
+   :::
+
+   On Debian, you can also enable the `non-free` components of your base repositories for additional FFmpeg dependencies, but this is optional.
+
+2. Download the desired `jellyfin-server`, `jellyfin-web`, and `jellyfin-ffmpeg` `.deb` packages from the repository; `jellyfin` is a metapackage and is not required.
+
+3. Install the downloaded `.deb` packages:
+
+   ```sh
+   sudo dpkg -i jellyfin_*.deb jellyfin-ffmpeg_*.deb
+   ```
+
+   :::note
+
+   This step may throw errors; continue to the next step to resolve them.
+
+   :::
+
+4. Use `apt` to install any missing dependencies:
+
+   ```sh
+   sudo apt -f install
+   ```
+
+5. Manage the Jellyfin system service:
+
+   ```sh
+   sudo systemctl {action} jellyfin
+   sudo service jellyfin {action}
+   ```
