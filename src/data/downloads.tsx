@@ -383,8 +383,17 @@ makepkg -si`}
             <p>
               <a href='https://rpmfusion.org/Configuration'>Configure the RPMFusion repository</a>
             </p>
+            <p>
+              For <a href='https://fedoraproject.org/'>Fedora</a> and <a href='https://www.centos.org/'>CentOS</a>:
+            </p>
             <pre>
               <code>{`dnf install jellyfin`}</code>
+            </pre>
+            <p>
+              For <a href='https://rpmfusion.org/Configuration'>Fedora Atomic</a>:
+            </p>
+            <pre>
+              <code>{`rpm-ostree override remove ffmpeg-free libavcodec-free libavfilter-free libavformat-free libavdevice-free libavutil-free libswresample-free gstreamer1-plugin-libav libpostproc-free libswscale-free --install ffmpeg jellyfin`}</code>
             </pre>
           </>
         )
