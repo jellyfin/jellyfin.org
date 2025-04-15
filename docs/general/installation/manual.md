@@ -248,7 +248,7 @@ sudo apt install extrepo
 sudo extrepo enable jellyfin
 ```
 
-Now you can continue at step 5. of the [Repository (Manual) section](#repository-manual).
+Now you can continue at step 5. of the [Repository (Manual) section](#official-linux-repository-manual).
 
 ## Official Linux Repository (Manual)
 
