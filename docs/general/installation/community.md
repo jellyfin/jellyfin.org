@@ -7,7 +7,7 @@ sidebar_position: 6
 
 # Community Maintained Packages
 
-These packages are maintained by community packagers independent of Jellyfin.
+These packages are maintained by community packagers independent of Jellyfin for distributions not officially supported by Jellyfin. For these distributions, [container images](/docs/general/installation/container) are recommended.
 
 ## Alpine Linux
 
@@ -133,3 +133,7 @@ For more information, refer to the [NixOS wiki](https://wiki.nixos.org/wiki/Jell
 The Jellyfin Server package is available on [Flathub](https://flathub.org/apps/org.jellyfin.JellyfinServer).
 
 This package is provided for convenience only, and may be deprecated at any time. It is not recommended as [Flatpak themselves don't recommend the use of Flatpak for server applications](https://flatpak.org/faq/#Can_Flatpak_be_used_on_servers_too_). Please use [container images](/docs/general/installation/container) instead.
+
+## FreeBSD
+
+A [Third-party Jellyfin build for FreeBSD](https://github.com/Thefrank/jellyfin-server-freebsd) is available. This is not supported by Jellyfin. Please report any issues to them. Issues reported to Jellyfin about this package will be closed without further investigation.
