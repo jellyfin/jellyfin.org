@@ -2,7 +2,7 @@
 uid: installation-community
 title: Community Maintained Packages
 description: Community maintained packages.
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 # Community Maintained Packages
