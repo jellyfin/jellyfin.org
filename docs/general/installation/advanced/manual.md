@@ -2,7 +2,7 @@
 uid: installation-advanced-manual
 title: Manual Installation
 description: Install Jellyfin Manually.
-sidebar_position: 6
+sidebar_position: 3
 ---
 
 <!-- markdownlint-disable MD036 no-emphasis-as-heading -->

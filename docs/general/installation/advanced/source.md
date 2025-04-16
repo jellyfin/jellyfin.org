@@ -2,7 +2,7 @@
 uid: installation-advanced-source
 title: Building from source
 description: Compile and run Jellyfin yourself.
-sidebar_position: 7
+sidebar_position: 4
 ---
 
 <!-- markdownlint-disable MD029 ol-prefix -->
