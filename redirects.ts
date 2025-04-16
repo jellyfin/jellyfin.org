@@ -32,11 +32,21 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   {
     from: '/docs/general/administration/install/synology',
-    to: '/docs/general/installation/synology'
+    to: '/docs/general/installation/advanced/synology'
+  },
+  // synology moved
+  {
+    from: '/docs/general/installation/synology',
+    to: '/docs/general/installation/advanced/synology'
+  },
+  // installing from source moved
+  {
+    from: '/docs/general/installation/source',
+    to: '/docs/general/installation/advanced/source'
   },
   {
     from: '/docs/general/administration/building',
-    to: '/docs/general/installation/source'
+    to: '/docs/general/installation/advanced/source'
   },
   // "traefik2" moved
   {
