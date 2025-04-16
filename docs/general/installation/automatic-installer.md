@@ -53,13 +53,6 @@ Jellyfin provides automatic installers for a few platforms. These installers can
 1. Stop the currently running server either via the dashboard or using the application icon.
 2. Move the `.app` package to the trash.
 
-### Deleting Configuration on macOS
-
-This will delete all settings and user information. This applies for the .app package and the portable version.
-
-1. Delete the folder `~/.config/jellyfin/`
-2. Delete the folder `~/.local/share/jellyfin/`
-
 ## Debian / Ubuntu and derivatives
 
 To simplify deployment and help automate this for as many users as possible, we provide a BASH script to handle repo installation as well as installing Jellyfin on Debian / Ubuntu and derivatives.
