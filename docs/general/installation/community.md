@@ -7,7 +7,7 @@ sidebar_position: 5
 
 # Community Maintained Packages
 
-These packages are maintained by community packagers independent of Jellyfin for distributions not officially supported by Jellyfin. For these distributions, [container images](/docs/general/installation/container) are recommended.
+These packages are maintained by community packagers independent of Jellyfin for distributions not officially supported by Jellyfin. We can't always support problems with community-maintained packages. If you encounter trouble with them, please contact their maintainers first. If you're not sure, we recommend using [container images](/docs/general/installation/container) on these systems instead.
 
 ## Alpine Linux
 
