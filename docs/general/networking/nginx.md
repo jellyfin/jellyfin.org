@@ -17,15 +17,6 @@ Note that a server listening on http port 80 is required for the Certbot / Let's
 
 ```config
 server {
-    listen 80;
-    listen [::]:80;
-    server_name jellyfin.example.org;
-
-    # Uncomment to redirect HTTP to HTTPS
-    return 301 https://$host$request_uri;
-}
-
-server {
     # Nginx versions prior to 1.25
     #listen 443 ssl http2;
     #listen [::]:443 ssl http2;
@@ -91,6 +82,13 @@ server {
         proxy_set_header X-Forwarded-Protocol $scheme;
         proxy_set_header X-Forwarded-Host $http_host;
     }
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name jellyfin.example.org;
+    return 301 https://$host$request_uri;
 }
 ```
 
