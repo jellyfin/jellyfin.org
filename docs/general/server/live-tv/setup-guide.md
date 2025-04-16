@@ -89,8 +89,6 @@ Schedules Direct is a paid service that provides U.S., Canadian, and other guide
 
 This option allows for downloading of guide data in the [XMLTV](http://wiki.xmltv.org/index.php/XMLTVFormat) format.
 
-To create an XML file with guide data, there are several different methods. A reliable way to do this is to use [shuaiscott's zap2xml Docker container](https://github.com/shuaiscott/zap2xml).
-
 ## Mapping Channels
 
 Guide data from the 'TV Guide Data Providers' will need to be mapped to the physical channel from the tuner. Click the '...' next to the guide provider you set up and select 'Map Channels'
