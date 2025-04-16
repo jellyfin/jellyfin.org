@@ -2,7 +2,7 @@
 uid: installation-container
 title: Container
 description: Install as a container using Docker, Podman and others.
-sidebar_position: 2
+sidebar_position: 4
 ---
 
 <!-- markdownlint-disable MD036 no-emphasis-as-heading -->

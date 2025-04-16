@@ -1,5 +1,5 @@
 ---
-uid: installation-community
+uid: installation-advanced-community
 title: Community Maintained Packages
 description: Community maintained packages.
 sidebar_position: 5

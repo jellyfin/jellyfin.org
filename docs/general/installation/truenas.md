@@ -2,7 +2,7 @@
 uid: installation-truenas
 title: TrueNAS SCALE
 description: Install on TrueNAS SCALE.
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 Jellyfin can be installed on iX-systems' [TrueNAS SCALE](https://www.truenas.com/truenas-scale/).

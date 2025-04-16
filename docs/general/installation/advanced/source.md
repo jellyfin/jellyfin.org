@@ -1,5 +1,5 @@
 ---
-uid: installation-source
+uid: installation-advanced-source
 title: Building from source
 description: Compile and run Jellyfin yourself.
 sidebar_position: 7
@@ -48,7 +48,7 @@ All package builds begin with these two steps:
 
    Replace "auto" with your own Jellyfin version tag if you want to.
 
-3. Run Jellyfin in a new container using Docker or Podman from the built container image.
+2. Run Jellyfin in a new container using Docker or Podman from the built container image.
 
    ```sh
    docker run -d -p 8096:8096 $USERNAME/jellyfin
