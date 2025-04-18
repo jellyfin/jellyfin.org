@@ -56,6 +56,12 @@ If you are planning to use a dedicated graphics card (including upgrading an old
 
 Intel Drivers are much easier to install on Linux, with many distributions including them by default. If you do not need CUDA for other applications, it is highly recommended that you stick with Intel Graphics on Linux.
 
+:::caution
+
+Intel ARC B series cards require ReBar to be enabled. This means you must use it on a platform with Intel 10th gen, AMD Ryzen 3000 series or newer.
+
+:::
+
 ### Servers without GPUs
 
 Not having a GPU is **NOT** recommended for Jellyfin, as video transcoding on the CPU is very performance demanding. HDR
