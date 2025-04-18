@@ -7,7 +7,7 @@ title: Video Content
 
 Video content covers all content that is in Video form, namely movies, TV shows and music videos.
 
-Most common video formats are supported by Jellyfin, such as `mp4` and `mkv`. In addition, `VIDEO_TS` and `BDMV` folders are supported.
+Most common video formats are supported by Jellyfin, such as `mp4` and `mkv`. In addition, `VIDEO_TS` and `BDMV` folders are supported for movies and music videos.
 
 `.iso` files and other disc image formats should work but are not supported. It is recommended that disc image formats be remuxed into `mkv` containers, or extracted into `VIDEO_TS` or `BDMV` folders.
 
@@ -24,9 +24,16 @@ Movies
 │   ├── cover.png
 │   └── theme.mp3
 └── Movie (2021) [imdbid-tt12801262]
-    ├── Movie (2021) [imdbid-tt12801262] - 2160p.mp4
-    ├── Movie (2021) [imdbid-tt12801262] - 1080p.mp4
-    └── Movie (2021) [imdbid-tt12801262] - Directors Cut.mp4
+    ├── backdrop.jpg
+    └── VIDEO_TS
+        ├── VIDEO_TS.BUP
+        ├── VIDEO_TS.IFO
+        ├── VIDEO_TS.VOB
+        ├── VTS_01_0.BUP
+        ├── VTS_01_0.IFO
+        ├── VTS_01_0.VOB
+        ├── VTS_01_1.VOB
+        └── VTS_01_2.VOB
 ```
 
 ## TV Shows
