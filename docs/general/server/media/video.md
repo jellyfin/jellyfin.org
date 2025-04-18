@@ -252,3 +252,7 @@ Best_Movie_Ever (2019)
 ├── Theme Song Music Video-featurette.mp4
 └── Art of the Best Movie Ever-short.mp4
 ```
+
+## External Images
+
+Please refer to the [external images section of the music docs](/docs/general/server/media/music#external-images) while we work on a comprehensive page for external images
