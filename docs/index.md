@@ -34,7 +34,7 @@ Want to get starting using Jellyfin right now? Check out the pages below for how
 - [Other Linux Distributions](/docs/general/installation/linux#other-distributions)
 - [Docker / Kubernetes / Podman](/docs/general/installation/container)
 - [Synology](/docs/general/installation/advanced/synology)
-- [TrueNAS SCALE](/docs/general/installation/truenas)
+- [TrueNAS SCALE](/docs/general/installation/advanced/truenas)
 - [Generic Linux](/docs/general/installation/advanced/manual#portable-linux-install)
 
 Alternatively, Jellyfin may be built directly from the [source code](/docs/general/installation/advanced/source).
