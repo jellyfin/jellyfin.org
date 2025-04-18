@@ -121,6 +121,12 @@ Note that Jasper Lake and Elkhart Lake processors are 10th Gen Pentium/Celeron/A
 
 :::
 
+:::warning
+
+Intel ARC B series cards require ReBar to be enabled.
+
+:::
+
 ### Transcode Other Codecs
 
 Please refer to these links:
