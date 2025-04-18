@@ -38,6 +38,35 @@ Movies
 
 ## TV Shows
 
+Shows should be organized into series folders, then into season folders under each series.
+
+```txt
+Shows
+├── Series Name A (2010)
+│   ├── Season 00
+│   │   ├── Some Special.mkv
+│   │   ├── Series Name A S00E01.mkv
+│   │   └── Series Name A S00E02.mkv
+│   ├── Season 01
+│   │   ├── Series Name A S01E01-E02.mkv
+│   │   ├── Series Name A S01E03.mkv
+│   │   └── Series Name A S01E04.mkv
+│   └── Season 02
+│       ├── Series Name A S02E01.mkv
+│       ├── Series Name A S02E02.mkv
+│       ├── Series Name A S02E03 Part 1.mkv
+│       └── Series Name A S02E03 Part 2.mkv
+└── Series Name B (2018)
+    ├── Season 01
+    |   ├── Series Name B S01E01.mkv
+    |   └── Series Name B S01E02.mkv
+    └── Season 02
+        ├── Series Name B S02E01-E02.mkv
+        └── Series Name B S02E03.mkv
+```
+
+Each video file may contain multiple episodes. However, only the metadata of the first episode will be shown in Jellyfin. It is recommended that the video files be split into individual episodes using a tool like [MKVToolNix](https://mkvtoolnix.download)
+
 ## Music Videos
 
 ## Extras
