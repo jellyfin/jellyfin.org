@@ -155,7 +155,7 @@ JellyCon behaves more like a standard Kodi streaming add-on. Media is accessed p
 
 ### Install JellyCon Add-on
 
-1. Instally JellyCon Add-on
+1. Install JellyCon Add-on
    - From within Kodi, navigate to "Add-on Browser"
    - Select "Install from Repository"
    - Choose "Kodi Jellyfin Add-ons", followed by "Video Add-ons"
@@ -166,7 +166,7 @@ JellyCon behaves more like a standard Kodi streaming add-on. Media is accessed p
 
 ### Configuring Home
 
-Many Kodi skins allow for customizing of the home menu with custom nodes and widgets. However, all of these use slightly different layouts and terminology. Rather than a step-by-step guide, this section serves as an barebones introduction to customizing a skin.
+Many Kodi skins allow for customizing of the home menu with custom nodes and widgets. However, all of these use slightly different layouts and terminology. Rather than a step-by-step guide, this section serves as a barebones introduction to customizing a skin.
 
 #### Examples
 

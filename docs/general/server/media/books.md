@@ -31,7 +31,7 @@ File extensions supported include azw, azw3, cb7, cbr, cbt, cbz, epub, mobi, and
 
 ## Local Metadata
 
-In case the book is stored in the epub format, internal metadata can be provided. For every other format, metadata has to be provided externally in a `content.opf` or `metadata.opf` file. When multiple books have been published by the same author, it is recommended to place each book into a seperate folder. This allows to provide local metadata for every book.
+In case the book is stored in the epub format, internal metadata can be provided. For every other format, metadata has to be provided externally in a `content.opf` or `metadata.opf` file. When multiple books have been published by the same author, it is recommended to place each book into a separate folder. This allows to provide local metadata for every book.
 
 Either the `content.opf` or the `metadata.opf` file can tell Jellyfin which file should be used for the books cover. Usually, this is the `cover.ext` file. The abbreviation `ext` stands for extension, e.g. `.png` or `.jpg`.
 

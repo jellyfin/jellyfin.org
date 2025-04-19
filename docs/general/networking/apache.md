@@ -56,7 +56,7 @@ title: Apache
 </IfModule>
 ```
 
-If you encouter errors, you may have to enable `mod_proxy`, `mod_ssl`, `proxy_wstunnel`, `http2` and `remoteip` support manually.
+If you encounter errors, you may have to enable `mod_proxy`, `mod_ssl`, `proxy_wstunnel`, `http2` and `remoteip` support manually.
 
 ```bash
 sudo a2enmod proxy proxy_http ssl proxy_wstunnel remoteip http2

@@ -13,7 +13,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 [Test your browser's compatibility for any codec profile.](https://cconcolato.github.io/media-mime-support/)
 
-| Sorted by efficency (excluding bit depth)                                                                          | Chrome | Edge           | Firefox | Safari         | Android        | Android TV     | iOS            | SwiftFin (iOS) | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | [Desktop](/docs/general/clients/index.html#jellyfin-desktop) |
+| Sorted by efficiency (excluding bit depth)                                                                          | Chrome | Edge           | Firefox | Safari         | Android        | Android TV     | iOS            | SwiftFin (iOS) | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | [Desktop](/docs/general/clients/index.html#jellyfin-desktop) |
 | ------------------------------------------------------------------------------------------------------------------ | ------ | -------------- | ------- | -------------- | -------------- | -------------- | -------------- | -------------- | ------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------ |
 | [MPEG-4 Part 2/SP](https://en.wikipedia.org/wiki/DivX)                                                             | ❌     | ❌             | ❌      | ❌             | ❌             | ❌             | ❌             | ✅             | ✅                                                                              | ✅   | ✅                                                           |
 | [MPEG-4 Part 2/ASP](<https://en.wikipedia.org/wiki/MPEG-4_Part_2#Advanced_Simple_Profile_(ASP)>)                   | ❌     | ❌             | ❌      | ❌             | ❌             | ❌             | ❌             | ✅             |                                                                                 | ✅   | ✅                                                           |
@@ -30,7 +30,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 <sup>3</sup>May be (partially) dependent on Hardware support (can be compensated with CPU decoding on Android). Most new Android phones in the higher price range and many "4K" Android TV devices have VP9 hardware decoding support. Refer to you manufacturer for supported codecs.
 
-<sup>4</sup>Needs atleast Android TV 10
+<sup>4</sup>Needs at least Android TV 10
 
 <sup>5</sup>As of [version 0.12](https://github.com/jellyfin/jellyfin-androidtv/pull/671), HEVC is enabled on all devices running Android 5.0+, but early generations of the Amazon Fire may not work yet. 10Bit may be supported depending on your device. Before Client 0.12, HEVC support was enabled on specific devices.
 

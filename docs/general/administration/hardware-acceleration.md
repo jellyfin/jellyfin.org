@@ -112,7 +112,7 @@ Earlier images do not provide a compatible version of Mesa.
 As of **Jellyfin 10.8** hardware acceleration on Raspberry Pi via `OpenMAX OMX` was dropped and is no longer available.
 
 This decision was made because Raspberry Pi is currently migrating to a `V4L2` based hardware acceleration, which is already available in Jellyfin but does not support all features other hardware acceleration methods provide due to lacking support in FFmpeg.
-Jellyfin will fallback to software de- and encoding for those usecases.
+Jellyfin will fallback to software de- and encoding for those use-cases.
 
 The current state of hardware acceleration support in FFmpeg can be checked on the [rpi-ffmpeg repository](https://github.com/jc-kynesim/rpi-ffmpeg).
 
@@ -176,7 +176,7 @@ Intel QuickSync (QSV) is derived from VA-API on Linux and D3D11VA on Windows, wh
 
 :::info
 
-To use QSV on Linux with recent Intel iGPUs the **nonfree [Intel media driver](https://github.com/intel/media-driver)** is required for full hardware acceleration.
+To use QSV on Linux with recent Intel iGPUs the **non-free [Intel media driver](https://github.com/intel/media-driver)** is required for full hardware acceleration.
 If you are using `jellyfin-ffmpeg` version 4.4.1-2 or higher it is included and you do not need to install it separately.
 Broadwell or newer generation is required for QSV on Linux, otherwise you have to use VA-API.
 
@@ -436,7 +436,7 @@ Useful resources:
 :::info
 
 Jellyfin needs to run in a **privileged** LXC container.
-You can convert an existing unprivileged container to a privileged container by taking a backup and restoring it as priviledged.
+You can convert an existing unprivileged container to a privileged container by taking a backup and restoring it as privileged.
 
 :::
 
@@ -539,7 +539,7 @@ AMD does not provide official `amdgpu-pro` driver support for Arch Linux, but fo
 Hardware based HDR10/HLG/DoVi tone-mapping with NVIDIA NVENC, AMD AMF, Intel QSV and VA-API is done through OpenCL or CUDA. DoVi Profile 5 and 8 tone-mapping requires `jellyfin-ffmpeg` version 5.0.1-5 or higher.
 
 Intel hardware based VPP HDR10 tone-mapping is supported on Intel QSV and VA-API on Linux.
-VPP is prefered when both two tone-mapping options are checked on Intel.
+VPP is preferred when both two tone-mapping options are checked on Intel.
 
 | OS/Platform | NVIDIA NVENC | AMD AMF | Intel QSV | Intel VA-API | AMD VA-API | Software |
 | ----------- | ------------ | ------- | --------- | ------------ | ---------- | -------- |
