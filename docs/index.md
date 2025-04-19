@@ -28,18 +28,16 @@ Note: Jellyfin is a fast-moving project that is in its early stages, and this do
 
 Want to get starting using Jellyfin right now? Check out the pages below for how to [install Jellyfin](/docs/general/installation) on your machine.
 
-- [Arch](/docs/general/installation/linux#arch-linux)
-- [Debian](/docs/general/installation/linux#debian)
-- [Ubuntu](/docs/general/installation/linux#ubuntu)
-- [Fedora](/docs/general/installation/linux#fedora)
-- [CentOS](/docs/general/installation/linux#centos)
-- [Docker](/docs/general/installation/container#docker)
-- [Kubernetes](/docs/general/installation/container#kubernetes)
 - [Windows](/docs/general/installation/windows)
-- [MacOS](/docs/general/installation/macos)
-- [Generic Linux](/docs/general/installation/linux#linux-generic-amd64)
+- [macOS](/docs/general/installation/macos)
+- [Debian / Ubuntu](/docs/general/installation/linux#debian--ubuntu-and-derivatives)
+- [Other Linux Distributions](/docs/general/installation/linux#other-distributions)
+- [Docker / Kubernetes / Podman](/docs/general/installation/container)
+- [Synology](/docs/general/installation/advanced/synology)
+- [TrueNAS SCALE](/docs/general/installation/advanced/truenas)
+- [Generic Linux](/docs/general/installation/advanced/manual#portable-linux-install)
 
-Alternatively, Jellyfin may be built directly from the [source code](/docs/general/installation/source).
+Alternatively, Jellyfin may be built directly from the [source code](/docs/general/installation/advanced/source).
 
 ## Administrator Documentation
 
