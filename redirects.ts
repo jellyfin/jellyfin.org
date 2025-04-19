@@ -57,6 +57,10 @@ const redirects: ClientRedirects.Options['redirects'] = [
   {
     from: '/docs/general/server/media/comics',
     to: '/docs/general/server/media/books'
+  },
+  {
+    from: '/docs/general/quick-start*',
+    to: '/docs/index'
   }
 ];
 export default redirects;
