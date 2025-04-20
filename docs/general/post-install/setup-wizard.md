@@ -1,6 +1,7 @@
 ---
 uid: postinstall-setup-wizard
 title: Setup Wizard Walkthrough
+sidebar_position: 1
 ---
 
 # Setup Wizard Walkthrough
