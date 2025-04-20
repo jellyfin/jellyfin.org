@@ -49,6 +49,10 @@ Run the certbot command as root:
 sudo certbot certonly --webroot -w /var/www/html --agree-tos --email YOUR_EMAIL -d DOMAIN_NAME
 ```
 
+### Caddy
+
+Caddy automatically handles obtaining an SSL certificate from Let's Encrypt when provided with a domain name. No manual action is required.
+
 ### HAProxy
 
 HAProxy doesn't currently have a Certbot plugin. To get around this, run Certbot in standalone mode and proxy traffic through your network.
