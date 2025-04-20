@@ -1,6 +1,7 @@
 ---
 uid: intro
 title: Introduction
+sidebar-position: 1
 ---
 
 # Welcome to the Jellyfin Documentation
