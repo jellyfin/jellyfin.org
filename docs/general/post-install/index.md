@@ -1,7 +1,6 @@
 ---
 uid: postinstall-setup-wizard
 title: Post-Install Setup
-sidebar_position: 1
 ---
 
 # Post-Install Setup Guide
