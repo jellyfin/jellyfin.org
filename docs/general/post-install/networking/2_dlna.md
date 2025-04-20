@@ -1,6 +1,7 @@
 ---
 uid: network-dlna
 title: DLNA
+sidebar-position: 2
 ---
 
 ## DLNA
