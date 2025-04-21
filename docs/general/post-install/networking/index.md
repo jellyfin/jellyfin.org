@@ -11,7 +11,7 @@ This section describes how to get basic connectivity to a Jellyfin server, and a
 
 Many clients will automatically discover servers running on the same LAN and display them on login. If you are outside the network when you connect you can type in the complete IP address or domain name in the server field with the correct port to continue to the login page. You can find the default ports below to access the web frontend.
 
-HTTP and HTTPS are the primary means of connecting to the server. When using HTTPS, self-signed certs are not recommended. Please use a trusted certificate authority such as [Let's Encrypt](/docs/general/networking/letsencrypt).
+HTTP and HTTPS are the primary means of connecting to the server. When using HTTPS, self-signed certs are not recommended. Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt).
 
 :::caution
 
@@ -56,7 +56,7 @@ Live TV devices will often use a random UDP port for HDHomeRun devices. The serv
 
 ### Monitoring Endpoints
 
-See [monitoring](/docs/general/networking/monitoring) for details on the monitoring endpoints that Jellyfin provides.
+See [monitoring](./advanced/monitoring) for details on the monitoring endpoints that Jellyfin provides.
 
 ## Running Jellyfin Behind a Reverse Proxy
 
@@ -81,15 +81,15 @@ The nginx documentation below includes an example how to censor sensitive inform
 
 Some popular options for reverse proxy systems are [Apache](https://httpd.apache.org), [Caddy](https://caddyserver.com), [Haproxy](https://www.haproxy.com), [Nginx](https://www.nginx.com) and [Traefik](https://traefik.io).
 
-- [Apache](/docs/general/networking/apache)
-- [Caddy](/docs/general/networking/caddy)
-- [HAProxy](/docs/general/networking/haproxy)
-- [Nginx](/docs/general/networking/nginx)
-- [Traefik](/docs/general/networking/traefik)
+- [Apache](./advanced/apache)
+- [Caddy](./caddy)
+- [HAProxy](./advanced/haproxy)
+- [Nginx](./advanced/nginx)
+- [Traefik](./advanced/traefik)
 
 While not a reverse proxy, Let's Encrypt can be used independently or with a reverse proxy to provide SSL certificates.
 
-- [Let's Encrypt](/docs/general/networking/letsencrypt)
+- [Let's Encrypt](./advanced/letsencrypt)
 
 When following this guide, be sure to replace the following variables with your information.
 

@@ -128,12 +128,12 @@ services:
 - Make sure your spacing is correct for each option. Compose files use spacing to parse the options correctly.
 - You can determine the time zone identifier for you region [on Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 - Note that lines with `#` in front indicate a comment. They will not apply until you remove it.
-- Uncomment the `group_add` and `devices` options if you have a GPU and want to use [hardware acceleration](/docs/general/administration/hardware-acceleration/).
+- Uncomment the `group_add` and `devices` options if you have a GPU and want to use [hardware acceleration](/docs/general/post-install/transcoding/hardware-acceleration/).
   - If you have an NVIDIA GPU, [please read this](#nvidia-gpus-on-scale-v2410).
   - Unless you set the container to run as root, you need to add the render group ID to the container with `group_add`.
   - In case the render group's ID is not `107` on all SCALE servers by default, go to your system shell and run the following command to get your render group's ID: `cat /etc/group | grep render`
 - Jellyfin's auto discovery ports should also be configured if possible.
-  - [See more info here](/docs/general/networking/#static-ports)
+  - [See more info here](/docs/general/post-install/networking/#static-ports)
 
 <details>
   <summary>Docker Compose Options</summary>
@@ -325,7 +325,7 @@ Create an admin user in the Jellyfin initial setup wizard to access the UI.
 
 ### Networking Settings
 
-Select **Host Network** under **Network Configuration** if using [DLNA](/docs/general/networking/dlna/), to bind network configuration to the host network settings.
+Select **Host Network** under **Network Configuration** if using [DLNA](/docs/general/post-install/networking/dlna/), to bind network configuration to the host network settings.
 Otherwise, leave **Host Network** unselected.
 
 ![Networking](/images/docs/install-truenas-12.png)
