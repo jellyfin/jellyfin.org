@@ -1,7 +1,7 @@
 ---
 uid: network-reverse-proxy-caddy
 title: Caddy
-sidebar-position: 3.1
+sidebar-position: 1
 ---
 
 # Caddy
