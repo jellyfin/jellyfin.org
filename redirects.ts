@@ -61,16 +61,16 @@ const redirects: ClientRedirects.Options['redirects'] = [
   // transcoding and hwa moved
   {
     from: '/docs/general/administration/hardware-acceleration',
-    to: '/docs/general/post-install/transcoding/hardware-acceleration'
+    to: '/docs/general/post-install/transcoding/hardware-acceleration/index'
   },
   {
     from: '/docs/general/server/transcoding',
-    to: '/docs/general/post-install/transcoding'
+    to: '/docs/general/post-install/transcoding/index'
   },
   // networking moved
   {
     from: '/docs/general/networking/',
-    to: '/docs/general/post-install/networking'
+    to: '/docs/general/post-install/networking/index'
   },
   // quick start replaced with post install
   {
