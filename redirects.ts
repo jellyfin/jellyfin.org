@@ -45,7 +45,7 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   // "traefik2" moved
   {
-    from: '/docs/general/networking/traefik2',
+    from: ['/docs/general/networking/traefik2', '/docs/general/networking/traefik'],
     to: '/docs/general/post-install/networking/advanced/traefik'
   },
   // Internet radio moved to live tv
@@ -71,6 +71,38 @@ const redirects: ClientRedirects.Options['redirects'] = [
   {
     from: '/docs/general/networking/',
     to: '/docs/general/post-install/networking/'
+  },
+  {
+    from: '/docs/general/networking/apache',
+    to: '/docs/general/post-install/networking/advanced/apache'
+  },
+  {
+    from: '/docs/general/networking/caddy',
+    to: '/docs/general/post-install/networking/caddy'
+  },
+  {
+    from: '/docs/general/networking/dlna',
+    to: '/docs/general/post-install/networking/dlna'
+  },
+  {
+    from: '/docs/general/networking/fail2ban',
+    to: '/docs/general/post-install/networking/advanced/fail2ban'
+  },
+  {
+    from: '/docs/general/networking/haproxy',
+    to: '/docs/general/post-install/networking/advanced/haproxy'
+  },
+  {
+    from: '/docs/general/networking/letsencrypt',
+    to: '/docs/general/post-install/networking/advanced/letsencrypt'
+  },
+  {
+    from: '/docs/general/networking/monitoring',
+    to: '/docs/general/post-install/networking/advanced/monitoring'
+  },
+  {
+    from: '/docs/general/networking/nginx',
+    to: '/docs/general/post-install/networking/advanced/nginx'
   },
   // quick start replaced with post install
   {
