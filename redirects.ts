@@ -46,7 +46,7 @@ const redirects: ClientRedirects.Options['redirects'] = [
   // "traefik2" moved
   {
     from: '/docs/general/networking/traefik2',
-    to: '/docs/post-install/general/networking/advanced/traefik'
+    to: '/docs/general/post-install/networking/advanced/traefik'
   },
   // Internet radio moved to live tv
   {
