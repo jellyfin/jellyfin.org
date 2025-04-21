@@ -39,7 +39,7 @@ This page lists all known issues and limitations of hardware acceleration with J
 
 ## Intel on Linux
 
-1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](/docs/general/administration/hardware-acceleration/intel#low-power-encoding) mode MUST be configured and enabled for correct VBR and CBR bitrate control that is required by Jellyfin.
+1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](./intel#low-power-encoding) mode MUST be configured and enabled for correct VBR and CBR bitrate control that is required by Jellyfin.
 
    - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/8080](https://gitlab.freedesktop.org/drm/intel/-/issues/8080)
 
@@ -79,7 +79,7 @@ This page lists all known issues and limitations of hardware acceleration with J
 
 11. The kernel support for Intel Gen 13 (or Gen 20?) LNL and BMG / ARC B-series are incomplete before Linux 6.12.
 
-12. The LTS kernel range 6.6.26 - 6.6.32 and the stable kernel range 6.8.5 - 6.9.3 have i915 driver bugs, which may cause problems on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please upgrade to kernel 6.6.33+ (LTS) or 6.9.4+. Ubuntu 24.04 with kernel versions 6.8.0-38 thru 6.8.0-41 are also affected by this issue.  Upgrade to Ubuntu kernel 6.8.0-44+ if you are on the affected kernels.
+12. The LTS kernel range 6.6.26 - 6.6.32 and the stable kernel range 6.8.5 - 6.9.3 have i915 driver bugs, which may cause problems on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please upgrade to kernel 6.6.33+ (LTS) or 6.9.4+. Ubuntu 24.04 with kernel versions 6.8.0-38 thru 6.8.0-41 are also affected by this issue. Upgrade to Ubuntu kernel 6.8.0-44+ if you are on the affected kernels.
 
     - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
     - Ubuntu bug: [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755)

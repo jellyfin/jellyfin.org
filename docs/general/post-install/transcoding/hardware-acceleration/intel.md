@@ -5,7 +5,7 @@ title: Intel GPU
 
 # HWA Tutorial On Intel GPU
 
-This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](/docs/general/administration/hardware-acceleration/apple) instead.
+This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](./apple) instead.
 
 ## Acceleration Methods
 
@@ -193,7 +193,7 @@ Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, na
 
 Jellyfin server support Intel ARC **Alchemist/A-series** discrete GPU on both Windows and Linux **6.2+**. For using ARC **Battlemage/B-series** discrete GPU on Linux, kernel version **6.12+** is required. Windows is also supported, just install the GPU driver.
 
-You only need to follow the [Windows Setups](/docs/general/administration/hardware-acceleration/intel#windows-setups) and [Linux Setups](/docs/general/administration/hardware-acceleration/intel#linux-setups) to configure and verify it.
+You only need to follow the [Windows Setups](./intel#windows-setups) and [Linux Setups](./intel#linux-setups) to configure and verify it.
 
 :::tip
 
@@ -215,7 +215,7 @@ Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#intel-on-windows) for known issues and limitations
+Please refer to [this section](./known-issues#intel-on-windows) for known issues and limitations
 
 ### Configure On Windows Host
 
@@ -271,7 +271,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#intel-on-linux) for known issues and limitations
+Please refer to [this section](./known-issues#intel-on-linux) for known issues and limitations
 
 ### Configure On Linux Host
 
@@ -390,7 +390,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](./intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -426,7 +426,7 @@ Root permission is required.
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
    ```
 
-4. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/intel#debian-and-ubuntu-linux).
+4. Check to the remaining parts of [Debian And Ubuntu Linux](./intel#debian-and-ubuntu-linux).
 
 #### Other Distros
 
@@ -521,7 +521,7 @@ What you need to do is pass the host's `render` group id to Docker and modify th
          image: jellyfin/jellyfin
          user: 1000:1000
          group_add:
-           - "122" # Change this to match your "render" host group id and remove this comment
+           - '122' # Change this to match your "render" host group id and remove this comment
          network_mode: 'host'
          volumes:
            - /path/to/config:/config
@@ -582,19 +582,19 @@ The devices in Kubernetes are added as host path mounts, they are not separated 
            supplementalGroups:
              - 122 # Change this to match your "render" host group id and remove this comment
          containers:
-           - name: "jellyfin"
+           - name: 'jellyfin'
              image: ...
              ports: ...
              env: ...
              securityContext:
                privileged: true # Container must run as privileged inside of the pod
              volumeMounts:
-               - name: "render-device"
-                 mountPath: "/dev/dri/renderD128"
+               - name: 'render-device'
+                 mountPath: '/dev/dri/renderD128'
          volumes:
-           - name: "render-device"
+           - name: 'render-device'
              hostPath:
-               path: "/dev/dri/renderD128"
+               path: '/dev/dri/renderD128'
    ```
 
 2. When the pod starts, you can check the QSV and VA-API codecs.

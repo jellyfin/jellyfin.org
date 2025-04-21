@@ -99,23 +99,23 @@ lshw -C display
 
 ### Intel QSV & VA-API
 
-Click [Intel GPU](/docs/general/administration/hardware-acceleration/intel).
+Click [Intel GPU](./intel).
 
 ### AMD AMF & VA-API
 
-Click [AMD GPU](/docs/general/administration/hardware-acceleration/amd).
+Click [AMD GPU](./amd).
 
 ### NVIDIA NVENC
 
-Click [NVIDIA GPU](/docs/general/administration/hardware-acceleration/nvidia).
+Click [NVIDIA GPU](./nvidia).
 
 ### Apple VideoToolbox
 
-Click [Apple Mac](/docs/general/administration/hardware-acceleration/apple).
+Click [Apple Mac](./apple).
 
 ### Rockchip RKMPP
 
-Click [Rockchip VPU](/docs/general/administration/hardware-acceleration/rockchip).
+Click [Rockchip VPU](./rockchip).
 
 ## Enable Hardware Acceleration
 
