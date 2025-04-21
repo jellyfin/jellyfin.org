@@ -9,7 +9,7 @@ This tutorial guides you on setting up full video hardware acceleration on Apple
 
 ## Acceleration Methods
 
-[VideoToolbox](https://developer.apple.com/documentation/videotoolbox) is the only available method on macOS.
+[VideoToolbox](https://developer.apple.com/documentation/videotoolbox) is the only available method on macOS. Please look at our guides for [Intel](./intel) or [AMD](./amd) if you have installed Windows or Linux on your Intel Mac.
 
 To achieve full acceleration, [Metal](https://developer.apple.com/metal/) is required.
 
@@ -35,7 +35,7 @@ When both methods are enabled, VideoToolbox Native will be used for most videos,
 
 ## Select System Hardware
 
-Hardware accelerated transcoding is supported on all Macs that support [VideoToolbox](https://developer.apple.com/documentation/videotoolbox). This includes most 2011 and later Macs.<sup>*</sup>
+Hardware accelerated transcoding is supported on all Macs that support [VideoToolbox](https://developer.apple.com/documentation/videotoolbox). This includes most 2011 and later Macs.<sup>\*</sup>
 
 Full acceleration is available on most Macs from 2017 and later, with the exception of the MacBook Air (13-inch, 2017).
 
@@ -45,7 +45,7 @@ While hardware acceleration via VideoToolbox might work on older series Macs, it
 
 If your Mac does not have an internal display, you may need to connect it to a monitor or use a dummy plug to prevent the GPU from being throttled.
 
-<sup>*</sup> VideoToolbox may fallback to software decoding/encoding or stop working when the task exceeds its hardware capability. The older your Mac, the more this will occur. Macs from 2017 and later, especially Apple Silicon Macs are strongly recommended.
+<sup>\*</sup> VideoToolbox may fallback to software decoding/encoding or stop working when the task exceeds its hardware capability. The older your Mac, the more this will occur. Macs from 2017 and later, especially Apple Silicon Macs are strongly recommended.
 
 ### Transcode H.264
 

@@ -43,7 +43,7 @@ For the following options it should be noted that if you never set up Live TV, u
 
 :::note
 
-Find more information in the [transcoding documentation](/docs/general/server/transcoding).
+Find more information in the [transcoding documentation](/docs/general/post-install/transcoding).
 
 :::
 

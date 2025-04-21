@@ -5,7 +5,7 @@ title: AMD GPU
 
 # HWA Tutorial On AMD GPU
 
-This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF or VA-API. If you are on macOS, please use [VideoToolbox](/docs/general/administration/hardware-acceleration/apple) instead.
+This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF or VA-API. If you are on macOS, please use [VideoToolbox](./apple) instead.
 
 ## Acceleration Methods
 
@@ -117,7 +117,7 @@ Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#amd-on-windows) for known issues and limitations.
+Please refer to [this section](./known-issues#amd-on-windows) for known issues and limitations.
 
 ### Configure On Windows Host
 
@@ -175,7 +175,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-Please refer to [this section](/docs/general/administration/hardware-acceleration/known-issues#amd-on-linux) for known issues and limitations.
+Please refer to [this section](./known-issues#amd-on-linux) for known issues and limitations.
 
 ### Configure On Linux Host
 
@@ -294,7 +294,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](./amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -333,7 +333,7 @@ Root permission is required.
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
    ```
 
-5. Check to the remaining parts of [Debian And Ubuntu Linux](/docs/general/administration/hardware-acceleration/amd#debian-and-ubuntu-linux).
+5. Check to the remaining parts of [Debian And Ubuntu Linux](./amd#debian-and-ubuntu-linux).
 
 #### Other Distros
 
@@ -429,7 +429,7 @@ Root permission is required.
          image: jellyfin/jellyfin
          user: 1000:1000
          group_add:
-           - "122" # Change this to match your "render" host group id and remove this comment
+           - '122' # Change this to match your "render" host group id and remove this comment
          network_mode: 'host'
          volumes:
            - /path/to/config:/config
@@ -471,7 +471,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 Other Virtualizations are not verified and may or may not work on AMD GPU.
 
-Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](/docs/general/administration/hardware-acceleration/intel#configure-with-linux-virtualization) for more information.
+Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel#configure-with-linux-virtualization) for more information.
 
 ### Verify On Linux
 
