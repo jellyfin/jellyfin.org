@@ -7,6 +7,12 @@ title: Networking
 
 This section describes how to get basic connectivity to a Jellyfin server, and also some more advanced networking scenarios.
 
+:::caution
+
+Jellyfin should not be directly exposed to the internet. Several Endpoints are not authenticated including unauthorized streams. If you need connectivity outside of your homenetwork consider using a vpn or authentification in your reverse proxy. For more information visit [\#5415](https://github.com/jellyfin/jellyfin/issues/5415)
+
+:::
+
 ## Connectivity
 
 Many clients will automatically discover servers running on the same LAN and display them on login. If you are outside the network when you connect you can type in the complete IP address or domain name in the server field with the correct port to continue to the login page. You can find the default ports below to access the web frontend.
