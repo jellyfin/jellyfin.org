@@ -113,7 +113,7 @@ to further customize Jellyfin Vue to your liking at Jellyfin Vue's wiki.
 Since Jellyfin Vue is an SPA web application, you can use any web server to serve it:
 Apache, nginx (the one used in Jellyfin's Vue docker image), Traefik, etc...
 
-If you already have a [reverse proxy](../networking/index.md) set up, do you want to do more complex stuff
+If you already have a [reverse proxy](/docs/general/post-install/networking/index.md) set up, do you want to do more complex stuff
 that it's out of the scope of this documentation like serving at a subpath, in another subdomain, etc...,
 you might want to have Jellyfin Vue served by your own webserver instead of the nginx instance shipped with
 the Docker image.
