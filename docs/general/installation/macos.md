@@ -10,7 +10,7 @@ sidebar_position: 2
 1. Download the latest version DMG image from [the downloads page](/downloads/macos). For Apple Silicon Macs below macOS 14, please update to a newer version of macOS or download the x86 release.
 2. Drag the `.app` package into the Applications folder.
 3. Start the application.
-4. Click the icon in the menu bar and select "Launch Web UI".
+4. Click the icon in the menu bar and select "Launch".
 
 ## Updating on macOS
 
