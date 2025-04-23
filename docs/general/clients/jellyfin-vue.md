@@ -2,6 +2,7 @@
 uid: jellyfin-vue
 title: Jellyfin Vue
 ---
+import Link from '@docusaurus/Link';
 
 # Jellyfin Vue
 
@@ -66,7 +67,7 @@ services:
     restart: on-failure
 ```
 
-<span id="why-updates-needed"></span>
+<Link id="why-updates-needed"/>
 
 :::success
 Getting things up and running is as easy as doing `docker compose up -d` with your terminal
