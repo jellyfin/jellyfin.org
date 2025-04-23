@@ -7,7 +7,18 @@ title: Networking
 
 This section describes how to get basic connectivity to a Jellyfin server, and also some more advanced networking scenarios.
 
-## Connectivity
+## Introduction
+
+As a Server Software, Jellyfin offers different Services over the Network.
+Specifically Jellyfin supports the streaming of content and comes packed with a web-Client. - This will work purely over the http(s) ports.
+
+Additionaly in local networks jellyfin offers various Auto-Discovery services. Theese will not work outside your local subnet.
+
+As a fully self hosted Software, jellyfin runs fully independently from the Internet.
+You do not HAVE TO make your server accessable through the internet.
+Neither does jellyfin require an internet connection to run - however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
+
+## Autodiscovery
 
 Many clients will automatically discover servers running on the same LAN and display them on login. If you are outside the network when you connect you can type in the complete IP address or domain name in the server field with the correct port to continue to the login page. You can find the default ports below to access the web frontend.
 
@@ -27,32 +38,34 @@ Because of that, there is no blocking, redirecting or DNS override needed.
 
 This document aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
 
-#### Static Ports
+| Port | Protocol | Configurable | Description |
+|---|---|---|---|
+| 8096 | tcp | ✔️ | Default http |
+| 8920 | tcp | ✔️ | Default https |
+| 1900 | udp | ❌ | UPnP (SSDP) |
+| 7359 | udp | ❌ | Client Discovery |
 
-- 8096/tcp is used by default for HTTP traffic. You can change this in the dashboard.
-- 8920/tcp is used by default for HTTPS traffic. You can change this in the dashboard.
-- 1900/udp is used for service auto-discovery. This is not configurable.
-- 7359/udp is also used for auto-discovery. This is not configurable.
+<details>
+<summary>See details</summary>
 
-**HTTP Traffic:** 8096
+- **HTTP Traffic:** 8096
+    The web frontend can be accessed here for debugging SSL certificate issues on your local network. You can modify this setting from the **Networking** page in the admin settings.
 
-The web frontend can be accessed here for debugging SSL certificate issues on your local network. You can modify this setting from the **Networking** page in the settings.
+- **HTTPS Traffic:** 8920
+    Used when https is enabled. By default this port will not be used.
+    This setting can also be modified from the **Networking** page to use a different port.
 
-**HTTPS Traffic:** 8920
+- **Service Discovery:** 1900
+    Used for UPnP service discovery. This is also needed to discover your Server via DLNA in the local subnet (when enabled)
+    Since UPnP is a universal Protocol expecting to run on port 1900, its not possible 
 
-This setting can also be modified from the **Networking** page to use a different port.
+- **Client Discovery:** 7359 UDP
+    Allows clients to discover Jellyfin on the local network. A broadcast message to this port with `Who is JellyfinServer?` will get a JSON response that includes the server address, ID, and name.
 
-**Service Discovery:** 1900
+- #### Dynamic Ports
+    Live TV devices will often use a random UDP port for HDHomeRun devices. The server will select an unused port on startup to connect to these tuner devices.
+</details>
 
-Since client auto-discover would break if this option were configurable, you cannot change this in the settings at this time. DLNA also uses this port and is required to be in the local subnet.
-
-**Client Discovery:** 7359 UDP
-
-Allows clients to discover Jellyfin on the local network. A broadcast message to this port with `Who is JellyfinServer?` will get a JSON response that includes the server address, ID, and name.
-
-#### Dynamic Ports
-
-Live TV devices will often use a random UDP port for HDHomeRun devices. The server will select an unused port on startup to connect to these tuner devices.
 
 ### Monitoring Endpoints
 
