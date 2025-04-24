@@ -57,6 +57,21 @@ See [monitoring](./advanced/monitoring) for details on the monitoring endpoints 
 This section focusses on how to make Jellyfin Available within Networks.
 Here you will find descriptions on how to make Jellyfin accessible both only localy and through the Internet.
 
+In general, Jellyfin will be available localy on the specified port over the host-ip - e.g. `http://10.0.0.2:8096`.
+However its also possible to create a local DNS entry that will point to your Jellyfin-Server - e.g. `jellyfin.local:8096`.
+
+:::caution
+
+In order for Chromecast to work with local DNS entries, the easiest solution is to use IPv6 instead of IPv4.
+For IPv4, you need to use NAT reflection to redirect to your local LAN IPv4 or add a override rules to your local DNS server to point to your local LAN IPv4 (for example 192.168.1.10) of Jellyfin.  
+Because Chromecasts have hardcoded Google DNS servers, you need to block Chromecast from reaching these servers (8.8.8.8) so it makes use of your local DNS server instead.  
+For a public routable IPv6 (not a link-local or ULA) there is no difference between public or local. Such IPv6 address is simultaneously publicly routable and accessible from the local LAN.  
+Because of that, there is no blocking, redirecting or DNS override needed.
+
+:::
+(this warning is weird to me)
+
+
 ### Firewall/ Port Forwarding
 
 Networks are usually devided from eachother by firewalls. These block all incoming traffic and are meant to protect the network.
@@ -96,6 +111,7 @@ Here is linked below how to open ports for:
 
 Since Jellyfin is entirely self hosted, the server will have to be made accessible from the Internet manualy.
 To do that there will have to be some way to access the http(s) port remotely.
+Autodiscovery services will only work localy and should not be made accessible externaly.
 
 To access a server remotely there will need to be a way to find it or its network on the internet.
 This can be done through the public IP Adress of the Device or for IPv6 the Server's directly.
@@ -117,74 +133,26 @@ If you want to learn more about ReverseProxies and how to use them for Jellyfin,
 Using https to access the Server is recommended.
 By default https will not be enabled, because it requires an SSL Certificate.
 
-SSL Certificates are usualy issued by a third party and verify that the Server and URL are assigned to another.
+SSL Certificates are usually issued by a third party and verify that the Server and URL are assigned to another.
 When using HTTPS, self-signed certs are not recommended. Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt).
 
 If you are not using a local DNS and do not want to expose any of your Servers to the Internet then you will have to use self-signed certificates.
 
-Whilst Jellyfin offers https support its also possible to handle https/ ssl on Proxy level. 
-
----
-everything below this line was not changed (yet)
-
-## Autodiscovery
-
-Many clients will automatically discover servers running on the same LAN and display them on login. If you are outside the network when you connect you can type in the complete IP address or domain name in the server field with the correct port to continue to the login page. You can find the default ports below to access the web frontend.
-
-HTTP and HTTPS are the primary means of connecting to the server. When using HTTPS, self-signed certs are not recommended. Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt).
-
 :::caution
 
-In order for Chromecast to work on your local LAN, the easiest solution is to use IPv6 instead of IPv4.
-For IPv4, you need to use NAT reflection to redirect to your local LAN IPv4 or add a override rules to your local DNS server to point to your local LAN IPv4 (for example 192.168.1.10) of Jellyfin.  
-Because Chromecasts have hardcoded Google DNS servers, you need to block Chromecast from reaching these servers (8.8.8.8) so it makes use of your local DNS server instead.  
-For a public routable IPv6 (not a link-local or ULA) there is no difference between public or local. Such IPv6 address is simultaneously publicly routable and accessible from the local LAN.  
-Because of that, there is no blocking, redirecting or DNS override needed.
+A lot of Clients do not support self-signed certificates. Be aware that using them regardless will break compatibility with them.
 
 :::
 
-## Running Jellyfin Behind a Reverse Proxy
+Whilst Jellyfin offers https support its also possible to handle https/ ssl entirely on Proxy level.
 
-It's possible to run Jellyfin behind another server acting as a reverse proxy. With a reverse proxy setup, this server handles all network traffic and proxies it back to Jellyfin. This provides the benefits of using DNS names and not having to remember port numbers, as well as easier integration and management of SSL certificates.
+**It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.**
 
-In cases when you would like to not use host networking with docker, you may use the gateway ip as a known proxy to fix ip resolution for clients logging in.
+## Settings Overview
 
-:::caution
+This section is meant to give  an overview of all the configurable network settings within the admin-dashboard.
 
-In order for a reverse proxy to have the maximum benefit, you should have a publicly routable IP address and a domain with DNS set up correctly.
-These examples assume you want to run Jellyfin under a sub-domain (e.g. jellyfin.example.com), but are easily adapted for the root domain if desired.
-
-:::
-
-:::caution
-
-Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g `api_key` parameter), so logging the full request path can expose secrets to your logfile.
-We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
-The nginx documentation below includes an example how to censor sensitive information from a logfile.
-
-:::
-
-Some popular options for reverse proxy systems are [Apache](https://httpd.apache.org), [Caddy](https://caddyserver.com), [Haproxy](https://www.haproxy.com), [Nginx](https://www.nginx.com) and [Traefik](https://traefik.io).
-
-- [Apache](./advanced/apache)
-- [Caddy](./caddy)
-- [HAProxy](./advanced/haproxy)
-- [Nginx](./advanced/nginx)
-- [Traefik](./advanced/traefik)
-
-While not a reverse proxy, Let's Encrypt can be used independently or with a reverse proxy to provide SSL certificates.
-
-- [Let's Encrypt](./advanced/letsencrypt)
-
-When following this guide, be sure to replace the following variables with your information.
-
-- `DOMAIN_NAME`: Your public domain name to access Jellyfin on (e.g. jellyfin.example.com)
-- `example.com`: The domain name Jellyfin services will run under (e.g. example.com)
-- `SERVER_IP_ADDRESS`: The IP address of your Jellyfin server (if the reverse proxy is on the same server use 127.0.0.1)
-
-In addition, the examples are configured for use with Let's Encrypt certificates. If you have a certificate from another source, change the SSL configuration from `/etc/letsencrypt/DOMAIN_NAME/` to the location of your certificate and key.
-
-Ports 80 and 443 (pointing to the proxy server) need to be opened on your router and firewall.
+TODO: Add Pictured and the like here.
 
 ### Known Proxies
 
@@ -217,7 +185,3 @@ There are three main caveats to this setting.
 2. Client applications generally, for now, do not handle the Base URL redirects implicitly. Therefore, for instance in the Android app, the `Host` setting _must_ include the BaseURL as well (e.g. `http://myserver:8096/baseurl`), or the connection will fail.
 
 3. Any reverse proxy configurations must be updated to handle a new Base URL. Generally, passing `/` back to the Jellyfin instance will work fine in all cases and the paths will be normalized, and this is the standard configuration in our examples. Keep this in mind however when doing more advanced routing.
-
-### Final Steps
-
-It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.
