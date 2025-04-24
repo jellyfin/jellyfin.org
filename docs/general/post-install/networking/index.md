@@ -46,9 +46,6 @@ This section aims to provide an administrator with knowledge on what ports Jelly
 - **Client Discovery:** 7359 UDP
     Allows clients to discover Jellyfin on the local network. A broadcast message to this port with `Who is JellyfinServer?` will get a JSON response that includes the server address, ID, and name.
 
-- **Dynamic Ports**
-    Live TV devices will often use a random UDP port for HDHomeRun devices. The server will select an unused port on startup to connect to these tuner devices.
-
 </details>
 
 ### Monitoring Endpoints
@@ -95,7 +92,37 @@ Here is linked below how to open ports for:
 
 </details>
 
+### External Access
 
+Since Jellyfin is entirely self hosted, the server will have to be made accessible from the Internet manualy.
+To do that there will have to be some way to access the http(s) port remotely.
+
+To access a server remotely there will need to be a way to find it or its network on the internet.
+This can be done through the public IP Adress of the Device or for IPv6 the Server's directly.
+
+To store the IP Adress, the easiest option would be to use a Domain and rely on the DNS System to resolve it.
+This can also be used to store the 'current IP Adress' in the case of a dynamic public IP Adress.
+However its not mandatory to use a Domain.
+
+There are multiple ways of exposing Jellyfin to the outside - the most common ones are:
+- forwarding the Port to the Internet (not recommended!)
+- forwarding through a Reverse Proxy
+- using a VPN connection to enter the Network
+- use a VPS to Reverse Proxy to your home network
+
+If you want to learn more about ReverseProxies and how to use them for Jellyfin, learn more [here](https://example.org)
+
+### SSL/ https
+
+Using https to access the Server is recommended.
+By default https will not be enabled, because it requires an SSL Certificate.
+
+SSL Certificates are usualy issued by a third party and verify that the Server and URL are assigned to another.
+When using HTTPS, self-signed certs are not recommended. Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt).
+
+If you are not using a local DNS and do not want to expose any of your Servers to the Internet then you will have to use self-signed certificates.
+
+Whilst Jellyfin offers https support its also possible to handle https/ ssl on Proxy level. 
 
 ---
 everything below this line was not changed (yet)
