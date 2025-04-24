@@ -71,7 +71,6 @@ Because of that, there is no blocking, redirecting or DNS override needed.
 :::
 (this warning is weird to me)
 
-
 ### Firewall/ Port Forwarding
 
 Networks are usually devided from eachother by firewalls. These block all incoming traffic and are meant to protect the network.
@@ -81,8 +80,9 @@ Note that opening a port gives full access to that port to the next higher Netwo
 Opening a port directly to the Internet is therefore insecure and not recommended.
 
 There are different layers where a firewall can be placed:
+
 | Layer | Example | Description |
-|---|---|---|
+| --- | --- | --- |
 | Local | Docker, VM | Open ports at this layer to allow traffic from the Host to enter the Application |
 | Host | physical machine, operating system | Open ports at this layer to allow traffic from the Network to enter the Host device |
 | Network | Router | Open ports at this layer to allow traffic from the Internet to enter the Local Network |
@@ -98,11 +98,11 @@ Sometime port forwarding also offers to set a different target port then entry p
 </details>
 
 <details>
-    
 <summary>How to open a Port</summary>
 
 How exactly a port will be opened depends on your firewall software and its UI.
 Here is linked below how to open ports for:
+
 - [Windows Firewall](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/configure-a-firewall-for-report-server-access?view=sql-server-ver16#open-ports-in-windows-firewall)
 
 </details>
@@ -121,6 +121,7 @@ This can also be used to store the 'current IP Adress' in the case of a dynamic 
 However its not mandatory to use a Domain.
 
 There are multiple ways of exposing Jellyfin to the outside - the most common ones are:
+
 - forwarding the Port to the Internet (not recommended!)
 - forwarding through a Reverse Proxy
 - using a VPN connection to enter the Network
