@@ -18,25 +18,9 @@ As a fully self hosted Software, jellyfin runs fully independently from the Inte
 You do not HAVE TO make your server accessable through the internet.
 Neither does jellyfin require an internet connection to run - however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
 
-## Autodiscovery
+## Port Bindings
 
-Many clients will automatically discover servers running on the same LAN and display them on login. If you are outside the network when you connect you can type in the complete IP address or domain name in the server field with the correct port to continue to the login page. You can find the default ports below to access the web frontend.
-
-HTTP and HTTPS are the primary means of connecting to the server. When using HTTPS, self-signed certs are not recommended. Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt).
-
-:::caution
-
-In order for Chromecast to work on your local LAN, the easiest solution is to use IPv6 instead of IPv4.
-For IPv4, you need to use NAT reflection to redirect to your local LAN IPv4 or add a override rules to your local DNS server to point to your local LAN IPv4 (for example 192.168.1.10) of Jellyfin.  
-Because Chromecasts have hardcoded Google DNS servers, you need to block Chromecast from reaching these servers (8.8.8.8) so it makes use of your local DNS server instead.  
-For a public routable IPv6 (not a link-local or ULA) there is no difference between public or local. Such IPv6 address is simultaneously publicly routable and accessible from the local LAN.  
-Because of that, there is no blocking, redirecting or DNS override needed.
-
-:::
-
-### Port Bindings
-
-This document aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
+This section aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
 
 | Port | Protocol | Configurable | Description |
 |---|---|---|---|
@@ -57,19 +41,80 @@ This document aims to provide an administrator with knowledge on what ports Jell
 
 - **Service Discovery:** 1900
     Used for UPnP service discovery. This is also needed to discover your Server via DLNA in the local subnet (when enabled)
-    Since UPnP is a universal Protocol expecting to run on port 1900, its not possible 
+    Since UPnP is a universal Protocol expecting to run on port 1900, its not possible to configure this.
 
 - **Client Discovery:** 7359 UDP
     Allows clients to discover Jellyfin on the local network. A broadcast message to this port with `Who is JellyfinServer?` will get a JSON response that includes the server address, ID, and name.
 
-- #### Dynamic Ports
+- **Dynamic Ports**
     Live TV devices will often use a random UDP port for HDHomeRun devices. The server will select an unused port on startup to connect to these tuner devices.
-</details>
 
+</details>
 
 ### Monitoring Endpoints
 
 See [monitoring](./advanced/monitoring) for details on the monitoring endpoints that Jellyfin provides.
+
+## Accessing Jellyfin
+
+This section focusses on how to make Jellyfin Available within Networks.
+Here you will find descriptions on how to make Jellyfin accessible both only localy and through the Internet.
+
+### Firewall/ Port Forwarding
+
+Networks are usually devided from eachother by firewalls. These block all incoming traffic and are meant to protect the network.
+To access Jellyfin through these boundaries, its ports need to be forwarded/ opened in the respective firewalls.
+
+Note that opening a port gives full access to that port to the next higher Network.
+Opening a port directly to the Internet is therefore insecure and not recommended.
+
+There are different layers where a firewall can be placed:
+| Layer | Example | Description |
+|---|---|---|
+| Local | Docker, VM | Open ports at this layer to allow traffic from the Host to enter the Application |
+| Host | physical machine, operating system | Open ports at this layer to allow traffic from the Network to enter the Host device |
+| Network | Router | Open ports at this layer to allow traffic from the Internet to enter the Local Network |
+
+<details>
+<summary>Port forwarding vs. opening a Port</summary>
+
+Whilst Routers often allow you to forward a port, firewalls typically only allow you to open one.
+The difference is within the Target. Opening a Port essentially just means that traffic on this Port will go through.
+Forwarding a Port you typically do in NAT scenarios - traffic is comming in on your public IP Adress, what device inside your network should recieve it.
+Sometime port forwarding also offers to set a different target port then entry port.
+
+</details>
+
+<details>
+    
+<summary>How to open a Port</summary>
+
+How exactly a port will be opened depends on your firewall software and its UI.
+Here is linked below how to open ports for:
+- [Windows Firewall](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/configure-a-firewall-for-report-server-access?view=sql-server-ver16#open-ports-in-windows-firewall)
+
+</details>
+
+
+
+---
+everything below this line was not changed (yet)
+
+## Autodiscovery
+
+Many clients will automatically discover servers running on the same LAN and display them on login. If you are outside the network when you connect you can type in the complete IP address or domain name in the server field with the correct port to continue to the login page. You can find the default ports below to access the web frontend.
+
+HTTP and HTTPS are the primary means of connecting to the server. When using HTTPS, self-signed certs are not recommended. Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt).
+
+:::caution
+
+In order for Chromecast to work on your local LAN, the easiest solution is to use IPv6 instead of IPv4.
+For IPv4, you need to use NAT reflection to redirect to your local LAN IPv4 or add a override rules to your local DNS server to point to your local LAN IPv4 (for example 192.168.1.10) of Jellyfin.  
+Because Chromecasts have hardcoded Google DNS servers, you need to block Chromecast from reaching these servers (8.8.8.8) so it makes use of your local DNS server instead.  
+For a public routable IPv6 (not a link-local or ULA) there is no difference between public or local. Such IPv6 address is simultaneously publicly routable and accessible from the local LAN.  
+Because of that, there is no blocking, redirecting or DNS override needed.
+
+:::
 
 ## Running Jellyfin Behind a Reverse Proxy
 
