@@ -24,6 +24,22 @@ This can be done from Plex, Emby or another Jellyfin instance.
 
 [Plex to Jellyfin migration](https://github.com/wilmardo/migrate-plex-to-jellyfin)
 
+## Music Favorites Migration
+
+:::info
+
+Currently there is no way to migrate favorites easily, but here is a working workaround. This create a playlist in XML, if you require a m3u8, you'll need to run an additional python script
+
+:::
+
+* Go to your Favorites - Songs and click "Play All"
+* While playing, click on the three vertical dot and add all songs to a new playlist, e.g "MyFavorites"
+* This will create a XML file in your Metada folder, e.g. /var/lib/jellyfin/data/playlists 
+
+### Notes
+* You can edit the XMl file and search/replace the path form the old server to the new server if needed.
+* You can optionally then covert the XML to a more portable m3u8 file using https://github.com/pyluyten/jellyfin_playlist_exporter
+
 ## Migrating Linux install to Docker
 
 It's possible to use the data of a local install in the official docker image by mapping files and folders to the same locations and configuring the image accordingly. It's possible to do this via the command line or by using Docker environment variables. To read more, see the [Configuration](/docs/general/administration/configuration) page.
