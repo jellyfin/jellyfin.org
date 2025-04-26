@@ -22,22 +22,215 @@ Your router must local forward to the host running Traefik on port 80 (only if T
 ### Create Traefik static file
 Every changes to this file require a Traefik restart.
 
-```yml
+e.g. in /mnt/docker-volumes/traefik/traefik.yml
 
+```yml
+# Api and, additionally, a monitoring dashboard (checkout docs for more,
+# disable in production if not required!).
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: true
+
+api:
+  dashboard: true
+  insecure: true
+
+log:
+  level: INFO
+  filePath: "/logs/traefik.log"
+
+accessLog:
+  filePath: "/logs/access.log"
+  format: json
+  filters:
+    statusCodes:
+      - "200-299" # log successful http requests
+      - "400-599" # log failed http requests
+  # collect logs as in-memory buffer before writing into log file
+  bufferingSize: 0
+  fields:
+    headers:
+      defaultMode: drop # drop all headers per default
+      names:
+          User-Agent: keep # log user agent strings
+
+# Entrypoints (ports) Traefik should listen to; here we define two: "http"
+# for unencrypted traffic, and "https" for SSL-encrypted traffic (port 443).
+entryPoints:
+  http:
+    address: ":80"
+    forwardedHeaders:
+      trustedIPs: &trustedIps
+        # Start of Cloudlare's public IP list
+        - 103.21.244.0/22
+        - 103.22.200.0/22
+        - 103.31.4.0/22
+        - 104.16.0.0/13
+        - 104.24.0.0/14
+        - 108.162.192.0/18
+        - 131.0.72.0/22
+        - 141.101.64.0/18
+        - 162.158.0.0/15
+        - 172.64.0.0/13
+        - 173.245.48.0/20
+        - 188.114.96.0/20
+        - 190.93.240.0/20
+        - 197.234.240.0/22
+        - 198.41.128.0/17
+        - 2400:cb00::/32
+        - 2606:4700::/32
+        - 2803:f800::/32
+        - 2405:b500::/32
+        - 2405:8100::/32
+        - 2a06:98c0::/29
+        - 2c0f:f248::/32
+        # End of Cloudlare's public IP list
+  https:
+    address: ":443"
+    forwardedHeaders:
+      # Reuse the list of Cloudflare's public IPs from above
+      trustedIPs: *trustedIps
+
+# We define two providers
+providers:
+  # First, a docker provider, which allows us to enable routing to any Docker
+  # container by setting some specific labels on the container. Example will
+  # follow below ;).
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    # This ensures, that we manually have to request containers to be "added"
+    # to Traefik.
+    exposedByDefault: false
+    network: "traefik_proxy"
+  # Second, a dynamic configuration file - we'll come back to that file below.
+  file:
+    filename: "/dynamic_conf.yml"
+
+# For automatic Let's Encrypt certificate generation, we define a "letsencrypt"
+# resolver. It may store the certificates in the defined file/storage and should
+# use the http endpoint (defined above) for the http challenge (i.e., for
+# generating/ requesting the certificates).
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: USE_VALID_EMAIL_HERE
+      storage: "/letsencrypt/acme.json"
+      #tlsChallenge: {} 
+      httpChallenge:
+       entryPoint: http
 ```
 
 ### Create Traefik dynamic file
 Every changes to this file do not require a Traefik restart.
 
+e.g. in /mnt/docker-volumes/traefik/dynamic_conf.yml
 ```yml
+tls:
+  options:
+    default:
+      minVersion: VersionTLS12
+      cipherSuites:
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+        - TLS_AES_128_GCM_SHA256
+        - TLS_AES_256_GCM_SHA384
+        - TLS_CHACHA20_POLY1305_SHA256
+      curvePreferences:
+        - CurveP521
+        - CurveP384
+      sniStrict: true
 
+http:
+  middlewares:
+    secureHeaders:
+      headers:
+        forceSTSHeader: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        frameDeny: true
+        sslRedirect: true
+        # HSTS Configuration
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 31536000
+        customFrameOptionsValue: "SAMEORIGIN"
+    redirect-to-https:
+      redirectScheme:
+        scheme: "https"
+        permanent: true
+
+  routers:
+    jellyfin:
+      rule: "Host(`jellyfin.mydomain.com`)" # use your jellyfin desired hostname here
+      service: "jellyfin"
+      entryPoints:
+        - "http"
+        - "https"
+      tls:
+        certResolver: "letsencrypt"
+      middlewares:
+        - "redirect-to-https@file"
+
+  services:
+    jellyfin:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.X.X:8096" # use your jellyfin IP HERE
 ```
 
 ### Create Traefik docker instance
 
+Dashboard on port 8081
+Port 80 mapped because of TLS web challenges
+
 ```yml
+networks:
+  traefik_proxy:
+    external: true
 
+services:
+  traefik:
+    image: "traefik:v3.3"
+    container_name: traefik
+    restart: unless-stopped
+    environment:
+      - PUID=501
+      - PGID=20
+      - TZ=Europe/Zurich
 
+    networks:
+      - traefik_proxy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8081:8080"
+    command:
+      - "--api"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedByDefault=false"
+      - "--entrypoints.web.address=:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /mnt/docker-volumes/traefik/letsencrypt:/letsencrypt
+      - /mnt/docker-volumes/traefik/traefik.yml:/traefik.yml:ro
+      - /mnt/docker-volumes/traefik/dynamic_conf.yml:/dynamic_conf.yml
+      - /mnt/docker-volumes/traefik/logs:/logs
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.traefik.loadbalancer.server.port=8080
+      
+      # fix issue 1 (Incorrect Routing to Jellyfin outside of docker), you need to make sure that requests to /.well-known/acme-challenge/ are not forwarded to Jellyfin
+      # and are instead handled by Traefik itself. Here’s how you can do it:
+      - "traefik.http.routers.acme-challenge.rule=PathPrefix(`/.well-known/acme-challenge/`)"
+      - "traefik.http.routers.acme-challenge.entrypoints=http"
+      - "traefik.http.routers.acme-challenge.service=noop@internal"
+      # end fix issue 1
+
+      # Restrict Dashboard Access to Internal IPs
+      # You can allow only specific IP ranges (e.g., your internal network):
+      - "traefik.http.routers.api.middlewares=ipallowlist"
+      - "traefik.http.middlewares.ipallowlist.ipallowlist.sourcerange=192.168.1.0/24,10.0.0.0/8"
 ```
 
 ## Traefik v2.x
