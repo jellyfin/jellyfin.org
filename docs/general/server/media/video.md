@@ -73,6 +73,8 @@ Each video file may contain multiple episodes. However, they will be shown as a 
 
 Show specials can be added in the `Season 00` folder. If supported by your metadata provider those files will be matched. In case your metadata provider does not provide information about the special, it is recommended to use a name which describes the content of the special instead of naming it `Series Name S00Exy.mkv`. This is done to avoid wrong metadata being pulled for the special and to provide a proper presentation.
 
+In addition, extras can be added using extras files or folders listed in the [Extras section](#extras).
+
 :::note
 
 Episode numbering for specials may vary from metadata provider to metadata provider.
