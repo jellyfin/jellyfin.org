@@ -67,7 +67,7 @@ Shows
         └── Series Name B S02E03.mkv
 ```
 
-Each video file may contain multiple episodes. However, only the metadata of the first episode will be shown in Jellyfin. It is recommended that the video files be split into individual episodes using a tool like [MKVToolNix](https://mkvtoolnix.download)
+Each video file may contain multiple episodes. However, they will be shown as a single entry containing metadata from multiple episodes. It is recommended that the video files be split into individual episodes using a tool like [MKVToolNix](https://mkvtoolnix.download)
 
 ### Show Specials
 
@@ -148,7 +148,7 @@ Any arbitrary text not parsable to a language or flag will be combined and used 
 
 ### Multiple Versions
 
-Multiple versions of the same video can be stored together in the library using a file suffix. The part before any suffixes **MUST** be exactly the same, including any years and/or metadata provider IDs.
+Multiple versions of the same video can be stored together in the library using a file suffix in Movie and Music Video library types. The part before any suffixes **MUST** be exactly the same, including any years and/or metadata provider IDs.
 
 ```txt
 Movie (2021) [imdbid-tt12801262]
@@ -211,7 +211,7 @@ Movies
 
 ### Multiple Parts
 
-Content that are split into multiple files can be stacked together if named correctly. Files should be named as follows:
+Content that are split into multiple files can be stacked together if named correctly in Movie and Music Video library types. Files should be named as follows:
 
 - `Movie Name (2010)/Movie Name<separator><parttype><separator><partnumber>.mkv`
 
