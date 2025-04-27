@@ -36,17 +36,22 @@ const redirects: ClientRedirects.Options['redirects'] = [
     to: '/docs/general/installation/'
   },
   {
-    from: '/docs/general/administration/install/synology',
-    to: '/docs/general/installation/synology'
+    from: [
+      '/docs/general/administration/install/synology',
+      // synology moved
+      '/docs/general/installation/synology'
+    ],
+    to: '/docs/general/installation/advanced/synology'
   },
+  // installing from source moved
   {
-    from: '/docs/general/administration/building',
-    to: '/docs/general/installation/source'
+    from: ['/docs/general/installation/source', '/docs/general/administration/building'],
+    to: '/docs/general/installation/advanced/source'
   },
   // "traefik2" moved
   {
-    from: '/docs/general/networking/traefik2',
-    to: '/docs/general/networking/traefik'
+    from: ['/docs/general/networking/traefik2', '/docs/general/networking/traefik'],
+    to: '/docs/general/post-install/networking/advanced/traefik'
   },
   // Internet radio moved to live tv
   {
@@ -66,6 +71,57 @@ const redirects: ClientRedirects.Options['redirects'] = [
       '/docs/general/server/media/music-videos'
     ],
     to: '/docs/general/server/media/video'
+  },
+  // transcoding and hwa moved
+  {
+    from: '/docs/general/administration/hardware-acceleration',
+    to: '/docs/general/post-install/transcoding/hardware-acceleration/'
+  },
+  {
+    from: '/docs/general/server/transcoding',
+    to: '/docs/general/post-install/transcoding/'
+  },
+  // networking moved
+  {
+    from: '/docs/general/networking/',
+    to: '/docs/general/post-install/networking/'
+  },
+  {
+    from: '/docs/general/networking/apache',
+    to: '/docs/general/post-install/networking/advanced/apache'
+  },
+  {
+    from: '/docs/general/networking/caddy',
+    to: '/docs/general/post-install/networking/caddy'
+  },
+  {
+    from: '/docs/general/networking/dlna',
+    to: '/docs/general/post-install/networking/dlna'
+  },
+  {
+    from: '/docs/general/networking/fail2ban',
+    to: '/docs/general/post-install/networking/advanced/fail2ban'
+  },
+  {
+    from: '/docs/general/networking/haproxy',
+    to: '/docs/general/post-install/networking/advanced/haproxy'
+  },
+  {
+    from: '/docs/general/networking/letsencrypt',
+    to: '/docs/general/post-install/networking/advanced/letsencrypt'
+  },
+  {
+    from: '/docs/general/networking/monitoring',
+    to: '/docs/general/post-install/networking/advanced/monitoring'
+  },
+  {
+    from: '/docs/general/networking/nginx',
+    to: '/docs/general/post-install/networking/advanced/nginx'
+  },
+  // quick start replaced with post install
+  {
+    from: '/docs/general/quick-start',
+    to: '/docs/general/post-install/setup-wizard'
   }
 ];
 export default redirects;

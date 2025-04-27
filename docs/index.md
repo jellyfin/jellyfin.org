@@ -1,6 +1,7 @@
 ---
 uid: intro
 title: Introduction
+sidebar-position: 1
 ---
 
 # Welcome to the Jellyfin Documentation
@@ -28,30 +29,27 @@ Note: Jellyfin is a fast-moving project that is in its early stages, and this do
 
 Want to get starting using Jellyfin right now? Check out the pages below for how to [install Jellyfin](/docs/general/installation) on your machine.
 
-- [Arch](/docs/general/installation/linux#arch-linux)
-- [Debian](/docs/general/installation/linux#debian)
-- [Ubuntu](/docs/general/installation/linux#ubuntu)
-- [Fedora](/docs/general/installation/linux#fedora)
-- [CentOS](/docs/general/installation/linux#centos)
-- [Docker](/docs/general/installation/container#docker)
-- [Kubernetes](/docs/general/installation/container#kubernetes)
 - [Windows](/docs/general/installation/windows)
-- [MacOS](/docs/general/installation/macos)
-- [Generic Linux](/docs/general/installation/linux#linux-generic-amd64)
+- [macOS](/docs/general/installation/macos)
+- [Debian / Ubuntu](/docs/general/installation/linux#debian--ubuntu-and-derivatives)
+- [Other Linux Distributions](/docs/general/installation/linux#other-distributions)
+- [Docker / Kubernetes / Podman](/docs/general/installation/container)
+- [Synology](/docs/general/installation/advanced/synology)
+- [TrueNAS SCALE](/docs/general/installation/advanced/truenas)
+- [Generic Linux](/docs/general/installation/advanced/manual#portable-linux-install)
 
-Alternatively, Jellyfin may be built directly from the [source code](/docs/general/installation/source).
+Alternatively, Jellyfin may be built directly from the [source code](/docs/general/installation/advanced/source).
 
 ## Administrator Documentation
 
 Want to know more about administering a Jellyfin server? Check out these pages!
 
-- [Quick-Start Guide](/docs/general/quick-start): What to do after you have installed Jellyfin to get it up and running.
 - [Migrating](/docs/general/administration/migrate): How to migrate Jellyfin.
 - [Backup and Restore](/docs/general/administration/backup-and-restore): How to back up or restore your Jellyfin metadata and configuration.
 - [Plugins](/docs/general/server/plugins): How to install and manage plugins.
-- [Networking](/docs/general/networking): Networking settings and troubleshooting.
-- [Monitoring](/docs/general/networking/monitoring): Integration with external monitoring software.
-- [Hardware Acceleration](/docs/general/administration/hardware-acceleration): Improve transcoding performance on supported hardware.
+- [Networking](/docs/general/post-install/networking): Networking settings and troubleshooting.
+- [Monitoring](/docs/general/post-install/networking/advanced/monitoring): Integration with external monitoring software.
+- [Hardware Acceleration](/docs/general/post-install/transcoding/hardware-acceleration): Improve transcoding performance on supported hardware.
 
 ## Contributing to Jellyfin
 

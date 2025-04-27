@@ -32,7 +32,7 @@
     "@docusaurus/theme-mermaid": "3.7.0",
     "@easyops-cn/docusaurus-search-local": "0.49.2",
     "@fontsource/noto-sans": "5.2.6",
-    "@icons-pack/react-simple-icons": "12.5.0",
+    "@icons-pack/react-simple-icons": "12.7.0",
     "@img-comparison-slider/react": "8.0.2",
     "@mdi/js": "7.4.47",
     "@mdi/react": "1.6.1",
@@ -44,7 +44,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "sass": "1.86.3",
-    "swiper": "11.2.4",
+    "swiper": "11.2.6",
     "url-loader": "4.1.1"
   },
   "browserslist": {
@@ -78,8 +78,8 @@
     "eslint-plugin-react": "7.34.0",
     "eslint-plugin-react-hooks": "4.6.0",
     "node-fetch": "3.3.2",
-    "prettier": "3.5.2",
-    "typescript": "5.8.2",
+    "prettier": "3.5.3",
+    "typescript": "5.8.3",
     "typescript-plugin-css-modules": "5.1.0"
   }
 }
