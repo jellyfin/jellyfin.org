@@ -132,7 +132,7 @@ External Subtitles can be added with file suffixes.
         Film.English Commentary.en.mp3
 ```
 
-Each title/flag field can be a generic string, or a special flag. A file can have multiple, separated with `.`
+Each title/flag field can be a generic string, or a special flag. A file can have multiple flags, separated with `.`
 
 | Type             | Flag                |
 | ---------------- | ------------------- |
