@@ -5,7 +5,7 @@ title: Video Content
 
 # Video Content
 
-Video content covers all content that is in Video form, namely movies, TV shows and music videos.
+Video content covers all content that is in video form, namely movies, TV shows and music videos.
 
 Most common video formats are supported by Jellyfin, such as `mp4` and `mkv`. In addition, `VIDEO_TS` and `BDMV` folders are supported for movies and music videos. `VIDEO_TS` or `BDMV` folders do not support multiple versions, multiple parts or external subtitle / audio tracks.
 
