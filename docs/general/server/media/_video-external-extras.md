@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 -->
+
 ## Extras
 
 Extras can be added to movies, show series, show seasons, and music videos in a few different ways, as listed below.

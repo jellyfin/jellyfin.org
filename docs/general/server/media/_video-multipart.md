@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 -->
+
 ## Multiple Parts
 
 Content that are split into multiple files can be stacked together if named correctly. Files should be named as follows:

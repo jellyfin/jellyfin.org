@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 -->
+
 ## 3D Videos
 
 3D Videos are identified using flags in the file name. To identify 3D content by filename, the first tag is `3D`, which must be combined with one of the following tags to specify the specific 3D format:

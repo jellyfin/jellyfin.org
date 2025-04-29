@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 -->
+
 ## External Subtitles and Audio Tracks
 
 External Subtitles can be added with file suffixes.

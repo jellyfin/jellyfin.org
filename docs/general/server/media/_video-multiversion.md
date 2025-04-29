@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 -->
+
 ## Multiple Versions
 
 Multiple versions of the same video can be stored together in the library using a file suffix in Movie and Music Video library types. The part before any suffixes **MUST** be exactly the same, including any years and/or metadata provider IDs.
