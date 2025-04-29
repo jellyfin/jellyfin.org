@@ -8,7 +8,11 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   // Jellyfin 10.8 and below linked to this subtitle docs page
   {
-    from: ['/docs/general/server/media/subtitles', '/docs/general/server/media/subtitles.html'],
+    from: [
+      '/docs/general/server/media/subtitles',
+      '/docs/general/server/media/subtitles.html',
+      '/docs/general/server/media/external-files'
+    ],
     to: '/docs/general/server/media/movies#external-subtitles-and-audio-racks'
   },
   // Storage docs moved from the server guide to administrative docs
