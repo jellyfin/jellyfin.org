@@ -63,15 +63,6 @@ const redirects: ClientRedirects.Options['redirects'] = [
     from: '/docs/general/server/media/comics',
     to: '/docs/general/server/media/books'
   },
-  // Video content docs moved
-  {
-    from: [
-      '/docs/general/server/media/movies',
-      '/docs/general/server/media/shows',
-      '/docs/general/server/media/music-videos'
-    ],
-    to: '/docs/general/server/media/video'
-  },
   // transcoding and hwa moved
   {
     from: '/docs/general/administration/hardware-acceleration',
