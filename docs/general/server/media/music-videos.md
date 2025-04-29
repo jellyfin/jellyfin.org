@@ -37,9 +37,17 @@ import ExternalStreams from './\_video-external-streams.md';
 
 <ExternalStreams />
 
-import MultiversionMultipart from './\_video-multiversion-multipart.md';
+import Multiversion from './\_video-multiversion.md';
 
-<MultiversionMultipart />
+<Multiversion />
+
+import Video3D from './\_video-3d.md';
+
+<Video3D />
+
+import Multipart from './\_video-multipart.md'
+
+<Multipart />
 
 import ExternalExtras from './\_video-external-extras.md';
 
