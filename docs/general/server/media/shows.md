@@ -44,7 +44,11 @@ import ExternalStreams from './\_video-external-streams.md';
 
 <ExternalStreams />
 
-## Show Specials
+import ExternalExtras from './\_video-external-extras.md';
+
+<ExternalExtras />
+
+### Show Specials
 
 Show specials can be added in the `Season 00` folder. If supported by your metadata provider those files will be matched. In case your metadata provider does not provide information about the special, it is recommended to use a name which describes the content of the special instead of naming it `Series Name S00Exy.mkv`. This is done to avoid wrong metadata being pulled for the special and to provide a proper presentation.
 
@@ -61,10 +65,6 @@ Specials can also be shown within a season if so desired. This can be helpful wh
    - When multiple specials have the same position, they will play in the order in which they are stored in the specials season. For example, if S00E01 and S00E03 both have `Airs before season` set to `3` and `Airs before episode` set to `7`, the order the content will play in is: S03E06 → S00E01 → S00E03 → S03E07.
 
 Note that this will show them in both the `Specials` season, as well as the season specified.
-
-import ExternalExtras from './\_video-external-extras.md';
-
-<ExternalExtras />
 
 import Video3D from './\_video-3d.md';
 
