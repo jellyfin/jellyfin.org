@@ -977,5 +977,28 @@ export const Clients: Array<Client> = [
         url: 'https://symfonium.app/'
       }
     ]
+  },
+  {
+    id: 'finer',
+    name: 'Finer',
+    description: 'Jellyfin Music Player for macOS/iPadOS/iOS, built with native technologies.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.MacOS, Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/finer-player/id6738301953'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://monk-studio.com/finer'
+      }
+    ]
   }
 ];

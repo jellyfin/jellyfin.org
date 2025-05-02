@@ -1,6 +1,7 @@
 ---
 uid: server-live-tv-setup-guide
-title: Setup Guide
+title: Live TV Setup Guide
+sidebar_position: 1
 ---
 
 # Setup Guide
@@ -87,8 +88,6 @@ Schedules Direct is a paid service that provides U.S., Canadian, and other guide
 **XMLTV:**
 
 This option allows for downloading of guide data in the [XMLTV](http://wiki.xmltv.org/index.php/XMLTVFormat) format.
-
-To create an XML file with guide data, there are several different methods. A reliable way to do this is to use [shuaiscott's zap2xml Docker container](https://github.com/shuaiscott/zap2xml).
 
 ## Mapping Channels
 
