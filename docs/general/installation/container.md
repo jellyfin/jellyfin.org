@@ -323,3 +323,11 @@ SuccessExitStatus=0 143
 # Start by default on boot
 WantedBy=default.target
 ```
+
+#### NVIDIA-specific steps
+
+1. Add the CUDA repo to your package manager (browse the following directory to find the appropritate .repo file for your distribution): https://developer.download.nvidia.com/compute/cuda/repos/{YOUR_DISTRO}/$(uname -m)/cuda-xxx.repo
+2. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
+3. Generate a CDI specification file: `sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml` (see: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html)
+4. Add the following device to you podman commandline or systemd container file: `nvidia.com/gpu=0`. Remove all previous devices such as `/dev/dri/:/dev/dri/`.
+5. 
