@@ -324,10 +324,42 @@ SuccessExitStatus=0 143
 WantedBy=default.target
 ```
 
-#### NVIDIA-specific steps
+#### Additional steps for NVIDIA GPUs
 
-1. Add the CUDA repo to your package manager (browse the following directory to find the appropritate .repo file for your distribution): https://developer.download.nvidia.com/compute/cuda/repos/{YOUR_DISTRO}/$(uname -m)/cuda-xxx.repo
+1. Add the CUDA repo to your package manager.
+
+   Browse the following directory to find the appropritate .repo file for your distribution): https://developer.download.nvidia.com/compute/cuda/repos/{YOUR_DISTRO}/$(uname -m)/cuda-xxx.repo
+
+   Install the repository file into your package manager. The way to do this depends on your package manager.
+   For example, Fedora 41 users will use the command:
+   `sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora41/$(uname -m)/cuda-fedora41.repo`
+
 2. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
-3. Generate a CDI specification file: `sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml` (see: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html)
-4. Add the following device to you podman commandline or systemd container file: `nvidia.com/gpu=0`. Remove all previous devices such as `/dev/dri/:/dev/dri/`.
-5. 
+
+3. Generate a CDI specification file.
+
+   `sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml`
+
+   See: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html
+
+4. Replace the device `/dev/dri/:/dev/dri/` in your podman commandline or systemd container file with the following device:
+
+   `nvidia.com/gpu=0`
+
+   For example, the podman commandline should now look like this:
+   ```sh
+   podman run \
+    --detach \
+    --label "io.containers.autoupdate=registry" \
+    --name myjellyfin \
+    --publish 8096:8096/tcp \
+    --device nvidia.com/gpu=0 \
+    # --security-opt label=disable # Only needed for older versions of container-selinux < 2.226
+    --rm \
+    --user $(id -u):$(id -g) \
+    --userns keep-id \
+    --volume jellyfin-cache:/cache:Z \
+    --volume jellyfin-config:/config:Z \
+    --mount type=bind,source=/path/to/media,destination=/media,ro=true,relabel=private \
+    docker.io/jellyfin/jellyfin:latest
+   ```
