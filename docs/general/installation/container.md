@@ -328,25 +328,29 @@ WantedBy=default.target
 
 1. Add the CUDA repo to your package manager.
 
-   Browse the following directory to find the appropritate .repo file for your distribution): https://developer.download.nvidia.com/compute/cuda/repos/{YOUR_DISTRO}/$(uname -m)/cuda-xxx.repo
+   Browse the following directory to find the appropritate .repo file for your distribution:
 
-   Install the repository file into your package manager. The way to do this depends on your package manager.
-   For example, Fedora 41 users will use the command:
+   https://developer.download.nvidia.com/compute/cuda/repos/{YOUR_DISTRO}/$(uname -m)/cuda-xxx.repo
+
+   Install the appropriate repository file into your package manager.
+
+   The way to do this depends on your package manager. For example, Fedora 41 users will use the command:
+
    `sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora41/$(uname -m)/cuda-fedora41.repo`
 
-2. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
+3. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
 
-3. Generate a CDI specification file.
+4. Generate a CDI specification file.
 
    `sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml`
 
    See: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html
 
-4. Replace the device `/dev/dri/:/dev/dri/` in your podman commandline or systemd container file with the following device:
+5. Replace the device `/dev/dri/:/dev/dri/` in your podman commandline or systemd container file with the following device:
 
    `nvidia.com/gpu=0`
 
-   For example, the podman commandline should now look like this:
+   For example, your podman commandline should now look like this:
    ```sh
    podman run \
     --detach \
