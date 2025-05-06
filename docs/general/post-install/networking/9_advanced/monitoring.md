@@ -25,4 +25,4 @@ Jellyfin can make [Prometheus](https://prometheus.io/) metrics available at `/me
 <EnableMetrics>false</EnableMetrics>
 ```
 
-If you have a [reverse proxy](..#running-jellyfin-behind-a-reverse-proxy) configured, you can configure it to block access to the `/metrics` endpoint except for your internal network.
+If you have a [reverse proxy](https://example.org/running-jellyfin-behind-a-reverse-proxy) configured, you can configure it to block access to the `/metrics` endpoint except for your internal network.

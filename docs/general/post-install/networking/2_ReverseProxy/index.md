@@ -21,15 +21,15 @@ The nginx documentation below includes an example how to censor sensitive inform
 
 Some popular options for reverse proxy systems are [Apache](https://httpd.apache.org), [Caddy](https://caddyserver.com), [Haproxy](https://www.haproxy.com), [Nginx](https://www.nginx.com) and [Traefik](https://traefik.io).
 
-- [Apache](./advanced/apache)
+- [Apache](./apache)
 - [Caddy](./caddy)
-- [HAProxy](./advanced/haproxy)
-- [Nginx](./advanced/nginx)
-- [Traefik](./advanced/traefik)
+- [HAProxy](./haproxy)
+- [Nginx](./nginx)
+- [Traefik](./traefik)
 
 While not a reverse proxy, Let's Encrypt can be used independently or with a reverse proxy to provide SSL certificates.
 
-- [Let's Encrypt](./advanced/letsencrypt)
+- [Let's Encrypt](../advanced/letsencrypt)
 
 When following this guide, be sure to replace the following variables with your information.
 
