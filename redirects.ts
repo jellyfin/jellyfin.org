@@ -46,7 +46,7 @@ const redirects: ClientRedirects.Options['redirects'] = [
   // "traefik2" moved
   {
     from: ['/docs/general/networking/traefik2', '/docs/general/networking/traefik'],
-    to: '/docs/general/post-install/networking/advanced/traefik'
+    to: '/docs/general/post-install/networking/reverseproxy/traefik'
   },
   // Internet radio moved to live tv
   {
@@ -74,7 +74,7 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   {
     from: '/docs/general/networking/apache',
-    to: '/docs/general/post-install/networking/advanced/apache'
+    to: '/docs/general/post-install/networking/reverseproxy/apache'
   },
   {
     from: '/docs/general/networking/caddy',
@@ -90,7 +90,7 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   {
     from: '/docs/general/networking/haproxy',
-    to: '/docs/general/post-install/networking/advanced/haproxy'
+    to: '/docs/general/post-install/networking/reverseproxy/haproxy'
   },
   {
     from: '/docs/general/networking/letsencrypt',
@@ -102,7 +102,7 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   {
     from: '/docs/general/networking/nginx',
-    to: '/docs/general/post-install/networking/advanced/nginx'
+    to: '/docs/general/post-install/networking/reverseproxy/nginx'
   },
   // quick start replaced with post install
   {
