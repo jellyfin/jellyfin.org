@@ -5,6 +5,8 @@ title: Movies
 
 # Movies
 
+Movies can be added to a Jellyfin server using the "Movies" library type.
+
 import VideoHeader from './\_video-header.md';
 
 <VideoHeader />

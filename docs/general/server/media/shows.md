@@ -5,6 +5,8 @@ title: TV Shows
 
 # TV Shows
 
+TV Shows can be added to Jellyfin using the "TV Shows" library type.
+
 import VideoHeader from './\_video-header.md';
 
 <VideoHeader />

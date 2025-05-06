@@ -1,9 +1,11 @@
 ---
 uid: server-media-music-videos
-title: Music videos
+title: Music Videos
 ---
 
 # Music Videos
+
+Music videos can be added to a Jellyfin server using the "Music Videos" library type.
 
 import VideoHeader from './\_video-header.md';
 
