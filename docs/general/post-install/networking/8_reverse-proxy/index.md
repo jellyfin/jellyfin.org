@@ -1,3 +1,8 @@
+---
+uid: reverse-proxy-index
+title: Reverse Proxy
+---
+
 # Running Jellyfin Behind a Reverse Proxy
 
 It's possible to run Jellyfin behind another server acting as a reverse proxy. With a reverse proxy setup, this server handles all network traffic and proxies it back to Jellyfin. This provides the benefits of using DNS names and not having to remember port numbers, as well as easier integration and management of SSL certificates.

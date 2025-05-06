@@ -127,7 +127,7 @@ There are multiple ways of exposing Jellyfin to the outside - the most common on
 - using a VPN connection to enter the Network
 - use a VPS to Reverse Proxy to your home network
 
-If you want to learn more about ReverseProxies and how to use them for Jellyfin, learn more [here](https://example.org)
+If you want to learn more about reverse Proxies and how to use them for Jellyfin, learn more [here](./reverse-proxy/)
 
 ### SSL/ https
 
