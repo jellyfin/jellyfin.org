@@ -89,6 +89,10 @@ Specials can also be shown within a season if so desired. This can be helpful wh
 
 Note that this will show them in both the `Specials` season, as well as the season specified.
 
+import ThemeMedia from './\_video-theme-media.md';
+
+<ThemeMedia />
+
 import Video3D from './\_video-3d.md';
 
 <Video3D />
