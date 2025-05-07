@@ -5,18 +5,16 @@ title: Networking
 
 # Networking
 
-This section describes how to get basic connectivity to a Jellyfin server, and also some more advanced networking scenarios.
-
-## Introduction
-
 As a Server Software, Jellyfin offers different Services over the Network.
 Specifically Jellyfin supports the streaming of content and comes packed with a web-Client. - This will work purely over the http(s) ports.
 
-Additionaly in local networks jellyfin offers various Auto-Discovery services. Theese will not work outside your local subnet.
+Additionaly in local networks Jellyfin offers various Auto-Discovery services. Theese will not work outside your local subnet.
 
-As a fully self hosted Software, jellyfin runs fully independently from the Internet.
+As a fully self hosted Software, Jellyfin runs independently from the Internet.
 You do not HAVE TO make your server accessable through the internet.
 Neither does jellyfin require an internet connection to run - however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
+
+If you are looking for a detailed overview of the networking settings, see [here](./settings-overview/).
 
 ## Port Bindings
 
@@ -60,16 +58,17 @@ Here you will find descriptions on how to make Jellyfin accessible both only loc
 In general, Jellyfin will be available localy on the specified port over the host-ip - e.g. `http://10.0.0.2:8096`.
 However its also possible to create a local DNS entry that will point to your Jellyfin-Server - e.g. `jellyfin.local:8096`.
 
-:::caution
+<details>
+<summary>Learn more about limitations with local DNS</summary>
 
-In order for Chromecast to work with local DNS entries, the easiest solution is to use IPv6 instead of IPv4.
-For IPv4, you need to use NAT reflection to redirect to your local LAN IPv4 or add a override rules to your local DNS server to point to your local LAN IPv4 (for example 192.168.1.10) of Jellyfin.  
-Because Chromecasts have hardcoded Google DNS servers, you need to block Chromecast from reaching these servers (8.8.8.8) so it makes use of your local DNS server instead.  
-For a public routable IPv6 (not a link-local or ULA) there is no difference between public or local. Such IPv6 address is simultaneously publicly routable and accessible from the local LAN.  
-Because of that, there is no blocking, redirecting or DNS override needed.
+Devices like Google Chromecast or Google Streamer use hardcoded DNS Servers - therefore they will not make use of your local DNS entries.
+There are multiple workarrounds for this issue.
 
-:::
-(this warning is weird to me)
+The easiest involves the usage of IPv6 Entries in the public DNS.
+Since IPv6 adresses dont differenciate between local and public, the adress will be abled to get resolved localy.
+This however requires the use of a public DNS server - The Jellyfin Server does not have to be accessible from the outside though!
+
+</details>
 
 ### Firewall/ Port Forwarding
 
@@ -135,54 +134,14 @@ Using https to access the Server is recommended.
 By default https will not be enabled, because it requires an SSL Certificate.
 
 SSL Certificates are usually issued by a third party and verify that the Server and URL are assigned to another.
-When using HTTPS, self-signed certs are not recommended. Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt).
-
-If you are not using a local DNS and do not want to expose any of your Servers to the Internet then you will have to use self-signed certificates.
+Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt) when using https.
 
 :::caution
 
-A lot of Clients do not support self-signed certificates. Be aware that using them regardless will break compatibility with them.
+Self signed certificates present problems with security and compatibility and are strongly discouraged.
 
 :::
 
 Whilst Jellyfin offers https support its also possible to handle https/ ssl entirely on Proxy level.
 
 **It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.**
-
-## Settings Overview
-
-This section is meant to give  an overview of all the configurable network settings within the admin-dashboard.
-
-TODO: Add Pictured and the like here.
-
-### Known Proxies
-
-When a reverse proxy handles incoming http requests it terminates the request and then creates a new request to your jellyfin server. This will result in jellyfin seeing the sender IP as the ip of the reverse proxy instead of the actual client. To compensate for that, reverse proxies set the original sender IP in a header. This header is usually one of `X-Forwarded-For`, `X-Forwarded-Proto` or `X-Forwarded-Host` all 3 are supported by jellyfin. However as blindly trusting those headers from any source is a security risk, Jellyfin has to be configured to trust your reverse proxy. For jellyfin to know which reverse proxy is trusted, the IP, Hostname or Subnet has to be set in the `Known Proxies` (under Admin Dashboard -> Networking) setting. You can add multiple IP's/Subnets/Hostnames by seperating them with a comma (`,`) like `192.168.178.5,10.10.0.6,127.0.0.0/26,MyReverseProxyHostname`.
-
-This is required for reverse proxies as otherwise all incoming traffic will be seen as originating from your reverse proxy which can be a security risk.
-
-Changes to the KnownProxies setting requires a server restart after saving to take effect.
-
-### Base URL
-
-Running Jellyfin with a path (e.g. `https://example.com/jellyfin`) is supported by the Android and web clients.
-
-:::caution
-
-Base URL is known to break HDHomeRun, DLNA, Sonarr, Radarr, Chromecast, and MrMC.
-
-:::
-
-The Base URL setting in the **Networking** page is an advanced setting used to specify the URL prefix that your Jellyfin instance can be accessed at. In effect, it adds this URL fragment to the start of any URL path. For instance, if you have a Jellyfin server at `http://myserver` and access its main page `http://myserver/web/index.html`, setting a Base URL of `/jellyfin` will alter this main page to `http://myserver/jellyfin/web/index.html`. This can be useful if administrators want to access multiple Jellyfin instances under a single domain name, or if the Jellyfin instance lives only at a subpath to another domain with other services listening on `/`.
-
-The entered value on the configuration page will be normalized to include a leading `/` if this is missing.
-
-This setting requires a server restart to change, in order to avoid invalidating existing paths until the administrator is ready.
-
-There are three main caveats to this setting.
-
-1. When setting a new Base URL (i.e. from `/` to `/baseurl`) or changing a Base URL (i.e. from `/baseurl` to `/newbaseurl`), the Jellyfin web server will automatically handle redirects to avoid displaying users invalid pages. For instance, accessing a server with a Base URL of `/jellyfin` on the `/` path will automatically append the `/jellyfin` Base URL. However, entirely removing a Base URL (i.e. from `/baseurl` to `/`, an empty value in the configuration) will not - all URLs with the old Base URL path will become invalid and throw 404 errors. This should be kept in mind when removing an existing Base URL.
-
-2. Client applications generally, for now, do not handle the Base URL redirects implicitly. Therefore, for instance in the Android app, the `Host` setting _must_ include the BaseURL as well (e.g. `http://myserver:8096/baseurl`), or the connection will fail.
-
-3. Any reverse proxy configurations must be updated to handle a new Base URL. Generally, passing `/` back to the Jellyfin instance will work fine in all cases and the paths will be normalized, and this is the standard configuration in our examples. Keep this in mind however when doing more advanced routing.

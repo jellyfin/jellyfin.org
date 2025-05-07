@@ -6,6 +6,15 @@ sidebar-position: 2
 
 ## DLNA
 
+### Installation
+
+DLNA support has been moved to a first party plugin and is not included in a Jellyfin base-install.
+If you want to use DLNA, please install the plugin from the official Plugin catalog.
+To do so, simply navigate to the admin dashboard and open the Catalog and install the [DLNA Plugin](https://github.com/jellyfin/jellyfin-plugin-dlna). Plugins maintained by the Jellyfin Project will be available in there by default.
+Make sure to reboot your Jellyfin-Server to complete the plugin install.
+
+### General
+
 DLNA is based on uPnP.
 DLNA will send a broadcast signal from Jellyfin.
 This broadcast is limited to Jellyfin's current subnet.
