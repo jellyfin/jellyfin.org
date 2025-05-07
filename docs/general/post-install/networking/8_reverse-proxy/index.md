@@ -45,12 +45,12 @@ Jellyfin makes use of Websockets for various things. Not all reverse proxies all
 We recommend using [Caddy](https://caddyserver.com) for its easy install and use.
 You can find our Guide for using Jellyfin through Caddy [here](./caddy/).
 
-If you do not want to use Caddy, some other popular options for reverse proxy systems are [Apache](https://httpd.apache.org), [Haproxy](https://www.haproxy.com), [Nginx](https://www.nginx.com) and [Traefik](https://traefik.io). Note that these have a greater learning curve then the recommended reverse proxy Caddy. You can find respective guides here:
+If you do not want to use Caddy, some other popular options for reverse proxy systems are [Nginx](https://www.nginx.com), [Traefik](https://traefik.io), [Haproxy](https://www.haproxy.com) and[Apache](https://httpd.apache.org). Note that these have a greater learning curve than the recommended reverse proxy Caddy. You can find respective guides here:
 
-- [Apache](./apache)
-- [HAProxy](./haproxy)
 - [Nginx](./nginx)
 - [Traefik](./traefik)
+- [HAProxy](./haproxy)
+- [Apache](./apache)
 
 While not a reverse proxy, Let's Encrypt can be used independently or with a reverse proxy to provide SSL certificates.
 
