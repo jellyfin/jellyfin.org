@@ -3,9 +3,9 @@ uid: reverse-proxy-index
 title: Reverse Proxy
 ---
 
-## Reverse Proxy
+# Reverse Proxy
 
-### General
+## General
 
 Whilst a Proxy typically is meant to catch and forward outgoing traffic, a reverse proxy does the same for ingoing network traffic.
 The reverse Proxy can then act as an entrypoint to various services and will internaly forward the traffic to your service.
@@ -15,17 +15,17 @@ Its also possible to handle all DNS and SSL specific things on the reverse Proxy
 
 Additionaly reverse proxies offer extended access logging, so its always clear who, when and where a network request came from and went to.
 
-### Running Jellyfin Behind a Reverse Proxy
+## Running Jellyfin Behind a Reverse Proxy
 
 Important things to note when using Jellyfin behind a reverse proxy.
 
-#### Logging
+### Logging
 
 Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g `api_key` parameter), so logging the full request path can expose secrets to your logfile.
 We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
 The nginx documentation [here](./nginx/) includes an example how to censor sensitive information from a logfile.
 
-#### forwarded-for headers
+### forwarded-for headers
 
 Since the reverse proxy forwards the traffic to the Jellyfin-Server, Jellyfin will see all requests comming from the reverse proxy, not the actual Client IP's.
 This introduces potential security risks and can also break compatibility.
@@ -36,11 +36,11 @@ This will enable Jellyfin to search for `X-Forwarded-For`, `X-Forwarded-Proto` a
 This assumes that the reverse Proxy is set up to include this header, which is not always the case by default.
 If issues with source IP forwarding appear, this should be checked.
 
-#### Websockets
+### Websockets
 
 Jellyfin makes use of Websockets for various things. Not all reverse proxies allow this by default. Its important to make sure Websockets are allowed for your Jellyfin-Server.
 
-### Guides
+## Guides
 
 We recommend using [Caddy](https://caddyserver.com) for its easy install and use.
 You can find our Guide for using Jellyfin through Caddy [here](./caddy/).

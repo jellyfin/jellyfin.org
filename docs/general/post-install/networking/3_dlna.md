@@ -4,16 +4,16 @@ title: DLNA
 sidebar-position: 2
 ---
 
-## DLNA
+# DLNA
 
-### Installation
+## Installation
 
 DLNA support has been moved to a first party plugin and is not included in a Jellyfin base-install.
 If you want to use DLNA, please install the plugin from the official Plugin catalog.
 To do so, simply navigate to the admin dashboard and open the Catalog and install the [DLNA Plugin](https://github.com/jellyfin/jellyfin-plugin-dlna). Plugins maintained by the Jellyfin Project will be available in there by default.
 Make sure to reboot your Jellyfin-Server to complete the plugin install.
 
-### General
+## General
 
 DLNA is based on uPnP.
 DLNA will send a broadcast signal from Jellyfin.
@@ -26,7 +26,7 @@ Setting `Alive message interval (seconds)` to 30 seconds also appears to help di
 
 If a base URL is set, try removing it and restarting the server.
 
-### DLNA Logging
+## DLNA Logging
 
 Use these entries in `logging.default.json` to turn on DLNA debug logs.
 

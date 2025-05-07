@@ -3,12 +3,12 @@ uid: network-settings-overview
 title: Settings Overview
 ---
 
-## Settings Overview
+# Settings Overview
 
-This entire section will be soon reworked with Pictures and the like.
+**_This entire section will be soon reworked with Pictures and the like._**
 This section is meant to give  an overview of all the configurable network settings within the admin-dashboard.
 
-### Known Proxies
+## Known Proxies
 
 When a reverse proxy handles incoming http requests it terminates the request and then creates a new request to your jellyfin server. This will result in jellyfin seeing the sender IP as the ip of the reverse proxy instead of the actual client. To compensate for that, reverse proxies set the original sender IP in a header. This header is usually one of `X-Forwarded-For`, `X-Forwarded-Proto` or `X-Forwarded-Host` all 3 are supported by jellyfin. However as blindly trusting those headers from any source is a security risk, Jellyfin has to be configured to trust your reverse proxy. For jellyfin to know which reverse proxy is trusted, the IP, Hostname or Subnet has to be set in the `Known Proxies` (under Admin Dashboard -> Networking) setting. You can add multiple IP's/Subnets/Hostnames by seperating them with a comma (`,`) like `192.168.178.5,10.10.0.6,127.0.0.0/26,MyReverseProxyHostname`.
 
@@ -16,7 +16,7 @@ This is required for reverse proxies as otherwise all incoming traffic will be s
 
 Changes to the KnownProxies setting requires a server restart after saving to take effect.
 
-### Base URL
+## Base URL
 
 Running Jellyfin with a path (e.g. `https://example.com/jellyfin`) is supported by the Android and web clients.
 
