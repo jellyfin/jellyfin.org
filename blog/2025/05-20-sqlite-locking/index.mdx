@@ -1,0 +1,92 @@
+---
+title: SQ-Lite concurrency and why you should care about it
+authors:
+  - JPVenson
+slug: sqlite-locking
+tags: [sqlite, jellyfin, locked-database]
+---
+
+SQ-Lite is awesome but due to its nature, also has drawbacks that cannot be overlooked.
+Jellyfin uses a SQ-Lite based database for storing most of its data for years now but also struggled on many systems with it, in this blog post i will go into how we attempt to get around some limitations and how anyone that works with sqlite can do the same.
+
+This will be a technical blog post intended for developers and everyone wanting to learn about concurrency.
+
+Also Jellyfin's implementation of locking for sqlite should be fairly easy to be implemented into anther EFCore application if you are facing the same issue.
+
+\- JPVenson
+
+{/* truncate */}
+
+## The Premise
+
+SQ-Lite is a file based database engine running within your application and allows you to store data in a relational structure. 
+Overall it gives your application the means of storing structured data as a single file and without having an dependecy on another application to do so.
+Natrually this also comes at the price, if your application fully manages this file there need to be certain assumtions made like that your application is the sole owner of this file and nobody else will thinker with it while you are writing data to it. If any other application would also try to write data to it, the file would get corrupted as your application and the other might try to update the same place within the actual file. 
+
+So an application that want to use SQ-Lite as its Database, needs to be the only one accessing it. 
+Having established this fact, there comes an important thought up. If we are working with only a single file and only a single write should be done to it at a time, this also includes the same application. So not only can only a single application ever write to a SQ-Lite file, only a single write within an application may ever write to a database.
+
+## The W-A-L mode
+
+SQ-Lite has a feature that tries to get around this limitation, the Write-Ahead-Log is an seperate file that acts as an journal of operations that should be applied to an SQ-Lite file so within an application multiple parallel writes might take place and get enqueued into the WAL and when another part wants to read data it reads from the actual database and then scans the WAL for modifications and applies them on the fly.
+This is not a totally foolproof solution and there are still scenarios where this isn't possible like with ...
+
+## SQ-Lite Transactions
+
+A transaction is supposed to ensure two things. Modifications made within a transaction can be reverted, either when something goes wrong or when the application decides it should. Optionally a transaction may also block other readers from reading data that is modified within a transaction.
+This is where it gets spicy and we come to the real reason why i am writing this blog post, for some reason on some systems that run jellyfin when a transaction takes place the SQ-Lite engine reports the database a locked and instead of waiting for the transaction to be resolved the engine refuses to wait and just crashes. 
+This seems to be a not uncomming issue there are many reports to be found researching the issue.
+
+The factor that makes this issue so bad is that it does not happen reliably. So far we only have one Team member where this can be (somewhat) reliably be reproduced makes this even worse a bug. From the reports this issue happens across all Operating systems, HDD speeds and with or without virtualization. So we dont have any deciding factor identified that even contributes to the likelyness of the issue happening.
+
+## The solution
+
+Since we moved the codebase over to EFCore proper, we have the tools to actually do something about this as EFCore gives us a structured abstraction level.
+EFCore supports a way of hooking into every command execution or transaction creating, called (Interceptors)[https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/interceptors].
+With an interceptor we can do finally do the straight forward idea of just "not" writing to the database in parallel in an transparent way for the caller. 
+The overall idea is to have multiple strategies of locking, because all levels of syncronisation will inevitablely at the cost of performance we only want to do it when its really nessesary.
+So i decided on 3 ways of locking:
+
+1. No-Lock
+2. Optimistic locking
+3. Pessimistic locking
+
+As a default, the no-lock behavior does exactly what the name implies. Nothing. This is the default because my research shows that for 99% all of this is not an issue and every interaction at this level will slow down the whole application.
+
+Both the Optimistic and Pessimistic locking behaviors work on the same principle, they both create two Interceptors one for handling transactions and one for handling commands itself and also override the SaveChanges method of the `JellyfinDbContext`.
+
+### Optimistic locking behavior 
+
+Optimistic locking means to assume the operation in question will succeed and only handle issues afterwards. In essence this can be boiled down to "Try and Retry and Retry ..." for a set number of times until either we succeed with the operation or fail entierely. 
+This still leaves the possibility that we dont actually be able to perform an write but the introduced overhead is far less then the Pessimistic locking behavior.
+
+The idea why this just works out fine is that every time two operations try to write to the database, one will always just win without issue so the 2nd operation that will fail to write at the first try will just wait for some time and the retry a few times.
+
+Jellyfin uses the `Polly` library perform the retry behavior and will only retry operations it will find have been locked due to this exact issue.
+
+### Pessimistic locking behavior
+
+Pessimistic locking always locks when a write to SQ-Lite should be performed. Essentially every time an Transaction is started or a write operation on the database is done though EFCore, jellyfin will wait until all other read operations are finished and then block all other operations may they be read or write until the write in question has been performed.
+This however means, that jellyfin can only ever perform a single write to the database, even if it would technically does not need to. 
+
+In theory, an application should have no issue reading from table "Alice" while writing to table "Bob" however to eliminate all possible sources of concurrency related locking, in this mode jellyfin will only ever allow a single write performed on its database.
+While this will absolutly result in the most stable operation, it will undoubtedly also be the slowest. 
+
+Jellyfin uses a [ReaderWriterLockSlim](https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-threading-readerwriterlockslim) to lock the operations, that means we allow an unlimited number of reads to happen concurrently while only one write may ever be done on the database.
+
+### The future Smart locking behavior
+
+In the future we might also consider combining both modes, to get the best of both worlds. 
+
+
+# The result
+
+Initial testing showed that with both modes, we had great success in handling the underlying issue. While we are not yet sure why this happens only on some systems when others work, we at least now have an option for users previously left out of using jellyfin.
+
+When i was researching this topic, i found many reports all over the internet facing the same error but nobody was able to provide a conclusive explanation whats really happening here. 
+There have been similar proposals made to handle it but there wasn't a "ready to drop in" solution that handles all the different cases or only code that required massive modifications to every EFCore query.
+Jellyfin's implementation of the locking behaviors should be a copy-paste solution for everyone having the same issues as its using interceptors and the caller has no idea of the actual locking behavior.
+
+Best of luck,
+
+\- JPVenson
