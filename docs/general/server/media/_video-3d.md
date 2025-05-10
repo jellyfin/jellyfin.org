@@ -21,7 +21,13 @@ Awesome 3D Movie (2022)_3D_htab.mp4
 Awesome 3D Movie (2022)-3d-hsbs.mp4
 ```
 
-Additionally, 3D filename tags can be combined with the grouping functionality documented above. All text before the hyphen must match the folder name.
+```txt
+S01E01 Some Episode.3d.ftab.mp4
+S01E02 Some Other Episode.3d.ftab.mp4
+S01E03 Yet another episode.3d.hsbs.mp4
+```
+
+Additionally, 3D filename tags can be combined with the grouping functionality in movie and music video libraries. All text before the hyphen must match the folder name.
 
 ```txt
 Movies
