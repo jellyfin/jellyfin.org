@@ -1,13 +1,13 @@
 ---
-title: SQ-Lite concurrency and why you should care about it
+title: SQLite concurrency and why you should care about it
 authors:
   - JPVenson
 slug: sqlite-locking
 tags: [sqlite, jellyfin, locked-database]
 ---
 
-SQ-Lite is awesome but due to its nature, also has drawbacks that cannot be overlooked.
-Jellyfin uses a SQ-Lite based database for storing most of its data for years now but also struggled on many systems with it, in this blog post i will go into how we attempt to get around some limitations and how anyone that works with sqlite can do the same.
+SQLite is awesome but due to its nature, also has drawbacks that cannot be overlooked.
+Jellyfin uses a SQLite based database for storing most of its data for years now but also struggled on many systems with it, in this blog post i will go into how we attempt to get around some limitations and how anyone that works with sqlite can do the same.
 
 This will be a technical blog post intended for developers and everyone wanting to learn about concurrency.
 
@@ -19,22 +19,22 @@ Also Jellyfin's implementation of locking for sqlite should be fairly easy to be
 
 ## The Premise
 
-SQ-Lite is a file based database engine running within your application and allows you to store data in a relational structure. 
+SQLite is a file based database engine running within your application and allows you to store data in a relational structure. 
 Overall it gives your application the means of storing structured data as a single file and without having an dependency on another application to do so.
 Naturally this also comes at the price, if your application fully manages this file there need to be certain assumptions made like that your application is the sole owner of this file and nobody else will thinker with it while you are writing data to it. If any other application would also try to write data to it, the file would get corrupted as your application and the other might try to update the same place within the actual file. 
 
-So an application that want to use SQ-Lite as its Database, needs to be the only one accessing it. 
-Having established this fact, there comes an important thought up. If we are working with only a single file and only a single write should be done to it at a time, this also includes the same application. So not only can only a single application ever write to a SQ-Lite file, only a single write within an application may ever write to a database.
+So an application that want to use SQLite as its Database, needs to be the only one accessing it. 
+Having established this fact, there comes an important thought up. If we are working with only a single file and only a single write should be done to it at a time, this also includes the same application. So not only can only a single application ever write to a SQLite file, only a single write within an application may ever write to a database.
 
 ## The W-A-L mode
 
-SQ-Lite has a feature that tries to get around this limitation, the Write-Ahead-Log is an separate file that acts as an journal of operations that should be applied to an SQ-Lite file so within an application multiple parallel writes might take place and get enqueued into the WAL and when another part wants to read data it reads from the actual database and then scans the WAL for modifications and applies them on the fly.
+SQLite has a feature that tries to get around this limitation, the Write-Ahead-Log is an separate file that acts as an journal of operations that should be applied to an SQLite file so within an application multiple parallel writes might take place and get enqueued into the WAL and when another part wants to read data it reads from the actual database and then scans the WAL for modifications and applies them on the fly.
 This is not a totally foolproof solution and there are still scenarios where this isn't possible like with ...
 
-## SQ-Lite Transactions
+## SQLite Transactions
 
 A transaction is supposed to ensure two things. Modifications made within a transaction can be reverted, either when something goes wrong or when the application decides it should. Optionally a transaction may also block other readers from reading data that is modified within a transaction.
-This is where it gets spicy and we come to the real reason why i am writing this blog post, for some reason on some systems that run Jellyfin when a transaction takes place the SQ-Lite engine reports the database a locked and instead of waiting for the transaction to be resolved the engine refuses to wait and just crashes. 
+This is where it gets spicy and we come to the real reason why i am writing this blog post, for some reason on some systems that run Jellyfin when a transaction takes place the SQLite engine reports the database a locked and instead of waiting for the transaction to be resolved the engine refuses to wait and just crashes. 
 This seems to be a not uncommon issue there are many reports to be found researching the issue.
 
 The factor that makes this issue so bad is that it does not happen reliably. So far we only have one Team member where this can be (somewhat) reliably be reproduced makes this even worse a bug. From the reports this issue happens across all Operating systems, HDD speeds and with or without virtualization. So we do not have any deciding factor identified that even contributes to the likeliness of the issue happening.
@@ -66,7 +66,7 @@ Jellyfin uses the `Polly` library perform the retry behavior and will only retry
 
 ### Pessimistic locking behavior
 
-Pessimistic locking always locks when a write to SQ-Lite should be performed. Essentially every time an Transaction is started or a write operation on the database is done though EFCore, jellyfin will wait until all other read operations are finished and then block all other operations may they be read or write until the write in question has been performed.
+Pessimistic locking always locks when a write to SQLite should be performed. Essentially every time an Transaction is started or a write operation on the database is done though EFCore, jellyfin will wait until all other read operations are finished and then block all other operations may they be read or write until the write in question has been performed.
 This however means, that jellyfin can only ever perform a single write to the database, even if it would technically does not need to. 
 
 In theory, an application should have no issue reading from table "Alice" while writing to table "Bob" however to eliminate all possible sources of concurrency related locking, in this mode jellyfin will only ever allow a single write performed on its database.
