@@ -2,7 +2,7 @@
 
 ## External Subtitles and Audio Tracks
 
-External Subtitles can be added with file suffixes.
+External Subtitles and audio tracks can be added with file suffixes.
 
 ```txt
 /Movies
@@ -13,6 +13,15 @@ External Subtitles can be added with file suffixes.
         Film.forced.en.dts
         Film.en.sdh.srt
         Film.English Commentary.en.mp3
+```
+
+```txt
+/Shows
+    /Show (2021)
+        /Season 1
+            S01E01 Title.avi
+            S01E01 Title.ja.ass
+            S01E01 Title.commentary.ja.aac
 ```
 
 Each title/flag field can be a generic string, or a special flag. A file can have multiple flags, separated with `.`
