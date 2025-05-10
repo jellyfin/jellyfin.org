@@ -24,16 +24,21 @@ Supported folder types are:
 
 ```txt
 Best_Movie_Ever (2019)
-├── Best_Movie_Ever (2019) - 1080P.mp4
-├── Best_Movie_Ever (2019) - 720P.mp4
-├── Best_Movie_Ever (2019) - Directors Cut.mp4
+├── Best_Movie_Ever (2019).mp4
 ├── behind the scenes
-│   ├── Making of the Best Movie Ever.mp4
 │   └── Finding the right score.mp4
-├── interviews
-│   └── Interview with the Director.mp4
 └── extras
     └── Home recreation.mp4
+```
+
+```txt
+Awesome TV Show (2024)
+├── Season 1
+│   ├── S01E01 episode name.mp4
+│   └── trailers
+│       └── trailer1.mp4
+└── interviews
+    └── Interview with the Director.mp4
 ```
 
 ### File Name
@@ -49,9 +54,15 @@ Supported filenames are:
 ```txt
 Best_Movie_Ever (2019)
 ├── Best_Movie_Ever (2019) - 1080P.mp4
-├── sample.mp4
-├── theme.mp3
-└── trailer.mp4
+└── theme.mp3
+```
+
+```txt
+Awesome TV Show (2024)
+├── Season 1
+│   ├── S01E01 episode name.mp4
+│   └── theme.flac
+└── sample.mp4
 ```
 
 ### File Suffix
@@ -83,15 +94,14 @@ If you would rather keep everything in a single folder, you can append special s
 ```txt
 Best_Movie_Ever (2019)
 ├── Best_Movie_Ever (2019) - 1080P.mp4
-├── That clip that I want everyone to see-clip.mp4
-├── Release Trailer-trailer.mp4
-├── Preview Trailer.trailer.avi
-├── Release Trailer 2_trailer.avi
-├── Teaser.sample.mp4
-├── Favorite Scene-scene.mp4
-├── The Best Ever-clip.mp4
-├── Making of The Best Movie Ever-behindthescenes.mp4
-├── Not the best scene-deleted.mp4
-├── Theme Song Music Video-featurette.mp4
-└── Art of the Best Movie Ever-short.mp4
+├── Preview Trailer.trailer.mp4
+└── Making of The Best Movie Ever-behindthescenes.mp4
+```
+
+```txt
+Awesome TV Show (2024)
+├── Season 1
+│   ├── S01E01 episode name.mp4
+│   └── Preview Trailer.trailer.mp4
+└── making of awesome tv show-behindthescenes.mp4
 ```
