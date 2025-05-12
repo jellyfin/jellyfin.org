@@ -148,13 +148,13 @@ Location: `/`, forward hostname is your Jellyfin server's IP address, Forward Po
 To add custom headers, select the Gear icon to the left of the location and insert the following:
 ```
 add_header X-Content-Type-Options "nosniff" always;
-add_header Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; media-src 'self' blob:; img-src 'self'; worker-src 'self' blob:; frame-ancestors 'self';" always;
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; media-src 'self' blob:; img-src 'self'; worker-src 'self' blob:; frame-ancestors 'self';" always;
 ```
 Save, test and verify that your Jellyfin instance is working properly and content loads as expected.
 If you use custom CSS in your Jellyfin UI you can add the URL's to the Content Security Policy header, example:
 ```
 add_header X-Content-Type-Options "nosniff" always;
-add_header Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/logo.css https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; media-src 'self' blob:; img-src 'self'; worker-src 'self' blob:; frame-ancestors 'self';" always;
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' blob:; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/logo.css https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; media-src 'self' blob:; img-src 'self'; worker-src 'self' blob:; frame-ancestors 'self';" always;
 ```
 As always, save and verify that your Jellyfin instance is working properly, rescan your Jellyfin with the Mozilla Observatory Scanner and verify the rating is an A+.
 
