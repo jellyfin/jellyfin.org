@@ -124,7 +124,9 @@ Create a proxy host and point it to your Jellyfin server's IP address and http p
 Enable "Block Common Exploits", and "Websockets Support". Configure the access list if you intend to use them. Otherwise leave it on "publicly accessible".
 
 ## Extra Configurations
+
 ### Disable Proxy Buffering
+
 In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  This is optional, but recommended if you intend to make Jellyfin accessible outside of your home.
 
 ```config
@@ -132,27 +134,29 @@ In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  Thi
     proxy_buffering off;
 ```
 
-### Enforcing SSL 
+### Enforcing SSL
+
 In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
 
 ### Additional Security Options
-These settings can make your UI unusable if set incorrectly and may require fine tuning for your Jellyfin instance. 
-Jellyfin out of the box does not contain certain headers such as Content Security Policy headers, this leads to online scanning tools such as [Mozzilla's Observatory Scanner](https://developer.mozilla.org/en-US/observatory) rating Jellyfin at a `C+/B` rating. Nginx Proxy Manager can set these headers allowing Jellyfin to score an `A` rating. 
 
-Inside your Jellyfin Proxy Host configuration, navigate to "Custom locations", add a location. 
-Location: `/`, forward hostname is your Jellyfin server's IP address, Forward Port is the http port (usually 8096). 
-To add custom headers, select the Gear icon to the left of the location and insert the following: 
+These settings can make your UI unusable if set incorrectly and may require fine tuning for your Jellyfin instance.
+Jellyfin out of the box does not contain certain headers such as Content Security Policy headers, this leads to online scanning tools such as [Mozzilla's Observatory Scanner](https://developer.mozilla.org/en-US/observatory) rating Jellyfin at a `C+/B` rating. Nginx Proxy Manager can set these headers allowing Jellyfin to score an `A` rating.
+
+Inside your Jellyfin Proxy Host configuration, navigate to "Custom locations", add a location.
+Location: `/`, forward hostname is your Jellyfin server's IP address, Forward Port is the http port (usually 8096).
+To add custom headers, select the Gear icon to the left of the location and insert the following:
 ```
 add_header X-Content-Type-Options "nosniff" always;
 add_header Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; media-src 'self' blob:; img-src 'self'; worker-src 'self' blob:; frame-ancestors 'self';" always;
 ```
-Save, test and verify that your Jellyfin instance is working properly and content loads as expected. 
+Save, test and verify that your Jellyfin instance is working properly and content loads as expected.
 If you use custom CSS in your Jellyfin UI you can add the URL's to the Content Security Policy header, example:
 ```
 add_header X-Content-Type-Options "nosniff" always;
 add_header Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/logo.css https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; media-src 'self' blob:; img-src 'self'; worker-src 'self' blob:; frame-ancestors 'self';" always;
 ```
-As always, save and verify that your Jellyfin instance is working properly, rescan your Jellyfin with the Mozilla Observatory Scanner and verify the rating is an A+. 
+As always, save and verify that your Jellyfin instance is working properly, rescan your Jellyfin with the Mozilla Observatory Scanner and verify the rating is an A+.
 
-Debugging: 
-You can verify Content Security Policy header issues using the inspect element tool in a browser, this will usually explain what is being blocked and what needs to be added to your configuration.  
+Debugging:
+You can verify Content Security Policy header issues using the inspect element tool in a browser, this will usually explain what is being blocked and what needs to be added to your configuration.
