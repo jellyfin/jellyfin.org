@@ -168,7 +168,7 @@ Supported filenames are:
 
 - `trailer`
 - `sample`
-- `theme` - Audio file of the theme song
+- `theme` - see [Theme Media](#theme-media) below
 
 ```txt
 Movies
@@ -302,3 +302,63 @@ Movie (2010)/extrafanart/fanart1.jpg, Movie (2010)/extrafanart/fanart2.jpg, _etc
 Example:
 
 Movie (2010)/logo.png
+
+## Other
+
+### Theme Media
+
+Theme media gives browsing your library a more audio-visual touch by playing theme songs and/or theme videos in the background while you're looking at your media listings.
+
+:::tip
+
+For these to play, users need to enable the option in their clients. In the WebUI and WebUI-based clients this is found in the User settings under Display > Library > Theme Songs, and Theme Videos, respectively.
+
+:::
+
+:::note
+
+Any type of media and codec that Jellyfin supports is allowed. Like with regular playback, the server will transcode if the client does not support the media.
+
+:::
+
+:::note
+
+In case both Theme Videos and Theme Music are found, Theme Videos will be preferred when enabled and Theme Music will not play.
+
+In the WebUI and WebUI-based clients, if there are multiple theme media found, they will be shuffled when opening the listing. [This cannot be changed](https://github.com/jellyfin/jellyfin-web/pull/5714).
+
+:::
+
+#### Videos
+
+- backdrops/\*
+
+Example:
+
+```txt
+Movies
+└── Best_Movie_Ever (2019)
+    └── backdrops
+        └── bluray-menu.ext
+```
+
+:::note
+
+Since transcoding can result in delay of theme media playback, Web-standard formats like WebM (VP9/Opus) are recommended for a smooth experience, since they generally direct play.
+
+:::
+
+#### Music
+
+- theme.ext
+- theme-music/\*
+
+Examples:
+
+```txt
+Movies
+└── Best_Movie_Ever (2019)
+    ├── theme.ext
+    └── theme-music
+        └── awesome-soundtrack-song.ext
+```
