@@ -24,7 +24,8 @@ Overall it gives your application the means of storing structured data as a sing
 Naturally this also comes at the price, if your application fully manages this file there need to be certain assumptions made like that your application is the sole owner of this file and nobody else will thinker with it while you are writing data to it. If any other application would also try to write data to it, the file would get corrupted as your application and the other might try to update the same place within the actual file. 
 
 So an application that want to use SQLite as its Database needs to be the only one accessing it. 
-Having established this fact, there comes an important thought up. If we are working with only a single file and only a single write should be done to it at a time, this also includes the same application. So not only can only a single application ever write to a SQLite file, only a single write within an application may ever write to a database.
+Having established this fact, there comes an important thought up. If we are working with only a single file and only a single write should be done to it at a time, this also includes the same application. 
+So not only can only a single application ever write to a SQLite file, only a single thread within an application may ever write to a database.
 
 ## The W-A-L mode
 
@@ -77,7 +78,6 @@ Jellyfin uses a [ReaderWriterLockSlim](https://learn.microsoft.com/en-us/dotnet/
 ### The future Smart locking behavior
 
 In the future we might also consider combining both modes, to get the best of both worlds. 
-
 
 # The result
 
