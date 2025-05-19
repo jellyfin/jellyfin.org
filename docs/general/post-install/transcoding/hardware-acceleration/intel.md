@@ -769,7 +769,7 @@ This can be useful for speeding up the OpenCL based HDR/DV tone-mapping.
 
 :::tip
 
-More detail information about Intel video hardware can be found [here](https://github.com/intel/media-driver#components-and-features).
+More detail information about Intel video hardware can be found [on the Intel media driver repo](https://github.com/intel/media-driver#components-and-features).
 
 :::
 
