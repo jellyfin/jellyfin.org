@@ -44,13 +44,16 @@ Tailscale can also be used to connect between a server and a remote reverse prox
 
 Setup on Jellyfin server:
 
-Please follow the `Setup on server` section in the [Using Tailscale Directly](#using-tailscale-directly) section.
+1. Follow the `Setup on server` section in the [Using Tailscale Directly](#using-tailscale-directly) section to setup Tailscale on the Jellyfin server host.
+2. Complete the setup on the reverse proxy server below.
+3. Open the Dashboard of the Jellyfin server and go to Networking. Add the reverse proxy Tailscale IP to the `known proxies` setting. (e.g. 100.65.43.21)
 
 Setup on reverse proxy server:
 
 1. Install the Tailscale app on the reverse proxy server and login. Instructions are available in [their install guide](https://tailscale.com/kb/1347/installation)
 2. Enable Tailscale.
 3. Setup a reverse proxy of your choice and set the upstream server to the IP from above. Example [Caddy](./caddy) configuration: (Assuming server has Tailscale IP of 100.12.34.56)
+4. Find and note your Tailscale IP of the server according to the [Tailscale Documentation](https://tailscale.com/kb/1033/ip-and-dns-addresses?tab=linux#finding-your-tailscale-ip-address). This IP will be added to the `known proxies` setting on the server. The IP should start with 100 (e.g. 100.65.43.21).
 
 ```txt
 example.com
