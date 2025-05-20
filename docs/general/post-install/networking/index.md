@@ -103,6 +103,9 @@ How exactly a port will be opened depends on your firewall software and its UI.
 Here is linked below how to open ports for:
 
 - [Windows Firewall](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/configure-a-firewall-for-report-server-access?view=sql-server-ver16#open-ports-in-windows-firewall)
+- [firewalld](https://firewalld.org/documentation/howto/open-a-port-or-service.html)
+- [Uncomplicated Firewall](https://wiki.ubuntu.com/UncomplicatedFirewall#Basic_Usage) (ufw)
+- [nftables](https://wiki.nftables.org/wiki-nftables/index.php/Main_Page)
 
 </details>
 
