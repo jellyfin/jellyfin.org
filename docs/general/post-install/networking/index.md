@@ -59,7 +59,7 @@ This however requires the use of a public DNS server - The Jellyfin Server does 
 
 </details>
 
-### Firewall/ Port Forwarding
+### Firewall / Port Forwarding
 
 Networks are usually devided from eachother by firewalls. These block all incoming traffic and are meant to protect the network.
 To access Jellyfin through these boundaries, its ports need to be forwarded/ opened in the respective firewalls.
@@ -120,7 +120,7 @@ There are multiple ways of exposing Jellyfin to the outside - the most common on
 
 If you want to learn more about reverse Proxies and how to use them for Jellyfin, learn more on our dedicated site about [Reverse-Proxies](./reverse-proxy/).
 
-### SSL/ https
+### SSL / https
 
 Using https to access the Server is recommended.
 By default https will not be enabled, because it requires an SSL Certificate.
