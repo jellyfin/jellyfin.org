@@ -8,7 +8,7 @@ title: Networking
 As a Server Software, Jellyfin offers different Services over the Network.
 Specifically Jellyfin supports the streaming of content and comes packed with a web-Client. - This will work purely over the http(s) ports.
 
-Additionaly in local networks Jellyfin offers various Auto-Discovery services. Theese will not work outside your local subnet.
+Additionaly in local networks Jellyfin offers various Auto-Discovery services. These will not work outside your local subnet.
 
 As a fully self hosted Software, Jellyfin runs independently from the Internet.
 You do not HAVE TO make your server accessable through the internet.
