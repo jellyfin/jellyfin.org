@@ -23,14 +23,14 @@ Important things to note when using Jellyfin behind a reverse proxy.
 
 Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g `api_key` parameter), so logging the full request path can expose secrets to your logfile.
 We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
-The nginx documentation [here](./nginx/) includes an example how to censor sensitive information from a logfile.
+Our [nginx guide](./nginx/) includes an example how to censor sensitive information from a logfile.
 
 ### forwarded-for headers
 
 Since the reverse proxy forwards the traffic to the Jellyfin-Server, Jellyfin will see all requests comming from the reverse proxy, not the actual Client IP's.
 This introduces potential security risks and can also break compatibility.
 
-Therefore the IP Adress(es) of the reverse Proxy MUST be set in the Network configuration [here](../settings-overview#Known-Proxies).
+Therefore the IP Adress(es) of the reverse Proxy MUST be set in the [Network configuration](../settings-overview#Known-Proxies).
 This will enable Jellyfin to search for `X-Forwarded-For`, `X-Forwarded-Proto` and `X-Forwarded-Host` headers and use the associated value as the source IP adress.
 
 This assumes that the reverse Proxy is set up to include this header, which is not always the case by default.
@@ -42,7 +42,6 @@ Jellyfin makes use of Websockets for various things. Not all reverse proxies all
 
 ## Guides
 
-We recommend using [Caddy](https://caddyserver.com) for its easy install and use.
 We recommend using [Caddy](https://caddyserver.com/) for its easy install and use. We provide a [guide](./caddy/) for configuring Caddy with Jellyfin.
 
 If you do not want to use Caddy, some other popular options for reverse proxy systems are [Nginx](https://www.nginx.com), [Traefik](https://traefik.io), [Haproxy](https://www.haproxy.com) and [Apache](https://httpd.apache.org). Note that these have a greater learning curve than the recommended reverse proxy Caddy. You can find respective guides here:

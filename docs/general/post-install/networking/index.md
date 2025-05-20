@@ -14,7 +14,7 @@ As a fully self hosted Software, Jellyfin runs independently from the Internet.
 You do not HAVE TO make your server accessable through the internet.
 Neither does jellyfin require an internet connection to run - however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
 
-If you are looking for a detailed overview of the networking settings, see [here](./settings-overview/).
+If you are looking for a detailed overview of the networking settings, see the [Settings Overview](./settings-overview/).
 
 ## Port Bindings
 
@@ -126,7 +126,7 @@ There are multiple ways of exposing Jellyfin to the outside - the most common on
 - using a VPN connection to enter the Network
 - use a VPS to Reverse Proxy to your home network
 
-If you want to learn more about reverse Proxies and how to use them for Jellyfin, learn more [here](./reverse-proxy/)
+If you want to learn more about reverse Proxies and how to use them for Jellyfin, learn more on our dedicated site about [Reverse-Proxies](./reverse-proxy/).
 
 ### SSL/ https
 
