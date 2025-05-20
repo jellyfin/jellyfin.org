@@ -26,7 +26,7 @@ Base URL is known to break HDHomeRun, DLNA, Sonarr, Radarr, Chromecast, and MrMC
 
 :::
 
-The Base URL setting in the **Networking** page is an advanced setting used to specify the URL prefix that your Jellyfin instance can be accessed at. In effect, it adds this URL fragment to the start of any URL path. For instance, if you have a Jellyfin server at `http://myserver` and access its main page `http://myserver/web/index.html`, setting a Base URL of `/jellyfin` will alter this main page to `http://myserver/jellyfin/web/index.html`. This can be useful if administrators want to access multiple Jellyfin instances under a single domain name, or if the Jellyfin instance lives only at a subpath to another domain with other services listening on `/`.
+The Base URL setting is an advanced setting used to specify the URL prefix that your Jellyfin instance can be accessed at. In effect, it adds this URL fragment to the start of any URL path. For instance, if you have a Jellyfin server at `http://myserver` and access its main page `http://myserver/web/index.html`, setting a Base URL of `/jellyfin` will alter this main page to `http://myserver/jellyfin/web/index.html`. This can be useful if administrators want to access multiple Jellyfin instances under a single domain name, or if the Jellyfin instance lives only at a subpath to another domain with other services listening on `/`.
 
 The entered value on the configuration page will be normalized to include a leading `/` if this is missing.
 
@@ -39,3 +39,14 @@ There are three main caveats to this setting.
 2. Client applications generally, for now, do not handle the Base URL redirects implicitly. Therefore, for instance in the Android app, the `Host` setting _must_ include the BaseURL as well (e.g. `http://myserver:8096/baseurl`), or the connection will fail.
 
 3. Any reverse proxy configurations must be updated to handle a new Base URL. Generally, passing `/` back to the Jellyfin instance will work fine in all cases and the paths will be normalized, and this is the standard configuration in our examples. Keep this in mind however when doing more advanced routing.
+
+## Automatic port mapping
+
+Universal Plug and Play (UPnP) is a network protocol that allows devices on a local network to automatically discover each other and establish functional network services. When enabled, UPnP lets the server request the router to open and forward ports automatically.
+
+Using this is highly discouraged, as it may introduce security issues and often lacks proper implementation on router side. Instead the forwards should be configured on the Router manualy. For more about this see the section about [Port Forwards](./#firewall-port-forwarding).
+
+![Network configuration - Automatic Port Mapping](/images/docs/post-install/networking/settings-overview/networking-upnp-config.png)
+
+When automatic port mapping is enabled, the Server will try to automatically set up Port forwards.
+It will use the Ports configured here as the public port and Jellyfins respective Port as internal.
