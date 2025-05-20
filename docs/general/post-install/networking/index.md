@@ -14,8 +14,6 @@ As a fully self hosted Software, Jellyfin runs independently from the Internet.
 You do not HAVE TO make your server accessable through the internet.
 Neither does jellyfin require an internet connection to run - however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
 
-If you are looking for a detailed overview of the networking settings, see the [Settings Overview](./settings-overview/).
-
 ## Port Bindings
 
 This section aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
@@ -29,21 +27,17 @@ This section aims to provide an administrator with knowledge on what ports Jelly
 <details>
 <summary>See details</summary>
 
-- **HTTP Traffic:** 8096
-    The web frontend can be accessed here for debugging SSL certificate issues on your local network. You can modify this setting from the **Networking** page in the admin settings.
+- **HTTP Traffic** (8096/tcp):
+    The web frontend can be accessed here. You can modify this setting from the **Networking** page in the admin settings.
 
-- **HTTPS Traffic:** 8920
+- **HTTPS Traffic** (8920/tcp):
     Used when https is enabled. By default this port will not be used.
     This setting can also be modified from the **Networking** page to use a different port.
 
-- **Client Discovery:** 7359 UDP
+- **Client Discovery** (7359/udp):
     Allows clients to discover Jellyfin on the local network. A broadcast message to this port will return detailed information about your server that includes name, ip-address and ID.
 
 </details>
-
-### Monitoring Endpoints
-
-See [monitoring](./advanced/monitoring) for details on the monitoring endpoints that Jellyfin provides.
 
 ## Accessing Jellyfin
 
@@ -51,7 +45,7 @@ This section focusses on how to make Jellyfin Available within Networks.
 Here you will find descriptions on how to make Jellyfin accessible both only localy and through the Internet.
 
 In general, Jellyfin will be available localy on the specified port over the host-ip - e.g. `http://10.0.0.2:8096`.
-However its also possible to create a local DNS entry that will point to your Jellyfin-Server - e.g. `jellyfin.local:8096`.
+However its also possible to create a local DNS entry that will point to your Jellyfin-Server - e.g. `http://jellyfin.local:8096`.
 
 <details>
 <summary>Learn more about limitations with local DNS</summary>
@@ -113,7 +107,7 @@ Autodiscovery services will only work localy and should not be made accessible e
 To access a server remotely there will need to be a way to find it or its network on the internet.
 This can be done through the public IP Adress of the Device or for IPv6 the Server's directly.
 
-To store the IP Adress, the easiest option would be to use a Domain and rely on the DNS System to resolve it.
+To store the IP Adress, the easiest option would be to use a Domain and rely on DNS to resolve it.
 This can also be used to store the 'current IP Adress' in the case of a dynamic public IP Adress.
 However its not mandatory to use a Domain.
 
@@ -140,7 +134,8 @@ Self signed certificates present problems with security and compatibility and ar
 
 :::
 
-Whilst Jellyfin offers https support its also possible to handle https/ ssl entirely on Proxy level.
+Whilst Jellyfin offers https support it is strongly recommended to handle this seperately on a Reverse Proxy.
+You can find more info on how to set this up on our [Reverse Proxy](./reverse-proxy/) page.
 
 **It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.**
 
