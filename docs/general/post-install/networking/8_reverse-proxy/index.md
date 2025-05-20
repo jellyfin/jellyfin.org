@@ -45,7 +45,7 @@ Jellyfin makes use of Websockets for various things. Not all reverse proxies all
 We recommend using [Caddy](https://caddyserver.com) for its easy install and use.
 We recommend using [Caddy](https://caddyserver.com/) for its easy install and use. We provide a [guide](./caddy/) for configuring Caddy with Jellyfin.
 
-If you do not want to use Caddy, some other popular options for reverse proxy systems are [Nginx](https://www.nginx.com), [Traefik](https://traefik.io), [Haproxy](https://www.haproxy.com) and[Apache](https://httpd.apache.org). Note that these have a greater learning curve than the recommended reverse proxy Caddy. You can find respective guides here:
+If you do not want to use Caddy, some other popular options for reverse proxy systems are [Nginx](https://www.nginx.com), [Traefik](https://traefik.io), [Haproxy](https://www.haproxy.com) and [Apache](https://httpd.apache.org). Note that these have a greater learning curve than the recommended reverse proxy Caddy. You can find respective guides here:
 
 - [Nginx](./nginx)
 - [Traefik](./traefik)

@@ -23,7 +23,7 @@ Traefik has many options for the configuration of LetsEncrypt using your choice 
 
 The configuration below creates a Traefik v2.x installation with access at entryPoint ports 80 (labelled 'http'), 443 (labeled 'https'), and 9999 (labeled 'secure'). Unrelated to this Jellyfin configuration, it redirects all traffic from http (port 80) to https (port 443) to ensure all data is encrypted. As for Jellyfin, it makes the service accessible without a path on the secure entry point. This configuration is intended to be used as a starting point and some adaptation is likely required for your configuration. If you want Jellyfin to be accessible without using a port (using the default https port), simply change 'secure' to 'https' in `docker-compose.yml` where indicated and remove the ':9999' from the SSLHost parameter. If you want Jellyfin to be accessible with a path, simply add the PathPrefix (i.e. '/jellyfin') and see the note near the end of this document about configuring Jellyfin.
 
-### docker-compose.yml
+## docker-compose.yml
 
 ```yml
 services:
