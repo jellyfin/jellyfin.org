@@ -15,10 +15,16 @@ Make sure to reboot your Jellyfin-Server to complete the plugin install.
 
 ## General
 
-DLNA is based on uPnP.
+DLNA is based on UPnP.
+
+Therefore it will make use of its **Service Discovery:** (SSDP) running on Port 1900 UDP.
+Since UPnP is a universal Protocol expecting to run on port 1900, its not possible to configure this.
+Make sure to open this port to your local network. You will find more information about this in the [Port-Forwarding guide](./#firewall-port-forwarding).
+
+
 DLNA will send a broadcast signal from Jellyfin.
 This broadcast is limited to Jellyfin's current subnet.
-If you are using docker, the network should use Host Mode, otherwise the broadcast signal will only be sent in the bridged network inside of docker.
+If you are using docker, the network should use **Host Mode**, otherwise the broadcast signal will only be sent in the bridged network inside of docker.
 
 If DLNA fails to bind properly, the message `[ERR] Failed to bind to port 1900: "Address already in use". DLNA will be unavailable` should appear in the logs.
 

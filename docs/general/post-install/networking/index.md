@@ -24,7 +24,6 @@ This section aims to provide an administrator with knowledge on what ports Jelly
 |---|---|---|---|
 | 8096 | tcp | ✔️ | Default http |
 | 8920 | tcp | ✔️ | Default https |
-| 1900 | udp | ❌ | UPnP (SSDP) |
 | 7359 | udp | ❌ | Client Discovery |
 
 <details>
@@ -37,12 +36,8 @@ This section aims to provide an administrator with knowledge on what ports Jelly
     Used when https is enabled. By default this port will not be used.
     This setting can also be modified from the **Networking** page to use a different port.
 
-- **Service Discovery:** 1900
-    Used for UPnP service discovery. This is also needed to discover your Server via DLNA in the local subnet (when enabled)
-    Since UPnP is a universal Protocol expecting to run on port 1900, its not possible to configure this.
-
 - **Client Discovery:** 7359 UDP
-    Allows clients to discover Jellyfin on the local network. A broadcast message to this port with `Who is JellyfinServer?` will get a JSON response that includes the server address, ID, and name.
+    Allows clients to discover Jellyfin on the local network. A broadcast message to this port will return detailed information about your server that includes name, ip-address and ID.
 
 </details>
 
