@@ -1,0 +1,48 @@
+---
+uid: provider-identifiers
+title: Media Provider Identifiers
+---
+
+# Media Provider Identifiers
+
+To improve the accuracy of media identification, you can manually specify a media provider identifier for each movie or show. Each media provider uses a unique identifier for its content, and adding these identifiers greatly improves media identification. Identifiers can be specified in your movie/show file or folder name. For example:
+
+```txt
+Movies
+├── Best_Movie_Ever (1994) [tmdbid-680]
+│   ├── Best_Movie_Ever (1994) [tmdbid-680].mp4
+└── Movie (2021) [imdbid-tt12801262]
+    └── Movie (2021) [imdbid-tt12801262].mp4
+Shows
+└── Series Name (2018) [tvdbid-79168]
+    ├── Season 01
+    |   ├── Series Name B S01E01.mkv
+    |   └── Series Name B S01E02.mkv
+    └── Season 02
+        ├── Series Name B S02E01-E02.mkv
+        └── Series Name B S02E03.mkv
+```
+
+## Finding Media Identifiers
+Below are instructions on how to find media provider identifiers for each supported provider.
+
+### The Movie Database (TVDB)
+The identifier is found in the URL of the movie/show. For example:
+
+URL: `https://www.themoviedb.org/movie/569094-spider-man-across-the-spider-verse`
+
+Identifier: `[tmdbid-569094]`
+
+### Internet Movie Database (IMDB)
+The identifier is found in the URL of the movie/show. For example:
+
+URL: `https://www.imdb.com/title/tt9362722/`
+
+Identifier: `[imdbid-tt9362722]`
+
+### The TV Database (TVDB)
+The identifier is found on the main page of the movie/show. For example:
+
+![How to find The TVDB media identifier](/images/docs/tvdb-media-identifier-example.png)
+
+Identifier: `[tvdbid-132814]`
