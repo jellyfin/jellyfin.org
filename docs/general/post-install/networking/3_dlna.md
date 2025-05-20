@@ -21,7 +21,6 @@ Therefore it will make use of its **Service Discovery:** (SSDP) running on Port 
 Since UPnP is a universal Protocol expecting to run on port 1900, its not possible to configure this.
 Make sure to open this port to your local network. You will find more information about this in the [Port-Forwarding guide](./#firewall-port-forwarding).
 
-
 DLNA will send a broadcast signal from Jellyfin.
 This broadcast is limited to Jellyfin's current subnet.
 If you are using docker, the network should use **Host Mode**, otherwise the broadcast signal will only be sent in the bridged network inside of docker.
