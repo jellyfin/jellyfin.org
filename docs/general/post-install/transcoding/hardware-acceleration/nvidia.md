@@ -411,6 +411,88 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 :::
 
+#### Podman
+
+Podman is the officially supported container solution on Fedora Linux and its derivatives such as CentOS Stream and RHEL.
+
+1. Add the CUDA repo to your package manager.
+
+   Browse the following directory to find the appropritate .repo file for your distribution:
+
+   [CUDA repos](https://developer.download.nvidia.com/compute/cuda/repos/)
+
+   Install the appropriate repository file into your package manager.
+
+   The way to do this depends on your package manager and OS release. For example, Fedora 41 users will use the command:
+
+   `sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora41/$(uname -m)/cuda-fedora41.repo`
+
+2. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
+
+3. Generate a CDI specification file.
+
+   `sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml`
+
+   See: [Support for Container Device Interface — NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html)
+
+4. Adapt your podman commandline or systemd container file to use the device: `nvidia.com/gpu=0`
+
+   For example, your podman commandline should now look like this:
+   
+   ```sh
+   podman run \
+    --detach \
+    --label "io.containers.autoupdate=registry" \
+    --name myjellyfin \
+    --publish 8096:8096/tcp \
+    --device nvidia.com/gpu=0 \
+    # --security-opt label=disable # Only needed for older versions of container-selinux < 2.226
+    --rm \
+    --user $(id -u):$(id -g) \
+    --userns keep-id \
+    --volume jellyfin-cache:/cache:Z \
+    --volume jellyfin-config:/config:Z \
+    --mount type=bind,source=/path/to/media,destination=/media,ro=true,relabel=private \
+    docker.io/jellyfin/jellyfin:latest
+   ```
+
+   Systemd:
+   
+   ```sh
+   [Unit]
+   Description=jellyfin
+   
+   [Container]
+   Image=docker.io/jellyfin/jellyfin:latest
+   AutoUpdate=registry
+   PublishPort=8096:8096/tcp
+   UserNS=keep-id
+   #SecurityLabelDisable=true # Only needed for older versions of container-selinux < 2.226
+   AddDevice=nvidia.com/gpu=0
+   Volume=jellyfin-config:/config:Z
+   Volume=jellyfin-cache:/cache:Z
+   Volume=jellyfin-media:/media:Z
+   
+   [Service]
+   # Inform systemd of additional exit status
+   SuccessExitStatus=0 143
+   
+   [Install]
+   # Start by default on boot
+   WantedBy=default.target 
+   ```
+   
+5. Create the following udev rule to make sure the GPU devices are initialized before the container is started.
+
+Save the following file as `/etc/udev/rules.d/nvidia.rules` :
+```
+ACTION=="add|bind", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", \
+    DRIVER=="nvidia", TEST!="/dev/nvidia-uvm", \
+    RUN+="/usr/bin/nvidia-modprobe", \
+    RUN+="/usr/bin/nvidia-modprobe -c0 -u", \
+    RUN+="/usr/bin/nvidia-modprobe -m"
+```
+
 #### Other Virtualizations
 
 Other Virtualizations are not verified and may or may not work on NVIDIA GPU.
