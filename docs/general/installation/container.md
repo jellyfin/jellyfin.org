@@ -324,47 +324,6 @@ SuccessExitStatus=0 143
 WantedBy=default.target
 ```
 
-#### Additional steps for NVIDIA GPUs
+#### Vendor-specific configuration
 
-1. Add the CUDA repo to your package manager.
-
-   Browse the following directory to find the appropritate .repo file for your distribution:
-
-   [CUDA repos](https://developer.download.nvidia.com/compute/cuda/repos/)
-
-   Install the appropriate repository file into your package manager.
-
-   The way to do this depends on your package manager. For example, Fedora 41 users will use the command:
-
-   `sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora41/$(uname -m)/cuda-fedora41.repo`
-
-2. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
-
-3. Generate a CDI specification file.
-
-   `sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml`
-
-   See: [Support for Container Device Interface — NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html)
-
-4. Replace the device `/dev/dri/:/dev/dri/` in your podman commandline or systemd container file with the following device:
-
-   `nvidia.com/gpu=0`
-
-   For example, your podman commandline should now look like this:
-   
-   ```sh
-   podman run \
-    --detach \
-    --label "io.containers.autoupdate=registry" \
-    --name myjellyfin \
-    --publish 8096:8096/tcp \
-    --device nvidia.com/gpu=0 \
-    # --security-opt label=disable # Only needed for older versions of container-selinux < 2.226
-    --rm \
-    --user $(id -u):$(id -g) \
-    --userns keep-id \
-    --volume jellyfin-cache:/cache:Z \
-    --volume jellyfin-config:/config:Z \
-    --mount type=bind,source=/path/to/media,destination=/media,ro=true,relabel=private \
-    docker.io/jellyfin/jellyfin:latest
-   ```
+Additional configuration steps may be required depending on your GPU vendor. Check the [Hardware Acceleration](docs/general/post-install/transcoding/hardware-acceleration/) section.
