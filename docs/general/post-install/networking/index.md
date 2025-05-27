@@ -8,11 +8,11 @@ title: Networking
 As a Server Software, Jellyfin offers different Services over the Network.
 Specifically Jellyfin supports the streaming of content and comes packed with a web-Client. - This will work purely over the http(s) ports.
 
-Additionaly in local networks Jellyfin offers various Auto-Discovery services. These will not work outside your local subnet.
+Additionally in local networks Jellyfin offers various Auto-Discovery services. These will not work outside your local subnet.
 
 As a fully self hosted Software, Jellyfin runs independently from the Internet.
-You do not HAVE TO make your server accessable through the internet.
-Neither does jellyfin require an internet connection to run - however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
+You do not HAVE TO make your server accessible through the internet.
+Neither does Jellyfin require an internet connection to run - however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
 
 ## Port Bindings
 
@@ -42,7 +42,7 @@ This section aims to provide an administrator with knowledge on what ports Jelly
 ## Accessing Jellyfin
 
 This section focusses on how to make Jellyfin Available within Networks.
-Here you will find descriptions on how to make Jellyfin accessible both only localy and through the Internet.
+Here you will find descriptions on how to make Jellyfin accessible both only locally and through the Internet.
 
 In general, Jellyfin will be available localy on the specified port over the host-ip - e.g. `http://10.0.0.2:8096`.
 However its also possible to create a local DNS entry that will point to your Jellyfin-Server - e.g. `http://jellyfin.local:8096`.
@@ -54,7 +54,7 @@ Devices like Google Chromecast or Google Streamer use hardcoded DNS Servers - th
 There are multiple workarrounds for this issue.
 
 The easiest involves the usage of IPv6 Entries in the public DNS.
-Since IPv6 adresses dont differenciate between local and public, the adress will be abled to get resolved localy.
+Since IPv6 addresses dont differentiate between local and public, the address will be abled to get resolved localy.
 This however requires the use of a public DNS server - The Jellyfin Server does not have to be accessible from the outside though!
 
 </details>
@@ -62,7 +62,7 @@ This however requires the use of a public DNS server - The Jellyfin Server does 
 ### Firewall / Port Forwarding
 
 Networks are usually devided from eachother by firewalls. These block all incoming traffic and are meant to protect the network.
-To access Jellyfin through these boundaries, its ports need to be forwarded/ opened in the respective firewalls.
+To access Jellyfin through these boundaries, its ports need to be forwarded / opened in the respective firewalls.
 
 Note that opening a port gives full access to that port to the next higher Network.
 Opening a port directly to the Internet is therefore insecure and not recommended.
