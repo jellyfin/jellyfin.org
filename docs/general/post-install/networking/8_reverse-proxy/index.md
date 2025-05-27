@@ -27,11 +27,11 @@ Our [nginx guide](./nginx/) includes an example how to censor sensitive informat
 
 ### forwarded-for headers
 
-Since the reverse proxy forwards the traffic to the Jellyfin-Server, Jellyfin will see all requests comming from the reverse proxy, not the actual Client IP's.
+Since the reverse proxy forwards the traffic to the Jellyfin-Server, Jellyfin will see all requests coming from the reverse proxy, not the actual Client IP's.
 This introduces potential security risks and can also break compatibility.
 
-Therefore the IP Adress(es) of the reverse Proxy MUST be set in the Network configuration..
-This will enable Jellyfin to search for `X-Forwarded-For`, `X-Forwarded-Proto` and `X-Forwarded-Host` headers and use the associated value as the source IP adress.
+Therefore the IP Address(es) of the reverse Proxy MUST be set in the Network configuration..
+This will enable Jellyfin to search for `X-Forwarded-For`, `X-Forwarded-Proto` and `X-Forwarded-Host` headers and use the associated value as the source IP address.
 
 This assumes that the reverse Proxy is set up to include this header, which is not always the case by default.
 If issues with source IP forwarding appear, this should be checked.

@@ -44,7 +44,7 @@ This section aims to provide an administrator with knowledge on what ports Jelly
 This section focusses on how to make Jellyfin Available within Networks.
 Here you will find descriptions on how to make Jellyfin accessible both only locally and through the Internet.
 
-In general, Jellyfin will be available localy on the specified port over the host-ip - e.g. `http://10.0.0.2:8096`.
+In general, Jellyfin will be available locally on the specified port over the host-ip - e.g. `http://10.0.0.2:8096`.
 However its also possible to create a local DNS entry that will point to your Jellyfin-Server - e.g. `http://jellyfin.local:8096`.
 
 <details>
@@ -54,7 +54,7 @@ Devices like Google Chromecast or Google Streamer use hardcoded DNS Servers - th
 There are multiple workarrounds for this issue.
 
 The easiest involves the usage of IPv6 Entries in the public DNS.
-Since IPv6 addresses dont differentiate between local and public, the address will be abled to get resolved localy.
+Since IPv6 addresses dont differentiate between local and public, the address will be abled to get resolved locally.
 This however requires the use of a public DNS server - The Jellyfin Server does not have to be accessible from the outside though!
 
 </details>
@@ -80,7 +80,7 @@ There are different layers where a firewall can be placed:
 
 Whilst Routers often allow you to forward a port, firewalls typically only allow you to open one.
 The difference is within the Target. Opening a Port essentially just means that traffic on this Port will go through.
-Forwarding a Port you typically do in NAT scenarios - traffic is comming in on your public IP Adress, what device inside your network should recieve it.
+Forwarding a Port you typically do in NAT scenarios - traffic is coming in on your public IP Address, what device inside your network should recieve it.
 Sometime port forwarding also offers to set a different target port then entry port.
 
 </details>
@@ -102,13 +102,13 @@ Here is linked below how to open ports for:
 
 Since Jellyfin is entirely self hosted, the server will have to be made accessible from the Internet manualy.
 To do that there will have to be some way to access the http(s) port remotely.
-Autodiscovery services will only work localy and should not be made accessible externaly.
+Autodiscovery services will only work locally and should not be made accessible externaly.
 
 To access a server remotely there will need to be a way to find it or its network on the internet.
-This can be done through the public IP Adress of the Device or for IPv6 the Server's directly.
+This can be done through the public IP Address of the Device or for IPv6 the Server's directly.
 
-To store the IP Adress, the easiest option would be to use a Domain and rely on DNS to resolve it.
-This can also be used to store the 'current IP Adress' in the case of a dynamic public IP Adress.
+To store the IP Address, the easiest option would be to use a Domain and rely on DNS to resolve it.
+This can also be used to store the 'current IP Address' in the case of a dynamic public IP Address.
 However its not mandatory to use a Domain.
 
 There are multiple ways of exposing Jellyfin to the outside - the most common ones are:
