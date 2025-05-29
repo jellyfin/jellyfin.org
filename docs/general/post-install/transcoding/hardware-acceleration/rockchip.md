@@ -264,7 +264,7 @@ LXC setup idea is a bit similar to docker - you need to pass the **device files*
 
    :::warning
 
-   Privileged LXC containers are considered unsafe by design - read more [here](https://linuxcontainers.org/lxc/security/). This guide however does not cover steps required to make jellyfin VPU hardware acceleration working in unprivileged container.
+   Privileged LXC containers are considered unsafe by design - read more [on the LXC official documentation](https://linuxcontainers.org/lxc/security/). This guide however does not cover steps required to make jellyfin VPU hardware acceleration working in unprivileged container.
 
    :::
 
