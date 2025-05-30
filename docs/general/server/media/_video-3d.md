@@ -4,7 +4,7 @@
 
 3D Videos are identified using flags in the file name. To identify 3D content by filename, the first tag is `3D`, which must be combined with one of the following tags to specify the specific 3D format:
 
-| Format                 | Tag           |
+| Format                 | Flag          |
 | ---------------------- | ------------- |
 | half side by side      | `hsbs`        |
 | full side by side      | `fsbs`        |
@@ -13,7 +13,7 @@
 | Multiview Video Coding | `mvc`         |
 | Anaglyph               | Not Supported |
 
-The tags are case-insensitive and must be surrounded by either a space, hyphen `-`, dot `.` or underscore `_`.
+The tags are case-insensitive and must be surrounded by either a space, hyphen `-`, dot `.`, or underscore `_`.
 
 ```txt
 Awesome 3D Movie (2022).3D.FTAB.mp4

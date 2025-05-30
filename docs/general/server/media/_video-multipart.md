@@ -2,7 +2,7 @@
 
 ## Multiple Parts
 
-Content that are split into multiple files can be stacked together if named correctly. Files should be named as follows:
+Content that is split into multiple files can be stacked together if named correctly. Files should be named as follows:
 
 ```txt
 Movie Name (2010)
@@ -38,4 +38,4 @@ Supported separators are:
 - `-` (dash)
 - `_` (underscore)
 
-This does not work in conjunction with multiple versions or merging.
+This does not work with multiple versions or merging.

@@ -32,7 +32,7 @@ Each title/flag field can be a generic string, or a special flag. A file can hav
 | Forced           | `forced`, `foreign` |
 | Hearing Impaired | `sdh`, `cc`, `hi`   |
 
-`hi` collides with the Hindi language abbreviation. `hi` by itself will resolve as a Hindi language track, while `hi` in conjunction with another language identifier (such as `title.en.hi.srt`) will use the other language and tag it as hearing impaired.
+`hi` collides with the Hindi language abbreviation. `hi` by itself will resolve as a Hindi language track, while `hi` in addition to another language identifier (such as `title.en.hi.srt`) will use the other language and tag it as hearing impaired.
 
 Flags are ignored on containers with more than one stream.
 
