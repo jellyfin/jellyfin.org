@@ -38,7 +38,7 @@ If issues with source IP forwarding appear, this should be checked.
 
 ### Websockets
 
-Jellyfin makes use of Websockets for various things. Not all reverse proxies allow this by default. Its important to make sure Websockets are allowed for your Jellyfin-Server.
+Jellyfin makes use of Websockets for various things. Not all reverse proxies allow this by default. Its important to make sure Websockets are allowed for your Jellyfin server.
 
 ## Guides
 

@@ -8,10 +8,10 @@ sidebar-position: 2
 
 ## Installation
 
-DLNA support has been moved to a first party plugin and is not included in a Jellyfin base-install.
+DLNA support has been moved to a first party plugin and is not included in a Jellyfin base install since 10.9.
 If you want to use DLNA, please install the plugin from the official Plugin catalog.
 To do so simply navigate to the admin dashboard, open the Catalog and install the [DLNA Plugin](https://github.com/jellyfin/jellyfin-plugin-dlna). Plugins maintained by the Jellyfin Project will be available in there by default.
-Make sure to reboot your Jellyfin-Server to complete the plugin installation.
+Make sure to restart your Jellyfin-Server to complete the plugin installation.
 
 ## General
 
@@ -22,7 +22,7 @@ Make sure to reboot your Jellyfin-Server to complete the plugin installation.
 
 DLNA is based on UPnP.
 Therefore it will make use of its **Service Discovery** (SSDP) running on Port 1900 UDP.
-Since UPnP is a universal Protocol expecting to run on port 1900, its not possible to configure this.
+Since UPnP is a standard Protocol expected to be on UDP port 1900, its not possible to configure this.
 Make sure to open this port to your local network. You will find more information about how to do this in the [Port-Forwarding guide](./#firewall-port-forwarding).
 
 DLNA will send a broadcast signal from Jellyfin.
