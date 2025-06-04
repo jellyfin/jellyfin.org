@@ -19,9 +19,9 @@ External Subtitles and audio tracks can be added with file suffixes.
 /Shows
     /Show (2021)
         /Season 1
-            S01E01 Title.avi
-            S01E01 Title.ja.ass
-            S01E01 Title.commentary.ja.aac
+            Show (2021) S01E01 Title.avi
+            Show (2021) S01E01 Title.ja.ass
+            Show (2021) S01E01 Title.commentary.ja.aac
 ```
 
 Each title/flag field can be a generic string, or a special flag. A file can have multiple flags, separated with `.`
