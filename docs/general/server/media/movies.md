@@ -53,7 +53,7 @@ The video files within the folder should have the same name has the folder. I.e.
 - Example with external id: `Jellyfin Documentary [imdbid-tt00000000].mkv`
 - Example with both year and external id: `Jellyfin Documentary (2030) [imdbid-tt00000000].mkv`
 
-import VideoMetadataProviders from './\_\_video-metadata-providers.md';
+import VideoMetadataProviders from './\_video-metadata-providers.md';
 
 <VideoMetadataProviders />
 
