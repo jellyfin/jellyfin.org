@@ -35,6 +35,10 @@ MusicVideos
     └── Song 4.avi
 ```
 
+### Naming
+
+The folders and video files can be named however you want, since no metadata fetching is performed. The folder and file names will be displayed as the name of the item in Jellyfin.
+
 import ExternalStreams from './\_video-external-streams.md';
 
 <ExternalStreams />
