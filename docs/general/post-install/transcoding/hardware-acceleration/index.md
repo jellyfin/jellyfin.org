@@ -148,7 +148,7 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
 - VPP is prefered if both tone-mapping options are enabled.
 
-- Rockchip RKMPP only support HDR10 and HLG tone-mapping in Jellyfin 10.9 and 10.10.
+- Rockchip RKMPP does support Dolby Vision tone-mapping Jellyfin 10.11 and later versions.
 
 :::
 
