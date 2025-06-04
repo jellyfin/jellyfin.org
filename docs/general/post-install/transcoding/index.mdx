@@ -7,6 +7,12 @@ title: Transcoding
 
 These settings will relate to backend options that modify how the server transcodes media. Some improve or change the media quality while others reduce the resources required to transcode the media from its original format.
 
+## Bitrate and Resolution
+
+Transcoding of local sources is always requested by the Client. The client will send transcoding profile(s) to the server containing information such as supported codecs, bitrate and additional constraints. The server will then pick the best resolution and bitrate within its capabilities.
+
+The output resolution is a function of input resolution, input and output bitrates, input and output codecs, and client constraints. There is currently no way to manually override the resolution.
+
 ## Hardware Acceleration
 
 If your hardware supports this you can enable [hardware acceleration](./hardware-acceleration) for much faster transcoding. Jellyfin
