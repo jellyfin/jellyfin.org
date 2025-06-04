@@ -27,7 +27,7 @@ Make sure to open this port to your local network. You will find more informatio
 
 DLNA will send a broadcast signal from Jellyfin.
 This broadcast is limited to Jellyfin's current subnet.
-If you are using docker, the network should use **Host Mode**, otherwise the broadcast signal will only be sent in the bridged network inside of docker.
+If you are using Docker, the network should use **Host Mode**, otherwise the broadcast signal will only be sent in the bridged network inside of Docker.
 
 ### Troubleshooting
 

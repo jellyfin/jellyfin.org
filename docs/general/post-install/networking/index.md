@@ -5,14 +5,14 @@ title: Networking
 
 # Networking
 
-As a Server Software, Jellyfin offers different Services over the Network.
-Specifically Jellyfin supports the streaming of content and comes packed with a web-Client. - This will work purely over the http(s) ports.
+As a server software, Jellyfin offers different services over the network.
+Specifically Jellyfin supports the streaming of content and comes packed with a web-Client. - This will work purely over the HTTP(S) ports.
 
-Additionally in local networks Jellyfin offers various Auto-Discovery services. These will not work outside your local subnet.
+Additionally, in local networks, Jellyfin offers various Auto-Discovery services. These will not work outside your local subnet.
 
-As a fully self hosted Software, Jellyfin runs independently from the Internet.
-You do not HAVE TO make your server accessible through the internet.
-Neither does Jellyfin require an internet connection to run - however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
+As a fully self-hosted software, Jellyfin runs independently from the Internet.
+You do not have to make your server accessible through the internet.
+Neither does Jellyfin require an internet connection to run; however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
 
 ## Port Bindings
 
@@ -20,21 +20,21 @@ This section aims to provide an administrator with knowledge on what ports Jelly
 
 | Port | Protocol | Configurable | Description |
 |---|---|---|---|
-| 8096 | tcp | ✔️ | Default http |
-| 8920 | tcp | ✔️ | Default https |
-| 7359 | udp | ❌ | Client Discovery |
+| 8096 | TCP | ✔️ | Default HTTP |
+| 8920 | TCP | ✔️ | Default HTTPS |
+| 7359 | UDP | ❌ | Client Discovery |
 
 <details>
 <summary>See details</summary>
 
-- **HTTP Traffic** (8096/tcp):
+- **HTTP Traffic** (8096/TCP):
     The web frontend can be accessed here. You can modify this setting from the **Networking** page in the admin settings.
 
-- **HTTPS Traffic** (8920/tcp):
+- **HTTPS Traffic** (8920/TCP):
     Used when https is enabled. By default this port will not be used.
     This setting can also be modified from the **Networking** page to use a different port.
 
-- **Client Discovery** (7359/udp):
+- **Client Discovery** (7359/UDP):
     Allows clients to discover Jellyfin on the local network. A broadcast message to this port will return detailed information about your server that includes name, ip-address and ID.
 
 </details>
@@ -51,11 +51,11 @@ However its also possible to create a local DNS entry that will point to your Je
 <summary>Learn more about limitations with local DNS</summary>
 
 Devices like Google Chromecast or Google Streamer use hardcoded DNS Servers - therefore they will not make use of your local DNS entries.
-There are multiple workarrounds for this issue.
+There are multiple workarounds for this issue.
 
 The easiest involves the usage of IPv6 Entries in the public DNS.
-Since IPv6 addresses dont differentiate between local and public, the address will be abled to get resolved locally.
-This however requires the use of a public DNS server - The Jellyfin Server does not have to be accessible from the outside though!
+Since IPv6 addresses do not differentiate between local and public, the address will be abled to be resolved locally.
+This, however, requires the use of a public DNS server - The Jellyfin Server does not have to be accessible from the outside though!
 
 </details>
 
