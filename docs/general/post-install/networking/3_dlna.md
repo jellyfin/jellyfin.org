@@ -4,20 +4,20 @@ title: DLNA
 sidebar-position: 2
 ---
 
-# DLNA
+## DLNA
 
-## Installation
+### Installation
 
 DLNA support has been moved to a first party plugin and is not included in a Jellyfin base install since 10.9.
 If you want to use DLNA, please install the plugin from the official Plugin catalog.
 To do so simply navigate to the admin dashboard, open the Catalog and install the [DLNA Plugin](https://github.com/jellyfin/jellyfin-plugin-dlna). Plugins maintained by the Jellyfin Project will be available in there by default.
 Make sure to restart your Jellyfin-Server to complete the plugin installation.
 
-## General
+### General
 
 **Requirements:**
 
-- Docker Host mode (if Docker is used)
+- Docker Host-networking (if Docker is used)
 - 1900 udp
 
 DLNA is based on UPnP.

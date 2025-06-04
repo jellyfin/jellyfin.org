@@ -1,9 +1,10 @@
 ---
 uid: network-reverse-proxy-traefik
-title: Traefik v2.x
+title: Traefik
 ---
 
-# Traefik v2.x
+## Traefik
+
 
 [Traefik](https://traefik.io/) is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy. Traefik integrates with your existing infrastructure components (ie: Docker) and generally configures itself dynamically as services are added or removed.
 

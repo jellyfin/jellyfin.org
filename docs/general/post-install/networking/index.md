@@ -61,7 +61,7 @@ This however requires the use of a public DNS server - The Jellyfin Server does 
 
 ### Firewall / Port Forwarding
 
-Networks are usually devided from eachother by firewalls. These block all incoming traffic and are meant to protect the network.
+Networks are usually divided from each other by firewalls. These block all incoming traffic and are meant to protect the network.
 To access Jellyfin through these boundaries, its ports need to be forwarded / opened in the respective firewalls.
 
 Note that opening a port gives full access to that port to the next higher Network.
@@ -81,7 +81,7 @@ There are different layers where a firewall can be placed:
 Whilst Routers often allow you to forward a port, firewalls typically only allow you to open one.
 The difference is within the Target. Opening a Port essentially just means that traffic on this Port will go through.
 Forwarding a Port you typically do in NAT scenarios - traffic is coming in on your public IP Address, what device inside your network should recieve it.
-Sometime port forwarding also offers to set a different target port then entry port.
+Sometimes, port forwarding also lets you map an external port to a different internal port.
 
 </details>
 
@@ -100,9 +100,9 @@ Here is linked below how to open ports for:
 
 ### External Access
 
-Since Jellyfin is entirely self hosted, the server will have to be made accessible from the Internet manualy.
-To do that there will have to be some way to access the http(s) port remotely.
-Autodiscovery services will only work locally and should not be made accessible externaly.
+Since Jellyfin is entirely self-hosted, you must manually expose it to the internet.
+To do so, you need a method to access the HTTP(S) ports remotely.
+Automatic discovery only works locally and should not be exposed externally
 
 To access a server remotely there will need to be a way to find it or its network on the internet.
 This can be done through the public IP Address of the Device or for IPv6 the Server's directly.
@@ -118,24 +118,23 @@ There are multiple ways of exposing Jellyfin to the outside - the most common on
 - using a VPN connection to enter the Network
 - use a VPS to Reverse Proxy to your home network
 
-If you want to learn more about reverse Proxies and how to use them for Jellyfin, learn more on our dedicated site about [Reverse-Proxies](./reverse-proxy/).
+Learn more about reverse proxies in our dedicated [Reverse Proxy guide](./reverse-proxy/).
 
 ### SSL / https
 
 Using https to access the Server is recommended.
-By default https will not be enabled, because it requires an SSL Certificate.
+By default, HTTPS is disabled because it requires an SSL certificate.
 
 SSL Certificates are usually issued by a third party and verify that the Server and URL are assigned to another.
 Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt) when using https.
 
 :::caution
 
-Self signed certificates present problems with security and compatibility and are strongly discouraged.
+Self-signed certificates pose security and compatibility issues and are strongly discouraged.
 
 :::
 
-Whilst Jellyfin offers https support it is strongly recommended to handle this seperately on a Reverse Proxy.
-You can find more info on how to set this up on our [Reverse Proxy](./reverse-proxy/) page.
+While Jellyfin supports HTTPS, it is strongly recommended to handle HTTPS termination separately on a reverse proxy. You can find more info on how to set this up on our [Reverse Proxy](./reverse-proxy/) page.
 
 **It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.**
 
@@ -145,7 +144,7 @@ Running Jellyfin with a path (e.g. `https://example.com/jellyfin`) is supported.
 
 :::caution
 
-Base URL is known to break HDHomeRun, DLNA, Sonarr, Radarr, and MrMC.
+Base URL is known to break HDHomeRun, the [DLNA plugin](./dlna/), Sonarr, Radarr, and MrMC.
 
 :::
 
