@@ -59,6 +59,10 @@ The `year` and `external id` fields are optional, but they will help identify me
 
 The Season folders should be named `Season *`, with `*` being any number. For the best results, please pad the season number with `0`s at the front to make sure each entry has the same number of digits. For example: `Season 5` -> `Season 05`.
 
+import VideoMetadataProviders from './\_\_video-metadata-providers.md';
+
+<VideoMetadataProviders />
+
 import ExternalStreams from './\_video-external-streams.md';
 
 <ExternalStreams />
