@@ -39,7 +39,7 @@ Finally, administrative mistakes, normal operation issues (e.g. filling up a dis
    * Windows Tray/Installer (.exe): Data and config is in `%PROGRAMDATA%\Jellyfin\Server` (`C:\ProgramData\Jellyfin\Server`) or `%LOCALAPPDATA%\Jellyfin` (`C:\Users\<Username>\AppData\Local\Jellyfin`).
    * MacOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
    * Portable Installs:
-      * Linux: Data is stored in `~/.local/share/jellyfin` and config in `~/.local/share/jellyfin`.
+      * Linux: Data is stored in `~/.local/share/jellyfin` and config in `~/.config/share/jellyfin`.
       * Windows: Data and config is in `C:\Users\<Username>\AppData\Local\Jellyfin`, using `%LOCALAPPDATA%`.
       * MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
 
