@@ -1,15 +1,15 @@
 ---
-uid: provider-identifiers
-title: Media Provider Identifiers
+uid: metadata-provider-identifiers
+title: Metadata Provider Identifiers
 ---
 
-# Media Provider Identifiers
+# Metadata Provider Identifiers
 
-To improve the accuracy of media identification, you can manually specify a media provider identifier for each movie or show. Each media provider uses a unique identifier for its content, and adding these identifiers greatly improves media identification. Identifiers can be specified in your movie/show file or folder name. For example:
+To improve the accuracy of media identification, you can manually specify a metadata provider identifier for each movie or show. Each metadata provider uses a unique identifier for its content, and adding these identifiers greatly improves media identification. Identifiers can be specified in your movie/show file or folder name. Multiple identifiers can be specified. For example:
 
 ```txt
 Movies
-├── Best_Movie_Ever (1994) [tmdbid-680]
+├── Best_Movie_Ever (1994) [tmdbid-680] [imdbid-1234]
 │   ├── Best_Movie_Ever (1994) [tmdbid-680].mp4
 └── Movie (2021) [imdbid-tt12801262]
     └── Movie (2021) [imdbid-tt12801262].mp4
@@ -23,9 +23,9 @@ Shows
         └── Series Name B S02E03.mkv
 ```
 
-## Finding Media Identifiers
+## Finding Metadata Provider Identifiers
 
-Below are instructions on how to find media provider identifiers for each supported provider.
+Below are instructions on how to find metadata provider identifiers for each supported provider.
 
 ### The Movie Database (TVDB)
 
