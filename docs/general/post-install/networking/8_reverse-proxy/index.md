@@ -7,8 +7,8 @@ title: Reverse Proxy
 
 ### General
 
-A proxy server is meant to catch and forward outgoing traffic. A reverse proxy does the same for incoming network traffic.
-The reverse proxy can then act as an entrypoint to various services and will internally forward the traffic to your service.
+A proxy server is meant to catch and forward outgoing traffic. A reverse proxy does the same, but for incoming network traffic.
+It can serve as an entry point to various services and will internally forward the traffic to your service.
 
 This opens the ability to do rule specific routing, for example subdomain routing, ip geoblocking, ratelimits or url forwarding.
 It is also possible to centralize DNS and SSL management on the reverse proxy, streamlining all routing-wise configuration.
