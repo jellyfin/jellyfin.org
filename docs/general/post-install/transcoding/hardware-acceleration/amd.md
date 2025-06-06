@@ -105,11 +105,11 @@ Please refer to these links:
 
 Due to the lack of B-frame support, the encoding quality of the AMD H.264 hardware encoder has been unsatisfactory. Although RX 6000/VCN3.0 brings back the B-frame support, the quality improvement is not great.
 
-The AMD HEVC encoder is far better than the AMD H.264 encoder, and the new AMD AV1 encoding support on RX 7000/VCN4.0 seems to be the savior of AMD encoding quality. Nonetheless they are currently no match for Intel QSV and NVIDIA NVENC. VCN4.0 additionally improved the encoding speed drastically.
+The AMD HEVC encoder is far better than the AMD H.264 encoder, and the new AMD AV1 encoding support on RX 7000/VCN4.0 seems to be the savior of AMD encoding quality. Nonetheless they are currently no match for Intel QSV and NVIDIA NVENC. VCN4.0 additionally improved the encoding speed drastically. The encoding quality has been greatly improved in VCN5.0, and it also fixes the issue in VCN4.0 where the AV1 encoder required a height of 64 (1080p wrongly encoded as 1082p with black pixels).
 
 Encoding speed and quality:
 
-- VCN4(RX 7000) > VCN3/VCN2(RX 6000/RX 5000/Renoir) > VCN1/VCE(Raven/Picasso/GCN GPUs)
+- VCN5(RX 9000) >> VCN4(RX 7000) > VCN3/VCN2(RX 6000/RX 5000/Renoir) > VCN1/VCE(Raven/Picasso/GCN GPUs)
 
 ## Windows Setups
 
@@ -370,7 +370,7 @@ sudo mv jellyfin-ffmpeg /usr/lib
 sudo ldd -v /usr/lib/jellyfin-ffmpeg/ffmpeg
 ```
 
-Install other necessary Intel driver packages and their dependencies that contain these key words:
+Install other necessary Mesa driver packages and their dependencies that contain these key words:
 
 - Mesa libva vaapi driver - RadeonSI
 

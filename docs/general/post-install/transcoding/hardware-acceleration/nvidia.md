@@ -93,9 +93,9 @@ Please refer to these links:
 
 Encoding quality:
 
-- H.264 & HEVC - Ada/Ampere/Turing > Turing TU117/Volta/Pascal > Maxwell
+- H.264 & HEVC - Blackwell/Ada/Ampere/Turing > Turing TU117/Volta/Pascal > Maxwell
 
-- AV1 - Ada Lovelace only
+- AV1 - Ada Lovelace and Blackwell only
 
 Decoding & Encoding speed within the same generation:
 
@@ -107,9 +107,9 @@ Decoding & Encoding speed within the same generation:
 
 NVENC/NVDEC performance tables:
 
-- [NVENC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/12.0/nvenc-application-note/index.html#nvenc-performance)
+- [NVENC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/13.0/nvenc-application-note/index.html#nvenc-performance)
 
-- [NVDEC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/12.0/nvdec-application-note/index.html#nvdec-performance)
+- [NVDEC Performance - NVIDIA Docs](https://docs.nvidia.com/video-technologies/video-codec-sdk/13.0/nvdec-application-note/index.html#nvdec-performance)
 
 ## Windows Setups
 
