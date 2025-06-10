@@ -71,7 +71,7 @@ AV1 is a royalty-free, future-proof video codec. It saves a lot of storage space
 
 Rockchip added support for AV1 acceleration in their latest SoCs:
 
-- **Decoding AV1 8/10-bit** - Rockchip RK3588/3588S SoC.
+- **Decoding AV1 8/10-bit** - Rockchip RK3588/3588S and RK3576 SoC.
 
 - **Encoding AV1 8/10-bit** - As of the RK3588 series, there is no Rockchip SoC that supports AV1 encoder.
 
@@ -84,6 +84,8 @@ Please refer to these links:
 ### Speed And Quality
 
 - Rk3588/3588S supports up to 1080p@480fps or 4k@120fps transcoding.
+
+- RK3576 has roughly half the transcoding capacity of RK3588. However, due to the pixel format limitations of its RGA hardware, it lacks tone-mapping capabilities.
 
 - RK356x has the resolution limit of the encoder, which is 1080p@100fps. It cannot meet the needs of real-time 4k encoding.
 
@@ -154,7 +156,7 @@ Root permission is required.
 
    :::
 
-   - For the 6.1 LTS kernel on [Ubuntu-Rockchip](https://github.com/Joshua-Riek/ubuntu-rockchip) & [Armbian](https://github.com/armbian) and the legacy 5.10 LTS kernel, install [v1.9-1-2d267b0](https://github.com/tsukumijima/libmali-rockchip/releases/download/v1.9-1-2d267b0/libmali-valhall-g610-g13p0-gbm_1.9-1_arm64.deb).
+   - For the 6.1 LTS kernel on [Ubuntu-Rockchip](https://github.com/Joshua-Riek/ubuntu-rockchip) & [Armbian](https://github.com/armbian) and the legacy 5.10 LTS kernel, install [v1.9-1-2131373](https://github.com/tsukumijima/libmali-rockchip/releases/download/v1.9-1-2131373/libmali-valhall-g610-g24p0-gbm_1.9-1_arm64.deb).
 
    - For the 6.1 LTS kernel on other SBC **vendor-made** distros, install [v1.9-1-55611b0](https://github.com/tsukumijima/libmali-rockchip/releases/download/v1.9-1-55611b0/libmali-valhall-g610-g13p0-gbm_1.9-1_arm64.deb).
 
@@ -163,7 +165,7 @@ Root permission is required.
    ```shell
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device rkmpp=rk -init_hw_device opencl=ocl@rk
 
-   arm_release_ver: g13p0-01eac0, rk_so_ver: 10
+   arm_release_ver: g24p0-00eac0, rk_so_ver: 8
    [AVHWDeviceContext @ 0xaaaae8321360] 1 OpenCL platforms found.
    [AVHWDeviceContext @ 0xaaaae8321360] 1 OpenCL devices found on platform "ARM Platform".
    [AVHWDeviceContext @ 0xaaaae8321360] 0.0: ARM Platform / Mali-G610 r0p0
@@ -195,7 +197,8 @@ Root permission is required.
 
    ```shell
    sudo docker run -d \
-    --privileged \
+    --security-opt systempaths=unconfined \
+    --security-opt apparmor=unconfined \
     --name=jellyfin \
     --volume /path/to/config:/config \
     --volume /path/to/cache:/cache \
@@ -264,7 +267,7 @@ LXC setup idea is a bit similar to docker - you need to pass the **device files*
 
    :::warning
 
-   Privileged LXC containers are considered unsafe by design - read more [here](https://linuxcontainers.org/lxc/security/). This guide however does not cover steps required to make jellyfin VPU hardware acceleration working in unprivileged container.
+   Privileged LXC containers are considered unsafe by design - read more [on the LXC official documentation](https://linuxcontainers.org/lxc/security/). This guide however does not cover steps required to make jellyfin VPU hardware acceleration working in unprivileged container.
 
    :::
 
@@ -307,7 +310,7 @@ LXC setup idea is a bit similar to docker - you need to pass the **device files*
 
 ### Verify On Linux
 
-There is no reliable way to read the occupancy of the VPU on Rockchip SoC.
+For the BSP kernel **older than 6.1.84**, there is no reliable way to read the load/utilization of the VPU on Rockchip SoC.
 
 But you can still verify this by reading other engines, such as the RGA (2D hwaccel blitter).
 
@@ -319,7 +322,27 @@ Root permission is required.
 
 1. Play a video in the Jellyfin web client and trigger a video transcoding by setting a lower resolution or bitrate.
 
-2. Use `sudo watch -n 1 cat /sys/kernel/debug/rkrga/load` command to check the occupancy of RGA engines.
+2. VPU load/utilization: run `sudo sh -c "echo 1000 > /proc/mpp_service/load_interval" && sudo watch -n 1 cat /proc/mpp_service/load`
+
+   ```shell
+   Every 1.0s: cat /proc/mpp_service/load
+   fdb51000.avsd-plus        load:   0.00% utilization:   0.00%
+   fdb50400.vdpu             load:   0.00% utilization:   0.00%
+   fdb50000.vepu             load:   0.00% utilization:   0.00%
+   fdb90000.jpegd            load:   0.00% utilization:   0.00%
+   fdba0000.jpege-core       load:   0.00% utilization:   0.00%
+   fdba4000.jpege-core       load:   0.00% utilization:   0.00%
+   fdba8000.jpege-core       load:   0.00% utilization:   0.00%
+   fdbac000.jpege-core       load:   0.00% utilization:   0.00%
+   fdbb0000.iep              load:   0.00% utilization:   0.00%
+   fdbd0000.rkvenc-core      load:  98.26% utilization:  97.25%
+   fdbe0000.rkvenc-core      load:  10.78% utilization:  10.69%
+   fdc38100.rkvdec-core      load:  17.41% utilization:  17.09%
+   fdc48100.rkvdec-core      load:  17.64% utilization:  17.30%
+   fdc70000.av1d             load:   0.00% utilization:   0.00%
+   ```
+
+3. RGA load: run `sudo watch -n 1 cat /sys/kernel/debug/rkrga/load`
 
    ```shell
    Every 1.0s: cat /sys/kernel/debug/rkrga/load
