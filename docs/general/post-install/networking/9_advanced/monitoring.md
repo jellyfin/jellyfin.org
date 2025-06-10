@@ -9,6 +9,13 @@ Jellyfin has two monitoring and metrics endpoints built-in: a basic health check
 
 ### Health check endpoint
 
+:::note
+
+The health endpoint will not function as expected while the server is still starting up.
+Monitoring/ Watchdog programs could therefore kill the server when its running migrations.
+
+:::
+
 Jellyfin exposes the `/health` endpoint designated for checking the status of the underlying service. Currently this will verify HTTP and database connectivity and return a `200 OK` response if successful. You can see this for yourself by using `curl`:
 
 ```sh
@@ -25,4 +32,4 @@ Jellyfin can make [Prometheus](https://prometheus.io/) metrics available at `/me
 <EnableMetrics>false</EnableMetrics>
 ```
 
-If you have a [reverse proxy](..#running-jellyfin-behind-a-reverse-proxy) configured, you can configure it to block access to the `/metrics` endpoint except for your internal network.
+If you have a [reverse proxy](../reverse-proxy/) configured, you can configure it to block access to the `/metrics` endpoint except for your internal network.
