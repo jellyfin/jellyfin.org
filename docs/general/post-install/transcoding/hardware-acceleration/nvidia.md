@@ -413,8 +413,6 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 #### Podman
 
-Podman is the officially supported container solution on Fedora Linux and its derivatives such as CentOS Stream and RHEL.
-
 1. Add the CUDA repo to your package manager.
 
    Browse the following directory to find the appropritate .repo file for your distribution: [CUDA repos](https://developer.download.nvidia.com/compute/cuda/repos/)
@@ -446,15 +444,21 @@ Podman is the officially supported container solution on Fedora Linux and its de
     --rm \
     --user $(id -u):$(id -g) \
     --userns keep-id \
-    --volume jellyfin-cache:/cache:Z \
-    --volume jellyfin-config:/config:Z \
+    --environment=JELLYFIN_DATA_DIR=/var/lib/jellyfin
+    --environment=JELLYFIN_CONFIG_DIR=/etc/jellyfin
+    --environment=JELLYFIN_LOG_DIR=/var/log/jellyfin
+    --environment=JELLYFIN_CACHE_DIR=/var/cache/jellyfin
+    --volume=/your/path/to/data:/var/lib/jellyfin      # Replace paths with actual paths on your host's filestystem
+    --volume=/your/path/to/config:/etc/jellyfin
+    --volume=/your/path/to/logs:/var/log/jellyfin
+    --volume=/your/path/to/cache:/var/cache/jellyfin
     --mount type=bind,source=/path/to/media,destination=/media,ro=true,relabel=private \
     docker.io/jellyfin/jellyfin:latest
    ```
 
    Systemd:
    
-   ```sh
+   ```
    [Unit]
    Description=jellyfin
    
@@ -465,10 +469,15 @@ Podman is the officially supported container solution on Fedora Linux and its de
    UserNS=keep-id
    #SecurityLabelDisable=true # Only needed for older versions of container-selinux < 2.226
    AddDevice=nvidia.com/gpu=0
-   Volume=jellyfin-config:/config:Z
-   Volume=jellyfin-cache:/cache:Z
-   Volume=jellyfin-media:/media:Z
-   
+   Environment=JELLYFIN_DATA_DIR=/var/lib/jellyfin
+   Environment=JELLYFIN_CONFIG_DIR=/etc/jellyfin
+   Environment=JELLYFIN_LOG_DIR=/var/log/jellyfin
+   Environment=JELLYFIN_CACHE_DIR=/var/cache/jellyfin
+   Volume=/your/path/to/data:/var/lib/jellyfin      # Replace paths with actual paths on your host's filestystem
+   Volume=/your/path/to/config:/etc/jellyfin
+   Volume=/your/path/to/logs:/var/log/jellyfin
+   Volume=/your/path/to/cache:/var/cache/jellyfin
+
    [Service]
    # Inform systemd of additional exit status
    SuccessExitStatus=0 143
