@@ -121,7 +121,7 @@ These options allow you to restrict access to specific content by this user or t
 
 `Block items with tags` Allows you to always hide items when they contain specific tags, you can add tags to items by editing their metadata.
 
-`Allow items with tags` Allows you only show items that contain specific tags, you can add tags to items by editing their metadata.
+`Allow items with tags` Allows you to only show items that contain specific tags, you can add tags to items by editing their metadata.
 
 `Access Schedule` Allows you to set the timeframe(s) where this user is allowed to login, media can only play during the timeframe and will be stopped past it.
 
