@@ -4,16 +4,12 @@ title: DLNA
 sidebar-position: 2
 ---
 
-## DLNA
-
-### Installation
-
 DLNA support has been moved to a first party plugin and is not included in a Jellyfin base install since 10.9.
 If you want to use DLNA, please install the plugin from the official Plugin catalog.
 To do so simply navigate to the admin dashboard, open the Catalog and install the [DLNA Plugin](https://github.com/jellyfin/jellyfin-plugin-dlna). Plugins maintained by the Jellyfin Project will be available in there by default.
 Make sure to restart your Jellyfin-Server to complete the plugin installation.
 
-### General
+## General
 
 **Requirements:**
 
@@ -30,7 +26,7 @@ This means that Clients will not be abled to find your server if it is not in th
 Using DLNA remotely is not possible.
 If you are using Docker, the network should use **Host Mode**, otherwise the broadcast signal will not reach the bridged network inside of Docker.
 
-### Troubleshooting
+## Troubleshooting
 
 - If DLNA fails to bind properly, the message `[ERR] Failed to bind to port 1900: "Address already in use". DLNA will be unavailable` should appear in the logs.
 

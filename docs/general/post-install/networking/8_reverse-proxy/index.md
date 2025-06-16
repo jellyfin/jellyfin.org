@@ -3,10 +3,6 @@ uid: reverse-proxy-index
 title: Reverse Proxy
 ---
 
-## Reverse Proxy
-
-### General
-
 A proxy server is meant to catch and forward outgoing traffic. A reverse proxy does the same, but for incoming network traffic.
 It can serve as an entry point to various services and will internally forward the traffic to your service.
 
@@ -27,11 +23,12 @@ Our [proxy guides](./#Guides) include examples on how to censor sensitive inform
 
 ### Forwarded-For Headers
 
-When traffic is forwarded through a reverse proxy, Jellyfin sees the proxy’s IP rather than the client’s.
-This introduces potential security risks and can also break compatibility, since Jellyfin will not be abled to differenciate between local and remote access.
+When traffic is forwarded through a reverse proxy, Jellyfin sees the proxy’s IP adress rather than the client’s.
+This introduces potential security risks and can also break compatibility, since Jellyfin will not be abled to differenciate between local and remote connections.
+Therefore, if set up incorrectly, all limitations for external access will not work.
 
 Therefore, the IP address(es) of your reverse proxy must be configured under “Known Proxies” in Jellyfin’s **Network** settings.
-This allows Jellyfin to respect the `X-Forwarded-For`, `X-Forwarded-Proto`, and `X-Forwarded-Host` headers and use the associated value as the source IP address. By default, Jellyfin will discard all forwarded-for headers if they come from an 'untrusted' source. This is so that malitious devices will not be abled to hide their IP by providing a forwarded-for header.
+This allows Jellyfin to respect the `X-Forwarded-For`, `X-Forwarded-Proto`, and `X-Forwarded-Host` headers and use the associated value as the source IP address. By default, Jellyfin will discard all forwarded-for headers that do not originate from a "known Proxy". This is so that malitious devices will not be abled to hide their IP by providing a forwarded-for header.
 
 This assumes that the reverse proxy is set up to include this header, which is not always the case by default.
 If issues with source IP forwarding appear, this should be checked.
@@ -42,7 +39,7 @@ Jellyfin makes use of Websockets for various things. Not all reverse proxies all
 
 ## Guides
 
-We recommend using [Caddy](https://caddyserver.com/) for its easy install and use. We provide a [guide](./caddy/) for configuring Caddy with Jellyfin.
+We recommend using [Caddy](https://caddyserver.com/) for its ease of use, especially with https. We provide a [guide](./caddy/) for configuring Caddy with Jellyfin.
 
 If you do not want to use Caddy, some other popular options for reverse proxy systems are [Nginx](https://www.nginx.com), [Traefik](https://traefik.io), [Haproxy](https://www.haproxy.com) and [Apache](https://httpd.apache.org). Note that these have a greater learning curve than the recommended reverse proxy Caddy. You can find respective guides here:
 

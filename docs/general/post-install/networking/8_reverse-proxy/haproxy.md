@@ -3,8 +3,6 @@ uid: network-reverse-proxy-haproxy
 title: HAProxy
 ---
 
-## HAProxy
-
 > **Note:** For HTTP/3 support, ensure UDP port 443 is forwarded/opened on your firewall, as HTTP/3 uses UDP.
 
 "[Haproxy](https://www.haproxy.com/) is a free, open source software that provides a high availability load balancer and proxy server for TCP and HTTP-based applications that spreads requests across multiple servers.[1] It is written in C[2] and has a reputation for being fast and efficient (in terms of processor and memory usage)." - [Wikipedia](https://en.wikipedia.org/wiki/HAProxy)

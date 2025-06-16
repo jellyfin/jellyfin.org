@@ -3,8 +3,6 @@ uid: network-index
 title: Networking
 ---
 
-## Networking
-
 As a server software, Jellyfin offers different services over the network.
 Specifically Jellyfin supports the streaming of content and comes packed with a web-Client. - This will work purely over the HTTP(S) ports.
 
@@ -14,7 +12,7 @@ As a fully self-hosted software, Jellyfin runs independently from the Internet.
 You do not have to make your server accessible through the internet.
 Neither does Jellyfin require an internet connection to run; however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
 
-### Port Bindings
+## Port Bindings
 
 This section aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
 
@@ -39,7 +37,7 @@ This section aims to provide an administrator with knowledge on what ports Jelly
 
 </details>
 
-### Accessing Jellyfin
+## Accessing Jellyfin
 
 This section focusses on how to make Jellyfin Available within Networks.
 Here you will find descriptions on how to make Jellyfin accessible both only locally and through the Internet.
@@ -59,7 +57,7 @@ This, however, requires the use of a public DNS server - The Jellyfin Server doe
 
 </details>
 
-#### Firewall / Port Forwarding
+### Firewall / Port Forwarding
 
 Networks are usually divided from each other by firewalls. These block all incoming traffic and are meant to protect the network.
 To access Jellyfin through these boundaries, its ports need to be forwarded / opened in the respective firewalls.
@@ -98,7 +96,7 @@ Here is linked below how to open ports for:
 
 </details>
 
-#### External Access
+### External Access
 
 Since Jellyfin is entirely self-hosted, you must manually expose it to the internet.
 To do so, you need a method to access the HTTP(S) ports remotely.
@@ -113,14 +111,14 @@ However its not mandatory to use a Domain.
 
 There are multiple ways of exposing Jellyfin to the outside - the most common ones are:
 
-- forwarding the Port to the Internet (not recommended!)
+- forwarding its Ports directly to the internet (not recommended!)
 - forwarding through a Reverse Proxy
 - using a VPN connection to enter the Network
 - use a VPS to Reverse Proxy to your home network
 
 Learn more about reverse proxies in our dedicated [Reverse Proxy guide](./reverse-proxy/).
 
-#### SSL / https
+### SSL / https
 
 Using https to access the Server is recommended.
 By default, HTTPS is disabled because it requires an SSL certificate.
@@ -138,7 +136,7 @@ While Jellyfin supports HTTPS, it is strongly recommended to handle HTTPS termin
 
 **It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.**
 
-#### Base URL
+### Base URL
 
 Running Jellyfin with a path (e.g. `https://example.com/jellyfin`) is supported.
 

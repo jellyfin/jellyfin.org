@@ -3,8 +3,6 @@ uid: network-reverse-proxy-apache
 title: Apache
 ---
 
-## Apache HTTP Server Project
-
 "The [Apache HTTP Server Project](https://httpd.apache.org/) is an effort to develop and maintain an open-source HTTP server for modern operating systems including UNIX and Windows. The goal of this project is to provide a secure, efficient and extensible server that provides HTTP services in sync with the current HTTP standards."
 
 ```conf

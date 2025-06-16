@@ -6,6 +6,8 @@ sidebar-position: 1
 
 ## Caddy
 
+> **Note:** For HTTP/3 support, ensure UDP port 443 is forwarded/opened on your firewall, as HTTP/3 uses UDP.
+
 "[Caddy](https://caddyserver.com/), sometimes clarified as the Caddy web server, is an open source, HTTP/2-enabled web server written in Go. It uses the Go standard library for its HTTP functionality." - [Wikipedia](<https://en.wikipedia.org/wiki/Caddy_(web_server)>)
 
 You can reverse proxy to Jellyfin either with or without a config file, and either method offers automatic HTTPS if you want to use your public domain name.

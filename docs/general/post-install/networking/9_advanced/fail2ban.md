@@ -3,20 +3,18 @@ uid: network-fail2ban
 title: fail2ban
 ---
 
-## Fail2ban
-
 [Fail2ban](https://github.com/fail2ban/fail2ban) is an intrusion prevention software framework that protects computer servers from brute-force attacks.
 Fail2ban operates by monitoring log files (e.g. /var/log/auth.log, /var/log/apache/access.log, etc.) for selected entries and running scripts based on their content.
 
 Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force attacks on your machine.
 
-### Requirements
+## Requirements
 
 - Jellyfin remotely accessible
 - Fail2ban installed and running
 - Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/` for desktop and `/config/log/` for docker containers.
 
-### Step one: create the jail
+## Step one: create the jail
 
 You need to create a jail for Fail2ban. If you're on Ubuntu and use nano as editor, run:
 
@@ -52,7 +50,7 @@ Note:
 
 2. If you're running Jellyfin on a non-standard port, then change the port from `80,443` to the relevant port say `8096,8920`
 
-### Step two: create the filter
+## Step two: create the filter
 
 The filter contains a set of rules which Fail2ban will use to identify a failed authentication attempt. Create the filter by running:
 
@@ -79,7 +77,7 @@ Check fail2ban is running:
 sudo systemctl status fail2ban
 ```
 
-### Step three: test
+## Step three: test
 
 Assuming you've at least one failed authentication attempt, you can test this new jail with `fail2ban-regex`:
 
@@ -89,18 +87,18 @@ sudo fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --p
 
 ---
 
-### Advanced Fail2Ban Setup: Forwarding and Managing Bans on an Upstream Proxy Server
+## Advanced Fail2Ban Setup: Forwarding and Managing Bans on an Upstream Proxy Server
 
 To enhance security, Fail2Ban can manage IP bans on an upstream reverse proxy server instead of directly on the Jellyfin server. This setup allows you to block malicious IPs closer to your network’s entry point, potentially benefiting other services using the same proxy.
 
 This guide offers a configuration for setting up Fail2Ban to manage IP bans on an upstream reverse proxy server using **Dynamic Chains**, where each Fail2Ban jail creates and manages its own `iptables` chain on the upstream server.
 
-#### Assumptions
+### Assumptions
 
 - **Fail2Ban** is installed on your local server (where Jellyfin is running).
 - **iptables** is configured on the upstream server.
 
-#### Step one: Set Up SSH Key-Based Authentication
+### Step one: Set Up SSH Key-Based Authentication
 
 Ensure the Fail2Ban server can SSH into the upstream server without needing a password. This is crucial for automating the IP ban/unban process.
 
@@ -126,7 +124,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
    ssh -i /root/.ssh/id_rsa root@<upstream-server-ip>
    ```
 
-#### Step two: Configure Fail2Ban for Dynamic Chains
+### Step two: Configure Fail2Ban for Dynamic Chains
 
 1. **Create the Fail2Ban Action File**:
 
@@ -199,7 +197,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
 
    After making chaneges, save and close the file.
 
-#### Step three: Add proxy IPs to Jellyfin
+### Step three: Add proxy IPs to Jellyfin
 
 1. **Get Proxy IPs**
 
@@ -215,7 +213,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
 
    Enter your comma-seperated list of proxy IP ranges. You'll need to reboot the Jellyfin server as indicated.
 
-#### Step four: Restart Fail2Ban and Test the Setup
+### Step four: Restart Fail2Ban and Test the Setup
 
 1. **Restart Fail2Ban**:
 
@@ -265,7 +263,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
    ssh root@<upstream-server-ip> "iptables -L f2b-jellyfin"
    ```
 
-#### Step four: Monitor Logs
+### Step five: Monitor Logs
 
 Monitor the Fail2Ban log to ensure that actions are being executed properly:
 

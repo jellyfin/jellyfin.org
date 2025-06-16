@@ -3,17 +3,15 @@ uid: network-reverse-proxy-nginx
 title: Nginx
 ---
 
-## Nginx
-
 "[Nginx](https://www.nginx.com/) (pronounced "engine X") is a web server which can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. The software was created by Igor Sysoev and first publicly released in 2004.[9] A company of the same name was founded in 2011 to provide support and Nginx plus paid software." - [Wikipedia](https://en.wikipedia.org/wiki/Nginx)
 
-### Nginx from a subdomain (jellyfin.example.org)
+## Nginx from a subdomain (jellyfin.example.org)
 
 Create the file `/etc/nginx/sites-available/jellyfin` which will forward requests to Jellyfin.  After you've finished, you will need to symlink this file to /etc/nginx/sites-enabled and then reload nginx.  This example assumes you've already acquired certifications as documented in our [Let's Encrypt](https://jellyfin.org/docs/general/networking/letsencrypt#nginx) guide.
 
 Note that a server listening on http port 80 is required for the Certbot / Let's Encrypt certificate renewal process.
 
-#### HTTPS config example
+### HTTPS config example
 
 ```config
 server {
@@ -92,9 +90,9 @@ server {
 }
 ```
 
-### Extra Nginx Configurations
+## Extra Nginx Configurations
 
-#### Censor sensitive information in logs
+### Censor sensitive information in logs
 
 This censors any 'api_key' URL parameter from the logfile.
 
@@ -115,7 +113,7 @@ map $request $secretfilter {
 access_log /var/log/nginx/access.log stripsecrets;
 ```
 
-#### Nginx Proxy Manager
+### Nginx Proxy Manager
 
 [Nginx Proxy Manager](https://nginxproxymanager.com/) provides an easy-to-use web GUI for Nginx.
 
