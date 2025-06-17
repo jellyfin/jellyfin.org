@@ -1,9 +1,7 @@
 ---
 uid: network-reverse-proxy-traefik
-title: Traefik v2.x
+title: Traefik
 ---
-
-## Traefik v2.x
 
 [Traefik](https://traefik.io/) is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy. Traefik integrates with your existing infrastructure components (ie: Docker) and generally configures itself dynamically as services are added or removed.
 
@@ -23,7 +21,7 @@ Traefik has many options for the configuration of LetsEncrypt using your choice 
 
 The configuration below creates a Traefik v2.x installation with access at entryPoint ports 80 (labelled 'http'), 443 (labeled 'https'), and 9999 (labeled 'secure'). Unrelated to this Jellyfin configuration, it redirects all traffic from http (port 80) to https (port 443) to ensure all data is encrypted. As for Jellyfin, it makes the service accessible without a path on the secure entry point. This configuration is intended to be used as a starting point and some adaptation is likely required for your configuration. If you want Jellyfin to be accessible without using a port (using the default https port), simply change 'secure' to 'https' in `docker-compose.yml` where indicated and remove the ':9999' from the SSLHost parameter. If you want Jellyfin to be accessible with a path, simply add the PathPrefix (i.e. '/jellyfin') and see the note near the end of this document about configuring Jellyfin.
 
-### docker-compose.yml
+## docker-compose.yml
 
 ```yml
 services:
@@ -134,7 +132,7 @@ TOML files can't support environment variables, so all values must be hard coded
 
 :::
 
-### traefik.toml
+## traefik.toml
 
 ```toml
 [log]
@@ -226,7 +224,7 @@ TOML files can't support environment variables, so all values must be hard coded
 
 Due to a [quirk](https://github.com/containous/traefik/issues/5559) in Traefik, you cannot dynamically route to containers when network_mode=host. We have created a static route to the docker host (192.168.1.xx:8096) in `traefik-provider.toml`. The use of host networking (as in this doc) or macvlan are required to use DLNA or an HdHomeRun so it can utilize the multicast network. `traefik-provider.toml` defines the jellyfin-svc@file service which we are pointing the router to in the `docker-compose.yml` file. You can not set a URL in `docker-compose.yml` which is why we set up this service externally. Be sure to update the IP address below to the IP address of the host on the local network (in this case, 192.168.1.xx).
 
-### traefik-provider.toml
+## traefik-provider.toml
 
 ```toml
 [http]
@@ -261,7 +259,7 @@ Due to a [quirk](https://github.com/containous/traefik/issues/5559) in Traefik, 
       minVersion = "VersionTLS13"
 ```
 
-### .env
+## .env
 
 ```bash
 RFC2136_NAMESERVER=...
