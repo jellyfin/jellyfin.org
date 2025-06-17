@@ -17,18 +17,18 @@ Important things to note when using Jellyfin behind a reverse proxy.
 
 ### Logging
 
-Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g `api_key` parameter), so logging the full request path can expose secrets to your logfile.
+Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g. `api_key` parameter), so logging the full request path can expose secrets to your logfile.
 We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
 Our [proxy guides](./#Guides) include examples on how to censor sensitive information from a logfile.
 
 ### Forwarded-For Headers
 
-When traffic is forwarded through a reverse proxy, Jellyfin sees the proxy’s IP adress rather than the client’s.
-This introduces potential security risks and can also break compatibility, since Jellyfin will not be abled to differenciate between local and remote connections.
+When traffic is forwarded through a reverse proxy, Jellyfin sees the proxy’s IP address rather than the client’s.
+This introduces potential security risks and can also break compatibility, since Jellyfin will not be able to differentiate between local and remote connections.
 Therefore, if set up incorrectly, all limitations for external access will not work.
 
 Therefore, the IP address(es) of your reverse proxy must be configured under “Known Proxies” in Jellyfin’s **Network** settings.
-This allows Jellyfin to respect the `X-Forwarded-For`, `X-Forwarded-Proto`, and `X-Forwarded-Host` headers and use the associated value as the source IP address. By default, Jellyfin will discard all forwarded-for headers that do not originate from a "known Proxy". This is so that malitious devices will not be abled to hide their IP by providing a forwarded-for header.
+This allows Jellyfin to respect the `X-Forwarded-For`, `X-Forwarded-Proto`, and `X-Forwarded-Host` headers and use the associated value as the source IP address. By default, Jellyfin will discard all forwarded-for headers that do not originate from a "known Proxy". This is so that malicious devices will not be able to hide their IP address by providing a forwarded-for header.
 
 This assumes that the reverse proxy is set up to include this header, which is not always the case by default.
 If issues with source IP forwarding appear, this should be checked.
