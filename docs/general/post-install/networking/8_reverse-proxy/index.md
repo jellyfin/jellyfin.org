@@ -19,7 +19,7 @@ Important things to note when using Jellyfin behind a reverse proxy.
 
 Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g. `api_key` parameter), so logging the full request path can expose secrets to your logfile.
 We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
-Our [proxy guides](./#Guides) include examples on how to censor sensitive information from a logfile.
+Our [proxy guides](./#guides) include examples on how to censor sensitive information from a logfile.
 
 ### Forwarded-For Headers
 
