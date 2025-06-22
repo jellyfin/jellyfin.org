@@ -1,0 +1,55 @@
+---
+title: EFCore refactoring is here
+description: EFCore, Jellyfin and me.
+authors: JPVenson
+slug: efcore-refactoring
+tags: [unstable, warning, efcore]
+---
+
+EFCore has landed in unstable, and this will have consequences.
+
+We have finally reached our first milestone in cleaning up the legacy database access code. This means that all SQL builders that targeted SQLite directly have been removed from code. This marks the first step towards a completely new database design, but we now need to take a quick look ahead and see what's next.  
+
+Unstable builds will be temporarily turned off this week, skipping the 20250127 unstable to provide a full week of in-master testing, and will be re-enabled for the 20250203 unstable next week, so ensure you have backups ready this week if you run unstable builds.
+
+Otherwise please read on to see what exactly that means and what the future brings.
+
+\- JPVenson
+
+{/* truncate */}
+
+## What exactly have we done
+
+[Joshua’s blog post](../../2024/11-03-efcore-refactoring-incoming/index.mdx) in November 2024 outlined much of what we aimed to achieve, and I want to take this opportunity to address the feedback and questions we've received, clarifying a few key points.  
+
+The old code included many instances of direct access to the underlying SQLite database.
+SQLite is a file-based database where Jellyfin stores most of its important data.
+This has been an issue for 4 reasons.
+1. The old code was very poorly written
+2. The old code was very complex
+3. The old code was explicitly written to support SQLite only and nothing else
+4. The old code migration handling was manual and error-prone
+
+Because of this, we have been unable to quickly and reliably extend the database to add new features or improve existing ones. The new code uses EntityFramework migrations, which is the industry standard for database migrations in the C# ecosystem.  
+
+## What haven't we done
+
+While we are currently working on it, the current code does __not__ add support for alternative database providers on its own. 
+Adding support for other database providers will be a significant change beyond just the refactor, and when introduced, will likely remain highly experimental for quite some time.  
+
+Very importantly, we have not yet optimized the rest of Jellyfin to work with the new database access. That means it is possible that unstable builds may be significantly slower while we are rewriting the rest of the code to utilize the new structures.  
+
+The new architecture also allows for a proper way of backing up Jellyfin instances while they are running, something that was previously impossible to do reliably.
+
+## The Future
+
+Unstable builds have been active for some time, but we will be temporarily turning them off this week, skipping the 20240127 unstable to provide a full week of in-master testing as originally stated by Joshua. We will re-enable unstable builds for the 20240203 unstable week with these changes, so ensure you have backups ready this week if you run unstable builds.
+
+The migration will aggregate the old `library.db` into the `jellyfin.db` file and then rename it to `library.db.old`, so the unstable builds will no longer be compatible with the previous versions.  
+
+To migrate, we explicitly __do not support versions older than 10.10.3__. This means that if you want to test the migrations, you must start with an up-to-date database from the 10.10.z release train or current unstable.
+
+Thank you, and if you have questions, please don't hesitate to join our matrix channels for assistance.  
+
+
+\- JPVenson.

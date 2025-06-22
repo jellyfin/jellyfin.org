@@ -34,7 +34,7 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 1. Testing is ongoing via `master` nightly builds, so `master` should be generally unbroken before proceeding. The version of `master` should already reflect the upcoming major release version (i.e. `X.Y.0`).
 
-1. Once `master` is in a generally stable state after extensive work, announce a "golden nightly" is incoming via the [jellyfin-dev](https://matrix.to/#/#jellyfin-dev:matrix.org) Matrix/Riot channel and Reddit.
+1. Once `master` is in a generally stable state after extensive work, announce a "golden nightly" is incoming via the [jellyfin-dev](https://matrix.to/#/#jellyfin-dev:matrix.org) Matrix/Riot channel and Forum.
 
 1. Collect testing information and repeat as needed.
 
@@ -76,7 +76,7 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 4. Wait for builds to complete.
 
-5. Announce the new release in the [jellyfin-announce](https://matrix.to/#/#jellyfin-announce:matrix.org) Matrix/Riot channel and anywhere else required (e.g. Reddit, etc.).
+5. Announce the new release in the [jellyfin-announce](https://matrix.to/#/#jellyfin-announce:matrix.org) Matrix/Riot channel and Forum.
 
 ### Hotfix Release Procedure
 

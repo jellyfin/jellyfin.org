@@ -1,6 +1,7 @@
 ---
 uid: server-live-tv-post-process
 title: Live TV Post Processing
+sidebar_position: 2
 ---
 
 # Live TV Post Processing
@@ -17,7 +18,7 @@ Described below is one way to do post processing, there may be other ways (other
 
 :::
 
-Mess around with this to change to your needs. Search around, post questions to the [Jellyfin Reddit Forum](https://www.reddit.com/r/jellyfin) or elsewhere, and others may be able to help. Logging is your friend! Make sure your script(s) logs adequately to a file or elsewhere in order to troubleshoot any issues you may encounter, as any output to stdout/stderror will not be seen in the Jellyfin logs.
+Mess around with this to change to your needs. Search around, post questions to the [Jellyfin Forum](https://forum.jellyfin.org) or elsewhere, and others may be able to help. Logging is your friend! Make sure your script(s) logs adequately to a file or elsewhere in order to troubleshoot any issues you may encounter, as any output to stdout/stderror will not be seen in the Jellyfin logs.
 
 ## Jellyfin Dashboard/DVR/Recording Post Processing Settings
 
@@ -73,10 +74,10 @@ In the sample script:
 
 ### An example `record_post_process.py` script
 
-This script is too much to post here, so a link to a GitHub Gist is provided.
+This script is too much to post here, so a link to a GitHub repository is provided.
 Comments are listed that describes what each section does.
 
-[GitHub Gist Link to `record_post_process.py`](https://gist.github.com/AndrewBreyen/1ac109bb485d8523e28fe98b3a222602)
+[GitHub Link to `record_post_process.py`](https://github.com/AndrewBreyen/Jellyfin-TV-Post-Process/)
 
 ## Diving Deeper
 

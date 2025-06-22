@@ -28,7 +28,7 @@ Some examples of hex color codes:
 - Red: `#d00000`
 - Transparent Black: `#00000058`
 
-Go [here](https://htmlcolorcodes.com/color-picker) for a hex color chart to get a code for any given color.
+Use the [HTML Color Picker](https://htmlcolorcodes.com/color-picker) to find the hex code for any given color.
 
 If you are looking for a more standard and less specific color, typing the literal name of colors suits that purpose well. For example, to get the color "yellow" you can simply write "yellow", this will use a preset yellow color.
 
@@ -37,7 +37,7 @@ If you are looking for a more standard and less specific color, typing the liter
 `aquamarine` Aquamarine <br />
 `lightseagreen` Light Sea Green
 
-Go [here](https://www.w3schools.com/colors/colors_names.asp) for a list of color names supported.
+You can find a list of supported color names on the [W3Schools Color Names reference](https://www.w3schools.com/colors/colors_names.asp).
 
 ### Comments
 
@@ -87,12 +87,21 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ```css
 /* Make watched icon dark and transparent */
-.playedIndicator {
-  background: #00000058;
+.indicator {
+  background: #00000058 !important;
 }
 ```
 
 ![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
+
+### Transparant count indicators (eg. Series)
+
+```css
+/* Make count indicator icon dark and transparent */
+.countIndicator {
+  background: #00000058;
+}
+```
 
 ### Display external links in mobile layout
 
@@ -726,19 +735,19 @@ Material Icons:
 - Outlined:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css");
   ```
 
 - Rounded:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
   ```
 
 - Sharp:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css");
   ```
 
 Fontawesome Icons:
@@ -746,25 +755,25 @@ Fontawesome Icons:
 - Solid:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css");
   ```
 
 - Regular:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css");
   ```
 
 - Light:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css");
   ```
 
 - duotone:
 
   ```css
-  @import url(https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css");
+  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css");
   ```
 
 ## Community Links
@@ -785,11 +794,10 @@ Keep in mind that these posts may have been made under previous versions of Jell
 
 ### Community Themes
 
-- [Monochromic - A custom theme for Jellyfin mediaserver created using CSS overrides](https://github.com/CTalvio/Monochromic)
-- [Kaleidochromic - Yet another custom theme for Jellyfin mediaserver created using CSS overrides, built on top of Monochromic](https://github.com/CTalvio/Kaleidochromic)
-- [Novachromic - A light theme, built on top of Monochromic](https://github.com/CTalvio/Novachromic)
+- [Ultrachromic - A custom theme for Jellyfin mediaserver created using CSS overrides](https://github.com/CTalvio/Ultrachromic)
 - [JellySkin - Vibrant Jellyfin theme with a lot a animations](https://github.com/prayag17/JellySkin)
 - [JellyFlix - The Best Netflix Clone for Jellyfin](https://github.com/prayag17/JellyFlix)
 - [Jellyfin Netflix Dark - The Best Netflix Dark Theme for Jellyfin Around!](https://github.com/DevilsDesigns/Jellyfin-Netflix-Dark)
 - [Dark and Green - A Emby like night mode skin](https://github.com/mbcooper83/jellyfin-css-darkandgreen)
 - [Hint of Green](https://github.com/looi-wh/HintOfGreenCSS)
+- [Scyfin - A modern Jellyfin theme](https://github.com/loof2736/scyfin)

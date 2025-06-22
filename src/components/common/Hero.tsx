@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { FunctionComponent, ReactNode } from 'react';
 
-import './Hero.css';
+import './Hero.scss';
 
 type HeroProps = {
   children?: ReactNode;

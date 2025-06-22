@@ -8,7 +8,7 @@ slug: mirrorbits-cdn
 <!-- markdownlint-disable -->
 For many projects, distributing binary assets is easy: put the files on GitHub and you're done. It's not something many think about. But at Jellyfin, we needed something more robust, something able to handle our needs more elegantly than GitHub or a basic web server could. And both for those interested, and for those supporting other similar projects, I'd like to share how we do it.
 
-<!--truncate-->
+<!-- truncate -->
 
 ## Prelude - Pre-10.6.0
 
@@ -270,7 +270,7 @@ The main locations are `/archive`, `/releases`, and `/master`. The first contain
 
 Next is the main Mirrorbits handler. The forwarding is based off the file extension of the requested file. Thus, when loading, e.g. the PHP index pages, the requests are not forwarded; only requests for the listed file types are forwarded on to the Mirrorbits process to be distributed to mirrors.
 
-The next 3 options are for Mirrorbits status pages, which provide information on the currently available mirrors. For any file (e.g. <https://repo.jellyfin.org/releases/server/debian/stable/meta/jellyfin_10.7.2-1_all.deb>), one can append the `/mirrorlist` or `/mirrorinfo` locations to show information about the available mirrors. Try it yourself: <https://repo.jellyfin.org/releases/server/debian/stable/meta/jellyfin_10.7.2-1_all.deb/mirrorlist>. Finally the `/mirrorstats` page, whether on a file or at the root of the domain (<https://repo.jellyfin.org/mirrorstats>) shows the current status of the mirrors in general, including if any are offline.
+The next 3 options are for Mirrorbits status pages, which provide information on the currently available mirrors. For any file (e.g. [https://repo.jellyfin.org/releases/server/debian/stable/meta/jellyfin_10.7.2-1_all.deb](https://repo.jellyfin.org/releases/server/debian/stable/meta/jellyfin_10.7.2-1_all.deb)), one can append the `/mirrorlist` or `/mirrorinfo` locations to show information about the available mirrors. Try it yourself: [https://repo.jellyfin.org/releases/server/debian/stable/meta/jellyfin_10.7.2-1_all.deb/mirrorlist](https://repo.jellyfin.org/releases/server/debian/stable/meta/jellyfin_10.7.2-1_all.deb/mirrorlist). Finally the `/mirrorstats` page, whether on a file or at the root of the domain ([https://repo.jellyfin.org/mirrorstats](https://repo.jellyfin.org/mirrorstats)) shows the current status of the mirrors in general, including if any are offline.
 
 All together, these NGiNX configs provide the foundation for Mirrorbits to work, and this was the part that actually took the longest. Thanks to [@PalinuroSec](https://github.com/PalinuroSec) on GitHub for his [fantastic example gist](https://gist.github.com/PalinuroSec/f0bfb815240573ab1b0b58f3c76620d4).
 

@@ -4,6 +4,7 @@ description: Our biggest app update to date.
 authors: nielsvanvelzen
 date: 2021-09-30
 slug: android-tv-12
+tags: [release, android-tv]
 ---
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
@@ -12,7 +13,7 @@ import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 Today we're bringing the Android TV app to 2021 with a modern design and tons of other changes.
 
-<!--truncate-->
+{/* truncate */}
 
 Over 400[^1] pull requests containing 2400+ commits, 750+ changed files with 54000+ changed lines of code by roughly 50 contributors[^2]. This is the biggest update to the app we ever worked on. I'll talk a bit about why it is this big and why it took so long later in the post. But let's start with the part you probably came for: **new features!**
 
@@ -23,9 +24,9 @@ Over 400[^1] pull requests containing 2400+ commits, 750+ changed files with 540
 
 We got a lot of complaints about our authentication flow. It wasn't obvious how to enable the auto-login option and managing multiple servers or users was not an easy task. We also didn't like this part of the app, and decided to completely revamp it! The rewritten sign-in screen looks more modern and is much easier to use. There is a new help section that links to our documentation to help new users get started with Jellyfin. The auto-discovery feature of the app now shows all servers instead of the first one, you can select one of those or manually enter your server address to connect. You can then proceed to add a user and start using the app. Users are automatically saved now with auto-login enabled by default.
 
-<ImgComparisonSlider className="margin-bottom--md">
-    <img slot="before" src={require("./11-user-select.png").default} />
-    <img slot="after" src={require("./12-user-select.png").default} />
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./11-user-select.png').default} />
+  <img slot='after' src={require('./12-user-select.png').default} />
 </ImgComparisonSlider>
 
 ## Updated user interface design
@@ -33,32 +34,28 @@ We got a lot of complaints about our authentication flow. It wasn't obvious how 
 After logging in you will be presented with a modern look and feel in our refreshed user interface. A new toolbar is added to the top-right corner of the screen to open the search page, settings or to switch to a different user. No need to scroll down to the bottom of the home screen anymore.
 Beneath this new toolbar is your media, like it always was, but the cards got a new look with the debatable colored backgrounds removed.
 
-
-<ImgComparisonSlider className="margin-bottom--md">
-    <img slot="before" src={require("./11-home.png").default} />
-    <img slot="after" src={require("./12-home.png").default} />
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./11-home.png').default} />
+  <img slot='after' src={require('./12-home.png').default} />
 </ImgComparisonSlider>
 
 The settings screen got a refresh too. It allows you to more easily change settings. Some new settings got added to customize the app to your own taste.
 
-
-<ImgComparisonSlider className="margin-bottom--md">
-    <img slot="before" src={require("./11-settings.png").default} />
-    <img slot="after" src={require("./12-settings.png").default} />
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./11-settings.png').default} />
+  <img slot='after' src={require('./12-settings.png').default} />
 </ImgComparisonSlider>
 
 The user interface when browsing inside libraries got some slight changes too. We're hoping to completely revamp this part of the app at some point, but that didn't stop us from making it slightly better now.
 
-
-<ImgComparisonSlider className="margin-bottom--md">
-    <img slot="before" src={require("./11-browse.png").default} />
-    <img slot="after" src={require("./12-browse.png").default} />
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./11-browse.png').default} />
+  <img slot='after' src={require('./12-browse.png').default} />
 </ImgComparisonSlider>
 
-
-<ImgComparisonSlider className="margin-bottom--md">
-    <img slot="before" src={require("./11-details.png").default} />
-    <img slot="after" src={require("./12-details.png").default} />
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./11-details.png').default} />
+  <img slot='after' src={require('./12-details.png').default} />
 </ImgComparisonSlider>
 
 ### Themes
@@ -69,10 +66,9 @@ The web client supported theming since forever but the Android TV app did not. T
 
 The video player was completely redesigned to remove a lot of clutter and make it easier to use. The new design is bigger so you can more easily see the information on a television.
 
-
-<ImgComparisonSlider className="margin-bottom--md">
-    <img slot="before" src={require("./11-player.png").default} />
-    <img slot="after" src={require("./12-player.png").default} />
+<ImgComparisonSlider className='margin-bottom--md'>
+  <img slot='before' src={require('./11-player.png').default} />
+  <img slot='after' src={require('./12-player.png').default} />
 </ImgComparisonSlider>
 
 The new video player design is just the beginning. A project to rewrite the playback code behind it is already in the works. This rewrite should help with the crashes and unnecessary transcoding that happens sometimes. It will also give us the opportunity to add new features like SyncPlay. But this doesn't mean the current code isn't being worked on anymore! We did fix some issues with the current video player code. Notable are changes for Fire TV to direct play more often and a lot of crashes got fixed.
@@ -136,12 +132,12 @@ Full changelog with all pull requests available on [GitHub](https://github.com/j
 
 ## Download Now
 
-<a className="margin-right--md" href="https://play.google.com/store/apps/details?id=org.jellyfin.androidtv">
-  <img width="153" alt='Jellyfin for Android TV on Google Play' src="/images/store-icons/google-play.png" />
+<a className='margin-right--md' href='https://play.google.com/store/apps/details?id=org.jellyfin.androidtv'>
+  <img width='153' alt='Jellyfin for Android TV on Google Play' src='/images/store-icons/google-play.png' />
 </a>
 
-<a href="https://www.amazon.com/gp/product/B07TX7Z725">
-  <img width="153" alt="Jellyfin for Fire TV at Amazon App Store" src="/images/store-icons/amazon.png" />
+<a href='https://www.amazon.com/gp/product/B07TX7Z725'>
+  <img width='153' alt='Jellyfin for Fire TV at Amazon App Store' src='/images/store-icons/amazon.png' />
 </a>
 
 Direct downloads are always available from [our repository](https://repo.jellyfin.org/releases/client/androidtv/).

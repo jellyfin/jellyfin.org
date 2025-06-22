@@ -1,0 +1,38 @@
+.header-pills-middle {
+  display: flex;
+  justify-content: center;
+}
+
+.header-pills-end {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stable-links {
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 996px) {
+  .header-pills-middle {
+    justify-content: unset;
+  }
+
+  .header-pills-end {
+    flex-direction: row;
+  }
+
+  .filters-button {
+    flex-grow: 1;
+  }
+
+  .stable-links {
+    flex-direction: row;
+  }
+}

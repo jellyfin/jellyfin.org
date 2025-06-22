@@ -1,11 +1,12 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 
-import './DetailsCard.css';
+import './DetailsCard.scss';
 
 type DetailsCardProps = {
   id?: string;
   title: string;
   description: ReactNode;
+  smallDescription?: ReactNode;
   badges?: ReactNode;
   icons?: ReactNode;
   primaryButtons?: Array<ReactNode>;
@@ -17,6 +18,7 @@ const DetailsCard: FunctionComponent<DetailsCardProps> = ({
   id,
   title,
   description,
+  smallDescription,
   badges = [],
   icons = [],
   primaryButtons = [],
@@ -31,7 +33,10 @@ const DetailsCard: FunctionComponent<DetailsCardProps> = ({
       </div>
       <div className='details-card__icons'>{icons}</div>
     </div>
-    <div className='card__body padding-top--sm'>{description}</div>
+    <div className='card__body padding-top--sm'>
+      <p>{description}</p>
+      {smallDescription && <p className='card__body__helptext'>{smallDescription}</p>}
+    </div>
     <div className='card__footer details-card__footer container'>
       <div className='row'>
         <div className='details-card__footer__buttons col'>

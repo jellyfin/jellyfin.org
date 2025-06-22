@@ -1,5 +1,6 @@
 [
   "/docs/general/administration/hardware-acceleration.html",
+  "/docs/general/administration/hardware-acceleration/intel",
   "/docs/general/contributing/index.html",
   "/docs/general/networking/dlna.html",
   "/docs/general/networking/index.html",
@@ -13,10 +14,12 @@
   "/docs/general/server/media/movies.html",
   "/docs/general/server/media/music.html",
   "/docs/general/server/media/shows.html",
+  "/docs/general/server/media/subtitles.html",
   "/docs/general/server/notifications.html",
   "/docs/general/server/plugins/index.html",
   "/docs/general/server/settings.html",
   "/docs/general/server/tasks.html",
   "/docs/general/server/transcoding.html",
-  "/docs/general/server/users/adding-managing-users.html"
+  "/docs/general/server/users/adding-managing-users.html",
+  "/docs/general/post-install/setup-wizard.html"
 ]

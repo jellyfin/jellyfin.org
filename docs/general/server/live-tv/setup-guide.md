@@ -1,6 +1,7 @@
 ---
 uid: server-live-tv-setup-guide
-title: Setup Guide
+title: Live TV Setup Guide
+sidebar_position: 1
 ---
 
 # Setup Guide
@@ -40,6 +41,18 @@ To set a favorite, go to the [HDHomeRun website](http://my.hdhomerun.com), selec
 
 ![Selecting favorites in HDHomeRun](/images/docs/live-tv-setup-hdhr_opt1.png)
 
+:::note
+
+Using a legacy HDHomeRun unit requires an initial scan from the HDHomeRun Setup utility, using a **Windows** PC. Otherwise, Jellyfin will not recognize any channels from the tuner and "Map Channels" page will be empty.
+
+Legacy products include: HDHR-US, HDHR-EU, HDHR-T1-US, HDHR3-US, HDHR3-DT, and HDHR3-EU.
+
+Software and Instructions can be found here:
+
+[Using the HDHomeRun app with legacy HDHomeRun devices](https://info.hdhomerun.com/info/using_the_app_with_legacy_hardware)
+
+:::
+
 ### M3U Tuner Specific Options
 
 This tuner allows you to add IPTV channel to Jellyfin by using the appropriate M3U8 playlist file.
@@ -56,7 +69,7 @@ This tuner allows you to add IPTV channel to Jellyfin by using the appropriate M
 
 Here is a list of legal samples to use to test connectivity.
 
-[LegalStream Live News Playlist](https://raw.githubusercontent.com/notanewbie/LegalStream/master/packages/news/live.m3u8)
+[LegalStream Live News Playlist](https://raw.githubusercontent.com/notanewbie/LegalStream/master/packages/news/live.m3u8) - Deprecated as of 2022.
 
 :::
 
@@ -70,13 +83,11 @@ Choose between 'Schedules Direct' and 'XMLTV'. You currently cannot use both at 
 
 **Schedules Direct:**
 
-Schedules Direct is a paid service that provides U.S. and Canadian guide data for use in OSS projects. The price is $25 a year and has not increased since it began in 2007. The guide data is highly reliable. You will have to create an account at their [website](http://www.schedulesdirect.org).
+Schedules Direct is a paid service that provides U.S., Canadian, and other guide data for use in OSS projects. They are a non-profit with a low membership fee. The guide data is highly reliable. You will have to create an account at their [website](http://www.schedulesdirect.org).
 
 **XMLTV:**
 
 This option allows for downloading of guide data in the [XMLTV](http://wiki.xmltv.org/index.php/XMLTVFormat) format.
-
-To create an XML file with guide data, there are several different methods. A reliable way to do this is to use [shuaiscott's zap2xml Docker container](https://github.com/shuaiscott/zap2xml).
 
 ## Mapping Channels
 

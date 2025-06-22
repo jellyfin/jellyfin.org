@@ -1,7 +1,7 @@
-import { Twitter } from '@icons-pack/react-simple-icons';
+import { SiX } from '@icons-pack/react-simple-icons';
 import React from 'react';
 
-import './ContactCard.css';
+import './ContactCard.scss';
 
 const TwitterCard = () => (
   <div className='card card--contact'>
@@ -9,7 +9,7 @@ const TwitterCard = () => (
       <h3 className='margin-bottom--none' style={{ flexGrow: 1 }}>
         Twitter
       </h3>
-      <Twitter />
+      <SiX />
     </div>
     <div className='card__body'>
       Follow us on Twitter for release announcements and other updates, along with general musings.

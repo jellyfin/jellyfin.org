@@ -1,0 +1,335 @@
+---
+uid: server-plugins-index
+title: Plugins
+---
+
+# Plugins
+
+Jellyfin has a collection of optional plugins that can be installed to provide additional features. To create a plugin, see the [plugin template](https://github.com/jellyfin/jellyfin-plugin-template) repository.
+
+## Installing
+
+### Catalog
+
+Many plugins are available in a repository hosted on our servers, which can be easily installed using the plugin catalog in the settings. At the moment many of these are still being updated frequently so the version number may not be accurate. There are several different categories that can indicate what kind of functionality the plugins may provide.
+
+The _plugins folder_ is located in different locations depending on your install:
+
+- `%UserProfile%\AppData\Local\jellyfin\plugins` for direct installs
+- `%ProgramData%\Jellyfin\Server\plugins` for tray installs
+
+After that start Jellyfin back up, and reinstall each plugin you want to update using the above method from the catalog.
+Plugin settings should be retained if you do not delete the `.xml` files from the `<direct or tray path>\plugins\configurations` folder.
+
+**Authentication:** Add new authentication providers, such as LDAP.
+
+**Channels:** Allow streaming remote audio or video content.
+
+**General:** Plugins that serve general purposes, such as sync with Trakt.tv, or Kodi.
+
+**Live TV:** Plugins that help with connecting to tuners, such as NextPVR, or TVHeadend.
+
+**Metadata:** Scrape metadata from a new source or modify existing metadata.
+
+**Notifications:** Allow notifications to connect to many different services, including Gotify and Slack.
+
+### Manual
+
+All plugins hosted on the repository can be built from source and manually added to your server as well. They just need to be placed in the plugin directory, which is something like `/var/lib/jellyfin/plugins/` on most Linux distributions. Once the server is restarted any additions should automatically show up in your list of installed plugins. If you can't see the new plugin there may be a file permission issue.
+
+## List
+
+### Official Plugins
+
+#### Metadata Plugins
+
+Manage your Anime in Jellyfin with several different metadata providers and options for organizing your collection.
+
+##### Anilist
+
+![Anilist Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-anilist.svg)
+![Anilist Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-anilist.svg)
+![Anilist License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-anilist.svg)
+
+Provides metadata support from [Anilist](https://anilist.co/).
+
+**Link:**
+
+- [Github](https://github.com/jellyfin/jellyfin-plugin-anilist)
+
+##### Anidb
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-anidb.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-anidb.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-anidb.svg)
+
+Provides metadata support from [Anidb](https://anidb.net/).
+
+**Link:**
+
+- [Github](https://github.com/jellyfin/jellyfin-plugin-anidb)
+
+##### Anisearch
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-anisearch.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-anisearch.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-anisearch.svg)
+
+Provides metadata support from [Anisearch](https://www.anisearch.com/).
+
+**Link:**
+
+- [Github](https://github.com/jellyfin/jellyfin-plugin-anisearch)
+
+##### Bookshelf
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-bookshelf.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-bookshelf.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-bookshelf.svg)
+
+Supports several different metadata providers and options for organizing your collection.
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-bookshelf)
+
+##### Kitsu
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-kitsu.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-kitsu.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-kitsu.svg)
+
+Provides metadata support from [Kitsu](https://kitsu.app/).
+
+- [Github](https://github.com/jellyfin/jellyfin-plugin-kitsu)
+
+#### Fanart
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-fanart.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-fanart.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-fanart.svg)
+
+Scrape poster images for movies, shows, and artists in your library from [fanart.tv](https://fanart.tv).
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-fanart)
+
+#### Kodi Sync Queue
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-kodisyncqueue.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-kodisyncqueue.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-kodisyncqueue.svg)
+
+Helps keep Jellyfin for Kodi in sync with the library without needing to run periodic full scans.
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-kodisyncqueue)
+
+#### Local Intros
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-intros.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-intros.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-intros.svg)
+
+Use pre-roll intro videos from local storage.
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-intros)
+
+#### LDAP
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-ldapauth.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-ldapauth.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-ldapauth.svg)
+
+Authenticate your Jellyfin users against an LDAP database, and optionally create users who do not yet exist automatically. Allows the administrator to customize most aspects of the LDAP authentication process, including customizable search attributes, username attribute, and a search filter for administrative users (set on user creation). The user, via the "Manual Login" process, can enter any valid attribute value, which will be mapped back to the specified username attribute automatically as well.
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-ldapauth)
+
+#### NextPVR
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-nextpvr.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-nextpvr.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-nextpvr.svg)
+
+Provides access to Live TV, Program Guide, and Recordings from [NextPVR](https://www.nextpvr.com/).
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-nextpvr)
+
+#### [Open Subtitles](/docs/general/server/plugins/open-subtitles)
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-opensubtitles.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-opensubtitles.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-opensubtitles.svg)
+
+Download subtitles from the internet to use with your media files from [Open Subtitles](https://www.opensubtitles.org/). You can configure the languages it downloads on a per-library basis.
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-opensubtitles)
+
+#### Subtitle Extract
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-subtitleextract.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-subtitleextract.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-subtitleextract.svg)
+
+Plugin to automatically extract embedded subtitles in media. This avoids delayed subtitles during streaming if the client does not support direct play and requests subtitles.
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-subtitleextract)
+
+#### Playback Reporting
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-playbackreporting.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-playbackreporting.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-playbackreporting.svg)
+
+Collect and show user playback statistics, such as total time watched, media watched, time of day watched, and time of week watched. Can keep information for as long as you want or can cull older information automatically. Also allows you to manually query the data collected so you can generate your own reports.
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-playbackreporting)
+
+#### Reports
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-reports.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-reports.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-reports.svg)
+
+Generate reports of your media library.
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-reports)
+
+#### TMDb Box Sets
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-tmdbboxsets.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-tmdbboxsets.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-tmdbboxsets.svg)
+
+Automatically create movie box sets based on TMDb collections. Configurable minimum number of films to be considered a boxset. Boxsets are created as collections and includes a scheduled task to ensure that new media is automatically put into boxsets.
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-tmdbboxsets)
+
+#### Trakt
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-trakt.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-trakt.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-trakt.svg)
+
+Record your watched media with [Trakt](https://trakt.tv).
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-trakt)
+
+#### TVHeadend
+
+![Language](https://img.shields.io/github/languages/top/jellyfin/jellyfin-plugin-tvheadend.svg)
+![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-tvheadend.svg)
+![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-tvheadend.svg)
+
+Manage TVHeadEnd directly from Jellyfin by visiting the [TVHeadEnd plugin support page](/docs/general/server/plugins/tvheadend).
+
+**Links:**
+
+- [GitHub](https://github.com/jellyfin/jellyfin-plugin-tvheadend)
+
+### 3rd-Party Plugins
+
+#### Ani-Sync
+
+Ani-Sync lets you synchronize/scrobble your Jellyfin Anime watch progress to popular services like MyAnimeList, AniList, Kitsu.
+
+**Links:**
+
+- [GitHub](https://github.com/vosmiic/jellyfin-ani-sync)
+
+#### Kinopoisk metadata plugin
+
+Fetches metadata from [https://kinopoisk.ru](https://kinopoisk.ru). This site is popular in the Russian-speaking community and contains almost no English-language information. Can provide movies and series rating, description, actors and staff, trailers and so on.
+
+**Links:**
+
+- [GitHub](https://github.com/LinFor/jellyfin-plugin-kinopoisk)
+
+#### Last.FM
+
+Enables audio scrobbling to Last.FM as well as a metadata fetcher source.
+
+**Links:**
+
+- [GitHub](https://github.com/jesseward/jellyfin-plugin-lastfm)
+
+#### Merge Versions
+
+Automatically group every repeated movie.
+
+**Links:**
+
+- [GitHub](https://github.com/danieladov/jellyfin-plugin-mergeversions)
+
+#### Shokofin
+
+A plugin to integrate your Shoko database with the Jellyfin media server.
+
+**Links:**
+
+- [GitHub](https://github.com/ShokoAnime/Shokofin)
+
+#### Skin Manager
+
+Download and manage the most popular skins.
+
+**Links:**
+
+- [GitHub](https://github.com/danieladov/jellyfin-plugin-skin-manager)
+
+#### Themerr
+
+Plugin for Jellyfin that adds theme songs to movies and tv shows using ThemerrDB.
+
+**Links:**
+
+- [GitHub](https://github.com/LizardByte/themerr-jellyfin)
+
+#### YouTube Metadata
+
+Downloads metadata of YouTube videos with a YouTube API key.
+
+**Links:**
+
+- [GitHub](https://github.com/ankenyr/jellyfin-youtube-metadata-plugin)
+
+#### TubeArchivistMetadata
+
+A plugin to integrate your TubeArchivist library with Jellyfin, providing metadata and organizing media.
+
+**Links:**
+
+- [GitHub](https://github.com/tubearchivist/tubearchivist-jf-plugin)
+
+## Repositories
+
+import { OfficialPluginRepositories, ThirdPartyRepositories } from '../../../../src/data/pluginRepositories';
+import PluginRepositoryList from '../../../../src/components/plugins/PluginRepositoryList';
+
+### Official Jellyfin Plugin Repositories
+
+<PluginRepositoryList repositories={OfficialPluginRepositories} />
+
+### 3rd-Party Plugin Repositories
+
+<PluginRepositoryList repositories={ThirdPartyRepositories} />

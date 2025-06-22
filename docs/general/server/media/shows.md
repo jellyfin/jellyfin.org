@@ -1,141 +1,102 @@
 ---
 uid: server-media-shows
-title: Shows
+title: TV Shows
 ---
 
-# Shows
+# TV Shows
 
-The most common naming scheme for shows is categorizing the files by series and then season. Another common method is simply using series folders, especially for shows that are organized by air date and those without seasons. Adding the year at the end in parentheses will yield the best results when scraping metadata.
+TV Shows can be added to Jellyfin using the "Shows" library type.
 
-:::tip
+import VideoHeader from './\_video-header.md';
 
-In order to help with identifying a series, Jellyfin can make use of media provider identifiers. This can be specified in your show's folder name, for example: `Series (2010) [imdbid-tt0106145]` or `Series (2018) [tmdbid-65567]`
+<VideoHeader />
 
-:::
+## Organization
+
+Shows should be organized into series folders, then into season folders under each series.
 
 ```txt
 Shows
-├── Series (2010)
+├── Series Name A (2010)
 │   ├── Season 00
 │   │   ├── Some Special.mkv
-│   │   ├── Episode S00E01.mkv
-│   │   └── Episode S00E02.mkv
+│   │   ├── Series Name A S00E01.mkv
+│   │   └── Series Name A S00E02.mkv
 │   ├── Season 01
-│   │   ├── Episode S01E01-E02.mkv
-│   │   ├── Episode S01E03.mkv
-│   │   └── Episode S01E04.mkv
+│   │   ├── Series Name A S01E01-E02.mkv
+│   │   ├── Series Name A S01E03.mkv
+│   │   └── Series Name A S01E04.mkv
 │   └── Season 02
-│       ├── Episode S02E01.mkv
-│       └── Episode S02E02.mkv
-└── Series (2018)
-    ├── Episode S01E01.mkv
-    ├── Episode S01E02.mkv
-    ├── Episode S02E01-E02.mkv
-    └── Episode S02E03.mkv
+│       ├── Series Name A S02E01.mkv
+│       ├── Series Name A S02E02.mkv
+│       ├── Series Name A S02E03 Part 1.mkv
+│       └── Series Name A S02E03 Part 2.mkv
+└── Series Name B (2018)
+    ├── Season 01
+    |   ├── Series Name B S01E01.mkv
+    |   └── Series Name B S01E02.mkv
+    └── Season 02
+        ├── Series Name B S02E01-E02.mkv
+        └── Series Name B S02E03.mkv
 ```
 
-:::note
+Each video file may contain multiple episodes. However, they will be shown as a single entry containing metadata from multiple episodes. It is recommended that the video files be split into individual episodes using a tool like [MKVToolNix](https://mkvtoolnix.download)
 
-Avoid special characters such as \* in M\*A\*S\*H, use MASH instead.
+### Naming
 
-:::
+The series folder should be named in the following format:
 
-:::note
+```txt
+Series Name (year) [external id]
+```
 
-Season folders shouldn't contain the series name, otherwise Jellyfin can in certain cases (Stargate SG-1 due to the dash and one, for instance) misdetect your episodes and put them all under the same season.
+The `year` and `external id` fields are optional, but they will help identify media more reliably.
 
-:::
+- Example with name only: `Jellyfin Documentary.mkv`
+- Example with year: `Jellyfin Documentary (2030)`
+- Example with external id: `Jellyfin Documentary [imdbid-tt00000000]`
+- Example with both year and external id: `Jellyfin Documentary (2030) [imdbid-tt00000000]`
 
-## Show Extras
+The Season folders should be named `Season *`, with `*` being any number. For the best results, please pad the season number with `0`s at the front to make sure each entry has the same number of digits. For example: `Season 5` -> `Season 05`.
 
-Show extras, sometimes called specials, can be added in the `Season 00` folder. If supported by your metadata provider those files will be matched. In case your metadata provider does not provide information about the extra, it is recommended to use a name which describes the content of the special instead of naming it `Episode S00Exy.mkv`. This is done to avoid wrong metadata being pulled for the extra and to provide a proper presentation.
+import VideoMetadataProviders from './\_video-metadata-providers.md';
 
-:::note
+<VideoMetadataProviders />
+
+import ExternalStreams from './\_video-external-streams.md';
+
+<ExternalStreams />
+
+import ExternalExtras from './\_video-external-extras.md';
+
+<ExternalExtras />
+
+### Show Specials
+
+Show specials can be added in the `Season 00` folder. If supported by your metadata provider those files will be matched. In case your metadata provider does not provide information about the special, it is recommended to use a name which describes the content of the special instead of naming it `Series Name S00Exy.mkv`. This is done to avoid wrong metadata being pulled for the special and to provide a proper presentation.
 
 Episode numbering for specials may vary from metadata provider to metadata provider.
 
-:::
+Specials can also be shown within a season if so desired. This can be helpful when they are part of a continued storyline during the season. This requires 2 settings:
 
-## Images
+1. The option `Display specials within their series they aired in` under `Dashboard -> Library -> Display` must be enabled
+2. The season and episode they aired before/after must be set within the metadata.
+   - These can be set in the Metadata editor or in an NFO using the `airsbefore_season`, `airsafter_season`, and `airsbefore_episode` tags.
+   - When the `Airs before season` field is set but `Airs before episode` is not set, the special will play at the start of the specified season, before the first episode.
+   - The `Airs before season` can also be combined with the `Airs before episode` field to insert it as a mid-season special before the specified episode. For example, if `Airs before season` is set to `2` and `Airs before episode` is set to `7`, the special will play between S02E06 and S02E07.
+   - With `Airs after series`, set the Special will be shown (and played) at the end of the specified Season. This will take priority over the `Airs before season/episode` fields if they are set.
+   - When multiple specials have the same position, they will play in the order in which they are stored in the specials season. For example, if S00E01 and S00E03 both have `Airs before season` set to `3` and `Airs before episode` set to `7`, the order the content will play in is: S03E06 → S00E01 → S00E03 → S03E07.
 
-### Poster
+Note that this will show them in both the `Specials` season, as well as the season specified.
 
-- folder.ext
-- poster.ext
-- cover.ext
-- default.ext
-- show.ext
+import Video3D from './\_video-3d.md';
 
-Examples:
+<Video3D />
 
-- Series:
-  - Series (2010)/poster.jpg
-- Season posters:
-  - Numbered seasons:
-    - Series (2010)/Season 01/cover.jpg
-    - Series (2010)/season1-poster.jpg
-  - Specials:
-    - Series (2010)/season-specials-poster.jpg
+import Multipart from './\_video-multipart.md';
 
-### Backdrop
+<Multipart />
 
-- backdrop.ext
-- fanart.ext
-- background.ext
-- art.ext
-- extrafanart/\*.ext
+import ExternalImages from './\_external-images.md';
 
-Examples:
-
-Series (2010)/fanart.jpg _for the first backdrop image_
-
-Series (2010)/extrafanart/fanart1.jpg, Series (2010)/extrafanart/fanart2.jpg, _etc for additional backdrop images_
-
-### Banner
-
-- banner.ext
-
-Example:
-
-Series (2010)/banner.jpg
-
-### Thumb
-
-- thumb.ext
-- landscape.ext
-
-Examples:
-
-Series (2010)/landscape.jpg
-
-Series (2010)/Season 01/episode filename-thumb.jpg _for the thumbnail of an episode named "episode filename.mkv"_
-
-### Logo
-
-- logo.ext
-- clearlogo.ext
-
-Example:
-
-Series (2010)/logo.png
-
-## Other
-
-### Theme Videos
-
-- backdrops/\*
-
-Example:
-
-Series (2010)/backdrops/S1Intro.ext
-
-### Theme Music
-
-- theme.ext
-- theme-music/\*
-
-Examples:
-
-Series (2010)/theme.ext
-
-Series (2010)/theme-music/intro-song.ext
+<ExternalImages />

@@ -24,10 +24,11 @@ export default function Home() {
           <a href='https://demo.jellyfin.org/stable' className='button button--lg button--secondary button--outline'>
             See it in Action
           </a>
-          <Link to='/downloads' className='button button--lg button--primary'>
+          <Link to='/downloads/server' className='button button--lg button--primary'>
             Download Now
           </Link>
         </div>
+        <p><a href="/docs/general/community-standards/servers">Note: We do not run servers for users.</a></p>
       </Hero>
       <main>
         <HomepageFeatures />

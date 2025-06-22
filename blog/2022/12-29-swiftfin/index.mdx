@@ -1,0 +1,64 @@
+---
+title: Swiftfin on the App Store
+authors:
+  - anthonylavado
+tags: [release, apple, ios, apple-tv]
+---
+
+As of today, Swiftfin, our native iOS/iPadOS/tvOS app is now on the Apple App Store. While this is still a work in progress, you can download it today and enjoy your media (_including **Live TV!**_) on the big (or small) screen.
+
+\- Anthony
+
+{/* truncate */}
+
+## What is Swiftfin?
+
+If you haven't seen it or tried it yet, [Swiftfin](https://github.com/jellyfin/Swiftfin) is a Jellyfin video player app for Apple devices that has been written from the ground up using modern technologies like Swift UI, and VLCKit. Originally started as a summer project in 2021 by contributor Aiden ([@acvigue](https://github.com/acvigue)), development has been carried on by other members of the team, most notably Ethan ([@LePips](https://github.com/LePips)).
+
+It runs on all modern iOS, iPadOS, and tvOS devices, with a current minimum of iOS/iPadOS/tvOS 15.0 or later.
+
+We've decided to release it on the App Store instead of continuing with TestFlight, as the beta program filled up (that's over 9,000 users!), and people still wanted to try it.
+
+### Swiftfin and Jellyfin Mobile
+
+What's important to note is that while Swiftin does run on an iPhone and iPad, it's not currently a full replacement for [Jellyfin Mobile](https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8) (or using the web browser). Jellyfin Mobile still contains access to the full web interface, allowing you to manage the server and use the standard interface. Right now, Swiftfin is also **video only**, so it does not handle Audiobooks, Photos, or Music. You'll want to keep using Jellyfin Mobile for those, or your other preferred [client of choice](https://jellyfin.org/downloads/clients/).
+
+## Still in Beta
+
+Though the app is publicly available now, it's **still in beta**. There's a lot of things to fix, and many are still underway. We appreciate your patience with this - starting from the ground up has been a long and difficult road for the contributors that work on the app. If you or someone you know has an interest in Swift or Swift UI, we'd welcome you to come by and [chat with us](https://jellyfin.org/contact) on how you can help with development.
+
+### Live TV Support on Apple TV!
+
+Now the one that a lot of people have been waiting for. With Swiftfin on an Apple TV, it's possible to watch your Jellyfin Live TV sources on the big screen. This feature is **in Alpha**, so it may not reliably work in some cases (or at all). It's something we're working on.
+
+To enable this, do the following:
+
+1. In the top menu bar, go to the "Settings" (⚙️) icon.
+2. Scroll down to and choose "Experimental".
+3. Scroll down to and enable "Live TV (Alpha)".
+
+After you've enabled it, you can access it through the "Media" section of the App. There should be a new Library named "LiveTV".
+
+## Contributors
+
+Jellyfin apps are developed by our great contributors and we couldn't do it without them. Everyone is a volunteer that
+doesn't get paid by any organizations, so consider donating if you appreciate their work. A big shout-out to all
+contributors that made this release possible over the past year and a half:
+
+**Jellyfin Team**
+
+- [@LePips](https://github.com/LePips)
+- [@acvigue](https://github.com/acvigue)
+- [@PangMo5](https://github.com/PangMo5)
+
+**Other contributors**
+
+- [@jhays](https://github.com/jhays)
+- [@stevebayatt10](https://github.com/stevebyatt10)
+- [@daullmer](https://github.com/daullmer)
+
+and many others contributing fixes or translations. You can see the whole list on [GitHub](https://github.com/jellyfin/Swiftfin/graphs/contributors).
+
+## Downloads
+
+<a style={{ paddingLeft: "20px" }} href='https://apps.apple.com/ca/app/swiftfin/id1604098728'><img width="153" alt='Download on the App Store' src='/images/store-icons/app-store.svg' /></a>

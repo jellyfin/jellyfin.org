@@ -5,13 +5,19 @@ title: Migrating
 
 # Migrating
 
-It is possible to migrate your system to another system by using environment variables.
-It's possible to do this via the command line or by using Docker environment variables.
-To read more, see the [Configuration](/docs/general/administration/configuration) page.
+This page covers migrations of Jellyfin as well as migrations to Jellyfin.
+
+Jellyfins internal databases cannot be copied or adjusted easily. Depending on your case there may be ways to work around this, for example by just migrating parts of the data, or because it's possible maintain the same file paths.
+
+If that's not an option for you, there is also a script available to migrate the entire database without data loss, but it's not a turn-key solution.
+
+## Full Database Migration
+
+[Jellyfin Migrator](https://github.com/MMMZZZZ/Jellyfin-Migrator) is a third-party script that can migrate your entire installation from Windows to Linux or Linux Docker. It can also do other migrations, like a reorganization of your media files. All statistics, settings and metadata are preserved.
 
 ## Watched Status Migration
 
-There are scripts available that will use the API to copy watched status and users from one instance to another.
+There are third-party scripts available that will use the API to copy watched status and users from one instance to another.
 This can be done from Plex, Emby or another Jellyfin instance.
 
 [Emby/Jellyfin to Jellyfin migration](https://github.com/CobayeGunther/Emby2Jelly)
@@ -20,7 +26,7 @@ This can be done from Plex, Emby or another Jellyfin instance.
 
 ## Migrating Linux install to Docker
 
-It's possible to use the data of a local install in the official docker image by mapping files and folders to the same locations and configuring the image accordingly.
+It's possible to use the data of a local install in the official docker image by mapping files and folders to the same locations and configuring the image accordingly. It's possible to do this via the command line or by using Docker environment variables. To read more, see the [Configuration](/docs/general/administration/configuration) page.
 
 :::note
 
@@ -66,7 +72,6 @@ docker run -d \
 ### Using docker-compose yaml
 
 ```yml
-version: '3'
 services:
   jellyfin:
     image: jellyfin/jellyfin
@@ -131,7 +136,7 @@ This procedure is written for Debian-based Linux distributions, but can be trans
    sudo apt purge emby-server
    ```
 
-5. Install the `jellyfin` package using the [installation instructions](/docs/general/administration/installing).
+5. Install the `jellyfin` package using the [installation instructions](/docs/general/installation).
 
 6. Stop the `jellyfin` daemon:
 

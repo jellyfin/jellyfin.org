@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import { Autoplay, Pagination } from 'swiper';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import HomeImageUrl from '../../../static/images/screenshots/home/10.8-home.png';
@@ -10,7 +10,7 @@ import PlaybackImageUrl from '../../../static/images/screenshots/home/10.8-playb
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import landingSectionStyles from './LandingSection.module.css';
+import landingSectionStyles from './LandingSection.module.scss';
 
 const screenshots = [
   {

@@ -16,7 +16,8 @@ export enum OsType {
   Docker,
   Linux,
   MacOS,
-  Windows
+  Windows,
+  DotNet,
 }
 
 export type Button = {
@@ -41,6 +42,67 @@ export type Download = {
 
 export const Downloads: Array<Download> = [
   {
+    id: 'docker',
+    name: 'Docker',
+    osTypes: [OsType.Docker],
+    status: DownloadStatus.Official,
+    features: [Feature.CustomFFmpeg],
+    platforms: [Platform.Docker],
+    description: (
+      <>
+        Run Jellyfin in Docker. Example commands store data in <code>/srv/jellyfin</code> and assume your media is
+        stored under <code>/media</code>.
+      </>
+    ),
+    stableButtons: [
+      {
+        id: 'docker-stable-button',
+        name: 'Install Instructions',
+        details: (
+          <pre className='margin-bottom--none'>
+            <code>{`docker pull jellyfin/jellyfin:latest  # or docker pull ghcr.io/jellyfin/jellyfin:latest
+mkdir -p /srv/jellyfin/{config,cache}
+docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /media:/media --net=host jellyfin/jellyfin:latest`}</code>
+          </pre>
+        )
+      },
+      {
+        id: 'docker-hub-stable-link',
+        name: 'Docker Hub',
+        url: 'https://hub.docker.com/r/jellyfin/jellyfin/'
+      },
+      {
+        id: 'ghcr-stable-link',
+        name: 'GHCR',
+        url: 'https://ghcr.io/jellyfin/jellyfin'
+      }
+    ],
+    unstableButtons: [
+      {
+        id: 'docker-unstable-button',
+        name: 'Install Instructions',
+        details: (
+          <pre className='margin-bottom--none'>
+            <code>{`docker pull jellyfin/jellyfin:unstable  # or docker pull ghcr.io/jellyfin/jellyfin:unstable
+mkdir -p /srv/jellyfin/{config,cache}
+docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /media:/media --net=host jellyfin/jellyfin:unstable`}</code>
+          </pre>
+        )
+      },
+      {
+        id: 'docker-hub-unstable-link',
+        name: 'Docker Hub',
+        url: 'https://hub.docker.com/r/jellyfin/jellyfin/'
+      },
+      {
+        id: 'ghcr-unstable-link',
+        name: 'GHCR',
+        url: 'https://ghcr.io/jellyfin/jellyfin'
+      }
+    ],
+    otherButtons: []
+  },
+  {
     id: 'debuntu',
     name: 'Debian and Ubuntu',
     osTypes: [OsType.Linux],
@@ -55,30 +117,18 @@ export const Downloads: Array<Download> = [
         details: (
           <>
             <pre>
-              <code>
-                {`sudo apt install curl gnupg
-sudo mkdir /etc/apt/keyrings
-curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
-cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
-Types: deb
-URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
-Suites: $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )
-Components: main
-Arch: $( dpkg --print-architecture )
-Signed-By: /etc/apt/keyrings/jellyfin.gpg
-EOF
-sudo apt update
-sudo apt install jellyfin`}
-              </code>
+              <code>{`curl -s https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}</code>
             </pre>
             <p>
-              <b>Note:</b> The third command will output the Jellyfin APT repository configuration for your system. We
-              support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures (
-              <code>Arch:</code>), <code>debian</code> and <code>ubuntu</code> for distributions (the text after the
-              final slash in <code>URIs:</code>), <code>buster</code> and <code>bullseye</code> for Debian releases and{' '}
-              <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu releases (
-              <code>Suites:</code>). If you see something different in your output, you might need to manually modify
-              it. Use the closest equivalent Debian or Ubuntu version, instead.
+              If you do not have <code>curl</code> installed, you can use <code>wget -q -O-</code> instead of{' '}
+              <code>curl -s</code>.
+            </p>
+            <p>
+              For more advanced users, the full steps can be{' '}
+              <a href='https://jellyfin.org/docs/general/installation/linux#debuntu-debian-ubuntu-and-derivatives-using-apt'>
+                found in the docs
+              </a>
+              .
             </p>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
@@ -87,6 +137,16 @@ sudo apt install jellyfin`}
             </p>
           </>
         )
+      },
+      {
+        id: 'debian-manual-stable-link',
+        name: 'Downloads (Debian)',
+        url: 'https://repo.jellyfin.org/?path=/server/debian/latest-stable'
+      },
+      {
+        id: 'ubuntu-manual-stable-link',
+        name: 'Downloads (Ubuntu)',
+        url: 'https://repo.jellyfin.org/?path=/server/ubuntu/latest-stable'
       }
     ],
     unstableButtons: [
@@ -99,13 +159,15 @@ sudo apt install jellyfin`}
               <code>
                 {`sudo apt install curl gnupg
 sudo mkdir /etc/apt/keyrings
-curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
+DISTRO="$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )"
+CODENAME="$( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )"
+curl -fsSL https://repo.jellyfin.org/\${DISTRO}/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
 cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
 Types: deb
-URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
-Suites: $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release )
+URIs: https://repo.jellyfin.org/\${DISTRO}
+Suites: \${CODENAME}
 Components: main unstable
-Arch: $( dpkg --print-architecture )
+Architectures: $( dpkg --print-architecture )
 Signed-By: /etc/apt/keyrings/jellyfin.gpg
 EOF
 sudo apt update
@@ -113,13 +175,8 @@ sudo apt install jellyfin`}
               </code>
             </pre>
             <p>
-              <b>Note:</b> The third command will output the Jellyfin APT repository configuration for your system. We
-              support <code>amd64</code>, <code>armhf</code>, and <code>arm64</code> for architectures (
-              <code>Arch:</code>), <code>debian</code> and <code>ubuntu</code> for distributions (the text after the
-              final slash in <code>URIs:</code>), <code>buster</code> and <code>bullseye</code> for Debian releases and{' '}
-              <code>bionic</code>, <code>focal</code>, <code>impish</code> and <code>jammy</code> for Ubuntu releases (
-              <code>Suites:</code>). If you see something different in your output, you might need to manually modify
-              it. Use the closest equivalent Debian or Ubuntu version, instead.
+              <b>Note:</b> If you are running a non-Debian, non-Ubuntu derivative, ensure the $DISTRO and $CODENAME are
+              valid Debian or Ubuntu values!
             </p>
             <p>
               <b>Note:</b> Both the <code>main</code> and <code>unstable</code> are needed in <code>Components:</code>{' '}
@@ -132,42 +189,130 @@ sudo apt install jellyfin`}
             </p>
           </>
         )
-      }
-    ],
-    otherButtons: [
-      {
-        id: 'debian-all-link',
-        name: 'All Debian Versions',
-        url: 'https://repo.jellyfin.org/releases/server/debian/versions'
       },
       {
-        id: 'ubuntu-all-link',
-        name: 'All Ubuntu Versions',
-        url: 'https://repo.jellyfin.org/releases/server/ubuntu/versions'
+        id: 'debian-manual-unstable-link',
+        name: 'Downloads (Debian)',
+        url: 'https://repo.jellyfin.org/?path=/server/debian/latest-unstable'
+      },
+      {
+        id: 'ubuntu-manual-unstable-link',
+        name: 'Downloads (Ubuntu)',
+        url: 'https://repo.jellyfin.org/?path=/server/ubuntu/latest-unstable'
       }
-    ]
+    ],
+    otherButtons: []
+  },
+  {
+    id: 'generic-linux',
+    name: 'Generic Linux',
+    osTypes: [OsType.Linux],
+    status: DownloadStatus.Official,
+    features: [],
+    platforms: [Platform.Linux],
+    description: 'Linux self-contained binary TAR archives (.tar.gz) are provided.',
+    stableButtons: [
+      {
+        id: 'linux-manual-stable-link',
+        url: 'https://repo.jellyfin.org/?path=/server/linux/latest-stable'
+      }
+    ],
+    unstableButtons: [
+      {
+        id: 'linux-manual-unstable-link',
+        url: 'https://repo.jellyfin.org/?path=/server/linux/latest-unstable'
+      }
+    ],
+    otherButtons: []
+  },
+  {
+    id: 'windows',
+    name: 'Windows',
+    osTypes: [OsType.Windows],
+    status: DownloadStatus.Official,
+    features: [Feature.CustomFFmpeg],
+    platforms: [Platform.Windows],
+    description: 'Both installers (.exe) and manual ZIP archives (.zip) are provided.',
+    stableButtons: [
+      {
+        id: 'windows-manual-stable-link',
+        name: 'Downloads',
+        url: 'https://repo.jellyfin.org/?path=/server/windows/latest-stable'
+      }
+    ],
+    unstableButtons: [
+      {
+        id: 'windows-unstable-link',
+        name: 'Downloads',
+        url: 'https://repo.jellyfin.org/?path=/server/windows/latest-unstable'
+      }
+    ],
+    otherButtons: []
+  },
+  {
+    id: 'macos',
+    name: 'macOS',
+    osTypes: [OsType.MacOS],
+    status: DownloadStatus.Official,
+    features: [Feature.CustomFFmpeg],
+    platforms: [Platform.MacOS],
+    description: 'Both installers (.dmg) and manual TAR archives (.tar.xz) are provided.',
+    stableButtons: [
+      {
+        id: 'macos-manual-stable-link',
+        name: 'Downloads',
+        url: 'https://repo.jellyfin.org/?path=/server/macos/latest-stable'
+      }
+    ],
+    unstableButtons: [
+      {
+        id: 'macos-manual-unstable-link',
+        name: 'Downloads',
+        url: 'https://repo.jellyfin.org/?path=/server/macos/latest-unstable'
+      }
+    ],
+    otherButtons: []
+  },
+  {
+    id: 'portable',
+    name: 'Portable',
+    osTypes: [OsType.DotNet],
+    status: DownloadStatus.Official,
+    features: [],
+    platforms: [Platform.DotNet],
+    description: 'The .NET portable version can be run on any system with a .NET runtime using jellyfin.dll',
+    stableButtons: [
+      {
+        id: 'portable-manual-stable-link',
+        url: 'https://repo.jellyfin.org/?path=/server/portable/latest-stable'
+      }
+    ],
+    unstableButtons: [
+      {
+        id: 'portable-manual-unstable-link',
+        url: 'https://repo.jellyfin.org/?path=/server/portable/latest-unstable'
+      }
+    ],
+    otherButtons: []
   },
   {
     id: 'arch',
     name: 'Arch Linux',
     osTypes: [OsType.Linux],
-    status: DownloadStatus.Community,
+    status: DownloadStatus.OsPackage,
     features: [Feature.CustomFFmpeg],
     platforms: [Platform.Arch],
-    description: 'Install Jellyfin via the Arch User Repository.',
+    description: 'Install Jellyfin via Arch-Extra Repository.',
     stableButtons: [
       {
-        id: 'arch-stable-button',
-        name: 'Install Instructions',
-        details: (
-          <pre className='margin-bottom--none'>
-            <code>
-              {`git clone https://aur.archlinux.org/jellyfin.git
-cd jellyfin
-makepkg -si`}
-            </code>
-          </pre>
-        )
+        id: 'arch-stable-link',
+        name: 'Arch Downloads',
+        url: 'https://archlinux.org/packages/?q=jellyfin'
+      },
+      {
+        id: 'arch-aur-link',
+        name: 'AUR Downloads',
+        url: 'https://aur.archlinux.org/packages/?K=jellyfin'
       }
     ],
     unstableButtons: [
@@ -183,60 +328,14 @@ makepkg -si`}
             </code>
           </pre>
         )
-      }
-    ],
-    otherButtons: [
+      },
       {
         id: 'arch-aur-link',
-        name: 'AUR',
+        name: 'AUR Downloads',
         url: 'https://aur.archlinux.org/packages/?K=jellyfin'
       }
-    ]
-  },
-  {
-    id: 'fedora-centos',
-    name: 'Fedora and CentOS',
-    osTypes: [OsType.Linux],
-    status: DownloadStatus.Official,
-    features: [],
-    platforms: [Platform.Fedora, Platform.CentOS],
-    description: 'RPM archives for both Fedora and CentOS are provided.',
-    stableButtons: [
-      {
-        id: 'fedora-stable-link',
-        name: 'Fedora Downloads',
-        url: 'https://repo.jellyfin.org/releases/server/fedora/stable'
-      },
-      {
-        id: 'centos-stable-link',
-        name: 'CentOS Downloads',
-        url: 'https://repo.jellyfin.org/releases/server/centos/stable'
-      }
     ],
-    unstableButtons: [
-      {
-        id: 'fedora-unstable-link',
-        name: 'Fedora Downloads',
-        url: 'https://repo.jellyfin.org/releases/server/fedora/unstable'
-      },
-      {
-        id: 'centos-unstable-link',
-        name: 'CentOS Downloads',
-        url: 'https://repo.jellyfin.org/releases/server/centos/unstable'
-      }
-    ],
-    otherButtons: [
-      {
-        id: 'fedora-all-link',
-        name: 'All Fedora Versions',
-        url: 'https://repo.jellyfin.org/releases/server/fedora/versions'
-      },
-      {
-        id: 'centos-all-link',
-        name: 'All CentOS Versions',
-        url: 'https://repo.jellyfin.org/releases/server/centos/versions'
-      }
-    ]
+    otherButtons: []
   },
   {
     id: 'gentoo',
@@ -268,96 +367,35 @@ makepkg -si`}
     otherButtons: []
   },
   {
-    id: 'generic-linux',
-    name: 'Generic Linux',
+    id: 'fedora-centos',
+    name: 'Fedora/CentOS Linux',
     osTypes: [OsType.Linux],
-    status: DownloadStatus.Official,
+    status: DownloadStatus.Community,
     features: [],
-    platforms: [Platform.Linux],
-    description: 'Linux self-contained binary TAR archives (.tar.gz) are provided.',
-    stableButtons: [{ id: 'linux-stable-link', url: 'https://repo.jellyfin.org/releases/server/linux/stable' }],
-    unstableButtons: [{ id: 'linux-unstable-link', url: 'https://repo.jellyfin.org/releases/server/linux/unstable' }],
-    otherButtons: [{ id: 'linux-all-link', url: 'https://repo.jellyfin.org/releases/server/linux/versions' }]
-  },
-  {
-    id: 'windows',
-    name: 'Windows',
-    osTypes: [OsType.Windows],
-    status: DownloadStatus.Official,
-    features: [Feature.CustomFFmpeg],
-    platforms: [Platform.Windows],
-    description: 'Both installers (.exe) and manual ZIP archives (.zip) are provided.',
-    stableButtons: [{ id: 'windows-stable-link', url: 'https://repo.jellyfin.org/releases/server/windows/stable' }],
-    unstableButtons: [
-      { id: 'windows-unstable-link', url: 'https://repo.jellyfin.org/releases/server/windows/unstable' }
-    ],
-    otherButtons: [{ id: 'windows-all-link', url: 'https://repo.jellyfin.org/releases/server/windows/versions' }]
-  },
-  {
-    id: 'macos',
-    name: 'MacOS',
-    osTypes: [OsType.MacOS],
-    status: DownloadStatus.Official,
-    features: [Feature.CustomFFmpeg],
-    platforms: [Platform.MacOS],
-    description: 'Both installers (.dmg) and manual ZIP archives (.tar.gz) are provided.',
-    stableButtons: [{ id: 'macos-stable-link', url: 'https://repo.jellyfin.org/releases/server/macos/stable' }],
-    unstableButtons: [{ id: 'macos-unstable-link', url: 'https://repo.jellyfin.org/releases/server/macos/unstable' }],
-    otherButtons: [{ id: 'macos-all-link', url: 'https://repo.jellyfin.org/releases/server/macos/versions' }]
-  },
-  {
-    id: 'docker',
-    name: 'Docker',
-    osTypes: [OsType.Docker],
-    status: DownloadStatus.Official,
-    features: [Feature.CustomFFmpeg],
-    platforms: [Platform.Docker],
-    description: (
-      <>
-        Run Jellyfin in Docker. Example commands store data in <code>/srv/jellyfin</code> and assume your media is
-        stored under <code>/media</code>.
-      </>
-    ),
+    platforms: [Platform.Fedora, Platform.CentOS],
+    description: 'Install Jellyfin via the RPMFusion Repository (Free).',
     stableButtons: [
       {
-        id: 'docker-stable-button',
+        id: 'rpmfusion-stable-button',
         name: 'Install Instructions',
         details: (
-          <pre className='margin-bottom--none'>
-            <code>{`docker pull jellyfin/jellyfin:latest
-mkdir -p /srv/jellyfin/{config,cache}
-docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /media:/media --net=host jellyfin/jellyfin:latest`}</code>
-          </pre>
+          <>
+            <p>
+              <a href='https://rpmfusion.org/Configuration'>Configure the RPMFusion repository</a>
+            </p>
+            <pre>
+              <code>{`dnf install jellyfin`}</code>
+            </pre>
+          </>
         )
-      }
-    ],
-    unstableButtons: [
+      },
       {
-        id: 'docker-unstable-button',
-        name: 'Install Instructions',
-        details: (
-          <pre className='margin-bottom--none'>
-            <code>{`docker pull jellyfin/jellyfin:unstable
-mkdir -p /srv/jellyfin/{config,cache}
-docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /media:/media --net=host jellyfin/jellyfin:unstable`}</code>
-          </pre>
-        )
+        id: 'rpmfusion-stable-link',
+        name: 'RPMFusion',
+        url: 'https://admin.rpmfusion.org/pkgdb/package/free/jellyfin/'
       }
     ],
-    otherButtons: [{ id: 'docker-hub-link', name: 'Docker Hub', url: 'https://hub.docker.com/r/jellyfin/jellyfin/' }]
-  },
-  {
-    id: 'portable',
-    name: 'Portable',
-    osTypes: [OsType.Linux, OsType.MacOS, OsType.Windows],
-    status: DownloadStatus.Official,
-    features: [],
-    platforms: [Platform.DotNet],
-    description: 'The portable version can be run on any system with a .NET Core runtime.',
-    stableButtons: [{ id: 'portable-stable-link', url: 'https://repo.jellyfin.org/releases/server/portable/stable' }],
-    unstableButtons: [
-      { id: 'portable-unstable-link', url: 'https://repo.jellyfin.org/releases/server/portable/unstable' }
-    ],
-    otherButtons: [{ id: 'portable-all-link', url: 'https://repo.jellyfin.org/releases/server/portable/versions' }]
+    unstableButtons: [],
+    otherButtons: []
   }
 ];

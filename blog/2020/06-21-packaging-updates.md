@@ -12,11 +12,11 @@ Luckily, today they are all completed. In this post, I'll detail the changes as 
 
 For a brief TL;DR: for most users of our stable releases, not much will change, and you will upgrade to 10.6.0 as you always have. For anyone using nightlies for testing, advanced setups, or who are just curious - read on!
 
-<!--truncate-->
+<!-- truncate -->
 
 ### Split Builds
 
-The first main component of the packaging changes is split builds. Previously, we were relying on some serious hackery in order to build both the Web UI (<https://github.com/jellyfin/jellyfin-web>) and Server (<https://github.com/jellyfin/jellyfin>) and combine them into one package. Ultimately, with the sheer number of changes in both repositories and speed at which updates happen, along with our eventual goal to decouple the two from each other for releases, this sort of solution had reached its limits. This is perhaps best exemplified by the mostly-unseen work I had to do to get 10.5.4 and 10.5.5 to build at all.
+The first main component of the packaging changes is split builds. Previously, we were relying on some serious hackery in order to build both the Web UI ([https://github.com/jellyfin/jellyfin-web](https://github.com/jellyfin/jellyfin-web)) and Server ([https://github.com/jellyfin/jellyfin](https://github.com/jellyfin/jellyfin)) and combine them into one package. Ultimately, with the sheer number of changes in both repositories and speed at which updates happen, along with our eventual goal to decouple the two from each other for releases, this sort of solution had reached its limits. This is perhaps best exemplified by the mostly-unseen work I had to do to get 10.5.4 and 10.5.5 to build at all.
 
 With split packages, the two repositories are now built completely independently for all platforms. If you build the `jellyfin-web` repository, you get out a Docker image, `.deb` packages, `.rpm` packages, or a `.tar.gz` archive that just contains the Web UI. Similarly, if you build the `jellyfin` repository, you get out the various Docker, `.deb`, `.rpm`, `.tar.gz`, and `.zip` archives you know and love.
 

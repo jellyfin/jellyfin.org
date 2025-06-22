@@ -43,7 +43,7 @@ For the following options it should be noted that if you never set up Live TV, u
 
 :::note
 
-More information about transcoding can be found [here](/docs/general/server/transcoding).
+Find more information in the [transcoding documentation](/docs/general/post-install/transcoding).
 
 :::
 
@@ -121,6 +121,8 @@ These options allow you to restrict access to specific content by this user or t
 
 `Block items with tags` Allows you to always hide items when they contain specific tags, you can add tags to items by editing their metadata.
 
+`Allow items with tags` Allows you to only show items that contain specific tags, you can add tags to items by editing their metadata.
+
 `Access Schedule` Allows you to set the timeframe(s) where this user is allowed to login, media can only play during the timeframe and will be stopped past it.
 
 ### Password
@@ -130,13 +132,3 @@ Allows you to set or change the user's password. Note that users can change thei
 `Reset Password` will allow the user to log in without giving a password.
 
 If the user has a password, additional options are shown.
-
-`Easy Pin Code` The user's easy pin code is used for offline access with supported clients, and can also be used for easy in-network sign in.
-
-`Enable in-network sign in with my easy pin code` If enabled, the user will be able to use their easy pin code to sign in to Jellyfin apps from inside the local network. Their regular password will only be needed outside the local network. If the pin code is left blank, they won't need a password within the local network. By default, the local network will only be the subnet assigned to your network, but more can be added.
-
-:::note
-
-[Pin-less Sign in Bug](https://github.com/jellyfin/jellyfin/issues/2125#issuecomment-566400711)
-
-:::

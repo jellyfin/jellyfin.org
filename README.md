@@ -9,7 +9,6 @@
 
 The next generation of the official Jellyfin website.
 
-This version of the website is currently viewable at [next.jellyfin.org](http://next.jellyfin.org).
 The goal of this project is to combine all website on jellyfin.org in a single codebase and improve the documentation site experience.
 
 This project includes a combination of content from:

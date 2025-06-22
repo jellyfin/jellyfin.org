@@ -1,0 +1,106 @@
+---
+title: 'The New Jellyfin Forum'
+description: "We've added a new, and hopefully improved, dedicated forum for our community"
+authors: joshuaboniface
+date: 2023-06-16
+slug: new-forum
+tags: [infrastructure]
+---
+
+We are pleased to announce that we have created a new forum for the Jellyfin community:
+
+https://forum.jellyfin.org
+
+You can see [the welcome message here](https://forum.jellyfin.org/welcome) and [the forum rules here](https://forum.jellyfin.org/rules), or you can [jump right to registering here](https://forum.jellyfin.org/register), using either native forum registration or using an account from Discord, GitHub, Google, Reddit, StackExchange, or Twitter.
+
+As part of this, we have also decided to close our Reddit community presence permanently. [Please see the message there](https://old.reddit.com/r/jellyfin/comments/14c2bfg/rjellyfin_is_now_closed_please_visit_us_at_our/) for details.
+
+If you just want to get registered and start posting, this is all you need. But if you're interested in our motivations, choices, and technical implementation, please read on!
+
+{/* truncate */}
+
+## Motivations
+
+The Jellyfin project did previously have a forum, based on the Discourse forum software, but it fell into disuse for numerous reasons. For starters, very few of the active team members enjoyed participating in it,
+and this was a period where we were not yet ready for the community to moderate itself. Further, many of us felt the software to be clunky to use and thus were hesitant to visit. Lastly, the result of these
+two issues was that the forum effectively turned into a graveyard of help requests that went unanswered. It was due to this that we finally shut it down back in 2021 and moved exclusively to Reddit as our
+"community forum".
+
+However we were never truly satisfied with Reddit, nor with our other major discussion areas (Chat, GitHub), for the long-form and long-term discussions that are often required in a project of our size. So for quite
+some time, we had been considering bringing a forum back to provide another avenue for discussion.
+
+Then, the [recent issues surrounding Reddit as a platform](https://www.theverge.com/2023/6/8/23754780/reddit-api-updates-changes-news-announcements) became very apparent. This sudden and shockingly brazen attempt
+by that platform to kill its 3rd party clients, which most of the team make extensive use of, made us seriously reconsider its use as our primary social forum. As part of the site-wide protests we took the subreddit
+private, and after a week with no compromise from the Reddit side, have decided to permanently close but leave visible the subreddit (i.e. make it read-only going forward).
+
+As a response to all of the above, we finally decided to take the step to set up a new forum, so that we can build a place for the Jellyfin community - for development, support, and camaraderie - that is not
+beholden to other platforms and their whims.
+
+## Choosing a Forum Software
+
+The first step of setting up a forum is, of course, to choose what software that forum will run on. After ruling out all proprietary options, we looked at several FLOSS forum tools, which basically boiled down into two
+categories: "modern" forums, and "traditional" forums.
+
+Modern forums include Discourse, and have some advantages like better performance. But their drawbacks include a user interface that is far more "gamified" and similar to a social network than a traditional forum, and
+this is something we wanted to avoid. In particular, personally, I detested Discourse's UI and navigation, finding it very difficult to use, and this was a view shared by many on the team.
+
+In contrast, traditional forums are the mainstay of the pre-"Platform" Internet. Anyone old enough to have been online in the 2000's through the mid 2010's remembers the traditional forum layout. And this is what
+we feel is best for usability. While there is some dissent, we think that this option will be the ideal choice for our community coupled with a modern and responsive theme.
+
+Having decided on the type of forum, we then looked at the options. The main two were phpBB, a very old mainstay, and MyBB, a newer alternative. After trying to setup phpBB and finding its themes and plugins lacking,
+we went with myBB instead, and so far this has worked out well.
+
+The last main aspect was theming. The theme makes the forum, from a UX and usability standpoint, and we wanted something that allowed some user customization (light and dark modes mostly), looked current, fit our
+branding, and was responsive and mobile-friendly. We settled on [a theme called Emerald](https://community.mybb.com/mods.php?action=view&pid=1037), which features both Light and Dark variants and a lot of
+customizability to fit our brand, well worth the $25 cost. We've already made plenty of tweaks to the colours, templates, and layout, and are still fixing some bugs, but we are very happy with the results so far.
+
+We've also enabled an expansive number of plugins, for instance nice URLs, custom emojis/reactions, etc., to maximize usability and consistency.
+
+## User Layout and Permissions
+
+The lack of moderator buy-in from our original forum was, as mentioned, a big pain point. So for our new forum, we've introduced an *expansive* moderation team to help ensure the forum runs smoothly.
+
+There are effectively 4 categories of users:
+
+* The [Jellyfin Leadership/Core team](https://jellyfin.org/docs/general/about#core-team), who will act as global moderators and administrators of the forum.
+* All other [Jellyfin team members](https://github.com/orgs/jellyfin/people), who will act as moderators across all forums.
+* A new subset, our Community Moderators, who have been chosen from among the wider community for their excellent reputation and work in helping users across various platforms, and will act as moderators across
+all forums with a more limited permission set.
+* Finally, our users, will have a normal user permissions.
+
+I'll collectively refer to the first 3 groups as "Moderators" going forward in this post for simplicity.
+
+## Forum Layout
+
+The forum layout is a big thing to consider. One issue we had with Reddit as a forum is its lack of organization. While flairs help a lot, it is still a jumbled feed of numerous categories of discussion, and this
+is something we definitely want to avoid with our forums.
+
+The first main section is the "Announcements" category. This includes two forums: a "Forum Announcements" forum for the occasional forum announcement, rules thread, and welcome thread; and a "Release Announcements"
+forum where the team will announce the releases of our various projects (server, clients, plugins, etc.). By separating these out, this allows us to create organized discussions around each release and permit
+discussions while also acting as a source of "the latest news" for the community, in a way that the 2-sticky-limit of Reddit simply could not. Only Core members may post in the Forum Announcements forum, while
+all Moderators can make threads in the Release Announcements forum and all users may post in those threads.
+
+The next section is the "Support" category. This includes 3 parent forums as well as several subforums: a "Guides, Walkthroughs & Tutorials" forum for helpful guides, from early stages all the way up to "good enough
+for the official docs" as living documents; a "Themes & Styles" forum for discussing styling and theming of Jellyfin (custom CSS, etc.); and a "Troubleshooting" forum for help with running Jellyfin.
+
+Within "Troubleshooting", we still have not decided on a concrete forum structure, as we expect our needs here to change depending on how the community uses it. To start, we've left the main "Troubleshooting"
+forum to handle all primarily-Jellyfin related troubleshooting, and have included two subforums for known-common but not-exactly-Jellyfin categories of help: "Networking & Access" for help with VPNs, reverse proxies,
+networking, and the like; and "Scanning & Identifying" to help with issues related to media scanning, identification, etc.
+
+Within each Troubleshooting forum is a stickied "Frequently Asked Questions" thread to act as a living document and list of common questions that are brought up and their solutions.
+
+The next section is the "Development" category. This includes quite a number of forums dedicated to the development of Jellyfin, mostly of use to developers, including a large number of Client subforums. For end users,
+the main forum of interest is "Feature Requests", which is a forum for discussing the feature requests present on [our Fider instance](https://features.jellyfin.org) in a long-form way not really suited to Fider itself.
+
+The final section is the "Off Topic" category. In here you can find, at least to start, 3 forums: "General Discussion" for all manner of off-topic discussions (but keep it SFW as per our rules!); "Self-hosting & Homelabs"
+for discussions about your self-hosted services, homelabs, etc.; and "Media" for discussing your favourite media (but not where to get it, again as per our rules!). We may add more depending on the community's needs
+and desires as time goes on, but we feel this is a good start.
+
+## Speeding it up!
+
+One thing we wanted to be sure of is that these forums could handle the load of our large community effectively. While we are somewhat limited in our ability to scale the core database and PHP backend, we were able
+to leverage [our content delivery network](https://jellyfin.org/posts/mirrorbits-cdn) for distributing the static assets, such as CSS, Javascript, and images, via more local servers across the globe. While that post
+has not been updated since it was made, we currently have [a total of 9 mirror servers spread across 4 continents, one for each DigitalOcean datacenter](https://static.jellyfin.org/forum/images/favicon.ico?mirrorlist),
+which will hopefully ensure speedy delivery of assets to everyone.
+
+As the load picks up, we'll continue to evaluate our options, but we hope this will be sufficient enough for the first wave. But if the forums are down please don't fret, we'll get them fixed as soon as we can!

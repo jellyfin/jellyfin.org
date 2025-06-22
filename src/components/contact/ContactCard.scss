@@ -1,0 +1,69 @@
+.card--contact {
+  width: 100%;
+}
+
+/* Brand button styles */
+.button--discord {
+  background-color: #5865f2;
+  border-color: #5865f2;
+}
+.button--discord:hover {
+  background-color: #3949f0;
+  border-color: #3949f0;
+}
+.button--discord:active {
+  background-color: #2a3bee;
+  border-color: #2a3bee;
+}
+
+.button--matrix {
+  background-color: #0dbd8b;
+  border-color: #0dbd8b;
+}
+.button--matrix:hover {
+  background-color: #0caa7d;
+  border-color: #0caa7d;
+}
+.button--matrix:active {
+  background-color: #0ba176;
+  border-color: #0ba176;
+}
+
+.button--twitter {
+  background-color: #1da1f2;
+  border-color: #1da1f2;
+}
+.button--twitter:hover {
+  background-color: #0d94e7;
+  border-color: #0d94e7;
+}
+.button--twitter:active {
+  background-color: #0d8cda;
+  border-color: #0d8cda;
+}
+
+.button--mastodon {
+  background-color: #6364ff;
+  border-color: #6364ff;
+}
+.button--mastodon:hover {
+  background-color: #563acc;
+  border-color: #563acc;
+}
+.button--mastodon:active {
+  background-color: #2f0c7a;
+  border-color: #2f0c7a;
+}
+
+.button--forum {
+  background-color: #00a4dc;
+  border-color: #00a4dc;
+}
+.button--forum:hover {
+  background-color: #0094cc;
+  border-color: #0094cc;
+}
+.button--forum:active {
+  background-color: #0084bc;
+  border-color: #0084bc;
+}
