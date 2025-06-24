@@ -1,7 +1,7 @@
 ---
 uid: getting-help
 title: Getting Help
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 # Getting Help

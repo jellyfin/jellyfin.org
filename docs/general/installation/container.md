@@ -2,18 +2,18 @@
 uid: installation-container
 title: Container
 description: Install as a container using Docker, Podman and others.
-sidebar_position: 1
+sidebar_position: 4
 ---
 
 <!-- markdownlint-disable MD036 no-emphasis-as-heading -->
 
 ## Container images
 
-Official container image: `jellyfin/jellyfin` <a href="https://hub.docker.com/r/jellyfin/jellyfin"><img alt="Docker Pull Count" src="https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg" /></a>.
+Official container image: `jellyfin/jellyfin` <a href="https://hub.docker.com/r/jellyfin/jellyfin"><img alt="jellyfin Docker Pull Count" src="https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg" /></a>.
 
-LinuxServer.io image: `linuxserver/jellyfin` <a href="https://hub.docker.com/r/linuxserver/jellyfin"><img alt="Docker Pull Count" src="https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg" /></a>.
+LinuxServer.io image: `linuxserver/jellyfin` <a href="https://hub.docker.com/r/linuxserver/jellyfin"><img alt="linuxserver jellyfin Docker Pull Count" src="https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg" /></a>.
 
-hotio image: `hotio/jellyfin` <a href="https://hub.docker.com/r/hotio/jellyfin"><img alt="Docker Pull Count" src="https://img.shields.io/docker/pulls/hotio/jellyfin.svg" /></a>.
+hotio image: `hotio/jellyfin` <a href="https://hub.docker.com/r/hotio/jellyfin"><img alt="hotio jellyfin Docker Pull Count" src="https://img.shields.io/docker/pulls/hotio/jellyfin.svg" /></a>.
 
 Jellyfin distributes [official container images on Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin/) for multiple architectures.
 These images are based on Debian and [built directly from the Jellyfin source code](https://github.com/jellyfin/jellyfin-packaging/blob/master/docker/Dockerfile).
@@ -23,6 +23,19 @@ Additionally, there are several third parties providing unofficial container ima
 ## Docker
 
 [Docker](https://www.docker.com/) allows you to run containers on Linux, Windows and MacOS.
+
+:::warning
+
+If you wish to use Windows or macOS, please install Jellyfin natively instead. [Windows](/docs/general/installation/windows) [macOS](/docs/general/installation/macos).
+
+While it is possible to run Jellyfin in Docker on a Windows or macOS host, it is NOT supported. Some features are known to be broken when running in Docker on platforms other than Linux, Notably:
+
+- Hardware Accelerated Transcoding
+- [Scanning on macOS in Docker](https://github.com/jellyfin/jellyfin/issues/13093)
+
+You WILL NOT receive any support for running Jellyfin in Docker on platforms other than Linux.
+
+:::
 
 The basic steps to create and run a Jellyfin container using Docker are as follows.
 

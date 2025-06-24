@@ -27,9 +27,18 @@ This is the directory that will hold all Jellyfin data and is also used as a def
 
 1. Command line option `--datadir`, if specified
 2. Environment variable `JELLYFIN_DATA_DIR`, if specified
-3. `<%APPDATA%>/jellyfin`, if running on Windows
-4. `$XDG_DATA_HOME/jellyfin`, if `$XDG_DATA_HOME` exists
-5. `$HOME/.local/share/jellyfin`
+3. `<%ProgramData%>\Jellyfin\Server`, if launching from the Windows Tray app.
+4. `<%LocalAppData%>\jellyfin`, if launching the Windows server directly.
+5. `$XDG_DATA_HOME/jellyfin`, if `$XDG_DATA_HOME` exists
+6. `$HOME/.local/share/jellyfin`
+
+:::note
+
+Windows users can also specify the data directory using a Windows Registry string key called `DataFolder` located at `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Jellyfin\Server`
+
+An additional string key called `InstallFolder` in `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Jellyfin\Server` can also specify the install location.
+
+:::
 
 ### Configuration Directory
 
@@ -96,12 +105,12 @@ The main server configuration is built upon the ASP .NET [configuration framewor
 
 This section lists all the configuration options available and explains their function.
 
-| Key                                     | Default Value                                                                                     | Description                                                                                                                                                             |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hostwebclient`                         | `True`                                                                                            | Set to `True` if the server should host the web client.                                                                                                                 |
-| `FFmpeg:probesize`                      | `"1G"`                                                                                            | Value to set for the FFmpeg `probesize` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.           |
-| `FFmpeg:analyzeduration`                | `"200M"`                                                                                          | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
-| `PublishedServerUrl`                    | Server Url based on primary IP address                                                            | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
+| Key                      | Default Value                          | Description                                                                                                                                                             |
+| ------------------------ | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hostwebclient`          | `True`                                 | Set to `True` if the server should host the web client.                                                                                                                 |
+| `FFmpeg:probesize`       | `"1G"`                                 | Value to set for the FFmpeg `probesize` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.           |
+| `FFmpeg:analyzeduration` | `"200M"`                               | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
+| `PublishedServerUrl`     | Server Url based on primary IP address | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
 
 ## Fonts
 

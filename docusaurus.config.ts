@@ -128,6 +128,7 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
     // Others
     ['@docusaurus/plugin-sitemap', {} satisfies Sitemap.Options],
     ['docusaurus-plugin-sass', {}],
+    ['@docusaurus/plugin-svgr', {}],
     [
       '@docusaurus/plugin-client-redirects',
       {

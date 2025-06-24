@@ -60,3 +60,18 @@ Shadowghost:
   title: Server Team
   url: https://github.com/Shadowghost
   image_url: https://avatars.githubusercontent.com/u/3741446?v=4
+
+JPVenson:
+  name: Jean-Pierre Bachmann
+  title: Server Team
+  url: https://github.com/JPVenson
+  image_url: https://avatars.githubusercontent.com/u/6794763?v=4
+
+thornbill:
+  name: Bill Thornton
+  page: true
+  title: Core Team, Web Lead
+  image_url: https://avatars.githubusercontent.com/u/3450688?v=4
+  socials:
+    github: thornbill
+    mastodon: https://fosstodon.org/@thornbill
