@@ -49,7 +49,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <sup>11</sup>AV1 decoding is only available on devices with A17 or M3 series chips or newer and requires at least Safari 17.
 <br />
 <sup>12</sup>Need to be manually enabled in Settings > Playback > Enable H.264 High 10 Profile. Playback on Apple Silicon Macs with macOS version < 14 and Intel Macs with all macOS versions may result in blank frames if this is enabled.<br />
-<sup>13</sup> The official codec support [documentation](https://github.com/jellyfin/Swiftfin/blob/main/Documentation/players.md) does not mention bitrates only codecs
+<sup>13</sup>The official codec support [documentation](https://github.com/jellyfin/Swiftfin/blob/main/Documentation/players.md) does not mention bitrates only codecs
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
 
