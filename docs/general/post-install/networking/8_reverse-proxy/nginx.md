@@ -90,6 +90,11 @@ server {
 }
 ```
 
+## WebOS Jellyfin App Error -27
+
+For the Jellyfin app on WebOS (running on LG TVs) the `Content-Security-Policy` header needs to be modified slightly: Remove `frame-ancestors 'self';`.
+Not removing this part may lead to the app displaying "Error -27" upon trying to log in.
+
 ## Extra Nginx Configurations
 
 ### Censor sensitive information in logs
