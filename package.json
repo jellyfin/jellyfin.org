@@ -21,18 +21,18 @@
     "test:web-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-web-urls.json"
   },
   "dependencies": {
-    "@docusaurus/core": "3.7.0",
-    "@docusaurus/plugin-client-redirects": "3.7.0",
-    "@docusaurus/plugin-content-blog": "3.7.0",
-    "@docusaurus/plugin-content-docs": "3.7.0",
-    "@docusaurus/plugin-content-pages": "3.7.0",
-    "@docusaurus/plugin-sitemap": "3.7.0",
-    "@docusaurus/plugin-svgr": "3.7.0",
-    "@docusaurus/theme-classic": "3.7.0",
-    "@docusaurus/theme-mermaid": "3.7.0",
-    "@easyops-cn/docusaurus-search-local": "0.48.5",
-    "@fontsource/noto-sans": "5.1.1",
-    "@icons-pack/react-simple-icons": "12.0.0",
+    "@docusaurus/core": "3.8.1",
+    "@docusaurus/plugin-client-redirects": "3.8.1",
+    "@docusaurus/plugin-content-blog": "3.8.1",
+    "@docusaurus/plugin-content-docs": "3.8.1",
+    "@docusaurus/plugin-content-pages": "3.8.1",
+    "@docusaurus/plugin-sitemap": "3.8.1",
+    "@docusaurus/plugin-svgr": "3.8.1",
+    "@docusaurus/theme-classic": "3.8.1",
+    "@docusaurus/theme-mermaid": "3.8.1",
+    "@easyops-cn/docusaurus-search-local": "0.50.0",
+    "@fontsource/noto-sans": "5.2.7",
+    "@icons-pack/react-simple-icons": "13.1.0",
     "@img-comparison-slider/react": "8.0.2",
     "@mdi/js": "7.4.47",
     "@mdi/react": "1.6.1",
@@ -43,8 +43,8 @@
     "file-loader": "6.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "sass": "1.85.1",
-    "swiper": "11.2.4",
+    "sass": "1.89.2",
+    "swiper": "11.2.8",
     "url-loader": "4.1.1"
   },
   "browserslist": {
@@ -60,9 +60,9 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.7.0",
-    "@docusaurus/tsconfig": "3.7.0",
-    "@types/react": "18.3.20",
+    "@docusaurus/module-type-aliases": "3.8.1",
+    "@docusaurus/tsconfig": "3.8.1",
+    "@types/react": "18.3.23",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "7.1.1",
@@ -78,8 +78,8 @@
     "eslint-plugin-react": "7.34.0",
     "eslint-plugin-react-hooks": "4.6.0",
     "node-fetch": "3.3.2",
-    "prettier": "3.5.2",
-    "typescript": "5.8.2",
+    "prettier": "3.5.3",
+    "typescript": "5.8.3",
     "typescript-plugin-css-modules": "5.1.0"
   }
 }

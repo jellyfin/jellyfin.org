@@ -28,7 +28,7 @@ Some examples of hex color codes:
 - Red: `#d00000`
 - Transparent Black: `#00000058`
 
-Go [here](https://htmlcolorcodes.com/color-picker) for a hex color chart to get a code for any given color.
+Use the [HTML Color Picker](https://htmlcolorcodes.com/color-picker) to find the hex code for any given color.
 
 If you are looking for a more standard and less specific color, typing the literal name of colors suits that purpose well. For example, to get the color "yellow" you can simply write "yellow", this will use a preset yellow color.
 
@@ -37,7 +37,7 @@ If you are looking for a more standard and less specific color, typing the liter
 `aquamarine` Aquamarine <br />
 `lightseagreen` Light Sea Green
 
-Go [here](https://www.w3schools.com/colors/colors_names.asp) for a list of color names supported.
+You can find a list of supported color names on the [W3Schools Color Names reference](https://www.w3schools.com/colors/colors_names.asp).
 
 ### Comments
 
@@ -87,7 +87,9 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ```css
 /* Make watched icon dark and transparent */
-.indicator { background: #00000058 !important; }
+.indicator {
+  background: #00000058 !important;
+}
 ```
 
 ![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
@@ -96,7 +98,9 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ```css
 /* Make count indicator icon dark and transparent */
-.countIndicator {background: #00000058;}
+.countIndicator {
+  background: #00000058;
+}
 ```
 
 ### Display external links in mobile layout
@@ -386,11 +390,11 @@ The episode previews in season view are sized based on horizontal resolution. Th
 This will drastically change the style of cast info into something very similar to how Plex approaches it. This override will lead to somewhat smaller thumbnails, and also works with all themes.
 
 ```css
-/* Shrink and square (or round) cast thumnails */
+/* Shrink and square (or round) cast thumbnails */
 #castContent .card.overflowPortraitCard.personCard.card-hoverable.card-withuserdata {width: 4.2cm !important; font-size: 90% !important;}
 #castContent .card.overflowPortraitCard.personCard.card-withuserdata {width: 4.2cm !important; font-size: 90% !important;}
 
-/* Correct image aspect ratio behaviour, set border-radius to zero for square tiles */
+/* Correct image aspect ratio behavior, set border-radius to zero for square tiles */
 #castContent .cardContent-button.cardImageContainer.coveredImage.cardContent.cardContent-shadow.itemAction.lazy {background-size: cover; !important; border-radius: 2.5cm;}
 #castContent .cardContent-button.cardImageContainer.coveredImage.defaultCardBackground.defaultCardBackground1.cardContent.cardContent-shadow.itemAction {background-size: cover; !important; border-radius: 2.5cm;}
 #castContent .cardContent-button.cardImageContainer.coveredImage.defaultCardBackground.defaultCardBackground2.cardContent.cardContent-shadow.itemAction {background-size: cover; !important; border-radius: 2.5cm;}

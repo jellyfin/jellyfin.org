@@ -1,5 +1,6 @@
 [
   "/docs/general/administration/hardware-acceleration.html",
+  "/docs/general/administration/hardware-acceleration/intel",
   "/docs/general/contributing/index.html",
   "/docs/general/networking/dlna.html",
   "/docs/general/networking/index.html",
@@ -19,5 +20,6 @@
   "/docs/general/server/settings.html",
   "/docs/general/server/tasks.html",
   "/docs/general/server/transcoding.html",
-  "/docs/general/server/users/adding-managing-users.html"
+  "/docs/general/server/users/adding-managing-users.html",
+  "/docs/general/post-install/setup-wizard.html"
 ]

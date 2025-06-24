@@ -110,8 +110,8 @@ If you are running ArchLinux, run the following command instead:
 echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
 ```
 
-Then paste it in your terminal and press on enter to run it. For Docker, this needs to be done on the host, not the container.
-See [here](https://github.com/guard/listen/blob/master/README.md#increasing-the-amount-of-inotify-watchers) for more information.
+Then paste it in your terminal and press Enter to run it. For Docker, this needs to be done on the host, not the container.  
+See the [Guard Listen README on increasing inotify watchers](https://github.com/guard/listen/blob/master/README.md#increasing-the-amount-of-inotify-watchers) for more information.
 
 ## Uninstalling Jellyfin on MacOS
 
@@ -169,7 +169,7 @@ Manual changes to the database can destroy your instance beyond repair. to preve
 Before continuing, make sure that you have sqlite3 installed.
 When sqlite3 is not installed, you can install it under Debian based systems with `apt install sqlite3`.
 After that do the following commands/SQL query:  
-_You can find a list of default Paths [here](../configuration#configuration-directory)_
+You can find a list of default paths in the [configuration directory documentation](/docs/general/administration/configuration#configuration-directory).
 
 ```bash
 sqlite3 /PATH/TO/JELLYFIN/DB/jellyfin.db
@@ -191,7 +191,7 @@ SELECT Value,Kind FROM Permissions WHERE UserId IN (SELECT Id FROM Users WHERE U
 ```
 
 <br />
-The first row with an value of 1 or 0 shows if the permission is assigned or not. The second row displays the kind of permission. To get a summary for every permission you can look [here](https://github.com/jellyfin/jellyfin/blob/master/Jellyfin.Data/Enums/PermissionKind.cs)
+The first row with an value of 1 or 0 shows if the permission is assigned or not. For a summary of each permission type, see the [PermissionKind enumeration in the Jellyfin source code](https://github.com/jellyfin/jellyfin/blob/master/src/Jellyfin.Database/Jellyfin.Database.Implementations/Enums/PermissionKind.cs)
 
 ### Repair Permissions
 
