@@ -44,7 +44,7 @@ title: Apache
     # Sometimes, Jellyfin requires clients to empty their cache to display and function correctly.
     # This header tells clients not to keep any cache and is quite strict on that.
     # This might also fix some syncplay issues (#5485 and #8140 @ https://github.com/jellyfin/jellyfin-web/issues/)
-    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    # Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
 
     SSLEngine on
     SSLCertificateFile /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem
