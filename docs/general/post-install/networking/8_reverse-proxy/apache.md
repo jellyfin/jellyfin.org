@@ -34,11 +34,17 @@ title: Apache
     RequestHeader set X-Forwarded-Proto "https"
     RequestHeader set X-Forwarded-Port "443"
 
-    ProxyPass "/socket" "ws://SERVER_IP_ADDRESS:8096/socket"
-    ProxyPassReverse "/socket" "ws://SERVER_IP_ADDRESS:8096/socket"
+    # Apache should be able to know when to change protocols (between WebSocket and HTTP)
+    RewriteEngine On
+    RewriteCond %{HTTP:Upgrade} =websocket
+    RewriteRule /(.*) ws://SERVER_IP_ADDRESS:8096/socket/$1 [P,L]
+    RewriteCond %{HTTP:Upgrade} !=websocket
+    RewriteRule /(.*) http://SERVER_IP_ADDRESS:8096/$1 [P,L]
 
-    ProxyPass "/" "http://SERVER_IP_ADDRESS:8096/"
-    ProxyPassReverse "/" "http://SERVER_IP_ADDRESS:8096/"
+    # Sometimes, Jellyfin requires clients to empty their cache to display and function correctly.
+    # This header tells clients not to keep any cache and is quite strict on that.
+    # This might also fix some syncplay issues (#5485 and #8140 @ https://github.com/jellyfin/jellyfin-web/issues/)
+    # Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
 
     SSLEngine on
     SSLCertificateFile /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem
