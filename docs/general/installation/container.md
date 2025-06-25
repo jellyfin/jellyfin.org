@@ -2,27 +2,40 @@
 uid: installation-container
 title: Container
 description: Install as a container using Docker, Podman and others.
-sidebar_position: 1
+sidebar_position: 4
 ---
 
 <!-- markdownlint-disable MD036 no-emphasis-as-heading -->
 
 ## Container images
 
-Official container image: `jellyfin/jellyfin` <a href="https://hub.docker.com/r/jellyfin/jellyfin"><img alt="Docker Pull Count" src="https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg" /></a>.
+Official container image: `jellyfin/jellyfin` <a href="https://hub.docker.com/r/jellyfin/jellyfin"><img alt="jellyfin Docker Pull Count" src="https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg" /></a>.
 
-LinuxServer.io image: `linuxserver/jellyfin` <a href="https://hub.docker.com/r/linuxserver/jellyfin"><img alt="Docker Pull Count" src="https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg" /></a>.
+LinuxServer.io image: `linuxserver/jellyfin` <a href="https://hub.docker.com/r/linuxserver/jellyfin"><img alt="linuxserver jellyfin Docker Pull Count" src="https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg" /></a>.
 
-hotio image: `hotio/jellyfin` <a href="https://hub.docker.com/r/hotio/jellyfin"><img alt="Docker Pull Count" src="https://img.shields.io/docker/pulls/hotio/jellyfin.svg" /></a>.
+hotio image: `hotio/jellyfin` <a href="https://hub.docker.com/r/hotio/jellyfin"><img alt="hotio jellyfin Docker Pull Count" src="https://img.shields.io/docker/pulls/hotio/jellyfin.svg" /></a>.
 
 Jellyfin distributes [official container images on Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin/) for multiple architectures.
-These images are based on Debian and [built directly from the Jellyfin source code](https://github.com/jellyfin/jellyfin/blob/master/Dockerfile).
+These images are based on Debian and [built directly from the Jellyfin source code](https://github.com/jellyfin/jellyfin-packaging/blob/master/docker/Dockerfile).
 
-Additionally the [LinuxServer.io](https://www.linuxserver.io/) ([Dockerfile](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile)) project and [hotio](https://github.com/hotio) ([Dockerfile](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile)) distribute images based on Ubuntu and the official Jellyfin Ubuntu binary packages.
+Additionally, there are several third parties providing unofficial container images, including the [LinuxServer.io](https://www.linuxserver.io/) ([Dockerfile](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile)) project and [hotio](https://github.com/hotio) ([Dockerfile](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile)), which offer images based on Ubuntu and the official Jellyfin Ubuntu binary packages.
 
 ## Docker
 
 [Docker](https://www.docker.com/) allows you to run containers on Linux, Windows and MacOS.
+
+:::warning
+
+If you wish to use Windows or macOS, please install Jellyfin natively instead. [Windows](/docs/general/installation/windows) [macOS](/docs/general/installation/macos).
+
+While it is possible to run Jellyfin in Docker on a Windows or macOS host, it is NOT supported. Some features are known to be broken when running in Docker on platforms other than Linux, Notably:
+
+- Hardware Accelerated Transcoding
+- [Scanning on macOS in Docker](https://github.com/jellyfin/jellyfin/issues/13093)
+
+You WILL NOT receive any support for running Jellyfin in Docker on platforms other than Linux.
+
+:::
 
 The basic steps to create and run a Jellyfin container using Docker are as follows.
 
@@ -83,12 +96,23 @@ Multiple media libraries can be bind mounted if needed:
 ...etc
 ```
 
+Custom [server-side system fonts](/docs/general/administration/configuration/#server-side-system-fonts) directory can be optionally bind mounted in order to use these fonts during transcoding with subtitle burn-in:
+
+```sh
+--mount type=bind,source=/path/to/fonts,target=/usr/local/share/fonts/custom,readonly
+```
+
+A directory of [fallback fonts](/docs/general/administration/configuration/#fallback-fonts) can be mounted as well. In this case, you will have to set the directory of fallback fonts to `/fallback_fonts` in Jellyfin server settings panel:
+
+```sh
+--mount type=bind,source=/path/to/fallback/fonts,target=/fallback_fonts,readonly
+```
+
 ### Using Docker Compose
 
 Create a `docker-compose.yml` file with the following contents. Add in the UID and GID that you would like to run jellyfin as in the user line below, or remove the user line to use the default (root).
 
 ```yml
-version: '3.5'
 services:
   jellyfin:
     image: jellyfin/jellyfin
@@ -98,15 +122,25 @@ services:
     volumes:
       - /path/to/config:/config
       - /path/to/cache:/cache
-      - /path/to/media:/media
-      - /path/to/media2:/media2:ro
+      - type: bind
+        source: /path/to/media
+        target: /media
+      - type: bind
+        source: /path/to/media2
+        target: /media2
+        read_only: true
+      # Optional - extra fonts to be used during transcoding with subtitle burn-in
+      - type: bind
+        source: /path/to/fonts
+        target: /usr/local/share/fonts/custom
+        read_only: true
     restart: 'unless-stopped'
     # Optional - alternative address used for autodiscovery
     environment:
       - JELLYFIN_PublishedServerUrl=http://example.com
     # Optional - may be necessary for docker healthcheck to pass if running in host network mode
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - 'host.docker.internal:host-gateway'
 ```
 
 Then while in the same folder as the `docker-compose.yml` run:
@@ -231,9 +265,9 @@ As always it is recommended to run the container rootless. Therefore we want to 
 
 ### With hardware acceleration
 
-To use hardware acceleration, you need to allow the container to access the render device. If you are using container-selinux-2.226 or later, you have to set the `container_use_dri_device` flag in selinux or the container will not be able to use it:
+To use hardware acceleration, you need to allow the container to access the render device. If you are using container-selinux-2.226 or later, you have to set the `container_use_dri_devices` flag in selinux or the container will not be able to use it:
 
-`sudo setsebool -P container_use_dri_device 1`
+`sudo setsebool -P container_use_dri_devices 1`
 
 On older versions of container-selinux, you have to disable the selinux confinement for the container by adding `--security-opt label=disable` to the podman command.
 
@@ -262,7 +296,7 @@ Finally, you need to set the `--device` flag for the container to use the render
     --volume jellyfin-config:/config:Z \
     --mount type=bind,source=/path/to/media,destination=/media,ro=true,relabel=private \
     docker.io/jellyfin/jellyfin:latest
-   ```
+```
 
 #### systemd
 
@@ -289,29 +323,3 @@ SuccessExitStatus=0 143
 # Start by default on boot
 WantedBy=default.target
 ```
-
-## TrueNAS SCALE / TrueCharts
-
-Jellyfin is available as a [TrueNAS SCALE](https://www.truenas.org/) App inside the [TrueCharts](https://www.truecharts.org/) App Catalog with direct integration into the GUI, no CLI needed. Direct support is available on the [TrueCharts Discord](https://discord.gg/tVsPTHWTtr) and the source code is available on [GitHub](https://github.com/truecharts/charts).
-
-1. Install the TrueCharts Catalog to TrueNAS SCALE, see [website](https://truecharts.org/manual/SCALE/guides/getting-started/#adding-truecharts) for more info.
-
-   1. Go to Apps page from the top level SCALE menu
-   2. Select Manage Catalogs tab on the Apps page
-   3. Click Add Catalog
-   4. After reading the iXsystems notice, click Continue and enter the required information:
-      Name: truecharts
-      Repository: `https://github.com/truecharts/catalog`
-      Preferred Trains: `enterprise` and `stable`
-      Branch: main
-   5. Click Save and allow SCALE to refresh its catalog with TrueCharts (this may take a few minutes)
-
-2. Click `Available Applications` and search for `Jellyfin`
-
-3. Click `Install`, which will take you to the GUI Wizard and you'll be able to fill out the necessary info
-
-   - Server URL to publish in UDP Auto Discovery response.
-   - Networking, Ingress (Reverse Proxy), Security Options
-   - Adding Storage (for media folders) is also a standalone guide available in the [TrueCharts documentation](https://truecharts.org/manual/SCALE/guides/add-storage/). For Jellyfin the recommendation is to  add storage as `Additional App Storage`
-
-4. Click Save and once it's up and running you'll be able to click Open to access `Jellyfin`.

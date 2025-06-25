@@ -618,13 +618,8 @@ export const Clients: Array<Client> = [
     platforms: [Platform.WebOS],
     primaryLinks: [
       {
-        id: 'jf-blog',
-        name: 'Older webOS Versions',
-        url: '/posts/webos-july2022'
-      },
-      {
         id: 'lg-store',
-        name: 'Content Store - webOS 6+',
+        name: 'Content Store',
         url: 'https://us.lgappstv.com/main/tvapp/detail?appId=1030579'
       }
     ],
@@ -721,6 +716,22 @@ export const Clients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/manuel-rw/jellyfin-discord-music-bot'
+      }
+    ]
+  },
+  {
+    id: 'jellychord',
+    name: 'Jellychord',
+    description: 'A modern Discord music bot for Jellyfin using slash commands, written in python.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Discord],
+    primaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/felix920506/jellychord'
       }
     ]
   },
@@ -861,6 +872,132 @@ export const Clients: Array<Client> = [
         id: 'website',
         name: 'Website',
         url: 'https://fintunes.app'
+      }
+    ]
+  },
+  {
+    id: 'streamyfin',
+    name: 'Streamyfin',
+    description: 'A third-party client for iOS, iPadOS and Android with download capability',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Android, Platform.IOS, Platform.iPadOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/app/streamyfin/id6593660679'
+      },
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=com.fredrikburmester.streamyfin'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/fredrikburmester/streamyfin'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://streamyfin.app'
+      }
+    ]
+  },
+  {
+    id: 'manet',
+    name: 'Manet',
+    description: 'A third-party music client for iOS and macOS',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.IOS, Platform.MacOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/manet-music/id6470928235'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://tilosoftware.io/manet/'
+      }
+    ]
+  },
+  {
+    id: "fladder",
+    name: "Fladder",
+    description: "A simple, cross-platform Jellyfin frontend built on top of Flutter.",
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
+    primaryLinks: [
+      {
+        id: "play-store",
+        name: "Play Store",
+        url: "https://play.google.com/store/apps/details?id=nl.jknaapen.fladder",
+      },
+    ],
+    secondaryLinks: [
+      {
+        id: "github",
+        name: "GitHub",
+        url: "https://github.com/DonutWare/Fladder",
+      },
+    ],
+  },
+  {
+    id: 'symfonium',
+    name: 'Symfonium',
+    description:
+      'An offline-first third-party music player that enhances your Jellyfin experience with streaming, syncing and full personalization',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.Android],
+    primaryLinks: [
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=app.symfonik.music.player'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://symfonium.app/'
+      }
+    ]
+  },
+  {
+    id: 'finer',
+    name: 'Finer',
+    description: 'Jellyfin Music Player for macOS/iPadOS/iOS, built with native technologies.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.MacOS, Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/finer-player/id6738301953'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://monk-studio.com/finer'
       }
     ]
   }

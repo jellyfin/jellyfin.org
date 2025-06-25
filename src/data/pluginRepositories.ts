@@ -17,7 +17,7 @@ export const OfficialPluginRepositories: Array<PluginRepository> = [
     id: 'jellyfin',
     name: 'Jellyfin',
     official: true,
-    url: 'https://repo.jellyfin.org/releases/plugin/manifest-stable.json',
+    url: 'https://repo.jellyfin.org/files/plugin/manifest.json',
     includes: {}
   },
   {
@@ -25,7 +25,7 @@ export const OfficialPluginRepositories: Array<PluginRepository> = [
     name: 'Jellyfin Unstable',
     official: true,
     unstable: true,
-    url: 'https://repo.jellyfin.org/releases/plugin/manifest-unstable.json',
+    url: 'https://repo.jellyfin.org/files/plugin-unstable/manifest.json',
     includes: {}
   }
 ];
@@ -93,9 +93,17 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
   {
     id: 'gh:ShokoAnime/Shokofin',
     name: "ShokoAnime's Repo",
-    url: 'https://raw.githubusercontent.com/ShokoAnime/Shokofin/master/manifest.json',
+    url: 'https://raw.githubusercontent.com/ShokoAnime/Shokofin/metadata/stable/manifest.json',
     includes: {
       Shokofin: 'https://github.com/ShokoAnime/Shokofin'
+    }
+  },
+  {
+    id: 'gh:tubearchivist/tubearchivist-jf-plugin',
+    name: "TubeArchivist's Repo",
+    url: 'https://raw.githubusercontent.com/tubearchivist/tubearchivist-jf-plugin/master/manifest.json',
+    includes: {
+      TubeArchivistMetadata: 'https://github.com/tubearchivist/tubearchivist-jf-plugin'
     }
   }
 ];

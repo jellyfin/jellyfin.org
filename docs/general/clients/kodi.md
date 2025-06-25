@@ -20,7 +20,7 @@ The installation method for the repository varies depending on what kind of devi
 
 #### General Use Devices (PCs and Tablets)
 
-1. Download the repository installer found [here](https://kodi.jellyfin.org/repository.jellyfin.kodi.zip).
+1. Download the repository installer from the [Jellyfin Kodi repository ZIP file](https://kodi.jellyfin.org/repository.jellyfin.kodi.zip).
    - It will be saved as `repository.jellyfin.kodi.zip`
 2. Install the Jellyfin repository.
    - Open Kodi, go to the settings menu, and navigate to "Add-on Browser"
@@ -91,9 +91,22 @@ To use Add-on mode, simply choose "Add-on" at the dialog and proceed to [Library
 
 #### Native Mode
 
+:::caution
+
+Do not use Native mode! Use Addon-mode instead.
+
+Jellyfin 10.10 no longer provides the shared network folder via the API, and as such native mode does not get the required information to function.
+
+:::
 Native mode accesses your media files directly from the filesystem, bypassing the Jellyfin server during playback. Native mode needs more setup and configuration, but it can, on rare occasions, lead to better performance where network bandwidth is a limitation. It requires your media to be available to the device Kodi is running on over either NFS or Samba, and therefore should only be used on a LAN or over a VPN connection.
 
 To use Native mode, first set up your libraries in Jellyfin with a remote path.
+
+:::caution
+
+Starting from Jellyfin 10.9 it is no longer possible to set the shared network folder.
+
+:::
 
 1. In the Jellyfin server, navigate to the Libraries section of the admin dashboard.
    - Select an existing library (or create a new one)
@@ -166,7 +179,7 @@ JellyCon behaves more like a standard Kodi streaming add-on. Media is accessed p
 
 ### Configuring Home
 
-Many Kodi skins allow for customizing of the home menu with custom nodes and widgets. However, all of these use slightly different layouts and terminology. Rather than a step-by-step guide, this section serves as an barebones introduction to customizing a skin.
+Many Kodi skins allow for customizing of the home menu with custom nodes and widgets. However, all of these use slightly different layouts and terminology. Rather than a step-by-step guide, this section serves as a barebones introduction to customizing a skin.
 
 #### Examples
 

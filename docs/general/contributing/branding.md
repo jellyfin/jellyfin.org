@@ -30,6 +30,12 @@ Specific examples include:
 
 ## Icons and Other Assets
 
+:::warning
+
+Jellyfin is currently rebranding, as such these guidelines (including the logo) are outdated. Join our [#jellyfin-ui-ux](https://matrix.to/#/#jellyfin-ui-ux:matrix.org) chat on Matrix for any questions.
+
+:::
+
 All iconography and other resources can be found in the [jellyfin-ux](https://github.com/jellyfin/jellyfin-ux) repository.
 
 - Icons
@@ -58,4 +64,4 @@ The design for the logo uses a gradient for the infill, and if the non-transpare
 
 ### Fonts
 
-The banner uses the [Quicksand](https://fonts.google.com/specimen/Quicksand) font.
+The banner uses the [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) font.
