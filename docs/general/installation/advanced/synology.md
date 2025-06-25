@@ -2,7 +2,7 @@
 uid: installation-synology
 title: Synology
 description: Install on Synology NAS.
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 # Installation on Synology
@@ -52,7 +52,7 @@ Click `Next` to proceed to the next step.
 
 #### Network and Port Settings
 
-For the [Network Settings](https://jellyfin.org/docs/general/post-install/networking/dlna#general) and [Port Settings](https://jellyfin.org/docs/general/post-install/networking/#port-bindings) please refer their respected guides.  
+For the [Network Settings](https://jellyfin.org/docs/general/post-install/networking/dlna#general) and [Port Settings](https://jellyfin.org/docs/general/post-install/networking/#port-bindings) please refer their respected guides.
 
 #### Volume Settings
 
