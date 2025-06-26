@@ -13,7 +13,7 @@ This feature streamlines the sign-in process, especially on devices with limited
 
 Quick Connect must be enabled by the Jellyfin server administrator.
 
-1. Go to the **Admin Dashboard** on your Jellyfin server. </br>
+1. Go to the **Admin Dashboard** on your Jellyfin server. <br/>
     `Settings` > `Dashboard`
 2. Navigate to the **General** Tab
 3. Check the box:  
