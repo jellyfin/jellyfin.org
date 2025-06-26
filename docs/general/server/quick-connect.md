@@ -5,18 +5,17 @@ title: Quick Connect
 
 # Quick Connect
 
-**Quick Connect** is a feature that allows users to sign into clients **without entering a username or password**. Instead, a temporary **Quick Connect code** is generated and used to authorize login from an already authenticated client.
+**Quick Connect** is a feature that allows users to sign in to clients **without entering a username or password**. Instead, a temporary **Quick Connect code** is generated and used to authorize login from an already authenticated client.
 
-This feature streamlines the sign-in process, especially on devices with limited input options (like TVs or set-top boxes). Since it is part of the Jellyfin-API, both first and third party clients can support it.
+This feature streamlines the sign-in process, especially on devices with limited input options (like TVs or set-top boxes). Because it is part of the Jellyfin API, both first- and third-party clients can support it.
 
 ## Enabling Quick Connect (Server)
 
 Quick Connect must be enabled by the Jellyfin server administrator.
 
-1. Go to the **Admin Dashboard** on your Jellyfin server.
+1. Go to the **Admin Dashboard** on your Jellyfin server. </br>
     `Settings` > `Dashboard`
-2. Navigate to:  
-    > `General`
+2. Navigate to the **General** Tab
 3. Check the box:  
    ✅ **Enable Quick Connect on this server**
 
@@ -42,7 +41,7 @@ Quick Connect functionality is supported in two contexts:
 | Swiftfin (iOS)       | ✅     | ✅               |
 | Swiftfin (tvOS)      | ✅     | ❌               |
 
-<sup>*</sup> This client does not need seperate Authentication
+<sup>*</sup> This client does not need separate Authentication
 
 ## Using Quick Connect
 
@@ -54,7 +53,7 @@ The Quick Connect process involves two devices:
 ### On Device A (New Device - the one you want to log into)
 
 1. Open the Jellyfin client and choose **Quick Connect** (usually found on the login screen).
-    On some clients you will first have to press `manual login`, others may directly show you the quick connect code.
+    On some clients, you will first need to press **Manual Login**; others may display the quick-connect code directly.
 2. A **6-character code** will be displayed. Keep this screen open.
 
 ![Quick Connect code example](https://user-images.githubusercontent.com/12074633/115973542-c99ed480-a523-11eb-9d61-17ccd628e123.png)
