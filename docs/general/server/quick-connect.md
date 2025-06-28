@@ -28,7 +28,6 @@ Quick Connect functionality is supported in two contexts:
 | JellyCon             | ✅     | ❌               |
 | Jellyfin Android     | ✅     | ✅               |
 | Jellyfin AndroidTV   | ✅     | ❌               |
-| Jellyfin Chromecast  | ⚠️<sup>*</sup>     | ⚠️<sup>*</sup>               |
 | Jellyfin Kodi        | ❌     | ❌               |
 | Jellyfin Media Player| ✅     | ✅               |
 | Jellyfin Mobile (iOS)| ✅     | ✅               |
@@ -40,8 +39,6 @@ Quick Connect functionality is supported in two contexts:
 | Jellyfin WebOS       | ✅     | ✅               |
 | Swiftfin (iOS)       | ✅     | ✅               |
 | Swiftfin (tvOS)      | ✅     | ❌               |
-
-<sup>*</sup> This client does not need separate Authentication
 
 ## Using Quick Connect
 
