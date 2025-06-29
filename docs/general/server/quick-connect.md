@@ -14,7 +14,7 @@ This feature streamlines the sign-in process, especially on devices with limited
 By default, Quick Connect is enabled.
 To disable it, follow these steps:
 
-1. Go to the **Admin Dashboard** on your Jellyfin server. 
+1. Go to the **Admin Dashboard** on your Jellyfin server.  
 
     `Settings` > `Dashboard`
 2. Navigate to the **General** Tab
