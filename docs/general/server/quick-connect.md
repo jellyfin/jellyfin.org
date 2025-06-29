@@ -27,7 +27,7 @@ Quick Connect functionality is supported in two contexts:
 |----------------------|--------|------------------|
 | JellyCon             | ✅     | ❌               |
 | Jellyfin Android     | ✅     | ✅               |
-| Jellyfin AndroidTV   | ✅     | ❌               |
+| Jellyfin Android TV  | ✅     | ❌               |
 | Jellyfin Kodi        | ❌     | ❌               |
 | Jellyfin Media Player| ✅     | ✅               |
 | Jellyfin Mobile (iOS)| ✅     | ✅               |
@@ -53,7 +53,7 @@ The Quick Connect process involves two devices:
     On some clients, you will first need to press **Manual Login**; others may display the quick-connect code directly.
 2. A **6-character code** will be displayed. Keep this screen open.
 
-![Quick Connect code example](https://user-images.githubusercontent.com/12074633/115973542-c99ed480-a523-11eb-9d61-17ccd628e123.png)
+![Quick Connect code example](/images/docs/server/quick-connect/QuickConnectCode.png)
 
 ### On Device B (Already Logged-In Device)
 
@@ -62,6 +62,6 @@ The Quick Connect process involves two devices:
 2. Enter the 6-character code from Device A and confirm.
 3. If successful, Device A will be logged in automatically—no need to enter a username or password.
 
-![Quick Connect code entry screen](https://user-images.githubusercontent.com/12074633/115973526-aecc6000-a523-11eb-9ed6-59bee41bac7b.png)
+![Quick Connect code entry screen](/images/docs/server/quick-connect/QuickConnectEntry.png)
 
 > If the code is invalid or expired, you will see an error message and must try again.
