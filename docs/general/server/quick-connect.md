@@ -53,7 +53,7 @@ The Quick Connect process involves two devices:
     On some clients, you will first need to press **Manual Login**; others may display the quick-connect code directly.
 2. A **6-character code** will be displayed. Keep this screen open.
 
-![Quick Connect code example](/images/docs/server/quick-connect/QuickConnectCode.png)
+![Quick Connect code example](/images/docs/server/quick-connect/quick-connect-code.png)
 
 ### On Device B (Already Logged-In Device)
 
@@ -62,6 +62,6 @@ The Quick Connect process involves two devices:
 2. Enter the 6-character code from Device A and confirm.
 3. If successful, Device A will be logged in automatically—no need to enter a username or password.
 
-![Quick Connect code entry screen](/images/docs/server/quick-connect/QuickConnectEntry.png)
+![Quick Connect code entry screen](/images/docs/server/quick-connect/quick-connect-entry.png)
 
 > If the code is invalid or expired, you will see an error message and must try again.
