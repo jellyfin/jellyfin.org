@@ -7,7 +7,7 @@ title: Quick Connect
 
 **Quick Connect** is a feature that allows users to sign in to clients **without entering a username or password**. Instead, a temporary **Quick Connect code** is generated and used to authorize login from an already authenticated client.
 
-This feature streamlines the sign-in process, especially on devices with limited input options (like TVs or set-top boxes). Because it is part of the Jellyfin API, both first- and third-party clients can support it.
+This feature streamlines the sign-in process, especially on devices with limited input options (like TVs or set-top boxes).
 
 ## Disabling Quick Connect (Server)
 
