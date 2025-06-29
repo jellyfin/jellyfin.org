@@ -9,14 +9,16 @@ title: Quick Connect
 
 This feature streamlines the sign-in process, especially on devices with limited input options (like TVs or set-top boxes). Because it is part of the Jellyfin API, both first- and third-party clients can support it.
 
-## Enabling Quick Connect (Server)
+## Disabling Quick Connect (Server)
 
-Quick Connect must be enabled by the Jellyfin server administrator.
+By default, Quick Connect is enabled.
+To disable it, follow these steps:
 
-1. Go to the **Admin Dashboard** on your Jellyfin server. <br/>
+1. Go to the **Admin Dashboard** on your Jellyfin server. 
+
     `Settings` > `Dashboard`
 2. Navigate to the **General** Tab
-3. Check the box:  
+3. Uncheck the box:  
    ✅ **Enable Quick Connect on this server**
 
 ## Supported Clients
