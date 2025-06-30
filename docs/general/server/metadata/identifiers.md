@@ -27,7 +27,7 @@ Shows
 
 Below are instructions on how to find metadata provider identifiers for each supported provider.
 
-### The Movie Database (TVDB)
+### The Movie Database (TMDB)
 
 The identifier is found in the URL of the title. For example:
 
