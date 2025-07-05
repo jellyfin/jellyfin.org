@@ -44,7 +44,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "sass": "1.89.2",
-    "swiper": "11.2.9",
+    "swiper": "11.2.10",
     "url-loader": "4.1.1"
   },
   "browserslist": {
