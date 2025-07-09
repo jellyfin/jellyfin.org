@@ -1000,5 +1000,21 @@ export const Clients: Array<Client> = [
         url: 'https://monk-studio.com/finer'
       }
     ]
+  },
+  {
+    id: 'livefin',
+    name: 'LiveFin',
+    description: 'Jellyfin Live TV player for iOS/iPadOS/macOS.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.MacOS, Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'testflight',
+        name: 'TestFlight',
+        url: 'https://testflight.apple.com/join/ydRmHVEf'
+      }
+    ]
   }
 ];
