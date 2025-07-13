@@ -340,13 +340,18 @@ Root permission is required.
    ...
    ```
 
-6. If the version is newer than `22.xx.xxxxx` just install it. For the latest products like N95/N100 and Arc A380, support is provided in `23.xx.xxxxx` and newer. Otherwise install from [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases).
+:::caution
+   versions above 25.18.33578.6 are broken for certain GPUs, the issue has been verified in [Alchemist](https://en.wikipedia.org/wiki/Intel_Arc#Alchemist) GPUs. If you are using one of these models it will be beneficial to install the latest known working version of 25.13.33276.16 with this command until the [issue](https://github.com/intel/compute-runtime/issues/831) is fixed:
+   ``sudo apt install intel-compute-runtime=25.13.33276.16``
+:::
+
+7. If the version is newer than `22.xx.xxxxx` just install it. For the latest products like N95/N100 and Arc A380, support is provided in `23.xx.xxxxx` and newer. Otherwise install from [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases).
 
    ```shell
    sudo apt install -y intel-opencl-icd
    ```
 
-7. Check the supported QSV / VA-API codecs:
+8. Check the supported QSV / VA-API codecs:
 
    :::note
 
@@ -370,7 +375,7 @@ Root permission is required.
    ...
    ```
 
-8. Check the OpenCL runtime status:
+9. Check the OpenCL runtime status:
 
    ```shell
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
@@ -382,9 +387,9 @@ Root permission is required.
    ...
    ```
 
-9. If you wish to use the second GPU, change `renderD128` to `renderD129` in the Jellyfin dashboard.
+10. If you wish to use the second GPU, change `renderD128` to `renderD129` in the Jellyfin dashboard.
 
-10. Enable QSV or VA-API in Jellyfin and uncheck the unsupported codecs.
+11. Enable QSV or VA-API in Jellyfin and uncheck the unsupported codecs.
 
 #### Linux Mint
 
