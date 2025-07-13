@@ -325,4 +325,4 @@ WantedBy=default.target
 
 #### Vendor-specific configuration
 
-Additional configuration steps may be required depending on your GPU vendor. Check the [Hardware Acceleration](docs/general/post-install/transcoding/hardware-acceleration/) section.
+Additional configuration steps may be required depending on your GPU vendor. Check the [Hardware Acceleration](/docs/general/post-install/transcoding/hardware-acceleration/index) section.
