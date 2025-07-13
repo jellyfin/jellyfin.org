@@ -3,8 +3,6 @@ uid: network-reverse-proxy-apache
 title: Apache
 ---
 
-## Apache HTTP Server Project
-
 "The [Apache HTTP Server Project](https://httpd.apache.org/) is an effort to develop and maintain an open-source HTTP server for modern operating systems including UNIX and Windows. The goal of this project is to provide a secure, efficient and extensible server that provides HTTP services in sync with the current HTTP standards."
 
 ```conf
@@ -36,11 +34,17 @@ title: Apache
     RequestHeader set X-Forwarded-Proto "https"
     RequestHeader set X-Forwarded-Port "443"
 
-    ProxyPass "/socket" "ws://SERVER_IP_ADDRESS:8096/socket"
-    ProxyPassReverse "/socket" "ws://SERVER_IP_ADDRESS:8096/socket"
+    # Apache should be able to know when to change protocols (between WebSocket and HTTP)
+    RewriteEngine On
+    RewriteCond %{HTTP:Upgrade} =websocket
+    RewriteRule /(.*) ws://SERVER_IP_ADDRESS:8096/socket/$1 [P,L]
+    RewriteCond %{HTTP:Upgrade} !=websocket
+    RewriteRule /(.*) http://SERVER_IP_ADDRESS:8096/$1 [P,L]
 
-    ProxyPass "/" "http://SERVER_IP_ADDRESS:8096/"
-    ProxyPassReverse "/" "http://SERVER_IP_ADDRESS:8096/"
+    # Sometimes, Jellyfin requires clients to empty their cache to display and function correctly.
+    # This header tells clients not to keep any cache and is quite strict on that.
+    # This might also fix some syncplay issues (#5485 and #8140 @ https://github.com/jellyfin/jellyfin-web/issues/)
+    # Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
 
     SSLEngine on
     SSLCertificateFile /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem
@@ -60,7 +64,7 @@ title: Apache
 </IfModule>
 ```
 
-If you encouter errors, you may have to enable `mod_proxy`, `mod_ssl`, `proxy_wstunnel`, `http2`, `headers` and `remoteip` support manually.
+If you encounter errors, you may have to enable `mod_proxy`, `mod_ssl`, `proxy_wstunnel`, `http2`, `headers` and `remoteip` support manually.
 
 ```bash
 sudo a2enmod proxy proxy_http ssl proxy_wstunnel remoteip http2 headers
