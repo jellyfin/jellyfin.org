@@ -3,8 +3,6 @@ uid: network-ipban
 title: IPBan
 ---
 
-## IPBan
-
 [IPBan](https://github.com/DigitalRuby/IPBan) is an intrusion prevention much like fail2ban, but multi-platform
 
 Install with one command on windows (elevated powershell prompt)

@@ -112,8 +112,10 @@ Builds in RPM package format are provided by RPM Fusion. Official packages are n
 The Gentoo ebuild repository includes the Jellyfin package which can be installed like other software:
 
 ```sh
-emerge www-apps/jellyfin
+emerge --ask www-apps/jellyfin-bin
 ```
+
+For more information, refer to the [Gentoo wiki](https://wiki.gentoo.org/wiki/Jellyfin).
 
 ## NixOS
 
