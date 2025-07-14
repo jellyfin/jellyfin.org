@@ -10,7 +10,7 @@ sidebar_position: 4
 ## Container images
 
 Official container image: `jellyfin/jellyfin` [![jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg)](https://hub.docker.com/r/jellyfin/jellyfin).  
-This image is also published on the GitHub Container Registry: `ghcr.io/jellyfin/jellyfin` [![jellyfin ghcr Pull Count](https://img.shields.io/badge/GHCR-pulls--not--available-lightgrey)](https://ghcr.io/jellyfin/jellyfin).
+This image is also published on the GitHub Container Registry: `ghcr.io/jellyfin/jellyfin`.
 
 LinuxServer.io image: `linuxserver/jellyfin` [![linuxserver jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg)](https://hub.docker.com/r/linuxserver/jellyfin).
 
