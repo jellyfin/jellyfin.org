@@ -94,7 +94,7 @@ This page lists all known issues and limitations of hardware acceleration with J
    | 530 to 546    | Up to 5 encoding sessions |
    | pre-530       | Up to 3 encoding sessions |
 
-2. When using Nvidia GPUs in containers (e.g. Docker, LXC), the container might randomly lose access to the GPU requiring a restart. A few potential workarounds can be found below:
+2. When using Nvidia GPUs in containers (e.g. Docker, LXC), the container might randomly lose access to the GPU. A few potential workarounds can be found below:
    - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/48](https://github.com/NVIDIA/nvidia-container-toolkit/issues/48)
    - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/538](https://github.com/NVIDIA/nvidia-container-toolkit/issues/538)
    - [https://github.com/ollama/ollama/issues/6928#issuecomment-2586208913](https://github.com/ollama/ollama/issues/6928#issuecomment-2586208913)
