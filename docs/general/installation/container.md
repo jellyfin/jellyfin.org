@@ -9,12 +9,12 @@ sidebar_position: 4
 
 ## Container images
 
-Official container image: `jellyfin/jellyfin` <a href="https://hub.docker.com/r/jellyfin/jellyfin"><img alt="jellyfin Docker Pull Count" src="https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg" /></a>.
-This image is also published on the GitHub Container Registry: `ghcr.io/jellyfin/jellyfin` <a href="https://ghcr.io/jellyfin/jellyfin"><img alt="jellyfin ghcr Pull Count" src="https://img.shields.io/badge/GHCR-pulls--not--available-lightgrey"/></a>
+Official container image: `jellyfin/jellyfin` [![jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg)](https://hub.docker.com/r/jellyfin/jellyfin).  
+This image is also published on the GitHub Container Registry: `ghcr.io/jellyfin/jellyfin` [![jellyfin ghcr Pull Count](https://img.shields.io/badge/GHCR-pulls--not--available-lightgrey)](https://ghcr.io/jellyfin/jellyfin).
 
-LinuxServer.io image: `linuxserver/jellyfin` <a href="https://hub.docker.com/r/linuxserver/jellyfin"><img alt="linuxserver jellyfin Docker Pull Count" src="https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg" /></a>.
+LinuxServer.io image: `linuxserver/jellyfin` [![linuxserver jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg)](https://hub.docker.com/r/linuxserver/jellyfin).
 
-hotio image: `hotio/jellyfin` <a href="https://hub.docker.com/r/hotio/jellyfin"><img alt="hotio jellyfin Docker Pull Count" src="https://img.shields.io/docker/pulls/hotio/jellyfin.svg" /></a>.
+hotio image: `hotio/jellyfin` [![hotio jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/hotio/jellyfin.svg)](https://hub.docker.com/r/hotio/jellyfin).
 
 Jellyfin distributes [official container images on Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin/) for multiple architectures.
 These images are based on Debian and [built directly from the Jellyfin source code](https://github.com/jellyfin/jellyfin-packaging/blob/master/docker/Dockerfile).
