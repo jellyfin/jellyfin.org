@@ -415,23 +415,37 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 1. Add the CUDA repo to your package manager.
 
-   Browse the following directory to find the appropriate .repo file for your distribution: [CUDA repos](https://developer.download.nvidia.com/compute/cuda/repos/)
+   Browse the following directory to find the appropriate repository file for your distribution: [CUDA repos](https://developer.download.nvidia.com/compute/cuda/repos/)
 
-   Install the appropriate repository file into your package manager. The way to do this depends on your package manager and OS release. For example, Fedora 41 users will use the command:
+   Install the appropriate repository file into your package manager. The way to do this depends on your package manager and OS release. Replace the repo URL in the examples below with the one that is appropriate for you distro.
 
-   `sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora41/$(uname -m)/cuda-fedora41.repo`
+   a. Fedora, RHEL, CentOS:
 
-2. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
+   `sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora42/$(uname -m)/cuda-fedora42.repo`
+   
+   b. Debian, Ubuntu
+
+   `echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-ubuntu2404.pin stable main" | sudo tee /etc/apt/sources.list.d/cuda-ubuntu2404.list`
+
+   `sudo apt-get update`
+
+3. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
+
+   a. Fedora, RHEL, CentOS:
    
    `sudo dnf install cuda-toolkit nvidia-container-toolkit-base`
 
-3. Generate a CDI specification file.
+   b. Debian, Ubuntu:
+
+   `sudo apt-get install -y cuda-toolkit nvidia-container-toolkit-base`
+
+5. Generate a CDI specification file.
 
    `sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml`
 
    See: [Support for Container Device Interface — NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html)
 
-4. Adapt your podman commandline or systemd container file to use the device: `nvidia.com/gpu=0`
+6. Adapt your podman commandline or systemd container file to use the device: `nvidia.com/gpu=0`
 
    For example, your podman commandline should now look like this:
    
@@ -489,7 +503,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
    WantedBy=default.target 
    ```
    
-5. Create the following udev rule to make sure the GPU devices are initialized before the container is started.
+7. Create the following udev rule to make sure the GPU devices are initialized before the container is started.
    
    Save the following file as `/etc/udev/rules.d/nvidia.rules` :
    ```shell
