@@ -157,7 +157,6 @@ You can learn more about using Docker by [reading the official Docker documentat
 ## Podman
 
 [Podman](https://podman.io) allows you to run rootless containers.
-It's also the officially supported container solution on Fedora Linux and its derivatives such as CentOS Stream and RHEL.
 Steps to run Jellyfin using Podman are similar to the Docker steps.
 
 1. Install Podman:
@@ -324,3 +323,7 @@ SuccessExitStatus=0 143
 # Start by default on boot
 WantedBy=default.target
 ```
+
+#### Vendor-specific configuration
+
+Additional configuration steps may be required depending on your GPU vendor. Check the [Hardware Acceleration](/docs/general/post-install/transcoding/hardware-acceleration) section.
