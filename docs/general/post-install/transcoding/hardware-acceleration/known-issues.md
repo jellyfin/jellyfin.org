@@ -88,10 +88,15 @@ This page lists all known issues and limitations of hardware acceleration with J
 
 ## Nvidia
 
-Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) cards have an artificial limit on the number of concurrent NVENC encoding sessions. This restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
+1. Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) cards have an artificial limit on the number of concurrent NVENC encoding sessions. This restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
 
-| NVIDIA driver | NVENC concurrent sessions |
-| ------------- | ------------------------- |
-| 550 and newer | Up to 8 encoding sessions |
-| 530 to 546    | Up to 5 encoding sessions |
-| pre-530       | Up to 3 encoding sessions |
+   | NVIDIA driver | NVENC concurrent sessions |
+   | ------------- | ------------------------- |
+   | 550 and newer | Up to 8 encoding sessions |
+   | 530 to 546    | Up to 5 encoding sessions |
+   | pre-530       | Up to 3 encoding sessions |
+
+2. When using Nvidia GPUs in containers (e.g. Docker, LXC), the container might randomly lose access to the GPU. A few potential workarounds can be found below:
+   - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/48](https://github.com/NVIDIA/nvidia-container-toolkit/issues/48)
+   - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/538](https://github.com/NVIDIA/nvidia-container-toolkit/issues/538)
+   - [https://github.com/ollama/ollama/issues/6928#issuecomment-2586208913](https://github.com/ollama/ollama/issues/6928#issuecomment-2586208913)
