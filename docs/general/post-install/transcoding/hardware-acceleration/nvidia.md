@@ -504,7 +504,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
    ```
 
 5. Create the following udev rule to make sure the GPU devices are initialized before the container is started.
-   
+
    Save the following file as `/etc/udev/rules.d/nvidia.rules` :
    
    ```shell
