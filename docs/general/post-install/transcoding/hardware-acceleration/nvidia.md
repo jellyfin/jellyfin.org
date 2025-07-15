@@ -422,33 +422,33 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
    a. Fedora, RHEL, CentOS:
 
    `sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora42/$(uname -m)/cuda-fedora42.repo`
-   
+
    b. Debian, Ubuntu
 
    `echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-ubuntu2404.pin stable main" | sudo tee /etc/apt/sources.list.d/cuda-ubuntu2404.list`
 
    `sudo apt-get update`
 
-3. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
+2. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
 
    a. Fedora, RHEL, CentOS:
-   
+
    `sudo dnf install cuda-toolkit nvidia-container-toolkit-base`
 
    b. Debian, Ubuntu:
 
    `sudo apt-get install -y cuda-toolkit nvidia-container-toolkit-base`
 
-5. Generate a CDI specification file.
+3. Generate a CDI specification file.
 
    `sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml`
 
    See: [Support for Container Device Interface — NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html)
 
-6. Adapt your podman commandline or systemd container file to use the device: `nvidia.com/gpu=0`
+4. Adapt your podman commandline or systemd container file to use the device: `nvidia.com/gpu=0`
 
    For example, your podman commandline should now look like this:
-   
+
    ```sh
    podman run \
     --detach \
@@ -473,8 +473,8 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
    ```
 
    Systemd:
-   
-   ```
+
+   ```sh
    [Unit]
    Description=jellyfin
    
@@ -502,8 +502,8 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
    # Start by default on boot
    WantedBy=default.target 
    ```
-   
-7. Create the following udev rule to make sure the GPU devices are initialized before the container is started.
+
+5. Create the following udev rule to make sure the GPU devices are initialized before the container is started.
    
    Save the following file as `/etc/udev/rules.d/nvidia.rules` :
    ```shell
