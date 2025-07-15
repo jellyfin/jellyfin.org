@@ -84,7 +84,7 @@ This page lists all known issues and limitations of hardware acceleration with J
     - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
     - Ubuntu bug: [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755)
 
-13. Intel Compute-Runtime versions starting at 25.18.33578.6 are broken for certain GPUs. The issue has been verified on [Alchemist](https://en.wikipedia.org/wiki/Intel_Arc#Alchemist) series GPUs. If you are using one of the effected models it will be necessary to install the latest known working version of 25.13.33276.16 until the [issue](https://github.com/intel/compute-runtime/issues/831) is fixed. This can effect containers as well, if you are not using the [official image](https://hub.docker.com/r/jellyfin/jellyfin), check your version in container as well.
+13. Intel Compute-Runtime versions starting at 25.18.33578.6 are broken for certain GPUs. The issue has been verified on Arc A series GPUs. If you are using one of the effected models it will be necessary to install the latest known working version of 25.13.33276.16 until the [issue](https://github.com/intel/compute-runtime/issues/831) is fixed. This can effect containers as well, if you are not using the [official image](https://hub.docker.com/r/jellyfin/jellyfin), check your version in container as well.
 
 ## Nvidia
 
