@@ -216,9 +216,9 @@ If your active devices section in the dashboard is not showing progress of the c
 ```bash
 timedatectl set-ntp true
 ```
-## Shows or Movies not being identified correctly
+## Shows Or Movies Not Being Identified Correctly
 
-If you are experiencing problems related to jellyfin mislabeling your media, try the following process:
+If Jellyfin is mislabeling your shows or movies, try the following process:
 
 1. Move one of the effected shows or movies OUT of the library folder.
 2. Manually initiate a scan of the Library from the server ``dashboard`` > ``Libraries`` > ``Libraries`` > ``context menu`` > ``Scan library`` > ``Refresh``.
