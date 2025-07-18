@@ -97,6 +97,6 @@ import Multipart from './\_video-multipart.md';
 
 <Multipart />
 
-import ExternalImages from './\_external-images.md';
+import ExternalImages from './\_metadata-images.md';
 
 <ExternalImages />
