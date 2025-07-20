@@ -71,9 +71,9 @@ HDR is only supported on a very limited range of devices:
 
 - iOS Devices with an HDR capable internal display can display HDR content when using a browser or the Jellyfin iOS App (not Swiftfin) as long as the codec is supported by the client. All of them support HEVC and VP9, while AV1 is supported on newer devices. HDR10, Dolby Vision and HLG are supported.
 
-- A Mac running macOS that supports HDR can play HDR content when using Safari on an HDR capable display as long as the source codec is supported. HDR10, Dolby Vision and HLG are supported. Please refer to [the list of Macs that support HDR](https://support.apple.com/en-us/102205) to check if your device is supported.
+- Macs running macOS that supports HDR can play HDR content when using Safari on an HDR capable display as long as the source codec is supported. HDR10, Dolby Vision and HLG are supported. Please refer to [the list of Macs that support HDR](https://support.apple.com/en-us/102205) to check if your device is supported.
 
-- An Android TV device running the official Android TV client on a supported device. HDR format support depends on the specific device you are running.
+- Android TV devices with HDR support running the official Android TV App. HDR format support depends on the specific device you are running.
 
 Devices not listed above do not support HDR on any official client. Any HDR content will have to be converted to SDR by the server for proper playback on these clients. For more info, please refer to our [tone-mapping documentation](/docs/general/post-install/transcoding/#hdr-to-sdr-tone-mapping)
 
