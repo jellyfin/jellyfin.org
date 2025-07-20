@@ -14,7 +14,7 @@ This image is also published on the GitHub Container Registry: `ghcr.io/jellyfin
 
 LinuxServer.io image: `linuxserver/jellyfin` [![linuxserver jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg)](https://hub.docker.com/r/linuxserver/jellyfin).
 
-hotio image: `hotio/jellyfin` [![hotio jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/hotio/jellyfin.svg)](https://hub.docker.com/r/hotio/jellyfin).
+hotio image: `ghcr.io/hotio/jellyfin`.
 
 Jellyfin distributes official container images on [Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin/) and the [GitHub Container Registry](https://ghcr.io/jellyfin/jellyfin) for multiple architectures.
 These images are based on Debian and [built directly from the Jellyfin source code](https://github.com/jellyfin/jellyfin-packaging/blob/master/docker/Dockerfile).
