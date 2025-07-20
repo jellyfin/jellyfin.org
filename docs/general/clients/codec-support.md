@@ -13,7 +13,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 [Test your browser's compatibility for any codec profile.](https://cconcolato.github.io/media-mime-support/)
 
-| Sorted by efficiency (excluding bit depth)                                                                          | Chrome         | Edge           | Firefox | Safari          | Android        | Android TV     | iOS            | SwiftFin (iOS)  | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | Jellyfin Media Player |
+| Sorted by efficiency (excluding bit depth)                                                                         | Chrome         | Edge           | Firefox | Safari          | Android        | Android TV     | iOS            | SwiftFin (iOS)  | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | Jellyfin Media Player |
 | ------------------------------------------------------------------------------------------------------------------ | -------------- | -------------- | ------- | --------------- | -------------- | -------------- | -------------- | --------------- | ------------------------------------------------------------------------------- | ---- | --------------------- |
 | [MPEG-4 Part 2/SP](https://en.wikipedia.org/wiki/DivX)                                                             | ❌             | ❌             | ❌      | ❌              | ❌             | ❌             | ❌             | ✅              | ✅                                                                              | ✅   | ✅                    |
 | [MPEG-4 Part 2/ASP](<https://en.wikipedia.org/wiki/MPEG-4_Part_2#Advanced_Simple_Profile_(ASP)>)                   | ❌             | ❌             | ❌      | ❌              | ❌             | ❌             | ❌             | ✅              |                                                                                 | ✅   | ✅                    |
@@ -64,6 +64,16 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <sup>1</sup><a href="https://www.afterdawn.com/glossary/term.cfm/mpeg_4_part_10">MPEG-4 Part-2 vs Part-10</a>
 <br />
 <sup>2</sup><a href="https://en.wikipedia.org/wiki/MPEG-4_Part_17">MPEG-4 Part 17: MP4TT Subtitles</a>
+
+### HDR Support
+
+HDR is only supported on a very limited range of devices:
+
+- iOS Devices with an HDR capable internal display can display HDR content when using a browser or the Jellyfin iOS App (not Swiftfin) as long as the codec is supported by the client. All of them support HEVC and VP9, while AV1 is supported on newer devices. HDR10, Dolby Vision and HLG are supported.
+
+- A Mac running macOS that supports HDR can play HDR content when using Safari on an HDR capable display as long as the source codec is supported. HDR10, Dolby Vision and HLG are supported. Please refer to [the list of Macs that support HDR](https://support.apple.com/en-us/102205) to check if your device is supported.
+
+- An Android TV device running the official Android TV client on a supported device. HDR format support depends on the specific device you are running.
 
 ## [Audio Compatibility](https://en.wikipedia.org/wiki/Comparison_of_video_container_formats#Audio_coding_formats_support "Wikipedia's audio codec tables")
 
