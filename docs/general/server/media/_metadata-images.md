@@ -43,21 +43,50 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-| Type       | Description                        | Allowed Names                                  |
-| ---------- | ---------------------------------- | ---------------------------------------------- |
-| Primary    | The primary cover image            | folder, poster, cover, default                 |
-| Art        | Unused                             | art                                            |
-| Backdrop   | Background image in media page     | backdrop, fanart, background, art, extrafanart |
-| Banner     | Unused                             | banner                                         |
-| Logo       | Logo displayed on the top          | logo                                           |
-| Thumb      | Thumbnail for homepage, video only | thumb                                          |
-| Disc       | Unused                             | disc                                           |
-| Box        | Unused                             | box                                            |
-| Screenshot | Deprecated                         | screenshot                                     |
-| Menu       | Unused                             | menu                                           |
-| Chapter    | Unused                             | chapter                                        |
-| BoxRear    | Unused                             | boxrear                                        |
-| Profile    | Unused                             | profile                                        |
+Image types:
+
+| Type       | Description                        |
+| ---------- | ---------------------------------- |
+| Primary    | The primary cover image            |
+| Art        | Unused                             |
+| Backdrop   | Background image in media page     |
+| Banner     | Unused                             |
+| Logo       | Logo displayed on the top          |
+| Thumb      | Thumbnail for homepage, video only |
+| Disc       | Unused                             |
+| Box        | Unused                             |
+| Screenshot | Unused, Deprecated                 |
+| Menu       | Unused                             |
+| Chapter    | Unused                             |
+| BoxRear    | Unused                             |
+| Profile    | Unused                             |
+
+Filenames, their respective types and supported media types:
+
+| Filename             | Type     | Movies | Series | Season | Episode | Music |
+| -------------------- | -------- | ------ | ------ | ------ | ------- | ----- |
+| poster               | Primary  | ✅     | ✅     | ✅     |         | ✅    |
+| folder               | Primary  | ✅     | ✅     | ✅     |         | ✅    |
+| cover                | Primary  | ✅     | ✅     | ✅     |         | ✅    |
+| default              | Primary  | ✅     | ✅     | ✅     |         | ✅    |
+| movie                | Primary  | ✅     |        |        |         |       |
+| show                 | Primary  |        | ✅     |        |         |       |
+| jacket               | Primary  |        |        |        |         | ✅    |
+| thumb (suffix)       | Primary  |        |        |        | ✅      |       |
+| backdrop             | backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| fanart               | backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| background           | backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| art                  | backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| extrafanart (folder) | backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| logo                 | logo     | ✅     | ✅     | ✅     |         | ✅    |
+| clearlogo            | logo     | ✅     | ✅     | ✅     |         | ✅    |
+| banner               | banner   | ✅     | ✅     | ✅     |         | ✅    |
+| landscape            | thumb    | ✅     | ✅     | ✅     |         | ✅    |
+| thumb                | thumb    | ✅     | ✅     | ✅     |         | ✅    |
+| disc                 | disc     | ✅     |        |        |         | ✅    |
+| cdart                | disc     | ✅     |        |        |         | ✅    |
+| discart              | disc     | ✅     |        |        |         |       |
+| clearart             | art      | ✅     |        |        |         | ✅    |
 
 Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen, e.g. `backdrop-1.jpg`, `backdrop2.jpg`.
 
