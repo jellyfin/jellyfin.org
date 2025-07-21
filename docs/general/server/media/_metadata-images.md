@@ -45,21 +45,23 @@ import TabItem from '@theme/TabItem';
 
 Image types:
 
-| Type       | Description                        |
-| ---------- | ---------------------------------- |
-| Primary    | The primary cover image            |
-| Backdrop   | Background image in media page     |
-| Banner     | Unused                             |
-| Logo       | Logo displayed on the top          |
-| Thumb      | Thumbnail for homepage, video only |
-| Art        | Unused                             |
-| Disc       | Unused                             |
-| Box        | Unused                             |
-| Menu       | Unused                             |
-| Chapter    | Unused                             |
-| BoxRear    | Unused                             |
-| Profile    | Unused                             |
-| Screenshot | Unused, Deprecated                 |
+| Type       | Description                                                                             |
+| ---------- | --------------------------------------------------------------------------------------- |
+| Primary    | The primary cover image                                                                 |
+| Backdrop   | Background image in media page                                                          |
+| Banner     | Displayed when browsing library in banner mode. Video only. <sup>1</sup>                |
+| Logo       | Logo displayed on the top of a media item.                                              |
+| Thumb      | Thumbnail for homepage and for browsing library in thumb mode. Video only. <sup>1</sup> |
+| Art        | Unused                                                                                  |
+| Disc       | Unused                                                                                  |
+| Box        | Unused                                                                                  |
+| Menu       | Unused                                                                                  |
+| Chapter    | Unused                                                                                  |
+| BoxRear    | Unused                                                                                  |
+| Profile    | Unused                                                                                  |
+| Screenshot | Unused, Deprecated                                                                      |
+
+<sup>1</sup>These can be added to both video and audio content, but are not used by any client for audio conent.
 
 Filenames, their respective types and supported media types:
 
