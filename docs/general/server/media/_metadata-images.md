@@ -38,7 +38,9 @@ import TabItem from '@theme/TabItem';
         ├── cover.jpg
         ├── logo.png
         ├── Series Name B S01E01.mkv
-        └── Series Name B S01E02.mkv
+        ├── Series Name B S01E01-thumb.jpg
+        ├── Series Name B S01E02.mkv
+        └── Series Name B S01E02-thumb.jpg
     ```
   </TabItem>
 </Tabs>
