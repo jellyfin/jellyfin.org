@@ -50,14 +50,17 @@ Image types:
 | Type     | Description                                                                             |
 | -------- | --------------------------------------------------------------------------------------- |
 | Primary  | The primary cover image                                                                 |
-| Backdrop | Background image in media page                                                          |
-| Banner   | Displayed when browsing library in banner mode. Video only. <sup>1</sup>                |
+| Backdrop | Background image in media page <sup>1</sup>                                             |
+| Banner   | Displayed when browsing library in banner mode. Video only. <sup>2</sup>                |
 | Logo     | Logo displayed on the top of a media item.                                              |
-| Thumb    | Thumbnail for homepage and for browsing library in thumb mode. Video only. <sup>1</sup> |
+| Thumb    | Thumbnail for homepage and for browsing library in thumb mode. Video only. <sup>2</sup> |
 
-<sup>1</sup>These can be added to both video and audio content, but are not used by any client for audio conent.
+<sup>1</sup>Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen, e.g. `backdrop-1.jpg`, `backdrop2.jpg`.
 
-Filenames, their respective types and supported media types:
+<sup>2</sup>These can be added to both video and audio content, but are not used by any client for audio conent.
+
+<details>
+<summary>Filenames, their respective types and supported media types</summary>
 
 | Filename                    | Type     | Movies | Series | Season | Episode | Music |
 | --------------------------- | -------- | ------ | ------ | ------ | ------- | ----- |
@@ -82,6 +85,12 @@ Filenames, their respective types and supported media types:
 
 <sup>1</sup> For example: `S01E01 Some Episode-thumb.jpg`
 
+</details>
+
+Below is a screenshot showing the 3 main types of images in Jellyfin
+
+![Album Image View](/images/docs/server/media/music/album-images.png)
+
 <details>
   <summary>Unused types are listed below. While they are unused by official clients, they may be used by 3rd party clients.</summary>
 
@@ -104,9 +113,3 @@ Filenames, their respective types and supported media types:
 | clearart | Art  | ✅     | ✅     | ✅     |         | ✅    |
 
 </details>
-
-Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen, e.g. `backdrop-1.jpg`, `backdrop2.jpg`.
-
-Below is a screenshot showing the 3 main types of images in Jellyfin
-
-![Album Image View](/images/docs/server/media/music/album-images.png)
