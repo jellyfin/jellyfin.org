@@ -62,6 +62,8 @@ Image types:
 <details>
 <summary>Filenames, their respective types and supported media types</summary>
 
+Unless otherwise noted, all filenames can be used either standalone (e.g. `logo.png`) or as a suffix (e.g. `movie-logo.png`)
+
 | Filename                    | Type     | Movies | Series | Season | Episode | Music |
 | --------------------------- | -------- | ------ | ------ | ------ | ------- | ----- |
 | poster                      | Primary  | ✅     | ✅     | ✅     |         | ✅    |
