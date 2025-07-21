@@ -63,30 +63,32 @@ Image types:
 
 Filenames, their respective types and supported media types:
 
-| Filename             | Type     | Movies | Series | Season | Episode | Music |
-| -------------------- | -------- | ------ | ------ | ------ | ------- | ----- |
-| poster               | Primary  | ✅     | ✅     | ✅     |         | ✅    |
-| folder               | Primary  | ✅     | ✅     | ✅     |         | ✅    |
-| cover                | Primary  | ✅     | ✅     | ✅     |         | ✅    |
-| default              | Primary  | ✅     | ✅     | ✅     |         | ✅    |
-| movie                | Primary  | ✅     |        |        |         |       |
-| show                 | Primary  |        | ✅     |        |         |       |
-| jacket               | Primary  |        |        |        |         | ✅    |
-| thumb (suffix)       | Primary  |        |        |        | ✅      |       |
-| backdrop             | backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| fanart               | backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| background           | backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| art                  | backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| extrafanart (folder) | backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| logo                 | logo     | ✅     | ✅     | ✅     |         | ✅    |
-| clearlogo            | logo     | ✅     | ✅     | ✅     |         | ✅    |
-| banner               | banner   | ✅     | ✅     | ✅     |         | ✅    |
-| landscape            | thumb    | ✅     | ✅     | ✅     |         | ✅    |
-| thumb                | thumb    | ✅     | ✅     | ✅     |         | ✅    |
-| disc                 | disc     | ✅     |        |        |         | ✅    |
-| cdart                | disc     | ✅     |        |        |         | ✅    |
-| discart              | disc     | ✅     |        |        |         |       |
-| clearart             | art      | ✅     | ✅     | ✅     |         | ✅    |
+| Filename                    | Type     | Movies | Series | Season | Episode | Music |
+| --------------------------- | -------- | ------ | ------ | ------ | ------- | ----- |
+| poster                      | Primary  | ✅     | ✅     | ✅     |         | ✅    |
+| folder                      | Primary  | ✅     | ✅     | ✅     |         | ✅    |
+| cover                       | Primary  | ✅     | ✅     | ✅     |         | ✅    |
+| default                     | Primary  | ✅     | ✅     | ✅     |         | ✅    |
+| movie                       | Primary  | ✅     |        |        |         |       |
+| show                        | Primary  |        | ✅     |        |         |       |
+| jacket                      | Primary  |        |        |        |         | ✅    |
+| thumb (suffix) <sup>1</sup> | Primary  |        |        |        | ✅      |       |
+| backdrop                    | backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| fanart                      | backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| background                  | backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| art                         | backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| extrafanart (folder)        | backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| logo                        | logo     | ✅     | ✅     | ✅     |         | ✅    |
+| clearlogo                   | logo     | ✅     | ✅     | ✅     |         | ✅    |
+| banner                      | banner   | ✅     | ✅     | ✅     |         | ✅    |
+| landscape                   | thumb    | ✅     | ✅     | ✅     |         | ✅    |
+| thumb                       | thumb    | ✅     | ✅     | ✅     |         | ✅    |
+| disc                        | disc     | ✅     |        |        |         | ✅    |
+| cdart                       | disc     | ✅     |        |        |         | ✅    |
+| discart                     | disc     | ✅     |        |        |         |       |
+| clearart                    | art      | ✅     | ✅     | ✅     |         | ✅    |
+
+<sup>1</sup> For example: `S01E01 Some Episode-thumb.jpg`
 
 Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen, e.g. `backdrop-1.jpg`, `backdrop2.jpg`.
 
