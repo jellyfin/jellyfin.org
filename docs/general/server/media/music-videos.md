@@ -1,14 +1,19 @@
 ---
 uid: server-media-music-videos
-title: Music videos
+title: Music Videos
 ---
 
-# Music videos
+# Music Videos
 
-The `Music videos` library type can be used to organize music videos.
+Music videos can be added to a Jellyfin server using the "Music Videos" library type.
 
-The music videos are organized into folders, and the folder structure will be presented
-directly to the users.
+import VideoHeader from './\_video-header.md';
+
+<VideoHeader />
+
+## Organization
+
+Music videos are organized mostly the same as movies, with a few key differences - no external metadata providers are available by default, and multi layer folders are supported.
 
 ```txt
 MusicVideos
@@ -30,6 +35,30 @@ MusicVideos
     └── Song 4.avi
 ```
 
-No metadata scraping from online providers will be performed. By default, the file names will be used as the title, and the last modified date of the files on the file system will be used as the release date. Jellyfin can be configured to use Embedded titles when they are present instead.
+### Naming
 
-NFO files can be provided to provide information such as Title, Artist and Release Date. NFO files will take priority over other sources when they are present.
+The folders and video files can be named however you want, since no metadata fetching is performed. The folder and file names will be displayed as the name of the item in Jellyfin.
+
+import ExternalStreams from './\_video-external-streams.md';
+
+<ExternalStreams />
+
+import Multiversion from './\_video-multiversion.md';
+
+<Multiversion />
+
+import Video3D from './\_video-3d.md';
+
+<Video3D />
+
+import Multipart from './\_video-multipart.md';
+
+<Multipart />
+
+import ExternalExtras from './\_video-external-extras.md';
+
+<ExternalExtras />
+
+import ExternalImages from './\_external-images.md';
+
+<ExternalImages />

@@ -408,13 +408,13 @@ Root permission is required.
 
 2. User mode Intel media drivers and the OpenCL runtime are required to be manually installed for enabling QSV / VA-API:
 
-   - [intel-media-driver](https://archlinux.org/packages/community/x86_64/intel-media-driver/)
+   - [intel-media-driver](https://archlinux.org/packages/extra/x86_64/intel-media-driver/)
 
-   - [intel-media-sdk](https://archlinux.org/packages/community/x86_64/intel-media-sdk/)
+   - [intel-media-sdk](https://archlinux.org/packages/extra/x86_64/intel-media-sdk/)
 
-   - [onevpl-intel-gpu](https://archlinux.org/packages/community/x86_64/onevpl-intel-gpu/)
+   - [onevpl-intel-gpu](https://archlinux.org/packages/extra/x86_64/onevpl-intel-gpu/)
 
-   - [intel-compute-runtime](https://archlinux.org/packages/community/x86_64/intel-compute-runtime/)
+   - [intel-compute-runtime](https://archlinux.org/packages/extra/x86_64/intel-compute-runtime/)
 
    - [libva-intel-driver](https://archlinux.org/packages/extra/x86_64/libva-intel-driver/)
 
