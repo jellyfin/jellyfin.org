@@ -73,6 +73,8 @@ HDR is only supported on a very limited range of devices:
 
 - Macs running macOS that supports HDR can play HDR content when using Safari, Chrome or Firefox on an HDR capable display as long as the source codec is supported. Safari has the most complete support, including HDR10, Dolby Vision (including P5) and HLG. Chrome supports HDR10 and Dolby Vision (except P5), while Firefox only supports HDR10 on VP9 and AV1 content. Please refer to [the list of Macs that support HDR](https://support.apple.com/en-us/102205) to check if your device is supported.
 
+- Windows PCs with an HDR display with HDR enabled in the settings using Edge or Chrome. Dolby Vision requires the Dolby Vision addon from the Microsoft Store to be installed.
+
 - Android TV devices with HDR support running the official Android TV App. HDR format support depends on the specific device you are running.
 
 - WebOS devices (Newer LG Smart TVs) running the official WebOS client supports HDR. However, [mkv containers are known to cause issues](https://github.com/jellyfin/jellyfin-web/issues/4678). Please enable the force remux mkv to mp4 option in the client settings as a workaround.
