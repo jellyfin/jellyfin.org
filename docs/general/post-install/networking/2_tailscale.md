@@ -52,12 +52,13 @@ Setup on reverse proxy server:
 
 1. Install the Tailscale app on the reverse proxy server and login. Instructions are available in [their install guide](https://tailscale.com/kb/1347/installation)
 2. Enable Tailscale.
-3. Setup a reverse proxy of your choice and set the upstream server to the IP from above. Example [Caddy](./caddy) configuration: (Assuming server has Tailscale IP of 100.12.34.56)
+3. Setup a reverse proxy of your choice and set the upstream server to the IP from above. Example [Caddy](./reverse-proxy/caddy) configuration: (Assuming server has Tailscale IP of 100.12.34.56)
+
+   ```txt
+   example.com
+
+   redir /jellyfin /jellyfin/
+   reverse_proxy /jellyfin/* 100.12.34.56:8096
+   ```
+
 4. Find and note your Tailscale IP of the reverse proxy server according to the [Tailscale Documentation](https://tailscale.com/kb/1033/ip-and-dns-addresses?tab=linux#finding-your-tailscale-ip-address). This IP must be added to the Jellyfin server’s `known proxies` setting. The IP should start with 100 (e.g. 100.65.43.21).
-
-```txt
-example.com
-
-redir /jellyfin /jellyfin/
-reverse_proxy /jellyfin/* 100.12.34.56:8096
-```
