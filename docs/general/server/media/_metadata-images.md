@@ -45,21 +45,13 @@ import TabItem from '@theme/TabItem';
 
 Image types:
 
-| Type       | Description                                                                             |
-| ---------- | --------------------------------------------------------------------------------------- |
-| Primary    | The primary cover image                                                                 |
-| Backdrop   | Background image in media page                                                          |
-| Banner     | Displayed when browsing library in banner mode. Video only. <sup>1</sup>                |
-| Logo       | Logo displayed on the top of a media item.                                              |
-| Thumb      | Thumbnail for homepage and for browsing library in thumb mode. Video only. <sup>1</sup> |
-| Art        | Unused                                                                                  |
-| Disc       | Unused                                                                                  |
-| Box        | Unused                                                                                  |
-| Menu       | Unused                                                                                  |
-| Chapter    | Unused                                                                                  |
-| BoxRear    | Unused                                                                                  |
-| Profile    | Unused                                                                                  |
-| Screenshot | Unused, Deprecated                                                                      |
+| Type     | Description                                                                             |
+| -------- | --------------------------------------------------------------------------------------- |
+| Primary  | The primary cover image                                                                 |
+| Backdrop | Background image in media page                                                          |
+| Banner   | Displayed when browsing library in banner mode. Video only. <sup>1</sup>                |
+| Logo     | Logo displayed on the top of a media item.                                              |
+| Thumb    | Thumbnail for homepage and for browsing library in thumb mode. Video only. <sup>1</sup> |
 
 <sup>1</sup>These can be added to both video and audio content, but are not used by any client for audio conent.
 
@@ -89,13 +81,26 @@ Filenames, their respective types and supported media types:
 <sup>1</sup> For example: `S01E01 Some Episode-thumb.jpg`
 
 <details>
-  <summary>File names for unused types. While they are unused by official clients, they may be used by 3rd party clients.</summary>
+  <summary>Unused types are listed below. While they are unused by official clients, they may be used by 3rd party clients.</summary>
+
+| Type       | Description        |
+| ---------- | ------------------ |
+| Art        | Unused             |
+| Disc       | Unused             |
+| Box        | Unused             |
+| Menu       | Unused             |
+| Chapter    | Unused             |
+| BoxRear    | Unused             |
+| Profile    | Unused             |
+| Screenshot | Unused, Deprecated |
+
 | Filename | Type | Movies | Series | Season | Episode | Music |
 | -------- | ---- | ------ | ------ | ------ | ------- | ----- |
 | disc     | Disc | ✅     |        |        |         | ✅    |
 | cdart    | Disc | ✅     |        |        |         | ✅    |
 | discart  | Disc | ✅     |        |        |         |       |
 | clearart | Art  | ✅     | ✅     | ✅     |         | ✅    |
+
 </details>
 
 Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen, e.g. `backdrop-1.jpg`, `backdrop2.jpg`.
