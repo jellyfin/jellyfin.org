@@ -86,7 +86,7 @@ Filenames, their respective types and supported media types:
 | disc                 | disc     | ✅     |        |        |         | ✅    |
 | cdart                | disc     | ✅     |        |        |         | ✅    |
 | discart              | disc     | ✅     |        |        |         |       |
-| clearart             | art      | ✅     |        |        |         | ✅    |
+| clearart             | art      | ✅     | ✅     | ✅     |         | ✅    |
 
 Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen, e.g. `backdrop-1.jpg`, `backdrop2.jpg`.
 
