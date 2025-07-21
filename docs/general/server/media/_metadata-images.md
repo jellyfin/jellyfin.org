@@ -48,18 +48,18 @@ Image types:
 | Type       | Description                        |
 | ---------- | ---------------------------------- |
 | Primary    | The primary cover image            |
-| Art        | Unused                             |
 | Backdrop   | Background image in media page     |
 | Banner     | Unused                             |
 | Logo       | Logo displayed on the top          |
 | Thumb      | Thumbnail for homepage, video only |
+| Art        | Unused                             |
 | Disc       | Unused                             |
 | Box        | Unused                             |
-| Screenshot | Unused, Deprecated                 |
 | Menu       | Unused                             |
 | Chapter    | Unused                             |
 | BoxRear    | Unused                             |
 | Profile    | Unused                             |
+| Screenshot | Unused, Deprecated                 |
 
 Filenames, their respective types and supported media types:
 
@@ -78,17 +78,23 @@ Filenames, their respective types and supported media types:
 | background                  | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
 | art                         | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
 | extrafanart (folder)        | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| banner                      | Banner   | ✅     | ✅     | ✅     |         | ✅    |
 | logo                        | Logo     | ✅     | ✅     | ✅     |         | ✅    |
 | clearlogo                   | Logo     | ✅     | ✅     | ✅     |         | ✅    |
-| banner                      | Banner   | ✅     | ✅     | ✅     |         | ✅    |
 | landscape                   | Thumb    | ✅     | ✅     | ✅     |         | ✅    |
 | thumb                       | Thumb    | ✅     | ✅     | ✅     |         | ✅    |
-| disc                        | Disc     | ✅     |        |        |         | ✅    |
-| cdart                       | Disc     | ✅     |        |        |         | ✅    |
-| discart                     | Disc     | ✅     |        |        |         |       |
-| clearart                    | Art      | ✅     | ✅     | ✅     |         | ✅    |
 
 <sup>1</sup> For example: `S01E01 Some Episode-thumb.jpg`
+
+<details>
+  <summary>File names for unused types. While they are unused by official clients, they may be used by 3rd party clients.</summary>
+| Filename | Type | Movies | Series | Season | Episode | Music |
+| -------- | ---- | ------ | ------ | ------ | ------- | ----- |
+| disc     | Disc | ✅     |        |        |         | ✅    |
+| cdart    | Disc | ✅     |        |        |         | ✅    |
+| discart  | Disc | ✅     |        |        |         |       |
+| clearart | Art  | ✅     | ✅     | ✅     |         | ✅    |
+</details>
 
 Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen, e.g. `backdrop-1.jpg`, `backdrop2.jpg`.
 
