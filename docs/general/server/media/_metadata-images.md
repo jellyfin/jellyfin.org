@@ -73,20 +73,20 @@ Filenames, their respective types and supported media types:
 | show                        | Primary  |        | ✅     |        |         |       |
 | jacket                      | Primary  |        |        |        |         | ✅    |
 | thumb (suffix) <sup>1</sup> | Primary  |        |        |        | ✅      |       |
-| backdrop                    | backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| fanart                      | backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| background                  | backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| art                         | backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| extrafanart (folder)        | backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| logo                        | logo     | ✅     | ✅     | ✅     |         | ✅    |
-| clearlogo                   | logo     | ✅     | ✅     | ✅     |         | ✅    |
-| banner                      | banner   | ✅     | ✅     | ✅     |         | ✅    |
-| landscape                   | thumb    | ✅     | ✅     | ✅     |         | ✅    |
-| thumb                       | thumb    | ✅     | ✅     | ✅     |         | ✅    |
-| disc                        | disc     | ✅     |        |        |         | ✅    |
-| cdart                       | disc     | ✅     |        |        |         | ✅    |
-| discart                     | disc     | ✅     |        |        |         |       |
-| clearart                    | art      | ✅     | ✅     | ✅     |         | ✅    |
+| backdrop                    | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| fanart                      | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| background                  | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| art                         | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| extrafanart (folder)        | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
+| logo                        | Logo     | ✅     | ✅     | ✅     |         | ✅    |
+| clearlogo                   | Logo     | ✅     | ✅     | ✅     |         | ✅    |
+| banner                      | Banner   | ✅     | ✅     | ✅     |         | ✅    |
+| landscape                   | Thumb    | ✅     | ✅     | ✅     |         | ✅    |
+| thumb                       | Thumb    | ✅     | ✅     | ✅     |         | ✅    |
+| disc                        | Disc     | ✅     |        |        |         | ✅    |
+| cdart                       | Disc     | ✅     |        |        |         | ✅    |
+| discart                     | Disc     | ✅     |        |        |         |       |
+| clearart                    | Art      | ✅     | ✅     | ✅     |         | ✅    |
 
 <sup>1</sup> For example: `S01E01 Some Episode-thumb.jpg`
 
