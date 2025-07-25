@@ -114,8 +114,13 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   // quick start replaced with post install
   {
-    from: '/docs/general/quick-start',
-    to: '/docs/general/post-install/setup-wizard'
+    from: [
+      '/docs/general/quick-start',
+      // the .html url is linked from the iOS app
+      '/docs/general/quick-start.html'
+    ],
+    // TODO: create a better replacement page with similar content to the quick start guide
+    to: '/docs/'
   }
 ];
 export default redirects;
