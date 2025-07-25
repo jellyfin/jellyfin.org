@@ -59,6 +59,6 @@ import ExternalExtras from './\_video-external-extras.md';
 
 <ExternalExtras />
 
-import ExternalImages from './\_external-images.md';
+import MetadataImages from './\_metadata-images.md';
 
-<ExternalImages />
+<MetadataImages />
