@@ -77,6 +77,10 @@ import ExternalExtras from './\_video-external-extras.md';
 
 <ExternalExtras />
 
+import ThemeMedia from './\_video-theme-media.md';
+
+<ThemeMedia />
+
 import ExternalImages from './\_external-images.md';
 
 <ExternalImages />
