@@ -48,6 +48,14 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     }
   },
   {
+    id: 'gh:neptunehub/audiomuse-ai-plugin',
+    name: "AudioMuse-AI Repo",
+    url: 'https://raw.githubusercontent.com/neptunehub/audiomuse-ai-plugin/master/manifest.json',
+    includes: {
+      'AudioMuse-AI': 'https://github.com/neptunehub/audiomuse-ai-plugin'
+    }
+  },
+  {
     id: 'gh:danieladov/JellyfinPluginManifest',
     name: "danieladov's Repo",
     url: 'https://raw.githubusercontent.com/danieladov/JellyfinPluginManifest/master/manifest.json',
