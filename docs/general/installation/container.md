@@ -21,7 +21,7 @@ These images are based on Debian and [built directly from the Jellyfin source co
 
 Additionally, there are several third parties providing unofficial container images, including the [LinuxServer.io](https://www.linuxserver.io/) ([Dockerfile](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile)) project and [hotio](https://github.com/hotio) ([Dockerfile](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile)), which offer images based on Ubuntu and the official Jellyfin Ubuntu binary packages.
 
-## Docker
+## Using Docker CLI
 
 [Docker](https://www.docker.com/) allows you to run containers on Linux, Windows and MacOS.
 
@@ -109,7 +109,7 @@ A directory of [fallback fonts](/docs/general/administration/configuration/#fall
 --mount type=bind,source=/path/to/fallback/fonts,target=/fallback_fonts,readonly
 ```
 
-### Using Docker Compose
+## Using Docker Compose
 
 Create a `docker-compose.yml` file with the following contents. Add in the UID and GID that you would like to run jellyfin as in the user line below, or remove the user line to use the default (root).
 
