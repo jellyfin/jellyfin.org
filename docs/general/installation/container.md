@@ -21,29 +21,26 @@ These images are based on Debian and [built directly from the Jellyfin source co
 
 Additionally, there are several third parties providing unofficial container images, including the [LinuxServer.io](https://www.linuxserver.io/) ([Dockerfile](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile)) project and [hotio](https://github.com/hotio) ([Dockerfile](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile)), which offer images based on Ubuntu and the official Jellyfin Ubuntu binary packages.
 
+## Installation Instructions
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-## Installation Instructions
+import DockerCli from './\_container-docker-cli.md';
+import DockerCompose from './\_container-docker-compose.md';
+import Podman from './\_container-podman.md';
 
 <Tabs queryString="method">
 <TabItem value="docker-cli" label="Docker">
-
-import DockerCli from './\_container-docker-cli.md';
 
 <DockerCli />
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose" default>
 
-import DockerCompose from './\_container-docker-compose.md';
-
 <DockerCompose />
 
 </TabItem>
 <TabItem value="podman" label="Podman">
-
-import Podman from './\_container-podman.md';
 
 <Podman />
 
