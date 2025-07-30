@@ -240,7 +240,7 @@ As always it is recommended to run the container rootless. Therefore we want to 
 
    > Contents of `~/.config/containers/systemd/jellyfin.container`
 
-   ```sh
+   ```ini
    [Container]
    Image=docker.io/jellyfin/jellyfin:latest
    AutoUpdate=registry
@@ -312,7 +312,7 @@ Finally, you need to set the `--device` flag for the container to use the render
 
 #### systemd
 
-```sh
+```ini
 [Unit]
 Description=jellyfin
 
