@@ -2,7 +2,7 @@
 
 ## Metadata Images
 
-Images can be provided as external files within the media folders, or embedded in the media files for music. When external imaged are provided, they should be placed alongside the media files. When they are provided, they will take precedence over other sources.
+Images can either be provided as external files within the media folders, or embedded in the media files themselves. When external imaged are provided, they should be placed alongside the media files. When they are provided, they will take precedence over other sources.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -64,28 +64,29 @@ Image types:
 
 Unless otherwise noted, all filenames can be used either standalone (e.g. `logo.png`) or as a suffix (e.g. `movie-logo.png`)
 
-| Filename                    | Type     | Movies | Series | Season | Episode | Music |
-| --------------------------- | -------- | ------ | ------ | ------ | ------- | ----- |
-| poster                      | Primary  | ✅     | ✅     | ✅     |         | ✅    |
-| folder                      | Primary  | ✅     | ✅     | ✅     |         | ✅    |
-| cover                       | Primary  | ✅     | ✅     | ✅     |         | ✅    |
-| default                     | Primary  | ✅     | ✅     | ✅     |         | ✅    |
-| movie                       | Primary  | ✅     |        |        |         |       |
-| show                        | Primary  |        | ✅     |        |         |       |
-| jacket                      | Primary  |        |        |        |         | ✅    |
-| thumb (suffix) <sup>1</sup> | Primary  |        |        |        | ✅      |       |
-| backdrop                    | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| fanart                      | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| background                  | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| art                         | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| extrafanart (folder)        | Backdrop | ✅     | ✅     | ✅     |         | ✅    |
-| banner                      | Banner   | ✅     | ✅     | ✅     |         | ✅    |
-| logo                        | Logo     | ✅     | ✅     | ✅     |         | ✅    |
-| clearlogo                   | Logo     | ✅     | ✅     | ✅     |         | ✅    |
-| landscape                   | Thumb    | ✅     | ✅     | ✅     |         | ✅    |
-| thumb                       | Thumb    | ✅     | ✅     | ✅     |         | ✅    |
+| Filename                    | Type     | Movies          | Series | Season | Episode | Music |
+| --------------------------- | -------- | --------------- | ------ | ------ | ------- | ----- |
+| poster                      | Primary  | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| folder                      | Primary  | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| cover                       | Primary  | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| default                     | Primary  | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| movie                       | Primary  | ✅ <sup>2</sup> |        |        |         |       |
+| show                        | Primary  |                 | ✅     |        |         |       |
+| jacket                      | Primary  |                 |        |        |         | ✅    |
+| thumb (suffix) <sup>1</sup> | Primary  |                 |        |        | ✅      |       |
+| backdrop                    | Backdrop | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| fanart                      | Backdrop | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| background                  | Backdrop | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| art                         | Backdrop | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| extrafanart (folder)        | Backdrop | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| banner                      | Banner   | ✅              | ✅     | ✅     |         | ✅    |
+| logo                        | Logo     | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| clearlogo                   | Logo     | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |
+| landscape                   | Thumb    | ✅              | ✅     | ✅     |         | ✅    |
+| thumb                       | Thumb    | ✅              | ✅     | ✅     |         | ✅    |
 
-<sup>1</sup> For example: `S01E01 Some Episode-thumb.jpg`
+<sup>1</sup> For example: `S01E01 Some Episode-thumb.jpg` <br />
+<sup>2</sup> These file names can also be embedded in supported media containers (e.g. mkv) and will be used when the `Embedded Image Extractor` source is enabled for movies.
 
 </details>
 
