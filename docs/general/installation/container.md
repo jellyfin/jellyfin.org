@@ -216,6 +216,7 @@ This example mounts your media library read-only by setting `ro=true`; set this 
 
 <details>
 <summary>Managing via systemd</summary>
+
 To run as a systemd service see [podman-systemd.unit](https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html).
 
 As always it is recommended to run the container rootless. Therefore we want to manage the container with the `systemd --user` flag.
@@ -270,6 +271,7 @@ As always it is recommended to run the container rootless. Therefore we want to 
    `journalctl --user -u jellyfin`
 
 6. `exit` the current session.
+
 </details>
 <details>
 <summary>Using hardware acceleration</summary>
