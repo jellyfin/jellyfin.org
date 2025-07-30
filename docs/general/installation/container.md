@@ -29,23 +29,23 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="docker-cli" label="Docker">
 
-import dockercli from './\_container-docker-cli.md';
+import DockerCli from './\_container-docker-cli.md';
 
-<dockercli />
+<DockerCli />
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose" default>
 
-import dockercompose from './\_container-docker-compose.md';
+import DockerCompose from './\_container-docker-compose.md';
 
-<dockercompose />
+<DockerCompose />
 
 </TabItem>
 <TabItem value="podman" label="Podman">
 
-import podman from './\_container-podman.md';
+import Podman from './\_container-podman.md';
 
-<podman />
+<Podman />
 
 </TabItem>
 </Tabs>
