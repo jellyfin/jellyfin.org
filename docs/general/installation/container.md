@@ -24,10 +24,10 @@ Additionally, there are several third parties providing unofficial container ima
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Installation Instructions
+
 <Tabs>
 <TabItem value="docker-cli" label="Docker">
-
-## Using Docker CLI
 
 [Docker](https://www.docker.com/) allows you to run containers on Linux, Windows and MacOS.
 
@@ -118,8 +118,6 @@ A directory of [fallback fonts](/docs/general/administration/configuration/#fall
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose" default>
 
-## Using Docker Compose
-
 Create a `docker-compose.yml` file with the following contents. Add in the UID and GID that you would like to run jellyfin as in the user line below, or remove the user line to use the default (root).
 
 ```yml
@@ -164,9 +162,7 @@ To run the container in background add `-d` to the above command.
 You can learn more about using Docker by [reading the official Docker documentation](https://docs.docker.com/).
 
 </TabItem>
-<TabItem value="podman" label="Podman">
-
-## Podman
+<TabItem value="podman-run" label="Podman">
 
 [Podman](https://podman.io) allows you to run rootless containers.
 Steps to run Jellyfin using Podman are similar to the Docker steps.
@@ -218,8 +214,8 @@ Replace `jellyfin-config` and `jellyfin-cache` with `/path/to/config` and `/path
 
 This example mounts your media library read-only by setting `ro=true`; set this to `ro=false` if you wish to give Jellyfin write access to your media.
 
-### Managing via Systemd
-
+<details>
+<summary>Managing via systemd</summary>
 To run as a systemd service see [podman-systemd.unit](https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html).
 
 As always it is recommended to run the container rootless. Therefore we want to manage the container with the `systemd --user` flag.
@@ -274,8 +270,9 @@ As always it is recommended to run the container rootless. Therefore we want to 
    `journalctl --user -u jellyfin`
 
 6. `exit` the current session.
-
-### With hardware acceleration
+</details>
+<details>
+<summary>Using hardware acceleration</summary>
 
 To use hardware acceleration, you need to allow the container to access the render device. If you are using container-selinux-2.226 or later, you have to set the `container_use_dri_devices` flag in selinux or the container will not be able to use it:
 
@@ -291,7 +288,7 @@ Finally, you need to set the `--device` flag for the container to use the render
 
 `--device /dev/dri/`
 
-#### podman run
+Podman run example:
 
 ```sh
    podman run \
@@ -310,7 +307,7 @@ Finally, you need to set the `--device` flag for the container to use the render
     docker.io/jellyfin/jellyfin:latest
 ```
 
-#### systemd
+systemd example:
 
 ```ini
 [Unit]
@@ -336,8 +333,12 @@ SuccessExitStatus=0 143
 WantedBy=default.target
 ```
 
-#### Vendor-specific configuration
+</details>
+<details>
+<summary>Vendor-specific configuration</summary>
 
 Additional configuration steps may be required depending on your GPU vendor. Check the [Hardware Acceleration](/docs/general/post-install/transcoding/hardware-acceleration) section.
+
+</details>
 </TabItem>
 </Tabs>
