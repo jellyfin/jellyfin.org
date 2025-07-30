@@ -36,48 +36,9 @@ import dockercli from './\_container-docker-cli.md';
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose" default>
 
-Create a `docker-compose.yml` file with the following contents. Add in the UID and GID that you would like to run jellyfin as in the user line below, or remove the user line to use the default (root).
+import dockercompose from './\_container-docker-compose.md';
 
-```yml
-services:
-  jellyfin:
-    image: jellyfin/jellyfin
-    container_name: jellyfin
-    user: uid:gid
-    network_mode: 'host'
-    volumes:
-      - /path/to/config:/config
-      - /path/to/cache:/cache
-      - type: bind
-        source: /path/to/media
-        target: /media
-      - type: bind
-        source: /path/to/media2
-        target: /media2
-        read_only: true
-      # Optional - extra fonts to be used during transcoding with subtitle burn-in
-      - type: bind
-        source: /path/to/fonts
-        target: /usr/local/share/fonts/custom
-        read_only: true
-    restart: 'unless-stopped'
-    # Optional - alternative address used for autodiscovery
-    environment:
-      - JELLYFIN_PublishedServerUrl=http://example.com
-    # Optional - may be necessary for docker healthcheck to pass if running in host network mode
-    extra_hosts:
-      - 'host.docker.internal:host-gateway'
-```
-
-Then while in the same folder as the `docker-compose.yml` run:
-
-```sh
-docker compose up
-```
-
-To run the container in background add `-d` to the above command.
-
-You can learn more about using Docker by [reading the official Docker documentation](https://docs.docker.com/).
+<dockercompose />
 
 </TabItem>
 <TabItem value="podman-run" label="Podman">
