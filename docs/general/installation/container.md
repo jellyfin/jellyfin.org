@@ -26,7 +26,7 @@ import TabItem from '@theme/TabItem';
 
 ## Installation Instructions
 
-<Tabs>
+<Tabs queryString="method">
 <TabItem value="docker-cli" label="Docker">
 
 import DockerCli from './\_container-docker-cli.md';

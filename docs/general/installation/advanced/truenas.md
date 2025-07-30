@@ -94,7 +94,7 @@ A tab will open from the right side of the page where you launch your custom app
 
 Here, give the custom app a name and write/paste the lines for your compose file.
 
-See here for [documentation on using Docker Compose with Jellyfin](/docs/general/installation/container).
+See here for [documentation on using Docker Compose with Jellyfin](/docs/general/installation/container?method=docker-compose).
 Alternatively, here's a basic compose file where you should edit the volumes to use on your system, then copy & paste it into the editor to launch Jellyfin:
 
 ```yml
