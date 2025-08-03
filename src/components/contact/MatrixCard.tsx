@@ -68,6 +68,9 @@ const MatrixCard = () => {
               <li>
                 <a href='https://matrix.to/#/#jellyfin-hwa-tool:matrix.org'>#jellyfin-hwa-tool</a>
               </li>
+              <li>
+                <a href='https://matrix.to/#/#jellyfin-documentation:matrix.org'>#jellyfin-documentation</a>
+              </li>
             </ul>
           </div>
         </div>

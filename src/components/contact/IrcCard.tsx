@@ -60,6 +60,9 @@ const IrcCard = () => (
               <li>
                 <a href='ircs://irc.libera.chat:6697/#jellyfin-dev-python'>#jellyfin-dev-python</a>
               </li>
+              <li>
+                <a href='ircs://irc.libera.chat:6697/#jellyfin-documentation'>#jellyfin-documentation</a>
+              </li>
             </ul>
           </div>
         </div>
