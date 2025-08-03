@@ -119,7 +119,7 @@ const PlatformIcon = ({
       );
 
     case Platform.Xbox:
-      // Not available in simple-icons because it was removed due to Microsoft (https://github.com
+      // Not available in simple-icons because it was removed due to Microsoft (https://github.com/simple-icons/simple-icons/issues/11236)
       return <Icon path={mdiMonitor} size={`${size}px`} className={className} />;
 
     default:
