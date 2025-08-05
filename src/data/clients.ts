@@ -1014,11 +1014,6 @@ export const Clients: Array<Client> = [
         id: 'microsoft-store',
         name: 'Microsoft Store',
         url: 'https://apps.microsoft.com/detail/9P2DRTG62QF8'
-      },
-      {
-        id: 'gh-downloads',
-        name: 'GitHub Downloads',
-        url: 'https://github.com/jellyfin/jellyfin-xbox/releases'
       }
     ],
     secondaryLinks: [
@@ -1027,7 +1022,6 @@ export const Clients: Array<Client> = [
         name: 'GitHub',
         url: 'https://github.com/jellyfin/jellyfin-xbox'
       }
-    ],
-    recommended: true
+    ]
   }
 ];
