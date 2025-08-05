@@ -1,7 +1,4 @@
----
-uid: admin-hardware-acceleration-rockchip
-title: Rockchip VPU
----
+<!-- markdownlint-disable MD041 -->
 
 # HWA Tutorial On Rockchip VPU
 

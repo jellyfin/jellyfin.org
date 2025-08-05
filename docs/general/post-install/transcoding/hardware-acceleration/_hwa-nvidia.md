@@ -1,7 +1,4 @@
----
-uid: admin-hardware-acceleration-nvidia
-title: NVIDIA GPU
----
+<!-- markdownlint-disable MD041 -->
 
 # HWA Tutorial On NVIDIA GPU
 
@@ -338,7 +335,7 @@ Root permission is required.
        jellyfin:
          image: jellyfin/jellyfin
          user: 1000:1000
-         network_mode: 'host'
+         network_mode: "host"
          volumes:
            - /path/to/config:/config
            - /path/to/cache:/cache
@@ -477,7 +474,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
    ```sh
    [Unit]
    Description=jellyfin
-   
+
    [Container]
    Image=docker.io/jellyfin/jellyfin:latest
    AutoUpdate=registry
@@ -497,10 +494,10 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
    [Service]
    # Inform systemd of additional exit status
    SuccessExitStatus=0 143
-   
+
    [Install]
    # Start by default on boot
-   WantedBy=default.target 
+   WantedBy=default.target
    ```
 
 5. Create the following udev rule to make sure the GPU devices are initialized before the container is started.
