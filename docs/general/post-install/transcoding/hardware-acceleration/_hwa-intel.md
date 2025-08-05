@@ -1,7 +1,4 @@
----
-uid: admin-hardware-acceleration-intel
-title: Intel GPU
----
+<!-- markdownlint-disable MD041 -->
 
 # HWA Tutorial On Intel GPU
 
