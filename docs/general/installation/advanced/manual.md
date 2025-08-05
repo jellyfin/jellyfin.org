@@ -121,12 +121,12 @@ cd /opt/jellyfin
 ```
 
 Download the latest generic Linux build for your architecture.
-The rest of these instructions assume version 10.8.13 is being installed (i.e. `jellyfin_10.8.13_amd64.tar.gz`).
+The rest of these instructions assume version 10.10.7 is being installed (i.e. `jellyfin_10.8.13_amd64.tar.gz`).
 Download the generic build, then extract the archive:
 
 ```sh
-sudo wget https://repo.jellyfin.org/?path=/server/linux/stable/combined/jellyfin_10.8.13_amd64.tar.gz
-sudo tar xvzf jellyfin_10.8.13_amd64.tar.gz
+sudo wget https://repo.jellyfin.org/files/server/linux/latest-stable/amd64/jellyfin_10.10.7-amd64.tar.gz
+sudo tar xvzf jellyfin_10.10.7-amd64.tar.gz
 ```
 
 Create a symbolic link to the Jellyfin 10.8.13 directory.
