@@ -96,27 +96,36 @@ Or using `lshw`:
 ```shell
 lshw -C display
 ```
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Amd from './\_hwa-amd.md';
+import Apple from '.\/_hwa-apple.md';
+import Intel from '.\/_hwa-intel.md';
+import Nvidia from '.\/_hwa-nvidia.md';
+import Rockchip from '.\/_hwa-rockchip.md';
 
-### Intel QSV & VA-API
+<Tabs queryString="method">
+<TabItem value="amd" label="AMD GPU">
+<Amd />
+</TabItem>
 
-Click [Intel GPU](./intel).
+<TabItem value="apple" label="Apple GPU">
+<Apple />
+</TabItem>
 
-### AMD AMF & VA-API
+<TabItem value="intel" label="Intel GPU">
+<Intel />
+</TabItem>
 
-Click [AMD GPU](./amd).
+<TabItem value="nvidia" label="Nvidia GPU">
+<Nvidia />
+</TabItem>
 
-### NVIDIA NVENC
-
-Click [NVIDIA GPU](./nvidia).
-
-### Apple VideoToolbox
-
-Click [Apple Mac](./apple).
-
-### Rockchip RKMPP
-
-Click [Rockchip VPU](./rockchip).
-
+<TabItem value="rockchip" label="Rockchip GPU">
+<Rockchip />
+</TabItem>
+</Tabs>
+  
 ## Enable Hardware Acceleration
 
 Hardware acceleration options can be found in the Admin Dashboard under the **Transcoding** section of the **Playback** tab.
