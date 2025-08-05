@@ -106,16 +106,6 @@ import Nvidia from '.\/\_hwa-nvidia.md';
 import Rockchip from '.\/\_hwa-rockchip.md';
 
 <Tabs queryString="method">
-<TabItem value="amd" label="AMD GPU">
-
-<Amd />
-
-</TabItem>
-<TabItem value="apple" label="Apple GPU">
-
-<Apple />
-
-</TabItem>
 <TabItem value="intel" label="Intel GPU">
 
 <Intel />
@@ -124,6 +114,16 @@ import Rockchip from '.\/\_hwa-rockchip.md';
 <TabItem value="nvidia" label="Nvidia GPU">
 
 <Nvidia />
+
+</TabItem>
+<TabItem value="amd" label="AMD GPU">
+
+<Amd />
+
+</TabItem>
+<TabItem value="apple" label="Apple GPU">
+
+<Apple />
 
 </TabItem>
 <TabItem value="rockchip" label="Rockchip GPU">
