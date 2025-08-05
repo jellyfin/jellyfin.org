@@ -1,7 +1,4 @@
----
-uid: admin-hardware-acceleration-apple
-title: Apple Mac
----
+<!-- markdownlint-disable MD041 -->
 
 # HWA Tutorial On Mac
 
