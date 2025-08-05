@@ -1,7 +1,4 @@
----
-uid: admin-hardware-acceleration-amd
-title: AMD GPU
----
+<!-- markdownlint-disable MD041 -->
 
 # HWA Tutorial On AMD GPU
 
