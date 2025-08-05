@@ -129,13 +129,6 @@ sudo wget https://repo.jellyfin.org/files/server/linux/latest-stable/amd64/jelly
 sudo tar xvzf jellyfin_10.10.7-amd64.tar.gz
 ```
 
-Create a symbolic link to the Jellyfin 10.10.7 directory.
-This allows an upgrade by repeating the above steps and enabling it by simply re-creating the symbolic link to the new version.
-
-```sh
-sudo ln -s jellyfin_10.10.7 jellyfin
-```
-
 Create four sub-directories for Jellyfin data.
 
 ```sh
