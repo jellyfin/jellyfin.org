@@ -96,33 +96,40 @@ Or using `lshw`:
 ```shell
 lshw -C display
 ```
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Amd from './\_hwa-amd.md';
-import Apple from '.\/_hwa-apple.md';
-import Intel from '.\/_hwa-intel.md';
-import Nvidia from '.\/_hwa-nvidia.md';
-import Rockchip from '.\/_hwa-rockchip.md';
+import Apple from '.\/\_hwa-apple.md';
+import Intel from '.\/\_hwa-intel.md';
+import Nvidia from '.\/\_hwa-nvidia.md';
+import Rockchip from '.\/\_hwa-rockchip.md';
 
 <Tabs queryString="method">
 <TabItem value="amd" label="AMD GPU">
+
 <Amd />
-</TabItem>
 
+</TabItem>
 <TabItem value="apple" label="Apple GPU">
+
 <Apple />
-</TabItem>
 
+</TabItem>
 <TabItem value="intel" label="Intel GPU">
+
 <Intel />
-</TabItem>
 
+</TabItem>
 <TabItem value="nvidia" label="Nvidia GPU">
-<Nvidia />
-</TabItem>
 
+<Nvidia />
+
+</TabItem>
 <TabItem value="rockchip" label="Rockchip GPU">
+
 <Rockchip />
+
 </TabItem>
 </Tabs>
   
