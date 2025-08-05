@@ -193,7 +193,9 @@ Assuming you desire Jellyfin to run as a non-root user, `chmod` all files and di
 Also make the startup script above executable.
 
 ```sh
-sudo chown -R user:group *
+USER=$(id --name --user)
+GROUP=$(id --name --group)
+sudo chown -R $USER:$GROUP *
 sudo chmod u+x jellyfin.sh
 ```
 
