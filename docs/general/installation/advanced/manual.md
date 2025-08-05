@@ -162,13 +162,19 @@ sudo apt install -f
 
 ### Running Jellyfin
 
-Due to the number of command line options that must be passed on to the Jellyfin binary, it is easiest to create a small script to run Jellyfin.
+Due to the number of [command line options](https://jellyfin.org/docs/general/administration/configuration/#command-line-options) that must be passed on to the Jellyfin binary, it is easiest to create a small script to run Jellyfin.
 
 ```sh
 sudoedit jellyfin.sh
 ```
 
-Then paste the following commands and modify as needed.
+Then paste the following commands.
+
+:::note
+
+Optionally, to make changes to the directories used or specify extra [command line options](https://jellyfin.org/docs/general/administration/configuration/#command-line-options), add or modify the script below as needed.
+
+:::
 
 ```sh
 #!/bin/bash
