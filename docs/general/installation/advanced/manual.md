@@ -168,7 +168,7 @@ Due to the number of [command line options](https://jellyfin.org/docs/general/ad
 sudoedit jellyfin.sh
 ```
 
-Then paste the following commands, optionally changing paths and options as needed.
+Then paste the following commands, optionally changing arguments as needed for custom deployments.
 
 ```sh
 #!/bin/bash
