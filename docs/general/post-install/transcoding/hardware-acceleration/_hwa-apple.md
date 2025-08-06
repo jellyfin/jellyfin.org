@@ -1,7 +1,5 @@
 <!-- markdownlint-disable MD041 -->
 
-# HWA Tutorial On Mac
-
 This tutorial guides you on setting up full video hardware acceleration on Apple Macs via VideoToolbox.
 
 ## Acceleration Methods

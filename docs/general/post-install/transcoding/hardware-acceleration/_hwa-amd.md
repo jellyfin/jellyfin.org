@@ -1,7 +1,5 @@
 <!-- markdownlint-disable MD041 -->
 
-# HWA Tutorial On AMD GPU
-
 This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF or VA-API. If you are on macOS, please use [VideoToolbox](./?method=apple) instead.
 
 ## Acceleration Methods

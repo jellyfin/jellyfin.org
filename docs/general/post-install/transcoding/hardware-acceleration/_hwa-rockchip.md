@@ -1,7 +1,5 @@
 <!-- markdownlint-disable MD041 -->
 
-# HWA Tutorial On Rockchip VPU
-
 This tutorial guides you on setting up full video hardware acceleration on Rockchip VPU via RKMPP.
 
 :::warning

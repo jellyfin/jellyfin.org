@@ -1,7 +1,5 @@
 <!-- markdownlint-disable MD041 -->
 
-# HWA Tutorial On NVIDIA GPU
-
 This tutorial guides you on setting up full video hardware acceleration on NVIDIA GPU via NVENC.
 
 ## Acceleration Methods
