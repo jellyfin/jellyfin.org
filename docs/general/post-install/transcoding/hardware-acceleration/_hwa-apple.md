@@ -6,7 +6,7 @@ This tutorial guides you on setting up full video hardware acceleration on Apple
 
 ## Acceleration Methods
 
-[VideoToolbox](https://developer.apple.com/documentation/videotoolbox) is the only available method on macOS. Please look at our guides for [Intel](./intel) or [AMD](./amd) if you have installed Windows or Linux on your Intel Mac.
+[VideoToolbox](https://developer.apple.com/documentation/videotoolbox) is the only available method on macOS. Please look at our guides for [Intel](./?method=intel) or [AMD](./?methodamd) if you have installed Windows or Linux on your Intel Mac.
 
 To achieve full acceleration, [Metal](https://developer.apple.com/metal/) is required.
 

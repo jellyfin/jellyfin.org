@@ -124,7 +124,7 @@ Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.10 the minimum requi
 
 NVIDIA Windows driver provides access to the NVENC/NVDEC and CUDA in Windows WSL2 and Docker.
 
-Refer to [Configure On Linux Host](./nvidia#configure-on-linux-host) and [Configure With Linux Virtualization](./nvidia#configure-with-linux-virtualization).
+Refer to [Configure On Linux Host](./?method=nvidia#configure-on-linux-host) and [Configure With Linux Virtualization](./?method=nvidia#configure-with-linux-virtualization).
 
 ### Verify On Windows
 
@@ -217,7 +217,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian and Ubuntu Linux](./nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian and Ubuntu Linux](./?method=nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -516,7 +516,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 Other Virtualizations are not verified and may or may not work on NVIDIA GPU.
 
-Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel#configure-with-linux-virtualization) for more information.
+Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./?method=intel#configure-with-linux-virtualization) for more information.
 
 ### Verify On Linux
 
