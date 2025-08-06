@@ -69,7 +69,7 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   {
     from: '/docs/general/administration/hardware-acceleration/intel',
-    to: '/docs/general/post-install/transcoding/hardware-acceleration/intel'
+    to: '/docs/general/post-install/transcoding/hardware-acceleration?method=intel'
   },
   {
     from: '/docs/general/server/transcoding',
