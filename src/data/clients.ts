@@ -382,7 +382,7 @@ export const officialClients: Array<Client> = [
         url: 'https://github.com/jellyfin/jellyfin-xbox'
       }
     ]
-  },
+  }
 ]
 
 export const thirdPartyClients: Array<Client> = [
