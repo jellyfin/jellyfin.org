@@ -384,123 +384,26 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: 'infuse',
-    name: 'Infuse',
-    description: 'A third-party client for iOS, iPadOS, and tvOS devices.',
+    id: 'discord-music-manuel-rw',
+    name: 'Discord Music Bot for Jellyfin by manuel-rw',
+    description:
+      'A fork, based on the original bot by KGT1, that has been refactored and supports the Discord command system',
     clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile, DeviceType.TV],
-    licenseType: LicenseType.Proprietary,
-    platforms: [Platform.IOS, Platform.TVOS],
-    primaryLinks: [
-      {
-        id: 'apple-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/app/id1136220934?mt=8'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://firecore.com/infuse'
-      }
-    ],
-    recommended: true
-  },
-  {
-    id: 'jellyamp',
-    name: 'Jellyamp',
-    description: 'A desktop client for listening to music from a Jellyfin server.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
+    deviceTypes: [],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'gh-downloads',
-        name: 'GitHub Downloads',
-        url: 'https://github.com/m0ngr31/jellyamp/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/m0ngr31/jellyamp'
-      }
-    ]
-  },
-  {
-    id: 'preserve',
-    name: 'Preserve',
-    description: 'A music client inspired by players such as foobar2000 or Clementine.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Browser, Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'browser',
-        name: 'Open in Browser',
-        url: 'https://preserveplayer.com/'
-      },
-      {
-        id: 'gl-downloads',
-        name: 'GitLab Downloads',
-        url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'gitlab',
-        name: 'GitLab',
-        url: 'https://gitlab.com/tonyfinn/preserve'
-      }
-    ]
-  },
-  {
-    id: 'sonixd',
-    name: 'Sonixd',
-    description: 'A full-featured Subsonic/Jellyfin compatible desktop music player.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Discord],
     primaryLinks: [
       {
         id: 'install',
         name: 'Installation Guide',
-        url: 'https://github.com/jeffvli/sonixd#install'
+        url: 'https://github.com/manuel-rw/jellyfin-discord-music-bot/wiki/%F0%9F%9A%80-Initial-Discord-Bot-Creation-Guide'
       }
     ],
     secondaryLinks: [
       {
         id: 'github',
         name: 'GitHub',
-        url: 'https://github.com/jeffvli/sonixd'
-      }
-    ]
-  },
-  {
-    id: 'supersonic',
-    name: 'Supersonic',
-    description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'installation',
-        name: 'Installation Guide',
-        url: 'https://github.com/dweymouth/supersonic#installation'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/dweymouth/supersonic'
+        url: 'https://github.com/manuel-rw/jellyfin-discord-music-bot'
       }
     ]
   },
@@ -533,37 +436,121 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: 'tauon-music-box',
-    name: 'Tauon Music Box',
-    description: "A modern streamlined music player for desktop with a minimal interface that's packed with features!",
+    id: 'finamp',
+    name: 'Finamp',
+    description: 'A third party app for music playback with support for offline mode/downloading songs.',
     clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
+    deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Android, Platform.IOS],
     primaryLinks: [
       {
-        id: 'flathub',
-        name: 'Flathub (Linux)',
-        url: 'https://flathub.org/apps/details/com.github.taiko2k.tauonmb'
+        id: 'fdroid',
+        name: 'F-Droid',
+        url: 'https://f-droid.org/packages/com.unicornsonlsd.finamp/'
       },
       {
-        id: 'install',
-        name: 'Installation Guide',
-        url: 'https://github.com/Taiko2k/TauonMusicBox#download-and-install-dizzy'
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=com.unicornsonlsd.finamp'
+      },
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/finamp/id1574922594'
       }
     ],
     secondaryLinks: [
       {
         id: 'github',
         name: 'GitHub',
-        url: 'https://github.com/Taiko2k/TauonMusicBox'
-      },
-      {
-        id: 'tauon',
-        name: 'Website',
-        url: 'https://tauonmusicbox.rocks'
+        url: 'https://github.com/UnicornsOnLSD/finamp'
       }
     ]
+  },
+  {
+    id: 'finer',
+    name: 'Finer',
+    description: 'Jellyfin Music Player for macOS/iPadOS/iOS, built with native technologies.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.MacOS, Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/finer-player/id6738301953'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://monk-studio.com/finer'
+      }
+    ]
+  },
+  {
+    id: 'fintunes',
+    name: 'Fintunes',
+    description: 'Mobile audio streaming app for Jellyfin',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Android, Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'fdroid',
+        name: 'F-Droid',
+        url: 'https://f-droid.org/en/packages/nl.moeilijkedingen.jellyfinaudioplayer/'
+      },
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=nl.moeilijkedingen.jellyfinaudioplayer'
+      },
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/nl/app/fintunes/id1527732194'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/leinelissen/jellyfin-audio-player'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://fintunes.app'
+      }
+    ]
+  },
+  {
+    id: 'fladder',
+    name: 'Fladder',
+    description: 'A simple, cross-platform Jellyfin frontend built on top of Flutter.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
+    primaryLinks: [
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=nl.jknaapen.fladder',
+      },
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/DonutWare/Fladder',
+      },
+    ],
   },
   {
     id: 'findroid',
@@ -624,121 +611,77 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: 'finamp',
-    name: 'Finamp',
-    description: 'A third party app for music playback with support for offline mode/downloading songs.',
+    id: 'infuse',
+    name: 'Infuse',
+    description: 'A third-party client for iOS, iPadOS, and tvOS devices.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.TV],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.IOS, Platform.TVOS],
+    primaryLinks: [
+      {
+        id: 'apple-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/app/id1136220934?mt=8'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://firecore.com/infuse'
+      }
+    ],
+    recommended: true
+  },
+  {
+    id: 'jellyamp',
+    name: 'Jellyamp',
+    description: 'A desktop client for listening to music from a Jellyfin server.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/m0ngr31/jellyamp/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/m0ngr31/jellyamp'
+      }
+    ]
+  },
+  {
+    id: 'jellybook',
+    name: 'JellyBook',
+    description: 'A cross platform mobile app for book & comic reading for Jellyfin.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android, Platform.IOS],
     primaryLinks: [
       {
-        id: 'fdroid',
-        name: 'F-Droid',
-        url: 'https://f-droid.org/packages/com.unicornsonlsd.finamp/'
+        id: 'testflight',
+        name: 'TestFlight',
+        url: 'https://testflight.apple.com/join/lEXKY4Dl'
       },
       {
-        id: 'play-store',
-        name: 'Play Store',
-        url: 'https://play.google.com/store/apps/details?id=com.unicornsonlsd.finamp'
-      },
-      {
-        id: 'app-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/us/app/finamp/id1574922594'
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/Kara-Zor-El/JellyBook/releases'
       }
     ],
     secondaryLinks: [
       {
         id: 'github',
         name: 'GitHub',
-        url: 'https://github.com/UnicornsOnLSD/finamp'
-      }
-    ]
-  },
-  {
-    id: 'sailfin',
-    name: 'Sailfin',
-    description: 'A Sailfish OS client for Jellyfin.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.SailfishOS],
-    primaryLinks: [
-      {
-        id: 'open-repos',
-        name: 'OpenRepos',
-        url: 'https://openrepos.net/content/ahappyhuman/sailfin'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/heartfin/harbour-sailfin'
-      }
-    ]
-  },
-  {
-    id: 'yatse',
-    name: 'Yatse',
-    description: 'A third party remote control for Jellyfin with support for Chromecast playback.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.Proprietary,
-    platforms: [Platform.Android],
-    primaryLinks: [
-      {
-        id: 'play-store',
-        name: 'Play Store',
-        url: 'https://play.google.com/store/apps/details?id=org.leetzone.android.yatsewidgetfree'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'yatse',
-        name: 'Website',
-        url: 'https://yatse.tv/'
-      }
-    ]
-  },
-  {
-    id: 'volumio',
-    name: 'Jellyfin Plugin for Volumio',
-    description: 'A Volumio plugin for playing audio from one or more Jellyfin servers.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
-    platforms: [],
-    primaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/patrickkfkan/volumio-jellyfin'
-      }
-    ]
-  },
-  {
-    id: 'discord-music-manuel-rw',
-    name: 'Discord Music Bot for Jellyfin by manuel-rw',
-    description:
-      'A fork, based on the original bot by KGT1, that has been refactored and supports the Discord command system',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Discord],
-    primaryLinks: [
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: 'https://github.com/manuel-rw/jellyfin-discord-music-bot/wiki/%F0%9F%9A%80-Initial-Discord-Bot-Creation-Guide'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/manuel-rw/jellyfin-discord-music-bot'
+        url: 'https://github.com/Kara-Zor-El/JellyBook'
       }
     ]
   },
@@ -782,6 +725,22 @@ export const Clients: Array<Client> = [
     ]
   },
   {
+    id: 'jellyfin-plugin-for-volumio',
+    name: 'Jellyfin Plugin for Volumio',
+    description: 'A Volumio plugin for playing audio from one or more Jellyfin servers.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [],
+    licenseType: LicenseType.OpenSource,
+    platforms: [],
+    primaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/patrickkfkan/volumio-jellyfin'
+      }
+    ]
+  },
+  {
     id: 'jftui',
     name: 'jftui',
     description: 'A terminal client for Jellyfin built as a REPL interface, that uses mpv for multimedia playback.',
@@ -805,96 +764,99 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: 'web-scrobbler',
-    name: 'Web Scrobbler',
-    description: 'Web Scrobbler helps online music listeners to scrobble their playback history.',
+    id: 'manet',
+    name: 'Manet',
+    description: 'A third-party music client for iOS and macOS',
     clientType: ClientType.ThirdParty,
-    deviceTypes: [],
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.IOS, Platform.MacOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/manet-music/id6470928235'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://tilosoftware.io/manet/'
+      }
+    ]
+  },
+  {
+    id: 'preserve',
+    name: 'Preserve',
+    description: 'A music client inspired by players such as foobar2000 or Clementine.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Browser],
+    platforms: [Platform.Browser, Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'browser',
+        name: 'Open in Browser',
+        url: 'https://preserveplayer.com/'
+      },
+      {
+        id: 'gl-downloads',
+        name: 'GitLab Downloads',
+        url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'gitlab',
+        name: 'GitLab',
+        url: 'https://gitlab.com/tonyfinn/preserve'
+      }
+    ]
+  },
+  {
+    id: 'sailfin',
+    name: 'Sailfin',
+    description: 'A Sailfish OS client for Jellyfin.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.SailfishOS],
+    primaryLinks: [
+      {
+        id: 'open-repos',
+        name: 'OpenRepos',
+        url: 'https://openrepos.net/content/ahappyhuman/sailfin'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/heartfin/harbour-sailfin'
+      }
+    ]
+  },
+  {
+    id: 'sonixd',
+    name: 'Sonixd',
+    description: 'A full-featured Subsonic/Jellyfin compatible desktop music player.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
     primaryLinks: [
       {
         id: 'install',
         name: 'Installation Guide',
-        url: 'https://github.com/web-scrobbler/web-scrobbler#installation'
+        url: 'https://github.com/jeffvli/sonixd#install'
       }
     ],
     secondaryLinks: [
       {
         id: 'github',
         name: 'GitHub',
-        url: 'https://github.com/web-scrobbler/web-scrobbler'
-      },
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://web-scrobbler.com'
-      }
-    ]
-  },
-  {
-    id: 'jellybook',
-    name: 'JellyBook',
-    description: 'A cross platform mobile app for book & comic reading for Jellyfin.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Android, Platform.IOS],
-    primaryLinks: [
-      {
-        id: 'testflight',
-        name: 'TestFlight',
-        url: 'https://testflight.apple.com/join/lEXKY4Dl'
-      },
-      {
-        id: 'gh-downloads',
-        name: 'GitHub Downloads',
-        url: 'https://github.com/Kara-Zor-El/JellyBook/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/Kara-Zor-El/JellyBook'
-      }
-    ]
-  },
-  {
-    id: 'fintunes',
-    name: 'Fintunes',
-    description: 'Mobile audio streaming app for Jellyfin',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Android, Platform.IOS],
-    primaryLinks: [
-      {
-        id: 'fdroid',
-        name: 'F-Droid',
-        url: 'https://f-droid.org/en/packages/nl.moeilijkedingen.jellyfinaudioplayer/'
-      },
-      {
-        id: 'play-store',
-        name: 'Play Store',
-        url: 'https://play.google.com/store/apps/details?id=nl.moeilijkedingen.jellyfinaudioplayer'
-      },
-      {
-        id: 'app-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/nl/app/fintunes/id1527732194'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/leinelissen/jellyfin-audio-player'
-      },
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://fintunes.app'
+        url: 'https://github.com/jeffvli/sonixd'
       }
     ]
   },
@@ -932,50 +894,27 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: 'manet',
-    name: 'Manet',
-    description: 'A third-party music client for iOS and macOS',
+    id: 'supersonic',
+    name: 'Supersonic',
+    description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
     clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
-    licenseType: LicenseType.Proprietary,
-    platforms: [Platform.IOS, Platform.MacOS],
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
     primaryLinks: [
       {
-        id: 'app-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/us/app/manet-music/id6470928235'
+        id: 'installation',
+        name: 'Installation Guide',
+        url: 'https://github.com/dweymouth/supersonic#installation'
       }
     ],
     secondaryLinks: [
       {
-        id: 'website',
-        name: 'Website',
-        url: 'https://tilosoftware.io/manet/'
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/dweymouth/supersonic'
       }
     ]
-  },
-  {
-    id: "fladder",
-    name: "Fladder",
-    description: "A simple, cross-platform Jellyfin frontend built on top of Flutter.",
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
-    primaryLinks: [
-      {
-        id: "play-store",
-        name: "Play Store",
-        url: "https://play.google.com/store/apps/details?id=nl.jknaapen.fladder",
-      },
-    ],
-    secondaryLinks: [
-      {
-        id: "github",
-        name: "GitHub",
-        url: "https://github.com/DonutWare/Fladder",
-      },
-    ],
   },
   {
     id: 'symfonium',
@@ -1002,25 +941,86 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: 'finer',
-    name: 'Finer',
-    description: 'Jellyfin Music Player for macOS/iPadOS/iOS, built with native technologies.',
+    id: 'tauon-music-box',
+    name: 'Tauon Music Box',
+    description: "A modern streamlined music player for desktop with a minimal interface that's packed with features!",
     clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.Proprietary,
-    platforms: [Platform.MacOS, Platform.IOS],
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
     primaryLinks: [
       {
-        id: 'app-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/us/app/finer-player/id6738301953'
+        id: 'flathub',
+        name: 'Flathub (Linux)',
+        url: 'https://flathub.org/apps/details/com.github.taiko2k.tauonmb'
+      },
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/Taiko2k/TauonMusicBox#download-and-install-dizzy'
       }
     ],
     secondaryLinks: [
       {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/Taiko2k/TauonMusicBox'
+      },
+      {
+        id: 'tauon',
+        name: 'Website',
+        url: 'https://tauonmusicbox.rocks'
+      }
+    ]
+  },
+  {
+    id: 'web-scrobbler',
+    name: 'Web Scrobbler',
+    description: 'Web Scrobbler helps online music listeners to scrobble their playback history.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Browser],
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/web-scrobbler/web-scrobbler#installation'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/web-scrobbler/web-scrobbler'
+      },
+      {
         id: 'website',
         name: 'Website',
-        url: 'https://monk-studio.com/finer'
+        url: 'https://web-scrobbler.com'
+      }
+    ]
+  },
+  {
+    id: 'yatse',
+    name: 'Yatse',
+    description: 'A third party remote control for Jellyfin with support for Chromecast playback.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.Android],
+    primaryLinks: [
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=org.leetzone.android.yatsewidgetfree'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'yatse',
+        name: 'Website',
+        url: 'https://yatse.tv/'
       }
     ]
   }
