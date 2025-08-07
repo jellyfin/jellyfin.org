@@ -544,14 +544,14 @@ export const thirdPartyClients: Array<Client> = [
       {
         id: 'play-store',
         name: 'Play Store',
-        url: 'https://play.google.com/store/apps/details?id=nl.jknaapen.fladder',
+        url: 'https://play.google.com/store/apps/details?id=nl.jknaapen.fladder'
       }
     ],
     secondaryLinks: [
       {
         id: 'github',
         name: 'GitHub',
-        url: 'https://github.com/DonutWare/Fladder',
+        url: 'https://github.com/DonutWare/Fladder'
       }
     ]
   },
