@@ -37,7 +37,7 @@ export type Client = {
   recommended?: boolean;
 };
 
-export const Clients: Array<Client> = [
+export const officialClients: Array<Client> = [
   {
     id: 'jellycon',
     name: 'JellyCon',
@@ -382,7 +382,10 @@ export const Clients: Array<Client> = [
         url: 'https://github.com/jellyfin/swiftfin'
       }
     ]
-  },
+  }
+]
+
+export const thirdPartyClients: Array<Client> = [
   {
     id: 'discord-music-manuel-rw',
     name: 'Discord Music Bot for Jellyfin by manuel-rw',
@@ -1024,4 +1027,9 @@ export const Clients: Array<Client> = [
       }
     ]
   }
+];
+
+export const Clients: Array<Client> = [
+  ...officialClients,
+  ...thirdPartyClients
 ];
