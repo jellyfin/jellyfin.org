@@ -314,6 +314,29 @@ export const Clients: Array<Client> = [
     ]
   },
   {
+    id: 'jellyfin-xbox',
+    name: 'Jellyfin for Xbox',
+    description: 'The official Jellyfin app for Xbox consoles.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Xbox],
+    primaryLinks: [
+      {
+        id: 'microsoft-store',
+        name: 'Microsoft Store',
+        url: 'https://apps.microsoft.com/detail/9P2DRTG62QF8'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-xbox'
+      }
+    ]
+  },
+  {
     id: 'mopidy',
     name: 'Mopidy-Jellyfin',
     description: 'An official plugin for Mopidy that uses Jellyfin as a backend.',
@@ -998,29 +1021,6 @@ export const Clients: Array<Client> = [
         id: 'website',
         name: 'Website',
         url: 'https://monk-studio.com/finer'
-      }
-    ]
-  },
-  {
-    id: 'jellyfin-xbox',
-    name: 'Jellyfin for Xbox',
-    description: 'The official Jellyfin app for Xbox consoles.',
-    clientType: ClientType.Official,
-    deviceTypes: [DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Xbox],
-    primaryLinks: [
-      {
-        id: 'microsoft-store',
-        name: 'Microsoft Store',
-        url: 'https://apps.microsoft.com/detail/9P2DRTG62QF8'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jellyfin/jellyfin-xbox'
       }
     ]
   }
