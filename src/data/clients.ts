@@ -728,22 +728,6 @@ export const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'jellyfin-plugin-for-volumio',
-    name: 'Jellyfin Plugin for Volumio',
-    description: 'A Volumio plugin for playing audio from one or more Jellyfin servers.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
-    platforms: [],
-    primaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/patrickkfkan/volumio-jellyfin'
-      }
-    ]
-  },
-  {
     id: 'jftui',
     name: 'jftui',
     description: 'A terminal client for Jellyfin built as a REPL interface, that uses mpv for multimedia playback.',
@@ -973,6 +957,22 @@ export const thirdPartyClients: Array<Client> = [
         id: 'tauon',
         name: 'Website',
         url: 'https://tauonmusicbox.rocks'
+      }
+    ]
+  },
+  {
+    id: 'volumio',
+    name: 'Jellyfin Plugin for Volumio',
+    description: 'A Volumio plugin for playing audio from one or more Jellyfin servers.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [],
+    licenseType: LicenseType.OpenSource,
+    platforms: [],
+    primaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/patrickkfkan/volumio-jellyfin'
       }
     ]
   },
