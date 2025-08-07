@@ -318,8 +318,8 @@ export const officialClients: Array<Client> = [
     platforms: [Platform.Browser],
     primaryLinks: [
       {
-        id: 'browser',
-        name: 'Open in Browser',
+        id: 'website',
+        name: 'Website',
         url: 'https://jf-vue.pages.dev/'
       },
       {
@@ -783,8 +783,8 @@ export const thirdPartyClients: Array<Client> = [
     platforms: [Platform.Browser, Platform.Desktop],
     primaryLinks: [
       {
-        id: 'browser',
-        name: 'Open in Browser',
+        id: 'website',
+        name: 'Website',
         url: 'https://preserveplayer.com/'
       },
       {
