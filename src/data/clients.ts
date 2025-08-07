@@ -39,31 +39,6 @@ export type Client = {
 
 export const officialClients: Array<Client> = [
   {
-    id: 'jellycon',
-    name: 'JellyCon',
-    description:
-      'A lightweight Kodi add-on that lets you browse and play media files directly from your Jellyfin server within the Kodi interface.',
-    clientType: ClientType.Official,
-    deviceTypes: [DeviceType.Desktop, DeviceType.Mobile, DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Kodi],
-    primaryLinks: [
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: 'https://github.com/jellyfin/jellycon#installation'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jellyfin/jellycon'
-      }
-    ],
-    recommended: true
-  },
-  {
     id: 'jellyfin-android',
     name: 'Jellyfin for Android',
     description: 'The official Jellyfin app for Android devices.',
@@ -132,6 +107,55 @@ export const officialClients: Array<Client> = [
     recommended: true
   },
   {
+    id: 'jellyfin-ios',
+    name: 'Jellyfin for iOS',
+    description: 'The official Jellyfin app for iOS and iPadOS devices.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'apple-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-expo'
+      }
+    ],
+    recommended: true
+  },
+  {
+    id: 'jellycon',
+    name: 'JellyCon',
+    description:
+      'A lightweight Kodi add-on that lets you browse and play media files directly from your Jellyfin server within the Kodi interface.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.Desktop, DeviceType.Mobile, DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Kodi],
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/jellyfin/jellycon#installation'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellycon'
+      }
+    ],
+    recommended: true
+  },
+  {
     id: 'jellyfin-kodi',
     name: 'Jellyfin for Kodi',
     description: 'A Kodi add-on that syncs metadata from selected Jellyfin libraries into the local Kodi database.',
@@ -153,30 +177,6 @@ export const officialClients: Array<Client> = [
         url: 'https://github.com/jellyfin/jellyfin-kodi'
       }
     ]
-  },
-  {
-    id: 'jellyfin-expo',
-    name: 'Jellyfin Mobile for iOS',
-    description: 'The official Jellyfin app for iOS and iPadOS devices.',
-    clientType: ClientType.Official,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.IOS],
-    primaryLinks: [
-      {
-        id: 'apple-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jellyfin/jellyfin-expo'
-      }
-    ],
-    recommended: true
   },
   {
     id: 'jellyfin-media-player',
@@ -206,6 +206,29 @@ export const officialClients: Array<Client> = [
       }
     ],
     recommended: true
+  },
+  {
+    id: 'mopidy',
+    name: 'Mopidy-Jellyfin',
+    description: 'An official plugin for Mopidy that uses Jellyfin as a backend.',
+    clientType: ClientType.Official,
+    deviceTypes: [],
+    licenseType: LicenseType.OpenSource,
+    platforms: [],
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: '/docs/general/clients/mopidy'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/mopidy-jellyfin'
+      }
+    ]
   },
   {
     id: 'jellyfin-mpv-shim',
@@ -262,28 +285,28 @@ export const officialClients: Array<Client> = [
     recommended: true
   },
   {
-    id: 'jellyfin-webos',
-    name: 'Jellyfin for WebOS',
-    description: 'The official Jellyfin app for WebOS devices.',
-    clientType: ClientType.Official,
-    deviceTypes: [DeviceType.TV],
+    id: 'swiftfin',
+    name: 'Swiftfin',
+    description:
+      'Swiftfin is a modern video client for Jellyfin. Redesigned in Swift to maximize direct play with the power of VLC and look native on all classes of Apple devices.',
+    clientType: ClientType.OfficialBeta,
+    deviceTypes: [DeviceType.Mobile, DeviceType.TV],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.WebOS],
+    platforms: [Platform.IOS, Platform.TVOS],
     primaryLinks: [
       {
-        id: 'lg-store',
-        name: 'Content Store',
-        url: 'https://us.lgappstv.com/main/tvapp/detail?appId=1030579'
+        id: 'apple-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/ca/app/swiftfin/id1604098728'
       }
     ],
     secondaryLinks: [
       {
         id: 'github',
         name: 'GitHub',
-        url: 'https://github.com/jellyfin/jellyfin-webos'
+        url: 'https://github.com/jellyfin/swiftfin'
       }
-    ],
-    recommended: true
+    ]
   },
   {
     id: 'jellyfin-vue',
@@ -314,6 +337,30 @@ export const officialClients: Array<Client> = [
     ]
   },
   {
+    id: 'jellyfin-webos',
+    name: 'Jellyfin for WebOS',
+    description: 'The official Jellyfin app for WebOS devices.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.WebOS],
+    primaryLinks: [
+      {
+        id: 'lg-store',
+        name: 'Content Store',
+        url: 'https://us.lgappstv.com/main/tvapp/detail?appId=1030579'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-webos'
+      }
+    ],
+    recommended: true
+  },
+  {
     id: 'jellyfin-xbox',
     name: 'Jellyfin for Xbox',
     description: 'The official Jellyfin app for Xbox consoles.',
@@ -336,53 +383,6 @@ export const officialClients: Array<Client> = [
       }
     ]
   },
-  {
-    id: 'mopidy',
-    name: 'Mopidy-Jellyfin',
-    description: 'An official plugin for Mopidy that uses Jellyfin as a backend.',
-    clientType: ClientType.Official,
-    deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
-    platforms: [],
-    primaryLinks: [
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: '/docs/general/clients/mopidy'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jellyfin/mopidy-jellyfin'
-      }
-    ]
-  },
-  {
-    id: 'swiftfin',
-    name: 'Swiftfin',
-    description:
-      'Swiftfin is a modern video client for Jellyfin. Redesigned in Swift to maximize direct play with the power of VLC and look native on all classes of Apple devices.',
-    clientType: ClientType.OfficialBeta,
-    deviceTypes: [DeviceType.Mobile, DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.IOS, Platform.TVOS],
-    primaryLinks: [
-      {
-        id: 'apple-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/ca/app/swiftfin/id1604098728'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jellyfin/swiftfin'
-      }
-    ]
-  }
 ]
 
 export const thirdPartyClients: Array<Client> = [
