@@ -420,11 +420,6 @@ export const thirdPartyClients: Array<Client> = [
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
-        id: 'browser',
-        name: 'Open in Browser',
-        url: 'https://feishin.vercel.app/'
-      },
-      {
         id: 'gh-downloads',
         name: 'GitHub Downloads',
         url: 'https://github.com/jeffvli/feishin/releases'
@@ -435,7 +430,12 @@ export const thirdPartyClients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/jeffvli/feishin'
-      }
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://feishin.vercel.app/'
+      },
     ]
   },
   {
@@ -954,7 +954,7 @@ export const thirdPartyClients: Array<Client> = [
         url: 'https://github.com/Taiko2k/TauonMusicBox'
       },
       {
-        id: 'tauon',
+        id: 'website',
         name: 'Website',
         url: 'https://tauonmusicbox.rocks'
       }
@@ -1021,7 +1021,7 @@ export const thirdPartyClients: Array<Client> = [
     ],
     secondaryLinks: [
       {
-        id: 'yatse',
+        id: 'website',
         name: 'Website',
         url: 'https://yatse.tv/'
       }
