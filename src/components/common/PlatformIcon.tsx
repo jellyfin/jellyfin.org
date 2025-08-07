@@ -119,8 +119,6 @@ const PlatformIcon = ({
       );
 
     case Platform.Xbox:
-      // Not available in simple-icons because it was removed due to Microsoft (https://github.com/simple-icons/simple-icons/issues/11236)
-      // using the Font Awesome icon instead
       // Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc
       return (
         <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} className={className} viewBox="0 0 640 640">
