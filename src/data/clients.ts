@@ -783,11 +783,6 @@ export const thirdPartyClients: Array<Client> = [
     platforms: [Platform.Browser, Platform.Desktop],
     primaryLinks: [
       {
-        id: 'website',
-        name: 'Website',
-        url: 'https://preserveplayer.com/'
-      },
-      {
         id: 'gl-downloads',
         name: 'GitLab Downloads',
         url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
@@ -798,6 +793,11 @@ export const thirdPartyClients: Array<Client> = [
         id: 'gitlab',
         name: 'GitLab',
         url: 'https://gitlab.com/tonyfinn/preserve'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://preserveplayer.com/'
       }
     ]
   },
