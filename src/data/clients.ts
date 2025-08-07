@@ -383,7 +383,7 @@ export const officialClients: Array<Client> = [
       }
     ]
   }
-]
+];
 
 export const thirdPartyClients: Array<Client> = [
   {
