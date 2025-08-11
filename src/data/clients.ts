@@ -1023,5 +1023,29 @@ export const Clients: Array<Client> = [
         url: 'https://livefin.github.io/web/'
       }
     ]
+  },
+  {
+    id: 'jellyfin-xbox',
+    name: 'Jellyfin for Xbox',
+    description: 'The official Jellyfin app for Xbox consoles.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Xbox],
+    primaryLinks: [
+      {
+        id: 'microsoft-store',
+        name: 'Microsoft Store',
+        url: 'https://apps.microsoft.com/detail/9P2DRTG62QF8'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-xbox'
+
+      }
+    ]
   }
 ];

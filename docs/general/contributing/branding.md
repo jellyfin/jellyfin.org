@@ -14,6 +14,15 @@ You are free to use the Jellyfin name to promote your project, with some restric
 - Do not use the Jellyfin name in any context that promotes, allows or encourages piracy.
 - Do not wrongfully claim to be part of the Jellyfin team.
 
+It is also preferred for projects outside of the Jellyfin organization use unique names that are not based on a "jelly" prefix or "fin" suffix.
+
+## Usage of the Jellyfin logo
+
+- Do not use the Jellyfin logo as the logo or app icon for your project. This includes:
+  - recolored variations of the logo
+  - rotating the logo
+  - any other minor changes to the official logo
+
 ## Writing Style
 
 As a general rule, Jellyfin should always be capitalized, but language, file, or system conventions trump Jellyfin naming conventions.

@@ -40,6 +40,9 @@ const IrcCard = () => (
             <h4>Development Channels</h4>
             <ul>
               <li>
+                <a href='ircs://irc.libera.chat:6697/#jellyfin-documentation'>#jellyfin-documentation</a>
+              </li>
+              <li>
                 <a href='ircs://irc.libera.chat:6697/#jellyfin-dev'>#jellyfin-dev</a>
               </li>
               <li>

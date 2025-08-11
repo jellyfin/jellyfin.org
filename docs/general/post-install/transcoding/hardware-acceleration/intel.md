@@ -215,7 +215,7 @@ Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-Please refer to [this section](./known-issues#intel-on-windows) for known issues and limitations
+Please refer to [this section](/docs/general/post-install/transcoding/hardware-acceleration/known-issues#intel-on-windows) for known issues and limitations
 
 ### Configure On Windows Host
 
@@ -271,7 +271,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-Please refer to [this section](./known-issues#intel-on-linux) for known issues and limitations
+Please refer to [this section](/docs/general/post-install/transcoding/hardware-acceleration/known-issues#intel-on-linux) for known issues and limitations
 
 ### Configure On Linux Host
 

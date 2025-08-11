@@ -105,5 +105,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       TubeArchivistMetadata: 'https://github.com/tubearchivist/tubearchivist-jf-plugin'
     }
+  },
+  {
+    id: 'gh:neptunehub/audiomuse-ai-plugin',
+    name: "AudioMuse-AI's Repo",
+    url: 'https://raw.githubusercontent.com/neptunehub/audiomuse-ai-plugin/master/manifest.json',
+    includes: {
+      'AudioMuse-AI': 'https://github.com/neptunehub/audiomuse-ai-plugin'
+    }
   }
 ];
