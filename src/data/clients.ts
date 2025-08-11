@@ -410,34 +410,6 @@ export const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'preserve',
-    name: 'Preserve',
-    description: 'A music client inspired by players such as foobar2000 or Clementine.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Browser, Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://preserveplayer.com/'
-      },
-      {
-        id: 'gl-downloads',
-        name: 'GitLab Downloads',
-        url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'gitlab',
-        name: 'GitLab',
-        url: 'https://gitlab.com/tonyfinn/preserve'
-      }
-    ]
-  },
-  {
     id: 'supersonic',
     name: 'Supersonic',
     description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
