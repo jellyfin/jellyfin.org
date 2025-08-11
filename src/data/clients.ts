@@ -105,8 +105,8 @@ export const officialClients: Array<Client> = [
     platforms: [Platform.Browser],
     primaryLinks: [
       {
-        id: 'browser',
-        name: 'Open in Browser',
+        id: 'website',
+        name: 'Website',
         url: 'https://jf-vue.pages.dev/'
       },
       {
@@ -419,8 +419,8 @@ export const thirdPartyClients: Array<Client> = [
     platforms: [Platform.Browser, Platform.Desktop],
     primaryLinks: [
       {
-        id: 'browser',
-        name: 'Open in Browser',
+        id: 'website',
+        name: 'Website',
         url: 'https://preserveplayer.com/'
       },
       {
@@ -493,8 +493,8 @@ export const thirdPartyClients: Array<Client> = [
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
-        id: 'browser',
-        name: 'Open in Browser',
+        id: 'website',
+        name: 'Website',
         url: 'https://feishin.vercel.app/'
       },
       {
@@ -538,7 +538,7 @@ export const thirdPartyClients: Array<Client> = [
         url: 'https://github.com/Taiko2k/TauonMusicBox'
       },
       {
-        id: 'tauon',
+        id: 'website',
         name: 'Website',
         url: 'https://tauonmusicbox.rocks'
       }
@@ -675,7 +675,7 @@ export const thirdPartyClients: Array<Client> = [
     ],
     secondaryLinks: [
       {
-        id: 'yatse',
+        id: 'website',
         name: 'Website',
         url: 'https://yatse.tv/'
       }
