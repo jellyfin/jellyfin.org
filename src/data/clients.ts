@@ -908,7 +908,7 @@ export const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Android, Platform.IOS, Platform.iPadOS],
+    platforms: [Platform.Android, Platform.IOS],
     primaryLinks: [
       {
         id: 'app-store',
