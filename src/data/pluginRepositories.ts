@@ -113,5 +113,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       'AudioMuse-AI': 'https://github.com/neptunehub/audiomuse-ai-plugin'
     }
+  },
+  {
+    id: 'gh:DeDuplicate/Jellyfin_wizdomsubs_downloader',
+    name: "DeDuplicate's WizdomSubs Downloader Repo",
+    url: 'https://raw.githubusercontent.com/DeDuplicate/Jellyfin_wizdomsubs_downloader/refs/heads/main/manifest.json',
+    includes: {
+      'WizdomSubs Downloader': 'https://github.com/DeDuplicate/Jellyfin_wizdomsubs_downloader'
+    }
   }
 ];
