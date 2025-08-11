@@ -831,7 +831,7 @@ export const thirdPartyClients: Array<Client> = [
       {
         id: 'website',
         name: 'Website',
-        url: 'https://web-scrobbler.com'
+        url: 'https://webscrobbler.com'
       }
     ]
   },
