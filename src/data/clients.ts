@@ -808,34 +808,6 @@ export const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'web-scrobbler',
-    name: 'Web Scrobbler',
-    description: 'Web Scrobbler helps online music listeners to scrobble their playback history.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Browser],
-    primaryLinks: [
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: 'https://github.com/web-scrobbler/web-scrobbler#installation'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/web-scrobbler/web-scrobbler'
-      },
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://webscrobbler.com'
-      }
-    ]
-  },
-  {
     id: 'jellybook',
     name: 'JellyBook',
     description: 'A cross platform mobile app for book & comic reading for Jellyfin.',
