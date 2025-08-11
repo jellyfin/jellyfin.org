@@ -5,13 +5,13 @@ title: Plugins
 
 # Plugins
 
-Jellyfin has a collection of optional plugins that can be installed to provide additional features. To create a plugin, see the [plugin template](https://github.com/jellyfin/jellyfin-plugin-template) [...]
+Jellyfin has a collection of optional plugins that can be installed to provide additional features. To create a plugin, see the [plugin template](https://github.com/jellyfin/jellyfin-plugin-template) repository.
 
 ## Installing
 
 ### Catalog
 
-Many plugins are available in a repository hosted on our servers, which can be easily installed using the plugin catalog in the settings. At the moment many of these are still being updated frequently[...]
+Many plugins are available in a repository hosted on our servers, which can be easily installed using the plugin catalog in the settings. At the moment many of these are still being updated frequently so the version number may not be accurate. There are several different categories that can indicate what kind of functionality the plugins may provide.
 
 The _plugins folder_ is located in different locations depending on your install:
 
@@ -35,7 +35,7 @@ Plugin settings should be retained if you do not delete the `.xml` files from th
 
 ### Manual
 
-All plugins hosted on the repository can be built from source and manually added to your server as well. They just need to be placed in the plugin directory, which is something like `/var/lib/jellyfin[...]
+All plugins hosted on the repository can be built from source and manually added to your server as well. They just need to be placed in the plugin directory, which is something like `/var/lib/jellyfin/plugins/` on most Linux distributions. Once the server is restarted any additions should automatically show up in your list of installed plugins. If you can't see the new plugin there may be a file permission issue.
 
 ## List
 
@@ -145,7 +145,7 @@ Use pre-roll intro videos from local storage.
 ![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-ldapauth.svg)
 ![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-ldapauth.svg)
 
-Authenticate your Jellyfin users against an LDAP database, and optionally create users who do not yet exist automatically. Allows the administrator to customize most aspects of the LDAP authentication[...]
+Authenticate your Jellyfin users against an LDAP database, and optionally create users who do not yet exist automatically. Allows the administrator to customize most aspects of the LDAP authentication process, including customizable search attributes, username attribute, and a search filter for administrative users (set on user creation). The user, via the "Manual Login" process, can enter any valid attribute value, which will be mapped back to the specified username attribute automatically as well.
 
 **Links:**
 
@@ -193,7 +193,7 @@ Plugin to automatically extract embedded subtitles in media. This avoids delayed
 ![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-playbackreporting.svg)
 ![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-playbackreporting.svg)
 
-Collect and show user playback statistics, such as total time watched, media watched, time of day watched, and time of week watched. Can keep information for as long as you want or can cull older info[...]
+Collect and show user playback statistics, such as total time watched, media watched, time of day watched, and time of week watched. Can keep information for as long as you want or can cull older information automatically. Also allows you to manually query the data collected so you can generate your own reports.
 
 **Links:**
 
@@ -217,7 +217,7 @@ Generate reports of your media library.
 ![Contributors](https://img.shields.io/github/contributors/jellyfin/jellyfin-plugin-tmdbboxsets.svg)
 ![License](https://img.shields.io/github/license/jellyfin/jellyfin-plugin-tmdbboxsets.svg)
 
-Automatically create movie box sets based on TMDb collections. Configurable minimum number of films to be considered a boxset. Boxsets are created as collections and includes a scheduled task to ensur[...]
+Automatically create movie box sets based on TMDb collections. Configurable minimum number of films to be considered a boxset. Boxsets are created as collections and includes a scheduled task to ensure that new media is automatically put into boxsets.
 
 **Links:**
 
@@ -259,7 +259,7 @@ Ani-Sync lets you synchronize/scrobble your Jellyfin Anime watch progress to pop
 
 #### Kinopoisk metadata plugin
 
-Fetches metadata from [https://kinopoisk.ru](https://kinopoisk.ru). This site is popular in the Russian-speaking community and contains almost no English-language information. Can provide movies and s[...]
+Fetches metadata from [https://kinopoisk.ru](https://kinopoisk.ru). This site is popular in the Russian-speaking community and contains almost no English-language information. Can provide movies and series rating, description, actors and staff, trailers and so on.
 
 **Links:**
 
