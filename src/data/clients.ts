@@ -514,7 +514,7 @@ export const thirdPartyClients: Array<Client> = [
   {
     id: 'tauon-music-box',
     name: 'Tauon Music Box',
-    description: "A modern streamlined music player for desktop with a minimal interface that's packed with features!",
+    description: "A modern streamlined music player for desktop with a minimal interface that is packed with features!",
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
