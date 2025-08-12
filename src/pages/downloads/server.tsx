@@ -7,13 +7,32 @@ import Admonition from '@theme-original/Admonition';
 import Pill from '../../components/common/Pill';
 import DownloadDetails from '../../components/downloads/DownloadDetails';
 import { Downloads, OsType } from '../../data/downloads';
+import { UserAgent } from '@std/http/user-agent';
 
 import styles from './index.module.scss';
 
-export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsType }) {
+export default function DownloadsPage({ osType }: { osType?: OsType }) {
   const [isStableLinks, setIsStableLinks] = useState<boolean>(true);
   const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
   const [activeButton, setActiveButton] = useState<string>();
+
+
+  if (osType === undefined) {
+    const { os } = new UserAgent(navigator.userAgent);
+    switch (os.name) {
+      case 'macOS':
+        osType = OsType.MacOS;
+        break;
+      case 'Windows':
+        osType = OsType.Windows;
+        break;
+      case 'Linux':
+      default:
+        osType = OsType.Linux;
+        break;
+    }
+  }
+
 
   return (
     <Layout title='Downloads'>

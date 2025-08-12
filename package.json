@@ -37,6 +37,7 @@
     "@mdi/js": "7.4.47",
     "@mdi/react": "1.6.1",
     "@mdx-js/react": "3.1.0",
+    "@std/http": "npm:@jsr/std__http@1.0.20",
     "@svgr/webpack": "8.1.0",
     "clsx": "2.1.1",
     "docusaurus-plugin-sass": "0.2.6",
