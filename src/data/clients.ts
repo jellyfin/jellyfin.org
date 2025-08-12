@@ -206,8 +206,8 @@ export const officialClients: Array<Client> = [
     recommended: true
   },
   {
-    id: 'jellyfin-expo',
-    name: 'Jellyfin Mobile for iOS',
+    id: 'jellyfin-ios',
+    name: 'Jellyfin for iOS',
     description: 'The official Jellyfin app for iOS and iPadOS devices.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Mobile],
