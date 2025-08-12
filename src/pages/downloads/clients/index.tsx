@@ -12,6 +12,7 @@ import { Client, Clients, DeviceType } from '../../../data/clients';
 import Platform, { FeaturedClientPlatforms } from '../../../data/platform';
 
 import styles from '../index.module.scss';
+import ExternalLinkIcon from '../../../components/ExternalLinkIcon';
 
 type ClientFilter = {
   recommended: boolean;
@@ -101,6 +102,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                 </Link>
                 <Link to='https://repo.jellyfin.org' className='pills__item'>
                   Full Repository
+                  <ExternalLinkIcon />
                 </Link>
               </div>
             </div>
