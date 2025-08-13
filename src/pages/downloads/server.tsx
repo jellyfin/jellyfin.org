@@ -1,3 +1,4 @@
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import React, { useState } from 'react';
@@ -16,7 +17,7 @@ export default function DownloadsPage({ osType }: { osType?: OsType }) {
   const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
   const [activeButton, setActiveButton] = useState<string>();
 
-  if (osType === undefined) {
+  if (useIsBrowser && osType === undefined) {
     const parser = new UAParser(navigator.userAgent);
     const os = parser.getOS();
     switch (os.name) {
