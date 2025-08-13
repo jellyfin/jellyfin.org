@@ -37,7 +37,6 @@
     "@mdi/js": "7.4.47",
     "@mdi/react": "1.6.1",
     "@mdx-js/react": "3.1.0",
-    "@std/http": "npm:@jsr/std__http@1.0.20",
     "@svgr/webpack": "8.1.0",
     "clsx": "2.1.1",
     "docusaurus-plugin-sass": "0.2.6",
@@ -46,6 +45,7 @@
     "react-dom": "18.3.1",
     "sass": "1.89.2",
     "swiper": "11.2.10",
+    "ua-parser-js": "2.0.4",
     "url-loader": "4.1.1"
   },
   "browserslist": {
