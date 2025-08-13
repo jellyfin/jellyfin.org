@@ -410,6 +410,57 @@ export const thirdPartyClients: Array<Client> = [
     ]
   },
   {
+    id: 'preserve',
+    name: 'Preserve',
+    description: 'A music client inspired by players such as foobar2000 or Clementine.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Browser, Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://preserveplayer.com/'
+      },
+      {
+        id: 'gl-downloads',
+        name: 'GitLab Downloads',
+        url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'gitlab',
+        name: 'GitLab',
+        url: 'https://gitlab.com/tonyfinn/preserve'
+      }
+    ]
+  },
+  {
+    id: 'sonixd',
+    name: 'Sonixd',
+    description: 'A full-featured Subsonic/Jellyfin compatible desktop music player.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/jeffvli/sonixd#install'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jeffvli/sonixd'
+      }
+    ]
+  },
+  {
     id: 'supersonic',
     name: 'Supersonic',
     description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
@@ -753,6 +804,34 @@ export const thirdPartyClients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/Aanok/jftui'
+      }
+    ]
+  },
+  {
+    id: 'web-scrobbler',
+    name: 'Web Scrobbler',
+    description: 'Web Scrobbler helps online music listeners to scrobble their playback history.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Browser],
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/web-scrobbler/web-scrobbler#installation'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/web-scrobbler/web-scrobbler'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://webscrobbler.com'
       }
     ]
   },
