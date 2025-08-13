@@ -37,7 +37,7 @@ export type Client = {
   recommended?: boolean;
 };
 
-export const officialClients: Array<Client> = [
+const officialClients: Array<Client> = [
   {
     id: 'jellyfin-media-player',
     name: 'Jellyfin Media Player',
@@ -105,8 +105,8 @@ export const officialClients: Array<Client> = [
     platforms: [Platform.Browser],
     primaryLinks: [
       {
-        id: 'website',
-        name: 'Website',
+        id: 'browser',
+        name: 'Open in browser',
         url: 'https://jf-vue.pages.dev/'
       },
       {
@@ -385,7 +385,7 @@ export const officialClients: Array<Client> = [
   }
 ];
 
-export const thirdPartyClients: Array<Client> = [
+const thirdPartyClients: Array<Client> = [
   {
     id: 'jellyamp',
     name: 'Jellyamp',
@@ -419,8 +419,8 @@ export const thirdPartyClients: Array<Client> = [
     platforms: [Platform.Browser, Platform.Desktop],
     primaryLinks: [
       {
-        id: 'website',
-        name: 'Website',
+        id: 'browser',
+        name: 'Open in browser',
         url: 'https://preserveplayer.com/'
       },
       {
@@ -493,8 +493,8 @@ export const thirdPartyClients: Array<Client> = [
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
-        id: 'website',
-        name: 'Website',
+        id: 'browser',
+        name: 'Open in browser',
         url: 'https://feishin.vercel.app/'
       },
       {
