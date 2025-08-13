@@ -37,7 +37,7 @@ export type Client = {
   recommended?: boolean;
 };
 
-export const Clients: Array<Client> = [
+const officialClients: Array<Client> = [
   {
     id: 'jellyfin-media-player',
     name: 'Jellyfin Media Player',
@@ -96,29 +96,6 @@ export const Clients: Array<Client> = [
     ]
   },
   {
-    id: 'jellyamp',
-    name: 'Jellyamp',
-    description: 'A desktop client for listening to music from a Jellyfin server.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'gh-downloads',
-        name: 'GitHub Downloads',
-        url: 'https://github.com/m0ngr31/jellyamp/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/m0ngr31/jellyamp'
-      }
-    ]
-  },
-  {
     id: 'jellyfin-vue',
     name: 'Jellyfin Vue',
     description: 'A modern web client for Jellyfin based on Vue',
@@ -129,7 +106,7 @@ export const Clients: Array<Client> = [
     primaryLinks: [
       {
         id: 'browser',
-        name: 'Open in Browser',
+        name: 'Open in browser',
         url: 'https://jf-vue.pages.dev/'
       },
       {
@@ -143,141 +120,6 @@ export const Clients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/jellyfin/jellyfin-vue'
-      }
-    ]
-  },
-  {
-    id: 'preserve',
-    name: 'Preserve',
-    description: 'A music client inspired by players such as foobar2000 or Clementine.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Browser, Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'browser',
-        name: 'Open in Browser',
-        url: 'https://preserveplayer.com/'
-      },
-      {
-        id: 'gl-downloads',
-        name: 'GitLab Downloads',
-        url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'gitlab',
-        name: 'GitLab',
-        url: 'https://gitlab.com/tonyfinn/preserve'
-      }
-    ]
-  },
-  {
-    id: 'sonixd',
-    name: 'Sonixd',
-    description: 'A full-featured Subsonic/Jellyfin compatible desktop music player.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: 'https://github.com/jeffvli/sonixd#install'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jeffvli/sonixd'
-      }
-    ]
-  },
-  {
-    id: 'supersonic',
-    name: 'Supersonic',
-    description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'installation',
-        name: 'Installation Guide',
-        url: 'https://github.com/dweymouth/supersonic#installation'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/dweymouth/supersonic'
-      }
-    ]
-  },
-  {
-    id: 'feishin',
-    name: 'Feishin',
-    description: 'A full-featured Navidrome/Jellyfin compatible desktop music player.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'browser',
-        name: 'Open in Browser',
-        url: 'https://feishin.vercel.app/'
-      },
-      {
-        id: 'gh-downloads',
-        name: 'GitHub Downloads',
-        url: 'https://github.com/jeffvli/feishin/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jeffvli/feishin'
-      }
-    ]
-  },
-  {
-    id: 'tauon-music-box',
-    name: 'Tauon Music Box',
-    description: "A modern streamlined music player for desktop with a minimal interface that's packed with features!",
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'flathub',
-        name: 'Flathub (Linux)',
-        url: 'https://flathub.org/apps/details/com.github.taiko2k.tauonmb'
-      },
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: 'https://github.com/Taiko2k/TauonMusicBox#download-and-install-dizzy'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/Taiko2k/TauonMusicBox'
-      },
-      {
-        id: 'tauon',
-        name: 'Website',
-        url: 'https://tauonmusicbox.rocks'
       }
     ]
   },
@@ -364,8 +206,8 @@ export const Clients: Array<Client> = [
     recommended: true
   },
   {
-    id: 'jellyfin-expo',
-    name: 'Jellyfin Mobile for iOS',
+    id: 'jellyfin-ios',
+    name: 'Jellyfin for iOS',
     description: 'The official Jellyfin app for iOS and iPadOS devices.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Mobile],
@@ -408,6 +250,297 @@ export const Clients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/jellyfin/swiftfin'
+      }
+    ]
+  },
+  {
+    id: 'jellyfin-androidtv',
+    name: 'Jellyfin for Android TV',
+    description: 'The official Jellyfin app for Android TV and Fire TV devices.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.AndroidTV, Platform.FireOS],
+    primaryLinks: [
+      {
+        id: 'fdroid',
+        name: 'F-Droid',
+        url: 'https://f-droid.org/en/packages/org.jellyfin.androidtv/'
+      },
+      {
+        id: 'amazon-store',
+        name: 'Amazon Appstore',
+        url: 'https://www.amazon.com/gp/aw/d/B07TX7Z725'
+      },
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=org.jellyfin.androidtv'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-androidtv'
+      }
+    ],
+    recommended: true
+  },
+  {
+    id: 'jellyfin-roku',
+    name: 'Jellyfin for Roku',
+    description: 'The official Jellyfin app for Roku devices.',
+    smallDescription:
+      'Due to a technical limitation of the Roku store, the Jellyfin app for Roku may state that a cable or satellite subscription is required. However, no subscription of any form is required to use the Jellyfin server or any official client.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Roku],
+    primaryLinks: [
+      {
+        id: 'roku-store',
+        name: 'Channel Store',
+        url: 'https://channelstore.roku.com/details/592369/jellyfin'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-roku'
+      }
+    ],
+    recommended: true
+  },
+  {
+    id: 'jellyfin-webos',
+    name: 'Jellyfin for WebOS',
+    description: 'The official Jellyfin app for WebOS devices.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.WebOS],
+    primaryLinks: [
+      {
+        id: 'lg-store',
+        name: 'Content Store',
+        url: 'https://us.lgappstv.com/main/tvapp/detail?appId=1030579'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-webos'
+      }
+    ],
+    recommended: true
+  },
+  {
+    id: 'mopidy',
+    name: 'Mopidy-Jellyfin',
+    description: 'An official plugin for Mopidy that uses Jellyfin as a backend.',
+    clientType: ClientType.Official,
+    deviceTypes: [],
+    licenseType: LicenseType.OpenSource,
+    platforms: [],
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: '/docs/general/clients/mopidy'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/mopidy-jellyfin'
+      }
+    ]
+  },
+  {
+    id: 'jellyfin-xbox',
+    name: 'Jellyfin for Xbox',
+    description: 'The official Jellyfin app for Xbox consoles.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Xbox],
+    primaryLinks: [
+      {
+        id: 'microsoft-store',
+        name: 'Microsoft Store',
+        url: 'https://apps.microsoft.com/detail/9P2DRTG62QF8'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-xbox'
+      }
+    ]
+  }
+];
+
+const thirdPartyClients: Array<Client> = [
+  {
+    id: 'jellyamp',
+    name: 'Jellyamp',
+    description: 'A desktop client for listening to music from a Jellyfin server.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/m0ngr31/jellyamp/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/m0ngr31/jellyamp'
+      }
+    ]
+  },
+  {
+    id: 'preserve',
+    name: 'Preserve',
+    description: 'A music client inspired by players such as foobar2000 or Clementine.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Browser, Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'browser',
+        name: 'Open in browser',
+        url: 'https://preserveplayer.com/'
+      },
+      {
+        id: 'gl-downloads',
+        name: 'GitLab Downloads',
+        url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'gitlab',
+        name: 'GitLab',
+        url: 'https://gitlab.com/tonyfinn/preserve'
+      }
+    ]
+  },
+  {
+    id: 'sonixd',
+    name: 'Sonixd',
+    description: 'A full-featured Subsonic/Jellyfin compatible desktop music player.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/jeffvli/sonixd#install'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jeffvli/sonixd'
+      }
+    ]
+  },
+  {
+    id: 'supersonic',
+    name: 'Supersonic',
+    description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'installation',
+        name: 'Installation Guide',
+        url: 'https://github.com/dweymouth/supersonic#installation'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/dweymouth/supersonic'
+      }
+    ]
+  },
+  {
+    id: 'feishin',
+    name: 'Feishin',
+    description: 'A full-featured Navidrome/Jellyfin compatible desktop music player.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'browser',
+        name: 'Open in browser',
+        url: 'https://feishin.vercel.app/'
+      },
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/jeffvli/feishin/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jeffvli/feishin'
+      }
+    ]
+  },
+  {
+    id: 'tauon-music-box',
+    name: 'Tauon Music Box',
+    description: "A modern streamlined music player for desktop with a minimal interface that is packed with features!",
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'flathub',
+        name: 'Flathub (Linux)',
+        url: 'https://flathub.org/apps/details/com.github.taiko2k.tauonmb'
+      },
+      {
+        id: 'install',
+        name: 'Installation Guide',
+        url: 'https://github.com/Taiko2k/TauonMusicBox#download-and-install-dizzy'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/Taiko2k/TauonMusicBox'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://tauonmusicbox.rocks'
       }
     ]
   },
@@ -542,95 +675,11 @@ export const Clients: Array<Client> = [
     ],
     secondaryLinks: [
       {
-        id: 'yatse',
+        id: 'website',
         name: 'Website',
         url: 'https://yatse.tv/'
       }
     ]
-  },
-  {
-    id: 'jellyfin-androidtv',
-    name: 'Jellyfin for Android TV',
-    description: 'The official Jellyfin app for Android TV and Fire TV devices.',
-    clientType: ClientType.Official,
-    deviceTypes: [DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.AndroidTV, Platform.FireOS],
-    primaryLinks: [
-      {
-        id: 'fdroid',
-        name: 'F-Droid',
-        url: 'https://f-droid.org/en/packages/org.jellyfin.androidtv/'
-      },
-      {
-        id: 'amazon-store',
-        name: 'Amazon Appstore',
-        url: 'https://www.amazon.com/gp/aw/d/B07TX7Z725'
-      },
-      {
-        id: 'play-store',
-        name: 'Play Store',
-        url: 'https://play.google.com/store/apps/details?id=org.jellyfin.androidtv'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jellyfin/jellyfin-androidtv'
-      }
-    ],
-    recommended: true
-  },
-  {
-    id: 'jellyfin-roku',
-    name: 'Jellyfin for Roku',
-    description: 'The official Jellyfin app for Roku devices.',
-    smallDescription:
-      'Due to a technical limitation of the Roku store, the Jellyfin app for Roku may state that a cable or satellite subscription is required. However, no subscription of any form is required to use the Jellyfin server or any official client.',
-    clientType: ClientType.Official,
-    deviceTypes: [DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Roku],
-    primaryLinks: [
-      {
-        id: 'roku-store',
-        name: 'Channel Store',
-        url: 'https://channelstore.roku.com/details/592369/jellyfin'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jellyfin/jellyfin-roku'
-      }
-    ],
-    recommended: true
-  },
-  {
-    id: 'jellyfin-webos',
-    name: 'Jellyfin for WebOS',
-    description: 'The official Jellyfin app for WebOS devices.',
-    clientType: ClientType.Official,
-    deviceTypes: [DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.WebOS],
-    primaryLinks: [
-      {
-        id: 'lg-store',
-        name: 'Content Store',
-        url: 'https://us.lgappstv.com/main/tvapp/detail?appId=1030579'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jellyfin/jellyfin-webos'
-      }
-    ],
-    recommended: true
   },
   {
     id: 'infuse',
@@ -655,29 +704,6 @@ export const Clients: Array<Client> = [
       }
     ],
     recommended: true
-  },
-  {
-    id: 'mopidy',
-    name: 'Mopidy-Jellyfin',
-    description: 'An official plugin for Mopidy that uses Jellyfin as a backend.',
-    clientType: ClientType.Official,
-    deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
-    platforms: [],
-    primaryLinks: [
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: '/docs/general/clients/mopidy'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jellyfin/mopidy-jellyfin'
-      }
-    ]
   },
   {
     id: 'volumio',
@@ -805,7 +831,7 @@ export const Clients: Array<Client> = [
       {
         id: 'website',
         name: 'Website',
-        url: 'https://web-scrobbler.com'
+        url: 'https://webscrobbler.com'
       }
     ]
   },
@@ -882,7 +908,7 @@ export const Clients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Android, Platform.IOS, Platform.iPadOS],
+    platforms: [Platform.Android, Platform.IOS],
     primaryLinks: [
       {
         id: 'app-store',
@@ -1000,28 +1026,10 @@ export const Clients: Array<Client> = [
         url: 'https://monk-studio.com/finer'
       }
     ]
-  },
-  {
-    id: 'jellyfin-xbox',
-    name: 'Jellyfin for Xbox',
-    description: 'The official Jellyfin app for Xbox consoles.',
-    clientType: ClientType.Official,
-    deviceTypes: [DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Xbox],
-    primaryLinks: [
-      {
-        id: 'microsoft-store',
-        name: 'Microsoft Store',
-        url: 'https://apps.microsoft.com/detail/9P2DRTG62QF8'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jellyfin/jellyfin-xbox'
-      }
-    ]
   }
+];
+
+export const Clients: Array<Client> = [
+  ...officialClients,
+  ...thirdPartyClients
 ];
