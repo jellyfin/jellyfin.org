@@ -29,13 +29,11 @@ Add this to the new file, replacing `/path_to_logs` with the path to the log fil
 
 backend = auto
 enabled = true
-port = 80,443
-protocol = tcp
 filter = jellyfin
 maxretry = 3
 bantime = 86400
 findtime = 43200
-logpath = /path_to_logs/jellyfin*.log
+logpath = /path_to_logs/log*.log
 ```
 
 Save and exit nano.
@@ -45,10 +43,8 @@ Note:
 1. If Jellyfin is running in a docker container, add the following to the `jellyfin.local` file:
 
    ```bash
-   action = iptables-allports[name=jellyfin, chain=DOCKER-USER]
+   action = iptables-allports
    ```
-
-2. If you're running Jellyfin on a non-standard port, then change the port from `80,443` to the relevant port say `8096,8920`
 
 ## Step two: create the filter
 
