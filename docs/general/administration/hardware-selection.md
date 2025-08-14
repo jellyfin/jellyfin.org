@@ -157,7 +157,7 @@ For decoding support, the more codecs the better. However, there are only a few 
 
 Please refer to [this table](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Video#Hardware_decoding_and_encoding) for supported codecs.
 
-Intel CPUs with a model name that ends with `F` do not have integrated graphics. These are intended to be used with a dedicated graphics card. Ergo, if you wish to use Intel integrated graphics, this is not an appropriate choice of component for your Jellyfin Server.
+Intel CPUs with a model name that ends with `F` do not have integrated graphics. These are intended to be used with a dedicated graphics card, meaning that if you wish to use Intel integrated graphics, this is not an appropriate choice of component for your Jellyfin Server.
 
 If you are planning to use Linux with Intel 12/13th gen integrated graphics or ARC, these GPUs only work on Linux Kernel 6.2 or newer. Please check your distribution to make sure it has a supported Linux Kernel version. Further information: [Known Intel limitations on Linux](/docs/general/post-install/transcoding/hardware-acceleration/known-issues#intel-on-linux).
 
