@@ -48,6 +48,6 @@ The record size for your media file dataset(s) must not be using `4 K` or `8 K`,
 
 For ZFS datasets containing large media files (i.e., not the dataset containing the Jellyfin Server SQLite database), a record size of `1 M` is likely appropriate for optimal performance.
 
-N.b. Changing the record size on an existing ZFS dataset will not change the existing data within it, meaning performance will not be any different for anything but newly-written changes into the dataset. As such, it is recommended to rewrite your data into the dataset to take advantage of the change in record size, otherwise the configuration change will not perform as expected.
+N.b.: Changing the record size on an existing ZFS dataset will not change the existing data within it, meaning performance will not be any different for anything but newly-written changes into the dataset. As such, it is recommended to rewrite your data into the dataset to take advantage of the change in record size, otherwise the configuration change will not perform as expected.
 
 As ZFS snapshots can use a lot of storage over time without a sensible `destroy` schedule, there may be a temptation to keep your data on a mechanical drive instead of an SSD. Do NOT use ZFS-formatted mechanical drives to store your Jellyfin Server data (everything except your media files), or you will have terrible performance. SSD is absolutely necessary.
