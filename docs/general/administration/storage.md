@@ -40,7 +40,7 @@ With certain filesystems, optimizations are highly recommended for acceptable pe
 
 ### ZFS
 
-Whilst development is being done on further database providers, in current implementation of Jellyfin Server, the database uses SQLite. ZFS uses a default record size of `128 K`. This is sub-optimal for the SQLite database.
+Whilst development is being done on further database providers, in the current implementation of Jellyfin Server, the database uses SQLite. ZFS uses a default record size of `128 K`. This is sub-optimal for the SQLite database.
 
 Ideally, you should use `4 K` or `8 K` for the dataset that contains your Jellyfin Server SQLite database. This is easily configured when running Jellyfin Server within a Docker container as you are able to easily change bind mounts and can set various datasets for each path as appropriate.
 
