@@ -207,7 +207,7 @@ Supported codecs are listed below:
 
 :::caution
 
-No Apple Silicon media engine drivers currently exist for non-macOS operating systems. You will NOT be able to use hardware acceleration if you are running [Asahi Linux](https://asahilinux.org/) on your Apple Silicon hardware.
+No Apple Silicon media engine drivers currently exist for non-macOS operating systems. You will NOT be able to use hardware acceleration if the server is running [Asahi Linux](https://asahilinux.org/).
 
 :::
 
