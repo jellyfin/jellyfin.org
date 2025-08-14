@@ -105,7 +105,7 @@ In our custom `jellyfin-ffmpeg` fork, the dav1d decoder is enabled, leading to f
 
 #### Integrated Graphics
 
-Integrated graphics can be useful for transcoding video. For more informatin, please refer to [the GPU section](/docs/general/administration/hardware-selection#graphics-cards-gpus).
+Integrated graphics can be useful for transcoding video. For more information, please refer to [the GPU section](/docs/general/administration/hardware-selection#graphics-cards-gpus).
 
 #### Resizable BAR
 
