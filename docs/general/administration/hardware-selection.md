@@ -175,7 +175,7 @@ Certain low-end cards, e.g., GT 1030, do not have encoding hardware. Please be c
 
 #### AMD Graphics
 
-AMD graphics is not recommended for Jellyfin, but the information is still provided for reference. Information on supported codecs is on [this article](https://en.wikipedia.org/wiki/Video_Coding_Engine).
+AMD graphics is not recommended for Jellyfin, this information is solely provided for reference. Further reading on supported codecs on AMD Video Coding Engine: [https://en.wikipedia.org/wiki/Video_Coding_Engine](https://en.wikipedia.org/wiki/Video_Coding_Engine).
 
 Certain low-end cards, e.g., RX 6400, RX 6500, do not have encoding hardware. Please be careful when choosing a GPU.
 
