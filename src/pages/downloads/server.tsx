@@ -17,7 +17,9 @@ export default function DownloadsPage({ osType }: { osType?: OsType }) {
   const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
   const [activeButton, setActiveButton] = useState<string>();
 
-  if (useIsBrowser && osType === undefined) {
+  const isBrowser = useIsBrowser();
+
+  if (isBrowser && osType === undefined) {
     const parser = new UAParser(navigator.userAgent);
     const os = parser.getOS();
     switch (os.name) {
