@@ -50,8 +50,8 @@ Intel 7-10th gen CPUs have been removed from this list, since the toolkit for th
 
 If you are planning to use a dedicated graphics card (including upgrading an old system with a dedicated GPU), the following specs are recommended:
 
-- CPU: Intel Core i5-2300， AMD FX-8100 or better (Geekbench 6 Multicore 1500 or better), CPU Vendor / Performance will **NOT** affect hardware encode speed or quality
-- RAM: 8GB (4GB should be enough for a Linux server without a native GUI)
+- CPU: Intel Core i5-2300，AMD FX-8100 or better (Geekbench 6 Multicore 1500 or better), CPU Vendor / Performance will **NOT** affect hardware encode speed or quality
+- RAM: 8GB. However, 4GB may be enough for a Linux server that is not running a graphical user interface. CLI or browser-based administrative panels are essential on 4GB of RAM.
 - Graphics: Intel Arc A series or newer, NVIDIA GTX16/RTX20 series or newer (Excluding GTX1650), **AMD is NOT recommended**.
 
 Intel Drivers are much easier to install on Linux, with many distributions including them by default. If you do not need CUDA for other applications, it is highly recommended that you stick with Intel Graphics on Linux.
