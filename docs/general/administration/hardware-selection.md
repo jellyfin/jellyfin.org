@@ -246,4 +246,4 @@ The files for Jellyfin itself (i.e., not your media files) will see a lot of ran
 
 ### Networking
 
-Networking is for connecting your Jellyfin server to other devices. It is recommended that the Jellyfin Server be connected to your network via Ethernet cables for optimal performance. Wi-Fi or Powerline solutions for a Jellyfin Server are NOT recommended and will result in an especially poor experience.
+Networking is for connecting your Jellyfin server to other devices. It is recommended that the Jellyfin Server be connected to your network via Ethernet cable for optimal performance. Wi-Fi or Powerline solutions for a Jellyfin Server are NOT recommended and will result in an especially poor experience.
