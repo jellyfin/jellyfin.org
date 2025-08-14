@@ -151,7 +151,7 @@ The following is a list of video codecs Jellyfin supports transcoding to:
 - H.265 (Jellyfin clients have limited support)
 - AV1 (new in Jellyfin v10.9, supported by most modern browsers)
 
-For decoding support, the more codecs the better. However, there are only a few codecs that media is commonly available in. The most important one to look for is HEVC 10bit decoding support, as it can be very demanding on the CPU to decode.
+A greater number of codecs is desirable for decoding support. With that said, media is generally available in a small number of codecs. The most important one to look for is HEVC 10bit decoding support, as decoding can be CPU intensive.
 
 #### Intel Graphics
 
