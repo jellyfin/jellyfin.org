@@ -17,7 +17,9 @@ Backups may also come in handy if you hit a bug. For instance, if a bug in the n
 
 Finally, administrative mistakes, normal operation issues (e.g. filling up a disk), or general bit rot can cause corruption or issues that require a backup to be restored. It's always better to have one than not.
 
-## Taking a Backup
+It is strongly recommended to replicate your backups elsewhere so that in the event of major failure, you are able to restore your Jellyfin Server to a previous state.
+
+## Taking a Backup in Versions Prior to 10.11.0
 
 1. Stop the running Jellyfin server. This is extremely important, as otherwise the database will be locked and might not be recoverable when restoring. Note that this will interrupt any playback.
 
@@ -69,6 +71,15 @@ This process assumes you followed the steps above to take the backup.
 
 5. Start up Jellyfin again. It should start cleanly with the old data, assuming versions are correct. If you downgraded this may happen automatically.
 
-## The Future
+## Taking a Backup in Version 10.11.0+
 
-Long-term, we have plans to provide an official backup and restore plugin bundled with Jellyfin, however this requires the completion of our EFCore rewrite, which is currently slated for our next major release 10.11.0. Once that becomes available, this document will be updated to reflect the process using that plugin.
+As of Jellyfin 10.11.0, a backup facility is included in the core Jellyfin experience.
+
+You can manually initiate a backup via this facility by following these steps:
+
+1. Go to the Jellyfin Server `Dashboard` on the Jellyfin instance you wish to back up.
+2. Scroll down to `Advanced` via the left sidebar menu.
+3. Click `Backups` in the left sidebar menu.
+4. Click the `Create Backup` button.
+5. Using the checkboxes, select which aspects of Jellyfin Server you wish to back up. `Database` is always required to be backed up. Other options include `Metadata`, `Subtitles` and `Trickplay`.
+6. Click `Create` and wait for your backup to be created.
