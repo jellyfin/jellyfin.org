@@ -38,7 +38,7 @@ To modify and examine your mergerfs mount, here's a quick [guide](https://zackre
 
 ## Filesystem Considerations
 
-With certain filesystems, optimizations are highly recommended for acceptable performance.
+For certain filesystems, optimizations are highly recommended for acceptable performance.
 
 ### ZFS
 
