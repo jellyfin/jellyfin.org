@@ -109,7 +109,7 @@ Integrated graphics can be useful for transcoding video. For more information, p
 
 #### Resizable BAR
 
-[Resizable Bar (ReBAR)](https://www.intel.com/content/www/us/en/support/articles/000090831/graphics.html) is a PCI Express feature that optimizes access to PCIe devices. This feature requires support from both the platform and the device. Support for this feature is available beginning with Intel 10th gen, and likewise beginning with AMD Ryzen 3000 Series.
+[Resizable Bar (ReBAR)](https://www.intel.com/content/www/us/en/support/articles/000090831/graphics.html) is a PCI Express feature that optimizes access to PCIe devices. This feature requires support from both the platform and the device. Support for this feature is respectively available beginning with Intel 10th gen and AMD Ryzen 3000 Series.
 
 In BIOS settings of motherboards, it may also be called `Smart Access Memory` or `Clever Access Memory`
 
