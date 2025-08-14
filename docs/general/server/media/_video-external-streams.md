@@ -7,7 +7,7 @@ External Subtitles and audio tracks can be added with file suffixes.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs defaultValue={props.defaultTab}>
+<Tabs defaultValue={props.defaultTab} queryString="libType">
 <TabItem value="movies" label="Movies">
 ```txt
 /Movies

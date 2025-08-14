@@ -18,7 +18,7 @@ The tags are case-insensitive and must be surrounded by either a space, hyphen `
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs defaultValue={props.defaultTab}>
+<Tabs defaultValue={props.defaultTab} queryString="libType">
 <TabItem value="movies" label="Movies">
 ```txt
 Awesome 3D Movie (2022).3D.FTAB.mp4

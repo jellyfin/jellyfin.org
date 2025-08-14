@@ -7,7 +7,7 @@ Content that is split into multiple files can be stacked together if named corre
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs defaultValue={props.defaultTab}>
+<Tabs defaultValue={props.defaultTab} queryString="libType">
 <TabItem value="movies" label="Movies">
 ```txt
 Movie Name (2010)

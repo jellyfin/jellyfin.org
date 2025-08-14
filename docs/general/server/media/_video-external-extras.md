@@ -25,7 +25,7 @@ Supported folder types are:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs defaultValue={props.defaultTab}>
+<Tabs defaultValue={props.defaultTab} queryString="libType">
 <TabItem value="movies" label="Movies">
 ```txt
 Best_Movie_Ever (2019)
@@ -59,7 +59,7 @@ Supported filenames are:
 - `sample`
 - `theme` - Audio file of the theme song
 
-<Tabs defaultValue={props.defaultTab}>
+<Tabs defaultValue={props.defaultTab} queryString="libType">
 <TabItem value="movies" label="Movies">
 ```txt
 Best_Movie_Ever (2019)
@@ -104,7 +104,7 @@ If you would rather keep everything in a single folder, you can append special s
 - `-extra`
   <!-- markdownlint-enable MD038 -->
 
-<Tabs defaultValue={props.defaultTab}>
+<Tabs defaultValue={props.defaultTab} queryString="libType">
 <TabItem value="movies" label="Movies">
 ```txt
 Best_Movie_Ever (2019)
