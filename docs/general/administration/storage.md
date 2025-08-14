@@ -22,7 +22,7 @@ A database for a moderate-sized library can grow anywhere from 10 to 100 GB.
 
 The [transcoding](/docs/general/post-install/transcoding) folder needs roughly the same size as the original media when transcoded at the same bitrate. A single 50 GB Blu-Ray remux by itself can take up to ~60 GB or as little as ~15 GB. If the transcoding folder is held on the same storage as the database, this must be taken into consideration to prevent running out of storage and thus corrupting your database.
 
-## Cloud
+## Cloud Storage Providers
 
 [rclone](https://rclone.org/downloads/) is a popular choice for integrating cloud storage with a Jellyfin Server. rclone is supported on most operating systems. To combine local and cloud filesystems, rclone can be paired with another program such as [mergerfs](https://github.com/trapexit/mergerfs).
 
