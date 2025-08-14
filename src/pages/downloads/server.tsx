@@ -1,3 +1,4 @@
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import React, { useState } from 'react';
@@ -7,13 +8,33 @@ import Admonition from '@theme-original/Admonition';
 import Pill from '../../components/common/Pill';
 import DownloadDetails from '../../components/downloads/DownloadDetails';
 import { Downloads, OsType } from '../../data/downloads';
+import { UAParser } from 'ua-parser-js';
 
 import styles from './index.module.scss';
 
-export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsType }) {
+export default function DownloadsPage({ osType }: { osType?: OsType }) {
   const [isStableLinks, setIsStableLinks] = useState<boolean>(true);
   const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
   const [activeButton, setActiveButton] = useState<string>();
+
+  const isBrowser = useIsBrowser();
+
+  if (isBrowser && osType === undefined) {
+    const parser = new UAParser(navigator.userAgent);
+    const os = parser.getOS();
+    switch (os.name) {
+      case 'macOS':
+        osType = OsType.MacOS;
+        break;
+      case 'Windows':
+        osType = OsType.Windows;
+        break;
+      case 'Linux':
+      default:
+        osType = OsType.Linux;
+        break;
+    }
+  }
 
   return (
     <Layout title='Downloads'>
@@ -116,13 +137,12 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
           {isStableHelpVisible && (
             <Admonition type='tip' title='Stable or Unstable?'>
               <p>
-                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable version.
-                If you want to help test the latest improvements and features and can handle some occasional breakage,
-                use the Unstable version. New Unstable releases are published Weekly on Monday mornings (~05:00 UTC).
-                NOTE: Always back up your existing configuration before testing Unstable releases as there is NO
-                DOWNGRADE PATH; you must restore your Stable configuration from a backup.
-
-                For more details, [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
+                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable
+                version. If you want to help test the latest improvements and features and can handle some occasional
+                breakage, use the Unstable version. New Unstable releases are published Weekly on Monday mornings
+                (~05:00 UTC). NOTE: Always back up your existing configuration before testing Unstable releases as there
+                is NO DOWNGRADE PATH; you must restore your Stable configuration from a backup. For more details,
+                [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
               </p>
             </Admonition>
           )}
