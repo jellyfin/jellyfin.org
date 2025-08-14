@@ -124,7 +124,7 @@ transcoding. You may find current desktop CPUs do not offer adequate performance
 
 ### System Memory (RAM)
 
-As a general recommendation, at least 8GB is recommended for the average deployment. For a Linux server running without a GUI, 4GB may be adequate.
+As a general recommendation, at least 8GB is recommended for the average deployment. For a Linux server running without a GUI, 4GB may be enough.
 
 It is recommended to add more memory when using Windows 11 due to the OS being heavier.
 
