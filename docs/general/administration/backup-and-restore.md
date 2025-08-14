@@ -9,7 +9,7 @@ This guide documents how to both back up and then restore the data in your Jelly
 
 ## Why Backing Up is Important
 
-Backups are important in general for all digital data. There are myriad possible bugs and issues that can arise and cause data loss, especially when you upgrade major releases (for instance, from Jellyfin 10.9.x to Jellyfin 10.10.x).
+Backups are important in general for all digital data. There are myriad possible bugs and issues that can arise and cause data loss, especially when you upgrade to a new release of Jellyfin Server.
 
 :::caution
 
@@ -25,7 +25,7 @@ Other scenarios in which backups make sense include administrative mistakes, nor
 
 It is strongly recommended to replicate your backups elsewhere so that in the event of major failure, you are able to restore your Jellyfin Server to a previous state.
 
-## Taking a Backup
+## Creating a Backup of Jellyfin Server
 
 As of Jellyfin 10.11.0, a backup facility is included in the core Jellyfin experience.
 
@@ -37,3 +37,6 @@ You can manually initiate a backup via this facility by following these steps:
 4. Click the `Create Backup` button.
 5. Using the checkboxes, select which aspects of Jellyfin Server you wish to back up. `Database` is always required to be backed up. Other options include `Metadata`, `Subtitles` and `Trickplay`.
 6. Click `Create` and wait for your backup to be created.
+
+> [!IMPORTANT]
+> A backup does not contain your media files, it only contains the files for Jellyfin Server itself.
