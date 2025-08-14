@@ -20,7 +20,7 @@ To solve this, you have the following options:
 
 A database for a moderate-sized library can grow anywhere from 10 to 100 GB.
 
-The [transcoding](/docs/general/post-install/transcoding) folder needs roughly the same size as the original media when transcoded at the same bitrate. A single 50 GB Blu-Ray remux by itself can take up to ~60 GB or as little as ~15 GB. If the transcoding folder is held on the same storage as the database, this must be taken into consideration.
+The [transcoding](/docs/general/post-install/transcoding) folder needs roughly the same size as the original media when transcoded at the same bitrate. A single 50 GB Blu-Ray remux by itself can take up to ~60 GB or as little as ~15 GB. If the transcoding folder is held on the same storage as the database, this must be taken into consideration to prevent running out of storage and thus corrupting your database.
 
 ## Cloud
 
