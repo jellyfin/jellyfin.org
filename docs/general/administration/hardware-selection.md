@@ -141,7 +141,7 @@ Intel is always recommended on non-Apple hardware for the following reasons:
 - Intel provides a good quality encoder, slightly better than NVIDIA and significantly better than AMD.
 - Intel drivers and the compute environment is much easier to setup than both NVIDIA and AMD
 
-AMD is not recommended due to poor quality H.264 and H.265 (HEVC) output, as well as being hard to set up the compute environment. While AMD has significantly improved AV1 encoder quality, you are still more likely to transcode to H.264 or H.265 than to AV1 due to compatibility.
+AMD is not recommended due to poor quality H.264 and H.265 (HEVC) output, as well as being hard to set up the compute environment. While AMD has significantly improved AV1 encoder quality, you are still more likely to transcode to H.264 or H.265 than to AV1 due to the hardware capabilities of the average Jellyfin client.
 
 A list of common codecs can be found in the [codec support documentation](/docs/general/clients/codec-support/).
 
