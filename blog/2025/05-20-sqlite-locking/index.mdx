@@ -6,8 +6,9 @@ slug: sqlite-locking
 tags: [sqlite, jellyfin, locked-database]
 ---
 
-SQLite is awesome but due to its nature, also has drawbacks that cannot be overlooked.
-Jellyfin uses a SQLite based database for storing most of its data for years now but also struggled on many systems with it, in this blog post i will go into how we attempt to get around some limitations and how anyone that works with sqlite can do the same.
+SQLite is a powerful database engine, but due to its design, it has limitations that should not be overlooked.
+
+Jellyfin has used a SQLite-based database for storing most of its data for years, but it has also encountered issues on many systems. In this blog post, I will explain how we address these limitations and how developers using SQLite can apply the same solutions.
 
 This will be a technical blog post intended for developers and everyone wanting to learn about concurrency.
 
@@ -30,7 +31,7 @@ So not only can only a single application ever write to a SQLite file, only a si
 ## The W-A-L mode
 
 SQLite has a feature that tries to get around this limitation, the Write-Ahead-Log is an separate file that acts as an journal of operations that should be applied to an SQLite file so within an application multiple parallel writes might take place and get enqueued into the WAL and when another part wants to read data it reads from the actual database and then scans the WAL for modifications and applies them on the fly.
-This is not a totally foolproof solution and there are still scenarios where this isn't possible like with ...
+This is not a foolproof solution; there are still scenarios where WAL does not prevent locking conflicts.
 
 ## SQLite Transactions
 
@@ -46,7 +47,7 @@ Since we moved the codebase over to EFCore proper, we have the tools to actually
 EFCore supports a way of hooking into every command execution or transaction creating, called (Interceptors)[https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/interceptors].
 With an interceptor we can finally do the straight forward idea of just "not" writing to the database in parallel in a transparent way to the caller. 
 The overall idea is to have multiple strategies of locking. Because all levels of synchronization will inevitably come at the cost of performance, we only want to do it when it is really necessary.
-So i decided on 3 ways of locking:
+So, I decided on three locking strategies:
 
 1. No-Lock
 2. Optimistic locking
@@ -54,7 +55,7 @@ So i decided on 3 ways of locking:
 
 As a default, the no-lock behavior does exactly what the name implies. Nothing. This is the default because my research shows that for 99% all of this is not an issue and every interaction at this level will slow down the whole application.
 
-Both the Optimistic and Pessimistic locking behaviors work on the same principle, they both create two Interceptors one for handling transactions and one for handling commands itself and also override the SaveChanges method of the `JellyfinDbContext`.
+Both the optimistic and pessimistic behaviors use two interceptors—one for transactions and one for commands—and override `SaveChanges` in `JellyfinDbContext`.
 
 ### Optimistic locking behavior 
 
