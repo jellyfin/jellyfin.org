@@ -32,13 +32,13 @@ Apple ≥ Intel ≥ NVIDIA >>> AMD<sup>\*</sup>
 
 ### Server with Integrated Graphics
 
-If you are not planning to use a dedicated graphics card, the following specs are recommended:
+If you do not intend to use a dedicated graphics card, the following specs are recommended:
 
 - CPU: Intel Core i5-11400, Intel Pentium Gold G7400, Intel N100, Apple M series or newer (excluding Intel J/M/N/Y series up to 11th gen)
 - RAM: 8GB System RAM (Consider adding more on Windows 11)
 - Graphics: Intel UHD 710, Apple M series or newer
 
-AMD is **NOT** recommended if you plan to use integrated graphics for Jellyfin.
+AMD is **NOT** recommended if you intend to use integrated graphics for Jellyfin.
 
 :::caution
 
@@ -48,7 +48,7 @@ Intel 7-10th gen CPUs have been removed from this list, since the toolkit for th
 
 ### Server with Dedicated Graphics
 
-If you are planning to use a dedicated graphics card (including upgrading an old system with a dedicated GPU), the following specs are recommended:
+If you intend to use a dedicated graphics card (including upgrading an old system with a dedicated GPU), the following specs are recommended:
 
 - CPU: Intel Core i5-2300，AMD FX-8100 or better (Geekbench 6 Multicore 1500 or better), CPU Vendor / Performance will **NOT** affect hardware encode speed or quality
 - RAM: 8GB. However, 4GB may be enough for a Linux server that is not running a locally-rendered GUI. CLI or browser-based administrative panels are essential on 4GB of RAM.
@@ -159,7 +159,7 @@ Please refer to [this table](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Vide
 
 Intel CPUs with a model name that ends with `F` do not have integrated graphics. These are intended to be used with a dedicated graphics card, meaning that if you wish to use Intel integrated graphics, this is not an appropriate choice of component for your Jellyfin Server.
 
-If you are planning to use Linux with Intel 12/13th gen integrated graphics or ARC, these GPUs only work on Linux Kernel 6.2 or newer. Please check your distribution to make sure it has a supported Linux Kernel version. Further information: [Known Intel limitations on Linux](/docs/general/post-install/transcoding/hardware-acceleration/known-issues#intel-on-linux).
+If you intend to use Linux with Intel 12/13th gen integrated graphics or ARC, these GPUs only work on Linux Kernel 6.2 or newer. Please check your distribution to make sure it has a supported Linux Kernel version. Further information: [Known Intel limitations on Linux](/docs/general/post-install/transcoding/hardware-acceleration/known-issues#intel-on-linux).
 
 :::caution
 
