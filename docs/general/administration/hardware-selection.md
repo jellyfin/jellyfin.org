@@ -42,7 +42,7 @@ AMD is **NOT** recommended if you plan to use integrated graphics for Jellyfin.
 
 :::caution
 
-Intel 7-10th gen CPUs have been removed from this list, since the toolkit for these generations has been deprecated by Intel. If you own a 7-10th gen CPU with integrated graphics, please continue to use them for Jellyfin, as they are still perfectly capable of performing the task. If you are making a purchase decision, you may wish to consider something else.
+Intel 7-10th gen CPUs have been removed from this list, since the toolkit for these generations has been deprecated by Intel. If you own a 7-10th gen CPU with integrated graphics, please continue to use them for Jellyfin, as they are still perfectly capable of performing the task. If you are making a purchase decision, you may wish to consider alternatives.
 
 :::
 
