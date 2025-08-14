@@ -120,7 +120,7 @@ When using Intel ARC Graphics, Resizable BAR is recommended. Disabling it will r
 If there is no GPU available on a Jellyfin Server, the CPU can also be used to tone-map HDR content to SDR. **This can be very demanding on
 the CPU, therefore a GPU is ALWAYS recommended.** When using software tone-mapping, a software encoder will always be
 used. Tone-mapping 4K 60fps Dolby Vision content to 4K 60fps H264 SDR requires a Ryzen 9 5950X for faster than real-time
-transcoding. You may find current desktop CPUs do not offer adequate performance if you seek to provide streams in H265 or AV1.
+transcoding. You may find current desktop CPUs do not offer adequate performance if you seek to provide streams in H.265 or AV1.
 
 ### System Memory (RAM)
 
