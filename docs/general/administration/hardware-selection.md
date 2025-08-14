@@ -248,4 +248,4 @@ The files for Jellyfin itself (i.e., not your media files) will see a lot of ran
 
 Networking is for connecting your Jellyfin server to other devices. It is recommended that the Jellyfin Server be connected to your network via Ethernet cable for optimal performance. Wi-Fi or Powerline solutions for a Jellyfin Server are NOT recommended and will result in an especially poor experience.
 
-Jellyfin Server is not designed to be exposed directly to the internet, do NOT accidentally connect your Jellyfin Server to ethernet ports marked `DMZ` on your network router. Always check the label before inserting the cable.
+Jellyfin Server is not designed to be exposed directly to the internet, do NOT accidentally connect your Jellyfin Server to ethernet ports marked `DMZ` on your network router. Always check the port label before inserting the cable.
