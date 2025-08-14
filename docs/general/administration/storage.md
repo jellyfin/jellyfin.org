@@ -42,10 +42,12 @@ With certain filesystems, optimizations are highly recommended for acceptable pe
 
 Whilst development is being done on further database providers, in current implementation of Jellyfin Server, the database uses SQLite. ZFS uses a default record size of `128 K`. This is sub-optimal for the SQLite database.
 
-Ideally, you want `4 K` or `8 K` for the dataset that contains your database. This is easily configured when running Jellyfin Server within a Docker container as you are able to easily change bind mounts and can set various datasets for each path as appropriate.
+Ideally, you should use `4 K` or `8 K` for the dataset that contains your Jellyfin Server SQLite database. This is easily configured when running Jellyfin Server within a Docker container as you are able to easily change bind mounts and can set various datasets for each path as appropriate.
 
 The record size for your media file dataset(s) must not be using `4 K` or `8 K`, otherwise you will likely encounter performance issues as your database scales.
 
 For ZFS datasets containing large media files (i.e., not the dataset containing the Jellyfin Server SQLite database), a record size of `1 M` is likely appropriate for optimal performance.
 
 N.b. Changing the record size on an existing ZFS dataset will not change the existing data within it, meaning performance will not be any different for anything but newly-written changes into the dataset. As such, it is recommended to rewrite your data into the dataset to take advantage of the change in record size, otherwise the configuration change will not perform as expected.
+
+As ZFS snapshots can use a lot of storage over time without a sensible `destroy` schedule, there may be a temptation to keep your data on a mechanical drive instead of an SSD. Do NOT use ZFS-formatted mechanical drives to store your Jellyfin Server data (everything except your media files), or you will have terrible performance. SSD is absolutely necessary.
