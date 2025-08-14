@@ -24,7 +24,9 @@ The [transcoding](/docs/general/post-install/transcoding) folder needs roughly t
 
 ## Cloud
 
-A popular choice for cloud storage has been the program [rclone](https://rclone.org/downloads/). It is supported on most Operating Systems. To facilitate combining local and cloud filesystems, rclone can be paired with another program such as [mergerfs](https://github.com/trapexit/mergerfs). For cloud storage, it is recommended to disable image extraction as this requires downloading the entire file to perform this task.
+[rclone](https://rclone.org/downloads/) is a popular choice for integrating cloud storage with a Jellyfin Server. rclone is supported on most operating systems. To combine local and cloud filesystems, rclone can be paired with another program such as [mergerfs](https://github.com/trapexit/mergerfs).
+
+When using cloud storage, it is recommended to disable image extraction as the task requires downloading the entire file.
 
 ## MergerFS
 
