@@ -38,5 +38,8 @@ You can manually initiate a backup via this facility by following these steps:
 5. Using the checkboxes, select which aspects of Jellyfin Server you wish to back up. `Database` is always required to be backed up. Other options include `Metadata`, `Subtitles` and `Trickplay`.
 6. Click `Create` and wait for your backup to be created.
 
-> [!IMPORTANT]
-> A backup does not contain your media files, it only contains the files for Jellyfin Server itself.
+:::caution
+
+A backup does not contain your media files, it only contains the files for Jellyfin Server itself.
+
+:::
