@@ -234,11 +234,11 @@ Supported codecs are listed below:
 
 ### Storage
 
-There are two general types of storage that can be used on a Jellyfin Server. Media files and Jellyfin files each require different performance characteristics for optimal performance.
+There are two general types of storage that can be used on a Jellyfin Server. Media files and Jellyfin files respectively require specific hardware to optimize performance.
 
 #### Media Storage
 
-Anything with higher sequential access speed than bitrate of media is appropriate. If desired, this storage may be a network share, or a cloud storage service mounted on the Jellyfin Server host.
+Anything with higher sequential access speed than bitrate of media is acceptable. If desired, this storage may be a network share, or a cloud storage service mounted on the Jellyfin Server host.
 
 #### Jellyfin Files
 
