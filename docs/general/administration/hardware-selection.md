@@ -181,7 +181,9 @@ Certain low-end cards, e.g., RX 6400, RX 6500, do not have encoding hardware. Pl
 
 Many AMD CPUs do not have integrated graphics. These are intended to be used with a dedicated graphics card.
 
-For Ryzen 1000 - 5000 Series, desktop CPUs with a model description that ends with `G` have integrated graphics, but other Ryzen 1000-5000 desktop CPUs do NOT. For Ryzen 7000 Series, desktop CPUs with a model description that ends with `F` do NOT have integrated graphics while others do.
+For Ryzen 1000 - 5000 Series, only desktop CPUs with a model description that ends with `G` have integrated graphics—other Ryzen 1000-5000 desktop CPUs do NOT.
+
+For Ryzen 7000 Series, desktop CPUs with a model description that ends with `F` do NOT have integrated graphics, whereas the rest do.
 
 Please check the product page of your CPU for more info.
 
