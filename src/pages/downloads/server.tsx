@@ -9,8 +9,7 @@ import DownloadDetails from '../../components/downloads/DownloadDetails';
 import { Downloads, OsType } from '../../data/downloads';
 
 import styles from './index.module.scss';
-import ExternalLinkIcon from '../../components/ExternalLinkIcon';
-
+import ExternalLinkIcon from '@theme/Icon/ExternalLink';
 
 export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsType }) {
   const [isStableLinks, setIsStableLinks] = useState<boolean>(true);

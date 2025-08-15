@@ -12,7 +12,7 @@ import { Client, Clients, DeviceType } from '../../../data/clients';
 import Platform, { FeaturedClientPlatforms } from '../../../data/platform';
 
 import styles from '../index.module.scss';
-import ExternalLinkIcon from '../../../components/ExternalLinkIcon';
+import ExternalLinkIcon from '@theme/Icon/ExternalLink';
 
 type ClientFilter = {
   recommended: boolean;
