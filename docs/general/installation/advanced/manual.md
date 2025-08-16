@@ -15,7 +15,6 @@ sidebar_position: 3
 2. Create a folder `jellyfin` at your preferred install location.
 3. Copy the extracted folder into the `jellyfin` folder and rename it to `system`.
 4. Create `jellyfin.bat` within your `jellyfin` folder containing:
-
    - To use the default library/data location at `%localappdata%`:
 
    ```cmd
@@ -229,7 +228,7 @@ sudo systemctl start jellyfin.service
 
 ## Portable .NET DLL
 
-Platform-agnostic .NET Core DLL builds in TAR archive format are available from the [portable downloads section](/downloads/dotnet).  
+Platform-agnostic .NET Core DLL builds in TAR archive format are available from the [portable downloads section](/downloads?os=DotNet).  
 These builds use the binary `jellyfin.dll` and must be loaded with `dotnet`.
 
 ## Debian (using extrepo)
@@ -294,7 +293,6 @@ If you would prefer to install everything manually, the full steps are as follow
    :::note
 
    The supported values for the above variables are:
-
    - `${VERSION_OS}`: One of `debian` or `ubuntu`; if it is not, use the closest one for your distribution.
    - `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
    - `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.

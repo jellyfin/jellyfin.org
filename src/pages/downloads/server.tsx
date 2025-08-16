@@ -1,3 +1,4 @@
+import { useHistory, useLocation } from '@docusaurus/router';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import React, { useState } from 'react';
@@ -10,10 +11,28 @@ import { Downloads, OsType } from '../../data/downloads';
 
 import styles from './index.module.scss';
 
-export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsType }) {
+export default function DownloadsPage() {
+  const history = useHistory();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
   const [isStableLinks, setIsStableLinks] = useState<boolean>(true);
   const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
   const [activeButton, setActiveButton] = useState<string>();
+
+  const [osType, _setOsType] = useState<OsType>((searchParams.get('os') as OsType) ?? OsType.Linux);
+
+  const setOsType = (osType: OsType | undefined) => {
+    const search = new URLSearchParams();
+
+    if (osType) {
+      search.set('os', osType);
+    }
+    history.push({
+      search: search.toString()
+    });
+
+    _setOsType(osType);
+  };
 
   return (
     <Layout title='Downloads'>
@@ -38,36 +57,21 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
 
             <div className={clsx('col', 'margin-bottom--md', styles['header-pills-middle'])}>
               <div className='pills' style={{ overflowX: 'auto' }}>
-                <Link
-                  to='/downloads/linux'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Linux })}
-                >
+                <Pill active={osType === OsType.Linux} onClick={() => setOsType(OsType.Linux)}>
                   Linux
-                </Link>
-                <Link
-                  to='/downloads/docker'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Docker })}
-                >
+                </Pill>
+                <Pill active={osType === OsType.Docker} onClick={() => setOsType(OsType.Docker)}>
                   Docker
-                </Link>
-                <Link
-                  to='/downloads/windows'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Windows })}
-                >
+                </Pill>
+                <Pill active={osType === OsType.Windows} onClick={() => setOsType(OsType.Windows)}>
                   Windows
-                </Link>
-                <Link
-                  to='/downloads/macos'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.MacOS })}
-                >
+                </Pill>
+                <Pill active={osType === OsType.MacOS} onClick={() => setOsType(OsType.MacOS)}>
                   macOS
-                </Link>
-                <Link
-                  to='/downloads/dotnet'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.DotNet })}
-                >
+                </Pill>
+                <Pill active={osType === OsType.DotNet} onClick={() => setOsType(OsType.DotNet)}>
                   .NET
-                </Link>
+                </Pill>
               </div>
             </div>
 
@@ -116,13 +120,12 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
           {isStableHelpVisible && (
             <Admonition type='tip' title='Stable or Unstable?'>
               <p>
-                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable version.
-                If you want to help test the latest improvements and features and can handle some occasional breakage,
-                use the Unstable version. New Unstable releases are published Weekly on Monday mornings (~05:00 UTC).
-                NOTE: Always back up your existing configuration before testing Unstable releases as there is NO
-                DOWNGRADE PATH; you must restore your Stable configuration from a backup.
-
-                For more details, [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
+                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable
+                version. If you want to help test the latest improvements and features and can handle some occasional
+                breakage, use the Unstable version. New Unstable releases are published Weekly on Monday mornings
+                (~05:00 UTC). NOTE: Always back up your existing configuration before testing Unstable releases as there
+                is NO DOWNGRADE PATH; you must restore your Stable configuration from a backup. For more details,
+                [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
               </p>
             </Admonition>
           )}
