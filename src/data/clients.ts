@@ -1,9 +1,9 @@
 import Platform from './platform';
 
 export enum ClientType {
-  Official,
-  OfficialBeta,
-  ThirdParty
+  Official="Official",
+  OfficialBeta="OfficialBeta",
+  ThirdParty="ThirdParty"
 }
 
 export enum DeviceType {
@@ -45,7 +45,7 @@ const officialClients: Array<Client> = [
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'flathub',
@@ -74,7 +74,7 @@ const officialClients: Array<Client> = [
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'flathub',
@@ -393,7 +393,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'gh-downloads',
@@ -416,7 +416,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Browser, Platform.Desktop],
+    platforms: [Platform.Browser, Platform.Linux, Platform.Windows],
     primaryLinks: [
       {
         id: 'browser',
@@ -444,7 +444,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'install',
@@ -467,7 +467,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'installation',
@@ -490,7 +490,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows, Platform.Docker],
     primaryLinks: [
       {
         id: 'browser',
@@ -518,7 +518,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'flathub',
@@ -964,7 +964,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows, Platform.Android, Platform.Browser],
     primaryLinks: [
       {
         id: "play-store",
