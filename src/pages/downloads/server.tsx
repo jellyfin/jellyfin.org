@@ -1,3 +1,4 @@
+import { useHistory,useLocation } from '@docusaurus/router';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import React, { useState } from 'react';
@@ -10,10 +11,37 @@ import { Downloads, OsType } from '../../data/downloads';
 
 import styles from './index.module.scss';
 
-export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsType }) {
+export default function DownloadsPage() {
+  const history = useHistory();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
   const [isStableLinks, setIsStableLinks] = useState<boolean>(true);
   const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
   const [activeButton, setActiveButton] = useState<string>();
+
+
+  const [osType, _setOsType] = useState<OsType>(searchParams.get('type') as OsType ?? OsType.Linux )
+
+const setOsType = (osType: OsType | undefined) => {
+    const search = new URLSearchParams();
+
+    if (osType) {
+      search.set('type', osType);
+    }
+    history.push({
+      search: search.toString()
+    });
+
+    _setOsType(osType);
+  };
+
+const items = Downloads.filter(
+  (download) =>
+    // OS Type matches filter
+    download.osTypes.includes(osType) &&
+    // Ensure there are unstable links if unstable is selected
+    (isStableLinks || download.unstableButtons.length > 0)
+)
 
   return (
     <Layout title='Downloads'>
@@ -38,36 +66,36 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
 
             <div className={clsx('col', 'margin-bottom--md', styles['header-pills-middle'])}>
               <div className='pills' style={{ overflowX: 'auto' }}>
-                <Link
-                  to='/downloads/linux'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Linux })}
+                <Pill
+                  active={osType === OsType.Linux}
+                  onClick={() => setOsType(OsType.Linux )}
                 >
                   Linux
-                </Link>
-                <Link
-                  to='/downloads/docker'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Docker })}
+                </Pill>
+                <Pill
+                  active={osType === OsType.Docker}
+                  onClick={() => setOsType(OsType.Docker )}
                 >
                   Docker
-                </Link>
-                <Link
-                  to='/downloads/windows'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.Windows })}
+                </Pill>
+                <Pill
+                  active={osType === OsType.Windows}
+                  onClick={() => setOsType(OsType.Windows )}
                 >
                   Windows
-                </Link>
-                <Link
-                  to='/downloads/macos'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.MacOS })}
+                </Pill>
+                <Pill
+                  active={osType === OsType.MacOS}
+                  onClick={() => setOsType(OsType.MacOS )}
                 >
                   macOS
-                </Link>
-                <Link
-                  to='/downloads/dotnet'
-                  className={clsx('pills__item', { 'pills__item--active': osType === OsType.DotNet })}
+                </Pill>
+                <Pill
+                  active={osType === OsType.DotNet}
+                  onClick={() => setOsType(OsType.DotNet )}
                 >
                   .NET
-                </Link>
+                </Pill>
               </div>
             </div>
 
@@ -127,13 +155,7 @@ export default function DownloadsPage({ osType = OsType.Linux }: { osType?: OsTy
             </Admonition>
           )}
 
-          {Downloads.filter(
-            (download) =>
-              // OS Type matches filter
-              download.osTypes.includes(osType) &&
-              // Ensure there are unstable links if unstable is selected
-              (isStableLinks || download.unstableButtons.length > 0)
-          ).map((download) => (
+          {items.map((download) => (
             <DownloadDetails
               key={download.id}
               download={download}
