@@ -20,13 +20,13 @@ export default function DownloadsPage() {
   const [activeButton, setActiveButton] = useState<string>();
 
 
-  const [osType, _setOsType] = useState<OsType>(searchParams.get('type') as OsType ?? OsType.Linux )
+  const [osType, _setOsType] = useState<OsType>(searchParams.get('os') as OsType ?? OsType.Linux )
 
 const setOsType = (osType: OsType | undefined) => {
     const search = new URLSearchParams();
 
     if (osType) {
-      search.set('type', osType);
+      search.set('os', osType);
     }
     history.push({
       search: search.toString()
