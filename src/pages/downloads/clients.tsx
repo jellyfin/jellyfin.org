@@ -14,7 +14,7 @@ import Platform from '../../data/platform';
 
 import styles from './index.module.scss';
 
-type ClientTypeFilter = "official" | 'recommended';
+type ClientTypeFilter = 'official' | 'recommended';
 
 type ClientFilter = {
   clientType: ClientTypeFilter;
@@ -32,8 +32,9 @@ export default function ClientsPage() {
     ? [
         ...Clients.filter((it) => {
           if (clientType === 'recommended') return it.recommended;
-          if (clientType === 'official') return it.clientType === ClientType.Official || it.clientType === ClientType.OfficialBeta;
-          return false
+          if (clientType === 'official')
+            return it.clientType === ClientType.Official || it.clientType === ClientType.OfficialBeta;
+          return false;
         })
       ]
     : Clients;
@@ -51,7 +52,7 @@ export default function ClientsPage() {
     : deviceTypeClients;
 
   const clientPlatforms = [...new Set(deviceTypeClients.flatMap((it) => it.platforms))].sort();
-      
+
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
 
   const filter: ClientFilter = {
@@ -132,15 +133,15 @@ export default function ClientsPage() {
                     >
                       All Clients
                     </Pill>
-                   <Pill
-                      active={clientType === "official"}
+                    <Pill
+                      active={clientType === 'official'}
                       onClick={() => {
-                        setFilter({ ...filter, clientType: "official" });
+                        setFilter({ ...filter, clientType: 'official' });
                       }}
                     >
                       Official
                     </Pill>
-                     <Pill
+                    <Pill
                       active={clientType === 'recommended'}
                       onClick={() => {
                         setFilter({ ...filter, clientType: 'recommended' });
@@ -165,7 +166,6 @@ export default function ClientsPage() {
                       key={deviceType}
                       active={filter.deviceType === deviceType}
                       onClick={() => {
-                        
                         setFilter({ ...filter, deviceType, platform: undefined });
                       }}
                     >

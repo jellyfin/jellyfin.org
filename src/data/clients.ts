@@ -1,9 +1,9 @@
 import Platform from './platform';
 
 export enum ClientType {
-  Official="Official",
-  OfficialBeta="OfficialBeta",
-  ThirdParty="ThirdParty"
+  Official = 'Official',
+  OfficialBeta = 'OfficialBeta',
+  ThirdParty = 'ThirdParty'
 }
 
 export enum DeviceType {
@@ -514,7 +514,7 @@ const thirdPartyClients: Array<Client> = [
   {
     id: 'tauon-music-box',
     name: 'Tauon Music Box',
-    description: "A modern streamlined music player for desktop with a minimal interface that is packed with features!",
+    description: 'A modern streamlined music player for desktop with a minimal interface that is packed with features!',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
@@ -958,27 +958,27 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: "fladder",
-    name: "Fladder",
-    description: "A simple, cross-platform Jellyfin frontend built on top of Flutter.",
+    id: 'fladder',
+    name: 'Fladder',
+    description: 'A simple, cross-platform Jellyfin frontend built on top of Flutter.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Linux, Platform.MacOS, Platform.Windows, Platform.Android, Platform.Browser],
     primaryLinks: [
       {
-        id: "play-store",
-        name: "Play Store",
-        url: "https://play.google.com/store/apps/details?id=nl.jknaapen.fladder",
-      },
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=nl.jknaapen.fladder'
+      }
     ],
     secondaryLinks: [
       {
-        id: "github",
-        name: "GitHub",
-        url: "https://github.com/DonutWare/Fladder",
-      },
-    ],
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/DonutWare/Fladder'
+      }
+    ]
   },
   {
     id: 'symfonium',
@@ -1029,7 +1029,4 @@ const thirdPartyClients: Array<Client> = [
   }
 ];
 
-export const Clients: Array<Client> = [
-  ...officialClients,
-  ...thirdPartyClients
-];
+export const Clients: Array<Client> = [...officialClients, ...thirdPartyClients];
