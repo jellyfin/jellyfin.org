@@ -22,27 +22,10 @@ enum Platform {
   DotNet = '.NET Portable',
   Fedora = 'Fedora',
   Gentoo = 'Gentoo',
-  Linux = 'Generic Linux',
+  Linux = 'Linux',
   MacOS = 'macOS',
   Ubuntu = 'Ubuntu',
   Windows = 'Windows'
 }
 
 export default Platform;
-
-/**
- * List of "featured" clients.
- * Currently this is only used for determining which platform to include in the filter options.
- */
-export const FeaturedClientPlatforms = [
-  Platform.Android,
-  Platform.AndroidTV,
-  Platform.Desktop,
-  Platform.FireOS,
-  Platform.IOS,
-  Platform.Kodi,
-  Platform.Roku,
-  Platform.TVOS,
-  Platform.WebOS,
-  Platform.Xbox
-];
