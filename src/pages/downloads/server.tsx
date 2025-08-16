@@ -1,4 +1,4 @@
-import { useHistory,useLocation } from '@docusaurus/router';
+import { useHistory, useLocation } from '@docusaurus/router';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import React, { useState } from 'react';
@@ -19,10 +19,9 @@ export default function DownloadsPage() {
   const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
   const [activeButton, setActiveButton] = useState<string>();
 
+  const [osType, _setOsType] = useState<OsType>((searchParams.get('os') as OsType) ?? OsType.Linux);
 
-  const [osType, _setOsType] = useState<OsType>(searchParams.get('os') as OsType ?? OsType.Linux )
-
-const setOsType = (osType: OsType | undefined) => {
+  const setOsType = (osType: OsType | undefined) => {
     const search = new URLSearchParams();
 
     if (osType) {
@@ -34,14 +33,6 @@ const setOsType = (osType: OsType | undefined) => {
 
     _setOsType(osType);
   };
-
-const items = Downloads.filter(
-  (download) =>
-    // OS Type matches filter
-    download.osTypes.includes(osType) &&
-    // Ensure there are unstable links if unstable is selected
-    (isStableLinks || download.unstableButtons.length > 0)
-)
 
   return (
     <Layout title='Downloads'>
@@ -66,34 +57,19 @@ const items = Downloads.filter(
 
             <div className={clsx('col', 'margin-bottom--md', styles['header-pills-middle'])}>
               <div className='pills' style={{ overflowX: 'auto' }}>
-                <Pill
-                  active={osType === OsType.Linux}
-                  onClick={() => setOsType(OsType.Linux )}
-                >
+                <Pill active={osType === OsType.Linux} onClick={() => setOsType(OsType.Linux)}>
                   Linux
                 </Pill>
-                <Pill
-                  active={osType === OsType.Docker}
-                  onClick={() => setOsType(OsType.Docker )}
-                >
+                <Pill active={osType === OsType.Docker} onClick={() => setOsType(OsType.Docker)}>
                   Docker
                 </Pill>
-                <Pill
-                  active={osType === OsType.Windows}
-                  onClick={() => setOsType(OsType.Windows )}
-                >
+                <Pill active={osType === OsType.Windows} onClick={() => setOsType(OsType.Windows)}>
                   Windows
                 </Pill>
-                <Pill
-                  active={osType === OsType.MacOS}
-                  onClick={() => setOsType(OsType.MacOS )}
-                >
+                <Pill active={osType === OsType.MacOS} onClick={() => setOsType(OsType.MacOS)}>
                   macOS
                 </Pill>
-                <Pill
-                  active={osType === OsType.DotNet}
-                  onClick={() => setOsType(OsType.DotNet )}
-                >
+                <Pill active={osType === OsType.DotNet} onClick={() => setOsType(OsType.DotNet)}>
                   .NET
                 </Pill>
               </div>
@@ -144,18 +120,23 @@ const items = Downloads.filter(
           {isStableHelpVisible && (
             <Admonition type='tip' title='Stable or Unstable?'>
               <p>
-                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable version.
-                If you want to help test the latest improvements and features and can handle some occasional breakage,
-                use the Unstable version. New Unstable releases are published Weekly on Monday mornings (~05:00 UTC).
-                NOTE: Always back up your existing configuration before testing Unstable releases as there is NO
-                DOWNGRADE PATH; you must restore your Stable configuration from a backup.
-
-                For more details, [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
+                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable
+                version. If you want to help test the latest improvements and features and can handle some occasional
+                breakage, use the Unstable version. New Unstable releases are published Weekly on Monday mornings
+                (~05:00 UTC). NOTE: Always back up your existing configuration before testing Unstable releases as there
+                is NO DOWNGRADE PATH; you must restore your Stable configuration from a backup. For more details,
+                [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
               </p>
             </Admonition>
           )}
 
-          {items.map((download) => (
+          {Downloads.filter(
+            (download) =>
+              // OS Type matches filter
+              download.osTypes.includes(osType) &&
+              // Ensure there are unstable links if unstable is selected
+              (isStableLinks || download.unstableButtons.length > 0)
+          ).map((download) => (
             <DownloadDetails
               key={download.id}
               download={download}
