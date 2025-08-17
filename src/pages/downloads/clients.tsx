@@ -15,7 +15,7 @@ import ExternalLinkIcon from '@theme/Icon/ExternalLink';
 
 import styles from './index.module.scss';
 
-type ClientTypeFilter = 'official' | 'recommended';
+type ClientTypeFilter = 'all' | 'official';
 
 type ClientFilter = {
   clientType: ClientTypeFilter;
@@ -29,16 +29,20 @@ export default function ClientsPage() {
   const searchParams = new URLSearchParams(location.search);
 
   const clientType = (searchParams.get('clientType') as ClientTypeFilter) || undefined;
-  const clientTypeClients = clientType
-    ? [
-        ...Clients.filter((it) => {
-          if (clientType === 'recommended') return it.recommended;
-          if (clientType === 'official')
-            return it.clientType === ClientType.Official || it.clientType === ClientType.OfficialBeta;
+  const clientTypeClients = [
+    ...Clients.filter((it) => {
+      switch (clientType) {
+        case 'all':
+          return true;
+        case 'official':
+          return it.clientType === ClientType.Official || it.clientType === ClientType.OfficialBeta;
+        case undefined:
+          return it.recommended;
+        default:
           return false;
-        })
-      ]
-    : Clients;
+      }
+    })
+  ];
 
   const clientDeviceTypes = [...new Set(clientTypeClients.flatMap((it) => it.deviceTypes))].sort();
 
@@ -128,9 +132,9 @@ export default function ClientsPage() {
                 <ul className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
                   <div className='pills'>
                     <Pill
-                      active={clientType === undefined}
+                      active={clientType === 'all'}
                       onClick={() => {
-                        setFilter({ ...filter, clientType: undefined });
+                        setFilter({ ...filter, clientType: 'all' });
                       }}
                     >
                       All Clients
@@ -144,9 +148,9 @@ export default function ClientsPage() {
                       Official
                     </Pill>
                     <Pill
-                      active={clientType === 'recommended'}
+                      active={clientType === undefined}
                       onClick={() => {
-                        setFilter({ ...filter, clientType: 'recommended' });
+                        setFilter({ ...filter, clientType: undefined });
                       }}
                     >
                       Recommended
