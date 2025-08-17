@@ -100,3 +100,6 @@ This page lists all known issues and limitations of hardware acceleration with J
    - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/48](https://github.com/NVIDIA/nvidia-container-toolkit/issues/48)
    - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/538](https://github.com/NVIDIA/nvidia-container-toolkit/issues/538)
    - [https://github.com/ollama/ollama/issues/6928#issuecomment-2586208913](https://github.com/ollama/ollama/issues/6928#issuecomment-2586208913)
+3. Docker desktop isn't supported by Nvidia Container Toolkit.
+   - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/219#issuecomment-1903941381](https://github.com/NVIDIA/nvidia-container-toolkit/issues/219#issuecomment-1903941381)
+   If you need a GUI, use the docker package and podman, or similar.

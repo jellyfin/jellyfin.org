@@ -11,6 +11,7 @@ import { Downloads, OsType } from '../../data/downloads';
 import { UAParser } from 'ua-parser-js';
 
 import styles from './index.module.scss';
+import ExternalLinkIcon from '@theme/Icon/ExternalLink';
 
 export default function DownloadsPage({ osType }: { osType?: OsType }) {
   const [isStableLinks, setIsStableLinks] = useState<boolean>(true);
@@ -53,6 +54,7 @@ export default function DownloadsPage({ osType }: { osType?: OsType }) {
                 </Link>
                 <Link to='https://repo.jellyfin.org' className='pills__item'>
                   Full Repository
+                  <ExternalLinkIcon />
                 </Link>
               </div>
             </div>
