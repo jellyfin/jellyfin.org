@@ -11,6 +11,7 @@ import ClientDetails from '../../components/clients/ClientDetails';
 import Pill from '../../components/common/Pill';
 import { Clients, ClientType, DeviceType } from '../../data/clients';
 import Platform from '../../data/platform';
+import ExternalLinkIcon from '@theme/Icon/ExternalLink';
 
 import styles from './index.module.scss';
 
@@ -96,6 +97,7 @@ export default function ClientsPage() {
                 </Link>
                 <Link to='https://repo.jellyfin.org' className='pills__item'>
                   Full Repository
+                  <ExternalLinkIcon />
                 </Link>
               </div>
             </div>
