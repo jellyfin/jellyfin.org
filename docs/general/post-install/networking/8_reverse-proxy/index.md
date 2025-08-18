@@ -19,7 +19,7 @@ Important things to note when using Jellyfin behind a reverse proxy.
 
 Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g. `api_key` parameter), so logging the full request path can expose secrets to your logfile.
 We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
-Our [proxy guides](./#guides) include examples on how to censor sensitive information from a logfile.
+Our [proxy guides](./index.md#guides) include examples on how to censor sensitive information from a logfile.
 
 ### Forwarded-For Headers
 
@@ -43,14 +43,14 @@ We recommend using [Caddy](https://caddyserver.com/) for its ease of use, especi
 
 If you do not want to use Caddy, some other popular options for reverse proxy systems are [Nginx](https://www.nginx.com), [Traefik](https://traefik.io), [Haproxy](https://www.haproxy.com) and [Apache](https://httpd.apache.org). Note that these have a greater learning curve than the recommended reverse proxy Caddy. You can find respective guides here:
 
-- [Nginx](./nginx)
-- [Traefik](./traefik)
-- [HAProxy](./haproxy)
-- [Apache](./apache)
+- [Nginx](./nginx.md)
+- [Traefik](./traefik.md)
+- [HAProxy](./haproxy.md)
+- [Apache](./apache.md)
 
 While not a reverse proxy, Let's Encrypt can be used independently or with a reverse proxy to provide SSL certificates.
 
-- [Let's Encrypt](../advanced/letsencrypt)
+- [Let's Encrypt](../9_advanced/letsencrypt.md)
 
 When following these guides, be sure to replace the following variables with your information.
 
