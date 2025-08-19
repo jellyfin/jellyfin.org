@@ -67,7 +67,7 @@ This page lists all known issues and limitations of hardware acceleration with J
 
 5. The kernel support for Intel Gen 12 TGL graphics is incomplete before Linux 5.9.
 
-6. The kernel support for Intel Gen 12 DG1 is incomplete in upstream. Intel DKMS and custom iHD driver are required.
+6. The kernel support for Intel Gen 12 DG1 is incomplete before Linux 6.17.
 
 7. The kernel support for Intel Gen 12 ADL graphics is incomplete before Linux 5.17. (ADL-N Refresh N150/N250/N350 iGPU requires Linux 6.9+)
 
