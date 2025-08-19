@@ -5,7 +5,7 @@ title: Intel GPU
 
 # HWA Tutorial On Intel GPU
 
-This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](./apple) instead.
+This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](./apple.md) instead.
 
 ## Acceleration Methods
 
@@ -193,7 +193,7 @@ Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, na
 
 Jellyfin server support Intel ARC **Alchemist/A-series** discrete GPU on both Windows and Linux **6.2+**. For using ARC **Battlemage/B-series** discrete GPU on Linux, kernel version **6.12+** is required. Windows is also supported, just install the GPU driver.
 
-You only need to follow the [Windows Setups](./intel#windows-setups) and [Linux Setups](./intel#linux-setups) to configure and verify it.
+You only need to follow the [Windows Setups](./intel.md#windows-setups) and [Linux Setups](./intel.md#linux-setups) to configure and verify it.
 
 :::tip
 
@@ -390,7 +390,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](./intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](./intel.md#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -426,7 +426,7 @@ Root permission is required.
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
    ```
 
-4. Check to the remaining parts of [Debian And Ubuntu Linux](./intel#debian-and-ubuntu-linux).
+4. Check to the remaining parts of [Debian And Ubuntu Linux](./intel.md#debian-and-ubuntu-linux).
 
 #### Other Distros
 

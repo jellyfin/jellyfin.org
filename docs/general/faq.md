@@ -1,7 +1,7 @@
 ---
 uid: faq
 title: FAQ
-sidebar_position: 1
+sidebar_position: 102
 ---
 
 # Frequently Asked Questions
