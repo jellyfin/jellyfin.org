@@ -1,5 +1,3 @@
-import Platform from './platform';
-
 export enum ClientType {
   Official = 'Official',
   OfficialBeta = 'OfficialBeta',
@@ -11,6 +9,43 @@ export enum DeviceType {
   Mobile = 'Mobile',
   TV = 'TV'
 }
+
+export enum Platform {
+  // Client platforms
+  Android = 'Android',
+  AndroidTV = 'Android TV',
+  Browser = 'Browser',
+  Desktop = 'Desktop',
+  Discord = 'Discord',
+  FireOS = 'Fire TV',
+  IOS = 'iOS',
+  Kodi = 'Kodi',
+  Roku = 'Roku',
+  SailfishOS = 'Sailfish OS',
+  TVOS = 'tvOS',
+  WebOS = 'webOS',
+  Xbox = 'Xbox',
+
+  // Server platforms
+  Arch = 'Arch Linux',
+  CentOS = 'CentOS',
+  Debian = 'Debian',
+  Docker = 'Docker',
+  DotNet = '.NET Portable',
+  Fedora = 'Fedora',
+  Gentoo = 'Gentoo',
+  Linux = 'Linux',
+  MacOS = 'macOS',
+  Ubuntu = 'Ubuntu',
+  Windows = 'Windows'
+}
+
+export const DEVICE_PLATFORMS: Map<DeviceType, Platform[]> = new Map([
+  [DeviceType.TV, [Platform.AndroidTV, Platform.FireOS, Platform.Roku, Platform.TVOS, Platform.WebOS]],
+  [DeviceType.Mobile, [Platform.Android, Platform.IOS]],
+  [DeviceType.Desktop, [Platform.Linux, Platform.MacOS, Platform.Windows]]
+]);
+export const OTHERS = [Platform.Browser, Platform.Discord, Platform.Docker, Platform.Kodi, Platform.Xbox];
 
 export enum LicenseType {
   OpenSource,

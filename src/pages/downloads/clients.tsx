@@ -1,26 +1,19 @@
 import Link from '@docusaurus/Link';
 import { useHistory, useLocation } from '@docusaurus/router';
-import { mdiFilter } from '@mdi/js';
-import Icon from '@mdi/react';
 import Layout from '@theme/Layout';
 
-import clsx from 'clsx';
-import React, { useState } from 'react';
+import React from 'react';
 
 import ClientDetails from '../../components/clients/ClientDetails';
-import Pill from '../../components/common/Pill';
-import { Clients, ClientType, DeviceType } from '../../data/clients';
-import Platform from '../../data/platform';
+import { Platform, Clients, ClientType, DEVICE_PLATFORMS, DeviceType, OTHERS } from '../../data/clients';
 import ExternalLinkIcon from '@theme/Icon/ExternalLink';
 
-import styles from './index.module.scss';
-
-type ClientTypeFilter = 'all' | 'official';
+type ClientTypeFilter = '' | 'all' | 'official' | 'thirdParty';
 
 type ClientFilter = {
   clientType: ClientTypeFilter;
-  deviceType: DeviceType;
-  platform: Platform;
+  deviceType: DeviceType | '';
+  platform: Platform | '';
 };
 
 export default function ClientsPage() {
@@ -28,37 +21,35 @@ export default function ClientsPage() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
-  const clientType = (searchParams.get('clientType') as ClientTypeFilter) || undefined;
+  const clientType = (searchParams.get('clientType') as ClientTypeFilter) || '';
   const clientTypeClients = [
     ...Clients.filter((it) => {
       switch (clientType) {
         case 'all':
           return true;
+        case '':
+          return it.recommended;
         case 'official':
           return it.clientType === ClientType.Official || it.clientType === ClientType.OfficialBeta;
-        case undefined:
-          return it.recommended;
+        case 'thirdParty':
+          return it.clientType === ClientType.ThirdParty;
         default:
           return false;
       }
     })
   ];
 
-  const clientDeviceTypes = [...new Set(clientTypeClients.flatMap((it) => it.deviceTypes))].sort();
-
-  const deviceType = (searchParams.get('type') as DeviceType) || undefined;
+  const deviceType = (searchParams.get('type') as DeviceType) || '';
   const deviceTypeClients = deviceType
     ? [...clientTypeClients.filter((it) => it.deviceTypes.includes(deviceType))]
     : clientTypeClients;
 
-  const platform = (searchParams.get('platform') as Platform) || undefined;
+  const platform = (searchParams.get('platform') as Platform) || '';
   const platformClients = platform
     ? [...deviceTypeClients.filter((it) => it.platforms.includes(platform))]
     : deviceTypeClients;
 
   const clientPlatforms = [...new Set(deviceTypeClients.flatMap((it) => it.platforms))].sort();
-
-  const [isFiltersVisible, setIsFiltersVisible] = useState(false);
 
   const filter: ClientFilter = {
     clientType,
@@ -73,10 +64,10 @@ export default function ClientsPage() {
       search.set('clientType', filter.clientType);
     }
 
-    if (filter.deviceType !== undefined) {
+    if (filter.deviceType) {
       search.set('type', filter.deviceType);
     }
-    if (filter.platform !== undefined) {
+    if (filter.platform) {
       search.set('platform', filter.platform);
     }
     history.push({
@@ -105,105 +96,58 @@ export default function ClientsPage() {
                 </Link>
               </div>
             </div>
-
-            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}>
-              <button
-                className={clsx(
-                  'button',
-                  'button--outline',
-                  'button--primary',
-                  { 'button--active': isFiltersVisible },
-                  'button--icon',
-                  styles['filters-button']
-                )}
-                onClick={() => {
-                  setIsFiltersVisible(!isFiltersVisible);
-                }}
-              >
-                <Icon path={mdiFilter} size='1em' />
-                Filters
-              </button>
-            </div>
           </div>
 
-          {isFiltersVisible && (
-            <div className='card card--outline margin-bottom--md'>
-              <div className='card__body'>
-                <ul className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
-                  <div className='pills'>
-                    <Pill
-                      active={clientType === 'all'}
-                      onClick={() => {
-                        setFilter({ ...filter, clientType: 'all' });
-                      }}
-                    >
-                      All Clients
-                    </Pill>
-                    <Pill
-                      active={clientType === 'official'}
-                      onClick={() => {
-                        setFilter({ ...filter, clientType: 'official' });
-                      }}
-                    >
-                      Official
-                    </Pill>
-                    <Pill
-                      active={clientType === undefined}
-                      onClick={() => {
-                        setFilter({ ...filter, clientType: undefined });
-                      }}
-                    >
-                      Recommended
-                    </Pill>
-                  </div>
-                </ul>
+          <div className='card card--outline margin-bottom--md'>
+            <div className='card__body' style={{ display: 'grid', gap: '0.5rem' }}>
+              <div>
+                <label htmlFor='clientSelect'>Clients</label>
+                <select
+                  id='clientSelect'
+                  className='pills__item pills__item--active'
+                  value={filter.clientType}
+                  onChange={(e) => {
+                    const target = e.target as HTMLSelectElement;
+                    setFilter({ ...filter, clientType: target.value as ClientTypeFilter });
+                  }}
+                >
+                  <option value='all'>All</option>
+                  <option value='' label='Recommended'></option>
+                  <option value='official'>Official</option>
+                  <option value='thirdParty'>Third Party</option>
+                </select>
+              </div>
 
-                <ul className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
-                  <Pill
-                    active={filter.deviceType === undefined}
-                    onClick={() => {
-                      setFilter({ ...filter, deviceType: undefined });
-                    }}
-                  >
-                    All Device Types
-                  </Pill>
-                  {clientDeviceTypes.map((deviceType) => (
-                    <Pill
-                      key={deviceType}
-                      active={filter.deviceType === deviceType}
-                      onClick={() => {
-                        setFilter({ ...filter, deviceType, platform: undefined });
-                      }}
-                    >
-                      {deviceType}
-                    </Pill>
+              <div>
+                <label htmlFor='devicesSelect'>Devices</label>
+                <select
+                  id='devicesSelect'
+                  className='pills__item pills__item--active'
+                  value={filter.platform}
+                  onChange={(e) => {
+                    const target = e.target as HTMLSelectElement;
+                    setFilter({ ...filter, platform: target.value as Platform });
+                  }}
+                >
+                  <option value=''>All</option>
+                  {[...DEVICE_PLATFORMS.entries()].map(([name, platforms]) => (
+                    <optgroup key={name} label={name}>
+                      {platforms
+                        .filter((it) => clientPlatforms.includes(it))
+                        .map((it) => (
+                          <option key={it}>{it}</option>
+                        ))}
+                    </optgroup>
                   ))}
-                </ul>
-
-                <ul className={clsx('pills', styles['filter-pills'])}>
-                  <Pill
-                    active={filter.platform === undefined}
-                    onClick={() => {
-                      setFilter({ ...filter, platform: undefined });
-                    }}
-                  >
-                    All Platforms
-                  </Pill>
-                  {clientPlatforms.map((platform) => (
-                    <Pill
-                      key={platform}
-                      active={filter.platform === platform}
-                      onClick={() => {
-                        setFilter({ ...filter, platform });
-                      }}
-                    >
-                      {platform}
-                    </Pill>
-                  ))}
-                </ul>
+                  <optgroup key={'others'} label='Others'>
+                    {OTHERS.filter((it) => clientPlatforms.includes(it)).map((it) => (
+                      <option key={it}>{it}</option>
+                    ))}
+                  </optgroup>
+                </select>
               </div>
             </div>
-          )}
+          </div>
 
           {platformClients.length === 0 ? (
             <div className='card padding-vert--lg'>
