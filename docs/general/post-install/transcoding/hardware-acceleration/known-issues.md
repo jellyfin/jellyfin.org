@@ -86,6 +86,8 @@ This page lists all known issues and limitations of hardware acceleration with J
 
 13. Intel Compute-Runtime versions starting at 25.18.33578.6 are broken for certain GPUs. The issue has been verified on Arc A series GPUs. If you are using one of the effected models it will be necessary to install the latest known working version of 25.13.33276.16 until the [issue](https://github.com/intel/compute-runtime/issues/831) is fixed. This can effect containers as well, if you are not using the [official image](https://hub.docker.com/r/jellyfin/jellyfin), check your version in container as well.
 
+14. Resizable-BAR is mandatory for hardware acceleration on BMG / ARC B-series cards, or the [media driver will crash the transcoder](https://github.com/intel/media-driver/issues/1893).
+
 ## Nvidia
 
 1. Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) cards have an artificial limit on the number of concurrent NVENC encoding sessions. This restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
