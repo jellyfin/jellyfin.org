@@ -224,7 +224,7 @@ const officialClients: Array<Client> = [
       {
         id: 'github',
         name: 'GitHub',
-        url: 'https://github.com/jellyfin/jellyfin-expo'
+        url: 'https://github.com/jellyfin/jellyfin-ios'
       }
     ],
     recommended: true
@@ -381,7 +381,8 @@ const officialClients: Array<Client> = [
         name: 'GitHub',
         url: 'https://github.com/jellyfin/jellyfin-xbox'
       }
-    ]
+    ],
+    recommended: true
   }
 ];
 

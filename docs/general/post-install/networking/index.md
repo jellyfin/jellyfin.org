@@ -116,7 +116,7 @@ There are multiple ways of exposing Jellyfin to the outside - the most common on
 - using a VPN connection to enter the Network
 - use a VPS to Reverse Proxy to your home network
 
-Learn more about reverse proxies in our dedicated [Reverse Proxy guide](./reverse-proxy/).
+Learn more about reverse proxies in our dedicated [Reverse Proxy guide](./8_reverse-proxy/index.md).
 
 ### SSL / https
 
@@ -124,7 +124,7 @@ Using https to access the Server is recommended.
 By default, HTTPS is disabled because it requires an SSL certificate.
 
 SSL Certificates are usually issued by a third party and verify that the Server and URL are assigned to another.
-Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt) when using https.
+Please use a trusted certificate authority such as [Let's Encrypt](./9_advanced/letsencrypt.md) when using https.
 
 :::caution
 
@@ -132,7 +132,7 @@ Self-signed certificates pose security and compatibility issues and are strongly
 
 :::
 
-While Jellyfin supports HTTPS, it is strongly recommended to handle HTTPS termination separately on a reverse proxy. You can find more info on how to set this up on our [Reverse Proxy](./reverse-proxy/) page.
+While Jellyfin supports HTTPS, it is strongly recommended to handle HTTPS termination separately on a reverse proxy. You can find more info on how to set this up on our [Reverse Proxy](./8_reverse-proxy/index.md) page.
 
 **It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.**
 
@@ -142,7 +142,7 @@ Running Jellyfin with a path (e.g. `https://example.com/jellyfin`) is supported.
 
 :::caution
 
-Base URL is known to break HDHomeRun, the [DLNA plugin](./dlna/), Sonarr, Radarr, and MrMC.
+Base URL is known to break HDHomeRun, the [DLNA plugin](./3_dlna.md), Sonarr, Radarr, and MrMC.
 
 :::
 
