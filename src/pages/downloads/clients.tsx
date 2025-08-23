@@ -99,8 +99,11 @@ export default function ClientsPage() {
           </div>
 
           <div className='card card--outline margin-bottom--md'>
-            <div className='card__body' style={{ display: 'grid', gap: '0.5rem' }}>
-              <div>
+            <div
+              className='card__body'
+              style={{ display: 'grid', gap: '0.5rem', gridTemplateColumns: 'max-content max-content' }}
+            >
+              <div style={{ display: 'grid', gridColumn: '1 / -1', gridTemplateColumns: 'subgrid' }}>
                 <label htmlFor='clientSelect'>Clients</label>
                 <select
                   id='clientSelect'
@@ -118,7 +121,7 @@ export default function ClientsPage() {
                 </select>
               </div>
 
-              <div>
+              <div style={{ display: 'grid', gridColumn: '1 / -1', gridTemplateColumns: 'subgrid' }}>
                 <label htmlFor='devicesSelect'>Devices</label>
                 <select
                   id='devicesSelect'
