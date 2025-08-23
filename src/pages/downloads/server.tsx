@@ -10,6 +10,7 @@ import DownloadDetails from '../../components/downloads/DownloadDetails';
 import { Downloads, OsType } from '../../data/downloads';
 
 import styles from './index.module.scss';
+import ExternalLinkIcon from '@theme/Icon/ExternalLink';
 
 export default function DownloadsPage() {
   const history = useHistory();
@@ -51,6 +52,7 @@ export default function DownloadsPage() {
                 </Link>
                 <Link to='https://repo.jellyfin.org' className='pills__item'>
                   Full Repository
+                  <ExternalLinkIcon />
                 </Link>
               </div>
             </div>
