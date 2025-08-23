@@ -15,7 +15,7 @@ On Windows and Linux **NVENC** is the only available method.
 
 The NVENC/NVDEC are the proprietary video codec APIs of NVIDIA GPUs, which can be used with CUDA to achieve full hardware acceleration.
 
-Please refer to [this section](./known-issues#nvidia) for known issues and limitations.
+Please refer to [this section](./known-issues.md#nvidia) for known issues and limitations.
 
 :::note
 
@@ -127,7 +127,7 @@ Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.10 the minimum requi
 
 NVIDIA Windows driver provides access to the NVENC/NVDEC and CUDA in Windows WSL2 and Docker.
 
-Refer to [Configure On Linux Host](./nvidia#configure-on-linux-host) and [Configure With Linux Virtualization](./nvidia#configure-with-linux-virtualization).
+Refer to [Configure On Linux Host](./nvidia.md#configure-on-linux-host) and [Configure With Linux Virtualization](./nvidia.md#configure-with-linux-virtualization).
 
 ### Verify On Windows
 
@@ -220,7 +220,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian and Ubuntu Linux](./nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian and Ubuntu Linux](./nvidia.md#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -519,7 +519,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 Other Virtualizations are not verified and may or may not work on NVIDIA GPU.
 
-Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel#configure-with-linux-virtualization) for more information.
+Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel.md#configure-with-linux-virtualization) for more information.
 
 ### Verify On Linux
 

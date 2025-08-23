@@ -101,11 +101,11 @@ See the table below to pick the best hardware acceleration method for your hardw
 
 | GPU Vendor | Windows                                    | macOS                      | Linux                                  |
 | ---------- | ------------------------------------------ | -------------------------- | -------------------------------------- |
-| AMD        | [AMF (Windows)](./amd#windows-setups)      | [VideoToolbox](./apple.md) | [VAAPI (AMD)](./amd#linux-setups)      |
+| AMD        | [AMF (Windows)](./amd.md#windows-setups)      | [VideoToolbox](./apple.md) | [VAAPI (AMD)](./amd.md#linux-setups)      |
 | Apple      | N/A                                        | [VideoToolbox](./apple.md) | N/A                                    |
-| Intel      | [QSV (Windows)](./intel#windows-setups)    | [VideoToolbox](./apple.md) | [QSV (Linux)](./intel#linux-setups)    |
-| Nvidia     | [NVENC (Windows)](./nvidia#windows-setups) | N/A                        | [NVENC (Linux)](./nvidia#linux-setups) |
-| Rockchip   | N/A                                        | N/A                        | [RKMPP](./rockchip)                    |
+| Intel      | [QSV (Windows)](./intel.md#windows-setups)    | [VideoToolbox](./apple.md) | [QSV (Linux)](./intel.md#linux-setups)    |
+| Nvidia     | [NVENC (Windows)](./nvidia.md#windows-setups) | N/A                        | [NVENC (Linux)](./nvidia.md#linux-setups) |
+| Rockchip   | N/A                                        | N/A                        | [RKMPP](./rockchip.md)                    |
 
 ## Remote Hardware Acceleration
 
