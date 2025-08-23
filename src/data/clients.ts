@@ -416,7 +416,8 @@ const officialClients: Array<Client> = [
         name: 'GitHub',
         url: 'https://github.com/jellyfin/jellyfin-xbox'
       }
-    ]
+    ],
+    recommended: true
   }
 ];
 
