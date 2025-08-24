@@ -7,7 +7,7 @@ Images can either be provided as external files within the media folders, or emb
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
+<Tabs defaultValue={props.defaultTab}>
   <TabItem value='music' label='Music'>
     ```txt
     Album
@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
     ```
     When no images are provided for music, Jellyfin will take the cover image from the first track that has an embedded cover image.
   </TabItem>
-  <TabItem value='movies' label='Movies'>
+  <TabItem value="movies" label='Movies'>
     ```txt
     Movie (2035)
     ├── cover.jpg
