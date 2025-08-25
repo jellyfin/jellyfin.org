@@ -13,11 +13,11 @@ export enum Feature {
 }
 
 export enum OsType {
-  Docker,
-  Linux,
-  MacOS,
-  Windows,
-  DotNet,
+  Docker = "Docker",
+  Linux = "Linux",
+  MacOS = "MacOS",
+  Windows = "Windows",
+  DotNet = "DotNet",
 }
 
 export type Button = {
