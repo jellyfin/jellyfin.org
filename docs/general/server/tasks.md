@@ -7,9 +7,7 @@ title: Tasks
 
 Tasks are operations that are scheduled to run periodically. They can also be triggered manually by clicking the run button on the right.
 
-:::caution
-If your media files are unavailable when the `Clean up collections and playlists` task runs (e.g. a network share not yet mounted) your playlists will be lost. By default it runs at Jellyfin startup.
-:::
+Note: If your media files are unavailable when the `Clean up collections and playlists` task runs (e.g. a network share not yet mounted) your playlists will be lost. By default it runs at Jellyfin startup.
 
 ## Default Jellyfin Tasks
 
