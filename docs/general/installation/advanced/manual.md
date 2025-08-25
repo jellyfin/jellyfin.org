@@ -230,7 +230,7 @@ sudo systemctl start jellyfin.service
 
 ## Portable .NET DLL
 
-Platform-agnostic .NET Core DLL builds in TAR archive format are available from the [portable downloads section](/downloads?os=DotNet).  
+Platform-agnostic .NET Core DLL builds in TAR archive format are available from the [portable downloads section](/downloads/server?os=DotNet).  
 These builds use the binary `jellyfin.dll` and must be loaded with `dotnet`.
 
 ## Debian (using extrepo)
