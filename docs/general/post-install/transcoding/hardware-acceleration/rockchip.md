@@ -213,6 +213,12 @@ Root permission is required.
     jellyfin/jellyfin
    ```
 
+:::note
+
+Make sure you have read access to the devices inside the container.
+
+:::
+
 2. Check the OpenCL runtime status, make sure you have installed the GPU firmware of the libmali.
 
    :::note
