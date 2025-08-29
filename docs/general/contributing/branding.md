@@ -7,7 +7,7 @@ title: Branding
 
 ## Usage of the Jellyfin name
 
-The name "Jellyfin" is reserved for the Jellyfin project itself and its official clients. The server (including WebUI) is called "Jellyfin", composed of the "Jellyfin [API] Server" and "Jellyfin Web[UI]". Official clients are, generally, called "Jellyfin for X", where "X" is a platform (e.g. "Jellyfin for AndroidTV").
+The name "Jellyfin" is reserved for the Jellyfin project itself and its official clients. The server (including WebUI) is called "Jellyfin", composed of the "Jellyfin [API] Server" and "Jellyfin Web[UI]". Official clients are, generally, called "Jellyfin for X", where "X" is a platform (e.g. "Jellyfin for Android TV").
 
 3rd party developers should **not** use the name Jellyfin directly. Additionally, we **discourage** projects from using the combination of "Jelly[word]" or "[word]fin" to avoid confusion; while there are numerous exceptions over the years, we strongly request that you develop your own unique name for your project. You **may** reference Jellyfin in a subtitle, description, etc. as an indication of interoperability. For example, "Floostream, a Jellyfin client" is ideal.
 
