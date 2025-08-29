@@ -15,7 +15,7 @@ Do not use the Jellyfin name in the promotion of piracy or to affiliate yourself
 
 ## Usage of the Jellyfin logo
 
-Do **not** use the unmodified Jellyfin logo as your logo for any project, service, or group without the expressed permission of the Jellyfin team, i.e. the rounded-triangle-within-a-triangle shape. To help facilitate a common design language even among 3rd party clients, we **do permit** the use of our colour gradient on your logo; we simply request that you use a unique logo design/shape.
+Do **not** use the Jellyfin logo as your logo for any project, service, or group without the expressed permission of the Jellyfin team, i.e. the rounded-triangle-within-a-triangle shape. Do not simply rotate the logo shape, or include it inside of another logo; these count too. To help facilitate a common design language even among 3rd party clients, we **do permit** the use of our colour gradient on your logo; we simply request that you use a unique logo design/shape.
 
 Do not use the Jellyfin logo in the promotion of piracy or to affiliate yourself erroneously with the project or impersonate the project.
 
