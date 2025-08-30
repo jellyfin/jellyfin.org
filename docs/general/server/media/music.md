@@ -99,7 +99,7 @@ Line 5
 
 import MetadataImages from './\_metadata-images.md';
 
-<MetadataImages />
+<MetadataImages defaultTab="music"/>
 
 ## File Extensions / Containers
 
