@@ -126,7 +126,6 @@ Jellyfin can write metadata to .nfo files. To enable this option, select the "Nf
 | imdb_id                   | only for TV shows                                                                                                             |
 | imdbid                    | for all other media types                                                                                                     |
 | tvdbid                    |                                                                                                                               |
-| idmbid                    |                                                                                                                               |
 | tmdbid                    |                                                                                                                               |
 | language                  |                                                                                                                               |
 | countrycode               |                                                                                                                               |
