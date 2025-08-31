@@ -20,7 +20,7 @@ The configuration can be found at `/usr/share/jellyfin/web/config.json`. This fi
 Overriding the default `config.json` can be done with an additional volume parameter to your `docker run` command, e.g.
 
 ```sh
---volume /path/to/config/web-config.json:/jellyfin/jellyfin-web/config.json
+--volume /path/to/config/web-config.json:/usr/share/jellyfin/web/config.json
 ```
 
 :::caution
