@@ -58,7 +58,7 @@ Intel Drivers are much easier to install on Linux, with many distributions inclu
 
 :::caution
 
-Intel ARC B-series cards require ReBar to be enabled. This means you must use it on a platform with Intel 10th gen, AMD Ryzen 3000 series or newer. Intel ARC A-series cards require ReBar enabled for optimal performance.
+Intel ARC B-series cards require ReBar to be enabled. This means you must use it on a platform with Intel 10th gen, AMD Ryzen 3000 series or newer. Intel ARC A-series cards do not require ReBar to function, however, ReBar must enabled for optimal performance.
 
 :::
 
