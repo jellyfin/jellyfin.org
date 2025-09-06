@@ -112,10 +112,6 @@ const redirects: ClientRedirects.Options['redirects'] = [
     from: '/docs/general/networking/nginx',
     to: '/docs/general/post-install/networking/reverse-proxy/nginx'
   },
-  {
-    from: '/docs/general/administration/building',
-    to: '/docs/general/installation/source'
-  },
   // New developer site
   {
     from: '/docs/general/contributing/branding',
