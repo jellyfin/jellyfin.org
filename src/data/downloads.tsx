@@ -16,7 +16,8 @@ export enum OsType {
   Docker,
   Linux,
   MacOS,
-  Windows
+  Windows,
+  DotNet,
 }
 
 export type Button = {
@@ -119,13 +120,15 @@ docker run -d -v /srv/jellyfin/config:/config -v /srv/jellyfin/cache:/cache -v /
               <code>{`curl -s https://repo.jellyfin.org/install-debuntu.sh | sudo bash`}</code>
             </pre>
             <p>
-              If you do not have <code>curl</code> installed, you can use{' '}
-              <code>wget -q -O-</code> instead of{' '}
+              If you do not have <code>curl</code> installed, you can use <code>wget -q -O-</code> instead of{' '}
               <code>curl -s</code>.
             </p>
             <p>
-              For more advanced users, the full steps can be <a href="https://jellyfin.org/docs/general/installation/linux#debuntu-debian-ubuntu-and-derivatives-using-apt">
-              found in the docs</a>.
+              For more advanced users, the full steps can be{' '}
+              <a href='https://jellyfin.org/docs/general/installation/linux#debuntu-debian-ubuntu-and-derivatives-using-apt'>
+                found in the docs
+              </a>
+              .
             </p>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
@@ -233,14 +236,14 @@ sudo apt install jellyfin`}
     stableButtons: [
       {
         id: 'windows-manual-stable-link',
-        name: "Downloads",
+        name: 'Downloads',
         url: 'https://repo.jellyfin.org/?path=/server/windows/latest-stable'
       }
     ],
     unstableButtons: [
       {
         id: 'windows-unstable-link',
-        name: "Downloads",
+        name: 'Downloads',
         url: 'https://repo.jellyfin.org/?path=/server/windows/latest-unstable'
       }
     ],
@@ -257,14 +260,14 @@ sudo apt install jellyfin`}
     stableButtons: [
       {
         id: 'macos-manual-stable-link',
-        name: "Downloads",
+        name: 'Downloads',
         url: 'https://repo.jellyfin.org/?path=/server/macos/latest-stable'
       }
     ],
     unstableButtons: [
       {
         id: 'macos-manual-unstable-link',
-        name: "Downloads",
+        name: 'Downloads',
         url: 'https://repo.jellyfin.org/?path=/server/macos/latest-unstable'
       }
     ],
@@ -273,11 +276,11 @@ sudo apt install jellyfin`}
   {
     id: 'portable',
     name: 'Portable',
-    osTypes: [OsType.Linux, OsType.MacOS, OsType.Windows],
+    osTypes: [OsType.DotNet],
     status: DownloadStatus.Official,
     features: [],
     platforms: [Platform.DotNet],
-    description: 'The portable version can be run on any system with a .NET Core runtime.',
+    description: 'The .NET portable version can be run on any system with a .NET runtime using jellyfin.dll',
     stableButtons: [
       {
         id: 'portable-manual-stable-link',
@@ -288,7 +291,7 @@ sudo apt install jellyfin`}
       {
         id: 'portable-manual-unstable-link',
         url: 'https://repo.jellyfin.org/?path=/server/portable/latest-unstable'
-      },
+      }
     ],
     otherButtons: []
   },
@@ -296,7 +299,7 @@ sudo apt install jellyfin`}
     id: 'arch',
     name: 'Arch Linux',
     osTypes: [OsType.Linux],
-    status: DownloadStatus.Official,
+    status: DownloadStatus.OsPackage,
     features: [Feature.CustomFFmpeg],
     platforms: [Platform.Arch],
     description: 'Install Jellyfin via Arch-Extra Repository.',
@@ -335,74 +338,6 @@ makepkg -si`}
     otherButtons: []
   },
   {
-    id: 'fedora-centos',
-    name: 'Fedora/CentOS Linux',
-    osTypes: [OsType.Linux],
-    status: DownloadStatus.OsPackage,
-    features: [],
-    platforms: [Platform.Fedora, Platform.CentOS],
-    description: 'Install Jellyfin via the RPMFusion Repository (Free).',
-    stableButtons: [
-      {
-        id: 'rpmfusion-stable-button',
-        name: 'Install Instructions',
-        details: (
-          <>
-            <p>
-              <a href="https://rpmfusion.org/Configuration">Configure the RPMFusion repository</a>
-            </p>
-            <pre>
-              <code>{`dnf install jellyfin`}</code>
-            </pre>
-          </>
-        )
-      },
-      {
-        id: 'rpmfusion-stable-link',
-        name: 'RPMFusion',
-        url: 'https://admin.rpmfusion.org/pkgdb/package/free/jellyfin/'
-      }
-    ],
-    unstableButtons: [],
-    otherButtons: []
-  },
-  {
-    id: 'flatpak',
-    name: 'Flatpak',
-    osTypes: [OsType.Linux],
-    status: DownloadStatus.Community,
-    features: [Feature.CustomFFmpeg],
-    platforms: [Platform.Linux],
-    description: 'Install Jellyfin via Flathub.',
-    stableButtons: [
-      {
-        id: 'flatpak-stable-button',
-        name: 'Install Instructions',
-        details: (
-          <>
-            <pre>
-              <code>{`flatpak install flathub org.jellyfin.JellyfinServer`}</code>
-            </pre>
-            <p>
-              <b>Note:</b> If you are running on an Intel GPU an additional extension is required for HDR Tone mapping.
-            </p>
-            <pre>
-              <code>{`flatpak install flathub org.jellyfin.JellyfinServer.Plugin.IntelComputeRuntime`}</code>
-            </pre>
-          </>
-        )
-      },
-      {
-        id: 'flatpak-flathub-link',
-        name: 'Flathub',
-        url: 'https://flathub.org/apps/org.jellyfin.JellyfinServer'
-      }
-    ],
-    unstableButtons: [],
-    otherButtons: [
-    ]
-  },
-  {
     id: 'gentoo',
     name: 'Gentoo Linux',
     osTypes: [OsType.Linux],
@@ -417,7 +352,7 @@ makepkg -si`}
         details: (
           <>
             <pre>
-              <code>emerge www-apps/jellyfin</code>
+              <code>emerge --ask www-apps/jellyfin-bin</code>
             </pre>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}
@@ -426,6 +361,38 @@ makepkg -si`}
             </p>
           </>
         )
+      }
+    ],
+    unstableButtons: [],
+    otherButtons: []
+  },
+  {
+    id: 'fedora-centos',
+    name: 'Fedora/CentOS Linux',
+    osTypes: [OsType.Linux],
+    status: DownloadStatus.Community,
+    features: [],
+    platforms: [Platform.Fedora, Platform.CentOS],
+    description: 'Install Jellyfin via the RPMFusion Repository (Free).',
+    stableButtons: [
+      {
+        id: 'rpmfusion-stable-button',
+        name: 'Install Instructions',
+        details: (
+          <>
+            <p>
+              <a href='https://rpmfusion.org/Configuration'>Configure the RPMFusion repository</a>
+            </p>
+            <pre>
+              <code>{`dnf install jellyfin`}</code>
+            </pre>
+          </>
+        )
+      },
+      {
+        id: 'rpmfusion-stable-link',
+        name: 'RPMFusion',
+        url: 'https://admin.rpmfusion.org/pkgdb/package/free/jellyfin/'
       }
     ],
     unstableButtons: [],

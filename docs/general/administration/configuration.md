@@ -27,9 +27,18 @@ This is the directory that will hold all Jellyfin data and is also used as a def
 
 1. Command line option `--datadir`, if specified
 2. Environment variable `JELLYFIN_DATA_DIR`, if specified
-3. `<%APPDATA%>/jellyfin`, if running on Windows
-4. `$XDG_DATA_HOME/jellyfin`, if `$XDG_DATA_HOME` exists
-5. `$HOME/.local/share/jellyfin`
+3. `<%ProgramData%>\Jellyfin\Server`, if launching from the Windows Tray app.
+4. `<%LocalAppData%>\jellyfin`, if launching the Windows server directly.
+5. `$XDG_DATA_HOME/jellyfin`, if `$XDG_DATA_HOME` exists
+6. `$HOME/.local/share/jellyfin`
+
+:::note
+
+Windows users can also specify the data directory using a Windows Registry string key called `DataFolder` located at `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Jellyfin\Server`
+
+An additional string key called `InstallFolder` in `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Jellyfin\Server` can also specify the install location.
+
+:::
 
 ### Configuration Directory
 
@@ -91,21 +100,17 @@ The main server configuration is built upon the ASP .NET [configuration framewor
 5. **Command line options**: Certain command line options are loaded into the configuration system and have the highest priority. The following command line options are mapped to associated configuration options.
 
    - `--nowebclient` sets the `hostwebclient` configuration setting to false
-   - `--plugin-manifest-url` sets a value for the `InstallationManager:PluginManifestUrl` configuration setting
 
 ### Main Configuration Options
 
 This section lists all the configuration options available and explains their function.
 
-| Key                                     | Default Value                                                                                     | Description                                                                                                                                                             |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hostwebclient`                         | `True`                                                                                            | Set to `True` if the server should host the web client.                                                                                                                 |
-| `HttpListenerHost:DefaultRedirectPath`  | `"web/index.html"` if `hostwebclient` is true; `"swagger/index.html"` if `hostwebclient` is false | The default redirect path to use for requests where the URL base prefix is invalid or missing                                                                           |
-| `InstallationManager:PluginManifestUrl` | `"https://repo.jellyfin.org/releases/plugin/manifest.json"`                                       | The URL for the plugin repository JSON manifest.                                                                                                                        |
-| `FFmpeg:probesize`                      | `"1G"`                                                                                            | Value to set for the FFmpeg `probesize` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.           |
-| `FFmpeg:analyzeduration`                | `"200M"`                                                                                          | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
-| `playlists:allowDuplicates`             | `True`                                                                                            | Whether playlists should allow duplicate items or automatically filter out duplicates.                                                                                  |
-| `PublishedServerUrl`                    | Server Url based on primary IP address                                                            | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
+| Key                      | Default Value                          | Description                                                                                                                                                             |
+| ------------------------ | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hostwebclient`          | `True`                                 | Set to `True` if the server should host the web client.                                                                                                                 |
+| `FFmpeg:probesize`       | `"1G"`                                 | Value to set for the FFmpeg `probesize` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.           |
+| `FFmpeg:analyzeduration` | `"200M"`                               | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
+| `PublishedServerUrl`     | Server Url based on primary IP address | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
 
 ## Fonts
 
@@ -113,7 +118,7 @@ Jellyfin uses fonts to render text in many places.
 
 ### Server Side System Fonts
 
-The system fonts installed on the server are used for burning in subtitles and rendering cover images. How to install them depends on the operating system.
+The system fonts installed on the server are used for burning in subtitles and rendering cover images. How to install them depends on the operating system or if a container is being used.
 
 ### Client Side System Fonts
 
@@ -121,7 +126,9 @@ The system fonts installed on the client devices are used to display the text in
 
 ### Fallback Fonts
 
-The `Fallback Fonts` option is currently used by the web client to render subtitles only. This can be set to a folder containing fonts for this purpose. These fonts are limited to a total size of 20MB. Lightweight formats optimized for web like woff2 are recommended. A tool to convert normal TrueType (`.ttf`) and OpenType (`.otf`) fonts to woff2 can be found [in their repo](https://github.com/google/woff2).
+The `Fallback Fonts` installed on the server are loaded up by the web client to render ASS subtitles. They will be used if no other existing fonts (such as MKV attachments or client-side fonts) can be used to render certain glyphs, such as CJK characters, instead of displaying an empty "tofu" block.
+
+This setting can be set to a folder on the server containing fonts for this purpose. These fonts are limited to a total size of 20 MB, since all of them will be always preloaded in the browser, regardless of whether they'll be needed or not. Lightweight formats optimized for web like woff2 are recommended. A tool to convert normal TrueType (`.ttf`) and OpenType (`.otf`) fonts to woff2 can be found [in their repo](https://github.com/google/woff2).
 
 ### Downloading Fonts
 

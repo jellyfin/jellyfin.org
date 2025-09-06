@@ -16,7 +16,7 @@ This project includes a combination of content from:
 - [jellyfin-blog](https://github.com/jellyfin/jellyfin-blog) &mdash; The current source for the main website and blog content built using Hugo.
 - [jellyfin-docs](https://github.com/jellyfin/jellyfin-docs) &mdash; The current source for the documentation content built using DocFX.
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ## Installation
 

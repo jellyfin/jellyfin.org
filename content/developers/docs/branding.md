@@ -8,26 +8,28 @@ sidebar_position: 3
 
 ## Usage of the Jellyfin name
 
-You are free to use the Jellyfin name to promote your project, with some restrictions:
+The name "Jellyfin" is reserved for the Jellyfin project itself and its official clients. The server (including WebUI) is called "Jellyfin", composed of the "Jellyfin [API] Server" and "Jellyfin Web[UI]". Official clients are, generally, called "Jellyfin for X", where "X" is a platform (e.g. "Jellyfin for Android TV").
 
-- Do not use the Jellyfin name in a way that would make the average user think you are associated with the project, unless permission was given by the Project Leader or Leadership Team.
-- Only include the Jellyfin name in your project's name in a way that makes it clear you are not affiliated with the Jellyfin project, and to indicate compatibility with Jellyfin (For example _Awesome Client for Jellyfin_).
-- Do not use the Jellyfin name in any context that promotes, allows or encourages piracy.
-- Do not wrongfully claim to be part of the Jellyfin team.
+3rd party developers should **not** use the name Jellyfin directly. Additionally, we **discourage** projects from using the combination of "Jelly[word]" or "[word]fin" to avoid confusion; while there are numerous exceptions over the years, we strongly request that you develop your own unique name for your project. You **may** reference Jellyfin in a subtitle, description, etc. as an indication of interoperability. For example, "Floostream, a Jellyfin client" is ideal.
+
+Do not use the Jellyfin name in the promotion of piracy or to affiliate yourself erroneously with the project or impersonate the project. If you run a public server (which, by default, will use Jellyfin branding), please see [our server policy](/docs/general/community-standards/servers).
+
+## Usage of the Jellyfin logo
+
+Do **not** use the Jellyfin logo as your logo for any project, service, or group without the expressed permission of the Jellyfin team, i.e. the rounded-triangle-within-a-triangle shape. Do not simply rotate the logo shape, or include it inside of another logo; these count too. To help facilitate a common design language even among 3rd party clients, we **do permit** the use of our colour gradient on your logo; we simply request that you use a unique logo design/shape.
+
+Do not use the Jellyfin logo in the promotion of piracy or to affiliate yourself erroneously with the project or impersonate the project.
 
 ## Writing Style
 
-As a general rule, Jellyfin should always be capitalized, but language, file, or system conventions trump Jellyfin naming conventions.
+As a general rule, Jellyfin should always be capitalized, but language, file, or system conventions trump Jellyfin naming conventions. Avoid "JellyFin".
 
 Specific examples include:
 
 - Writing referring to the project in the abstract should use capitalized `Jellyfin` at all times. `I contribute to Jellyfin and you should too!`
-- C# class and project names, including their files and directories, should use capitalized `Jellyfin` as required by the C# case standards (camelCase or PascalCase). `Jellyfin.LiveTv`, `Jellyfin.sln`
-- Other code elements, where the code formatting or style requires lowercase, should use lowercase `jellyfin`. `jellyfinWebComponentsBowerPath`
-- The Git repository and non-C# files inside of it should use lowercase `jellyfin` for convenience on case-sensitive filesystems. `build-jellyfin.ps1`
-- The final output binary, initscrips, and package names should use lowercase `jellyfin` for similar reasons as above. `jellyfin.dll`, `jellyfin_3.5.2-1_all.deb`, `jellyfin.zip`
+- Code elements should be formatted according to the specifications of the language in use.
+- Git repositories and files using the name should use lowercase `jellyfin` for convenience on case-sensitive filesystems. `build-jellyfin.ps1`, `jellyfin_3.5.2-1_all.deb`, etc.
 - Configuration directories can use either depending on operating system conventions. `/var/lib/jellyfin`, `AppData/Jellyfin`
-- The logo has no strict rules for capitalization, the style is dependent on aesthetics and font choice.
 
 ## Icons and Other Assets
 
@@ -65,4 +67,4 @@ The design for the logo uses a gradient for the infill, and if the non-transpare
 
 ### Fonts
 
-The banner uses the [Quicksand](https://fonts.google.com/specimen/Quicksand) font.
+The banner uses the [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) font.

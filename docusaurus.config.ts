@@ -13,13 +13,15 @@ const config: Config = {
   tagline: 'The Free Software Media System',
   url: 'https://jellyfin.org',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenAnchors: process.env.CI ? 'throw' : 'warn',
+  onBrokenLinks: process.env.CI ? 'throw' : 'warn',
+  onBrokenMarkdownLinks: process.env.CI ? 'throw' : 'warn',
+  onDuplicateRoutes: process.env.CI ? 'throw' : 'warn',
   favicon: 'images/favicon.ico',
   organizationName: 'jellyfin',
   projectName: 'jellyfin.org',
   themeConfig: {
-    image: 'images/social.png',
+    image: 'images/social.png?v2',
     metadata: [
       { name: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
@@ -121,7 +123,9 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
         id: 'blog-main',
         routeBasePath: 'posts',
         showReadingTime: true,
-        path: 'blog'
+        path: 'blog',
+        onInlineAuthors: 'ignore',
+        onUntruncatedBlogPosts: 'ignore'
       } satisfies Blog.Options
     ],
     ['@docusaurus/plugin-content-pages', {} satisfies Pages.Options],
@@ -160,6 +164,7 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
     // Others
     ['@docusaurus/plugin-sitemap', {} satisfies Sitemap.Options],
     ['docusaurus-plugin-sass', {}],
+    ['@docusaurus/plugin-svgr', {}],
     [
       '@docusaurus/plugin-client-redirects',
       {

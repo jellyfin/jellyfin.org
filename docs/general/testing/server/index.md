@@ -7,7 +7,7 @@ title: Testing Jellyfin Server
 
 :::caution Backups!
 
-Unstable often makes irreversible changes to existing Jellyfin setups. Please make regular backups of Jellyfin files. [Read More](/docs/general/administration/configuration#server-paths)
+Unstable often makes irreversible changes to existing Jellyfin setups. Please make regular backups of Jellyfin files. [Learn how to create backups.](/docs/general/administration/configuration#server-paths)
 
 :::
 
@@ -19,7 +19,7 @@ To install them, navigate to our [downloads page](/downloads/server) and choose 
 
 ![Downloads Page](/images/docs/testing/server/weekly-1.png)
 
-Follow the steps in the [Upgrade & Downgrade documentation](/docs/general/testing/upgrades-and-downgrades) for more detailed instructions.
+Follow the steps in the [Upgrade & Downgrade documentation](/docs/general/testing/upgrades) for more detailed instructions.
 
 ## Testing from Master Branch
 
