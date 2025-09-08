@@ -43,7 +43,7 @@
     "file-loader": "6.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "sass": "1.90.0",
+    "sass": "1.91.0",
     "swiper": "11.2.10",
     "url-loader": "4.1.1"
   },
@@ -62,11 +62,11 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.8.1",
     "@docusaurus/tsconfig": "3.8.1",
-    "@eslint/js": "9.32.0",
+    "@eslint/js": "9.34.0",
     "@types/react": "18.3.23",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
-    "eslint": "9.32.0",
+    "eslint": "9.34.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
@@ -79,7 +79,7 @@
     "node-fetch": "3.3.2",
     "prettier": "3.6.2",
     "typescript": "5.9.2",
-    "typescript-eslint": "8.39.0",
+    "typescript-eslint": "8.40.0",
     "typescript-plugin-css-modules": "5.2.0"
   }
 }
