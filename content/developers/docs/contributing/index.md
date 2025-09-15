@@ -13,13 +13,13 @@ Even if you cannot contribute code, you can still help Jellyfin! The two main th
 
 We use GitHub extensively to track open issues, new enhancements or features, and other aspects of development.
 
-Please see the [getting help](/docs/general/getting-help) page for help with troubleshooting and finding bugs, and the [documentation on issues](/docs/general/contributing/issues) for more information on how to submit good issues.
+Please see the [getting help](/docs/general/getting-help) page for help with troubleshooting and finding bugs, and the [documentation on issues](/developers/docs/contributing/issues) for more information on how to submit good issues.
 
 ## Developing Code
 
 The entire project consists of a C# core server, a JavaScript web client, and a number of other clients written in various languages and frameworks. If you have experience with these languages, we're always grateful for any contributions you might want to make!
 
-For general guidelines on how the project works, including how to set up your development copy, make changes, and guidelines on Pull Requests (PRs), please see the [documentation on contributing code](/docs/general/contributing/development). Jellyfin follows a "fork and PR" methodology; if you're not familiar with this, please see the [relevant section](/docs/general/contributing/development#set-up-your-copy-of-the-repo).
+For general guidelines on how the project works, including how to set up your development copy, make changes, and guidelines on Pull Requests (PRs), please see the [documentation on contributing code](/developers/docs/contributing/development). Jellyfin follows a "fork and PR" methodology; if you're not familiar with this, please see the [relevant section](/docs/general/contributing/development#set-up-your-copy-of-the-repo).
 
 ## Adding To Documentation
 
