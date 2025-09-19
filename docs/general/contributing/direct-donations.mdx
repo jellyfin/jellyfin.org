@@ -1,0 +1,52 @@
+---
+uid: donate-directly
+title: Donations to individual Developers
+---
+
+import Link from '@docusaurus/Link';
+
+export const donations = [
+  {
+    title: 'JPVenson',
+    roles: ['Xbox Subproject Lead', 'Server Developer', 'Moderator'],
+    links: [
+      {
+        link: 'https://coff.ee/venson',
+        title: 'Buy me a Coffee'
+      }
+    ]
+  }
+];
+
+Jellyfin is free and will always be free. We do not accept any money or benefit for any form for favor or feature and no implicit or explicit entitlement should be assumed or demanded when donating to jellyfin or one of its developers.
+
+That said the many developers or moderators accept donations purely as a sign of gratitude for their volunteer work on the project or officially related.
+
+This table is not conclusive and if you are missing a specific person you want to donate to, please contact the developer directly.
+This list is also intentionally randomly ordered to avoid any appearance of favoring any one developer.
+
+<table>
+  <thead>
+    <th>Username</th>
+    <th>Role</th>
+    <th>Donation Links</th>
+  </thead>
+  <tbody>
+    {donations
+      .sort(() => Math.random() - 0.5)
+      .map((element) => (
+        <tr>
+          <td>{element.title}</td>
+          <td>{element.roles.join(', ')}</td>
+          <td>
+            {element.links.map((link) => (
+              <Link to={link.link}>{link.title}</Link>
+            ))}
+          </td>
+        </tr>
+      ))}
+  </tbody>
+</table>
+
+The rules for inclusion into this lists are a good standing with the Jellyfin team as a whole and a long term commitment towards the project as a whole.
+This can mean either significant contributions to the Jellyfin-Server project or any officially recognised Clients; or existing long commitments towards official moderation efforts as an Community Moderator in our chat or Forum.
