@@ -7,6 +7,10 @@ title: Storage
 
 Jellyfin is designed to directly read media from the filesystem. A network storage device that is using samba or NFS must be directly mounted to the OS. The Jellyfin database should also be stored locally and not on a network storage device.
 
+:::caution
+There are [scheduled maintenance tasks](/docs/general/server/tasks) which remove items from your library if triggered while your media storage is unavailable.
+:::
+
 ### NFS
 
 In case you encounter performance issues where files take a long time to start playing while using NFSv3, you might be running in an issue with .NET locking without NFSv3 having locking enabled.
