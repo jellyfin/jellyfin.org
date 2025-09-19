@@ -76,6 +76,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 ### Green Indicators
 
 ```css
+/* Make watched icon green */
 .playedIndicator {
   background: #5dd000;
 }
@@ -87,7 +88,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ```css
 /* Make watched icon dark and transparent */
-.indicator {
+.playedIndicator {
   background: #00000058 !important;
 }
 ```
