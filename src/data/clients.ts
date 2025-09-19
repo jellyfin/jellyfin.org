@@ -994,6 +994,53 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://monk-studio.com/finer'
       }
     ]
+  },
+  {
+    id: 'livefin',
+    name: 'LiveFin',
+    description: 'A Live TV Client for Jellyfin on iOS/iPadOS/macOS.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.IOS, Platform.MacOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/livefin/id6748318433'
+      }
+    ],
+      secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://livefin.github.io/web/'
+      }
+    ]
+  },
+  {
+    id: 'jellyfin-xbox',
+    name: 'Jellyfin for Xbox',
+    description: 'The official Jellyfin app for Xbox consoles.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Xbox],
+    primaryLinks: [
+      {
+        id: 'microsoft-store',
+        name: 'Microsoft Store',
+        url: 'https://apps.microsoft.com/detail/9P2DRTG62QF8'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-xbox'
+
+      }
+    ]
   }
 ];
 
