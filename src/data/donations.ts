@@ -25,11 +25,11 @@ export const donations: Array<DonationTarget> = [
     roles: ['Roku Client Maintainer'],
     links: [
       {
-        url: 'buymeacoffee.com/1hitsong',
+        url: 'https://buymeacoffee.com/1hitsong',
         name: 'Buy me a Coffee'
       },
       {
-        url: 'github.com/sponsors/1hitsong',
+        url: 'https://github.com/sponsors/1hitsong',
         name: 'Github Sponsors'
       }
     ]
