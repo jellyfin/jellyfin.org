@@ -4,19 +4,7 @@ title: Donations to individual Developers
 ---
 
 import Link from '@docusaurus/Link';
-
-export const donations = [
-  {
-    title: 'JPVenson',
-    roles: ['Xbox Subproject Lead', 'Server Developer', 'Moderator'],
-    links: [
-      {
-        link: 'https://coff.ee/venson',
-        title: 'Buy me a Coffee'
-      }
-    ]
-  }
-];
+import { donations } from '../../../src/data/donations';
 
 Jellyfin is free and will always be free. We do not accept any money or benefit for any form for favor or feature and no implicit or explicit entitlement should be assumed or demanded when donating to jellyfin or one of its developers.
 
@@ -40,7 +28,7 @@ This list is also intentionally randomly ordered to avoid any appearance of favo
           <td>{element.roles.join(', ')}</td>
           <td>
             {element.links.map((link) => (
-              <Link to={link.link}>{link.title}</Link>
+              <Link to={link.url}>{link.name}</Link>
             ))}
           </td>
         </tr>
