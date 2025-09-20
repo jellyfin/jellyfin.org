@@ -33,5 +33,19 @@ export const donations: Array<DonationTarget> = [
         name: 'GitHub Sponsors'
       }
     ]
+  },
+  {
+    title: 'Niels van Velzen',
+    roles: ['Core team', 'Android TV maintainer', 'Android maintainer'],
+    links: [
+      {
+        url: 'https://github.com/sponsors/nielsvanvelzen',
+        name: 'GitHub Sponsors'
+      },
+      {
+        url: 'https://coff.ee/nielsvanvelzen',
+        name: 'Buy Me a Coffee'
+      }
+    ]
   }
 ];
