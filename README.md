@@ -32,7 +32,7 @@ To run locally, please use:
 npm start
 ```
 
-To run within a dev container we have to instruct the build-in hostcheck to bind against all addresses:
+To run within a dev container we have to instruct the built-in host check to bind against all addresses:
 
 ```console
 npm run start -- --host 0.0.0.0
