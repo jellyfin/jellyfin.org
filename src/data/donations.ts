@@ -50,7 +50,7 @@ export const donations: Array<DonationTarget> = [
   },
   {
     title: 'Tim Gels',
-    roles: ['Community Moderator'],
+    roles: ['Community Moderator', 'Xbox client developer'],
     links: [
       {
         url: 'https://github.com/sponsors/TimGels',
