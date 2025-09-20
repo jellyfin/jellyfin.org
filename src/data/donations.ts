@@ -16,7 +16,7 @@ export const donations: Array<DonationTarget> = [
     links: [
       {
         url: 'https://coff.ee/venson',
-        name: 'Buy me a Coffee'
+        name: 'Buy Me a Coffee'
       }
     ]
   },
@@ -25,12 +25,12 @@ export const donations: Array<DonationTarget> = [
     roles: ['Roku Client Maintainer'],
     links: [
       {
-        url: 'https://buymeacoffee.com/1hitsong',
-        name: 'Buy me a Coffee'
+        url: 'https://coff.ee/1hitsong',
+        name: 'Buy Me a Coffee'
       },
       {
         url: 'https://github.com/sponsors/1hitsong',
-        name: 'Github Sponsors'
+        name: 'GitHub Sponsors'
       }
     ]
   }
