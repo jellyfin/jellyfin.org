@@ -12,18 +12,38 @@ Generally there are three ways to authenticate: no authorization, user authoriza
 ## Sending authorization values
 
 There are multiple methods for transmitting authorization values, however, some are outdated and scheduled to be removed.
-It's recommend to use the `Authorization` header. If header auth isn't an option, the token should be sent through the `ApiKey` query parameter.
+It's recommend to use the `Authorization` header. If header auth isn't an option, the token may be sent through the `ApiKey` query parameter. Sending secure data in a query parameter is unsafe as the changes of it leaking (via logs, copy-paste actions or by other means) are high. Only use this method as a last resort.
 
-| Type   | Name                   | Method     | Deprecated |
-| ------ | ---------------------- | ---------- | ---------- |
-| Header | `Authorization`        | Schema     | No         |
-| Query  | `ApiKey`               | Token only | No         |
-| Query  | `api_key`              | Token only | **yes**    |
-| Header | `X-Emby-Token`         | Token only | **yes**    |
-| Header | `X-MediaBrowser-Token` | Token only | **yes**    |
-| Header | `X-Emby-Authorization` | Schema     | **yes**    |
+| Type   | Name                   | Method     | Deprecated          |
+| ------ | ---------------------- | ---------- | ------------------- |
+| Header | `Authorization`        | Schema     | No                  |
+| Query  | `ApiKey`               | Token only | No, but discouraged |
+| Query  | `api_key`              | Token only | **yes**             |
+| Header | `X-Emby-Token`         | Token only | **yes**             |
+| Header | `X-MediaBrowser-Token` | Token only | **yes**             |
+| Header | `X-Emby-Authorization` | Schema     | **yes**             |
 
 Avoid sending multiple tokens in one request as it's uncertain which value will be used. Deprecated options might be removed in future server updates.
+
+### Disabling deprecated authorization methods
+
+Starting with Jellyfin 10.11, it is now possible to disable legacy authorization methods that are scheduled for removal in a future release. This option is primarily intended for developers who wish to test their client compatibility and is **not recommended for regular users**.
+
+To disable deprecated methods, edit the `system.xml` configuration file and change:
+
+```xml
+<EnableLegacyAuthorization>true</EnableLegacyAuthorization>
+```
+
+to:
+
+```xml
+<EnableLegacyAuthorization>false</EnableLegacyAuthorization>
+```
+
+After making this change, restart your Jellyfin server for it to take effect.
+
+**Note:** Not all official Jellyfin clients are currently compatible with legacy authorization disabled.
 
 ## The Jellyfin authorization scheme
 
@@ -55,16 +75,22 @@ Since it's often not possible to know the user identifier before signing in at l
 
 Here are a couple of examples for the authorization header:
 
-- Authenticate with API key
+- Authorize with API key
 
   ```http
   Authorization: MediaBrowser Token="8ac3a7abaff943ba9adea7f8754da7f8"
   ```
 
-- Authenticate with access token
+- Authorize with access token
 
   ```http
   Authorization: MediaBrowser Token="0381cf931f9e42d79fb9c89f729167df", Client="Android TV", Device="Nvidia Shield", DeviceId="ZQ9YQHHrUzk24vV", Version="0.15.3"
+  ```
+
+- Authorize with client information only
+
+  ```http
+  Authorization: MediaBrowser Client="Android TV", Device="Nvidia Shield", DeviceId="ZQ9YQHHrUzk24vV", Version="0.15.3"
   ```
 
 ## The ApiKey query parameter
