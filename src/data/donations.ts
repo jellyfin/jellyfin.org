@@ -9,56 +9,96 @@ export type DonationTarget = {
   links: Array<Link>;
 };
 
+export enum MiscRoles {
+  Mod = 'Moderator',
+  CommunityMod = 'Community Moderator',
+  CoreTeam = 'Core Team',
+  ReleaseManager = 'Release Manager',
+  InfastructureAdmin = 'Infastructure Administrator',
+  ProjectLeader = 'Project Leader'
+}
+
+export enum Projects {
+  Server = 'Jellyfin Server',
+  Xbox = 'Jellyfin for Xbox',
+  Roku = 'Jellyfin for Roku',
+  ATV = 'Jellyfin for Android TV',
+  Android = 'Jellyfin for Android'
+}
+
+export enum ProjectRole {
+  SubprojectLead = 'Subproject Lead',
+  Contributor = 'Contributor'
+}
+
+export enum SponsorTypes {
+  GithubSponsor = 'Github Sponsors',
+  BuyMeACoffee = 'Buy Me a Coffee',
+  Patreon = 'Patreon'
+}
+
+function GetProjectRole(project: Projects, roleInProject: ProjectRole) {
+  return `${project} ${roleInProject}`;
+}
+
 export const donations: Array<DonationTarget> = [
   {
     title: 'JPVenson',
-    roles: ['Xbox Subproject Lead', 'Server Developer', 'Moderator'],
+    roles: [
+      GetProjectRole(Projects.Xbox, ProjectRole.SubprojectLead),
+      GetProjectRole(Projects.Server, ProjectRole.Contributor),
+      MiscRoles.Mod
+    ],
     links: [
       {
         url: 'https://coff.ee/venson',
-        name: 'Buy Me a Coffee'
+        name: SponsorTypes.BuyMeACoffee
       }
     ]
   },
   {
     title: '1hitsong',
-    roles: ['Roku Client Maintainer'],
+    roles: [GetProjectRole(Projects.Roku, ProjectRole.SubprojectLead)],
     links: [
       {
         url: 'https://coff.ee/1hitsong',
-        name: 'Buy Me a Coffee'
+        name: SponsorTypes.BuyMeACoffee
       },
       {
         url: 'https://github.com/sponsors/1hitsong',
-        name: 'GitHub Sponsors'
+        name: SponsorTypes.GithubSponsor
       }
     ]
   },
   {
     title: 'Niels van Velzen',
-    roles: ['Core team', 'Android TV maintainer', 'Android maintainer'],
+    roles: [
+      MiscRoles.CoreTeam,
+      GetProjectRole(Projects.ATV, ProjectRole.SubprojectLead),
+      GetProjectRole(Projects.Android, ProjectRole.SubprojectLead)
+    ],
     links: [
       {
         url: 'https://github.com/sponsors/nielsvanvelzen',
-        name: 'GitHub Sponsors'
+        name: SponsorTypes.GithubSponsor
       },
       {
         url: 'https://coff.ee/nielsvanvelzen',
-        name: 'Buy Me a Coffee'
+        name: SponsorTypes.BuyMeACoffee
       }
     ]
   },
   {
     title: 'Tim Gels',
-    roles: ['Community Moderator', 'Xbox client developer'],
+    roles: [MiscRoles.CommunityMod, GetProjectRole(Projects.Xbox, ProjectRole.Contributor)],
     links: [
       {
         url: 'https://github.com/sponsors/TimGels',
-        name: 'GitHub Sponsors'
+        name: SponsorTypes.GithubSponsor
       },
       {
         url: 'https://coff.ee/timgels',
-        name: 'Buy Me a Coffee'
+        name: SponsorTypes.BuyMeACoffee
       }
     ]
   }
