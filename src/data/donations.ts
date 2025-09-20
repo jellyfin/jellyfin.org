@@ -19,5 +19,19 @@ export const donations: Array<DonationTarget> = [
         name: 'Buy me a Coffee'
       }
     ]
+  },
+  {
+    title: '1hitsong',
+    roles: ['Roku Client Maintainer'],
+    links: [
+      {
+        url: 'buymeacoffee.com/1hitsong',
+        name: 'Buy me a Coffee'
+      },
+      {
+        url: 'github.com/sponsors/1hitsong',
+        name: 'Github Sponsors'
+      }
+    ]
   }
 ];
