@@ -101,5 +101,19 @@ export const donations: Array<DonationTarget> = [
         name: SponsorTypes.BuyMeACoffee
       }
     ]
+  },
+  {
+    title: 'Joshua Boniface',
+    roles: [MiscRoles.ProjectLeader, MiscRoles.ReleaseManager, MiscRoles.InfastructureAdmin],
+    links: [
+      {
+        url: 'https://github.com/sponsors/joshuaboniface',
+        name: SponsorTypes.GithubSponsor
+      },
+      {
+        url: 'https://patreon.com/joshuaboniface',
+        name: SponsorTypes.Patreon
+      }
+    ]
   }
 ];
