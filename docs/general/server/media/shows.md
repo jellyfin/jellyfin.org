@@ -50,6 +50,12 @@ The series folder should be named in the following format:
 Series Name (year) [external id]
 ```
 
+:::note
+
+Avoid special characters such as * in M*A*S*H, use MASH instead in both the Series name as well as (if used) the episode name.
+
+:::
+
 The `year` and `external id` fields are optional, but they will help identify media more reliably.
 
 - Example with name only: `Jellyfin Documentary.mkv`
@@ -58,6 +64,20 @@ The `year` and `external id` fields are optional, but they will help identify me
 - Example with both year and external id: `Jellyfin Documentary (2030) [imdbid-tt00000000]`
 
 The Season folders should be named `Season *`, with `*` being any number. For the best results, please pad the season number with `0`s at the front to make sure each entry has the same number of digits. For example: `Season 5` -> `Season 05`.
+
+:::note
+
+Do not mix episodes inside season folders and episodes on the Series root folder.
+
+Do not abbreviate the Season folder with S01 or SE01 or alike but write, in full "Season " followed by the number.
+
+:::
+
+:::note
+
+Season folders shouldn't contain the series name, otherwise Jellyfin can in certain cases (Stargate SG-1 due to the dash and one, for instance) misdetect your episodes and put them all under the same season.
+
+:::
 
 import VideoMetadataProviders from './\_video-metadata-providers.md';
 
