@@ -47,5 +47,19 @@ export const donations: Array<DonationTarget> = [
         name: 'Buy Me a Coffee'
       }
     ]
+  },
+  {
+    title: 'Tim Gels',
+    roles: ['Community Moderator'],
+    links: [
+      {
+        url: 'https://github.com/sponsors/TimGels',
+        name: 'GitHub Sponsors'
+      },
+      {
+        url: 'https://coff.ee/timgels',
+        name: 'Buy Me a Coffee'
+      }
+    ]
   }
 ];
