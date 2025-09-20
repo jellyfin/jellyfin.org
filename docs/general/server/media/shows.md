@@ -52,7 +52,7 @@ Series Name (year) [external id]
 
 :::note
 
-Avoid special characters such as * in M*A*S*H, use MASH instead in both the Series name as well as (if used) the episode name.
+Avoid special characters such as `*` in `M*A*S*H`, use MASH instead in both the Series name as well as (if used) the episode name.
 
 :::
 
@@ -68,14 +68,13 @@ The Season folders should be named `Season *`, with `*` being any number. For th
 :::note
 
 Do not mix episodes inside season folders and episodes on the Series root folder.
-
-Do not abbreviate the Season folder with S01 or SE01 or alike but write, in full "Season " followed by the number.
+Do not abbreviate the Season folder with `S01` or `SE01` or alike but write, in full `Season` followed by a space and the number.
 
 :::
 
 :::note
 
-Season folders shouldn't contain the series name, otherwise Jellyfin can in certain cases (Stargate SG-1 due to the dash and one, for instance) misdetect your episodes and put them all under the same season.
+Season folders shouldn't contain the series name, otherwise Jellyfin can in certain cases (`Stargate SG-1` due to the dash and one, for instance) misdetect your episodes and put them all under the same season.
 
 :::
 
