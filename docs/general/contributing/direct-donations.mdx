@@ -25,11 +25,21 @@ This list is also intentionally randomly ordered to avoid any appearance of favo
       .map((element) => (
         <tr>
           <td>{element.title}</td>
-          <td>{element.roles.join(', ')}</td>
           <td>
-            {element.links.map((link) => (
-              <Link to={link.url}>{link.name}</Link>
-            ))}
+            <ul>
+              {element.roles.map((role) => (
+                <li>{role}</li>
+              ))}
+            </ul>
+          </td>
+          <td>
+            <ul>
+              {element.links.map((link) => (
+                <li>
+                  <Link to={link.url}>{link.name}</Link>
+                </li>
+              ))}
+            </ul>
           </td>
         </tr>
       ))}
