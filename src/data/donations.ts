@@ -23,11 +23,13 @@ export enum Projects {
   Xbox = 'Jellyfin for Xbox',
   Roku = 'Jellyfin for Roku',
   ATV = 'Jellyfin for Android TV',
-  Android = 'Jellyfin for Android'
+  Android = 'Jellyfin for Android',
+  Switftfin = 'Switftfin'
 }
 
 export enum ProjectRole {
   SubprojectLead = 'Subproject Lead',
+  Maintainer = 'Maintainer',
   Contributor = 'Contributor'
 }
 
@@ -113,6 +115,16 @@ export const donations: Array<DonationTarget> = [
       {
         url: 'https://patreon.com/joshuaboniface',
         name: SponsorTypes.Patreon
+      }
+    ]
+  },
+  {
+    title: 'Ethan Pippin',
+    roles: [GetProjectRole(Projects.Switftfin, ProjectRole.Maintainer)],
+    links: [
+      {
+        url: 'https://github.com/sponsors/LePips',
+        name: SponsorTypes.GithubSponsor
       }
     ]
   }
