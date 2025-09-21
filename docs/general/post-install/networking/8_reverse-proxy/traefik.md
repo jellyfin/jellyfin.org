@@ -221,6 +221,18 @@ TOML files can't support environment variables, so all values must be hard coded
 
 Due to a [quirk](https://github.com/containous/traefik/issues/5559) in Traefik, you cannot dynamically route to containers when network_mode=host. We have created a static route to the docker host (192.168.1.xx:8096) in `traefik-provider.toml`. The use of host networking (as in this doc) or macvlan are required to use DLNA or an HdHomeRun so it can utilize the multicast network. `traefik-provider.toml` defines the jellyfin-svc@file service which we are pointing the router to in the `docker-compose.yml` file. You can not set a URL in `docker-compose.yml` which is why we set up this service externally. Be sure to update the IP address below to the IP address of the host on the local network (in this case, 192.168.1.xx).
 
+:::note
+
+For containers running with `network_mode: host`, Traefik v3 handles host networking without the aforementioned workaround. If you are using Docker < 20.10 on Linux, add an extra host mapping for Traefik so that it can resolve the bridge IP (usually `172.17.0.1`).
+
+```bash
+--ad-host=host.docker.internal:172.17.0.1
+```
+
+See [Docker -> Host Networking](https://doc.traefik.io/traefik/reference/install-configuration/providers/docker/#host-networking) in the Traefik docs for more information.
+
+:::
+
 ## traefik-provider.toml
 
 ```toml
