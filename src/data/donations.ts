@@ -25,7 +25,9 @@ export enum Projects {
   ATV = 'Jellyfin for Android TV',
   Android = 'Jellyfin for Android',
   Swiftfin = 'Swiftfin',
-  Vue = 'Jellyfin Vue'
+  Vue = 'Jellyfin Vue',
+  JellyfinWeb = 'Jellyfin Web',
+  IOS = 'Jellyfin for iOS'
 }
 
 export enum ProjectRole {
@@ -135,6 +137,24 @@ export const donations: Array<DonationTarget> = [
       {
         url: 'https://github.com/sponsors/ferferga',
         name: SponsorTypes.GithubSponsor
+      }
+    ]
+  },
+  {
+    title: 'Bill Thornton (ferferga)',
+    roles: [
+      MiscRoles.CoreTeam,
+      GetProjectRole(Projects.JellyfinWeb, ProjectRole.SubprojectLead),
+      GetProjectRole(Projects.IOS, ProjectRole.SubprojectLead)
+    ],
+    links: [
+      {
+        url: 'https://github.com/sponsors/thornbill',
+        name: SponsorTypes.GithubSponsor
+      },
+      {
+        url: 'https://coff.ee/thornbill',
+        name: SponsorTypes.BuyMeACoffee
       }
     ]
   }
