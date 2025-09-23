@@ -29,7 +29,6 @@ export enum Projects {
 
 export enum ProjectRole {
   SubprojectLead = 'Subproject Lead',
-  Maintainer = 'Maintainer',
   Contributor = 'Contributor'
 }
 
@@ -120,7 +119,7 @@ export const donations: Array<DonationTarget> = [
   },
   {
     title: 'Ethan Pippin',
-    roles: [GetProjectRole(Projects.Switftfin, ProjectRole.Maintainer)],
+    roles: [GetProjectRole(Projects.Switftfin, ProjectRole.SubprojectLead)],
     links: [
       {
         url: 'https://github.com/sponsors/LePips',
