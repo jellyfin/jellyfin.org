@@ -44,7 +44,7 @@ function GetProjectRole(project: Projects, roleInProject: ProjectRole) {
 
 export const donations: Array<DonationTarget> = [
   {
-    title: 'JPVenson',
+    title: 'Jean-Pierre Bachmann (JPVenson)',
     roles: [
       GetProjectRole(Projects.Xbox, ProjectRole.SubprojectLead),
       GetProjectRole(Projects.Server, ProjectRole.Contributor),
