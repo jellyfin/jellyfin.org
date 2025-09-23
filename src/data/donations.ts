@@ -24,7 +24,8 @@ export enum Projects {
   Roku = 'Jellyfin for Roku',
   ATV = 'Jellyfin for Android TV',
   Android = 'Jellyfin for Android',
-  Swiftfin = 'Swiftfin'
+  Swiftfin = 'Swiftfin',
+  Vue = 'Jellyfin Vue'
 }
 
 export enum ProjectRole {
@@ -123,6 +124,16 @@ export const donations: Array<DonationTarget> = [
     links: [
       {
         url: 'https://github.com/sponsors/LePips',
+        name: SponsorTypes.GithubSponsor
+      }
+    ]
+  },
+  {
+    title: 'Fernando Fernández (ferferga)',
+    roles: [GetProjectRole(Projects.Vue, ProjectRole.SubprojectLead)],
+    links: [
+      {
+        url: 'https://github.com/sponsors/ferferga',
         name: SponsorTypes.GithubSponsor
       }
     ]
