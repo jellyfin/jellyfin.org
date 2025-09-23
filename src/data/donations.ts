@@ -24,7 +24,7 @@ export enum Projects {
   Roku = 'Jellyfin for Roku',
   ATV = 'Jellyfin for Android TV',
   Android = 'Jellyfin for Android',
-  Switftfin = 'Switftfin'
+  Swiftfin = 'Swiftfin'
 }
 
 export enum ProjectRole {
@@ -119,7 +119,7 @@ export const donations: Array<DonationTarget> = [
   },
   {
     title: 'Ethan Pippin',
-    roles: [GetProjectRole(Projects.Switftfin, ProjectRole.SubprojectLead)],
+    roles: [GetProjectRole(Projects.Swiftfin, ProjectRole.SubprojectLead)],
     links: [
       {
         url: 'https://github.com/sponsors/LePips',
