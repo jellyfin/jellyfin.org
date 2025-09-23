@@ -5,9 +5,15 @@ import type { WrapperProps } from '@docusaurus/types';
 
 type Props = WrapperProps<typeof TabsType>;
 
+const tabListStyle: React.CSSProperties = {
+  border: '2px solid rgba(255, 255, 255, 0.2)',
+  borderRadius: '8px',
+  padding: '16px'
+};
+
 export default function TabsWrapper(props: Props): ReactNode {
   return (
-    <div className='tabs-container tablist'>
+    <div style={tabListStyle}>
       <Tabs {...props} />
     </div>
   );
