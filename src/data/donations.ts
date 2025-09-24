@@ -165,7 +165,7 @@ export const donations: Array<DonationTarget> = [
     links: [
       {
         url: 'https://liberapay.com/Bond_009',
-        name: SponsorTypes.GithubSponsor
+        name: SponsorTypes.Liberapay
       },
       {
         url: 'https://github.com/sponsors/Bond-009',
