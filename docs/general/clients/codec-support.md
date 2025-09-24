@@ -52,7 +52,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <br />
 <sup>14</sup>AV1 is enabled by default for Swiftfin (VLCKit). AV1 is disabled by default but can be enabled for Native (AVKit) using Custom Device Profiles. Enabling AV1 may result in a poor experience for SOCs prior to A17.
 <br />
-<sup>15</sup>Need FireFox 134 and above. on Windows 11 22H2+, You can play H.265 (HEVC) video in Firefox natively, Windows 10 1803+ and others need install additional extension from the Microsoft Store.
+<sup>15</sup>Need Firefox 134 and above. on Windows 11 22H2+ and Windows 10 1507-1709, You can play H.265 (HEVC) video natively, Windows 10 1803+ and Windows 11 21H2 you still need install additional extension from the Microsoft store.
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
 
