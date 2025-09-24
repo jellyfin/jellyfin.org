@@ -1,7 +1,7 @@
 .github/                               @jellyfin/core
 blog/                                  @jellyfin/core
 src/data/                              @jellyfin/core
-docs/contributing/direct-donations.mdx @jellyfin/core
+docs/general/contributing/direct-donations.mdx @jellyfin/core
 docs/general/about.md                  @jellyfin/core
 docs/general/community-standards.md    @joshuaboniface
 docs/general/contributing/             @jellyfin/core
