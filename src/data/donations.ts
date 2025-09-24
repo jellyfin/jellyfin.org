@@ -38,7 +38,8 @@ export enum ProjectRole {
 export enum SponsorTypes {
   GithubSponsor = 'Github Sponsors',
   BuyMeACoffee = 'Buy Me a Coffee',
-  Patreon = 'Patreon'
+  Patreon = 'Patreon',
+  Liberapay = 'Liberapay'
 }
 
 function GetProjectRole(project: Projects, roleInProject: ProjectRole) {
@@ -155,6 +156,20 @@ export const donations: Array<DonationTarget> = [
       {
         url: 'https://coff.ee/thornbill',
         name: SponsorTypes.BuyMeACoffee
+      }
+    ]
+  },
+  {
+    title: 'Bond_009',
+    roles: [MiscRoles.CoreTeam, GetProjectRole(Projects.Server, ProjectRole.Contributor)],
+    links: [
+      {
+        url: 'https://liberapay.com/Bond_009',
+        name: SponsorTypes.GithubSponsor
+      },
+      {
+        url: 'https://github.com/sponsors/Bond-009',
+        name: SponsorTypes.GithubSponsor
       }
     ]
   }
