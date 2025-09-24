@@ -142,7 +142,7 @@ export const donations: Array<DonationTarget> = [
     ]
   },
   {
-    title: 'Bill Thornton (ferferga)',
+    title: 'Bill Thornton',
     roles: [
       MiscRoles.CoreTeam,
       GetProjectRole(Projects.JellyfinWeb, ProjectRole.SubprojectLead),
