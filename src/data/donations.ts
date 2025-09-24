@@ -15,7 +15,8 @@ export enum MiscRoles {
   CoreTeam = 'Core Team',
   ReleaseManager = 'Release Manager',
   InfastructureAdmin = 'Infastructure Administrator',
-  ProjectLeader = 'Project Leader'
+  ProjectLeader = 'Project Leader',
+  Tooling = 'Tooling/Packaging Developer'
 }
 
 export enum Projects {
@@ -27,7 +28,8 @@ export enum Projects {
   Swiftfin = 'Swiftfin',
   Vue = 'Jellyfin Vue',
   JellyfinWeb = 'Jellyfin Web',
-  IOS = 'Jellyfin for iOS'
+  IOS = 'Jellyfin for iOS',
+  Kodi = 'Jellyfin for Kodi'
 }
 
 export enum ProjectRole {
@@ -39,7 +41,8 @@ export enum SponsorTypes {
   GithubSponsor = 'Github Sponsors',
   BuyMeACoffee = 'Buy Me a Coffee',
   Patreon = 'Patreon',
-  Liberapay = 'Liberapay'
+  Liberapay = 'Liberapay',
+  KoFi = 'ko-fi'
 }
 
 function GetProjectRole(project: Projects, roleInProject: ProjectRole) {
@@ -170,6 +173,24 @@ export const donations: Array<DonationTarget> = [
       {
         url: 'https://github.com/sponsors/Bond-009',
         name: SponsorTypes.GithubSponsor
+      }
+    ]
+  },
+  {
+    title: 'Odd Stråbø',
+    roles: [GetProjectRole(Projects.Kodi, ProjectRole.SubprojectLead), MiscRoles.Tooling],
+    links: [
+      {
+        url: 'https://github.com/sponsors/oddstr13',
+        name: SponsorTypes.GithubSponsor
+      },
+      {
+        url: 'https://ko-fi.com/oddstr13',
+        name: SponsorTypes.KoFi
+      },
+      {
+        url: 'https://buymeacoffee.com/oddstr13',
+        name: SponsorTypes.BuyMeACoffee
       }
     ]
   }
