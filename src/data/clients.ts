@@ -1,9 +1,7 @@
-import Platform from './platform';
-
 export enum ClientType {
-  Official,
-  OfficialBeta,
-  ThirdParty
+  Official = 'Official',
+  OfficialBeta = 'OfficialBeta',
+  ThirdParty = 'ThirdParty'
 }
 
 export enum DeviceType {
@@ -11,6 +9,43 @@ export enum DeviceType {
   Mobile = 'Mobile',
   TV = 'TV'
 }
+
+export enum Platform {
+  // Client platforms
+  Android = 'Android',
+  AndroidTV = 'Android TV',
+  Browser = 'Browser',
+  Desktop = 'Desktop',
+  Discord = 'Discord',
+  FireOS = 'Fire TV',
+  IOS = 'iOS',
+  Kodi = 'Kodi',
+  Roku = 'Roku',
+  SailfishOS = 'Sailfish OS',
+  TVOS = 'tvOS',
+  WebOS = 'webOS',
+  Xbox = 'Xbox',
+
+  // Server platforms
+  Arch = 'Arch Linux',
+  CentOS = 'CentOS',
+  Debian = 'Debian',
+  Docker = 'Docker',
+  DotNet = '.NET Portable',
+  Fedora = 'Fedora',
+  Gentoo = 'Gentoo',
+  Linux = 'Linux',
+  MacOS = 'macOS',
+  Ubuntu = 'Ubuntu',
+  Windows = 'Windows'
+}
+
+export const DEVICE_PLATFORMS: Map<DeviceType, Platform[]> = new Map([
+  [DeviceType.TV, [Platform.AndroidTV, Platform.FireOS, Platform.Roku, Platform.TVOS, Platform.WebOS]],
+  [DeviceType.Mobile, [Platform.Android, Platform.IOS]],
+  [DeviceType.Desktop, [Platform.Linux, Platform.MacOS, Platform.Windows]]
+]);
+export const OTHERS = [Platform.Browser, Platform.Discord, Platform.Docker, Platform.Kodi, Platform.Xbox];
 
 export enum LicenseType {
   OpenSource,
@@ -45,7 +80,7 @@ const officialClients: Array<Client> = [
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'flathub',
@@ -74,7 +109,7 @@ const officialClients: Array<Client> = [
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'flathub',
@@ -394,7 +429,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'gh-downloads',
@@ -417,7 +452,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Browser, Platform.Desktop],
+    platforms: [Platform.Browser, Platform.Linux, Platform.Windows],
     primaryLinks: [
       {
         id: 'browser',
@@ -445,7 +480,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'install',
@@ -468,7 +503,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'installation',
@@ -491,7 +526,7 @@ const thirdPartyClients: Array<Client> = [
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows, Platform.Docker],
     primaryLinks: [
       {
         id: 'browser',
@@ -515,11 +550,11 @@ const thirdPartyClients: Array<Client> = [
   {
     id: 'tauon-music-box',
     name: 'Tauon Music Box',
-    description: "A modern streamlined music player for desktop with a minimal interface that is packed with features!",
+    description: 'A modern streamlined music player for desktop with a minimal interface that is packed with features!',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'flathub',
@@ -926,27 +961,27 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: "fladder",
-    name: "Fladder",
-    description: "A simple, cross-platform Jellyfin frontend built on top of Flutter.",
+    id: 'fladder',
+    name: 'Fladder',
+    description: 'A simple, cross-platform Jellyfin frontend built on top of Flutter.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows, Platform.Android, Platform.Browser],
     primaryLinks: [
       {
-        id: "play-store",
-        name: "Play Store",
-        url: "https://play.google.com/store/apps/details?id=nl.jknaapen.fladder",
-      },
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=nl.jknaapen.fladder'
+      }
     ],
     secondaryLinks: [
       {
-        id: "github",
-        name: "GitHub",
-        url: "https://github.com/DonutWare/Fladder",
-      },
-    ],
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/DonutWare/Fladder'
+      }
+    ]
   },
   {
     id: 'symfonium',
@@ -997,7 +1032,4 @@ const thirdPartyClients: Array<Client> = [
   }
 ];
 
-export const Clients: Array<Client> = [
-  ...officialClients,
-  ...thirdPartyClients
-];
+export const Clients: Array<Client> = [...officialClients, ...thirdPartyClients];

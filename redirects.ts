@@ -23,11 +23,11 @@ const redirects: ClientRedirects.Options['redirects'] = [
   // Unified client + server download pages
   {
     from: '/clients',
-    to: '/downloads/clients/'
+    to: '/downloads/clients'
   },
   {
     from: '/clients/all',
-    to: '/downloads/clients/all'
+    to: '/downloads/clients'
   },
   // New installation documentation
   {
