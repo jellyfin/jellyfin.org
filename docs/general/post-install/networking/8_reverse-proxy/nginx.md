@@ -51,7 +51,7 @@ server {
     # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
     # Enforces https content and restricts JS/CSS to origin
     # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
-    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self'";
+    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; font-src 'self'";
 
     location / {
         # Proxy main Jellyfin traffic
@@ -89,11 +89,6 @@ server {
     return 301 https://$host$request_uri;
 }
 ```
-
-## WebOS Jellyfin App Error -27
-
-For the Jellyfin app on WebOS (running on LG TVs) the `Content-Security-Policy` header needs to be modified slightly: Remove `frame-ancestors 'self';`.
-Not removing this part may lead to the app displaying "Error -27" upon trying to log in.
 
 ## Extra Nginx Configurations
 
