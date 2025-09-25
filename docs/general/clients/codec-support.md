@@ -81,6 +81,8 @@ HDR is only supported on a very limited range of devices:
 
 - WebOS devices (Newer LG Smart TVs) running the official WebOS client supports HDR. However, [mkv containers are known to cause issues](https://github.com/jellyfin/jellyfin-web/issues/4678). Please enable the force remux mkv to mp4 option in the client settings as a workaround.
 
+- Some Chromium-based browsers on Linux will attempt Client-side HDR to SDR tonemapping. This generally looks very bad. There will be no server side involvement when this is happening.
+
 Devices not listed above do not support HDR on any official client. Any HDR content will have to be converted to SDR by the server for proper playback on these clients. For more info, please refer to our [tone-mapping documentation](/docs/general/post-install/transcoding/#hdr-to-sdr-tone-mapping)
 
 ## [Audio Compatibility](https://en.wikipedia.org/wiki/Comparison_of_video_container_formats#Audio_coding_formats_support "Wikipedia's audio codec tables")
