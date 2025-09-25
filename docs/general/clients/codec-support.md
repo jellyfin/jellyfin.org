@@ -75,7 +75,7 @@ HDR is only supported on a very limited range of devices:
 
 - Macs running macOS that supports HDR can play HDR content when using Safari, Chrome or Firefox on an HDR capable display as long as the source codec is supported. Safari has the most complete support, including HDR10, Dolby Vision (including P5) and HLG. Chrome and Firefox only support HDR10. Chrome supports HDR10 on HEVC, VP9 and AV1. Firefox only supports HDR on VP9 and AV1 content. Please refer to [the list of Macs that support HDR](https://support.apple.com/en-us/102205) to check if your device is supported. On non-Apple displays, other HDR formats will be tone-mapped to HDR10 by the client device.
 
-- Windows PCs with an HDR display with HDR enabled in the settings using Edge or Chrome. Dolby Vision only works in Edge and requires the Dolby Vision addon from the Microsoft Store to be installed. Edge generally produces better colors than Chrome when playing HDR content.
+- Windows PCs with an HDR display with HDR enabled in the settings using Edge or Chrome. Dolby Vision only works in Edge and requires [the Dolby Vision add-on from the Microsoft Store](https://apps.microsoft.com/detail/9pltg1lwphlf) to be installed. Edge generally produces better colors than Chrome when playing HDR content.
 
 - Android TV devices with HDR support running the official Android TV App. HDR format support depends on the specific device you are running.
 
