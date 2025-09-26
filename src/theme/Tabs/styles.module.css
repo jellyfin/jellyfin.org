@@ -1,5 +1,8 @@
 .tabList {
   margin-bottom: var(--ifm-leading);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 16px;
 }
 
 .tabItem {
