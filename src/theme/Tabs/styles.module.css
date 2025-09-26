@@ -1,7 +1,10 @@
 .tabList {
   margin-bottom: var(--ifm-leading);
   border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   padding: 16px;
 }
 
