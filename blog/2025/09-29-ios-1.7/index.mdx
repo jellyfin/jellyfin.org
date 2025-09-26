@@ -1,0 +1,98 @@
+---
+title: Jellyfin for iOS 1.7.0
+authors:
+  - thornbill
+slug: ios-v1.7.0
+tags: [release, ios]
+---
+
+Download support is (finally) coming to Jellyfin for iOS!
+
+{/* truncate */}
+
+Jellyfin for iOS version 1.7.0 delivers the long-awaited downloads feature. This update introduces global download support complete with
+Files app integration and sharing capabilities. Alongside this major new feature, the release brings additional technical improvements and
+expanded localization support. A complete list of changes, including their respective pull requests, can be found on
+[GitHub](https://github.com/jellyfin/jellyfin-expo/releases/tag/v1.7.0.7).
+
+### Download support is here!
+
+Direct downloads of all media types are now supported, working similarly to the Jellyfin web client and Android app. The download option
+will be presented in the standard UI for users with appropriate server permissions. When selected, an entry will appear in the new
+Downloads tab.
+
+From the Downloads tab, users can:
+
+- Open downloaded media in the Files app
+- Share directly to other apps (like VLC) for viewing/playing
+- Delete downloaded content
+
+![Downloads tab with context menu showing downloaded item options](./downloads.png)
+
+Additionally, downloaded media can be browsed directly from within the Files app by locating the Jellyfin directory under Downloads.
+
+#### Transcoded downloads
+
+Transcoded downloads have transitioned from an experimental to an alpha setting, allowing for broader community testing of this emerging
+capability. This feature enables transcoding of audio and video that cannot be played directly by the iOS media engine. The Jellyfin server
+will convert these files to a compatible format, also enabling playback of compatible videos directly within the app.
+
+**Important notes for users:** Server-side support for transcoded downloads is currently very basic. You may encounter various issues, and
+the feature should be approached with this in mind. Currently, there are no options to control download quality, and in some cases,
+transcoded files may be significantly larger than the original source files. Please report any issues you encounter on
+[GitHub](https://github.com/jellyfin/jellyfin-ios/issues).
+
+### Technical improvements
+
+This release features several technical enhancements:
+
+- **State Management Upgrade**: State management within the app has been migrated to [zustand](https://github.com/pmndrs/zustand) from
+  mobx, resolving a major blocker for upgrading to the latest Expo and React Native versions.
+- **TypeScript Migration**: Continued migration to TypeScript improves overall code quality and maintainability.
+- **App Naming Consistency**: Updates made to the app name to ensure
+  [consistent branding](https://github.com/jellyfin/jellyfin-meta/discussions/100).
+- **Expanded Localization**: Added support for Afrikaans and Basque languages, thanks to our community translators.
+- **Code Optimization**: Removed unused resources from the app.
+
+### Supported iOS versions
+
+**This release of the Jellyfin app will be the last major update to support iOS 12.** The next major release is planned to include an
+updated version of React Native, which will require us to increase the minimum supported iOS version to at least 15.1. Users with devices
+running older iOS versions will still be able to use the Jellyfin web interface, though future app updates will not be available for these
+devices.
+
+## Contributors
+
+Jellyfin is completely developed by volunteers, and could not be made without their great skills and dedication. Consider donating if you
+appreciate their work. A big shout-out to all contributors that made this release possible:
+
+**Jellyfin Team**
+
+- [@thornbill](https://github.com/thornbill) - Donate via [GitHub sponsors](https://github.com/sponsors/thornbill) or
+  [BuyMeACoffee](https://coff.ee/thornbill)
+
+**Other contributors**
+
+- [@enigma0Z](https://github.com/enigma0Z)
+
+And finally a big thank you to everyone who contributed translations, reported bugs, provided feedback and participated in beta testing!
+
+### Helping out
+
+If you have experience with React Native development and are interested in contributing, feel free to dive into the
+[source code](https://github.com/jellyfin/jellyfin-ios) and open a pull request. Likewise, if you have experience with
+JavaScript/TypeScript and React, [jellyfin-web](https://github.com/jellyfin/jellyfin-web) is always looking for additional contributors.
+Alternatively, you can help with translating the app into your own language on our
+[Weblate](https://translate.jellyfin.org/projects/jellyfin/jellyfin-expo/) instance.
+
+## Downloads
+
+Update your app now to check out these exciting new features! The AppStore will automatically update your Jellyfin app if you're already
+using it. New users can find the app on the Apple App Store.
+
+<a href='https://apps.apple.com/us/app/jellyfin-mobile/id1480192618'>
+  <img width='153' alt='Download on the App Store' src='/images/store-icons/app-store.svg' />
+</a>
+
+You can also join our [TestFlight](https://testflight.apple.com/join/jJP75akQ) and help test new versions before they're released to the
+public.
