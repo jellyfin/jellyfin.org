@@ -18,3 +18,28 @@ The most obvious and easiest form of authentication would be authenticating by u
 Some users may not have a password. In this scenario, the developer would still authenticate by username but would leave the password field as an empty string.
 
 ## Quick Connect
+
+Using passwords is not the best choice on all platforms. Using the remote of a television or entering a complex password on mobile is not the best experience. For those cases Quick Connect helps out. With Quick Connect the app requests a code from the server and displays it to the user. This code can then be used in an already signed in app to authorize the new one.
+
+The Quick Connect functionality may be disabled by a server. In those cases the server responds with an HTTP 401 response. You can check if QuickConnect is enabled first or deal with it when trying to use it.
+
+To start a Quick Connect session you need to request a Quick Connect code by calling the initiate Quick Connect operation. This returns a state object which can be updated by calling the Get Quick Connect State operation.
+
+The Quick Connect state contains a few values that are of interest:
+
+- `authenticated` is a boolean that indicates if the user authorized the app. When this is true you can retrieve an access token.
+- `secret` is a string with a unique code for this session. It is used to update the session state.
+- The `code` is for the user to input in a different app
+
+The next step is to show the code to the user. The user will then use this code in another session to authenticate.
+
+Depending on your app you might want to either show a "next" button to press when the user authorized the app or automatically update the Quick Connect state. 
+
+Eventually the authenticated value will change to true. This means the user authorized your app. You can now use the secret to get an access token in the user api.
+
+So in summary:
+
+1. Create a Quick Connect session
+2. Show the code to the user
+3. Update the state every 5 seconds or manually
+4. Request an access token when authenticated is true
