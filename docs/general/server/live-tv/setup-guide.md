@@ -100,3 +100,18 @@ The list of physical channels will be displayed. Click the pencil icon to the ri
 ![Step 2 of mapping channels](/images/docs/live-tv-setup-channels2.png)
 
 The guide data will now automatically import. You can check that the data has been imported correctly by going to the 'Live TV Guide' page from the main Jellyfin web page on your server.
+
+## Integrating TVHeadend without a plugin
+
+It's possible to use TVHeadend with Jellyfin through as an M3U/XMLTV integrations. 
+This integration requires more CPU processing, and the plugin is therefore recommended.
+This approach is recommended when the plugin fails for some reason.
+
+1. Go to LiveTV, Tuner devices, and add a new M3U Tuner
+2. Set the URL to point to `http://your.tvheadend.server:port/playlist/channels.m3u`
+3. Press save
+4. Go to LiveTV, TV Guide Data Providers, and add a new XMLTV source
+5. Set the URL to point to `http://your.tvheadend.server:port/xmltv/channels`
+6. Press save
+
+Wait for the Guide data to refresh.
