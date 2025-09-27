@@ -78,7 +78,8 @@ function TabList({ className, block, selectedValue, selectValue, tabValues }: Pr
           onClick={handleTabChange}
           {...attributes}
           className={clsx('tabs__item', styles.tabItem, attributes?.className as string, {
-            'tabs__item--active': selectedValue === value
+            'tabs__item--active': selectedValue === value,
+            [styles.activeItem]: selectedValue === value
           })}
         >
           {label ?? value}

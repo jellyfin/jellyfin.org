@@ -2,7 +2,7 @@
   margin-bottom: var(--ifm-leading);
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   padding: 16px;
@@ -12,4 +12,21 @@
 
 .tabItem {
   margin-top: 0 !important;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.tabItem:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.activeItem {
+  color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid transparent;
+  position: relative;
+  z-index: 2;
 }
