@@ -97,34 +97,15 @@ Or using `lshw`:
 lshw -C display
 ```
 
-### Intel QSV & VA-API
+See the table below to pick the best hardware acceleration method for your hardware:
 
-Click [Intel GPU](./intel).
-
-### AMD AMF & VA-API
-
-Click [AMD GPU](./amd).
-
-### NVIDIA NVENC
-
-Click [NVIDIA GPU](./nvidia).
-
-### Apple VideoToolbox
-
-Click [Apple Mac](./apple).
-
-### Rockchip RKMPP
-
-Click [Rockchip VPU](./rockchip).
-
-## Enable Hardware Acceleration
-
-Hardware acceleration options can be found in the Admin Dashboard under the **Transcoding** section of the **Playback** tab.
-
-Select a valid hardware acceleration method from the drop-down menu and a device if applicable.
-Supported codecs need to be indicated by checking the boxes in **Enable hardware decoding for** and **Hardware encoding options**.
-
-The hardware acceleration is available immediately for media playback. No server restart is required.
+| GPU Vendor | Windows                                    | macOS                      | Linux                                  |
+| ---------- | ------------------------------------------ | -------------------------- | -------------------------------------- |
+| AMD        | [AMF (Windows)](./amd.md#windows-setups)      | [VideoToolbox](./apple.md) | [VAAPI (AMD)](./amd.md#linux-setups)      |
+| Apple      | N/A                                        | [VideoToolbox](./apple.md) | N/A                                    |
+| Intel      | [QSV (Windows)](./intel.md#windows-setups)    | [VideoToolbox](./apple.md) | [QSV (Linux)](./intel.md#linux-setups)    |
+| Nvidia     | [NVENC (Windows)](./nvidia.md#windows-setups) | N/A                        | [NVENC (Linux)](./nvidia.md#linux-setups) |
+| Rockchip   | N/A                                        | N/A                        | [RKMPP](./rockchip.md)                    |
 
 ## Remote Hardware Acceleration
 
@@ -148,7 +129,7 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
 - VPP is prefered if both tone-mapping options are enabled.
 
-- Rockchip RKMPP currently only support HDR10 and HLG tone-mapping.
+- Rockchip RKMPP does support Dolby Vision tone-mapping Jellyfin 10.11 and later versions.
 
 :::
 

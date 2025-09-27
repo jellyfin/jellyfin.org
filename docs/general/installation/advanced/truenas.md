@@ -94,7 +94,7 @@ A tab will open from the right side of the page where you launch your custom app
 
 Here, give the custom app a name and write/paste the lines for your compose file.
 
-See here for [documentation on using Docker Compose with Jellyfin](/docs/general/installation/container#using-docker-compose).
+See here for [documentation on using Docker Compose with Jellyfin](/docs/general/installation/container?method=docker-compose).
 Alternatively, here's a basic compose file where you should edit the volumes to use on your system, then copy & paste it into the editor to launch Jellyfin:
 
 ```yml
@@ -133,7 +133,7 @@ services:
   - Unless you set the container to run as root, you need to add the render group ID to the container with `group_add`.
   - In case the render group's ID is not `107` on all SCALE servers by default, go to your system shell and run the following command to get your render group's ID: `cat /etc/group | grep render`
 - Jellyfin's auto discovery ports should also be configured if possible.
-  - [See more info here](/docs/general/post-install/networking/#static-ports)
+  - [See more info here](/docs/general/post-install/networking/#port-bindings)
 
 <details>
   <summary>Docker Compose Options</summary>

@@ -5,7 +5,7 @@ title: AMD GPU
 
 # HWA Tutorial On AMD GPU
 
-This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF or VA-API. If you are on macOS, please use [VideoToolbox](./apple) instead.
+This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF or VA-API. If you are on macOS, please use [VideoToolbox](./apple.md) instead.
 
 ## Acceleration Methods
 
@@ -105,11 +105,11 @@ Please refer to these links:
 
 Due to the lack of B-frame support, the encoding quality of the AMD H.264 hardware encoder has been unsatisfactory. Although RX 6000/VCN3.0 brings back the B-frame support, the quality improvement is not great.
 
-The AMD HEVC encoder is far better than the AMD H.264 encoder, and the new AMD AV1 encoding support on RX 7000/VCN4.0 seems to be the savior of AMD encoding quality. Nonetheless they are currently no match for Intel QSV and NVIDIA NVENC. VCN4.0 additionally improved the encoding speed drastically.
+The AMD HEVC encoder is far better than the AMD H.264 encoder, and the new AMD AV1 encoding support on RX 7000/VCN4.0 seems to be the savior of AMD encoding quality. Nonetheless they are currently no match for Intel QSV and NVIDIA NVENC. VCN4.0 additionally improved the encoding speed drastically. The encoding quality has been greatly improved in VCN5.0, and it also fixes the issue in VCN4.0 where the AV1 encoder required a height of 64 (1080p wrongly encoded as 1082p with black pixels).
 
 Encoding speed and quality:
 
-- VCN4(RX 7000) > VCN3/VCN2(RX 6000/RX 5000/Renoir) > VCN1/VCE(Raven/Picasso/GCN GPUs)
+- VCN5(RX 9000) >> VCN4(RX 7000) > VCN3/VCN2(RX 6000/RX 5000/Renoir) > VCN1/VCE(Raven/Picasso/GCN GPUs)
 
 ## Windows Setups
 
@@ -117,7 +117,7 @@ Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-Please refer to [this section](./known-issues#amd-on-windows) for known issues and limitations.
+Please refer to [this section](./known-issues.md#amd-on-windows) for known issues and limitations.
 
 ### Configure On Windows Host
 
@@ -175,7 +175,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-Please refer to [this section](./known-issues#amd-on-linux) for known issues and limitations.
+Please refer to [this section](./known-issues.md#amd-on-linux) for known issues and limitations.
 
 ### Configure On Linux Host
 
@@ -294,7 +294,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](./amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](./amd.md#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -333,7 +333,7 @@ Root permission is required.
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
    ```
 
-5. Check to the remaining parts of [Debian And Ubuntu Linux](./amd#debian-and-ubuntu-linux).
+5. Check to the remaining parts of [Debian And Ubuntu Linux](./amd.md#debian-and-ubuntu-linux).
 
 #### Other Distros
 
@@ -370,7 +370,7 @@ sudo mv jellyfin-ffmpeg /usr/lib
 sudo ldd -v /usr/lib/jellyfin-ffmpeg/ffmpeg
 ```
 
-Install other necessary Intel driver packages and their dependencies that contain these key words:
+Install other necessary Mesa driver packages and their dependencies that contain these key words:
 
 - Mesa libva vaapi driver - RadeonSI
 
@@ -471,7 +471,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 Other Virtualizations are not verified and may or may not work on AMD GPU.
 
-Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel#configure-with-linux-virtualization) for more information.
+Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel.md#configure-with-linux-virtualization) for more information.
 
 ### Verify On Linux
 

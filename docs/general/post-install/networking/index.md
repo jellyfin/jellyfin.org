@@ -3,123 +3,150 @@ uid: network-index
 title: Networking
 ---
 
-# Networking
+As a server software, Jellyfin offers different services over the network.
+Specifically Jellyfin supports the streaming of content and comes packed with a web-Client. - This will work purely over the HTTP(S) ports.
 
-This section describes how to get basic connectivity to a Jellyfin server, and also some more advanced networking scenarios.
+Additionally, in local networks, Jellyfin offers various Auto-Discovery services. These will not work outside your local subnet.
 
-## Connectivity
+As a fully self-hosted software, Jellyfin runs independently from the Internet.
+You do not have to make your server accessible through the internet.
+Neither does Jellyfin require an internet connection to run; however you should note that it will load metadata from various Providers, which will not work without an Internet connection.
 
-Many clients will automatically discover servers running on the same LAN and display them on login. If you are outside the network when you connect you can type in the complete IP address or domain name in the server field with the correct port to continue to the login page. You can find the default ports below to access the web frontend.
+## Port Bindings
 
-HTTP and HTTPS are the primary means of connecting to the server. When using HTTPS, self-signed certs are not recommended. Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt).
+This section aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
+
+| Port | Protocol | Configurable | Description |
+|---|---|---|---|
+| 8096 | TCP | ✔️ | Default HTTP |
+| 8920 | TCP | ✔️ | Default HTTPS |
+| 7359 | UDP | ❌ | Client Discovery |
+
+<details>
+<summary>See details</summary>
+
+- **HTTP Traffic** (8096/TCP):
+    The web frontend can be accessed here. You can modify this setting from the **Networking** page in the admin settings.
+
+- **HTTPS Traffic** (8920/TCP):
+    Used when https is enabled. By default this port will not be used.
+    This setting can also be modified from the **Networking** page to use a different port.
+
+- **Client Discovery** (7359/UDP):
+    Allows clients to discover Jellyfin on the local network. A broadcast message to this port will return detailed information about your server that includes name, ip-address and ID.
+
+</details>
+
+## Accessing Jellyfin
+
+This section focusses on how to make Jellyfin Available within Networks.
+Here you will find descriptions on how to make Jellyfin accessible both only locally and through the Internet.
+
+In general, Jellyfin will be available locally on the specified port over the host-ip - e.g. `http://10.0.0.2:8096`.
+However its also possible to create a local DNS entry that will point to your Jellyfin-Server - e.g. `http://jellyfin.local:8096`.
+
+<details>
+<summary>Learn more about limitations with local DNS</summary>
+
+Devices like Google Chromecast or Google Streamer use hardcoded DNS Servers - therefore they will not make use of your local DNS entries.
+There are multiple workarounds for this issue.
+
+The easiest involves the usage of IPv6 Entries in the public DNS.
+Since IPv6 addresses do not differentiate between local and public, the address will be abled to be resolved locally.
+This, however, requires the use of a public DNS server - The Jellyfin Server does not have to be accessible from the outside though!
+
+</details>
+
+### Firewall / Port Forwarding
+
+Networks are usually divided from each other by firewalls. These block all incoming traffic and are meant to protect the network.
+To access Jellyfin through these boundaries, its ports need to be forwarded / opened in the respective firewalls.
+
+Note that opening a port gives full access to that port to the next higher Network.
+Opening a port directly to the Internet is therefore insecure and not recommended.
+
+There are different layers where a firewall can be placed:
+
+| Layer | Example | Description |
+| --- | --- | --- |
+| Local | Docker, VM | Open ports at this layer to allow traffic from the Host to enter the Application |
+| Host | physical machine, operating system | Open ports at this layer to allow traffic from the Network to enter the Host device |
+| Network | Router | Open ports at this layer to allow traffic from the Internet to enter the Local Network |
+
+<details>
+<summary>Port forwarding vs. opening a Port</summary>
+
+Whilst Routers often allow you to forward a port, firewalls typically only allow you to open one.
+The difference is within the Target. Opening a Port essentially just means that traffic on this Port will go through.
+Forwarding a Port you typically do in NAT scenarios - traffic is coming in on your public IP Address, what device inside your network should recieve it.
+Sometimes, port forwarding also lets you map an external port to a different internal port.
+
+</details>
+
+<details>
+<summary>How to open a Port</summary>
+
+How exactly a port will be opened depends on your firewall software and its UI.
+Here is linked below how to open ports for:
+
+- [Windows Firewall](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/configure-a-firewall-for-report-server-access?view=sql-server-ver16#open-ports-in-windows-firewall)
+- [firewalld](https://firewalld.org/documentation/howto/open-a-port-or-service.html)
+- [Uncomplicated Firewall](https://wiki.ubuntu.com/UncomplicatedFirewall#Basic_Usage) (ufw)
+- [nftables](https://wiki.nftables.org/wiki-nftables/index.php/Main_Page)
+
+</details>
+
+### External Access
+
+Since Jellyfin is entirely self-hosted, you must manually expose it to the internet.
+To do so, you need a method to access the HTTP(S) ports remotely.
+Automatic discovery only works locally and should not be exposed externally
+
+To access a server remotely there will need to be a way to find it or its network on the internet.
+This can be done through the public IP Address of the Device or for IPv6 the Server's directly.
+
+To store the IP Address, the easiest option would be to use a Domain and rely on DNS to resolve it.
+This can also be used to store the 'current IP Address' in the case of a dynamic public IP Address.
+However its not mandatory to use a Domain.
+
+There are multiple ways of exposing Jellyfin to the outside - the most common ones are:
+
+- forwarding its Ports directly to the internet (not recommended!)
+- forwarding through a Reverse Proxy
+- using a VPN connection to enter the Network
+- use a VPS to Reverse Proxy to your home network
+
+Learn more about reverse proxies in our dedicated [Reverse Proxy guide](./8_reverse-proxy/index.md).
+
+### SSL / https
+
+Using https to access the Server is recommended.
+By default, HTTPS is disabled because it requires an SSL certificate.
+
+SSL Certificates are usually issued by a third party and verify that the Server and URL are assigned to another.
+Please use a trusted certificate authority such as [Let's Encrypt](./9_advanced/letsencrypt.md) when using https.
 
 :::caution
 
-In order for Chromecast to work on your local LAN, the easiest solution is to use IPv6 instead of IPv4.
-For IPv4, you need to use NAT reflection to redirect to your local LAN IPv4 or add a override rules to your local DNS server to point to your local LAN IPv4 (for example 192.168.1.10) of Jellyfin.  
-Because Chromecasts have hardcoded Google DNS servers, you need to block Chromecast from reaching these servers (8.8.8.8) so it makes use of your local DNS server instead.  
-For a public routable IPv6 (not a link-local or ULA) there is no difference between public or local. Such IPv6 address is simultaneously publicly routable and accessible from the local LAN.  
-Because of that, there is no blocking, redirecting or DNS override needed.
+Self-signed certificates pose security and compatibility issues and are strongly discouraged.
 
 :::
 
-### Port Bindings
+While Jellyfin supports HTTPS, it is strongly recommended to handle HTTPS termination separately on a reverse proxy. You can find more info on how to set this up on our [Reverse Proxy](./8_reverse-proxy/index.md) page.
 
-This document aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
-
-#### Static Ports
-
-- 8096/tcp is used by default for HTTP traffic. You can change this in the dashboard.
-- 8920/tcp is used by default for HTTPS traffic. You can change this in the dashboard.
-- 1900/udp is used for service auto-discovery. This is not configurable.
-- 7359/udp is also used for auto-discovery. This is not configurable.
-
-**HTTP Traffic:** 8096
-
-The web frontend can be accessed here for debugging SSL certificate issues on your local network. You can modify this setting from the **Networking** page in the settings.
-
-**HTTPS Traffic:** 8920
-
-This setting can also be modified from the **Networking** page to use a different port.
-
-**Service Discovery:** 1900
-
-Since client auto-discover would break if this option were configurable, you cannot change this in the settings at this time. DLNA also uses this port and is required to be in the local subnet.
-
-**Client Discovery:** 7359 UDP
-
-Allows clients to discover Jellyfin on the local network. A broadcast message to this port with `Who is JellyfinServer?` will get a JSON response that includes the server address, ID, and name.
-
-#### Dynamic Ports
-
-Live TV devices will often use a random UDP port for HDHomeRun devices. The server will select an unused port on startup to connect to these tuner devices.
-
-### Monitoring Endpoints
-
-See [monitoring](./advanced/monitoring) for details on the monitoring endpoints that Jellyfin provides.
-
-## Running Jellyfin Behind a Reverse Proxy
-
-It's possible to run Jellyfin behind another server acting as a reverse proxy. With a reverse proxy setup, this server handles all network traffic and proxies it back to Jellyfin. This provides the benefits of using DNS names and not having to remember port numbers, as well as easier integration and management of SSL certificates.
-
-In cases when you would like to not use host networking with docker, you may use the gateway ip as a known proxy to fix ip resolution for clients logging in.
-
-:::caution
-
-In order for a reverse proxy to have the maximum benefit, you should have a publicly routable IP address and a domain with DNS set up correctly.
-These examples assume you want to run Jellyfin under a sub-domain (e.g. jellyfin.example.com), but are easily adapted for the root domain if desired.
-
-:::
-
-:::caution
-
-Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g `api_key` parameter), so logging the full request path can expose secrets to your logfile.
-We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
-The nginx documentation below includes an example how to censor sensitive information from a logfile.
-
-:::
-
-Some popular options for reverse proxy systems are [Apache](https://httpd.apache.org), [Caddy](https://caddyserver.com), [Haproxy](https://www.haproxy.com), [Nginx](https://www.nginx.com) and [Traefik](https://traefik.io).
-
-- [Apache](./advanced/apache)
-- [Caddy](./caddy)
-- [HAProxy](./advanced/haproxy)
-- [Nginx](./advanced/nginx)
-- [Traefik](./advanced/traefik)
-
-While not a reverse proxy, Let's Encrypt can be used independently or with a reverse proxy to provide SSL certificates.
-
-- [Let's Encrypt](./advanced/letsencrypt)
-
-When following this guide, be sure to replace the following variables with your information.
-
-- `DOMAIN_NAME`: Your public domain name to access Jellyfin on (e.g. jellyfin.example.com)
-- `example.com`: The domain name Jellyfin services will run under (e.g. example.com)
-- `SERVER_IP_ADDRESS`: The IP address of your Jellyfin server (if the reverse proxy is on the same server use 127.0.0.1)
-
-In addition, the examples are configured for use with Let's Encrypt certificates. If you have a certificate from another source, change the SSL configuration from `/etc/letsencrypt/DOMAIN_NAME/` to the location of your certificate and key.
-
-Ports 80 and 443 (pointing to the proxy server) need to be opened on your router and firewall.
-
-### Known Proxies
-
-When a reverse proxy handles incoming http requests it terminates the request and then creates a new request to your jellyfin server. This will result in jellyfin seeing the sender IP as the ip of the reverse proxy instead of the actual client. To compensate for that, reverse proxies set the original sender IP in a header. This header is usually one of `X-Forwarded-For`, `X-Forwarded-Proto` or `X-Forwarded-Host` all 3 are supported by jellyfin. However as blindly trusting those headers from any source is a security risk, Jellyfin has to be configured to trust your reverse proxy. For jellyfin to know which reverse proxy is trusted, the IP, Hostname or Subnet has to be set in the `Known Proxies` (under Admin Dashboard -> Networking) setting. You can add multiple IP's/Subnets/Hostnames by seperating them with a comma (`,`) like `192.168.178.5,10.10.0.6,127.0.0.0/26,MyReverseProxyHostname`.
-
-This is required for reverse proxies as otherwise all incoming traffic will be seen as originating from your reverse proxy which can be a security risk.
-
-Changes to the KnownProxies setting requires a server restart after saving to take effect.
+**It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.**
 
 ### Base URL
 
-Running Jellyfin with a path (e.g. `https://example.com/jellyfin`) is supported by the Android and web clients.
+Running Jellyfin with a path (e.g. `https://example.com/jellyfin`) is supported.
 
 :::caution
 
-Base URL is known to break HDHomeRun, DLNA, Sonarr, Radarr, Chromecast, and MrMC.
+Base URL is known to break HDHomeRun, the [DLNA plugin](./3_dlna.md), Sonarr, Radarr, and MrMC.
 
 :::
 
-The Base URL setting in the **Networking** page is an advanced setting used to specify the URL prefix that your Jellyfin instance can be accessed at. In effect, it adds this URL fragment to the start of any URL path. For instance, if you have a Jellyfin server at `http://myserver` and access its main page `http://myserver/web/index.html`, setting a Base URL of `/jellyfin` will alter this main page to `http://myserver/jellyfin/web/index.html`. This can be useful if administrators want to access multiple Jellyfin instances under a single domain name, or if the Jellyfin instance lives only at a subpath to another domain with other services listening on `/`.
+The Base URL setting is a setting used to specify the URL prefix that your Jellyfin instance can be accessed at. In effect, it adds this URL fragment to the start of any URL path. For instance, if you have a Jellyfin server at `http://myserver` and access its main page `http://myserver/web/index.html`, setting a Base URL of `/jellyfin` will alter this main page to `http://myserver/jellyfin/web/index.html`. This can be useful if administrators want to access multiple Jellyfin instances under a single domain name, or if the Jellyfin instance lives only at a subpath to another domain with other services listening on `/`.
 
 The entered value on the configuration page will be normalized to include a leading `/` if this is missing.
 
@@ -129,10 +156,6 @@ There are three main caveats to this setting.
 
 1. When setting a new Base URL (i.e. from `/` to `/baseurl`) or changing a Base URL (i.e. from `/baseurl` to `/newbaseurl`), the Jellyfin web server will automatically handle redirects to avoid displaying users invalid pages. For instance, accessing a server with a Base URL of `/jellyfin` on the `/` path will automatically append the `/jellyfin` Base URL. However, entirely removing a Base URL (i.e. from `/baseurl` to `/`, an empty value in the configuration) will not - all URLs with the old Base URL path will become invalid and throw 404 errors. This should be kept in mind when removing an existing Base URL.
 
-2. Client applications generally, for now, do not handle the Base URL redirects implicitly. Therefore, for instance in the Android app, the `Host` setting _must_ include the BaseURL as well (e.g. `http://myserver:8096/baseurl`), or the connection will fail.
+2. Client applications generally, for now, do not handle the Base URL redirects implicitly. Therefore, for instance in the Android TV app, the `Host` setting _must_ include the BaseURL as well (e.g. `http://myserver:8096/baseurl`), or the connection will fail.
 
 3. Any reverse proxy configurations must be updated to handle a new Base URL. Generally, passing `/` back to the Jellyfin instance will work fine in all cases and the paths will be normalized, and this is the standard configuration in our examples. Keep this in mind however when doing more advanced routing.
-
-### Final Steps
-
-It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.
