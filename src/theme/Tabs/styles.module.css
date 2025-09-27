@@ -1,0 +1,15 @@
+.tabList {
+  margin-bottom: var(--ifm-leading);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 16px;
+  margin-top: -1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.tabItem {
+  margin-top: 0 !important;
+}
