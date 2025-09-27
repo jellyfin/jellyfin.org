@@ -23,6 +23,8 @@ Additionally, there are several third parties providing unofficial container ima
 
 ## Installation Instructions
 
+Replace `uid:gid` if you want to run jellyfin as a specific user/group. Exclude the `user` argument entirely if you want to use the default user.
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DockerCli from './\_container-docker-cli.md';
