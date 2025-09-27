@@ -46,3 +46,7 @@ import Podman from './\_container-podman.md';
 
 </TabItem>
 </Tabs>
+
+The above configuration uses a so-called bridge network, which causes the source IP address of client connections to appear as the bridge gateway rather than the actual client.
+To preserve correct client IP information, Jellyfin must be configured to treat the bridge network as a known proxy.
+Detailed instructions can be found on our [reverse proxy guide](../post-install/networking/8_reverse-proxy/index.md).
