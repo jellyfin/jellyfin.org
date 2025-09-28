@@ -44,7 +44,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "sass": "1.93.0",
-    "swiper": "12.0.1",
+    "swiper": "12.0.2",
     "url-loader": "4.1.1"
   },
   "browserslist": {
@@ -62,15 +62,15 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.8.1",
     "@docusaurus/tsconfig": "3.8.1",
-    "@eslint/js": "9.35.0",
+    "@eslint/js": "9.36.0",
     "@types/react": "18.3.24",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
-    "eslint": "9.35.0",
+    "eslint": "9.36.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
-    "eslint-plugin-n": "17.23.0",
+    "eslint-plugin-n": "17.23.1",
     "eslint-plugin-prettier": "5.5.4",
     "eslint-plugin-promise": "7.2.1",
     "eslint-plugin-react": "7.37.5",
