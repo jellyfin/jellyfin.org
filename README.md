@@ -16,7 +16,7 @@ This project includes a combination of content from:
 - [jellyfin-blog](https://github.com/jellyfin/jellyfin-blog) &mdash; The current source for the main website and blog content built using Hugo.
 - [jellyfin-docs](https://github.com/jellyfin/jellyfin-docs) &mdash; The current source for the documentation content built using DocFX.
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ## Installation
 
@@ -26,8 +26,16 @@ npm install
 
 ## Local Development
 
+To run locally, please use:
+
 ```console
 npm start
+```
+
+To run within a dev container we have to instruct the built-in host check to bind against all addresses:
+
+```console
+npm run start -- --host 0.0.0.0
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
