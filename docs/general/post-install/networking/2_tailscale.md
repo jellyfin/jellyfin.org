@@ -28,7 +28,7 @@ Cons:
 
 Setup on server:
 
-1. Install the Tailscale app on the server host. Instructions are available in [their install guide](https://tailscale.com/kb/1347/installation)
+1. Install the Tailscale app on the client device. Instructions are available in [Tailscale's official install guide](https://tailscale.com/kb/1347/installation)
 2. Login to the Tailscale client and connect to the tailnet. On Windows and macOS that can be done through the icon in the system tray. On Linux that can be done with the comnand `sudo tailscale up`
 3. Find and note your Tailscale IP of the server according to the [Tailscale Documentation](https://tailscale.com/kb/1033/ip-and-dns-addresses?tab=linux#finding-your-tailscale-ip-address). This IP will be used for other devices to connect. The IP should start with 100 (e.g. 100.12.34.56).
 
@@ -50,7 +50,7 @@ Setup on Jellyfin server:
 
 Setup on reverse proxy server:
 
-1. Install the Tailscale app on the server host. Instructions are available in [their install guide](https://tailscale.com/kb/1347/installation)
+1. Install the Tailscale app on the client device. Instructions are available in [Tailscale's official install guide](https://tailscale.com/kb/1347/installation)
 2. Login to the tailscale client and connect to the tailnet. On Linux this can be done with the comnand `sudo tailscale up`
 3. Setup a reverse proxy of your choice and set the upstream server to the IP from above. Example [Caddy](./reverse-proxy/caddy) configuration: (Assuming server has Tailscale IP of 100.12.34.56)
 
