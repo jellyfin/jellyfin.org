@@ -25,6 +25,7 @@ Cons:
 
 - Every client needs to have the Tailscale software installed
 - Needs extra, complex configuration to block clients from connecting to each other.
+- Requires an account with a 3rd party provider.
 
 Setup on server:
 
