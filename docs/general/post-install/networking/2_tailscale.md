@@ -46,7 +46,7 @@ Setup on Jellyfin server:
 
 1. Follow the `Setup on server` section in the [Using Tailscale Directly](#using-tailscale-directly) section to setup Tailscale on the Jellyfin server host.
 2. Complete the setup on the reverse proxy server below.
-3. Open the Dashboard of the Jellyfin server and go to Networking. Add the reverse proxy Tailscale IP to the `known proxies` setting. (e.g. 100.65.43.21)
+3. Open the Dashboard of the Jellyfin server and go to Networking. Add the reverse proxy Tailscale IP to the `known proxies` setting. This is explained in detail in our [reverse proxy guide](./reverse-proxy/index.md#forwarded-for-headers).
 
 Setup on reverse proxy server:
 
