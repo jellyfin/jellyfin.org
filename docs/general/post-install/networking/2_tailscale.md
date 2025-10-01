@@ -34,7 +34,7 @@ Setup on server:
 
 Setup on clients:
 
-1. Install the Tailscale app on the client and login. Instructions are available in [their install guide](https://tailscale.com/kb/1347/installation)
+1. Install the Tailscale app on the client and login. Instructions are available in [Tailscale's official install guide](https://tailscale.com/kb/1347/installation)
 2. Enable Tailscale.
 3. Type in the server IP from above into your browser or Jellyfin client of choice and connect. (e.g. 100.12.34.56:8096)
 
