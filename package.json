@@ -43,8 +43,9 @@
     "file-loader": "6.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "sass": "1.93.1",
+    "sass": "1.93.2",
     "swiper": "12.0.2",
+    "ua-parser-js": "2.0.5",
     "url-loader": "4.1.1"
   },
   "browserslist": {
