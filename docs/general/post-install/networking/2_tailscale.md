@@ -6,7 +6,7 @@ sidebar-position: 3
 
 # Tailscale
 
-[Tailscale](https://tailscale.com) is a VPN based on Wireguard which offers easy configuration and high performance. It provides an effective alternative in situations where opening ports is undesirable or not feasible, such as when the network is behind a carrier-grade NAT (CGNAT).
+[Tailscale](https://tailscale.com) is a VPN based on Wireguard which offers easy configuration and high performance. It provides an effective alternative in situations where opening ports is undesirable or not feasible, such as when the network is behind a carrier-grade NAT (CGNAT), or if your ISP blocks incoming traffic on certain ports.
 
 ## Prerequisites
 
