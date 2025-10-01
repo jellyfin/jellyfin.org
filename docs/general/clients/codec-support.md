@@ -13,7 +13,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 [Test your browser's compatibility for any codec profile.](https://cconcolato.github.io/media-mime-support/)
 
-| Sorted by efficency (excluding bit depth)                                                                          | Chrome         | Edge           | Firefox | Safari          | Android        | Android TV     | iOS            | SwiftFin (iOS)  | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | Jellyfin Media Player |
+| Sorted by efficiency (excluding bit depth)                                                                         | Chrome         | Edge           | Firefox | Safari          | Android        | Android TV     | iOS            | SwiftFin (iOS)  | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | Jellyfin Media Player |
 | ------------------------------------------------------------------------------------------------------------------ | -------------- | -------------- | ------- | --------------- | -------------- | -------------- | -------------- | --------------- | ------------------------------------------------------------------------------- | ---- | --------------------- |
 | [MPEG-4 Part 2/SP](https://en.wikipedia.org/wiki/DivX)                                                             | ❌             | ❌             | ❌      | ❌              | ❌             | ❌             | ❌             | ✅              | ✅                                                                              | ✅   | ✅                    |
 | [MPEG-4 Part 2/ASP](<https://en.wikipedia.org/wiki/MPEG-4_Part_2#Advanced_Simple_Profile_(ASP)>)                   | ❌             | ❌             | ❌      | ❌              | ❌             | ❌             | ❌             | ✅              |                                                                                 | ✅   | ✅                    |
@@ -30,7 +30,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <br />
 <sup>3</sup>May be (partially) dependent on Hardware support (can be compensated with CPU decoding on Android). Most new Android phones in the higher price range and many "4K" Android TV devices have VP9 hardware decoding support. Refer to you manufacturer for supported codecs.
 <br />
-<sup>4</sup>Needs atleast Android TV 10.
+<sup>4</sup>Needs at least Android TV 10.
 <br />
 <sup>5</sup>As of <a href="https://github.com/jellyfin/jellyfin-androidtv/pull/671">version 0.12</a>, HEVC is enabled on all devices running Android 5.0+, but early generations of the Amazon Fire may not work yet. 10Bit may be supported depending on your device. Before Client 0.12, HEVC support was enabled on specific devices.
 <br />
@@ -64,6 +64,26 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <sup>1</sup><a href="https://www.afterdawn.com/glossary/term.cfm/mpeg_4_part_10">MPEG-4 Part-2 vs Part-10</a>
 <br />
 <sup>2</sup><a href="https://en.wikipedia.org/wiki/MPEG-4_Part_17">MPEG-4 Part 17: MP4TT Subtitles</a>
+
+### HDR Support
+
+HDR is only supported on a very limited range of devices:
+
+- iOS Devices with an HDR capable internal display can display HDR content when using a browser or the Jellyfin iOS App (not Swiftfin) as long as the codec is supported by the client. All of them support HEVC and VP9, while AV1 is supported on newer devices. HDR10, Dolby Vision and HLG are supported.
+
+- Android devices running either the official Android App or using Chrome can display HDR content if the device supports HDR and the source format. Format support depends on device.
+
+- Macs running macOS that support HDR can play HDR content when using Safari, Chrome or Firefox on an HDR capable display as long as the source codec is supported. Safari has the most complete support, including HDR10, Dolby Vision (including P5) and HLG. Chrome and Firefox only support HDR10. Chrome supports HDR10 on HEVC, VP9 and AV1. Firefox only supports HDR on VP9 and AV1 content. Please refer to [the list of Macs that support HDR](https://support.apple.com/en-us/102205) to check if your device is supported. On non-Apple displays, other HDR formats will be tone-mapped to HDR10 by the client device.
+
+- Windows PCs with an HDR display with HDR enabled in the settings using Edge or Chrome. Dolby Vision only works in Edge and requires [the Dolby Vision add-on from the Microsoft Store](https://apps.microsoft.com/detail/9pltg1lwphlf) to be installed. Edge generally produces better colors than Chrome when playing HDR content.
+
+- Android TV devices with HDR support running the official Android TV App. HDR format support depends on the specific device you are running.
+
+- WebOS devices (Newer LG Smart TVs) running the official WebOS client supports HDR. However, [mkv containers are known to cause issues](https://github.com/jellyfin/jellyfin-web/issues/4678). Please enable the force remux mkv to mp4 option in the client settings as a workaround.
+
+- Some Chromium-based browsers on Linux will attempt Client-side HDR to SDR tonemapping. This generally looks very bad. There will be no server side involvement when this is happening.
+
+Devices not listed above do not support HDR on any official client. Any HDR content will have to be converted to SDR by the server for proper playback on these clients. For more info, please refer to our [tone-mapping documentation](/docs/general/post-install/transcoding/#hdr-to-sdr-tone-mapping)
 
 ## [Audio Compatibility](https://en.wikipedia.org/wiki/Comparison_of_video_container_formats#Audio_coding_formats_support "Wikipedia's audio codec tables")
 

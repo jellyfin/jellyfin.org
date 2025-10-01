@@ -3,8 +3,6 @@ uid: network-reverse-proxy-nginx
 title: Nginx
 ---
 
-## Nginx
-
 "[Nginx](https://www.nginx.com/) (pronounced "engine X") is a web server which can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. The software was created by Igor Sysoev and first publicly released in 2004.[9] A company of the same name was founded in 2011 to provide support and Nginx plus paid software." - [Wikipedia](https://en.wikipedia.org/wiki/Nginx)
 
 ## Nginx from a subdomain (jellyfin.example.org)
@@ -53,7 +51,7 @@ server {
     # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
     # Enforces https content and restricts JS/CSS to origin
     # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
-    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self'";
+    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; font-src 'self'";
 
     location / {
         # Proxy main Jellyfin traffic
@@ -96,7 +94,7 @@ server {
 
 ### Censor sensitive information in logs
 
-This censors any <code>api_key</code> URL parameter from the logfile.
+This censors any 'api_key' URL parameter from the logfile.
 
 ```conf
 #Must be in HTTP block
@@ -115,7 +113,7 @@ map $request $secretfilter {
 access_log /var/log/nginx/access.log stripsecrets;
 ```
 
-## Nginx Proxy Manager
+### Nginx Proxy Manager
 
 [Nginx Proxy Manager](https://nginxproxymanager.com/) provides an easy-to-use web GUI for Nginx.
 

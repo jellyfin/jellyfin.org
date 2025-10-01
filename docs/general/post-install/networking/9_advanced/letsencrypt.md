@@ -3,17 +3,15 @@ uid: network-letsencrypt
 title: Let's Encrypt
 ---
 
-## LetsEncrypt with Certbot
-
 LetsEncrypt is a service that provides free SSL/TLS certificates to users. Certbot is a client that makes this easy to accomplish and automate. In addition, it has plugins for Apache and Nginx that make automating certificate generation even easier.
 
 Installation instructions for most Linux distributions can be found on the [Certbot](https://certbot.eff.org/docs/install.html#operating-system-packages) website.
 
 Once the packages are installed, you're ready to generate a new certificate.
 
-### Apache
+## Apache
 
-#### Certbot Apache Plugin
+### Certbot Apache Plugin
 
 After installing Certbot and the Apache plugin, certificate generation is accomplished by with the following command.
 
@@ -29,9 +27,9 @@ Add a job to cron so the certificate will be renewed automatically.
 echo "0 0 * * *  root  certbot renew --quiet --no-self-upgrade --post-hook 'systemctl reload apache2'" | sudo tee -a /etc/cron.d/renew_certbot
 ```
 
-#### Certbot Webroot
+### Certbot Webroot
 
-##### Debian
+#### Debian
 
 If the certbot apache plugin doesn't work with your config, use webroot instead.
 
@@ -49,11 +47,11 @@ Run the certbot command as root:
 sudo certbot certonly --webroot -w /var/www/html --agree-tos --email YOUR_EMAIL -d DOMAIN_NAME
 ```
 
-### Caddy
+## Caddy
 
 Caddy automatically handles obtaining an SSL certificate from Let's Encrypt when provided with a domain name. No manual action is required.
 
-### HAProxy
+## HAProxy
 
 HAProxy doesn't currently have a Certbot plugin. To get around this, run Certbot in standalone mode and proxy traffic through your network.
 
@@ -73,7 +71,7 @@ cat /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem /etc/letsencrypt/live/DOMAIN
 
 Uncomment `bind *:443` and the redirect section in the configuration, then reload the service.
 
-#### Automatic Certificate Renewal
+### Automatic Certificate Renewal
 
 Place the following script in `/usr/local/bin/` to automatically update your SSL certificate.
 
@@ -102,7 +100,7 @@ Add a job to cron so the certificate will be renewed automatically.
 @monthly /usr/bin/certbot renew --renew-hook "/usr/local/bin/letsencrypt-renew.sh" >> /var/log/letsencrypt-renewal.log
 ```
 
-### Nginx
+## Nginx
 
 After installing Certbot and the Nginx plugin with `sudo apt install certbot python3-certbot-nginx`, generate the certificate.
 
@@ -122,7 +120,7 @@ Add a job to cron so the certificate will be renewed automatically.
 echo "0 0 * * *  root  certbot renew --quiet --no-self-upgrade --post-hook 'systemctl reload nginx'" | sudo tee -a /etc/cron.d/renew_certbot
 ```
 
-### Let's Encrypt and Docker
+## Let's Encrypt and Docker
 
 This section assumes that Jellyfin is running in a Docker container (on Linux). This section also assumes that you wish to run Let's Encrypt in a Docker container as well. The Linuxserver/swag Docker container has a built-in nginx webserver to handle the reverse proxy.
 

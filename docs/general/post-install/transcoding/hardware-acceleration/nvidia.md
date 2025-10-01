@@ -15,7 +15,7 @@ On Windows and Linux **NVENC** is the only available method.
 
 The NVENC/NVDEC are the proprietary video codec APIs of NVIDIA GPUs, which can be used with CUDA to achieve full hardware acceleration.
 
-Please refer to [this section](./known-issues#nvidia) for known issues and limitations.
+Please refer to [this section](./known-issues.md#nvidia) for known issues and limitations.
 
 :::note
 
@@ -127,7 +127,7 @@ Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.10 the minimum requi
 
 NVIDIA Windows driver provides access to the NVENC/NVDEC and CUDA in Windows WSL2 and Docker.
 
-Refer to [Configure On Linux Host](./nvidia#configure-on-linux-host) and [Configure With Linux Virtualization](./nvidia#configure-with-linux-virtualization).
+Refer to [Configure On Linux Host](./nvidia.md#configure-on-linux-host) and [Configure With Linux Virtualization](./nvidia.md#configure-with-linux-virtualization).
 
 ### Verify On Windows
 
@@ -220,7 +220,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian and Ubuntu Linux](./nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian and Ubuntu Linux](./nvidia.md#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -411,11 +411,115 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 :::
 
+#### Podman
+
+1. Add the CUDA repo to your package manager.
+
+   Browse the following directory to find the appropriate repository file for your distribution: [CUDA repos](https://developer.download.nvidia.com/compute/cuda/repos/)
+
+   Install the appropriate repository file into your package manager. The way to do this depends on your package manager and OS release. Replace the repo URL in the examples below with the one that is appropriate for you distro.
+
+   a. Fedora, RHEL, CentOS:
+
+   `sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora42/$(uname -m)/cuda-fedora42.repo`
+
+   b. Debian, Ubuntu
+
+   `echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-ubuntu2404.pin stable main" | sudo tee /etc/apt/sources.list.d/cuda-ubuntu2404.list`
+
+   `sudo apt-get update`
+
+2. Install packages `cuda-toolkit` and `nvidia-container-toolkit-base`
+
+   a. Fedora, RHEL, CentOS:
+
+   `sudo dnf install cuda-toolkit nvidia-container-toolkit-base`
+
+   b. Debian, Ubuntu:
+
+   `sudo apt-get install -y cuda-toolkit nvidia-container-toolkit-base`
+
+3. Generate a CDI specification file.
+
+   `sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml`
+
+   See: [Support for Container Device Interface — NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html)
+
+4. Adapt your podman commandline or systemd container file to use the device: `nvidia.com/gpu=0`
+
+   For example, your podman commandline should now look like this:
+
+   ```sh
+   podman run \
+    --detach \
+    --label "io.containers.autoupdate=registry" \
+    --name myjellyfin \
+    --publish 8096:8096/tcp \
+    --device nvidia.com/gpu=0 \
+    # --security-opt label=disable # Only needed for older versions of container-selinux < 2.226
+    --rm \
+    --user $(id -u):$(id -g) \
+    --userns keep-id \
+    --environment=JELLYFIN_DATA_DIR=/var/lib/jellyfin
+    --environment=JELLYFIN_CONFIG_DIR=/etc/jellyfin
+    --environment=JELLYFIN_LOG_DIR=/var/log/jellyfin
+    --environment=JELLYFIN_CACHE_DIR=/var/cache/jellyfin
+    --volume=/your/path/to/data:/var/lib/jellyfin      # Replace paths with actual paths on your host's filestystem
+    --volume=/your/path/to/config:/etc/jellyfin
+    --volume=/your/path/to/logs:/var/log/jellyfin
+    --volume=/your/path/to/cache:/var/cache/jellyfin
+    --mount type=bind,source=/path/to/media,destination=/media,ro=true,relabel=private \
+    docker.io/jellyfin/jellyfin:latest
+   ```
+
+   Systemd:
+
+   ```sh
+   [Unit]
+   Description=jellyfin
+   
+   [Container]
+   Image=docker.io/jellyfin/jellyfin:latest
+   AutoUpdate=registry
+   PublishPort=8096:8096/tcp
+   UserNS=keep-id
+   #SecurityLabelDisable=true # Only needed for older versions of container-selinux < 2.226
+   AddDevice=nvidia.com/gpu=0
+   Environment=JELLYFIN_DATA_DIR=/var/lib/jellyfin
+   Environment=JELLYFIN_CONFIG_DIR=/etc/jellyfin
+   Environment=JELLYFIN_LOG_DIR=/var/log/jellyfin
+   Environment=JELLYFIN_CACHE_DIR=/var/cache/jellyfin
+   Volume=/your/path/to/data:/var/lib/jellyfin      # Replace paths with actual paths on your host's filestystem
+   Volume=/your/path/to/config:/etc/jellyfin
+   Volume=/your/path/to/logs:/var/log/jellyfin
+   Volume=/your/path/to/cache:/var/cache/jellyfin
+
+   [Service]
+   # Inform systemd of additional exit status
+   SuccessExitStatus=0 143
+   
+   [Install]
+   # Start by default on boot
+   WantedBy=default.target 
+   ```
+
+5. Create the following udev rule to make sure the GPU devices are initialized before the container is started.
+
+   Save the following file as `/etc/udev/rules.d/nvidia.rules` :
+
+   ```shell
+   ACTION=="add|bind", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", \
+       DRIVER=="nvidia", TEST!="/dev/nvidia-uvm", \
+       RUN+="/usr/bin/nvidia-modprobe", \
+       RUN+="/usr/bin/nvidia-modprobe -c0 -u", \
+       RUN+="/usr/bin/nvidia-modprobe -m"
+   ```
+
 #### Other Virtualizations
 
 Other Virtualizations are not verified and may or may not work on NVIDIA GPU.
 
-Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel#configure-with-linux-virtualization) for more information.
+Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel.md#configure-with-linux-virtualization) for more information.
 
 ### Verify On Linux
 

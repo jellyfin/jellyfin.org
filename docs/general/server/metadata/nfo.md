@@ -99,7 +99,7 @@ Jellyfin can write metadata to .nfo files. To enable this option, select the "Nf
 | .nfo tag                  | Note                                                                                                                          |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | title                     |                                                                                                                               |
-| id                        | IMDb id for moves, TVDb id for tv shows,                                                                                      |
+| id                        | IMDb id for movies, TVDb id for tv shows,                                                                                      |
 | originaltitle             |                                                                                                                               |
 | seasonnumber              | only for tv show seasons                                                                                                      |
 | showtitle                 | only for tv show episodes                                                                                                     |
@@ -126,7 +126,6 @@ Jellyfin can write metadata to .nfo files. To enable this option, select the "Nf
 | imdb_id                   | only for TV shows                                                                                                             |
 | imdbid                    | for all other media types                                                                                                     |
 | tvdbid                    |                                                                                                                               |
-| idmbid                    |                                                                                                                               |
 | tmdbid                    |                                                                                                                               |
 | language                  |                                                                                                                               |
 | countrycode               |                                                                                                                               |

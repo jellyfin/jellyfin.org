@@ -12,10 +12,10 @@ Movie Name (2010)
 ```
 
 ```txt
-Show (2025)
+Series Name A (2025)
 └──Season 1
-    ├── S01E01-part-1.mkv
-    └── S01E01-part-2.mkv
+    ├── Series Name A (2025) S01E01-part-1.mkv
+    └── Series Name A (2025) S01E01-part-2.mkv
 ```
 
 The separator is optional between `<parttype>` and `<partnumber>`. `<partnumber>` can be any number, or the letters a-d.
