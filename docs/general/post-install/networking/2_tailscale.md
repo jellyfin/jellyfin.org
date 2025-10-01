@@ -41,7 +41,7 @@ Setup on clients:
 
 ## Using Tailscale with a reverse proxy
 
-Tailscale can also be used to connect between a server and a remote reverse proxy. This is useful for getting around CGNAT or in situations where port forwarding is otherwise not possible.
+Tailscale can also be used to connect between a server and a remote reverse proxy. While it is possible to setup a traditional VPN connection between the remote reverse proxy and the Jellyfin server, it can be tricky. Tailscale provides an easy way to set up such a connection.
 
 Setup on Jellyfin server:
 
