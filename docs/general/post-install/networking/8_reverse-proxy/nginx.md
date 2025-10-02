@@ -112,7 +112,3 @@ map $request $secretfilter {
 #Insert into all servers where you want filtering (e.g HTTP + HTTPS block)
 access_log /var/log/nginx/access.log stripsecrets;
 ```
-
-## Nginx Proxy Manager
-
-We do not recommend the use of Nginx Proxy Manager, as it adds extra complexity on top of Nginx, which is a very complex piece of software itself. If you are looking for an easy-to-use reverse proxy, we recommend [Caddy](./caddy.md) instead. If you would still like to use Nginx Proxy Manager, [please head to their support channels for help](https://github.com/NginxProxyManager/nginx-proxy-manager#getting-support).
