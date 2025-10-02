@@ -7,7 +7,7 @@ title: Nginx
 
 ## Nginx from a subdomain (jellyfin.example.org)
 
-Create the file `/etc/nginx/sites-available/jellyfin` which will forward requests to Jellyfin.  After you've finished, you will need to symlink this file to /etc/nginx/sites-enabled and then reload nginx.  This example assumes you've already acquired certifications as documented in our [Let's Encrypt](https://jellyfin.org/docs/general/networking/letsencrypt#nginx) guide.
+Create the file `/etc/nginx/sites-available/jellyfin` which will forward requests to Jellyfin. After you've finished, you will need to symlink this file to /etc/nginx/sites-enabled and then reload nginx. This example assumes you've already acquired certifications as documented in our [Let's Encrypt](https://jellyfin.org/docs/general/networking/letsencrypt#nginx) guide.
 
 Note that a server listening on http port 80 is required for the Certbot / Let's Encrypt certificate renewal process.
 
@@ -113,19 +113,6 @@ map $request $secretfilter {
 access_log /var/log/nginx/access.log stripsecrets;
 ```
 
-### Nginx Proxy Manager
+## Nginx Proxy Manager
 
-[Nginx Proxy Manager](https://nginxproxymanager.com/) provides an easy-to-use web GUI for Nginx.
-
-Create a proxy host and point it to your Jellyfin server's IP address and http port (usually 8096)
-
-Enable "Block Common Exploits", and "Websockets Support". Configure the access list if you intend to use them. Otherwise leave it on "publicly accessible".
-
-In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  This is optional, but recommended if you intend to make Jellyfin accessible outside of your home.
-
-```config
-    # Disable buffering when the nginx proxy gets very resource heavy upon streaming
-    proxy_buffering off;
-```
-
-In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
+We do not recommend the use of Nginx Proxy Manager, as it adds extra complexity on top of Nginx, which is a very complex piece of software itself. If you are looking for an easy-to-use reverse proxy, we recommend [Caddy](./caddy.md) instead. If you would still like to use Nginx Proxy Manager, [please head to their support channels for help](https://github.com/NginxProxyManager/nginx-proxy-manager#getting-support).
