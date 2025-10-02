@@ -12,7 +12,7 @@ Jellyfin has used a SQLite-based database for storing most of its data for years
 
 This will be a technical blog post intended for developers and everyone wanting to learn about concurrency.
 
-Also Jellyfin's implementation of locking for sqlite should be fairly easy to be implemented into anther EF Core application if you are facing the same issue.
+Also Jellyfin's implementation of locking for SQlite should be fairly easy to be implemented into another EF Core application if you are facing the same issue.
 
 \- JPVenson
 
@@ -24,7 +24,7 @@ SQLite is a file-based database engine running within your application and allow
 Overall it gives your application the means of storing structured data as a single file and without having to depend on another application to do so.
 Naturally this also comes at a price. If your application fully manages this file, the assumption must be made that your application is the sole owner of this file, and nobody else will tinker with it while you are writing data to it.
 
-So an application that wants to use SQLite as its Database needs to be the only one accessing it.
+So an application that wants to use SQLite as its database needs to be the only one accessing it.
 Having established this fact, an important thought arises: if only a single write operation should be performed on a single file at a time, this rule must also apply to operations within the same application.
 
 ## The W-A-L mode
@@ -35,21 +35,25 @@ This allows multiple parallel writes to take place and get enqueued into the WAL
 When another part of the application wants to read data, it reads from the actual database, then scans the WAL for modifications and applies them on the fly.
 This is not a foolproof solution; there are still scenarios where WAL does not prevent locking conflicts.
 
-## SQLite Transactions
+## SQLite transactions
 
-A transaction is supposed to ensure two things. Modifications made within a transaction can be reverted, either when something goes wrong or when the application decides it should. Optionally a transaction may also block other readers from reading data that is modified within a transaction.
-This is where it gets spicy and we come to the real reason why I am writing this blog post. For some reason on some systems that run Jellyfin when a transaction takes place the SQLite engine reports the database is locked and instead of waiting for the transaction to be resolved the engine refuses to wait and just crashes.
+A transaction is supposed to ensure two things.
+Modifications made within a transaction can be reverted, either when something goes wrong or when the application decides it should and optionally a transaction may also block other readers from reading data that is modified within a transaction.
+This is where it gets spicy and we come to the real reason why I am writing this blog post.
+For some reason on some systems that run Jellyfin when a transaction takes place the SQLite engine reports the database is locked and instead of waiting for the transaction to be resolved the engine refuses to wait and just crashes.
 This seems to be a not uncommon issue and there are many reports to be found on the issue.
 
-The factor that makes this issue so bad is that it does not happen reliably. So far we only have one Team member where this can be (somewhat) reliably be reproduced which makes this an even worse a bug. From the reports this issue happens across all Operating systems, drive speeds and with or without virtualization. So we do not have any deciding factor identified that even contributes to the likelihood of the issue happening.
+The factor that makes this issue so bad is that it does not happen reliably. So far we only have one team member where this can be (somewhat) reliably be reproduced which makes this an even worse a bug.
+From the reports this issue happens across all operating systems, drive speeds and with or without virtualization.
+So we do not have any deciding factor identified that even contributes to the likelihood of the issue happening.
 
 ## The Jellyfin factor
 
 Having established the general theory on how SQlite behaves, we also have to look at the specifics of Jellyfins usage of SQlite.
 During normal operations on a recommended setup (Non-Networked Storage and preferably SSD) its unusual for any problems to arise, however the way Jellyfin utilises the SQlite db up to 10.11 is very suboptimal.
-In versions prior to 10.11 Jellyfin had a bug in its parallel task limit which resulted in exponential overscheduling of Library scan operations which hammered the database engine with thousands of parrallel write requests which an SQlite engine is simply not able to handle.
+In versions prior to 10.11 Jellyfin had a bug in its parallel task limit which resulted in exponential overscheduling of library scan operations which hammered the database engine with thousands of parallel write requests that an SQlite engine is simply not able to handle.
 While most SQLite engine implementations have retry behavior, they also have timeouts and checks in place to prevent limitless waiting so if we stress the engine enough, it just fails with an error.
-That and very long running and frankly unoptimised Transactions could lead to the database just being overloaded with requests and flaking out.
+That and very long running and frankly unoptimized transactions could lead to the database just being overloaded with requests and flaking out.
 
 ## The solution
 
@@ -78,7 +82,7 @@ Jellyfin uses the `Polly` library perform the retry behavior and will only retry
 
 ### Pessimistic locking behavior
 
-Pessimistic locking always locks when a write to SQLite should be performed. Essentially every time an Transaction is started or a write operation on the database is done though EF Core, Jellyfin will wait until all other read operations are finished and then block all other operations may they be read or write until the write in question has been performed.
+Pessimistic locking always locks when a write to SQLite should be performed. Essentially every time an transaction is started or a write operation on the database is done though EF Core, Jellyfin will wait until all other read operations are finished and then block all other operations may they be read or write until the write in question has been performed.
 This however means, that Jellyfin can only ever perform a single write to the database, even if it would technically does not need to.
 
 In theory, an application should have no issue reading from table "Alice" while writing to table "Bob" however to eliminate all possible sources of concurrency related locking, Jellyfin will only ever allow a single write performed on its database in this mode.
@@ -94,7 +98,7 @@ In the future we might also consider combining both modes, to get the best of bo
 
 Initial testing showed that with both modes, we had great success in handling the underlying issue. While we are not yet sure why this happens only on some systems when others work, we at least now have an option for users previously left out of using Jellyfin.
 
-When i was researching this topic, i found many reports all over the internet facing the same error but nobody was able to provide a conclusive explanation whats really happening here.
+When I was researching this topic, I found many reports all over the internet facing the same error but nobody was able to provide a conclusive explanation whats really happening here.
 There have been similar proposals made to handle it but there wasn't a "ready to drop in" solution that handles all the different cases or only code that required massive modifications to every EF Core query.
 Jellyfin's implementation of the locking behaviors should be a copy-paste solution for everyone having the same issues as its using interceptors and the caller has no idea of the actual locking behavior.
 
