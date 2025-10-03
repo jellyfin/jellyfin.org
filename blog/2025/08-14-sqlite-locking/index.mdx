@@ -2,8 +2,8 @@
 title: SQLite concurrency and why you should care about it
 authors:
   - JPVenson
-slug: sqlite-locking
-tags: [sqlite, jellyfin, locked-database]
+slug: SQLite-locking
+tags: [SQLite, jellyfin, locked-database]
 ---
 
 SQLite is a powerful database engine, but due to its design, it has limitations that should not be overlooked.
@@ -12,7 +12,7 @@ Jellyfin has used a SQLite-based database for storing most of its data for years
 
 This will be a technical blog post intended for developers and everyone wanting to learn about concurrency.
 
-Also Jellyfin's implementation of locking for SQlite should be fairly easy to be implemented into another EF Core application if you are facing the same issue.
+Also Jellyfin's implementation of locking for SQLite should be fairly easy to be implemented into another EF Core application if you are facing the same issue.
 
 \- JPVenson
 
@@ -49,9 +49,9 @@ So we do not have any deciding factor identified that even contributes to the li
 
 ## The Jellyfin factor
 
-Having established the general theory on how SQlite behaves, we also have to look at the specifics of Jellyfins usage of SQlite.
-During normal operations on a recommended setup (Non-Networked Storage and preferably SSD) its unusual for any problems to arise, however the way Jellyfin utilises the SQlite db up to 10.11 is very suboptimal.
-In versions prior to 10.11 Jellyfin had a bug in its parallel task limit which resulted in exponential overscheduling of library scan operations which hammered the database engine with thousands of parallel write requests that an SQlite engine is simply not able to handle.
+Having established the general theory on how SQLite behaves, we also have to look at the specifics of Jellyfins usage of SQLite.
+During normal operations on a recommended setup (Non-Networked Storage and preferably SSD) its unusual for any problems to arise, however the way Jellyfin utilises the SQLite db up to 10.11 is very suboptimal.
+In versions prior to 10.11 Jellyfin had a bug in its parallel task limit which resulted in exponential overscheduling of library scan operations which hammered the database engine with thousands of parallel write requests that an SQLite engine is simply not able to handle.
 While most SQLite engine implementations have retry behavior, they also have timeouts and checks in place to prevent limitless waiting so if we stress the engine enough, it just fails with an error.
 That and very long running and frankly unoptimized transactions could lead to the database just being overloaded with requests and flaking out.
 
