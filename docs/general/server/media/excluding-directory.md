@@ -29,9 +29,3 @@ Shows
         ├── .ignore
         └── ...
 ```
-
-:::caution
-
-Currently, placing a `.ignore` file inside an [`Extras`](/docs/general/server/media/shows#extras-folders) directory [does not work](https://github.com/jellyfin/jellyfin/issues/9571).
-
-:::
