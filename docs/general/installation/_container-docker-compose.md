@@ -21,7 +21,9 @@ services:
     image: jellyfin/jellyfin
     container_name: jellyfin
     user: uid:gid
-    network_mode: 'host'
+    ports:
+      - 8096:8096/tcp
+      - 7359:7359/udp
     volumes:
       - /path/to/config:/config
       - /path/to/cache:/cache
