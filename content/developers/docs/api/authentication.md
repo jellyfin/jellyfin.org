@@ -33,7 +33,7 @@ The Quick Connect state contains a few values that are of interest:
 
 The next step is to show the code to the user. The user will then use this code in another session to authenticate.
 
-Depending on your app you might want to either show a "next" button to press when the user authorized the app or otherwise automatically update the Quick Connect state. We recommended refreshing the Quick Connect state every 5 seconds.
+Depending on your app you might want to either show a "next" button to press when the user is authorized the app or otherwise automatically update the Quick Connect state. We recommended refreshing the Quick Connect state every 5 seconds.
 
 Eventually the authenticated value will change to true. This means the user authorized your app. You can now use the secret to get an access token in the user api.
 
