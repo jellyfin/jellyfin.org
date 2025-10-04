@@ -95,7 +95,7 @@ The CPU will be responsible for many tasks, notably:
 - Transcoding Audio
 - Decoding video in unsupported codecs
 
-Whilst audio codecs will only utilize a single core, they are very lightweight, most CPUs should be able to handle them without issues. E.g., a Ryzen 5950X transcoding `FLAC -> AAC` runs at ~110x real-time.
+Whilst audio codecs will only utilize a single core, they are very lightweight and most CPUs should be able to handle them without issues. (e.g. a Ryzen 5950X transcoding `FLAC -> AAC` runs at ~110x real-time.)
 
 Video in unsupported codecs are usually older formats that are easier to decode. Assuming hardware acceleration is properly configured, any modern CPU with 4 threads should be able to handle the workload.
 
