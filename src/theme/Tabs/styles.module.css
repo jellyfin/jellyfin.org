@@ -10,11 +10,8 @@
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   padding: 16px;
-  /* margin-top: -1.25rem; */
   margin-bottom: 2.5rem;
-  /* margin-top: -2px; */
   border: 2px solid rgb(33, 43, 65);
-  /* border-top-color: #0000; */
   border-top: none;
   background-clip: padding-box;
   border-radius: 0 0 8px 8px;
@@ -31,7 +28,6 @@
 }
 
 .tabItem:hover {
-  /* border-color: rgba(255, 255, 255, 0.15); */
   background-color: rgba(10, 21, 46);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
