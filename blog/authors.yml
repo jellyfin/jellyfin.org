@@ -33,6 +33,10 @@ joshuaboniface:
   title: Project Leader
   url: https://github.com/joshuaboniface
   image_url: https://avatars.githubusercontent.com/u/4031396?v=4
+  socials:
+    github: joshuaboniface
+    mastodon: https://social.bonifacelabs.ca/@joshuaboniface
+    reddit: https://reddit.com/u/djbon2112
 
 mcarlton00:
   name: Matt Carlton
