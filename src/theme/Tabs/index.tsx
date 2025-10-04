@@ -116,12 +116,12 @@ function TabContent({ lazy, children, selectedValue }: Props & ReturnType<typeof
 function TabsComponent(props: Props): ReactNode {
   const tabs = useTabs(props);
   return (
-    <>
+    <div className={styles.tabsFrame}>
       <TabList {...tabs} {...props} />
       <div className={clsx('tabs-container', styles.tabList)}>
         <TabContent {...tabs} {...props} />
       </div>
-    </>
+    </div>
   );
 }
 

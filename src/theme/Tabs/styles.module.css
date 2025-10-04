@@ -1,32 +1,49 @@
+.tabsFrame {
+  background-color: rgb(33, 43, 65);
+  border-radius: 8px 8px 0 0;
+}
+
 .tabList {
-  margin-bottom: var(--ifm-leading);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  /* border: 2px solid rgba(255, 255, 255, 0.2); */
   border-top-left-radius: 0;
-  border-top-right-radius: 8px;
+  border-top-right-radius: 0;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   padding: 16px;
-  margin-top: -1.25rem;
+  /* margin-top: -1.25rem; */
   margin-bottom: 2.5rem;
+  /* margin-top: -2px; */
+  border: 2px solid rgb(33, 43, 65);
+  /* border-top-color: #0000; */
+  border-top: none;
+  background-clip: padding-box;
+  border-radius: 0 0 8px 8px;
+  background-color: var(--ifm-background-color);
 }
 
 .tabItem {
   margin-top: 0 !important;
-  border: 1px solid transparent;
+  border: 2px solid #0000;
+  font-weight: 400;
   border-bottom: none;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 
 .tabItem:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  background-color: rgba(255, 255, 255, 0.04);
+  /* border-color: rgba(255, 255, 255, 0.15); */
+  background-color: rgba(10, 21, 46);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: 2px solid rgb(33, 43, 65);
+  border-bottom: none;
 }
 
 .activeItem {
-  color: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 2px solid transparent;
-  position: relative;
-  z-index: 2;
+  background-color: var(--ifm-background-color);
+  border-color: #fff2;
+  border-bottom-color: var(--ifm-background-color);
+  font-weight: 700;
 }
