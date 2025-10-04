@@ -29,6 +29,27 @@ const redirects: ClientRedirects.Options['redirects'] = [
     from: '/clients/all',
     to: '/downloads/clients/all'
   },
+  {
+    from: '/downloads/linux',
+    to: '/downloads/server?os=Linux'
+  },
+  {
+    from: '/downloads/docker',
+    to: '/downloads/server?os=Docker'
+  },
+  {
+    from: '/downloads/windows',
+    to: '/downloads/server?os=Windows'
+  },
+  {
+    from: '/downloads/macos',
+    to: '/downloads/server?os=macOS'
+  },
+  {
+    from: '/downloads/dotnet',
+    to: '/downloads/server?os=DotNet'
+  },
+
   // New installation documentation
   {
     from: '/docs/general/administration/installing',
