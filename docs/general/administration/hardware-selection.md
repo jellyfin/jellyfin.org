@@ -171,7 +171,7 @@ Intel 10th gen and older integrated graphics are losing support for QSV on Linux
 
 Please refer to [this table](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) for supported codecs.
 
-Certain low-end cards, e.g., GT 1030, do not have encoding hardware. Please be careful when choosing a GPU.
+Certain low-end cards (e.g. GT 1030) do not have encoding hardware. Please be careful when choosing a GPU.
 
 #### AMD Graphics
 
