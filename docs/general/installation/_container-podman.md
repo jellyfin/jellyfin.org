@@ -16,7 +16,7 @@ Steps to run Jellyfin using Podman are similar to the Docker steps.
     --detach \
     --label "io.containers.autoupdate=registry" \
     --name myjellyfin \
-    --publish 8096:8096/tcp \
+    --network host \
     --rm \
     --user $(id -u):$(id -g) \
     --userns keep-id \

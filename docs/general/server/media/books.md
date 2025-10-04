@@ -13,8 +13,7 @@ Books should be organized by type (Audiobooks, Books, Comics), then optionally b
 Books
 ├── Audiobooks
 │   ├── Author
-│   │   ├── Book1
-│   │   │   └── Book1.flac
+│   │   ├── Book1.flac
 │   │   └── Book2
 │   │       └── Book2.mp3
 │   └── Book3
