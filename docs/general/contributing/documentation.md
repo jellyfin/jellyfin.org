@@ -21,7 +21,7 @@ While this does seem like "more work", for substantial changes this should ideal
 
 ## Peer Reviews
 
-Due to the volume of pull requests to our documentation repo and the varying sizes of them, some pull requests will take a long time to review, and potentially languish as a result. Inspired by how Home Assistant operates, we are introducing a request for peer reviews of documentation.
+Due to the volume of pull requests to our documentation repo and the varying sizes of them, some pull requests will take a long time to review, and potentially languish as a result.
 
 Before (or, immediately after) submitting a PR for review, we ask you to find another PR from another person, ideally one which is not already peer- or team-reviewed, and perform a thorough readthrough of the changes. Make sure they make sense to you, that the copyediting is good, and provide a GitHub review of it. If necessary please point out any change suggestions. This will help go a long way to helping your PR be reviewed, as the next contributor can review your PR in turn.
 
