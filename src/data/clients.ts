@@ -411,49 +411,6 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'sonixd',
-    name: 'Sonixd',
-    description: 'A full-featured Subsonic/Jellyfin compatible desktop music player.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: 'https://github.com/jeffvli/sonixd#install'
-    id: 'preserve',
-    name: 'Preserve',
-    description: 'A music client inspired by players such as foobar2000 or Clementine.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Browser, Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'browser',
-        name: 'Open in browser',
-        url: 'https://preserveplayer.com/'
-      },
-      {
-        id: 'gl-downloads',
-        name: 'GitLab Downloads',
-        url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jeffvli/sonixd'
-        id: 'gitlab',
-        name: 'GitLab',
-        url: 'https://gitlab.com/tonyfinn/preserve'
-      }
-    ]
-  },
-  {
     id: 'supersonic',
     name: 'Supersonic',
     description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
