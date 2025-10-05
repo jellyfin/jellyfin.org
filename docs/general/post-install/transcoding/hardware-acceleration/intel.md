@@ -327,7 +327,7 @@ Root permission is required.
 
    :::note
 
-   This package may not be available for newer distros since it [currently relies on LLVM 14](https://github.com/intel/intel-graphics-compiler/issues/289), which may not available in releases like Debian Trixie.
+   This package may not be available for newer distros since it [currently relies on LLVM 14](https://github.com/intel/intel-graphics-compiler/issues/289), which may not available in releases like Debian Trixie. If this is the case a release from the [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases) may be used instead.
 
    :::
 
