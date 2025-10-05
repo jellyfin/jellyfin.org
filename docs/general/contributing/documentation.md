@@ -27,4 +27,4 @@ Before (or, immediately after) submitting a PR for review, we ask you to find an
 
 ## Blog Posts
 
-Blog posts are exclusively written by our team members; we do not accept outside blog posts under any circumstances. Blog posts should follow all the above processes as well.
+Blog posts are exclusively written by our team members; we do not accept outside blog posts under any circumstances. Blog posts should follow all the above processes, and further require final approval from the Core team in addition to regular documentation approvers.
