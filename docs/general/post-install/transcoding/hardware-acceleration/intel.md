@@ -121,12 +121,6 @@ Note that Jasper Lake and Elkhart Lake processors are 10th Gen Pentium/Celeron/A
 
 :::
 
-:::warning
-
-Intel ARC B series cards require ReBar to be enabled.
-
-:::
-
 ### Transcode Other Codecs
 
 Please refer to these links:
@@ -197,7 +191,7 @@ You only need to follow the [Windows Setups](./intel.md#windows-setups) and [Lin
 
 :::tip
 
-- [Resizable-BAR](https://game.intel.com/story/intel-arc-graphics-resizable-bar/) is not mandatory for hardware acceleration, but it can affect the graphics performance. It's recommended to enable the Resizable-BAR if the processor, motherboard and BIOS support it.
+- [Resizable-BAR](https://www.intel.com/content/www/us/en/support/articles/000090831/graphics.html) is only mandatory for hardware acceleration on ARC **B-series** cards, or the media driver will crash the transcoder. For ARC **A-series** cards, the media driver can tolerate not having it enabled but it's also recommended to enable Resizable-BAR if the processor, motherboard and BIOS support it, to achieve the best performance.
 
 - [ASPM](https://www.intel.com/content/www/us/en/support/articles/000092564/graphics.html) should be enabled in the BIOS if supported. This greatly reduces the idle power consumption of the ARC GPU.
 
