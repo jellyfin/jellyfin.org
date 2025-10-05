@@ -90,13 +90,3 @@ is available for Prorietary flavors only [see above](../clients/Jellyfin%20for%2
 ## Troubleshooting
 - The app is stuck on the Connect to Server screen after setup
 > make sure the server is reachable, the same URL should reach the server on a web browser. Note that this application does not make your server accessible outside your network, [see here](../post-install/networking/#external-access) for information about external access
-
----
-# Finish me
----
-
-Features:
-- background play (WHICH ONE?)
-
-- chromecast cast
-- android auto (music only)
