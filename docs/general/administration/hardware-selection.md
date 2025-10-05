@@ -5,7 +5,7 @@ title: Hardware Selection
 
 # Selecting Appropriate Hardware
 
-The following is intended to help you choose appropriate hardware hardware for a Jellyfin server and take full advantage of its features. E.g., hardware acceleration.
+The following is intended to help you choose appropriate hardware for a Jellyfin server and take full advantage of its features (e.g. hardware acceleration).
 
 ## Simple Guide
 
