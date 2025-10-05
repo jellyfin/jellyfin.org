@@ -58,7 +58,7 @@ That and very long running and frankly unoptimized transactions could lead to th
 ## The solution
 
 Since we moved the codebase over to EF Core proper, we have the tools to actually do something about this as EF Core gives us a structured abstraction level.
-EF Core supports a way of hooking into every command execution or transaction by creating (Interceptors)[https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/interceptors].
+EF Core supports a way of hooking into every command execution or transaction by creating [Interceptors](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/interceptors).
 With an interceptor we can finally do the straight forward idea of just "not" writing to the database in parallel in a transparent way to the caller.
 The overall idea is to have multiple strategies of locking. Because all levels of synchronization will inevitably come at the cost of performance, we only want to do it when it is really necessary.
 So, I decided on three locking strategies:
