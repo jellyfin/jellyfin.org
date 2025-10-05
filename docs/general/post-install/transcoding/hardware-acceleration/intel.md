@@ -325,6 +325,12 @@ Root permission is required.
 
 5. Check the version of `intel-opencl-icd` thats the Linux distro provides:
 
+   :::note
+
+   This package may not be available for newer distros since it [currently relies on LLVM 14](https://github.com/intel/intel-graphics-compiler/issues/289), which may not available in releases like Debian Trixie.
+
+   :::
+
    ```shell
    $ apt policy intel-opencl-icd
 
