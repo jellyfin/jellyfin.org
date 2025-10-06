@@ -23,6 +23,14 @@ Shows
         └── Series Name B S02E03.mkv
 ```
 
+## Supported Metadata Providers
+
+The following metadata providers are supported:
+
+- [The Movie DB (TMDB)](https://www.themoviedb.org/)
+- [The TV Database (TVDB)](https://www.thetvdb.com/) (Shows Only)
+- [OMDb API (OMDB)](https://www.omdbapi.com/) (English Only)
+
 ## Finding Metadata Provider Identifiers
 
 Below are instructions on how to find metadata provider identifiers for each supported provider.
@@ -35,14 +43,6 @@ URL: `https://www.themoviedb.org/movie/569094-spider-man-across-the-spider-verse
 
 Identifier: `[tmdbid-569094]`
 
-### Internet Movie Database (IMDB)
-
-The identifier is found in the URL of the title. For example:
-
-URL: `https://www.imdb.com/title/tt9362722/`
-
-Identifier: `[imdbid-tt9362722]`
-
 ### The TV Database (TVDB)
 
 The identifier is found on the main page of the title. For example:
@@ -50,3 +50,11 @@ The identifier is found on the main page of the title. For example:
 ![How to find The TVDB media identifier](/images/docs/tvdb-media-identifier-example.png)
 
 Identifier: `[tvdbid-266189]`
+
+### OMDb API (OMDB)
+
+OMDB provider uses Internet Movie Database (IMDB) IDs as identifiers. The identifier is found in the URL of the title. For example:
+
+URL: `https://www.imdb.com/title/tt9362722/`
+
+Identifier: `[imdbid-tt9362722]`

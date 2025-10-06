@@ -47,10 +47,10 @@ Each video file may contain multiple episodes. However, they will be shown as a 
 The series folder should be named in the following format:
 
 ```txt
-Series Name (year) [external id]
+Series Name (year) [metadata provider id]
 ```
 
-The `year` and `external id` fields are optional, but they will help identify media more reliably.
+The `year` and `metadata provider id` fields are optional, but they will help identify media more reliably.
 
 - Example with name only: `Jellyfin Documentary.mkv`
 - Example with year: `Jellyfin Documentary (2030)`
