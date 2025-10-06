@@ -111,11 +111,6 @@ const redirects: ClientRedirects.Options['redirects'] = [
   {
     from: '/docs/general/networking/nginx',
     to: '/docs/general/post-install/networking/reverse-proxy/nginx'
-  },
-  // quick start replaced with post install
-  {
-    from: '/docs/general/quick-start',
-    to: '/docs/general/post-install/setup-wizard'
   }
 ];
 export default redirects;

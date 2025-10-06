@@ -352,7 +352,7 @@ makepkg -si`}
         details: (
           <>
             <pre>
-              <code>emerge www-apps/jellyfin</code>
+              <code>emerge --ask www-apps/jellyfin-bin</code>
             </pre>
             <p className='margin-bottom--none'>
               Once installed, Jellyfin will be running as a service. Manage it with{' '}

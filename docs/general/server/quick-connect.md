@@ -35,10 +35,10 @@ Quick Connect functionality is supported in two contexts:
 | Jellyfin Mobile (iOS)| ✅     | ✅               |
 | Jellyfin MPV Shim    | ❌     | ❌               |
 | Jellyfin Roku        | ✅     | ❌               |
-| Jellyfin UWP         | ✅     | ✅               |
 | Jellyfin Vue         | ❌     | ❌               |
 | Jellyfin Web         | ✅     | ✅               |
 | Jellyfin WebOS       | ✅     | ✅               |
+| Jellyfin Xbox        | ✅     | ✅               |
 | Swiftfin (iOS)       | ✅     | ✅               |
 | Swiftfin (tvOS)      | ✅     | ❌               |
 
