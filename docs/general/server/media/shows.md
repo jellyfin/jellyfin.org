@@ -54,8 +54,8 @@ The `year` and `metadata provider id` fields are optional, but they will help id
 
 - Example with name only: `Jellyfin Documentary.mkv`
 - Example with year: `Jellyfin Documentary (2030)`
-- Example with external id: `Jellyfin Documentary [imdbid-tt00000000]`
-- Example with both year and external id: `Jellyfin Documentary (2030) [imdbid-tt00000000]`
+- Example with metadata provider id: `Jellyfin Documentary [imdbid-tt00000000]`
+- Example with both year and metadata provider id: `Jellyfin Documentary (2030) [imdbid-tt00000000]`
 
 The Season folders should be named `Season *`, with `*` being any number. For the best results, please pad the season number with `0`s at the front to make sure each entry has the same number of digits. For example: `Season 5` -> `Season 05`.
 
