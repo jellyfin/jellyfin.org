@@ -367,7 +367,7 @@ The repository is the preferred way to obtain Jellyfin on Debian and Ubuntu syst
    sudo apt install ./jellyfin-server_*.deb ./jellyfin-web_*.deb ./jellyfin-ffmpeg_*.deb
    ```
 
-5. Manage the Jellyfin system service:
+4. Manage the Jellyfin system service:
 
    ```sh
    sudo systemctl {action} jellyfin
