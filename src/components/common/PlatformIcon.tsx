@@ -23,7 +23,7 @@ import { mdiMonitor, mdiWeb } from '@mdi/js';
 import clsx from 'clsx';
 import React from 'react';
 
-import Platform from '../../data/platform';
+import {Platform} from '../../data/clients';
 
 const PlatformIcon = ({
   platform,

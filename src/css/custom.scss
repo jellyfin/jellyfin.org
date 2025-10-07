@@ -80,6 +80,11 @@ mark {
   }
 }
 
+select {
+  appearance: none;
+  padding: 0.5rem;
+}
+
 a.pills__item {
   text-decoration: none;
 }
@@ -131,4 +136,15 @@ a.pills__item:not(.pills__item--active) {
   .hidden--desktop {
     display: none;
   }
+}
+
+select {
+  border: inherit;
+  font-size: inherit;
+}
+
+// div label and select container
+div:has(> label:first-child + select:nth-child(2):last-child) {
+  display: flex;
+  gap: 0.25rem;
 }

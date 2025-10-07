@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import Platform from './platform';
+import {Platform} from './clients';
 
 export enum DownloadStatus {
   Official,
@@ -17,7 +17,7 @@ export enum OsType {
   Linux,
   MacOS,
   Windows,
-  DotNet,
+  DotNet
 }
 
 export type Button = {
