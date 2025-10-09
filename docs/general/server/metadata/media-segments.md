@@ -42,7 +42,7 @@ Media segments are provided by plugins. Learn more in the [plugin support sectio
 
 ## Clients
 
-Media segments are supported by the web client, Android TV, Roku.
+Media segments are supported by the web client, Android TV and Roku.
 
 Upon receiving media segment information from the server, clients can choose to provide any number of actions based on the segment type, such as showing a "skip" button to skip the section. Because it is still a new feature, client support is very sparse and will take some time to become more wide-spread.
 
