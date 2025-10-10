@@ -23,4 +23,4 @@ Follow the steps in the [Upgrade & Downgrade documentation](/docs/general/testin
 
 ## Testing from Master Branch
 
-The Master branch of the server can be used to obtain the absolute bleeding edge. This is only intended for developers. Further info can be found [in the packaging repository itself](https://github.com/jellyfin/jellyfin-packaging) and [in the contributing docs](/docs/general/contributing/development).
+The Master branch of the server can be used to obtain the absolute bleeding edge. This is only intended for developers. Further info can be found [in the packaging repository itself](https://github.com/jellyfin/jellyfin-packaging) and [in the contributing docs](/developers/docs/contributing/development).
