@@ -7,7 +7,7 @@ title: Contributing to Documentation
 
 ## What to change and Why
 
-Documentation is fast-moving and ever-changing. Please think carefully about what you're changing and why; what will it contribute going forward? Extensive rewrites and new pages should be considered very carefully and coordinated in our [documentation Matrix room](https://matrix.to/#/#jellyfin-documentation:matrix.org).
+Documentation is fast-moving and ever-changing. Please think carefully about what you're changing and why; what will it contribute going forward? Extensive rewrites and new pages should be considered very carefully and coordinated in our [documentation Matrix room](https://contact.jellyfin.org).
 
 ## Please Self-Review
 
