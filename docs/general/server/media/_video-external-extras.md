@@ -34,7 +34,7 @@ Best_Movie_Ever (2019)
 ```txt
 Awesome TV Show (2024)
 ├── Season 1
-│   ├── S01E01 episode name.mp4
+│   ├── Awesome TV Show (2024) S01E01 episode name.mp4
 │   └── trailers
 │       └── trailer1.mp4
 └── interviews
@@ -60,7 +60,7 @@ Best_Movie_Ever (2019)
 ```txt
 Awesome TV Show (2024)
 ├── Season 1
-│   ├── S01E01 episode name.mp4
+│   ├── Awesome TV Show (2024) S01E01 episode name.mp4
 │   └── theme.flac
 └── sample.mp4
 ```
@@ -99,9 +99,9 @@ Best_Movie_Ever (2019)
 ```
 
 ```txt
-Awesome TV Show (2024)
+Series Name A (2024)
 ├── Season 1
-│   ├── S01E01 episode name.mp4
+│   ├── Series Name A (2024) S01E01 episode name.mp4
 │   └── Preview Trailer.trailer.mp4
-└── making of awesome tv show-behindthescenes.mp4
+└── making of Series Name A-behindthescenes.mp4
 ```

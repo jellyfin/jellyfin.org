@@ -7,7 +7,7 @@ title: Nginx
 
 ## Nginx from a subdomain (jellyfin.example.org)
 
-Create the file `/etc/nginx/sites-available/jellyfin` which will forward requests to Jellyfin.  After you've finished, you will need to symlink this file to /etc/nginx/sites-enabled and then reload nginx.  This example assumes you've already acquired certifications as documented in our [Let's Encrypt](https://jellyfin.org/docs/general/networking/letsencrypt#nginx) guide.
+Create the file `/etc/nginx/sites-available/jellyfin` which will forward requests to Jellyfin. After you've finished, you will need to symlink this file to /etc/nginx/sites-enabled and then reload nginx. This example assumes you've already acquired certifications as documented in our [Let's Encrypt](https://jellyfin.org/docs/general/networking/letsencrypt#nginx) guide.
 
 Note that a server listening on http port 80 is required for the Certbot / Let's Encrypt certificate renewal process.
 
@@ -51,7 +51,7 @@ server {
     # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
     # Enforces https content and restricts JS/CSS to origin
     # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
-    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'; font-src 'self'";
+    add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; font-src 'self'";
 
     location / {
         # Proxy main Jellyfin traffic
@@ -112,20 +112,3 @@ map $request $secretfilter {
 #Insert into all servers where you want filtering (e.g HTTP + HTTPS block)
 access_log /var/log/nginx/access.log stripsecrets;
 ```
-
-### Nginx Proxy Manager
-
-[Nginx Proxy Manager](https://nginxproxymanager.com/) provides an easy-to-use web GUI for Nginx.
-
-Create a proxy host and point it to your Jellyfin server's IP address and http port (usually 8096)
-
-Enable "Block Common Exploits", and "Websockets Support". Configure the access list if you intend to use them. Otherwise leave it on "publicly accessible".
-
-In the "Advanced" tab, enter the following in "Custom Nginx Configuration".  This is optional, but recommended if you intend to make Jellyfin accessible outside of your home.
-
-```config
-    # Disable buffering when the nginx proxy gets very resource heavy upon streaming
-    proxy_buffering off;
-```
-
-In the "SSL" tab, use the jellyfin.example.org certificate that you created with Nginx Proxy Manager and enable "Force SSL", "HTTP/2 Support", "HSTS Enabled", "HSTS Subdomains".
