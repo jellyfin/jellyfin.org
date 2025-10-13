@@ -7,7 +7,7 @@ title: Contributing to Documentation
 
 ## What to change and Why
 
-Documentation is fast-moving and ever-changing. Please think carefully about what you're changing and why; what will it contribute going forward? Extensive rewrites and new pages should be considered very carefully and coordinated in our [documentation Matrix room](https://jellyfin.org/contact).
+Documentation is fast-moving and ever-changing. Please think carefully about what you're changing and why; what will it contribute going forward? Extensive rewrites and new pages should be considered very carefully and coordinated in our [documentation Matrix room](/contact).
 
 ## Please Self-Review
 
@@ -15,7 +15,7 @@ Before finalizing your changes, please be courteous to reviewers and run your ch
 
 ## Peer Copyediting
 
-For very large changes, we encourage the idea of peer copyediting. Instead of submitting a massive PR and then having back-and-forth line-by-line editing in there, we suggest placing your new/updated doc in a collaborative document editor such as [Framapad](https://framapad.org/abc/en/) and sharing it in our [documentation Matrix room](https://jellyfin.org/contact). You can then, between chat and the collaborative editor, obtain a line-by-line copyedit for spelling, grammar, and formatting, without back-and-forth in the PR. Once both sides are happy with the changes, a pull request can then be submitted.
+For very large changes, we encourage the idea of peer copyediting. Instead of submitting a massive PR and then having back-and-forth line-by-line editing in there, we suggest placing your new/updated doc in a collaborative document editor such as [Framapad](https://framapad.org/abc/en/) and sharing it in our [documentation Matrix room](/contact). You can then, between chat and the collaborative editor, obtain a line-by-line copyedit for spelling, grammar, and formatting, without back-and-forth in the PR. Once both sides are happy with the changes, a pull request can then be submitted.
 
 While this does seem like "more work", for substantial changes this should ideally be a small part of the entire process, and will help ensure that final reviews go more smoothly.
 
