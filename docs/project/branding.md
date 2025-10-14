@@ -17,7 +17,7 @@ For all others, you are **not** free to use the name "Jellyfin" or our logo with
 
 - The name "Jellyfin" **may** be used within another project as an affix to demonstrate compatibility; for example "_Awesome Client for Jellyfin_" is permitted. You may **not** use the name directly, in a way that makes the program appear to be an official client; for example "_Jellyfin MyPlatform_" is not permitted. Using subcomponents of the name (i.e. "Jelly", or "fin") coupled with additional words are permitted; for example, "Jellyseer", "Audiofin", or the like.
 
-- All 3rd party projects **should** use their own logo to clearly differentiate it, but **exceptions may be granted** for free-and-libre-open-source (FLOSS) projects by contacting the leadership team, with a goal towards official project status. The logo *colours* are not subject to trademark, and the purple-blue gradient theme may be used with another logo shape for identification as part of the Jellyfin ecosystem without limitation.
+- All 3rd party projects **should** use their own logo to clearly differentiate it, but **exceptions may be granted** for free-and-libre-open-source (FLOSS) projects by contacting the leadership team, with a goal towards official project status. The logo _colours_ are not subject to trademark, and the purple-blue gradient theme may be used with another logo shape for identification as part of the Jellyfin ecosystem without limitation.
 
 - Any **fork** of Jellyfin or an official client application for public distribution **must** use a different name and logo.
 
