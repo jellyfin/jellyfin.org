@@ -30,6 +30,7 @@ The proprietary version is available on [Google Play](https://play.google.com/st
 Since the Android app is just an Client for a Jellyfin server, all of these instructions assume that you already have a server up and running.
 [Set it up now](../installation/index.mdx) if you haven't already.
 :::
+
 - A Jellyfin server running version 10.10 or newer.
 - Device running android.
 - Ability to install apps either through Google Play, Amazon Appstore or to direct install APK.
@@ -101,4 +102,5 @@ is available for Prorietary flavors only [see above](../clients/Jellyfin%20for%2
 ## Troubleshooting
 
 - The app is stuck on the Connect to Server screen after setup
+
 > make sure the server is reachable, the same URL should reach the server on a web browser. Note that this application does not make your server accessible outside your network, [see here](../post-install/networking/#external-access) for information about external access
