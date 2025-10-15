@@ -13,7 +13,7 @@ The server will respond with an HTTP 401 status code when the credentials are in
 
 ## Username & password
 
-The most obvious and easiest form of authentication would be authenticating by username. This will require developers to prompt the user for their username and password. Once entered, a call can be made to the [AuthenticateWithUserByName](https://api.jellyfin.org/#tag/User/operation/AuthenticateUserByName) operation. 
+The most obvious and easiest form of authentication would be authenticating by username. This will require developers to prompt the user for their username and password. Once entered, a call can be made to the [AuthenticateWithUserByName](https://api.jellyfin.org/#tag/User/operation/AuthenticateUserByName) operation.
 
 Some users may not have a password. In this scenario, the developer would still authenticate by username but would leave the password field as an empty string.
 
