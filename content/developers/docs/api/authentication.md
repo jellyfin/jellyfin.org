@@ -13,7 +13,7 @@ The server will respond with an HTTP 401 status code when the credentials are in
 
 ## Username & password
 
-The most obvious and easiest form of authentication would be authenticating by username. This will require developers to prompt the user for their username and password. Once entered, a call can be made against the API to authenticate by username. 
+The most obvious and easiest form of authentication would be authenticating by username. This will require developers to prompt the user for their username and password. Once entered, a call can be made to the [AuthenticateWithUserByName](https://api.jellyfin.org/#tag/User/operation/AuthenticateUserByName) operation. 
 
 Some users may not have a password. In this scenario, the developer would still authenticate by username but would leave the password field as an empty string.
 
@@ -23,9 +23,11 @@ Using passwords is not the best choice on all platforms. Using the remote of a t
 
 The Quick Connect functionality may be disabled by a server. In those cases the server responds with an HTTP 401 response. You can check if QuickConnect is enabled first or deal with it when trying to use it.
 
-To start a Quick Connect session you need to request a Quick Connect code by calling the initiate Quick Connect operation. This returns a state object which can be updated by calling the Get Quick Connect State operation.
+To check if Quick Connect is enabled for a given server, use the [GetQuickConnectEnabled](https://api.jellyfin.org/#tag/QuickConnect/operation/GetQuickConnectEnabled) operation. This will return a boolean value.
 
-The Quick Connect state contains a few values that are of interest:
+To start a Quick Connect session you need to request a Quick Connect code by calling the [InitiateQuickConnect](https://api.jellyfin.org/#tag/QuickConnect/operation/InitiateQuickConnect) operation. This returns a state object which can be updated by calling the Get Quick Connect State operation.
+
+This Quick Connect state contains a few values that are of interest:
 
 - `authenticated` is a boolean that indicates if the user authorized the app. When this is true you can retrieve an access token.
 - `secret` is a string with a unique code for this session. It is used to update the session state.
@@ -35,7 +37,7 @@ The next step is to show the code to the user. The user will then use this code 
 
 Depending on your app you might want to either show a "next" button to press when the user is authorized the app or otherwise automatically update the Quick Connect state. We recommended refreshing the Quick Connect state every 5 seconds.
 
-Eventually the authenticated value will change to true. This means the user authorized your app. You can now use the secret to get an access token in the user api.
+Eventually the authenticated value will change to true. This means the user authorized your app. You can now use the secret to get an access token in the user api via the [AuthenticateWithQuickConnect](https://api.jellyfin.org/#tag/User/operation/AuthenticateWithQuickConnect) operation.
 
 So in summary:
 
