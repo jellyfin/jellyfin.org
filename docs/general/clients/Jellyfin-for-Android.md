@@ -58,13 +58,13 @@ The Client settings can be reached through the Settings page by selecting the to
 
 Client Settings Menu layout:
 
-#### Music Player
+### Music Player
 
 | **Setting** | **Description** |
 | :-------------------- | :----------- |
 | Dismissable player notification | Make player notification removable either only when paused or always  |
 
-#### Video player
+### Video player
 
 | **Setting** | **Description** |
 | :----------- | :----------- |
@@ -77,7 +77,7 @@ Client Settings Menu layout:
 | External player | **only available when external player selected.**  <ul>choose wich installed android application will provide the playback</ul>|
 | Customize subtitle style | Change the subtitle style from android os settings |
 
-#### Downloads
+### Downloads
 
 | **Setting** | **Description** |
 | ----------- | ----------- |
