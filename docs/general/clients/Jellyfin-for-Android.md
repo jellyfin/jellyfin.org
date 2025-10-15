@@ -86,7 +86,7 @@ Client Settings Menu layout:
 | Allowed Network Types | Allow downloading when on: <ul><li>WiFi Only</li></ul><ul>Media will be downloaded over WiFi only</ul><ul><li>Mobile Data</li></ul><ul>Media will be downloaded over WiFi and mobile networks</ul><ul><li>Mobile Data & Roaming</li></ul><ul>Media will be downloaded over WiFi, mobile and roaming networks</ul> |
 | Download location | Set the device path where the downloaded files are saved  |
 
-## Downloads
+## Downloading content
 
 :::danger
 Downloading while on Mobile Data or Roaming may result in charges from your provider. You are responsible to ensure your data plan is suitable.
