@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 - Android Native integration of the Web client
 - Chromecast support (when installed from proprietary release flavor)
 - Saved Credentials for multiple server/users
-- Android auto for music only ** limited functionnality **
+- Android auto for music only **limited functionnality**
 
 ## Release Flavors
 
