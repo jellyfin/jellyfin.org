@@ -36,7 +36,6 @@ Since the Android app is just an Client for a Jellyfin server, all of these inst
 - Ability to install apps either through Google Play, Amazon Appstore or to direct install APK.
 - Disabling Battery optimizations for the application (if you wish to play media while the screen is off)
 
-
 ## Setup
 
 When First launching the application, you will be presented with the Connection page.
@@ -59,8 +58,7 @@ The Client settings can be reached through the Settings page by selecting the to
 
 Client Settings Menu layout:
 
-
-#### Music Player   
+#### Music Player
 
 | **Setting** | **Description** |
 | :-------------------- | :----------- |
