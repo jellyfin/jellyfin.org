@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 - Android Native integration of the Web client
 - Chromecast support (when installed from proprietary release flavor)
 - Saved Credentials for multiple server/users
-- Android auto for music only **limited functionnality**
+- Android auto for music only **limited functionality**
 
 ## Release Flavors
 
@@ -48,7 +48,7 @@ You are now ready to enjoy your media.
 
 ## Multiple Jellyfin Servers support
 
-The android application has the ability to store multiple server credentials and facilitate switchting between them. To add other servers, access the top left menu and select Select Server. You can now enter a new server URL and login, check the Remember me box. Now when entering the Select server section, press on choose server and see all loged in servers avaiable to choose from. Only one server can be used at one time.
+The Android application has the ability to store multiple server credentials and facilitate switching between them. To add other servers, access the top left menu and select Select Server. You can now enter a new server URL and login, check the Remember me box. Now when entering the Select server section, press on choose server and see all logged in servers available to choose from. Only one server can be used at a time.
 
 ## Client Settings
 
@@ -70,12 +70,12 @@ Client Settings Menu layout:
 | :----------- | :----------- |
 | Video player type | Choose Video Player used for playback <ul><li>Web Player</li></ul><ul>Default HTML video player from the Web UI</ul><ul><li>Integrated Player</li></ul><ul>Based on ExoPlayer, supports more video formats and codecs, and is more integrated into the OS, supports Pip</ul><ul><li>External Player</li></ul><ul>External video playback apps like MX Player and VLC</ul>|
 | Start landscape mode videos in landscape orientation| **only available when integrated player selected.**<ul>  Set initial rotation of video playback</ul>|
-| Brightness and volume gestures | **only available when integrated player selected.** <ul>Enable vertical swipe gestures on video playback left area is brightness, right area is volume</ul>|
+| Brightness and volume gestures | **only available when integrated player selected.** <ul>Enable vertical swipe gestures on video playback. The left screen area is brightness and the right screen area is volume</ul>|
 | Remember display brightness | **only available when integrated player selected.**  <ul>When enabled brightness set during last playback will be used for next playback. otherwise system brightness is used as starting point</ul>|
 | Background audio | **only available when integrated player selected.**     <ul>Allow playing videos in background with audio-only</ul>|
 | Allow SSA/ASS subtitles in direct play | **only available when integrated player selected.**   <ul>Prevent transcoding and show subtitles with basic styling only. Advanced subtitle styling will not be available if enabled</ul>|
-| External player | **only available when external player selected.**  <ul>choose wich installed android application will provide the playback</ul>|
-| Customize subtitle style | Change the subtitle style from android os settings |
+| External player | **only available when external player selected.**  <ul>choose which installed android application will provide the playback</ul>|
+| Customize subtitle style | Change the subtitle style from Android OS settings |
 
 ### Downloads
 
@@ -89,16 +89,16 @@ Client Settings Menu layout:
 :::danger
 Downloading while on Mobile Data or Roaming may result in charges from your provider. You are responsible to ensure your data plan is suitable.
 :::
-You can download any media from your server onto the android device. on a media item press the overflow menu button (3 dots) and choose download. If a download allowed type has not been set through settings, a prompt will ask you to select from the options Wifi, Mobile data, mobile and roaming networks, see [Client settings](../clients/Jellyfin%20for%20Android#downloads) for more information
+You can download any media from your server onto the android device. on a media item press the overflow menu button (3 dots) and choose download. If a download allowed type has not been set through settings, a prompt will ask you to select from the options WiFi, Mobile data, mobile and roaming networks, see [Client settings](../clients/Jellyfin%20for%20Android#downloads) for more information
 > NOTE:
-> Jellyfin for android is an online only media player, downloaded content requires a different player on the device for playback
+> Jellyfin for Android is an online only media player, downloaded content requires a different player on the device for playback
 
 ## Chromecast support
 
-is available for Prorietary flavors only [see above](../clients/Jellyfin%20for%20Android#release-flavors). Allows for cast of media and remote control.
+is available for Proprietary flavors only [see above](../clients/Jellyfin%20for%20Android#release-flavors). Allows for cast of media and remote control.
 
 ## Troubleshooting
 
 - The app is stuck on the Connect to Server screen after setup
 
-> make sure the server is reachable, the same URL should reach the server on a web browser. Note that this application does not make your server accessible outside your network, [see here](../post-install/networking/#external-access) for information about external access
+> make sure the server is reachable, the same URL should be able to reach the server on a web browser. Note that this application does not make your server accessible outside your network, [see here](../post-install/networking/#external-access) for information about external access
