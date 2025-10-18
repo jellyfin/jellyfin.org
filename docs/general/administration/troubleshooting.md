@@ -219,22 +219,24 @@ timedatectl set-ntp true
 
 ## Database Locked Errors
 
-When encountering issues with failed scanns or inconsistent data, check your logfile for errors like "Database Locked". If you encounter those you should first check your parallel scan task limit in your admin dashboard and set that lower. If its set to 0 set it to 1/2 your cores. If that does not help, you can set the locking mode instead (keep the task limit to a reasonable low number too).
+When encountering issues with failed scans or inconsistent data, check your log file(s) for errors like "Database Locked". If you encounter those you should first check your parallel scan task limit in your admin dashboard and set that lower. If its set to 0 set it to 1/2 your cores. If that does not help, you can set the locking mode instead (keep the task limit to a reasonable low number too).
 
 You have 3 options to set the locking mode to:
 
 - `NoLock` - This is the default mode which should work for most users
-- `Optimistic` - Defines that all writes should be attempted and when fail should be retried.
+- `Optimistic` - Defines that all writes should be attempted and should be retried when they fail.
 - `Pessimistic` - Defines a behavior that always blocks all reads while any one write is done.
 
-Stop your Jellyin server and navigate to its config directory. There are a lot of xml files, look for the `database.xml` file and edit it so that it looks like this:
+Stop your Jellyin server and navigate to its config directory. There are a lot of xml files, look for the `database.xml` file and edit the `LockingBehavior` option:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <DatabaseConfigurationOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <DatabaseType>Jellyfin-SQLite</DatabaseType>
+  // highlight-start
   <LockingBehavior>Optimistic</LockingBehavior>
+  // highlight-end
 </DatabaseConfigurationOptions>
 ```
 
-then start your jellyfin instance again. If this still does not help with the issuesd, you can try setting the `LockingBehavior` to `Pessimistic` instead but this comes with a significant performance impact so its only recommended when `Optimistic` does not help with the issues.
+then start your jellyfin instance again. If this still does not help with the issues, you can try setting the `LockingBehavior` to `Pessimistic` instead but this comes with a significant performance impact so it is only recommended when `Optimistic` does not help with the issues.
