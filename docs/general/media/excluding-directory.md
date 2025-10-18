@@ -32,6 +32,6 @@ Shows
 
 :::caution
 
-Currently, placing a `.ignore` file inside an [`Extras`](/docs/general/server/media/shows#extras-folders) directory [does not work](https://github.com/jellyfin/jellyfin/issues/9571).
+Currently, placing a `.ignore` file inside an [`Extras`](./libraries/shows#extras-folders) directory [does not work](https://github.com/jellyfin/jellyfin/issues/9571).
 
 :::
