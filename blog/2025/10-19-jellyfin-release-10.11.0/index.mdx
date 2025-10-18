@@ -76,7 +76,7 @@ The backup and restore system can only restore systems on which the backup was o
 
 The new database engine is tuned to aggressive cache metadata in memory, to prevent slow disk reads from bottlenecking the system; this was a frequent problem in previous versions of Jellyfin and a point of regular complaint. In practice, this means that Jellyfin will use more RAM than before, up to the full size of your Library database. This RAM is not wasted however, as the speed-up is very noticeable, especially with large libraries, and the system will try to be as efficient as possible if other tasks require memory. Be aware of this as you upgrade, as it will look like a lot more resource utilization.
 
-### Improved Locking Behavior
+### Improved Locking Behaviour
 
 The new database engine also enables several new locking modes; for most users, this is irrelevant, but users with frequent issues related to database locking can now tweak the settings. **More detail about this functionality can be found [in this blog post](/blog/SQLite-locking).**
 
@@ -90,7 +90,7 @@ We are announcing the deprecation of internal TLS/SSL support in Jellyfin, which
 
 ## Free Space Checks
 
-Jellyfin now actively checkes the available free space for its coniguration and data directories. If you have less than 2GB of free space in each, Jellyfin now refuses to start to prevent data corruption. Additionally, checks were implemented to prevent certain path misconfigurations that are know to cause issues.
+Jellyfin now actively checks the available free space for its configuration and data directories. If you have less than 2GB of free space in each, Jellyfin now refuses to start to prevent data corruption. Additionally, checks were implemented to prevent certain path misconfigurations that are know to cause issues.
 
 ## New Features & Enhancements
 
@@ -99,7 +99,7 @@ We have several new features and enhancements to look forward to:
 ### User Experience
 
 * Our search performance has been greatly improved, making it much quicker to find what you need.
-* The Favorites page will now list Live TV channels, Music Videos, Photo Albums, Photos, and Seasons in addition to the existing media types.
+* The Favourites page will now list Live TV channels, Music Videos, Photo Albums, Photos, and Seasons in addition to the existing media types.
 * We now have HEVC decoding support for Firefox 134+.
 * Native styling of subtitles can be disabled.
 * Shows can be displayed grouped in collections when viewing libraries.
