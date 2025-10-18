@@ -33,13 +33,26 @@ To take a new Backup, enter the Jellyfin Dashboard, open the `Backups` tab and c
 - Subtitles. All extracted subtitles including downloaded ones.
 - Trickplay. All trickplay data that is stored not alongside media.
 
-The Backup system will check for at least 4G of free space in the `/config/backup` folder where backups a written to. However this can easily not be enough if you also backup Subtitles and Trickplay so ensure you have enough free space there.
+The Backup system will check for at least 4G of free space in the backup folder where backups a written to. However this can easily not be enough if you also backup Subtitles and Trickplay so ensure you have enough free space there.
+The Backup folder is located within your Jellyfin data directory which is located in:
+
+- Official Docker: Wherever your `/data` volume are sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
+- LinuxServer.io Docker: Data are wherever your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
+- Debian/Ubuntu packages: `/var/lib/jellyfin/backups`.
+- RPMFusion Fedora/CentOS packages: Data is in `/var/lib/jellyfin/backups`.
+- Windows User Install: `%LOCALAPPDATA%\Jellyfin\data\backups` (`C:\Users\<Username>\AppData\Local\Jellyfin\data\backups`)
+- Windows Service Install: `%PROGRAMDATA%\Jellyfin\Server\data\backups` (`C:\ProgramData\Jellyfin\Server\data\backups`)
+- MacOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/backups`, `~/.local/share/jellyfin/backups`, `~/Library/Application Support/Jellyfin/backups`:
+  - Portable Installs:
+    - Linux: Data is stored in `~/.local/share/jellyfin/backups`.
+    - Windows: Data and config is in `C:\Users\<Username>\AppData\Local\Jellyfin\backups`, using `%LOCALAPPDATA%`.
+    - MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/backups`, `~/.local/share/jellyfin/backups`, `~/Library/Application Support/Jellyfin/backups`.
 
 After clicking on the `Create` button all data will be written into a new zip archive.
 
 ### Restore from Backup
 
-To restore from a Backup you can either use the webUI by navigating to the same view as for the step above and clicking on the restore button in the list of backups, or you can start jellyfin with the `--restore-archive PATH_TO_BACKUP_ZIP` argument. Note that when you start a restore from the webUI, you server will immediatly restart for this process to take place and will be unavailable for that time.
+To restore from a Backup you can either use the webUI by navigating to the same view as for the step above and clicking on the restore button in the list of backups, or you can start jellyfin with the `--restore-archive PATH_TO_BACKUP_ZIP` argument. Note that when you start a restore from the webUI, you server will immediately restart for this process to take place and will be unavailable for that time.
 
 ## Manual Backup
 
