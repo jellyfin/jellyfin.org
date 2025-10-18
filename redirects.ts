@@ -13,7 +13,7 @@ const redirects: ClientRedirects.Options['redirects'] = [
       '/docs/general/server/media/subtitles.html',
       '/docs/general/server/media/external-files'
     ],
-    to: '/docs/general/server/media/movies#external-subtitles-and-audio-racks'
+    to: '/docs/general/media/libraries/movies#external-subtitles-and-audio-racks'
   },
   // Storage docs moved from the server guide to administrative docs
   {
@@ -54,13 +54,13 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   // Internet radio moved to live tv
   {
-    from: '/docs/general/server/media/internet-radio',
-    to: '/docs/general/server/live-tv/internet-radio'
+    from: ['/docs/general/server/media/internet-radio', '/docs/general/server/live-tv/internet-radio'],
+    to: '/docs/general/media/live-tv/internet-radio'
   },
   // Merge comic and books
   {
-    from: '/docs/general/server/media/comics',
-    to: '/docs/general/server/media/books'
+    from: ['/docs/general/server/media/comics', '/docs/general/server/media/books'],
+    to: '/docs/general/media/libraries/books'
   },
   // transcoding and hwa moved
   {
