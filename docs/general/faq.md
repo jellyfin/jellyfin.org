@@ -32,7 +32,7 @@ Please see our [getting help](/docs/general/getting-help) page for details on wh
 This normally comes down to one of the following issues:
 
 1. [File permissions](https://wikipedia.org/wiki/File-system_permissions) are not properly configured on your media.
-2. Your media does not follow the organizational requirements for Jellyfin's scanner to properly identify media. (Valid organization schemes can be found in the documentation for [Movies](/docs/general/server/media/movies), [Shows](/docs/general/server/media/shows), [Music](/docs/general/server/media/music), and others.)
+2. Your media does not follow the organizational requirements for Jellyfin's scanner to properly identify media. (Valid organization schemes can be found in the documentation for [Movies](/docs/general/media/libraries/movies), [Shows](/docs/general/media/libraries/shows), [Music](/docs/general/media/libraries/music), and others.)
    If it's not one of these, please consider asking for help as it might be a bug.
 
 ## How can I contribute to this project?
