@@ -64,7 +64,7 @@
     "@docusaurus/module-type-aliases": "3.9.1",
     "@docusaurus/tsconfig": "3.9.1",
     "@eslint/js": "9.36.0",
-    "@types/react": "18.3.24",
+    "@types/react": "18.3.26",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
     "eslint": "9.36.0",
