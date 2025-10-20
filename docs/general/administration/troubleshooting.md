@@ -216,3 +216,18 @@ If your active devices section in the dashboard is not showing progress of the c
 ```bash
 timedatectl set-ntp true
 ```
+## Shows Or Movies Not Being Identified Correctly
+
+If Jellyfin is mislabeling your shows or movies, try the following process:
+
+1. Move one of the effected shows or movies OUT of the library folder.
+2. Manually initiate a scan of the Library from the server ``Dashboard`` > ``Libraries`` > ``Libraries`` > ``context menu`` > ``Scan library`` > ``Refresh``.
+3. Rename the files and directories to ensure they comply with the official documention for [shows](https://jellyfin.org/docs/general/server/media/shows) or [movies](https://jellyfin.org/docs/general/server/media/movies).
+4. Move the now renamed directories and folders back into your target library folder.
+
+:::caution
+  Be wary of placing shows and movies under too many subfolders. These are valid and Jellyfin will happy identify them: ``/media/shows/My Awesome Show/Season 01/My Awesome Show S01E01.mkv``, ``/media/movies/Best Movie Ever/Best Movie Ever.mkv``. These are not supported: ``/media/shows/kids_shows/My Awesome Show`` ``/media/movies/my_favourites/Good Movie.mkv``.
+:::
+
+6. Manually initiate a scan of the Library from the server ``dashboard`` > ``Libraries`` > ``Libraries`` > ``context menu`` > ``Scan library`` > ``Refresh``.
+
