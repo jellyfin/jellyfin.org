@@ -114,11 +114,11 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   {
     from: ['/docs/general/server/media/*', '/docs/general/server/libraries'],
-    to: '/docs/general/server/media/libraries'
+    to: '/docs/general/media/libraries'
   },
   {
     from: '/docs/general/server/live-tv/*',
-    to: '/docs/general/media/live-tv'
+    to: '/docs/general/media/live-tv/'
   }
 ];
 export default redirects;
