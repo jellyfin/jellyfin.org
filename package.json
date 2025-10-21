@@ -21,15 +21,15 @@
     "test:web-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-web-urls.json"
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.1",
-    "@docusaurus/plugin-client-redirects": "3.9.1",
-    "@docusaurus/plugin-content-blog": "3.9.1",
-    "@docusaurus/plugin-content-docs": "3.9.1",
-    "@docusaurus/plugin-content-pages": "3.9.1",
-    "@docusaurus/plugin-sitemap": "3.9.1",
-    "@docusaurus/plugin-svgr": "3.9.1",
-    "@docusaurus/theme-classic": "3.9.1",
-    "@docusaurus/theme-mermaid": "3.9.1",
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/plugin-client-redirects": "3.9.2",
+    "@docusaurus/plugin-content-blog": "3.9.2",
+    "@docusaurus/plugin-content-docs": "3.9.2",
+    "@docusaurus/plugin-content-pages": "3.9.2",
+    "@docusaurus/plugin-sitemap": "3.9.2",
+    "@docusaurus/plugin-svgr": "3.9.2",
+    "@docusaurus/theme-classic": "3.9.2",
+    "@docusaurus/theme-mermaid": "3.9.2",
     "@easyops-cn/docusaurus-search-local": "0.52.1",
     "@fontsource/noto-sans": "5.2.10",
     "@icons-pack/react-simple-icons": "13.8.0",
@@ -61,13 +61,13 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.9.1",
-    "@docusaurus/tsconfig": "3.9.1",
-    "@eslint/js": "9.36.0",
-    "@types/react": "18.3.24",
+    "@docusaurus/module-type-aliases": "3.9.2",
+    "@docusaurus/tsconfig": "3.9.2",
+    "@eslint/js": "9.37.0",
+    "@types/react": "18.3.26",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
-    "eslint": "9.36.0",
+    "eslint": "9.37.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
@@ -80,7 +80,7 @@
     "node-fetch": "3.3.2",
     "prettier": "3.6.2",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.45.0",
+    "typescript-eslint": "8.46.1",
     "typescript-plugin-css-modules": "5.2.0"
   }
 }
