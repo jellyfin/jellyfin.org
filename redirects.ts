@@ -113,12 +113,24 @@ const redirects: ClientRedirects.Options['redirects'] = [
     to: '/docs/general/post-install/networking/reverse-proxy/nginx'
   },
   {
-    from: ['/docs/general/server/media/*', '/docs/general/server/libraries'],
+    from: '/docs/general/server/libraries',
     to: '/docs/general/media/libraries'
   },
   {
-    from: '/docs/general/server/live-tv/*',
+    from: ['/docs/general/server/live-tv', '/docs/general/server/live-tv/index'],
     to: '/docs/general/media/live-tv/'
+  },
+  {
+    from: '/docs/general/server/media/movies',
+    to: '/docs/general/media/movies'
+  },
+  {
+    from: '/docs/general/server/media/shows',
+    to: '/docs/general/media/shows'
+  },
+  {
+    from: '/docs/general/server/media/music',
+    to: '/docs/general/media/music'
   }
 ];
 export default redirects;
