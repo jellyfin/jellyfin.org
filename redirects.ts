@@ -121,6 +121,14 @@ const redirects: ClientRedirects.Options['redirects'] = [
     to: '/docs/general/media/live-tv/'
   },
   {
+    from: ['/docs/general/server/live-tv/post-process'],
+    to: '/docs/general/media/live-tv/post-process'
+  },
+  {
+    from: ['/docs/general/server/live-tv/setup-guide'],
+    to: '/docs/general/media/live-tv/setup-guide'
+  },
+  {
     from: '/docs/general/server/media/movies',
     to: '/docs/general/media/movies'
   },
