@@ -19,7 +19,8 @@ export default ts.config([
     '**/npm-debug.log*',
     '**/yarn-debug.log*',
     '**/yarn-error.log*',
-    '**/*.json'
+    '**/*.json',
+    'tsconfig.json'
   ]),
   react.configs.flat.recommended,
   reactHooks.configs['recommended-latest'],
