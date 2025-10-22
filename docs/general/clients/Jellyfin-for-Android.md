@@ -89,13 +89,13 @@ Client Settings Menu layout:
 :::danger
 Downloading while on Mobile Data or Roaming may result in charges from your provider. You are responsible to ensure your data plan is suitable.
 :::
-You can download any media from your server onto the android device. on a media item press the overflow menu button (3 dots) and choose download. If a download allowed type has not been set through settings, a prompt will ask you to select from the options WiFi, Mobile data, mobile and roaming networks, see [Client settings](../clients/Jellyfin%20for%20Android#downloads) for more information
+You can download any media from your server onto the android device. on a media item press the overflow menu button (3 dots) and choose download. If a download allowed type has not been set through settings, a prompt will ask you to select from the options WiFi, Mobile data, mobile and roaming networks, see [Client settings](../clients/Jellyfin-for-Android#downloads) for more information
 > NOTE:
 > Jellyfin for Android is an online only media player, downloaded content requires a different player on the device for playback
 
 ## Chromecast support
 
-is available for Proprietary flavors only [see above](../clients/Jellyfin%20for%20Android#release-flavors). Allows for cast of media and remote control.
+is available for Proprietary flavors only [see above](../clients/Jellyfin-for-Android#release-flavors). Allows for cast of media and remote control.
 
 ## Troubleshooting
 
