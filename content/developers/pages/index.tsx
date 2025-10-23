@@ -23,7 +23,8 @@ export default function Index() {
               title='Documentation'
               pages={[
                 { url: '/developers/docs/api/authorization', name: 'Using the REST API' },
-                { url: '/developers/docs/api/authorization', name: 'Creating a server plugin' }
+                { url: '/developers/docs/api/authorization', name: 'Creating a server plugin' },
+                { url: '/developers/docs/api/syncplay', name: 'Utilising the SyncPlay API' }
               ]}
             />
 
