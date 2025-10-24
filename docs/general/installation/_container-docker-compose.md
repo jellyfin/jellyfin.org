@@ -18,7 +18,7 @@ Create a `docker-compose.yml` file with the following contents. Add in the UID a
 ```yml
 services:
   jellyfin:
-    image: jellyfin/jellyfin
+    image: jellyfin/jellyfin:latest
     container_name: jellyfin
     user: uid:gid
     ports:
