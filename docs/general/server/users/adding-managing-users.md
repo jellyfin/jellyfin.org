@@ -31,7 +31,7 @@ Under `Authentication Provider` you have the option to change the backend that h
 
 #### Feature Access
 
-For the following options it should be noted that if you never set up Live TV, users are blocked regardless of the state. See [the docs page for `Live TV` » `Live TV`](/docs/general/server/live-tv) for more information.
+For the following options it should be noted that if you never set up Live TV, users are blocked regardless of the state. See [the docs page for `Live TV` » `Live TV`](/docs/general/media/live-tv) for more information.
 
 `Allow Live TV access` Unchecking this option will block the user's access to watch Live TV.
 
