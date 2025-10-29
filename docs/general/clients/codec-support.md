@@ -198,21 +198,19 @@ If the container is unsupported, this will result in remuxing. The video and aud
 |                               Container                               | Chrome | Edge | Firefox | Safari | Android | Android TV | Kodi | Roku |
 | :-------------------------------------------------------------------: | :----: | :--: | :-----: | :----: | :-----: | :--------: | :--: | :--: |
 |    [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)<sup>1</sup>    |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
-|     [MKV](https://en.wikipedia.org/wiki/Matroska)<sup>2, 3</sup>      |   ❌   |  ✅  |   ❌    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
-|     [WebM](https://en.wikipedia.org/wiki/WebM)<sup>3, 5, 6</sup>      |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
-| [TS](https://en.wikipedia.org/wiki/MPEG_transport_stream)<sup>4</sup> |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
-|        [OGG](https://en.wikipedia.org/wiki/Ogg)<sup>5, 7</sup>        |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
+|     [MKV](https://en.wikipedia.org/wiki/Matroska)<sup>2</sup>      |   ❌   |  ✅  |   ✅    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
+|     [WebM](https://en.wikipedia.org/wiki/WebM)<sup>4, 5</sup>      |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
+| [TS](https://en.wikipedia.org/wiki/MPEG_transport_stream)<sup>3</sup> |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
+|        [OGG](https://en.wikipedia.org/wiki/Ogg)<sup>4, 6</sup>        |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
 
 <sup>1</sup>MP4 containers are one of the few containers that will not remux.
 <br />
-<sup>2</sup>MKV containers can hold nearly any codec, but are not compatible with streaming in Firefox and will remux.
+<sup>2</sup>MKV on FireFox requires at least version 145.
 <br />
-<sup>3</sup>MKV containers are improperly labeled as WebM in Firefox during playback.
+<sup>3</sup>TS is one of the primary containers for streaming for Jellyfin.
 <br />
-<sup>4</sup>TS is one of the primary containers for streaming for Jellyfin.
+<sup>4</sup>WebM and OGG have limited codec support (by design), refer to <a href="https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#WebM">this</a> for WebM and <a href="https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#Ogg">this</a> for OGG.
 <br />
-<sup>5</sup>WebM and OGG have limited codec support (by design), refer to <a href="https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#WebM">this</a> for WebM and <a href="https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#Ogg">this</a> for OGG.
+<sup>5</sup>WebM on Safari requires at least Safari 14.
 <br />
-<sup>6</sup>WebM on Safari requires at least Safari 14.
-<br />
-<sup>7</sup>OGG on Safari requires at least iOS 18.4 / macOS 15.4
+<sup>6</sup>OGG on Safari requires at least iOS 18.4 / macOS 15.4
