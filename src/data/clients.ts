@@ -175,6 +175,7 @@ const officialClients: Array<Client> = [
     id: 'jellyfin-android',
     name: 'Jellyfin for Android',
     description: 'The official Jellyfin app for Android devices.',
+    smallDescription: 'Signing key (SHA256 fingerprint): D8:81:79:6E:D2:A6:7F:F6:EF:9F:67:68:28:72:3C:6B:1F:A1:8E:09:38:89:62:CB:A4:AB:C4:A5:94:A6:91:31',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
