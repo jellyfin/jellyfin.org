@@ -94,7 +94,7 @@ server {
 
 ### Censor sensitive information in logs
 
-This censors any 'api_key' URL parameter from the logfile.
+This censors any 'api_key' or 'ApiKey' URL parameter from the logfile.
 
 ```conf
 #Must be in HTTP block
@@ -105,6 +105,7 @@ log_format stripsecrets '$remote_addr $host - $remote_user [$time_local] '
 
 map $request $secretfilter {
     ~*^(?<prefix1>.*[\?&]api_key=)([^&]*)(?<suffix1>.*)$  "${prefix1}***$suffix1";
+    ~*^(?<prefix1>.*[\?&]ApiKey=)([^&]*)(?<suffix1>.*)$  "${prefix1}***$suffix1";
     default                                               $request;
 }
 
