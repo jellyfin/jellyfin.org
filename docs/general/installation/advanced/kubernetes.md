@@ -37,23 +37,21 @@ Create a `values.yaml` file for customization:
 replicaCount: 1
 
 image:
-  repository: jellyfin/jellyfin
   pullPolicy: IfNotPresent
-  tag: "latest"
 
 persistence:
   config:
     enabled: true
     size: 5Gi
-    storageClass: ""
+    storageClass: ''
   media:
     enabled: true
     size: 100Gi
-    storageClass: ""
+    storageClass: ''
 
 ingress:
   enabled: true
-  className: "nginx"
+  className: 'nginx'
   hosts:
     - host: jellyfin.example.com
       paths:
@@ -93,10 +91,10 @@ This guide covers ClusterIP service type (default) for internal access only, wit
 persistence:
   config:
     enabled: true
-    existingClaim: "jellyfin-config-pvc"
+    existingClaim: 'jellyfin-config-pvc'
   media:
     enabled: true
-    existingClaim: "jellyfin-media-pvc"
+    existingClaim: 'jellyfin-media-pvc'
 ```
 
 #### Creating New PVCs via Helm
@@ -106,11 +104,11 @@ persistence:
   config:
     enabled: true
     size: 5Gi
-    storageClass: "fast-ssd"
+    storageClass: 'fast-ssd'
   media:
     enabled: true
     size: 100Gi
-    storageClass: "slow-hdd"
+    storageClass: 'slow-hdd'
 ```
 
 ### Ingress
@@ -120,7 +118,7 @@ persistence:
 ```yaml
 ingress:
   enabled: true
-  className: "nginx"
+  className: 'nginx'
   hosts:
     - host: jellyfin.example.com
       paths:
@@ -133,9 +131,9 @@ ingress:
 ```yaml
 ingress:
   enabled: true
-  className: "nginx"
+  className: 'nginx'
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-body-size: '0'
   hosts:
     - host: jellyfin.example.com
       paths:
@@ -291,9 +289,9 @@ volumeMounts:
 ```yaml
 extraEnvVars:
   - name: JELLYFIN_PublishedServerUrl
-    value: "https://jellyfin.example.com"
+    value: 'https://jellyfin.example.com'
   - name: JELLYFIN_CACHE_DIR
-    value: "/cache"
+    value: '/cache'
 ```
 
 For more configuration options, see the [Jellyfin Helm chart documentation](https://github.com/jellyfin/jellyfin-helm/tree/master/charts/jellyfin).
