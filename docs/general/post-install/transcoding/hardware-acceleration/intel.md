@@ -5,7 +5,7 @@ title: Intel GPU
 
 # HWA Tutorial On Intel GPU
 
-This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](./apple) instead.
+This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](./apple.md) instead.
 
 ## Acceleration Methods
 
@@ -121,12 +121,6 @@ Note that Jasper Lake and Elkhart Lake processors are 10th Gen Pentium/Celeron/A
 
 :::
 
-:::warning
-
-Intel ARC B series cards require ReBar to be enabled.
-
-:::
-
 ### Transcode Other Codecs
 
 Please refer to these links:
@@ -193,11 +187,11 @@ Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, na
 
 Jellyfin server support Intel ARC **Alchemist/A-series** discrete GPU on both Windows and Linux **6.2+**. For using ARC **Battlemage/B-series** discrete GPU on Linux, kernel version **6.12+** is required. Windows is also supported, just install the GPU driver.
 
-You only need to follow the [Windows Setups](./intel#windows-setups) and [Linux Setups](./intel#linux-setups) to configure and verify it.
+You only need to follow the [Windows Setups](./intel.md#windows-setups) and [Linux Setups](./intel.md#linux-setups) to configure and verify it.
 
 :::tip
 
-- [Resizable-BAR](https://game.intel.com/story/intel-arc-graphics-resizable-bar/) is not mandatory for hardware acceleration, but it can affect the graphics performance. It's recommended to enable the Resizable-BAR if the processor, motherboard and BIOS support it.
+- [Resizable-BAR](https://www.intel.com/content/www/us/en/support/articles/000090831/graphics.html) is only mandatory for hardware acceleration on ARC **B-series** cards, or the media driver will crash the transcoder. For ARC **A-series** cards, the media driver can tolerate not having it enabled but it's also recommended to enable Resizable-BAR if the processor, motherboard and BIOS support it, to achieve the best performance.
 
 - [ASPM](https://www.intel.com/content/www/us/en/support/articles/000092564/graphics.html) should be enabled in the BIOS if supported. This greatly reduces the idle power consumption of the ARC GPU.
 
@@ -215,7 +209,7 @@ Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Doc
 
 ### Known Issues And Limitations On Windows
 
-Please refer to [this section](./known-issues#intel-on-windows) for known issues and limitations
+Please refer to [this section](/docs/general/post-install/transcoding/hardware-acceleration/known-issues#intel-on-windows) for known issues and limitations
 
 ### Configure On Windows Host
 
@@ -271,7 +265,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-Please refer to [this section](./known-issues#intel-on-linux) for known issues and limitations
+Please refer to [this section](/docs/general/post-install/transcoding/hardware-acceleration/known-issues#intel-on-linux) for known issues and limitations
 
 ### Configure On Linux Host
 
@@ -330,6 +324,12 @@ Root permission is required.
    ```
 
 5. Check the version of `intel-opencl-icd` thats the Linux distro provides:
+
+   :::note
+
+   This package may not be available for newer distros since it [currently relies on LLVM 14](https://github.com/intel/intel-graphics-compiler/issues/289), which may not available in releases like Debian Trixie. If this is the case a release from the [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases) may be used instead.
+
+   :::
 
    ```shell
    $ apt policy intel-opencl-icd
@@ -390,7 +390,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](./intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](./intel.md#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -426,7 +426,7 @@ Root permission is required.
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
    ```
 
-4. Check to the remaining parts of [Debian And Ubuntu Linux](./intel#debian-and-ubuntu-linux).
+4. Check to the remaining parts of [Debian And Ubuntu Linux](./intel.md#debian-and-ubuntu-linux).
 
 #### Other Distros
 

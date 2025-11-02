@@ -41,7 +41,7 @@ Some basic options for networking can be set on this page. For most users, it is
 
 You have finished the setup wizard. Below is a list of items you should configure in order to get the best experience:
 
-- [Setup remote access to use Jellyfin when you are not at home](./networking)
-- [Setup hardware acceleration to improve performance and/or save power](./transcoding/hardware-acceleration/)
+- [Setup remote access to use Jellyfin when you are not at home](./networking/index.md#external-access)
+- [Setup hardware acceleration to improve performance and/or save power](./transcoding/hardware-acceleration/index.md)
 
 ![Setup Wizard Completion Page](/images/docs/post-install/setup-wizard/setup-wizard-7-complete.png)

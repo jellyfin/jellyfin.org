@@ -1,7 +1,7 @@
 ---
 uid: faq
 title: FAQ
-sidebar_position: 1
+sidebar_position: 102
 ---
 
 # Frequently Asked Questions
@@ -48,4 +48,4 @@ Please see our [requesting features](/docs/general/contributing/issues#requestin
 
 All we can ask is you [use Jellyfin](/docs/general/installation), [report any bugs](/docs/general/contributing/issues#reporting-bugs), and tell your friends about us!
 Really, we're just people volunteering our time to help build a better media system, so joining the community is the best way to show your support.
-We do offer a donations page [on OpenCollective](https://opencollective.com/jellyfin), however please note that these funds are **only** used for infrastructure. All our developers are unpaid volunteers on principle.
+We do offer a donations page [on OpenCollective](https://opencollective.com/jellyfin), however please note that these funds are **only** used for infrastructure. All our developers are unpaid volunteers on principle. Many individual developers that are active in the project accept [donations](/docs/general/contributing/direct-donations.mdx) however.
