@@ -1,9 +1,9 @@
 ---
 uid: server-media-excluding-directory
-title: Excluding files and directories
+title: Excluding Files and Directories
 ---
 
-# Excluding files and directory
+# Excluding Files and Directories
 
 Directories and files can be set for exclusion from Jellyfin media library scans, permitting you to include non-tracked files and directories within your media library. This is done by using `.ignore` (dot-ignore) files within your media library directories.
 
