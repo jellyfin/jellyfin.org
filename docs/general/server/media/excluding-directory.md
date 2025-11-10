@@ -9,7 +9,7 @@ Directories and files can be set for exclusion from Jellyfin media library scans
 
 :::tip
 
-When creating a `.ignore` file, ensure that you refresh/rescan the library afterwards for it to be applied.
+When creating or updating a `.ignore` file, ensure that you refresh/rescan the library afterwards for it to be applied.
 
 :::
 
