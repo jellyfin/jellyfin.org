@@ -36,7 +36,7 @@ Shows
 
 ## Excluding specific files or subdirectories
 
-When a `.ignore` file is **not empty**, it is treated as a list of file/directory matches using the [same format as a Git `.gitignore` file](https://git-scm.com/docs/gitignore#_pattern_format).
+When a `.ignore` file is **not empty**, it is treated as a list of items to ignore using the [same format as a Git `.gitignore` file](https://git-scm.com/docs/gitignore#_pattern_format).
 
 :::caution
 
