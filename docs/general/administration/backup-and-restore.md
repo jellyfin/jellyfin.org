@@ -71,15 +71,15 @@ Taking a manual Backup essentially involves you copying all the data jellyfin re
 2. Copy your data and configuration directories to a destination of your choice. What you name the copies is up to you; personally, I like to use dated and versioned directory names e.g. `jellyfin.2024-05-01_10.8.13`. Where these files are also depends on the platform; generally these follow the [XDG Directory Specification](https://specifications.freedesktop.org/basedir-spec/latest/) for platforms that support it. For more information see [the configuration documentation](/docs/general/administration/configuration/#server-paths).
 
    **NOTE**: These are default locations; if you've changed your data or config paths, use those instead.
-   - Official Docker: Wherever your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
-   - LinuxServer.io Docker: Wherever your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
-   - Debian/Ubuntu packages: Data is in `/var/lib/jellyfin` and config is in `/etc/jellyfin`; these are defined in `/etc/default/jellyfin`.
-   - RPMFusion Fedora/CentOS packages: Data is in `/var/lib/jellyfin` and config is in `/etc/jellyfin`; these are defined in `/etc/sysconfig/jellyfin`.
-   - Windows Tray/Installer (.exe): Data and config is in `%PROGRAMDATA%\Jellyfin\Server` (`C:\ProgramData\Jellyfin\Server`) or `%LOCALAPPDATA%\Jellyfin` (`C:\Users\<Username>\AppData\Local\Jellyfin`).
+   - Official Docker: The data directory is wherever your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`. This directory contains the config directory as well.
+   - LinuxServer.io Docker: The config directory is wherever your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`. This directory contains the data directory as well.
+   - Debian/Ubuntu packages: The data directory is `/var/lib/jellyfin` and the config directory is `/etc/jellyfin`; these are defined in `/etc/default/jellyfin`.
+   - RPMFusion Fedora/CentOS packages: The data directory is `/var/lib/jellyfin` and the config directory is `/etc/jellyfin`; these are defined in `/etc/sysconfig/jellyfin`.
+   - Windows Tray/Installer (.exe): The data directory is `%PROGRAMDATA%\Jellyfin\Server` (`C:\ProgramData\Jellyfin\Server`) or `%LOCALAPPDATA%\Jellyfin` (`C:\Users\<Username>\AppData\Local\Jellyfin`). This directory contains the config directory as well.
    - MacOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
    - Portable Installs:
-     - Linux: Data is stored in `~/.local/share/jellyfin` and config in `~/.local/share/jellyfin`.
-     - Windows: Data and config is in `C:\Users\<Username>\AppData\Local\Jellyfin`, using `%LOCALAPPDATA%`.
+     - Linux: The data and config directories are both `~/.local/share/jellyfin`.
+     - Windows: The data directory is `%LOCALAPPDATA%\jellyfin` (`C:\Users\<Username>\AppData\Local\jellyfin`). This directory contains the config directory as well.
      - MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
 
    As an example, on Debian, you can do this with these commands to make a copy of both directories into a single target directory:
