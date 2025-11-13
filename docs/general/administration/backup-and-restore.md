@@ -52,7 +52,7 @@ After clicking on the `Create` button all data will be written into a new zip ar
 
 ### Restore from Backup
 
-To restore from a Backup you can either use the webUI by navigating to the same view as for the step above and clicking on the restore button in the list of backups, or you can start jellyfin with the `--restore-archive PATH_TO_BACKUP_ZIP` argument. Note that when you start a restore from the webUI, you server will immediately restart for this process to take place and will be unavailable for that time.
+To restore from a Backup you can either use the webUI by navigating to the same view as for the step above and clicking on the restore button in the list of backups, or you can start jellyfin with the `--restore-archive PATH_TO_BACKUP_ZIP` argument. Note that when you start a restore from the webUI, your server will immediately restart for this process to take place and will be unavailable for that time.
 
 ## Manual Backup
 
@@ -94,7 +94,7 @@ Taking a manual Backup essentially involves you copying all the data jellyfin re
 
 3. Start up Jellyfin again, either after upgrading or on the current version. You now have a safe copy of your data in the path chosen in step 2.
 
-## Restoring a Backup
+### Restoring a Backup
 
 This process assumes you followed the steps above to take the backup.
 
