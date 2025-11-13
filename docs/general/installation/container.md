@@ -19,7 +19,7 @@ hotio image: `ghcr.io/hotio/jellyfin`.
 Jellyfin distributes official container images on [Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin/) and the [GitHub Container Registry](https://ghcr.io/jellyfin/jellyfin) for multiple architectures.
 These images are based on Debian and [built directly from the Jellyfin source code](https://github.com/jellyfin/jellyfin-packaging/blob/master/docker/Dockerfile).
 
-Several tags are available tracking different builds and [version](/docs/general/contributing/release-procedure#versioning) levels. If using an automated update mechanism like watchtower, remember that a [backup](/docs/general/administration/backup-and-restore) is required to restore a previous version.
+Several tags are available tracking different builds and [version](/docs/general/contributing/release-procedure/#versioning) levels. If using an automated update mechanism like watchtower, remember that a [backup](/docs/general/administration/backup-and-restore) is required to restore a previous version.
 * `latest` always tracks the latest release, including through major and minor version bumps
 * `X` (e.g. `10`) tracks the major version, e.g. the latest 10.Y.Z
 * `X.Y` (e.g. `10.11`) tracks the minor version, e.g. the latest 10.11.Z

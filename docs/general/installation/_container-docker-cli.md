@@ -22,7 +22,7 @@ The basic steps to create and run a Jellyfin container using Docker are as follo
 2. Download the latest container image.
 
    ```sh
-   docker pull jellyfin/jellyfin:latest
+   docker pull jellyfin/jellyfin
    ```
 
 3. Create persistent storage for configuration and cache data.
@@ -62,7 +62,7 @@ docker run -d \
  --volume /path/to/cache:/cache \ # Alternatively --volume jellyfin-cache:/cache
  --mount type=bind,source=/path/to/media,target=/media \
  --restart=unless-stopped \
- jellyfin/jellyfin:latest
+ jellyfin/jellyfin
 ```
 
 Bind Mounts are needed to pass folders from the host OS to the container OS whereas volumes are maintained by Docker and can be considered easier to backup and control by external programs.
