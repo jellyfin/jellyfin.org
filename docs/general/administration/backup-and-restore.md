@@ -39,14 +39,14 @@ The Backup folder is located within your Jellyfin data directory, by default:
 - Official Docker: `<volume path>/config/data/backups` where `<volume path>` is where your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
 - LinuxServer.io Docker: `<volume path>/config/data/data/backups` where `<volume path>` is where your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
 - Debian/Ubuntu packages: `/var/lib/jellyfin/data/backups`.
-- RPMFusion Fedora/CentOS packages: `/var/lib/jellyfin/backups`.
+- RPMFusion Fedora/CentOS packages: `/var/lib/jellyfin/data/backups`.
 - Windows User Install: `%LOCALAPPDATA%\Jellyfin\data\backups` (`C:\Users\<Username>\AppData\Local\Jellyfin\data\backups`)
 - Windows Service Install: `%PROGRAMDATA%\Jellyfin\Server\data\backups` (`C:\ProgramData\Jellyfin\Server\data\backups`)
-- MacOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/backups`, `~/.local/share/jellyfin/backups`, `~/Library/Application Support/Jellyfin/backups`:
+- MacOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/data/backups`, `~/.local/share/jellyfin/data/backups`, `~/Library/Application Support/Jellyfin/data/backups`:
 - Portable Installs:
   - Linux: Data is stored in `~/.local/share/jellyfin/data/backups`.
   - Windows: Data and config is in `C:\Users\<Username>\AppData\Local\jellyfin\data\backups`, using `%LOCALAPPDATA%`.
-  - MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/backups`, `~/.local/share/jellyfin/backups`, `~/Library/Application Support/Jellyfin/backups`.
+  - MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/data/backups`, `~/.local/share/jellyfin/data/backups`, `~/Library/Application Support/Jellyfin/data/backups`.
 
 After clicking on the `Create` button all data will be written into a new zip archive.
 
