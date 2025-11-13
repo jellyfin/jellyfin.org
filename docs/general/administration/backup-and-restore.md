@@ -34,19 +34,19 @@ To take a new Backup, enter the Jellyfin Dashboard, open the `Backups` tab and c
 - Trickplay. All trickplay data that is stored not alongside media.
 
 The Backup system will check for at least 4GB of free space in the backup folder where backups a written to. However this can easily not be enough if you also backup Subtitles and Trickplay so ensure you have enough free space there.
-The Backup folder is located within your Jellyfin data directory which is located in:
+The Backup folder is located within your Jellyfin data directory, namely:
 
-- Official Docker: Wherever your `/data` volume are sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
-- LinuxServer.io Docker: Data are wherever your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
-- Debian/Ubuntu packages: `/var/lib/jellyfin/backups`.
-- RPMFusion Fedora/CentOS packages: Data is in `/var/lib/jellyfin/backups`.
+- Official Docker: `<base path>/config/data/backups` where `<base path>` is where your `config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
+- LinuxServer.io Docker: `<base path>/config/data/data/backups` where `<base path>` is where your `config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
+- Debian/Ubuntu packages: `/var/lib/jellyfin/data/backups`.
+- RPMFusion Fedora/CentOS packages: `/var/lib/jellyfin/backups`.
 - Windows User Install: `%LOCALAPPDATA%\Jellyfin\data\backups` (`C:\Users\<Username>\AppData\Local\Jellyfin\data\backups`)
 - Windows Service Install: `%PROGRAMDATA%\Jellyfin\Server\data\backups` (`C:\ProgramData\Jellyfin\Server\data\backups`)
 - MacOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/backups`, `~/.local/share/jellyfin/backups`, `~/Library/Application Support/Jellyfin/backups`:
-  - Portable Installs:
-    - Linux: Data is stored in `~/.local/share/jellyfin/backups`.
-    - Windows: Data and config is in `C:\Users\<Username>\AppData\Local\Jellyfin\backups`, using `%LOCALAPPDATA%`.
-    - MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/backups`, `~/.local/share/jellyfin/backups`, `~/Library/Application Support/Jellyfin/backups`.
+- Portable Installs:
+  - Linux: Data is stored in `~/.local/share/jellyfin/data/backups`.
+  - Windows: Data and config is in `C:\Users\<Username>\AppData\Local\jellyfin\data\backups`, using `%LOCALAPPDATA%`.
+  - MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/backups`, `~/.local/share/jellyfin/backups`, `~/Library/Application Support/Jellyfin/backups`.
 
 After clicking on the `Create` button all data will be written into a new zip archive.
 
