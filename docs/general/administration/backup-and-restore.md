@@ -34,10 +34,10 @@ To take a new Backup, enter the Jellyfin Dashboard, open the `Backups` tab and c
 - Trickplay. All trickplay data that is stored not alongside media.
 
 The Backup system will check for at least 4GB of free space in the backup folder where backups a written to. However this can easily not be enough if you also backup Subtitles and Trickplay so ensure you have enough free space there.
-The Backup folder is located within your Jellyfin data directory, namely:
+The Backup folder is located within your Jellyfin data directory, by default:
 
-- Official Docker: `<base path>/config/data/backups` where `<base path>` is where your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
-- LinuxServer.io Docker: `<base path>/config/data/data/backups` where `<base path>` is where your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
+- Official Docker: `<volume path>/config/data/backups` where `<volume path>` is where your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
+- LinuxServer.io Docker: `<volume path>/config/data/data/backups` where `<volume path>` is where your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
 - Debian/Ubuntu packages: `/var/lib/jellyfin/data/backups`.
 - RPMFusion Fedora/CentOS packages: `/var/lib/jellyfin/backups`.
 - Windows User Install: `%LOCALAPPDATA%\Jellyfin\data\backups` (`C:\Users\<Username>\AppData\Local\Jellyfin\data\backups`)
@@ -58,7 +58,7 @@ To restore from a Backup you can either use the webUI by navigating to the same 
 
 Taking a manual Backup essentially involves you copying all the data jellyfin requires on your own.
 
-### Taking a Backup
+### Create a Backup
 
 1. Stop the running Jellyfin server. This is extremely important, as otherwise the database will be locked and might not be recoverable when restoring. Note that this will interrupt any playback.
    - Any platform: Within the Jellyfin Dashboard, click "Shutdown". This should cleanly stop the process on all platforms, but if not, try one of the following.
@@ -94,7 +94,7 @@ Taking a manual Backup essentially involves you copying all the data jellyfin re
 
 3. Start up Jellyfin again, either after upgrading or on the current version. You now have a safe copy of your data in the path chosen in step 2.
 
-### Restoring a Backup
+### Restore from Backup
 
 This process assumes you followed the steps above to take the backup.
 
