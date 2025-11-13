@@ -13,12 +13,12 @@ You WILL NOT receive any support for running Jellyfin in Docker on platforms oth
 
 :::
 
-Create a `docker-compose.yml` file like the following, specifying the tag you want to use.
+Create a `docker-compose.yml` file like the following.
 
 ```yml
 services:
   jellyfin:
-    image: jellyfin/jellyfin:tag
+    image: jellyfin/jellyfin
     container_name: jellyfin
     # Optional - specify the uid and gid you would like Jellyfin to use instead of root
     user: uid:gid
