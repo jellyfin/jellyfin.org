@@ -13,7 +13,7 @@ const redirects: ClientRedirects.Options['redirects'] = [
       '/docs/general/server/media/subtitles.html',
       '/docs/general/server/media/external-files'
     ],
-    to: '/docs/general/server/media/movies#external-subtitles-and-audio-racks'
+    to: '/docs/general/media/movies#external-subtitles-and-audio-racks'
   },
   // Storage docs moved from the server guide to administrative docs
   {
@@ -54,13 +54,13 @@ const redirects: ClientRedirects.Options['redirects'] = [
   },
   // Internet radio moved to live tv
   {
-    from: '/docs/general/server/media/internet-radio',
-    to: '/docs/general/server/live-tv/internet-radio'
+    from: ['/docs/general/server/media/internet-radio', '/docs/general/server/live-tv/internet-radio'],
+    to: '/docs/general/media/live-tv/internet-radio'
   },
   // Merge comic and books
   {
-    from: '/docs/general/server/media/comics',
-    to: '/docs/general/server/media/books'
+    from: ['/docs/general/server/media/comics', '/docs/general/server/media/books'],
+    to: '/docs/general/media/books'
   },
   // transcoding and hwa moved
   {
@@ -111,6 +111,34 @@ const redirects: ClientRedirects.Options['redirects'] = [
   {
     from: '/docs/general/networking/nginx',
     to: '/docs/general/post-install/networking/reverse-proxy/nginx'
+  },
+  {
+    from: '/docs/general/server/libraries',
+    to: '/docs/general/media/libraries'
+  },
+  {
+    from: ['/docs/general/server/live-tv', '/docs/general/server/live-tv/index'],
+    to: '/docs/general/media/live-tv/'
+  },
+  {
+    from: ['/docs/general/server/live-tv/post-process'],
+    to: '/docs/general/media/live-tv/post-process'
+  },
+  {
+    from: ['/docs/general/server/live-tv/setup-guide'],
+    to: '/docs/general/media/live-tv/setup-guide'
+  },
+  {
+    from: '/docs/general/server/media/movies',
+    to: '/docs/general/media/movies'
+  },
+  {
+    from: '/docs/general/server/media/shows',
+    to: '/docs/general/media/shows'
+  },
+  {
+    from: '/docs/general/server/media/music',
+    to: '/docs/general/media/music'
   }
 ];
 export default redirects;
