@@ -19,7 +19,7 @@ Documentation for the available command line options can be obtained by adding t
 
 ## Server Paths
 
-The file paths used by the server are determined according to the rules outlined below. In general, the [XDG specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) is followed by default for non-Windows systems.
+The file paths used by the server are determined according to the rules outlined below. In general, the [XDG specification](https://specifications.freedesktop.org/basedir-spec/latest/) is followed by default for non-Windows systems.
 
 ### Data Directory
 
