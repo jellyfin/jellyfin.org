@@ -359,25 +359,13 @@ The repository is the preferred way to obtain Jellyfin on Debian and Ubuntu syst
 
 2. Download the desired `jellyfin-server`, `jellyfin-web`, and `jellyfin-ffmpeg` `.deb` packages from the repository; `jellyfin` is a metapackage and is not required.
 
-3. Install the downloaded `.deb` packages:
+3. Install the downloaded `.deb` packages with `apt` to handle dependency resolution:
 
    ```sh
-   sudo dpkg -i jellyfin_*.deb jellyfin-ffmpeg_*.deb
+   sudo apt install ./jellyfin-server_*.deb ./jellyfin-web_*.deb ./jellyfin-ffmpeg_*.deb
    ```
 
-   :::note
-
-   This step may throw errors; continue to the next step to resolve them.
-
-   :::
-
-4. Use `apt` to install any missing dependencies:
-
-   ```sh
-   sudo apt -f install
-   ```
-
-5. Manage the Jellyfin system service:
+4. Manage the Jellyfin system service:
 
    ```sh
    sudo systemctl {action} jellyfin
