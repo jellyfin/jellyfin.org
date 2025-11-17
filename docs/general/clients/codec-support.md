@@ -217,4 +217,4 @@ If the container is unsupported, this will result in remuxing. The video and aud
 <br />
 <sup>7</sup>OGG on Safari requires at least iOS 18.4 / macOS 15.4
 <br />
-<sup>8</sup>MKV support in Firefox is disabled in Firefox as there are significant issues making it unusable for Jellyfin currently. [1](https://bugzilla.mozilla.org/show_bug.cgi?id=2000420) [2](https://bugzilla.mozilla.org/show_bug.cgi?id=1991746)
+<sup>8</sup>MKV support in Firefox is currently disabled in Jellyfin, as there are significant issues making it unusable for Jellyfin. [1](https://bugzilla.mozilla.org/show_bug.cgi?id=2000420) [2](https://bugzilla.mozilla.org/show_bug.cgi?id=1991746)
