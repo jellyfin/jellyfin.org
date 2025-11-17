@@ -21,11 +21,11 @@ These images are based on Debian and [built directly from the Jellyfin source co
 
 Several tags are available tracking different builds and [version](/docs/general/contributing/release-procedure/#versioning) levels.
 
-- `latest` always tracks the latest release, including through major and minor version bumps
+- `latest` always tracks the latest stable release, including through major and minor version bumps
 - `X` (e.g. `10`) tracks the major version, e.g. the latest 10.Y.Z
 - `X.Y` (e.g. `10.11`) tracks the minor version, e.g. the latest 10.11.Z
-- `X.Y.Z` (e.g. `10.11.0`) tracks the specific hotfix release
-- `X.Y.Z.YYYYMMDD-HHMMSS` (e.g. `10.11.0.20251020-004604`) tracks the specific packaging build
+- `X.Y.Z` (e.g. `10.11.0`) tracks a specific release
+- `X.Y.Z.YYYYMMDD-HHMMSS` (e.g. `10.11.0.20251020-004604`) tracks a specific packaging build
 
 Additionally, there are several third parties providing unofficial container images, including the [LinuxServer.io](https://www.linuxserver.io/) ([Dockerfile](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile)) project and [hotio](https://github.com/hotio) ([Dockerfile](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile)), which offer images based on Ubuntu and the official Jellyfin Ubuntu binary packages.
 
