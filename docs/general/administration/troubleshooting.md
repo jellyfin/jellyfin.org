@@ -49,10 +49,7 @@ To enable debug logging, create the `logging.json` file and add the following co
 {
   "Serilog": {
     "MinimumLevel": {
-      "Default": "Debug",
-      "Override": {
-        "": "Debug"
-      }
+      "Default": "Debug"
     }
   }
 }
