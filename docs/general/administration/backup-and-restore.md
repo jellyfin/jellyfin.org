@@ -24,7 +24,7 @@ There are two ways of backing up your Jellyfin data. One is with its built-in Ba
 Jellyfin's built-in backup system is able to create a backup while your system is online and running, as opposed to the manual process that **requires** you to stop Jellyfin beforehand.
 However in 10.11 we still recommend performing the backup process during a time of low activity and while no scan is currently active.
 
-### Create a Backup
+### Create a Built-in Backup
 
 To take a new Backup, enter the Jellyfin Dashboard, open the `Backups` tab and click on the `Create Backup` button. The popup will now ask you to select what data you want to backup.
 
@@ -58,7 +58,7 @@ To restore from a Backup you can either use the webUI by navigating to the same 
 
 Taking a manual Backup essentially involves you copying all the data jellyfin requires on your own.
 
-### Create a Backup
+### Create a Manual Backup
 
 1. Stop the running Jellyfin server. This is extremely important, as otherwise the database will be locked and might not be recoverable when restoring. Note that this will interrupt any playback.
    - Any platform: Within the Jellyfin Dashboard, click "Shutdown". This should cleanly stop the process on all platforms, but if not, try one of the following.
@@ -94,7 +94,7 @@ Taking a manual Backup essentially involves you copying all the data jellyfin re
 
 3. Start up Jellyfin again, either after upgrading or on the current version. You now have a safe copy of your data in the path chosen in step 2.
 
-### Restoring from a Manual Backup
+### Restore from a Manual Backup
 
 This process assumes you followed the steps above to take the backup.
 
