@@ -33,7 +33,7 @@ To take a new Backup, enter the Jellyfin Dashboard, open the `Backups` tab and c
 - Subtitles. All extracted subtitles including downloaded ones.
 - Trickplay. All trickplay data that is stored not alongside media.
 
-The Backup system will check for at least 4GB of free space in the backup folder where backups a written to. However this can easily not be enough if you also backup Subtitles and Trickplay so ensure you have enough free space there.
+The Backup system will check for at least 5GB of free space in the backup folder where backups a written to. However this can easily not be enough if you also backup Subtitles and Trickplay so ensure you have enough free space there.
 The Backup folder is located within your Jellyfin data directory, by default:
 
 - Official Docker: `<volume path>/config/data/backups` where `<volume path>` is where your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
