@@ -299,7 +299,7 @@ sudo apt install jellyfin`}
     id: 'arch',
     name: 'Arch Linux',
     osTypes: [OsType.Linux],
-    status: DownloadStatus.OsPackage,
+    status: DownloadStatus.Community,
     features: [Feature.CustomFFmpeg],
     platforms: [Platform.Arch],
     description: 'Install Jellyfin via Arch-Extra Repository.',
