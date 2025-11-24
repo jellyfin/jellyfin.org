@@ -7,9 +7,10 @@ sidebar_position: 4
 
 Playlists are custom lists of media that users can create. These are mutable, able to be created, shared, and deleted by users of the server.
 
-# Create
+## Create
 
 To create a playlist, use the [CreatePlaylist](https://api.jellyfin.org/#tag/Playlists/operation/CreatePlaylist) operation. This operation accepts a data transfer object that can populate details of the playlist, including:
+
 - `Name` of the playlist
 - `Ids` of items to include in the playlist
 - `UserId` of the user who should "own" the playlist
@@ -17,17 +18,18 @@ To create a playlist, use the [CreatePlaylist](https://api.jellyfin.org/#tag/Pla
 - `Users` that have access and optionally the ability to edit the playlist
 - `IsPublic` - whether or not the playlist is publicly accessible to all users
 
-# Read
+## Read
 
 To retrieve all playlist items from the library, use the [GetItems](https://api.jellyfin.org/#tag/Items/operation/GetItems) operation, specifying the Playlist library's ID as the `parentId`.
 
 To retrieve a specific playlist, use the [GetPlaylist](https://api.jellyfin.org/#tag/Playlists/operation/GetPlaylist) operation, specifying the Id of the playlist to retrieve
 
-# Update
+## Update
 
 There are multiple methods available for updating a playlist and it's contents.
 
 The simplest way is by using the [UpdatePlaylist](https://api.jellyfin.org/#tag/Playlists/operation/UpdatePlaylist) operation, of which can facilitate renaming, updating permissions, and updating the playlist contents. This accepts a data transfer object of which the following can be specified:
+
 - `Name` of the playlist
 - `Ids` of items to include in the playlist
 - `Users` that have access an optionally the ability to edit the playlist
@@ -35,11 +37,11 @@ The simplest way is by using the [UpdatePlaylist](https://api.jellyfin.org/#tag/
 
 There are additional endpoints, however, whose functionality is more directed at modifying the contents of the playlist. These are the [RemoveItemFromPlaylist](https://api.jellyfin.org/#tag/Playlists/operation/RemoveItemFromPlaylist) operation and the [MoveItem](https://api.jellyfin.org/#tag/Playlists/operation/MoveItem) operation.
 
-# Delete
+## Delete
 
 To delete a playlist from the library, use the [DeleteItem](https://api.jellyfin.org/#tag/Library/operation/DeleteItem) operation from the Library API. 
 
-# Sharing
+## Sharing
 
 To see what users have access to a playlist and what permissions they have, use the [GetPlaylistUsers](https://api.jellyfin.org/#tag/Playlists/operation/GetPlaylistUsers) operation. This will return the IDs of the users with access, as well as a `CanEdit` value indicating whether they can edit the playlist.
 
