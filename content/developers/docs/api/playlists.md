@@ -5,7 +5,7 @@ sidebar_position: 5
 
 # Playlists
 
-Playlists are custom lists of media that users can create. These are mutable, able to be created, shared, and deleted by users of the server.
+Playlists are custom lists of media that users can create. These are mutable; they can be created, updated, shared, and deleted by users of the server.
 
 ## Create
 
@@ -20,9 +20,9 @@ To create a playlist, use the [CreatePlaylist](https://api.jellyfin.org/#tag/Pla
 
 ## Read
 
-To retrieve all playlist items from the library, use the [GetItems](https://api.jellyfin.org/#tag/Items/operation/GetItems) operation, specifying the Playlist library's ID as the `parentId`.
+To retrieve all playlist items from the library, use the [GetItems](https://api.jellyfin.org/#tag/Items/operation/GetItems) operation, specifying the Playlist library's `Id` as the `parentId`.
 
-To retrieve a specific playlist, use the [GetPlaylist](https://api.jellyfin.org/#tag/Playlists/operation/GetPlaylist) operation, specifying the Id of the playlist to retrieve
+To retrieve a specific playlist along with it's contents, use the [GetPlaylist](https://api.jellyfin.org/#tag/Playlists/operation/GetPlaylist) operation and specify the `Id` of the desired playlist.
 
 ## Update
 
@@ -39,11 +39,11 @@ There are additional endpoints, however, whose functionality is more directed at
 
 ## Delete
 
-To delete a playlist from the library, use the [DeleteItem](https://api.jellyfin.org/#tag/Library/operation/DeleteItem) operation from the Library API. 
+To delete a playlist from the library, use the [DeleteItem](https://api.jellyfin.org/#tag/Library/operation/DeleteItem) operation from the Library API.
 
 ## Sharing
 
-To see what users have access to a playlist and what permissions they have, use the [GetPlaylistUsers](https://api.jellyfin.org/#tag/Playlists/operation/GetPlaylistUsers) operation. This will return the IDs of the users with access, as well as a `CanEdit` value indicating whether they can edit the playlist.
+To see what users have access to a playlist and what permissions they have, use the [GetPlaylistUsers](https://api.jellyfin.org/#tag/Playlists/operation/GetPlaylistUsers) operation. This will return the `Id`s of the users with access, as well as a `CanEdit` value indicating whether they can edit the playlist.
 
 To update a user's permissions for a playlist, use the [UpdatePlaylistUser](https://api.jellyfin.org/#tag/Playlists/operation/UpdatePlaylistUser) operation. This operation accepts a data transfer object with a `CanEdit` field, which will grant edit permissions to the user if set to `true` when sent.
 
