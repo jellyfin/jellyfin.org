@@ -6,7 +6,6 @@ Images can either be provided as external files within the media folders, or emb
 
 Similar to media folders, an artist image can be placed in the root of an artist’s folder. It will be shown both when browsing artists and on the artist’s detail page.
 
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -89,7 +88,6 @@ Unless otherwise noted, all filenames can be used either standalone (e.g. `logo.
 | clearlogo                | Logo      | ✅ <sup>2</sup> | ✅     | ✅     |         | ✅    |        |
 | landscape                | Thumb     | ✅              | ✅     | ✅     |         | ✅    |        |
 | thumb                    | Thumb     | ✅              | ✅     | ✅     |         | ✅    |        |
-
 
 <sup>1</sup> For example: `S01E01 Some Episode-thumb.jpg` <br />
 <sup>2</sup> These file names can also be embedded in supported media containers (e.g. mkv) and will be used when the `Embedded Image Extractor` source is enabled for movies.
