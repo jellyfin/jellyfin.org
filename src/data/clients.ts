@@ -994,6 +994,39 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://monk-studio.com/finer'
       }
     ]
+  },
+  {
+    id: 'jellify',
+    name: 'Jellify',
+    description: 'A free and open source music player available for iOS and Android',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.MacOS, Platform.IOS, Platform.Android],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: '',
+      },
+      {
+        id: 'google-play',
+        name: 'Google Play',
+        url: 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://jellify.app'
+      },
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/Jellify-Music/App'
+      }
+    ]
   }
 ];
 
