@@ -2,7 +2,7 @@
 
 ## Multiple Versions
 
-Multiple versions of the same video can be stored together in the library using a file suffix in Movie and Music Video library types. The part before any suffixes **MUST** be exactly the same, including any years and/or metadata provider IDs.
+Multiple versions of the same video can be stored together in the library using a separate folder and a file suffix in Movie and Music Video library types. The part before any suffixes **MUST** be exactly the same as the parent folder name, including any years and/or metadata provider IDs.
 
 ```txt
 Movie (2021) [imdbid-tt12801262]
