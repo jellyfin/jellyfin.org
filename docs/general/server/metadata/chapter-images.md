@@ -6,6 +6,7 @@ NOTE: Not to be confused with chapters, which are the ticks you see in the timel
 
 # Chapter Images
 Chapter images are a type of metadata for video media files stored in Jellyfin. They are images that correspond with chapters and give a preview of the video at that timestamp.
+
 Jellyfin stores the chapter images within the metadata directory, which should be located inside your server's config directory.
 
 # Getting Started
@@ -13,18 +14,19 @@ The feature is enabled per library. There are 2 ways to get to the library setti
 1. When you add a new library, pick a video Content type, then scroll down to the bottom where you see "Chapter Images"
 2. Click the 3 dots of an existing library and scroll down to the bottom, where you see "Chapter Images"
 
-## Enable chapter image extraction
+### Enable chapter image extraction
 This will enable the Chapter image feature.
 
-## Extract chapter images during the library scan
+### Extract chapter images during the library scan
 This will change the scheduled extraction to happen in the "Scan Media Library" task instead of the "Extract Chapter Images" task.
 
 # Other Settings
 In the dashboard, you can configure other behaviours of the chapter image feature. These settings are found in Libraries -> Metadata
 
-## Interval
+### Interval
 This creates dummy chapters at a given interval (0 will disable dummy chapters) if no chapters are detected in the media file. The value is in seconds.
+
 NOTE: Not recommended to use small values here. Small intervals could slow down video playback as Jellyfin's webUI video player will try to render all the chapters on the timeline.
 
-## Resolution
+### Resolution
 This will set the resolution of the image files that are extracted
