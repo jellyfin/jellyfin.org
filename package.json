@@ -16,6 +16,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "lint": "eslint --ext .ts,.js,.json,.jsx,.tsx .",
+    "lint:markdown": "markdownlint **/*.md --ignore node_modules",
     "test:blog-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-blog-urls.json",
     "test:docs-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-docs-urls.json",
     "test:web-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-web-urls.json"
@@ -43,7 +44,7 @@
     "file-loader": "6.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "sass": "1.94.1",
+    "sass": "1.94.2",
     "swiper": "12.0.3",
     "ua-parser-js": "2.0.6",
     "url-loader": "4.1.1"
@@ -77,6 +78,7 @@
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "5.2.0",
     "globals": "16.5.0",
+    "markdownlint-cli": "0.46.0",
     "node-fetch": "3.3.2",
     "prettier": "3.6.2",
     "typescript": "5.9.3",
