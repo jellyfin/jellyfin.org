@@ -69,6 +69,8 @@ Add this to the new file:
 ```bash
 [Unit]
 Description=Reload Fail2Ban jellyfin jail
+FailureAction=none
+OnFailureJobMode=flush
 
 [Service]
 Type=oneshot
