@@ -78,7 +78,7 @@ Save and exit nano.
 Enable and start the service:
 
 ```bash
-sudo systemctl enable --now fail2ban-jellyfin-reload.path
+sudo systemctl enable --now fail2ban-jellyfin-reload.timer
 ```
 
 
