@@ -23,8 +23,8 @@ This will change the scheduled extraction to happen in the "Scan Media Library" 
 In the dashboard, you can configure other behaviours of the chapter image feature. These settings are found in Libraries -> Metadata
 
 ## Interval
-This creates chapters at a given interval (0 will disable dummy chapters) if no chapters are detected in the media file.
-NOTE: Not recommended to use small values here. This could slow down starting the video stream as the GUI will try to render all the chapters on the timeline.
+This creates dummy chapters at a given interval (0 will disable dummy chapters) if no chapters are detected in the media file. The value is in seconds.
+NOTE: Not recommended to use small values here. Small intervals could slow down video playback as Jellyfin's webUI video player will try to render all the chapters on the timeline.
 
 ## Resolution
 This will set the resolution of the image files that are extracted
