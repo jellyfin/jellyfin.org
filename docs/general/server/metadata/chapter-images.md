@@ -2,16 +2,16 @@
 uid: server-metadata-chapter-images
 title: Chapter Images
 ---
-NOTE: Not to be confused with chapters, which are the ticks you see in the timeline when watching a video. Chapter Images must be enabled; chapters can be displayed even when Chapter Images are disabled.
+NOTE: Not to be confused with chapters, which are the ticks you see in the timeline when watching a video. Chapter Images must be enabled to be displayed; chapters can be displayed even when Chapter Images are disabled.
 
 # Chapter Images
 Chapter images are a type of metadata for video media files stored in Jellyfin. They are images that correspond with chapters and give a preview of the video at that timestamp.
-Jellyfin stores the chapter data in `/config/metadata/library/<id>/<id>/chapters'.
+Jellyfin stores the chapter images within the metadata directory, which should be located inside your server's config directory.
 
 # Getting Started
 The feature is enabled per library. There are 2 ways to get to the library settings
 1. When you add a new library, pick a video Content type, then scroll down to the bottom where you see "Chapter Images"
-2. Click the 3 dots of an existing library and scroll down to the bottom where you see "Chapter Images"
+2. Click the 3 dots of an existing library and scroll down to the bottom, where you see "Chapter Images"
 
 ## Enable chapter image extraction
 This will enable the Chapter image feature.
