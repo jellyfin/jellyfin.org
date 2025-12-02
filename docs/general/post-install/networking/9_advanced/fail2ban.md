@@ -53,7 +53,7 @@ Add this to the new file:
 Description=Reload Fail2Ban jellyfin jail daily
 
 [Timer]
-OnCalendar=*-*-* 00:10:00
+OnCalendar=*-*-* 00:45:00
 Persistent=true
 
 [Install]
