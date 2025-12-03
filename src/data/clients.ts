@@ -921,9 +921,9 @@ const thirdPartyClients: Array<Client> = [
     name: 'Jellify',
     description: 'A free and open source music player available for iOS and Android',
     clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
+    deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
-    platforms: [Platform.MacOS, Platform.IOS, Platform.Android],
+    platforms: [Platform.IOS, Platform.Android],
     primaryLinks: [
       {
         id: 'app-store',
