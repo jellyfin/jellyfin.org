@@ -17,6 +17,7 @@ Steps to run Jellyfin using Podman are similar to the Docker steps.
     --label "io.containers.autoupdate=registry" \
     --name myjellyfin \
     --publish 8096:8096/tcp \
+    --publish 7359:7359/udp \
     --rm \
     --user $(id -u):$(id -g) \
     --userns keep-id \
@@ -28,10 +29,11 @@ Steps to run Jellyfin using Podman are similar to the Docker steps.
 
 3. Open the necessary ports in your machine's firewall if you wish to permit access to the Jellyfin server from outside the host.
    This is not done automatically when using rootless Podman.
-   If your distribution uses `firewalld`, the following commands save and load a new firewall rule opening the HTTP port `8096` for TCP connections.
+   If your distribution uses `firewalld`, the following commands save and load a new firewall rule opening the HTTP port `8096` for TCP connections. Additionaly port 7359 UDP needs to be opened for auto discovery.
 
    ```sh
    sudo firewall-cmd --add-port=8096/tcp --permanent
+   sudo firewall-cmd --add-port=7359/udp --permanent
    sudo firewall-cmd --reload
    ```
 
@@ -42,7 +44,7 @@ The `--user` option will run with the provided user id and group id _inside_ the
 The `--userns keep-id` flag ensures that current user's id is mapped to the non-root user's id inside the container.
 This ensures that the permissions for directories bind-mounted inside the container are mapped correctly between the user running Podman and the user running Jellyfin inside the container.
 
-Keep in mind that the `--label "io.containers.autoupdate=image"` flag will allow the container to be automatically updated via `podman auto-update`.
+Keep in mind that the `--label "io.containers.autoupdate=image"` flag will allow the container to be automatically updated via `podman auto-update`, and a [backup](/docs/general/administration/backup-and-restore) will be required to restore a previous version.
 
 The `z` (shared volume) or `Z` (private volume) volume option and `relabel=shared` or `relabel=private` mount option tell Podman to relabel files inside the volumes as appropriate, for systems running SELinux.
 

@@ -411,57 +411,6 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'preserve',
-    name: 'Preserve',
-    description: 'A music client inspired by players such as foobar2000 or Clementine.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Browser, Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'browser',
-        name: 'Open in browser',
-        url: 'https://preserveplayer.com/'
-      },
-      {
-        id: 'gl-downloads',
-        name: 'GitLab Downloads',
-        url: 'https://gitlab.com/tonyfinn/preserve/-/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'gitlab',
-        name: 'GitLab',
-        url: 'https://gitlab.com/tonyfinn/preserve'
-      }
-    ]
-  },
-  {
-    id: 'sonixd',
-    name: 'Sonixd',
-    description: 'A full-featured Subsonic/Jellyfin compatible desktop music player.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: 'https://github.com/jeffvli/sonixd#install'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/jeffvli/sonixd'
-      }
-    ]
-  },
-  {
     id: 'supersonic',
     name: 'Supersonic',
     description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
@@ -515,7 +464,7 @@ const thirdPartyClients: Array<Client> = [
   {
     id: 'tauon-music-box',
     name: 'Tauon Music Box',
-    description: "A modern streamlined music player for desktop with a minimal interface that is packed with features!",
+    description: 'A modern streamlined music player for desktop with a minimal interface that is packed with features!',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
@@ -809,34 +758,6 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'web-scrobbler',
-    name: 'Web Scrobbler',
-    description: 'Web Scrobbler helps online music listeners to scrobble their playback history.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Browser],
-    primaryLinks: [
-      {
-        id: 'install',
-        name: 'Installation Guide',
-        url: 'https://github.com/web-scrobbler/web-scrobbler#installation'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/web-scrobbler/web-scrobbler'
-      },
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://webscrobbler.com'
-      }
-    ]
-  },
-  {
     id: 'jellybook',
     name: 'JellyBook',
     description: 'A cross platform mobile app for book & comic reading for Jellyfin.',
@@ -926,27 +847,27 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: "fladder",
-    name: "Fladder",
-    description: "A simple, cross-platform Jellyfin frontend built on top of Flutter.",
+    id: 'fladder',
+    name: 'Fladder',
+    description: 'A simple, cross-platform Jellyfin frontend built on top of Flutter.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.OpenSource,
     platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
     primaryLinks: [
       {
-        id: "play-store",
-        name: "Play Store",
-        url: "https://play.google.com/store/apps/details?id=nl.jknaapen.fladder",
-      },
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=nl.jknaapen.fladder'
+      }
     ],
     secondaryLinks: [
       {
-        id: "github",
-        name: "GitHub",
-        url: "https://github.com/DonutWare/Fladder",
-      },
-    ],
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/DonutWare/Fladder'
+      }
+    ]
   },
   {
     id: 'symfonium',
@@ -1030,7 +951,4 @@ const thirdPartyClients: Array<Client> = [
   }
 ];
 
-export const Clients: Array<Client> = [
-  ...officialClients,
-  ...thirdPartyClients
-];
+export const Clients: Array<Client> = [...officialClients, ...thirdPartyClients];
