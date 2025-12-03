@@ -1017,14 +1017,14 @@ const thirdPartyClients: Array<Client> = [
     ],
     secondaryLinks: [
       {
-        id: 'website',
-        name: 'Website',
-        url: 'https://jellify.app'
-      },
-      {
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/Jellify-Music/App'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://jellify.app'
       }
     ]
   }
