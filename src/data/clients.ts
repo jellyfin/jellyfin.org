@@ -917,6 +917,29 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
+    id: 'gelly',
+    name: 'Gelly',
+    description: 'A light, native music client for Linux.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop, Platform.Linux],
+    primaryLinks: [
+      {
+        id: 'flathub',
+        name: 'Flathub (Linux)',
+        url: 'https://flathub.org/apps/details/io.m51.Gelly'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'Github',
+        url: 'https://github.com/Fingel/gelly'
+      }
+    ]
+  },
+  {
     id: 'jellify',
     name: 'Jellify',
     description: 'A free and open source music player available for iOS and Android',
@@ -928,7 +951,7 @@ const thirdPartyClients: Array<Client> = [
       {
         id: 'app-store',
         name: 'App Store',
-        url: 'https://apps.apple.com/us/app/jellify/id6736884612',
+        url: 'https://apps.apple.com/us/app/jellify/id6736884612'
       },
       {
         id: 'google-play',
