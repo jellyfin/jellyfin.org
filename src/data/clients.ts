@@ -938,6 +938,39 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://github.com/Fingel/gelly'
       }
     ]
+  },
+  {
+    id: 'jellify',
+    name: 'Jellify',
+    description: 'A free and open source music player available for iOS and Android',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.IOS, Platform.Android],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/jellify/id6736884612'
+      },
+      {
+        id: 'google-play',
+        name: 'Google Play',
+        url: 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/Jellify-Music/App'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://jellify.app'
+      }
+    ]
   }
 ];
 
