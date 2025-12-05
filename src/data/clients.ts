@@ -915,6 +915,29 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://monk-studio.com/finer'
       }
     ]
+  },
+  {
+    id: 'gelly',
+    name: 'Gelly',
+    description: 'A light, native music client for Linux.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop, Platform.Linux],
+    primaryLinks: [
+      {
+        id: 'flathub',
+        name: 'Flathub (Linux)',
+        url: 'https://flathub.org/apps/details/io.m51.Gelly'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'Github',
+        url: 'https://github.com/Fingel/gelly'
+      }
+    ]
   }
 ];
 
