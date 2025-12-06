@@ -69,7 +69,8 @@ apt-cache madison jellyfin-server
 apt-cache madison jellyfin-web
 ```
 
-Find the full version ID for 10.10.7, and use it below
+Find the full version ID for 10.10.7, and use it below.
+Or find and download the version with `wget` from https://repo.jellyfin.org/archive/server/
 
 ```sh
 sudo apt install jellyfin-server=<version> jellyfin-web=<version>
