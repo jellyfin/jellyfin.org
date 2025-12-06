@@ -41,17 +41,17 @@ Movies
 The folder containing the movie should be named in the following format:
 
 ```txt
-Movie Name (year) [external id]
+Movie Name (year) [metadata provider id]
 ```
 
-The `year` and `external id` fields are optional, but they will help identify media more reliably.
+The `year` and `metadata provider id` fields are optional, but they will help identify media more reliably.
 
 The video files within the folder should have the same name as the folder. I.e. if the folder is named `Super Fun Movie`, the video file within should be named `Super Fun Movie.mp4` (or any other extension), optionally with tags defined below.
 
 - Example with name only: `Jellyfin Documentary.mkv`
 - Example with year: `Jellyfin Documentary (2030).mkv`
-- Example with external id: `Jellyfin Documentary [imdbid-tt00000000].mkv`
-- Example with both year and external id: `Jellyfin Documentary (2030) [imdbid-tt00000000].mkv`
+- Example with metadata provider id: `Jellyfin Documentary [imdbid-tt00000000].mkv`
+- Example with both year and metadata provider id: `Jellyfin Documentary (2030) [imdbid-tt00000000].mkv`
 
 import VideoMetadataProviders from './\_video-metadata-providers.md';
 
