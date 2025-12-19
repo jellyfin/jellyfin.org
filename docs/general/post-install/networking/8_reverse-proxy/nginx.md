@@ -114,15 +114,15 @@ map $request $secretfilter {
 access_log /var/log/nginx/access.log stripsecrets;
 ```
 
-### NAXSI WAF module for nginx
+### NAXSI WAF module for Nginx
 
 If you want to protect Jellyfin with a Web Application Firewall (WAF), you can compile nginx with the [naxsi module](https://github.com/wargio/naxsi) and use the jellyfin.rules whitelist to mitigate false positives. Naxsi is an open-source WAF that is easy to configure and create rules for.
 
-#### Install nginx with naxsi
+#### Install Nginx with Naxsi
 
 Follow the steps on [Naxsi's GitHub](https://github.com/wargio/naxsi?tab=readme-ov-file#build-naxsi) or on its [webpage](https://wargio.github.io/naxsi/build-naxsi.html). Ensure you use the correct nginx version, as the module will fail to build if the version is incorrect.
 
-#### Configure nginx
+#### Configure Nginx
 
 Add the following to your `nginx.conf` in the `http` block. This loads the default blocking rules and a generic whitelist for all your sites. Verify the paths to the actual rules, as they may vary depending on your setup. You can find the default rules in the [Naxsi Repository](https://github.com/wargio/naxsi/tree/main/naxsi_rules). In this example, the `naxsi` folder was created manually, and the rules were copied into it.
 
@@ -273,6 +273,6 @@ Adjust your logging configuration to match your needs. A specific error log path
     access_log /var/log/nginx/access/jellyfin_example_org_access.log combined if=$loggable;
 ```
 
-#### learning mode
+#### Learning Mode
 
 It is recommended to enable learning mode for the first few weeks to detect false positives and add them to the whitelist. Enable learning mode by uncommenting the `LearningMode;` line. To create your own whitelists, follow the [Naxsi documentation on whitelists](https://wargio.github.io/naxsi/whitelist.html).
