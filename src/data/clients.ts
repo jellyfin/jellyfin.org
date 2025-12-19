@@ -917,25 +917,91 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'discrete',
-    name: 'Discrete',
-    description: 'Native music player for iPhone, iPad and macOS.',
+    id: 'streamyfin',
+    name: 'Streamyfin',
+    description: 'A modern Jellyfin client with support for downloads, Live TV, skip intro & credits, trickplay image and more!',
     clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
-    licenseType: LicenseType.Proprietary,
-    platforms: [Platform.IOS, Platform.MacOS],
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Android, Platform.IOS],
     primaryLinks: [
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=com.fredrikburmester.streamyfin'
+      },
       {
         id: 'app-store',
         name: 'App Store',
-        url: 'https://apps.apple.com/us/app/discrete/id6746067740'
+        url: 'https://apps.apple.com/app/streamyfin/id6593660679'
       }
     ],
     secondaryLinks: [
       {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/streamyfin/streamyfin'
+      },
+      {
         id: 'website',
         name: 'Website',
-        url: 'https://discrete.app/'
+        url: 'https://streamyfin.app'
+      }
+    ]
+  },
+  {
+    id: 'gelly',
+    name: 'Gelly',
+    description: 'A light, native music client for Linux.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop, Platform.Linux],
+    primaryLinks: [
+      {
+        id: 'flathub',
+        name: 'Flathub (Linux)',
+        url: 'https://flathub.org/apps/details/io.m51.Gelly'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'Github',
+        url: 'https://github.com/Fingel/gelly'
+      }
+    ]
+  },
+  {
+    id: 'jellify',
+    name: 'Jellify',
+    description: 'A free and open source music player available for iOS and Android',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.IOS, Platform.Android],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/jellify/id6736884612'
+      },
+      {
+        id: 'google-play',
+        name: 'Google Play',
+        url: 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/Jellify-Music/App'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://jellify.app'
       }
     ]
   }
