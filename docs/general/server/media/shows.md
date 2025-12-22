@@ -67,16 +67,8 @@ import ExternalStreams from './\_video-external-streams.md';
 
 <ExternalStreams />
 
-import ExternalExtras from './\_video-external-extras.md';
-
-<ExternalExtras />
-
-### Multiple Versions
+## Multiple Versions
 Multiple Versions of the same episode can be stored side by side in their respective season folder. It is recommended to use a file suffix with `` - version`` (space, hyphen, space, and then a label) to identify the versions, and to ensure the part before any suffixes be exactly the same, including any years and/or metadata provider IDs.
-
-```note
-this recommendation will likely become a hard requirement if automatic grouping is added in a future release.
-```
 
 ```txt
 Series Name A (year)
@@ -86,6 +78,10 @@ Series Name A (year)
 ```
 
 To group an episode with multiple versions, select an episode in the season list, then under the "More from Season x", left click and hold to bring up the multi select interface. Select the desired episodes to group, then use the triple dot menu at the top right of the blue bar in the multi select interface to choose "Group Versions".
+
+import ExternalExtras from './\_video-external-extras.md';
+
+<ExternalExtras />
 
 ### Show Specials
 
