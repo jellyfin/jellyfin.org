@@ -777,7 +777,7 @@ More detail information about Intel video hardware can be found [on the Intel me
 
 :::note
 
-Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
+Gen X refers to [Intel graphics architecture](https://en.wikipedia.org/wiki/Intel_Graphics_Technology) instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
 
 :::
 
