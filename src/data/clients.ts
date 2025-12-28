@@ -984,6 +984,7 @@ const thirdPartyClients: Array<Client> = [
       {
         id: 'app-store',
         name: 'App Store',
+      },
       {
         id: 'google-play',
         name: 'Google Play',
@@ -1003,11 +1004,10 @@ const thirdPartyClients: Array<Client> = [
       }
     ]
   },
-  },
   {
     id: 'livefin',
     name: 'LiveFin',
-    description: 'A Live TV client for Jellyfin on iOS, iPadOS, and macOS.',
+    description: 'A Live TV client for Jellyfin on iOS, iPadOS, and macOS',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
     licenseType: LicenseType.Proprietary,
