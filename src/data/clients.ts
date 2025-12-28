@@ -984,6 +984,7 @@ const thirdPartyClients: Array<Client> = [
       {
         id: 'app-store',
         name: 'App Store',
+        url: 'https://apps.apple.com/us/app/jellify/id6736884612'
       },
       {
         id: 'google-play',
