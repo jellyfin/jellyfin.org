@@ -51,9 +51,9 @@ It is very important to note your current Jellyfin version before attempting to 
 jellyfin --version
 ```
 
-Read more about this, [here](/blog/2025/10-19-jellyfin-release-10.11.0).
+Read more about this, [here](/blog/2025/10-19-jellyfin-release-10.11.0/index.mdx).
 
-First, make a backup of your current data. Instructions can be found [here](/docs/general/administration/backup-and-restore).
+First, make a backup of your current data. Instructions can be found [here](/docs/general/administration/backup-and-restore.md).
 
 ### From version 10.10.7 or above
 
