@@ -17,7 +17,7 @@ Jellyfin can store this information and provide it to clients. Clients can then 
 
 There's a few steps to follow if you want to use media segments:
 
-1. Install one or multiple media segment providers. Read the [plugins section](#plugin-support) below to find out more.
+1. Install one or multiple media segment providers. Read the [plugins section](#plugins) below to find out more.
 2. Run the `Media segment scan` task in the dashboard to create segments immediately, this task also runs automatically in the background.
 3. Set actions for the different segment types, the way you do this differs per client, but they are generally found in the playback settings of the client.
 
