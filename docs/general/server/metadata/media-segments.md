@@ -3,8 +3,6 @@ uid: server-metadata-media-segments
 title: Media segments
 ---
 
-# Media segments
-
 Media segments are a type of metadata for media files stored in Jellyfin. Unlike chapters, which have no type, media segments can contain type information, allowing different actions based on the type of each segment.
 
 ## Getting started
