@@ -786,44 +786,6 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'fintunes',
-    name: 'Fintunes',
-    description: 'Mobile audio streaming app for Jellyfin',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Android, Platform.IOS],
-    primaryLinks: [
-      {
-        id: 'fdroid',
-        name: 'F-Droid',
-        url: 'https://f-droid.org/en/packages/nl.moeilijkedingen.jellyfinaudioplayer/'
-      },
-      {
-        id: 'play-store',
-        name: 'Play Store',
-        url: 'https://play.google.com/store/apps/details?id=nl.moeilijkedingen.jellyfinaudioplayer'
-      },
-      {
-        id: 'app-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/nl/app/fintunes/id1527732194'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/leinelissen/jellyfin-audio-player'
-      },
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://fintunes.app'
-      }
-    ]
-  },
-  {
     id: 'manet',
     name: 'Manet',
     description: 'A third-party music client for iOS and macOS',
