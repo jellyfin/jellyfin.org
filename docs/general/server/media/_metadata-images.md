@@ -2,7 +2,7 @@
 
 ## Metadata Images
 
-Images can either be provided as external files within the media folders, or embedded in the media files themselves. When external imaged are provided, they should be placed alongside the media files. When they are provided, they will take precedence over other sources.
+Images can either be provided as external files within the media folders, or embedded in the media files themselves. When external images are provided, they should be placed alongside the media files. When they are provided, they will take precedence over other sources.
 
 Similar to media folders, an artist image can be placed in the root of an artist’s folder. It will be shown both when browsing artists and on the artist’s detail page.
 
