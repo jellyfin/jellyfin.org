@@ -9,8 +9,6 @@ Not to be confused with chapters, which are the ticks you see in the timeline wh
 
 :::
 
-# Chapter Images
-
 Chapter images are a type of metadata for video media files stored in Jellyfin. They are images that correspond to chapters and give a preview of the video at that timestamp.
 
 Jellyfin stores the chapter images within the metadata directory, which should be located inside your server's config directory.
