@@ -38,13 +38,11 @@ jobs:
       # https://github.com/actions/upload-pages-artifact/issues/129
       - name: Create pages artifact
         if: inputs.upload-pages-artifact
-        run: |
-          tar --dereference -cvf "$RUNNER_TEMP/artifact.tar" -C build .
-          gzip -9 "$RUNNER_TEMP/artifact.tar"
+        run: tar --dereference --hard-dereference --directory build -cvf "$RUNNER_TEMP/artifact.tar" --exclude=.git --exclude=.github .
       - name: Upload pages artifact
         if: inputs.upload-pages-artifact
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: github-pages
-          path: ${{ runner.temp }}/artifact.tar.gz
+          path: ${{ runner.temp }}/artifact.tar
           retention-days: 1
