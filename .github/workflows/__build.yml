@@ -34,8 +34,17 @@ jobs:
         with:
           name: jellyfin-org__build
           path: build
+      # Manual artifact creation because upload-pages-artifact v4 excludes dotfiles
+      # https://github.com/actions/upload-pages-artifact/issues/129
+      - name: Create pages artifact
+        if: inputs.upload-pages-artifact
+        run: |
+          tar --dereference -cvf "$RUNNER_TEMP/artifact.tar" -C build .
+          gzip -9 "$RUNNER_TEMP/artifact.tar"
       - name: Upload pages artifact
         if: inputs.upload-pages-artifact
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
-          path: build
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar.gz
+          retention-days: 1
