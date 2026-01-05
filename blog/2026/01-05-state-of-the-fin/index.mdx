@@ -62,7 +62,22 @@ We are continuing to investigate ways to mitigate performance issues caused by c
 
 ### Jellyfin Desktop
 
-> TODO: Notes about the 2.0 release.
+We're rebranding the desktop application from Jellyfin Media Player to Jellyfin Desktop.
+The most noteworthy change is the migration from Qt 5 to Qt 6.
+This seems to have improved overall performance, though we're still working out issues regarding memory leaks due to the migration.
+
+Apart from the Qt migration, other noteworthy updates.
+
+- Saved servers and settings will not be migrated from Jellyfin Media Player.
+- We've laid the foundation for switching servers with the addition of profiles CLI options. The long-term goal is to have a UI for this as well, but the timeline is TBD.
+- A slew of bug fixes are included.
+
+The release is currently available on [Flathub](https://github.com/jellyfin/jellyfin-desktop) and in the [Arch Linux AUR](https://aur.archlinux.org/packages/jellyfin-desktop).
+Stable builds for Windows and macOS builds are not currently available.
+Other Linux distributions will likely be added, though we recommend using Flathub for the time being.
+We are not currently supporting Ubuntu 24.04 LTS due to it being stuck on the older Qt 6.4 series, while our new dependency, mpvqt, requires at least Qt 6.5.
+
+\- [Andrew Rabert](https://github.com/andrewrabert)
 
 ### Jellyfin for Android TV
 
@@ -71,7 +86,7 @@ These updates contain various improvements to music transcoding. The app now pro
 
 For video playback, we have improved the stability of Live TV and now support direct play for the VC-1 and AV1 codecs (if your device supports them). The AV1 support was already available on Android 10 and newer but now works on older Fire TV devices as well.
 
-\- [nielsvanvelzen](https://github.com/nielsvanvelzen)
+\- [Niels van Velzen](https://github.com/nielsvanvelzen)
 
 ### Jellyfin for Xbox
 
