@@ -32,7 +32,7 @@ Stay tuned for further updates as we navigate this feedback!
 
 ### 10.11 Release Status
 
-Jellyfin 10.11.x introduced a major [EF Core refactor](https://jellyfin.org/posts/efcore-refactoring-incoming/), consolidating the legacy `library.db` into a single unified `jellyfin.db`. Following more than six months of development and an additional six months of release candidate testing, version [10.11.0](https://jellyfin.org/posts/jellyfin-release-10.11.0/) was released last year. This extended testing period allowed us to mitigate most [refactoring](https://github.com/jellyfin/jellyfin/issues/13047) and [RC](https://github.com/jellyfin/jellyfin/issues/14350)-related issues prior to release.
+Jellyfin 10.11 introduced a major [EF Core refactor](https://jellyfin.org/posts/efcore-refactoring-incoming/), consolidating the legacy `library.db` into a single unified `jellyfin.db`. Following more than six months of development and an additional six months of release candidate testing, version [10.11.0](https://jellyfin.org/posts/jellyfin-release-10.11.0/) was released last year. This extended testing period allowed us to mitigate most [refactoring](https://github.com/jellyfin/jellyfin/issues/13047) and [RC](https://github.com/jellyfin/jellyfin/issues/14350)-related issues prior to release.
 
 Even with this level of testing, issues were expected given the scale of the database change and the limited number of users reporting bugs. These issues are currently being tracked on GitHub across three categories:
 
@@ -43,6 +43,8 @@ Even with this level of testing, issues were expected given the scale of the dat
 We have been moving quickly to address these issues, delivering four additional point releases with over [100 changes](https://github.com/jellyfin/jellyfin/compare/v10.11.0...v10.11.5) since the initial 10.11.0 release. To date, most point releases have focused on resolving general and migration-related issues. The remaining migration issues are largely isolated, one-off cases and are unlikely to be resolved. Most general issues have already been fixed, and the next bug-fix release is expected to include additional fixes for music metadata display issues and for watched status not being preserved when media is replaced or renamed.
 
 We are continuing to investigate ways to mitigate performance issues caused by client-side enumeration and filtering of large datasets.
+
+\- [theguymadmax](https://github.com/theguymadmax)
 
 ### vNext (aka 10.12 / 12.0)
 
@@ -64,6 +66,8 @@ Two versions of the Android TV app have been released: [v0.19.5](https://github.
 These updates contain various improvements to music transcoding. The app now properly displays durations again and allows for seeking when music is transcoding. These changes also solve the issue of lyrics not scrolling in certain cases.
 
 For video playback, we have improved the stability of Live TV and now support direct play for the VC-1 and AV1 codecs (if your device supports them). The AV1 support was already available on Android 10 and newer but now works on older Fire TV devices as well.
+
+\- [nielsvanvelzen](https://github.com/nielsvanvelzen)
 
 ### Jellyfin for Xbox
 
@@ -121,7 +125,8 @@ A more detailed post about these changes can be found [on GitHub](https://github
 - The Tizen app was submitted for review, but unfortunately [failed testing](https://github.com/jellyfin/jellyfin-tizen/issues/222#issuecomment-3621581689). Additional work is needed to replicate the reported issues and correct them.
 - Support for multiple **new** platforms is currently underway, and we will provide updates as progress is made.
 
+Happy New Year from the entire Jellyfin Team!
 Wishing you all happy streaming in 2026 and beyond!
 We look forward to another year filled with exciting updates and features for Jellyfin.
 
-\- thornbill and the Jellyfin Team
+\- thornbill
