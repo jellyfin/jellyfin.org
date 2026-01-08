@@ -9,44 +9,20 @@ on:
   push:
     branches: [master]
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-        with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
-        with:
-          cache: npm
-          node-version: 20
-      - name: Configure Pages
-        if: github.event_name == 'push' && github.repository == 'jellyfin/jellyfin.org'
-        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
-      - name: Run build
-        run: |
-          npm ci --no-audit
-          npm run build
-      - name: Upload artifact
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: jellyfin-org__build
-          path: build
-      - name: Upload pages artifact
-        if: github.event_name == 'push' && github.repository == 'jellyfin/jellyfin.org'
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
-        with:
-          path: build
+    uses: ./.github/workflows/__build.yml
+    permissions: {}
+    with:
+      ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      upload-pages-artifact: ${{ github.event_name == 'push' && github.repository == 'jellyfin/jellyfin.org' }}
 
   deploy:
     if: github.event_name == 'push' && github.repository == 'jellyfin/jellyfin.org'
     name: Deploy to GitHub Pages
+    permissions:
+      pages: write
+      id-token: write
     concurrency: build-deploy-pages
     environment:
       name: github-pages
@@ -81,7 +57,7 @@ jobs:
           comment-tag: CFPages-deployment
           mode: recreate
       - name: Download workflow artifact
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: jellyfin-org__build
           path: build
