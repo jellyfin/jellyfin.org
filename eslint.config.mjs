@@ -22,7 +22,7 @@ export default defineConfig([
     '**/*.json'
   ]),
   react.configs.flat.recommended,
-  reactHooks.configs.recommended,
+  reactHooks.configs.flat.recommended,
   ...ts.configs.recommended,
   jsxA11Y.flatConfigs.recommended,
   {
