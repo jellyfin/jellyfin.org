@@ -61,26 +61,28 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
     setFilterValue(filter);
   };
 
-  const filteredClients = useMemo(() => {
-    return Clients.filter((client) => {
-      let result = true;
+  const filteredClients = useMemo(
+    () =>
+      Clients.filter((client) => {
+        let result = true;
 
-      if (filter.recommended) {
-        result = result && !!client.recommended;
-      }
+        if (filter.recommended) {
+          result = result && !!client.recommended;
+        }
 
-      result =
-        result &&
-        (filter.deviceTypes.length === 0 ||
-          client.deviceTypes.some((deviceType) => filter.deviceTypes.includes(deviceType)));
+        result =
+          result &&
+          (filter.deviceTypes.length === 0 ||
+            client.deviceTypes.some((deviceType) => filter.deviceTypes.includes(deviceType)));
 
-      result =
-        result &&
-        (filter.platforms.length === 0 || client.platforms.some((platform) => filter.platforms.includes(platform)));
+        result =
+          result &&
+          (filter.platforms.length === 0 || client.platforms.some((platform) => filter.platforms.includes(platform)));
 
-      return result;
-    });
-  }, [filter]);
+        return result;
+      }),
+    [filter]
+  );
 
   return (
     <Layout title='Clients'>
