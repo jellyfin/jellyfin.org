@@ -1,11 +1,11 @@
-import { globalIgnores } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import ts from 'typescript-eslint';
 import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import globals from 'globals';
 
-export default ts.config([
+export default defineConfig([
   globalIgnores([
     'node_modules',
     'build',
@@ -22,7 +22,7 @@ export default ts.config([
     '**/*.json'
   ]),
   react.configs.flat.recommended,
-  reactHooks.configs['recommended-latest'],
+  reactHooks.configs.recommended,
   ...ts.configs.recommended,
   jsxA11Y.flatConfigs.recommended,
   {
