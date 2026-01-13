@@ -22,7 +22,7 @@ export default ts.config([
     '**/*.json'
   ]),
   react.configs.flat.recommended,
-  reactHooks.configs['recommended-latest'],
+  reactHooks.configs.flat.recommended,
   ...ts.configs.recommended,
   jsxA11Y.flatConfigs.recommended,
   {
