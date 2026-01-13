@@ -63,6 +63,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setFilteredClients(
       Clients.filter((client) => {
         let result = true;
