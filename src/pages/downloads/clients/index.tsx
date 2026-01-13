@@ -37,7 +37,6 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
-  const [filteredClients, setFilteredClients] = useState<Client[]>([...Clients]);
   const [filter, setFilterValue] = useState<ClientFilter>({
     recommended,
     deviceTypes: (searchParams.get('type')?.split(',') ?? []) as DeviceType[],
@@ -62,29 +61,24 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
     setFilterValue(filter);
   };
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setFilteredClients(
-      Clients.filter((client) => {
-        let result = true;
+  const filteredClients = Clients.filter((client) => {
+    let result = true;
 
-        if (filter.recommended) {
-          result = result && !!client.recommended;
-        }
+    if (filter.recommended) {
+      result = result && !!client.recommended;
+    }
 
-        result =
-          result &&
-          (filter.deviceTypes.length === 0 ||
-            client.deviceTypes.some((deviceType) => filter.deviceTypes.includes(deviceType)));
+    result =
+      result &&
+      (filter.deviceTypes.length === 0 ||
+        client.deviceTypes.some((deviceType) => filter.deviceTypes.includes(deviceType)));
 
-        result =
-          result &&
-          (filter.platforms.length === 0 || client.platforms.some((platform) => filter.platforms.includes(platform)));
+    result =
+      result &&
+      (filter.platforms.length === 0 || client.platforms.some((platform) => filter.platforms.includes(platform)));
 
-        return result;
-      })
-    );
-  }, [filter, setFilteredClients]);
+    return result;
+  });
 
   return (
     <Layout title='Clients'>
