@@ -4,11 +4,11 @@ import { mdiFilter } from '@mdi/js';
 import Icon from '@mdi/react';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import ClientDetails from '../../../components/clients/ClientDetails';
 import Pill from '../../../components/common/Pill';
-import { Client, Clients, DeviceType } from '../../../data/clients';
+import { Clients, DeviceType } from '../../../data/clients';
 import Platform, { FeaturedClientPlatforms } from '../../../data/platform';
 
 import styles from '../index.module.scss';
@@ -61,24 +61,26 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
     setFilterValue(filter);
   };
 
-  const filteredClients = Clients.filter((client) => {
-    let result = true;
+  const filteredClients = useMemo(() => {
+    return Clients.filter((client) => {
+      let result = true;
 
-    if (filter.recommended) {
-      result = result && !!client.recommended;
-    }
+      if (filter.recommended) {
+        result = result && !!client.recommended;
+      }
 
-    result =
-      result &&
-      (filter.deviceTypes.length === 0 ||
-        client.deviceTypes.some((deviceType) => filter.deviceTypes.includes(deviceType)));
+      result =
+        result &&
+        (filter.deviceTypes.length === 0 ||
+          client.deviceTypes.some((deviceType) => filter.deviceTypes.includes(deviceType)));
 
-    result =
-      result &&
-      (filter.platforms.length === 0 || client.platforms.some((platform) => filter.platforms.includes(platform)));
+      result =
+        result &&
+        (filter.platforms.length === 0 || client.platforms.some((platform) => filter.platforms.includes(platform)));
 
-    return result;
-  });
+      return result;
+    });
+  }, [filter]);
 
   return (
     <Layout title='Clients'>
