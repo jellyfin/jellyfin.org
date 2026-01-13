@@ -5,7 +5,7 @@ import ts from 'typescript-eslint';
 import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import globals from 'globals';
 
-export default defineConfig([
+export default ts.config([
   globalIgnores([
     'node_modules',
     'build',
