@@ -232,7 +232,7 @@ Root permission is required.
 
 #### LXC (Linux Containers)
 
-This setup might be useful for those, who use RK3588/3588S SoC as [Proxmox](https://www.proxmox.com/en/) host, where LXC is the official and the only supported way of doing lightweight virtualiztion with the help of system containers (LXC) vs application containers (docker). As of today Proxmox team does not support ARM platforms as hosts - and probably will never do - however successful deployments on ARM devices [are possible](https://github.com/jiangcuo/Proxmox-Port?tab=readme-ov-file).
+This setup might be useful for those, who use RK3588/3588S SoC as [Proxmox](https://www.proxmox.com/en/) host, where LXC is the official and the only supported way of doing lightweight virtualization with the help of system containers (LXC) vs application containers (docker). As of today Proxmox team does not support ARM platforms as hosts - and probably will never do - however successful deployments on ARM devices [are possible](https://github.com/jiangcuo/Proxmox-Port?tab=readme-ov-file).
 
 LXC setup idea is a bit similar to docker - you need to pass the **device files** of VPU from host to LXC and enable the **privileged mode** (see also important "_note_" below about privileged LXC containers).
 
