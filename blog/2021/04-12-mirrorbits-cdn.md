@@ -5,9 +5,7 @@ authors: joshuaboniface
 date: 2021-04-12
 slug: mirrorbits-cdn
 ---
-
 <!-- markdownlint-disable -->
-
 For many projects, distributing binary assets is easy: put the files on GitHub and you're done. It's not something many think about. But at Jellyfin, we needed something more robust, something able to handle our needs more elegantly than GitHub or a basic web server could. And both for those interested, and for those supporting other similar projects, I'd like to share how we do it.
 
 <!-- truncate -->
@@ -63,10 +61,10 @@ The next step after crafting a usable file layout was to create some additional 
 
 Since our origin server is in Toronto, I wanted to ensure we had wide geographic coverage. as well as a dedicated CDN for the same region as the origin server, just in case it got overloaded. Thus, I created 4 additional VPSes:
 
-- `tor1.mirror.jellyfin.org`: Toronto, Ontario, Canada for North/South America East
-- `sfo1.mirror.jellyfin.org`: San Francisco, California, USA for North/South America West
-- `fra1.mirror.jellyfin.org`: Frankfurt, Germany (not France as commonly assumed!) for Europe and Africa
-- `sgp1.mirror.jellyfin.org`: Singapore for Asia and Pacific
+* `tor1.mirror.jellyfin.org`: Toronto, Ontario, Canada for North/South America East
+* `sfo1.mirror.jellyfin.org`: San Francisco, California, USA for North/South America West
+* `fra1.mirror.jellyfin.org`: Frankfurt, Germany (not France as commonly assumed!) for Europe and Africa
+* `sgp1.mirror.jellyfin.org`: Singapore for Asia and Pacific
 
 One worry when first setting up these 4 VPSes was that they would not be enough, but so far, through another major release and several minor releases, we've had the complaints about download speed completely stop, so they must be working. In future, as Digital Ocean expands, we'd also be able to add other locations as well, for instance Bangalore, India, Africa, and perhaps additional Europe and South America instances.
 
@@ -94,7 +92,7 @@ Here is our configuration:
 
 In many cases, it would be prudent to secure this, but since we wanted to open this up to anyone, I left the `rsync` endpoint completely exposed. Thus, if you want to host a local Jellyfin mirror - you can. Simply clone this rsync target and you'll have a full copy of the Jellyfin mirror!
 
-On the mirror servers, we still needed to get the content however. Ultimately, I decided that every "official" mirror copying the _full_ content (including archives and unstable builds) was more prudent, so all of them synchronize the `mirror-full` source.
+On the mirror servers, we still needed to get the content however. Ultimately, I decided that every "official" mirror copying the *full* content (including archives and unstable builds) was more prudent, so all of them synchronize the `mirror-full` source.
 
 Each node thus has a simple cron job, set to run every 15 minutes, that downloads an updated copy of the repository from the origin:
 
@@ -103,7 +101,7 @@ Each node thus has a simple cron job, set to run every 15 minutes, that download
 12,27,42,57 *  * * *  root  rsync -au --delete rsync://build1.jellyfin.org/mirror-full/ /srv/repository/mirror/
 ```
 
-The slightly odd times were chosen specifically - the goal for 3rd parties, if and when we officially support them, would be to synchronize every X minutes on even intervals, e.g. at `00`, `30`, etc., from these "official" mirrors, instead of from build1 directly. This therefore ensures they would always be up-to-date before that time comes around, ensuring no additional delays for 3rd party mirrors. We don't officially support this _yet_, but if our traffic continues to grow, we will probably expand to 3rd parties as well as additional Digital Ocean locations.
+The slightly odd times were chosen specifically - the goal for 3rd parties, if and when we officially support them, would be to synchronize every X minutes on even intervals, e.g. at `00`, `30`, etc., from these "official" mirrors, instead of from build1 directly. This therefore ensures they would always be up-to-date before that time comes around, ensuring no additional delays for 3rd party mirrors. We don't officially support this *yet*, but if our traffic continues to grow, we will probably expand to 3rd parties as well as additional Digital Ocean locations.
 
 The `rsync` command should create the destination directory automatically, but to be prudent, I ensured it was created manually first. Thus, we now have 5 servers with exactly the same content, with the mirrors synchronizing from the origin every 15 minutes.
 
@@ -153,7 +151,7 @@ server {
 
 During testing, we did notice one thing that might be of use to other admins. We were finding that performance, when many requests for large files came in at once, would drop significantly. I ended up tracing the problem to the I/O stack within NGiNX, which appeared to be a bottleneck. I was able to find some documentation about this problem, and thus have set the `aio threads`, `directio`, `output_buffers`, and `sendfile` options above. These ensure NGiNX will use direct I/O for any file larger than 1M, and provide 3 output buffers with a maximum chunk size of 0, increasing performance under load.
 
-On the origin, the NGiNX configuration is much more complicated. Because Mirrorbits will only distribute the actual large files themselves, I need to handle any pre-file redirection first on the origin. Thus clients are directed to the right file location, and the Mirrorbits directs _that_ request to the mirrors.
+On the origin, the NGiNX configuration is much more complicated. Because Mirrorbits will only distribute the actual large files themselves, I need to handle any pre-file redirection first on the origin. Thus clients are directed to the right file location, and the Mirrorbits directs *that* request to the mirrors.
 
 ```
 # /etc/nginx/sites-enabled/jellyfin-origin (on build1.jellyfin.org)
@@ -321,7 +319,7 @@ A few options are worth mentioning as they differ from the obvious defaults.
 
 `RedisAddress` points to a local Redis instance that Mirrorbits uses to handle state.
 
-`ConcurrentSync`, `RepositoryScanInterval`, `ScanInterval`, and `CheckInterval` are times in minutes that Mirrorbits _should_ be checking and synchronizing itself, but I've found these to be unreliable; I used a cron task to do these tasks manually instead.
+`ConcurrentSync`, `RepositoryScanInterval`, `ScanInterval`, and `CheckInterval` are times in minutes that Mirrorbits *should* be checking and synchronizing itself, but I've found these to be unreliable; I used a cron task to do these tasks manually instead.
 
 Finally, `Fallbacks` provides a list of fallback mirrors. As mentioned above, the `/master` path provides the exact same content as `/releases`, only without being forwarded back to Mirrorbits and creating a loop. Without this fallback, if all mirrors are unavailable for any given file, either due to its newness or due to mirror failures, clients would not be able to download files at all. The fallback ensures there is still at least one source - the origin - that is not normally used, but can be just in case.
 
