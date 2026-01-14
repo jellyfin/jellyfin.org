@@ -48,7 +48,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <br />
 <sup>12</sup>Need to be manually enabled in Settings > Playback > Enable H.264 High 10 Profile. Playback on Apple Silicon Macs with macOS version < 14 and Intel Macs with all macOS versions may result in blank frames if this is enabled.
 <br />
-<sup>13</sup>VP9 is only availble with Swiftfin (VLCKit) player.
+<sup>13</sup>VP9 is only available with Swiftfin (VLCKit) player.
 <br />
 <sup>14</sup>AV1 is enabled by default for Swiftfin (VLCKit). AV1 is disabled by default but can be enabled for Native (AVKit) using Custom Device Profiles. Enabling AV1 may result in a poor experience for SOCs prior to A17.
 <br />

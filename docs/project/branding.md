@@ -37,7 +37,7 @@ As a general rule, "Jellyfin" should always be capitalized, but language, file, 
 - C# class and project names, including their files and directories, should use capitalized `Jellyfin` as required by the C# case standards (camelCase or PascalCase). `Jellyfin.LiveTv`, `Jellyfin.sln`
 - Other code elements, where the code formatting or style requires lowercase, should use lowercase `jellyfin`. `jellyfinWebComponentsBowerPath`
 - The Git repository and non-C# files inside of it should use lowercase `jellyfin` for convenience on case-sensitive filesystems. `build-jellyfin.ps1`
-- The final output binary, initscrips, and package names should use lowercase `jellyfin` for similar reasons as above. `jellyfin.dll`, `jellyfin_3.5.2-1_all.deb`, `jellyfin.zip`
+- The final output binary, initscripts, and package names should use lowercase `jellyfin` for similar reasons as above. `jellyfin.dll`, `jellyfin_3.5.2-1_all.deb`, `jellyfin.zip`
 - Configuration directories can use either depending on operating system conventions. `/var/lib/jellyfin`, `AppData/Jellyfin`
 - The logo has no strict rules for capitalization, the style is dependent on aesthetics and font choice.
 
