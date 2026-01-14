@@ -5,6 +5,15 @@
  * work well for content-centric websites.
  */
 
+html {
+  /* Note: "normal" activates all common ligatures */
+  font-variant-ligatures: normal;
+}
+
+code {
+  font-variant-ligatures: none;
+}
+
 :root {
   /* base font */
   --ifm-font-family-base: 'Noto Sans', sans-serif;
