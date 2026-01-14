@@ -328,7 +328,7 @@ Finally, `Fallbacks` provides a list of fallback mirrors. As mentioned above, th
 The next step was creating a SystemD service for Mirrorbits. The process requires some special options for reloads and stopping, so these are included here. Note also that I run Mirrorbits as `www-data`, the same user as NGiNX itself:
 
 ```
-# /etc/systemd/system/mirrorbits.service
+# /etc/systemd/system/mirorrbits.service
 [Unit]
 Description=Mirrorbits redirector
 Documentation=https://github.com/etix/mirrorbits
