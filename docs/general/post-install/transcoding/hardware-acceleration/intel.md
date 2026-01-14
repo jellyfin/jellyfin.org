@@ -325,6 +325,12 @@ Root permission is required.
 
 5. Check the version of `intel-opencl-icd` thats the Linux distro provides:
 
+   :::note
+
+   This package may not be available for newer distros since it [currently relies on LLVM 14](https://github.com/intel/intel-graphics-compiler/issues/289), which may not available in releases like Debian Trixie. If this is the case a release from the [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases) may be used instead.
+
+   :::
+
    ```shell
    $ apt policy intel-opencl-icd
 
@@ -771,7 +777,7 @@ More detail information about Intel video hardware can be found [on the Intel me
 
 :::note
 
-Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
+Gen X refers to [Intel graphics architecture](https://en.wikipedia.org/wiki/Intel_Graphics_Technology) instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
 
 :::
 
