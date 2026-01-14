@@ -250,7 +250,7 @@ LXC setup idea is a bit similar to docker - you need to pass the **device files*
    device /dev/mpp_service
    ```
 
-   Example of the minumum required extra (not full) container configuration to make VPU hardware acceleration working is presented below:
+   Example of the minimum required extra (not full) container configuration to make VPU hardware acceleration working is presented below:
 
    ```shell
    lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
