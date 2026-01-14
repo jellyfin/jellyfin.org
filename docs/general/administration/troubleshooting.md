@@ -224,7 +224,7 @@ You have 3 options to set the locking mode to:
 - `Optimistic` - Defines that all writes should be attempted and should be retried when they fail.
 - `Pessimistic` - Defines a behavior that always blocks all reads while any one write is done.
 
-Stop your jellyfin server and navigate to its config directory. There are a lot of xml files, look for the `database.xml` file and edit the `LockingBehavior` option:
+Stop your Jellyfin server and navigate to its config directory. There are a lot of xml files, look for the `database.xml` file and edit the `LockingBehavior` option:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -236,7 +236,7 @@ Stop your jellyfin server and navigate to its config directory. There are a lot 
 </DatabaseConfigurationOptions>
 ```
 
-then start your jellyfin instance again. If this still does not help with the issues, you can try setting the `LockingBehavior` to `Pessimistic` instead but this comes with a significant performance impact so it is only recommended when `Optimistic` does not help with the issues.
+then start your Jellyfin instance again. If this still does not help with the issues, you can try setting the `LockingBehavior` to `Pessimistic` instead but this comes with a significant performance impact so it is only recommended when `Optimistic` does not help with the issues.
 
 ### LXC specific issues
 
