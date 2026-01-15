@@ -12,3 +12,5 @@ jobs:
         with:
           persist-credentials: false
       - uses: streetsidesoftware/cspell-action@24fa8d3096a314ce263f39578744e9d9f8d80acf # v8.1.2
+        with:
+          config: ./cspell.config.mjs
