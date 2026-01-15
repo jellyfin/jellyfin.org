@@ -40,7 +40,6 @@
     "@mdx-js/react": "3.1.1",
     "@svgr/webpack": "8.1.0",
     "clsx": "2.1.1",
-    "cspell": "9.2.0",
     "docusaurus-plugin-sass": "0.2.6",
     "file-loader": "6.2.0",
     "react": "18.3.1",
@@ -63,6 +62,7 @@
     ]
   },
   "devDependencies": {
+    "@cspell/eslint-plugin": "9.6.0",
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@eslint/js": "9.39.2",
