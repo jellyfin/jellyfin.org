@@ -1,4 +1,3 @@
-import cspellConfigs from '@cspell/eslint-plugin/configs';
 import { globalIgnores } from 'eslint/config';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -22,7 +21,6 @@ export default ts.config([
     '**/yarn-error.log*',
     '**/*.json'
   ]),
-  cspellConfigs.recommended,
   react.configs.flat.recommended,
   reactHooks.configs.flat.recommended,
   ...ts.configs.recommended,
@@ -53,13 +51,7 @@ export default ts.config([
 
     rules: {
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': 'error',
-      '@cspell/spellchecker': [
-        'error',
-        {
-          configFile: new URL('./cspell.config.mjs', import.meta.url).toString()
-        }
-      ]
+      '@typescript-eslint/no-unused-vars': 'error'
     }
   }
 ]);
