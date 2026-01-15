@@ -132,3 +132,10 @@ a.pills__item:not(.pills__item--active) {
     display: none;
   }
 }
+
+.tabs-container {
+  border: 1px solid #fff4;
+  background-color: #fff1;
+  border-radius: 8px;
+  padding: 16px;
+}

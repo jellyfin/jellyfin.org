@@ -10,24 +10,24 @@ import TabItem from '@theme/TabItem';
 <Tabs defaultValue={props.defaultTab} queryString="libType">
 <TabItem value="movies" label="Movies">
 ```txt
-/Movies
-    /Film (1986)
-        Film.mkv
-        Film.default.srt
-        Film.default.en.forced.ass
-        Film.forced.en.dts
-        Film.en.sdh.srt
-        Film.English Commentary.en.mp3
+Movies
+└── Film (1986)
+    ├── Film.mkv
+    ├── Film.default.srt
+    ├── Film.default.en.forced.ass
+    ├── Film.forced.en.dts
+    ├── Film.en.sdh.srt
+    └── Film.English Commentary.en.mp3
 ```
 </TabItem>
 <TabItem value="shows" label="Shows">
 ```txt
-/Shows
-    /Show (2021)
-        /Season 1
-            Show (2021) S01E01 Title.avi
-            Show (2021) S01E01 Title.ja.ass
-            Show (2021) S01E01 Title.commentary.ja.aac
+Shows
+└── Series Name A (2021)
+    └── Season 1
+        ├── Series Name A (2021) S01E01 Title.avi
+        ├── Series Name A (2021) S01E01 Title.ja.ass
+        └── Series Name A (2021) S01E01 Title.commentary.ja.aac
 ```
 </TabItem>
 </Tabs>

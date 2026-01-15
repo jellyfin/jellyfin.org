@@ -21,6 +21,8 @@ Supported folder types are:
 - `other` - Generic catch all for extras of an unknown type.
 - `extras` - Generic catch all for extras of an unknown type.
 - `trailers`
+- `theme-music`
+- `backdrops`
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -40,11 +42,18 @@ Best_Movie_Ever (2019)
 ```txt
 Awesome TV Show (2024)
 ├── Season 1
-│   ├── S01E01 episode name.mp4
-│   └── trailers
-│       └── trailer1.mp4
-└── interviews
-    └── Interview with the Director.mp4
+│   ├── Awesome TV Show (2024) S01E01 episode name.mp4
+│   ├── trailers
+│   │   └── trailer1.mp4
+│   ├── theme-music
+│   │   ├── Season 01 OP.mp3
+│   │   └── Season 01 ED.flac
+│   └── backdrops
+│        └── S1Intro.mkv
+├── interviews
+│   └── Interview with the Director.mp4
+└── theme-music
+    └── Series Opening.wav
 ```
 </TabItem>
 </Tabs>
@@ -71,7 +80,7 @@ Best_Movie_Ever (2019)
 ```txt
 Awesome TV Show (2024)
 ├── Season 1
-│   ├── S01E01 episode name.mp4
+│   ├── Awesome TV Show (2024) S01E01 episode name.mp4
 │   └── theme.flac
 └── sample.mp4
 ```
@@ -115,11 +124,11 @@ Best_Movie_Ever (2019)
 </TabItem>
 <TabItem value="shows" label="Shows">
 ```txt
-Awesome TV Show (2024)
+Series Name A (2024)
 ├── Season 1
-│   ├── S01E01 episode name.mp4
+│   ├── Series Name A (2024) S01E01 episode name.mp4
 │   └── Preview Trailer.trailer.mp4
-└── making of awesome tv show-behindthescenes.mp4
+└── making of Series Name A-behindthescenes.mp4
 ```
 </TabItem>
 </Tabs>

@@ -18,10 +18,10 @@ Movie Name (2010)
 </TabItem>
 <TabItem value="shows" label="Shows">
 ```txt
-Show (2025)
+Series Name A (2025)
 └──Season 1
-    ├── S01E01-part-1.mkv
-    └── S01E01-part-2.mkv
+    ├── Series Name A (2025) S01E01-part-1.mkv
+    └── Series Name A (2025) S01E01-part-2.mkv
 ```
 </TabItem>
 </Tabs>
