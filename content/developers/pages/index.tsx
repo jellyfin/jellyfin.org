@@ -26,7 +26,7 @@ export default function Index() {
                 { url: '/developers/docs/api/authorization', name: 'Creating a server plugin' },
                 { url: '/developers/docs/api/websockets', name: 'Connecting to WebSockets'},
                 { url: '/developers/docs/api/syncplay', name: 'Utilising the SyncPlay API' },
-                { url: '/developers/docs/api/playlists', name: 'Managing Playlists' },
+                { url: '/developers/docs/api/playlists', name: 'Managing playlists' },
               ]}
             />
 
