@@ -43,6 +43,16 @@ export default ts.config([
       }
     },
 
+    ignores: [
+      'blog/2019/**',
+      'blog/2020/**',
+      'blog/2021/**',
+      'blog/2022/**',
+      'blog/2023/**',
+      'blog/2024/**',
+      'blog/2025/**'
+    ],
+
     settings: {
       react: {
         version: 'detect'
