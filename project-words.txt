@@ -34,8 +34,6 @@ bantime
 barebones
 Battlemage
 BDMV
-behaviour
-behaviours
 behindthescenes
 blitter
 Blitter
@@ -67,8 +65,6 @@ clinfo
 codenames
 codesign
 collectionnumber
-colour
-colours
 comskip
 configdir
 confs
