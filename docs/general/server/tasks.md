@@ -11,7 +11,7 @@ Note: If your media files are unavailable when the `Clean up collections and pla
 
 ## Default Jellyfin Tasks
 
-Below is a list of tasks that Jellyfin runs peoridically by default:
+Below is a list of tasks that Jellyfin runs periodically by default:
 
 ### Libraries
 
