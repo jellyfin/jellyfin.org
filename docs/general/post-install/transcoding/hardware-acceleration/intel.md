@@ -5,7 +5,7 @@ title: Intel GPU
 
 # HWA Tutorial On Intel GPU
 
-This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](./apple) instead.
+This tutorial guides you on setting up full video hardware acceleration on Intel integrated GPUs and ARC discrete GPUs via QSV and VA-API. If you are on macOS, please use [VideoToolbox](./apple.md) instead.
 
 ## Acceleration Methods
 
@@ -54,13 +54,11 @@ Hardware accelerated HDR/DV to SDR tone-mapping is supported on **all Intel GPUs
 There are two different methods that can be used on Windows and/or Linux. Pros and cons are listed below:
 
 1. **OpenCL**
-
    - Pros - Supports Dolby Vision P5, detailed fine-tuning options, widely supported hardware.
 
    - Cons - The OpenCL runtime sometimes need to be manually installed on Linux.
 
 2. **QSV VPP**
-
    - Pros - Lower power consumption, realized by Intel fixed-function LUT hardware.
 
    - Cons - Poor tuning options, limited supported GPU models, **currently only available on Linux**.
@@ -118,12 +116,6 @@ Intel added support for AV1 acceleration in their latest GPUs:
 :::note
 
 Note that Jasper Lake and Elkhart Lake processors are 10th Gen Pentium/Celeron/Atom, which don't have AV1 acceleration.
-
-:::
-
-:::warning
-
-Intel ARC B series cards require ReBar to be enabled.
 
 :::
 
@@ -193,11 +185,11 @@ Intel supports OneVPL on Gen 12+ graphics (11th Gen Core and newer processor, na
 
 Jellyfin server support Intel ARC **Alchemist/A-series** discrete GPU on both Windows and Linux **6.2+**. For using ARC **Battlemage/B-series** discrete GPU on Linux, kernel version **6.12+** is required. Windows is also supported, just install the GPU driver.
 
-You only need to follow the [Windows Setups](./intel#windows-setups) and [Linux Setups](./intel#linux-setups) to configure and verify it.
+You only need to follow the [Windows Setups](./intel.md#windows-setups) and [Linux Setups](./intel.md#linux-setups) to configure and verify it.
 
 :::tip
 
-- [Resizable-BAR](https://game.intel.com/story/intel-arc-graphics-resizable-bar/) is not mandatory for hardware acceleration, but it can affect the graphics performance. It's recommended to enable the Resizable-BAR if the processor, motherboard and BIOS support it.
+- [Resizable-BAR](https://www.intel.com/content/www/us/en/support/articles/000090831/graphics.html) is only mandatory for hardware acceleration on ARC **B-series** cards, or the media driver will crash the transcoder. For ARC **A-series** cards, the media driver can tolerate not having it enabled but it's also recommended to enable Resizable-BAR if the processor, motherboard and BIOS support it, to achieve the best performance.
 
 - [ASPM](https://www.intel.com/content/www/us/en/support/articles/000092564/graphics.html) should be enabled in the BIOS if supported. This greatly reduces the idle power consumption of the ARC GPU.
 
@@ -211,7 +203,7 @@ You only need to follow the [Windows Setups](./intel#windows-setups) and [Linux 
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Docker and WSL/WSL2.**
+Windows 10 64-bit and newer is recommended. **QSV is not available on Windows Docker and WSL/WSL2.**
 
 ### Known Issues And Limitations On Windows
 
@@ -224,7 +216,6 @@ Please refer to [this section](/docs/general/post-install/transcoding/hardware-a
 2. Clean install the latest EXE or INF driver from [Intel download center](https://www.intel.com/content/www/us/en/download-center/home.html).
 
 3. Don't allow the GPU to be preempted by the Windows Remote desktop session.
-
    - Type `gpedit.msc` in Win+R shortcut key dialog and run to open the "Local Group Policy Editor".
 
    - Navigate in the left tree **[Computer Configuration > Administrative Templates > Windows Components]**
@@ -252,7 +243,6 @@ Please refer to [this section](/docs/general/post-install/transcoding/hardware-a
    Duplicate engine names indicate the GPU may have multiple MFX video engines.
 
    :::
-
    - **3D** - 2D/3D engine, QSV VPP or GPGPU workload
 
    - **Copy** - Blitter/Copy engine workload
@@ -331,6 +321,12 @@ Root permission is required.
 
 5. Check the version of `intel-opencl-icd` thats the Linux distro provides:
 
+   :::note
+
+   This package may not be available for newer distros since it [currently relies on LLVM 14](https://github.com/intel/intel-graphics-compiler/issues/289), which may not available in releases like Debian Trixie. If this is the case a release from the [Intel compute-runtime repository](https://github.com/intel/compute-runtime/releases) may be used instead.
+
+   :::
+
    ```shell
    $ apt policy intel-opencl-icd
 
@@ -349,7 +345,6 @@ Root permission is required.
 7. Check the supported QSV / VA-API codecs:
 
    :::note
-
    - `iHD driver` indicates support for the QSV and VA-API interfaces.
 
    - `i965 driver` indicates only support for the VA-API interface, which should only be used on pre-Broadwell platforms.
@@ -390,7 +385,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](./intel#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](./intel.md#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -407,7 +402,6 @@ Root permission is required.
    ```
 
 2. User mode Intel media drivers and the OpenCL runtime are required to be manually installed for enabling QSV / VA-API:
-
    - [intel-media-driver](https://archlinux.org/packages/extra/x86_64/intel-media-driver/)
 
    - [intel-media-sdk](https://archlinux.org/packages/extra/x86_64/intel-media-sdk/)
@@ -426,7 +420,7 @@ Root permission is required.
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
    ```
 
-4. Check to the remaining parts of [Debian And Ubuntu Linux](./intel#debian-and-ubuntu-linux).
+4. Check to the remaining parts of [Debian And Ubuntu Linux](./intel.md#debian-and-ubuntu-linux).
 
 #### Other Distros
 
@@ -496,7 +490,6 @@ What you need to do is pass the host's `render` group id to Docker and modify th
    ```
 
 2. Use docker command line **or** docker compose:
-
    - Example command line:
 
      ```shell
@@ -565,7 +558,7 @@ This follows the same principles as for the Docker, with one small change that y
 
 The devices in Kubernetes are added as host path mounts, they are not separated into separate volumes like in the Docker example.
 
-1. Example Kubernetes (API version 1) configuraton file written in YAML:
+1. Example Kubernetes (API version 1) configuration file written in YAML:
 
    ```yaml
    # Example of an incomplete deployment spec
@@ -635,7 +628,7 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    lxc config device add <CONTAINER_NAME> gpu gpu gid=<GID_OF_HOST_RENDER_GROUP>
    ```
 
-4. Make sure you have the requied devices within the container:
+4. Make sure you have the required devices within the container:
 
    ```shell
    $ lxc exec jellyfin -- ls -l /dev/dri
@@ -668,7 +661,6 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    **Proxmox VE 7 or Older**:
 
    :::note
-
    - Jellyfin needs to run in a **privileged** LXC container.
 
    - An existing unprivileged container can be converted to a privileged container by taking a backup and restoring it as privileged.
@@ -706,7 +698,6 @@ Root permission is required.
 :::
 
 1. Install the `intel-gpu-tools` package **on the host system**, which is used for debugging Intel graphics driver on Linux. The name varies between distros.
-
    - On Debian & Ubuntu:
 
      ```shell
@@ -728,7 +719,6 @@ Root permission is required.
    Duplicate engine names indicate the GPU may have multiple MFX video engines.
 
    :::
-
    - **Render/3D** - 2D/3D engine, QSV VPP or GPGPU workload
 
    - **Blitter** - Blitter/Copy engine workload
@@ -777,7 +767,7 @@ More detail information about Intel video hardware can be found [on the Intel me
 
 :::note
 
-Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
+Gen X refers to [Intel graphics architecture](https://en.wikipedia.org/wiki/Intel_Graphics_Technology) instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
 
 :::
 
@@ -816,7 +806,6 @@ Root permission is required.
 :::
 
 1. Install the latest linux firmware packages **on the host system**. The name varies between distros.
-
    - On Debian:
 
      ```shell
@@ -845,7 +834,6 @@ Root permission is required.
      ```
 
 2. Add the required i915 kernel parameter on the host system to enable loading GuC and HuC firmware:
-
    - Check the kernel module in use, goto step 3 if **xe** kernel driver is in use.
 
    :::note
@@ -879,7 +867,6 @@ Root permission is required.
    ```
 
 3. Update the initramfs and grub. The commands varies between distros.
-
    - On Debian & Ubuntu:
 
      ```shell

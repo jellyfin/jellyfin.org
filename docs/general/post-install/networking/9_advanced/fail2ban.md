@@ -150,7 +150,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
                     iptables -C INPUT -j f2b-<name> 2>/dev/null || iptables -I INPUT -j f2b-<name>; \
                     iptables -I f2b-<name> 1 -s <ip> -j DROP' && \
                     echo "Banned <ip> from jail <name> via upstream proxy" >> /var/log/fail2ban.log
-   
+
    # Option: actionunban
    # 1. Remove the banned IP from the dynamic chain
    # 2. Remove the chain if it becomes empty (cleanup)
@@ -165,7 +165,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
                     echo "Unbanned <ip> from jail <name> via upstream proxy and cleaned up chain if empty" >> /var/log/fail2ban.log
    ```
 
-   After making chaneges, save and close the file.
+   After making changes, save and close the file.
 
 2. **Update Fail2Ban Jails to Use the Dynamic Chain Action**:
 
@@ -195,7 +195,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
    action   = proxy-iptables-dynamic
    ```
 
-   After making chaneges, save and close the file.
+   After making changes, save and close the file.
 
 ### Step three: Add proxy IPs to Jellyfin
 
@@ -211,7 +211,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
 
    Open your Jellyfin server's dashboard, go to `Advanced` -> `Networking`, and then scroll down to `Known proxies`.
 
-   Enter your comma-seperated list of proxy IP ranges. You'll need to reboot the Jellyfin server as indicated.
+   Enter your comma-separated list of proxy IP ranges. You'll need to reboot the Jellyfin server as indicated.
 
 ### Step four: Restart Fail2Ban and Test the Setup
 
@@ -257,7 +257,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
 
 6. **Verify Unban**:
 
-    Verify that the IP is removed from the corresponding jail's chain ('f2b-jail-name'):
+   Verify that the IP is removed from the corresponding jail's chain ('f2b-jail-name'):
 
    ```bash
    ssh root@<upstream-server-ip> "iptables -L f2b-jellyfin"

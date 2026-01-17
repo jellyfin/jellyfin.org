@@ -5,7 +5,7 @@ title: AMD GPU
 
 # HWA Tutorial On AMD GPU
 
-This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF or VA-API. If you are on macOS, please use [VideoToolbox](./apple) instead.
+This tutorial guides you on setting up full video hardware acceleration on AMD integrated GPU and discrete GPU via AMF or VA-API. If you are on macOS, please use [VideoToolbox](./apple.md) instead.
 
 ## Acceleration Methods
 
@@ -38,13 +38,11 @@ Hardware accelerated HDR/DV to SDR tone-mapping is supported on **all AMD GPUs t
 There are two different methods that can be used on Windows and/or Linux. Pros and cons are listed below:
 
 1. **OpenCL**
-
    - Pros - Supports Dolby Vision P5, detailed fine-tuning options, widely supported hardware.
 
    - Cons - Zero-copy is not supported on Linux.
 
 2. **Vulkan**
-
    - Pros - Supports Dolby Vision P5, libplacebo renderer, ROCm OpenCL runtime is not required.
 
    - Cons - Linux only, zero-copy only supports Polaris+ GPUs.
@@ -113,11 +111,11 @@ Encoding speed and quality:
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Docker and WSL/WSL2.**
+Windows 10 64-bit and newer is recommended. **AMF is not available in Windows Docker and WSL/WSL2.**
 
 ### Known Issues And Limitations On Windows
 
-Please refer to [this section](./known-issues#amd-on-windows) for known issues and limitations.
+Please refer to [this section](./known-issues.md#amd-on-windows) for known issues and limitations.
 
 ### Configure On Windows Host
 
@@ -126,7 +124,6 @@ Please refer to [this section](./known-issues#amd-on-windows) for known issues a
 2. Clean install the latest driver from [AMD Drivers and Support](https://www.amd.com/en/support).
 
 3. Don't allow the GPU to be preempted by the Windows Remote desktop session.
-
    - Type `gpedit.msc` in Win+R shortcut key dialog and run to open the "Local Group Policy Editor".
 
    - Navigate in the left tree **[Computer Configuration > Administrative Templates > Windows Components]**
@@ -154,7 +151,6 @@ Please refer to [this section](./known-issues#amd-on-windows) for known issues a
    Duplicate engine names indicate the GPU may have multiple video engines.
 
    :::
-
    - **3D** - 2D/3D engine or GPGPU workload
 
    - **Copy** - Blitter/Copy engine workload
@@ -175,7 +171,7 @@ A 64-bit Linux distribution is required. **The supported GPU varies by kernel an
 
 ### Known Issues And Limitations On Linux
 
-Please refer to [this section](./known-issues#amd-on-linux) for known issues and limitations.
+Please refer to [this section](./known-issues.md#amd-on-linux) for known issues and limitations.
 
 ### Configure On Linux Host
 
@@ -294,7 +290,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian And Ubuntu Linux](./amd#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian And Ubuntu Linux](./amd.md#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -311,7 +307,6 @@ Root permission is required.
    ```
 
 2. User mode Mesa drivers are required to be manually installed for VA-API and RADV Vulkan:
-
    - [libva-mesa-driver](https://archlinux.org/packages/extra/x86_64/libva-mesa-driver/)
 
    - [vulkan-radeon](https://archlinux.org/packages/extra/x86_64/vulkan-radeon/)
@@ -333,7 +328,7 @@ Root permission is required.
    sudo /usr/lib/jellyfin-ffmpeg/ffmpeg -v debug -init_hw_device drm=dr:/dev/dri/renderD128 -init_hw_device vulkan@dr
    ```
 
-5. Check to the remaining parts of [Debian And Ubuntu Linux](./amd#debian-and-ubuntu-linux).
+5. Check to the remaining parts of [Debian And Ubuntu Linux](./amd.md#debian-and-ubuntu-linux).
 
 #### Other Distros
 
@@ -404,7 +399,6 @@ Root permission is required.
    ```
 
 2. Use Docker command line **or** docker compose:
-
    - Example command line:
 
      ```shell
@@ -471,7 +465,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 Other Virtualizations are not verified and may or may not work on AMD GPU.
 
-Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel#configure-with-linux-virtualization) for more information.
+Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel.md#configure-with-linux-virtualization) for more information.
 
 ### Verify On Linux
 
@@ -486,7 +480,6 @@ Root permission is required.
 :::
 
 1. Install the `radeontop` package. The name varies between distros.
-
    - On Debian & Ubuntu:
 
      ```shell

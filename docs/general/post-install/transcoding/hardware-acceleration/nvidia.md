@@ -15,7 +15,7 @@ On Windows and Linux **NVENC** is the only available method.
 
 The NVENC/NVDEC are the proprietary video codec APIs of NVIDIA GPUs, which can be used with CUDA to achieve full hardware acceleration.
 
-Please refer to [this section](./known-issues#nvidia) for known issues and limitations.
+Please refer to [this section](./known-issues.md#nvidia) for known issues and limitations.
 
 :::note
 
@@ -67,7 +67,7 @@ Maxwell+ GPUs provide support for HEVC:
 
 :::note
 
-Note that in Maxwell 2nd Gen series only the GM206 variants provide HEVC 10-bit decoding support. Its sucessor Pascal has full support for HEVC 10-bit and improved speed and quality.
+Note that in Maxwell 2nd Gen series only the GM206 variants provide HEVC 10-bit decoding support. Its successor Pascal has full support for HEVC 10-bit and improved speed and quality.
 
 :::
 
@@ -113,7 +113,7 @@ NVENC/NVDEC performance tables:
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.10 the minimum required NVIDIA driver version is 522.25**.
+Windows 10 64-bit and newer is recommended. **In Jellyfin 10.10 the minimum required NVIDIA driver version is 522.25**.
 
 ### Configure On Windows Host
 
@@ -127,7 +127,7 @@ Windows 10 64-bit and newer is recommeded. **In Jellyfin 10.10 the minimum requi
 
 NVIDIA Windows driver provides access to the NVENC/NVDEC and CUDA in Windows WSL2 and Docker.
 
-Refer to [Configure On Linux Host](./nvidia#configure-on-linux-host) and [Configure With Linux Virtualization](./nvidia#configure-with-linux-virtualization).
+Refer to [Configure On Linux Host](./nvidia.md#configure-on-linux-host) and [Configure With Linux Virtualization](./nvidia.md#configure-with-linux-virtualization).
 
 ### Verify On Windows
 
@@ -136,7 +136,6 @@ Refer to [Configure On Linux Host](./nvidia#configure-on-linux-host) and [Config
 2. Open the "Task Manager" and navigate to the GPU page.
 
 3. Check the occupancy of the engines as follows.
-
    - **3D** - 2D/3D engine or CUDA/GPGPU workload
 
    - **Copy** - Blitter/Copy engine workload
@@ -176,7 +175,6 @@ Root permission is required.
    ```
 
 3. Install the NVIDIA proprietary driver by following these links. Then install two extra packages for NVENC and NVDEC support:
-
    - On Debian: [https://wiki.debian.org/NvidiaGraphicsDrivers](https://wiki.debian.org/NvidiaGraphicsDrivers)
 
      ```shell
@@ -220,7 +218,7 @@ Root permission is required.
 
 Linux Mint uses Ubuntu as its package base.
 
-You can follow the configuration steps of [Debian and Ubuntu Linux](./nvidia#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
+You can follow the configuration steps of [Debian and Ubuntu Linux](./nvidia.md#debian-and-ubuntu-linux) but install all Jellyfin packages `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7` manually from the [Jellyfin Server Releases Page](https://repo.jellyfin.org/releases/server/). Also make sure you choose the correct codename by following the [official version maps](https://linuxmint.com/download_all.php).
 
 #### Arch Linux
 
@@ -237,7 +235,6 @@ Root permission is required.
    ```
 
 2. Install the NVIDIA proprietary driver by following the link. Then install an extra package for NVENC and NVDEC support:
-
    - [https://wiki.archlinux.org/title/NVIDIA#Installation](https://wiki.archlinux.org/title/NVIDIA#Installation)
 
    ```shell
@@ -310,11 +307,9 @@ Root permission is required.
 1. Install the NVIDIA proprietary driver on the host system. See above instructions.
 
 2. Install the NVIDIA Container Toolkit on the host system by following this link:
-
    - [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide)
 
 3. Use the Docker command line **or** docker-compose:
-
    - Example command line:
 
      ```shell
@@ -355,7 +350,7 @@ Root permission is required.
 
    :::note
 
-   If you encounter the upsteam issue `CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected`, pass these extra devices to the Docker:
+   If you encounter the upstream issue `CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected`, pass these extra devices to the Docker:
 
    ```shell
    /dev/nvidia-caps:/dev/nvidia-caps
@@ -464,7 +459,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
     --environment=JELLYFIN_CONFIG_DIR=/etc/jellyfin
     --environment=JELLYFIN_LOG_DIR=/var/log/jellyfin
     --environment=JELLYFIN_CACHE_DIR=/var/cache/jellyfin
-    --volume=/your/path/to/data:/var/lib/jellyfin      # Replace paths with actual paths on your host's filestystem
+    --volume=/your/path/to/data:/var/lib/jellyfin      # Replace paths with actual paths on your host's filesystem
     --volume=/your/path/to/config:/etc/jellyfin
     --volume=/your/path/to/logs:/var/log/jellyfin
     --volume=/your/path/to/cache:/var/cache/jellyfin
@@ -477,7 +472,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
    ```sh
    [Unit]
    Description=jellyfin
-   
+
    [Container]
    Image=docker.io/jellyfin/jellyfin:latest
    AutoUpdate=registry
@@ -489,7 +484,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
    Environment=JELLYFIN_CONFIG_DIR=/etc/jellyfin
    Environment=JELLYFIN_LOG_DIR=/var/log/jellyfin
    Environment=JELLYFIN_CACHE_DIR=/var/cache/jellyfin
-   Volume=/your/path/to/data:/var/lib/jellyfin      # Replace paths with actual paths on your host's filestystem
+   Volume=/your/path/to/data:/var/lib/jellyfin      # Replace paths with actual paths on your host's filesystem
    Volume=/your/path/to/config:/etc/jellyfin
    Volume=/your/path/to/logs:/var/log/jellyfin
    Volume=/your/path/to/cache:/var/cache/jellyfin
@@ -497,10 +492,10 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
    [Service]
    # Inform systemd of additional exit status
    SuccessExitStatus=0 143
-   
+
    [Install]
    # Start by default on boot
-   WantedBy=default.target 
+   WantedBy=default.target
    ```
 
 5. Create the following udev rule to make sure the GPU devices are initialized before the container is started.
@@ -519,7 +514,7 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
 Other Virtualizations are not verified and may or may not work on NVIDIA GPU.
 
-Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel#configure-with-linux-virtualization) for more information.
+Refer to the [HWA Tutorial On Intel GPU - Configure With Linux Virtualization](./intel.md#configure-with-linux-virtualization) for more information.
 
 ### Verify On Linux
 

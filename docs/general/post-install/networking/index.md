@@ -16,24 +16,24 @@ Neither does Jellyfin require an internet connection to run; however you should 
 
 This section aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
 
-| Port | Protocol | Configurable | Description |
-|---|---|---|---|
-| 8096 | TCP | ✔️ | Default HTTP |
-| 8920 | TCP | ✔️ | Default HTTPS |
-| 7359 | UDP | ❌ | Client Discovery |
+| Port | Protocol | Configurable | Description      |
+| ---- | -------- | ------------ | ---------------- |
+| 8096 | TCP      | ✔️           | Default HTTP     |
+| 8920 | TCP      | ✔️           | Default HTTPS    |
+| 7359 | UDP      | ❌           | Client Discovery |
 
 <details>
 <summary>See details</summary>
 
 - **HTTP Traffic** (8096/TCP):
-    The web frontend can be accessed here. You can modify this setting from the **Networking** page in the admin settings.
+  The web frontend can be accessed here. You can modify this setting from the **Networking** page in the admin settings.
 
 - **HTTPS Traffic** (8920/TCP):
-    Used when https is enabled. By default this port will not be used.
-    This setting can also be modified from the **Networking** page to use a different port.
+  Used when https is enabled. By default this port will not be used.
+  This setting can also be modified from the **Networking** page to use a different port.
 
 - **Client Discovery** (7359/UDP):
-    Allows clients to discover Jellyfin on the local network. A broadcast message to this port will return detailed information about your server that includes name, ip-address and ID.
+  Allows clients to discover Jellyfin on the local network. A broadcast message to this port will return detailed information about your server that includes name, ip-address and ID.
 
 </details>
 
@@ -67,18 +67,18 @@ Opening a port directly to the Internet is therefore insecure and not recommende
 
 There are different layers where a firewall can be placed:
 
-| Layer | Example | Description |
-| --- | --- | --- |
-| Local | Docker, VM | Open ports at this layer to allow traffic from the Host to enter the Application |
-| Host | physical machine, operating system | Open ports at this layer to allow traffic from the Network to enter the Host device |
-| Network | Router | Open ports at this layer to allow traffic from the Internet to enter the Local Network |
+| Layer   | Example                            | Description                                                                            |
+| ------- | ---------------------------------- | -------------------------------------------------------------------------------------- |
+| Local   | Docker, VM                         | Open ports at this layer to allow traffic from the Host to enter the Application       |
+| Host    | physical machine, operating system | Open ports at this layer to allow traffic from the Network to enter the Host device    |
+| Network | Router                             | Open ports at this layer to allow traffic from the Internet to enter the Local Network |
 
 <details>
 <summary>Port forwarding vs. opening a Port</summary>
 
 Whilst Routers often allow you to forward a port, firewalls typically only allow you to open one.
 The difference is within the Target. Opening a Port essentially just means that traffic on this Port will go through.
-Forwarding a Port you typically do in NAT scenarios - traffic is coming in on your public IP Address, what device inside your network should recieve it.
+Forwarding a Port you typically do in NAT scenarios - traffic is coming in on your public IP Address, what device inside your network should receive it.
 Sometimes, port forwarding also lets you map an external port to a different internal port.
 
 </details>
@@ -116,7 +116,7 @@ There are multiple ways of exposing Jellyfin to the outside - the most common on
 - using a VPN connection to enter the Network
 - use a VPS to Reverse Proxy to your home network
 
-Learn more about reverse proxies in our dedicated [Reverse Proxy guide](./reverse-proxy/).
+Learn more about reverse proxies in our dedicated [Reverse Proxy guide](./8_reverse-proxy/index.md).
 
 ### SSL / https
 
@@ -124,7 +124,7 @@ Using https to access the Server is recommended.
 By default, HTTPS is disabled because it requires an SSL certificate.
 
 SSL Certificates are usually issued by a third party and verify that the Server and URL are assigned to another.
-Please use a trusted certificate authority such as [Let's Encrypt](./advanced/letsencrypt) when using https.
+Please use a trusted certificate authority such as [Let's Encrypt](./9_advanced/letsencrypt.md) when using https.
 
 :::caution
 
@@ -132,7 +132,7 @@ Self-signed certificates pose security and compatibility issues and are strongly
 
 :::
 
-While Jellyfin supports HTTPS, it is strongly recommended to handle HTTPS termination separately on a reverse proxy. You can find more info on how to set this up on our [Reverse Proxy](./reverse-proxy/) page.
+While Jellyfin supports HTTPS, it is strongly recommended to handle HTTPS termination separately on a reverse proxy. You can find more info on how to set this up on our [Reverse Proxy](./8_reverse-proxy/index.md) page.
 
 **It's strongly recommend that you check your SSL strength and server security at [SSLLabs](https://www.ssllabs.com/ssltest/analyze.html) if you are exposing these services to the internet.**
 
@@ -142,7 +142,7 @@ Running Jellyfin with a path (e.g. `https://example.com/jellyfin`) is supported.
 
 :::caution
 
-Base URL is known to break HDHomeRun, the [DLNA plugin](./dlna/), Sonarr, Radarr, and MrMC.
+Base URL is known to break HDHomeRun, the [DLNA plugin](./3_dlna.md), Sonarr, Radarr, and MrMC.
 
 :::
 
