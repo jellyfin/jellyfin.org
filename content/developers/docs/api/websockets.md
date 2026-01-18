@@ -11,7 +11,7 @@ Jellyfin uses WebSockets to enable real-time communication to clients. Messages 
 
 When a WebSocket connection is established, the server will send a `ForceKeepAlive` message that contains a `Data` field. This `Data` field is the interval in which a `KeepAlive` message should be sent back to the server by the client.
 
-In most cases, it is simple enough to send `KeepAlive` messages at half the interval indicated by the server (interval / 2).
+It is simple enough to send `KeepAlive` messages at half the interval indicated by the server (`interval / 2`).
 
 ## Start Messages
 
