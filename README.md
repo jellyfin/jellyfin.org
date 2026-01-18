@@ -26,8 +26,16 @@ npm install
 
 ## Local Development
 
+To run locally, please use:
+
 ```console
 npm start
+```
+
+To run within a dev container we have to instruct the built-in host check to bind against all addresses:
+
+```console
+npm run start -- --host 0.0.0.0
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.

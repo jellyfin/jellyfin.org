@@ -56,7 +56,8 @@ Using host networking (`--net=host`) is optional but required in order to use DL
 docker run -d \
  --name jellyfin \
  --user uid:gid \
- --net=host \
+ -p 8096:8096/tcp \
+ -p 7359:7359/udp \
  --volume /path/to/config:/config \ # Alternatively --volume jellyfin-config:/config
  --volume /path/to/cache:/cache \ # Alternatively --volume jellyfin-cache:/cache
  --mount type=bind,source=/path/to/media,target=/media \

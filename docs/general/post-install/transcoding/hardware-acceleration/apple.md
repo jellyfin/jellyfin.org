@@ -61,7 +61,7 @@ Macs from 2017 and later, excluding the MacBook Air (13-inch, 2017), support dec
 
 ### Transcode AV1
 
-There is no hardware accelerated path for AV1 on macOS at the moment. Although the M3 series added AV1 decoding support, [ffmpeg does not support it yet](https://trac.ffmpeg.org/ticket/10642).
+Starting with the M3 series, Apple Silicon-based Mac supports hardware-accelerated decoding of AV1 video.
 
 ### Performance Consideration
 

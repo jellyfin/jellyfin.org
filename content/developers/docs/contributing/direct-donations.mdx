@@ -1,0 +1,54 @@
+---
+uid: donate-directly
+title: Donations to individual developers
+---
+
+import Link from '@docusaurus/Link';
+import { donations } from '../../../../src/data/donations';
+
+Jellyfin is free and will always be free. We do not accept any money or benefit for any form of favor or feature and no implicit or explicit entitlement should be assumed or demanded when donating to Jellyfin or one of its developers.
+
+That said the many developers or moderators accept donations purely as a sign of gratitude for their volunteer work on the project or officially related.
+
+This table is not conclusive and if you are missing a specific person you want to donate to, please contact the developer directly.
+This list is also intentionally randomly ordered to avoid any appearance of favoring any one developer.
+
+<Link to={donations.sort(() => Math.random() - 0.5)[0].links[0].url}>Pick for me, just somebody.</Link>
+
+<table>
+  <thead>
+    <th>Username</th>
+    <th>Role</th>
+    <th>Donation Links</th>
+  </thead>
+  <tbody>
+    {donations
+      .sort(() => Math.random() - 0.5)
+      .map((element) => (
+        <tr>
+          <td>{element.title}</td>
+          <td>
+            <ul>
+              {element.roles.map((role) => (
+                <li>{role}</li>
+              ))}
+            </ul>
+          </td>
+          <td>
+            <ul>
+              {element.links.map((link) => (
+                <li>
+                  <Link to={link.url}>{link.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </td>
+        </tr>
+      ))}
+  </tbody>
+</table>
+
+The rules for inclusion into this lists are being a currently active member of the Jellyfin Team and having shown a long term commitment towards the project as a whole.
+This can mean either significant contributions to the Jellyfin Server project, any officially recognised Clients or a Jellyfin-Labs project; or existing long commitments towards official moderation efforts as an community moderator in our chat or forum.
+
+As with all official associations with the Jellyfin project, the Core team has the final say on any decision regarding modifications to this list.

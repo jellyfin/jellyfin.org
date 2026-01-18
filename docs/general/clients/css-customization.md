@@ -76,6 +76,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 ### Green Indicators
 
 ```css
+/* Make watched icon green */
 .playedIndicator {
   background: #5dd000;
 }
@@ -87,14 +88,14 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ```css
 /* Make watched icon dark and transparent */
-.indicator {
+.playedIndicator {
   background: #00000058 !important;
 }
 ```
 
 ![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
 
-### Transparant count indicators (eg. Series)
+### Transparent count indicators (eg. Series)
 
 ```css
 /* Make count indicator icon dark and transparent */
@@ -735,19 +736,19 @@ Material Icons:
 - Outlined:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css');
   ```
 
 - Rounded:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css');
   ```
 
 - Sharp:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css');
   ```
 
 Fontawesome Icons:
@@ -755,25 +756,25 @@ Fontawesome Icons:
 - Solid:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css');
   ```
 
 - Regular:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css');
   ```
 
 - Light:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css');
   ```
 
 - duotone:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css');
   ```
 
 ## Community Links

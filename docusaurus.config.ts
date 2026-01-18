@@ -15,7 +15,6 @@ const config: Config = {
   baseUrl: '/',
   onBrokenAnchors: process.env.CI ? 'throw' : 'warn',
   onBrokenLinks: process.env.CI ? 'throw' : 'warn',
-  onBrokenMarkdownLinks: process.env.CI ? 'throw' : 'warn',
   onDuplicateRoutes: process.env.CI ? 'throw' : 'warn',
   favicon: 'images/favicon.ico',
   organizationName: 'jellyfin',
@@ -106,7 +105,10 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
     }
   },
   markdown: {
-    mermaid: true
+    mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: process.env.CI ? 'throw' : 'warn'
+    }
   },
   plugins: [
     // Main content
