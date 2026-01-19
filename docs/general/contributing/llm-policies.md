@@ -21,7 +21,7 @@ We are seeing a precipitous rise in contributors using AI within the Jellyfin ec
 
    In short, if you are posting **any** of those things, the output must be your own words, explanation, description, etc., not a verbatim dump of an LLM's output. We expect you to understand what you're posting. Violating this rule will result in closure/deletion of the offending item(s).
 
-   An exception will be made for **LLM-assisted translations** if you are having trouble accurately conveying your intent in English. Please explicitly note this ("I have translated this from <Language> with an LLM") and, if possible, post in your original language as well.
+   An exception will be made for **LLM-assisted translations** if you are having trouble accurately conveying your intent in English. Please explicitly note this ("I have translated this from MyLanguage with an LLM") and, if possible, post in your original language as well.
    
 2. LLM code contributions are subject to more granularity below, but the general principle is that "pure 'vibe coding' will be rejected" and "you are responsible for what you commit". We will review in that vein. If the **code looks terrible**, it will be **rejected as such**.
 
