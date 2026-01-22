@@ -81,7 +81,7 @@
     "globals": "17.0.0",
     "markdownlint-cli": "0.47.0",
     "node-fetch": "3.3.2",
-    "prettier": "3.7.4",
+    "prettier": "3.8.0",
     "typescript": "5.9.3",
     "typescript-eslint": "8.53.0",
     "typescript-plugin-css-modules": "5.2.0"
