@@ -10,8 +10,8 @@ albumartistsort
 allports
 alpn
 analyzeduration
-Anidb
-Anilist
+AniDB
+AniList
 anthonylavado
 apiclient
 apsell
@@ -254,7 +254,6 @@ metapackage
 metapackages
 Metapackages
 mintls
-mirorrbits
 mirrorbits
 mirrorinfo
 mirrorlist
