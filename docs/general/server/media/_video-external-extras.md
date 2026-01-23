@@ -24,6 +24,11 @@ Supported folder types are:
 - `theme-music`
 - `backdrops`
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs defaultValue={props.defaultTab} queryString="libType">
+<TabItem value="movies" label="Movies">
 ```txt
 Best_Movie_Ever (2019)
 ├── Best_Movie_Ever (2019).mp4
@@ -32,7 +37,8 @@ Best_Movie_Ever (2019)
 └── extras
     └── Home recreation.mp4
 ```
-
+</TabItem>
+<TabItem value="shows" label="Shows">
 ```txt
 Awesome TV Show (2024)
 ├── Season 1
@@ -49,6 +55,8 @@ Awesome TV Show (2024)
 └── theme-music
     └── Series Opening.wav
 ```
+</TabItem>
+</Tabs>
 
 ### File Name
 
@@ -60,12 +68,15 @@ Supported filenames are:
 - `sample`
 - `theme` - Audio file of the theme song
 
+<Tabs defaultValue={props.defaultTab} queryString="libType">
+<TabItem value="movies" label="Movies">
 ```txt
 Best_Movie_Ever (2019)
 ├── Best_Movie_Ever (2019) - 1080P.mp4
 └── theme.mp3
 ```
-
+</TabItem>
+<TabItem value="shows" label="Shows">
 ```txt
 Awesome TV Show (2024)
 ├── Season 1
@@ -73,6 +84,8 @@ Awesome TV Show (2024)
 │   └── theme.flac
 └── sample.mp4
 ```
+</TabItem>
+</Tabs>
 
 ### File Suffix
 
@@ -98,15 +111,18 @@ If you would rather keep everything in a single folder, you can append special s
 - `-short`
 - `-other`
 - `-extra`
-<!-- markdownlint-enable MD038 -->
+  <!-- markdownlint-enable MD038 -->
 
+<Tabs defaultValue={props.defaultTab} queryString="libType">
+<TabItem value="movies" label="Movies">
 ```txt
 Best_Movie_Ever (2019)
 ├── Best_Movie_Ever (2019) - 1080P.mp4
 ├── Preview Trailer.trailer.mp4
 └── Making of The Best Movie Ever-behindthescenes.mp4
 ```
-
+</TabItem>
+<TabItem value="shows" label="Shows">
 ```txt
 Series Name A (2024)
 ├── Season 1
@@ -114,3 +130,5 @@ Series Name A (2024)
 │   └── Preview Trailer.trailer.mp4
 └── making of Series Name A-behindthescenes.mp4
 ```
+</TabItem>
+</Tabs>
