@@ -9,7 +9,7 @@ sidebar_position: 1
 
 ## Installing on Windows
 
-1. Download the latest version installer from [the downloads page](/downloads/windows).
+1. Download the latest version installer from [the downloads page](/downloads/server?os=Windows).
 2. Run the installer.
 3. (Optional) When installing as a service (not recommended), pick the service account type.
 4. If everything was completed successfully, Jellyfin is now running.
@@ -17,7 +17,7 @@ sidebar_position: 1
 
 ## Updating on Windows
 
-1. Download the latest version installer from [the downloads page](/downloads/windows).
+1. Download the latest version installer from [the downloads page](/downloads/server?os=Windows).
 2. Close or Stop Jellyfin from the tray app if it is running.
 3. Run the installer.
 4. If everything was completed successfully, the new version is installed.
