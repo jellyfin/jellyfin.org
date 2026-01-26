@@ -13,7 +13,7 @@ Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force 
 - Jellyfin remotely accessible
 - Fail2ban installed and running
 - Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/` for desktop and `/config/log/` for docker containers.
-- Jellyfin log level set to `Info` (failed authentication entries are not logged at `Error`). This setting is in `logging.json`, located in the regular Jellyfin config folder or in `/etc/jellyfin/`.
+- Jellyfin log level set to `Info` (failed authentication entries are not logged at `Error`). This setting is can be found in `logging.json`
 
 ## Step one: create the jail
 
