@@ -12,7 +12,7 @@ Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force 
 
 - Jellyfin remotely accessible
 - Fail2ban installed and running
-- Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/` for desktop and `/config/log/` for docker containers.
+- Jellyfin log level set to `Info` (failed authentication entries are not logged at `Error`). This setting is in `logging.json`, located in the regular Jellyfin config folder or in `/etc/jellyfin/`.
 
 ## Step one: create the jail
 
@@ -35,7 +35,7 @@ filter = jellyfin
 maxretry = 3
 bantime = 86400
 findtime = 43200
-logpath = /path_to_logs/jellyfin*.log
+logpath = /path_to_logs/log_*.log
 ```
 
 Save and exit nano.
@@ -82,7 +82,7 @@ sudo systemctl status fail2ban
 Assuming you've at least one failed authentication attempt, you can test this new jail with `fail2ban-regex`:
 
 ```bash
-sudo fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
+sudo fail2ban-regex /path_to_logs/log_*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
 ```
 
 ---
