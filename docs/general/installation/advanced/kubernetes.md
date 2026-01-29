@@ -51,7 +51,7 @@ persistence:
 
 ingress:
   enabled: true
-  className: 'nginx'
+  className: 'traefik'
   hosts:
     - host: jellyfin.example.com
       paths:
@@ -118,7 +118,7 @@ persistence:
 ```yaml
 ingress:
   enabled: true
-  className: 'nginx'
+  className: 'traefik'
   hosts:
     - host: jellyfin.example.com
       paths:
@@ -131,9 +131,10 @@ ingress:
 ```yaml
 ingress:
   enabled: true
-  className: 'nginx'
+  className: 'traefik'
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: '0'
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: default-jellyfin-buffering@kubernetescrd
   hosts:
     - host: jellyfin.example.com
       paths:
@@ -143,6 +144,15 @@ ingress:
     - secretName: jellyfin-tls
       hosts:
         - jellyfin.example.com
+
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: jellyfin-buffering
+  namespace: default
+spec:
+  buffering:
+    maxRequestBodyBytes: 0
 ```
 
 ## Accessing Jellyfin
