@@ -16,24 +16,24 @@ Neither does Jellyfin require an internet connection to run; however you should 
 
 This section aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
 
-| Port | Protocol | Configurable | Description |
-|---|---|---|---|
-| 8096 | TCP | ✔️ | Default HTTP |
-| 8920 | TCP | ✔️ | Default HTTPS |
-| 7359 | UDP | ❌ | Client Discovery |
+| Port | Protocol | Configurable | Description      |
+| ---- | -------- | ------------ | ---------------- |
+| 8096 | TCP      | ✔️           | Default HTTP     |
+| 8920 | TCP      | ✔️           | Default HTTPS    |
+| 7359 | UDP      | ❌           | Client Discovery |
 
 <details>
 <summary>See details</summary>
 
 - **HTTP Traffic** (8096/TCP):
-    The web frontend can be accessed here. You can modify this setting from the **Networking** page in the admin settings.
+  The web frontend can be accessed here. You can modify this setting from the **Networking** page in the admin settings.
 
 - **HTTPS Traffic** (8920/TCP):
-    Used when https is enabled. By default this port will not be used.
-    This setting can also be modified from the **Networking** page to use a different port.
+  Used when https is enabled. By default this port will not be used.
+  This setting can also be modified from the **Networking** page to use a different port.
 
 - **Client Discovery** (7359/UDP):
-    Allows clients to discover Jellyfin on the local network. A broadcast message to this port will return detailed information about your server that includes name, ip-address and ID.
+  Allows clients to discover Jellyfin on the local network. A broadcast message to this port will return detailed information about your server that includes name, ip-address and ID.
 
 </details>
 
@@ -67,18 +67,18 @@ Opening a port directly to the Internet is therefore insecure and not recommende
 
 There are different layers where a firewall can be placed:
 
-| Layer | Example | Description |
-| --- | --- | --- |
-| Local | Docker, VM | Open ports at this layer to allow traffic from the Host to enter the Application |
-| Host | physical machine, operating system | Open ports at this layer to allow traffic from the Network to enter the Host device |
-| Network | Router | Open ports at this layer to allow traffic from the Internet to enter the Local Network |
+| Layer   | Example                            | Description                                                                            |
+| ------- | ---------------------------------- | -------------------------------------------------------------------------------------- |
+| Local   | Docker, VM                         | Open ports at this layer to allow traffic from the Host to enter the Application       |
+| Host    | physical machine, operating system | Open ports at this layer to allow traffic from the Network to enter the Host device    |
+| Network | Router                             | Open ports at this layer to allow traffic from the Internet to enter the Local Network |
 
 <details>
 <summary>Port forwarding vs. opening a Port</summary>
 
 Whilst Routers often allow you to forward a port, firewalls typically only allow you to open one.
 The difference is within the Target. Opening a Port essentially just means that traffic on this Port will go through.
-Forwarding a Port you typically do in NAT scenarios - traffic is coming in on your public IP Address, what device inside your network should recieve it.
+Forwarding a Port you typically do in NAT scenarios - traffic is coming in on your public IP Address, what device inside your network should receive it.
 Sometimes, port forwarding also lets you map an external port to a different internal port.
 
 </details>
