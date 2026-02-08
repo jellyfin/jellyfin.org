@@ -31,7 +31,7 @@ Quick Connect functionality is supported in two contexts:
 | Jellyfin Android     | ✅     | ✅               |
 | Jellyfin Android TV  | ✅     | ❌               |
 | Jellyfin Kodi        | ❌     | ❌               |
-| Jellyfin Media Player| ✅     | ✅               |
+| Jellyfin Desktop     | ✅     | ✅               |
 | Jellyfin Mobile (iOS)| ✅     | ✅               |
 | Jellyfin MPV Shim    | ❌     | ❌               |
 | Jellyfin Roku        | ✅     | ❌               |
