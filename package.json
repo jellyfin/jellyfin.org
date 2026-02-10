@@ -46,7 +46,7 @@
     "react-dom": "18.3.1",
     "sass": "1.97.3",
     "swiper": "12.1.0",
-    "ua-parser-js": "2.0.8",
+    "ua-parser-js": "2.0.9",
     "url-loader": "4.1.1"
   },
   "browserslist": {
