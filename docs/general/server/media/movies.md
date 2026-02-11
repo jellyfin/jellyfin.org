@@ -59,7 +59,7 @@ import VideoMetadataProviders from './\_video-metadata-providers.md';
 
 import ExternalStreams from './\_video-external-streams.md';
 
-<ExternalStreams />
+<ExternalStreams defaultTab="movies"/>
 
 import Multiversion from './\_video-multiversion.md';
 
@@ -67,16 +67,16 @@ import Multiversion from './\_video-multiversion.md';
 
 import Video3D from './\_video-3d.md';
 
-<Video3D />
+<Video3D defaultTab="movies"/>
 
 import Multipart from './\_video-multipart.md';
 
-<Multipart />
+<Multipart defaultTab="movies"/>
 
 import ExternalExtras from './\_video-external-extras.md';
 
-<ExternalExtras />
+<ExternalExtras defaultTab="movies"/>
 
 import MetadataImages from './\_metadata-images.md';
 
-<MetadataImages />
+<MetadataImages defaultTab="movies"/>
