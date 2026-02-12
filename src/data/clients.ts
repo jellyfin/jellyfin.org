@@ -896,16 +896,21 @@ const thirdPartyClients: Array<Client> = [
   {
     id: 'finer',
     name: 'Finer',
-    description: 'Jellyfin Music Player for macOS/iPadOS/iOS, built with native technologies.',
+    description: 'Jellyfin Music Player for Apple Devices, built with native technologies.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.Proprietary,
-    platforms: [Platform.MacOS, Platform.IOS],
+    platforms: [Platform.MacOS, Platform.IOS, Platform.TVOS],
     primaryLinks: [
       {
         id: 'app-store',
         name: 'App Store',
         url: 'https://apps.apple.com/us/app/finer-player/id6738301953'
+      },
+      {
+        id: 'app-store-tvos',
+        name: 'App Store (tvOS)',
+        url: 'https://apps.apple.com/us/app/finer-tv/id6758572611'
       }
     ],
     secondaryLinks: [
