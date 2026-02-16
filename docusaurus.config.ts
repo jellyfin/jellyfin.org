@@ -37,21 +37,23 @@ const config: Config = {
         src: 'images/logo.svg'
       },
       items: [
-        { to: 'posts', label: 'Blog', position: 'right' },
         {
           to: 'downloads',
-          label: 'Downloads',
-          position: 'right'
+          label: 'Downloads'
         },
         {
-          to: 'contribute',
-          label: 'Contribute',
-          position: 'right'
+          to: 'posts',
+          label: 'Blog'
         },
         {
-          type: 'doc',
-          docId: 'index',
-          label: 'Documentation',
+          type: 'docSidebar',
+          sidebarId: 'docs',
+          label: 'Documentation'
+        },
+
+        {
+          to: 'developers',
+          label: 'Developers',
           position: 'right'
         },
         {
@@ -129,6 +131,38 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
       } satisfies Blog.Options
     ],
     ['@docusaurus/plugin-content-pages', {} satisfies Pages.Options],
+    // Developers content
+    [
+      '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      {
+        id: 'developers-docs',
+        path: 'content/developers/docs',
+        routeBasePath: 'developers/docs',
+        sidebarPath: require.resolve('./content/developers/docs/_sidebar.js'),
+        editUrl: 'https://github.com/jellyfin/jellyfin.org/edit/master/'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      /** @type {import('@docusaurus/plugin-content-blog').Options} */
+      {
+        id: 'developers-blog',
+        path: 'content/developers/blog',
+        routeBasePath: 'developers/blog',
+        showReadingTime: true,
+        authorsMapPath: '../../../blog/authors.yml'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-pages',
+      /** @type {import('@docusaurus/plugin-content-pages').Options} */
+      {
+        id: 'developers-pages',
+        path: 'content/developers/pages',
+        routeBasePath: 'developers'
+      }
+    ],
     // Others
     ['@docusaurus/plugin-sitemap', {} satisfies Sitemap.Options],
     ['docusaurus-plugin-sass', {}],

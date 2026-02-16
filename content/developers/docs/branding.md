@@ -1,6 +1,7 @@
 ---
 uid: contrib-branding
-title: Branding
+title: Jellyfin branding
+sidebar_position: 3
 ---
 
 # Branding

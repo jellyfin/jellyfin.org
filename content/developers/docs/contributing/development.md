@@ -15,17 +15,17 @@ Summarized here are the two biggest ones, one for backend devs and another for f
 - [Jellyfin Server](https://github.com/jellyfin/jellyfin): The server portion, built using .NET 9 and C#.
 - [Jellyfin Web](https://github.com/jellyfin/jellyfin-web): The main client application built for browsers, but also used in some of our other clients that are just wrappers.
 
-Note that each of the repositories also has its own documentation on how to get started with that project, generally found in the repository README. You can also view the organization [source tree](/docs/general/contributing/source-tree) to see how some of the bigger projects are structured.
+Note that each of the repositories also has its own documentation on how to get started with that project, generally found in the repository README. You can also view the organization [source tree](/developers/docs/contributing/source-tree) to see how some of the bigger projects are structured.
 
 The best way to get going on some actual development is to look through the [issues list](https://github.com/jellyfin/jellyfin/issues) of the associated repository, find an issue you would like to work on, and start hacking! Issues are triaged regularly by the administrative team, and labels assigned that should help you find issues within your skill-set. Once you start working on an issue, please comment on it stating your intent to work on the issue, to avoid unnecessary duplication of work.
 
 ### Major Issue Types
 
-A list of issue types can be found on the [issue guidelines](/docs/general/contributing/issues#issue-labels) section.
+A list of issue types can be found on the [issue guidelines](/developers/docs/contributing/issues#issue-labels) section.
 
 ### What if there isn't an issue?
 
-If there isn't already an issue dealing with the changes you want to make, please [create an issue](/docs/general/contributing/issues) to track it first, then ensure your PR(s) reference the issue in question. This is especially useful for bugs that are found and then fixed by the author, so both the original issue and the fix can be documented and tracked in detail.
+If there isn't already an issue dealing with the changes you want to make, please [create an issue](/developers/docs/contributing/issues) to track it first, then ensure your PR(s) reference the issue in question. This is especially useful for bugs that are found and then fixed by the author, so both the original issue and the fix can be documented and tracked in detail.
 
 ## How should you make changes?
 

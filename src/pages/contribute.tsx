@@ -29,7 +29,7 @@ export default function Contribute() {
           <p>
             Before contributing, please read over our{' '}
             <Link to='/docs/general/community-standards'>Community&nbsp;Standards</Link> and&nbsp;
-            <Link to='/docs/general/contributing'>Contributing&nbsp;Guide</Link>.
+            <Link to='/developers/docs/contributing/'>Contributing&nbsp;Guide</Link>.
           </p>
         </section>
 

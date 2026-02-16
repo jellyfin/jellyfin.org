@@ -54,7 +54,7 @@ Want to know more about administering a Jellyfin server? Check out these pages!
 
 Want to help out? Check out the pages below for how to contribute.
 
-- [Contribution Guide](/docs/general/contributing): General information on contributing to Jellyfin.
+- [Contribution Guide](/developers/docs/contributing): General information on contributing to Jellyfin.
 - [Plugin Guide](https://github.com/jellyfin/jellyfin-plugin-template): Documentation and resources to get started writing a plugin to extend Jellyfin functionality.
-- [Reporting Bugs](/docs/general/contributing/issues#reporting-bugs): How to use our issue tracker on GitHub to report bugs.
-- [Requesting Features](/docs/general/contributing/issues#requesting-features): How to use our issue tracker on GitHub to request new features or enhancements.
+- [Reporting Bugs](/developers/docs/contributing/issues#reporting-bugs): How to use our issue tracker on GitHub to report bugs.
+- [Requesting Features](/developers/docs/contributing/issues#requesting-features): How to use our issue tracker on GitHub to request new features or enhancements.
