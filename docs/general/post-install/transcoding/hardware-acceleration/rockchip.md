@@ -230,6 +230,59 @@ Root permission is required.
 
 3. Enable RKMPP in Jellyfin and uncheck the unsupported codecs.
 
+#### Docker Compose exampe
+
+Root permission is NOT required - Setps 2 ans 3 from Linux Setup above are required
+
+docker-compose.yml look like this:
+
+:::
+
+```shell
+services:
+  jellyfin:
+    container_name: jellyfin
+    image: jellyfin/jellyfin:latest # ORIGINAL
+    security_opt: # enables full access to /sys and /proc not need privileged: true
+      - systempaths=unconfined
+      - apparmor=unconfined
+    user: 1000:100   
+    environment:
+      TZ: Europe/Berlin # Your timezone
+      TMPDIR: /config/temp
+    volumes:
+      - /mnt/ssd/jellyfin/config:/config                 # Your config path
+      - /mnt/ssd/jellyfin/cache:/cache                   # Your cache path
+      - /mnt/jellyfin_external_hdd/media:/media          # Your media path
+    ports:
+      - 8096:8096       # Web UI - you need this
+      - 8920:8920       # HTTPS
+      - 7359:7359/udp   # DIA
+      - 1900:1900/udp   # DLNA
+    restart: unless-stopped
+    devices:
+     # Rock 5 ITX (RK3588) GPU devices for hardware transcoding
+      - /dev/dri:/dev/dri                 # DRM/KMS for VAAPI
+      - /dev/mali0:/dev/mali0             # Mali GPU
+      - /dev/mpp_service:/dev/mpp_service # Rockchip MPP for hw encoding
+      - /dev/rga:/dev/rga                 # Rockchip RGA (2D graphics)
+      - /dev/dma_heap:/dev/dma_heap       # CMA Memory - be sure to set at least 256MB of CMA at Kernel-Boot-Parameter
+    group_add:
+      - "44"   # video group  (adjust if different on your system)
+      - "993"  # render group (adjust if different on your system)
+    networks:
+      - default
+ ```
+
+after saving docker-compose.yml - just run: docker compose up -d  - and it should work in rootless user mode.
+
+Hint: 
+If you arleardy have a container with docker compose up and running be sure to set all permissions in all your used path to your user before setup.
+Start with a fresh copy of container by reanming it,
+
+
+
+
 #### LXC (Linux Containers)
 
 This setup might be useful for those, who use RK3588/3588S SoC as [Proxmox](https://www.proxmox.com/en/) host, where LXC is the official and the only supported way of doing lightweight virtualization with the help of system containers (LXC) vs application containers (docker). As of today Proxmox team does not support ARM platforms as hosts - and probably will never do - however successful deployments on ARM devices [are possible](https://github.com/jiangcuo/Proxmox-Port?tab=readme-ov-file).
