@@ -58,7 +58,14 @@ The first step is to set up a copy of the Git repository of the project you want
 
 5. Build the Jellyfin Web project with NPM, and copy the location of the resulting `dist` folder.
 
-6. In your `Jellyfin.Server` project add an environment variable named `JELLYFIN_WEB_DIR` with the value set to the full path of your `dist` folder.
+6. In your `Jellyfin.Server` project add an environment variable named `JELLYFIN_WEB_DIR` with the value set to the full path of your `dist` folder. You can set this path in your project by modifying the **environmentVariables** in the `Jellyfin.Server/Properties/launchSettings.json` file:
+
+   ```json
+   "environmentVariables": {
+      "ASPNETCORE_ENVIRONMENT": "Development",
+      "JELLYFIN_WEB_DIR": "/path/to/your/jellyfin-web/dist"
+   }
+   ```
 
 You will now be ready to begin building or modifying the project.
 
