@@ -32,23 +32,31 @@ sidebar_position: 1
 
 Running as a **Network Service** is preferred over **Local System** for the principle of least privilege. Follow these steps to ensure proper access without over-provisioning permissions.
 
-### 1. Account & Ownership Prep
-* **Installer:** Select "Install as a Service" & **uncheck** "Start Service after Install".
-* **Service Account:** Set to `Network Service`.
-* **Folder Ownership:** Ensure your **Admin user** retains ownership of your media directories.
+### Installing as a Service
 
-### 2. Configure Jellyfin Data Permissions
+1. In the Windows installer, select **Install as a Service**.
+2. Choose the default install path, `C:\Program Files\Jellyfin\Server`.
+3. Choose the default data path, `C:\ProgramData\Jellyfin\Server`.
+4. Choose **Use Network Service account** for the account type.
+5. Uncheck **Start Service after Install**.
+6. Click **Install**.
+
+### Configure Service Account Permissions
+
 The service account needs access to Jellyfin's configuration files.
-1. Navigate to `C:\ProgramData\`.
-2. Right-click the **Jellyfin** folder > **Properties** > **Security** > **Advanced**.
-3. **Change Owner:** Set to `NETWORK SERVICE`.
-4. **Add Principal:** `NETWORK SERVICE`.
-5. **Permissions:** Grant **Full Control** or **Modify**.
-6. **Inheritance:** Check **"Replace all child object permission entries..."**
-7. **Apply** and exit.
 
-### 3. Configure Media Library Permissions (Least Privilege)
-Grant the service account read-only access to your media to prevent "Path not found" errors.
+1. Navigate to `C:\ProgramData\`.
+2. Right-click the **Jellyfin** folder, and click **Properties** > **Security** > **Advanced**.
+3. Beside **Owner**, click **Change**, and enter `NETWORK SERVICE` in the text box. Click **OK**.
+4. Click **Add** under Principal. Click **Select a principal** and enter `NETWORK SERVICE` in the text box. Click **OK**.
+5. Under **Basic permissions** for the new principal, select the **Full Control** option. Click **OK**.
+6. Check the option **Replace all child object permission entries...**. Click **Apply**.
+7. Exit the menu.
+
+### Configure Media Library Permissions
+
+After setting up a media folder, you should grant the service account read-only access to that folder to prevent "Path not found" errors. 
+
 1. Right-click your media folder > **Properties** > **Security** > **Advanced**.
 2. **Add Principal:** `NETWORK SERVICE`.
 3. **Permissions:**
@@ -56,9 +64,12 @@ Grant the service account read-only access to your media to prevent "Path not fo
 4. **Inheritance:** Check **"Replace all child object permission entries..."**
 5. **Apply** and exit.
 
-### 4. Verify & Initialize
-* **Service Check:** Open `services.msc`, right-click **Jellyfin Server**, and select **Start**. Verify the "Log On As" column shows `Network Service`.
-* **Access Web UI:** Navigate to [http://localhost:8096](http://localhost:8096) to complete the wizard.
+### Verify and Initialize
+
+1. Press **Windows**+**R** and type "services.msc". Hit **Enter**.
+2. Find the **Jellyfin Server** service and verify the "Log On As" column shows **Network Service**.
+3. Right-click **Jellyfin Server** service and select **Start**.
+4. Navigate to http://localhost:8096 to complete the wizard.
 
 > [!TIP]
 > If libraries appear empty, ensure the `NETWORK SERVICE` has at least "List Folder" permissions on any parent directories leading to your media folder.
