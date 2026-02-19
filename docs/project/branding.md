@@ -9,7 +9,7 @@ title: Branding
 
 The name "Jellyfin" and the primary logo (two integrated triangular shapes, a stylized "fin") are trademarks in Canada, the United States, the European Union, and China of "Jellyfin, Inc.", an Ontario, Canada-based not-for-profit corporation.
 
-A perpetual, no cost license is hereby granted to all members of the Jellyfin organization ("team") and projects under [our GitHub account](https://github.com/jelyfin) to use the name and logo in furtherance of the Jellyfin project.
+A perpetual, no cost license is hereby granted to all members of the Jellyfin organization ("team") and projects under [our GitHub account](https://github.com/jellyfin) to use the name and logo in furtherance of the Jellyfin project.
 
 For all others, you are **not** free to use the name "Jellyfin" or our logo without the explicit permission of the [project leadership team](/docs/general/about#core-team), with the following exceptions:
 
