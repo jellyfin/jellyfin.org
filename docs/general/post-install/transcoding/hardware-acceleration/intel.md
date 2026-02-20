@@ -54,13 +54,11 @@ Hardware accelerated HDR/DV to SDR tone-mapping is supported on **all Intel GPUs
 There are two different methods that can be used on Windows and/or Linux. Pros and cons are listed below:
 
 1. **OpenCL**
-
    - Pros - Supports Dolby Vision P5, detailed fine-tuning options, widely supported hardware.
 
    - Cons - The OpenCL runtime sometimes need to be manually installed on Linux.
 
 2. **QSV VPP**
-
    - Pros - Lower power consumption, realized by Intel fixed-function LUT hardware.
 
    - Cons - Poor tuning options, limited supported GPU models, **currently only available on Linux**.
@@ -205,7 +203,7 @@ You only need to follow the [Windows Setups](./intel.md#windows-setups) and [Lin
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **QSV is not available on Windows Docker and WSL/WSL2.**
+Windows 10 64-bit and newer is recommended. **QSV is not available on Windows Docker and WSL/WSL2.**
 
 ### Known Issues And Limitations On Windows
 
@@ -218,7 +216,6 @@ Please refer to [this section](/docs/general/post-install/transcoding/hardware-a
 2. Clean install the latest EXE or INF driver from [Intel download center](https://www.intel.com/content/www/us/en/download-center/home.html).
 
 3. Don't allow the GPU to be preempted by the Windows Remote desktop session.
-
    - Type `gpedit.msc` in Win+R shortcut key dialog and run to open the "Local Group Policy Editor".
 
    - Navigate in the left tree **[Computer Configuration > Administrative Templates > Windows Components]**
@@ -246,7 +243,6 @@ Please refer to [this section](/docs/general/post-install/transcoding/hardware-a
    Duplicate engine names indicate the GPU may have multiple MFX video engines.
 
    :::
-
    - **3D** - 2D/3D engine, QSV VPP or GPGPU workload
 
    - **Copy** - Blitter/Copy engine workload
@@ -349,7 +345,6 @@ Root permission is required.
 7. Check the supported QSV / VA-API codecs:
 
    :::note
-
    - `iHD driver` indicates support for the QSV and VA-API interfaces.
 
    - `i965 driver` indicates only support for the VA-API interface, which should only be used on pre-Broadwell platforms.
@@ -407,7 +402,6 @@ Root permission is required.
    ```
 
 2. User mode Intel media drivers and the OpenCL runtime are required to be manually installed for enabling QSV / VA-API:
-
    - [intel-media-driver](https://archlinux.org/packages/extra/x86_64/intel-media-driver/)
 
    - [intel-media-sdk](https://archlinux.org/packages/extra/x86_64/intel-media-sdk/)
@@ -496,7 +490,6 @@ What you need to do is pass the host's `render` group id to Docker and modify th
    ```
 
 2. Use docker command line **or** docker compose:
-
    - Example command line:
 
      ```shell
@@ -565,7 +558,7 @@ This follows the same principles as for the Docker, with one small change that y
 
 The devices in Kubernetes are added as host path mounts, they are not separated into separate volumes like in the Docker example.
 
-1. Example Kubernetes (API version 1) configuraton file written in YAML:
+1. Example Kubernetes (API version 1) configuration file written in YAML:
 
    ```yaml
    # Example of an incomplete deployment spec
@@ -635,7 +628,7 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    lxc config device add <CONTAINER_NAME> gpu gpu gid=<GID_OF_HOST_RENDER_GROUP>
    ```
 
-4. Make sure you have the requied devices within the container:
+4. Make sure you have the required devices within the container:
 
    ```shell
    $ lxc exec jellyfin -- ls -l /dev/dri
@@ -668,7 +661,6 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
    **Proxmox VE 7 or Older**:
 
    :::note
-
    - Jellyfin needs to run in a **privileged** LXC container.
 
    - An existing unprivileged container can be converted to a privileged container by taking a backup and restoring it as privileged.
@@ -706,7 +698,6 @@ Root permission is required.
 :::
 
 1. Install the `intel-gpu-tools` package **on the host system**, which is used for debugging Intel graphics driver on Linux. The name varies between distros.
-
    - On Debian & Ubuntu:
 
      ```shell
@@ -728,7 +719,6 @@ Root permission is required.
    Duplicate engine names indicate the GPU may have multiple MFX video engines.
 
    :::
-
    - **Render/3D** - 2D/3D engine, QSV VPP or GPGPU workload
 
    - **Blitter** - Blitter/Copy engine workload
@@ -777,7 +767,7 @@ More detail information about Intel video hardware can be found [on the Intel me
 
 :::note
 
-Gen X refers to Intel graphics architechure instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
+Gen X refers to [Intel graphics architecture](https://en.wikipedia.org/wiki/Intel_Graphics_Technology) instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
 
 :::
 
@@ -816,7 +806,6 @@ Root permission is required.
 :::
 
 1. Install the latest linux firmware packages **on the host system**. The name varies between distros.
-
    - On Debian:
 
      ```shell
@@ -845,7 +834,6 @@ Root permission is required.
      ```
 
 2. Add the required i915 kernel parameter on the host system to enable loading GuC and HuC firmware:
-
    - Check the kernel module in use, goto step 3 if **xe** kernel driver is in use.
 
    :::note
@@ -879,7 +867,6 @@ Root permission is required.
    ```
 
 3. Update the initramfs and grub. The commands varies between distros.
-
    - On Debian & Ubuntu:
 
      ```shell

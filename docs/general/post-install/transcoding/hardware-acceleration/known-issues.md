@@ -16,7 +16,6 @@ This page lists all known issues and limitations of hardware acceleration with J
 1. Some Linux distros intentionally disabled the H.264 and HEVC codecs from the Mesa VA-API driver.
 
    Known affected distros:
-
    - [Fedora](https://www.phoronix.com/news/Fedora-Disable-Bad-VA-API)
 
    - [OpenSUSE](https://www.webpronews.com/fedora-and-opensuse-disable-gpu-accelerated-video-over-patent-concerns/)
@@ -40,11 +39,9 @@ This page lists all known issues and limitations of hardware acceleration with J
 ## Intel on Linux
 
 1. Intel Gen 11 [**Jasper Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128823/products-formerly-jasper-lake.html) and [**Elkhart Lake**](https://ark.intel.com/content/www/us/en/ark/products/codename/128825/products-formerly-elkhart-lake.html) platforms (e.g. N5095, N5105, N6005, J6412) have quirks when using video encoders on Linux. The [Low-Power Encoding](./intel.md#low-power-encoding) mode MUST be configured and enabled for correct VBR and CBR bitrate control that is required by Jellyfin.
-
    - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/8080](https://gitlab.freedesktop.org/drm/intel/-/issues/8080)
 
 2. The default kernel 5.15 that comes with Ubuntu 22.04 LTS has a regression on Intel Gen 11 graphics (ICL, JSL and EHL) that prevents you from using the Low-Power encoding mode. Linux 5.16+ is not affected.
-
    - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/4067](https://gitlab.freedesktop.org/drm/intel/-/issues/4067)
 
    - Fixed by: [drm/i915/gen11: Moving WAs to icl_gt_workarounds_init()](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=52255ef662a5d490678fbad64a735f88fcba564d)
@@ -58,7 +55,6 @@ This page lists all known issues and limitations of hardware acceleration with J
    This will move you off a 5.15 kernel which could have other implications. If it breaks something you can return to the normal kernel by installing the linux-generic package.
 
 3. The kernel range from 5.18 to 6.1.3 have an issue that locks up and resets the i915 kernel driver when using OpenCL based HDR/DV tone-mapping. Linux 5.18-, 6.0.18+, 6.1.4+ are not affected.
-
    - Ticket: [https://gitlab.freedesktop.org/drm/intel/-/issues/7627](https://gitlab.freedesktop.org/drm/intel/-/issues/7627)
 
    - Fixed by: [drm/i915: improve the catch-all evict to handle lock contention](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3f882f2d4f689627c1566c2c92087bc3ff734953)
@@ -80,7 +76,6 @@ This page lists all known issues and limitations of hardware acceleration with J
 11. The kernel support for Intel Gen 13 (or Gen 20?) LNL and BMG / ARC B-series are incomplete before Linux 6.12.
 
 12. The LTS kernel range 6.6.26 - 6.6.32 and the stable kernel range 6.8.5 - 6.9.3 have i915 driver bugs, which may cause problems on Intel Gen 12.5 DG2 / ARC A-series GPUs. If you are affected, please upgrade to kernel 6.6.33+ (LTS) or 6.9.4+. Ubuntu 24.04 with kernel versions 6.8.0-38 thru 6.8.0-41 are also affected by this issue. Upgrade to Ubuntu kernel 6.8.0-44+ if you are on the affected kernels.
-
     - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
     - Ubuntu bug: [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755)
 
@@ -88,7 +83,7 @@ This page lists all known issues and limitations of hardware acceleration with J
 
 14. Resizable-BAR is mandatory for hardware acceleration on BMG / ARC B-series cards, or the [media driver will crash the transcoder](https://github.com/intel/media-driver/issues/1893).
 
-15. Intel Compute-Runtime currently uses LLVM 14 for compilation [as seen on the Intel bug report page](https://github.com/intel/intel-graphics-compiler/issues/289), making it unavailable in some distibutions like Debian Trixie [as seen on the Debian bug report page](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1072376). Intel provided releases [on the Intel GitHub page](https://github.com/intel/compute-runtime/releases) which only require matching a matching libc runtime may be used instead.
+15. Intel Compute-Runtime currently uses LLVM 14 for compilation [as seen on the Intel bug report page](https://github.com/intel/intel-graphics-compiler/issues/289), making it unavailable in some distributions like Debian Trixie [as seen on the Debian bug report page](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1072376). Intel provided releases [on the Intel GitHub page](https://github.com/intel/compute-runtime/releases) which only require matching a matching libc runtime may be used instead.
 
 ## Nvidia
 
@@ -106,4 +101,4 @@ This page lists all known issues and limitations of hardware acceleration with J
    - [https://github.com/ollama/ollama/issues/6928#issuecomment-2586208913](https://github.com/ollama/ollama/issues/6928#issuecomment-2586208913)
 3. Docker desktop isn't supported by Nvidia Container Toolkit.
    - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/219#issuecomment-1903941381](https://github.com/NVIDIA/nvidia-container-toolkit/issues/219#issuecomment-1903941381)
-   If you need a GUI, use the docker package and podman, or similar.
+     If you need a GUI, use the docker package and podman, or similar.

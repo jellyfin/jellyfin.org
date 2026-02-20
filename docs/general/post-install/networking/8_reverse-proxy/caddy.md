@@ -4,8 +4,6 @@ title: Caddy
 sidebar-position: 1
 ---
 
-## Caddy
-
 > **Note:** For HTTP/3 support, ensure UDP port 443 is forwarded/opened on your firewall, as HTTP/3 uses UDP.
 
 "[Caddy](https://caddyserver.com/), sometimes clarified as the Caddy web server, is an open source, HTTP/2-enabled web server written in Go. It uses the Go standard library for its HTTP functionality." - [Wikipedia](<https://en.wikipedia.org/wiki/Caddy_(web_server)>)
@@ -44,18 +42,12 @@ Please read the [Let's Encrypt documentation](https://letsencrypt.org/docs/chall
 
 The easiest way to reverse proxy to Jellyfin is with the `reverse-proxy` command:
 
-```bash
-caddy reverse-proxy --from :5001 --to 127.0.0.1:8096
-```
-
-That is a simple but production-ready plaintext HTTP reverse proxy.
-
 If you have:
 
 - permission to bind to low ports, and
 - a public domain name's DNS records pointed at your machine,
 
-then you can serve over HTTPS just as easily:
+then you can serve over HTTPS easily:
 
 ```bash
 caddy reverse-proxy --from example.com --to 127.0.0.1:8096
@@ -66,15 +58,7 @@ You will see Caddy provision a TLS certificate for your site and if it succeeds,
 ### Caddyfile
 
 If you want to use a config file, create a file called `Caddyfile` for the configuration.
-The first `reverse-proxy` command above is equivalent to the following options.
-
-```txt
-:5001
-
-reverse_proxy 127.0.0.1:8096
-```
-
-To get HTTPS, simply change the first line to your domain name.
+The following config is equivalent to the command above.
 
 ```txt
 example.com

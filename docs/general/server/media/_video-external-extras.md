@@ -21,6 +21,8 @@ Supported folder types are:
 - `other` - Generic catch all for extras of an unknown type.
 - `extras` - Generic catch all for extras of an unknown type.
 - `trailers`
+- `theme-music`
+- `backdrops`
 
 ```txt
 Best_Movie_Ever (2019)
@@ -35,10 +37,17 @@ Best_Movie_Ever (2019)
 Awesome TV Show (2024)
 ├── Season 1
 │   ├── Awesome TV Show (2024) S01E01 episode name.mp4
-│   └── trailers
-│       └── trailer1.mp4
-└── interviews
-    └── Interview with the Director.mp4
+│   ├── trailers
+│   │   └── trailer1.mp4
+│   ├── theme-music
+│   │   ├── Season 01 OP.mp3
+│   │   └── Season 01 ED.flac
+│   └── backdrops
+│        └── S1Intro.mkv
+├── interviews
+│   └── Interview with the Director.mp4
+└── theme-music
+    └── Series Opening.wav
 ```
 
 ### File Name

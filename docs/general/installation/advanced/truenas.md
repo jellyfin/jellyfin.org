@@ -527,7 +527,7 @@ You can also pull new images to use in the future.
 
 You can choose to pull from Jellyfin's [Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin) or [GitHub Container Registry](https://github.com/jellyfin/jellyfin/pkgs/container/jellyfin).
 
-- To pull from Docker Hub, use: `jellyfin/jellyin`
+- To pull from Docker Hub, use: `jellyfin/jellyfin`
 - To pull from from GHCR, use: `ghcr.io/jellyfin/jellyfin`
 - [You can check this blog post for more info about GHCR:](/posts/jellyfin-release-10.9.0#key-release-notesbreaking-changes)
   - "Docker users: We now offer GitHub Container Registry (GHCR) as an alternative container registry in addition to Docker Hub. You can pull images from the new registry via URIs like `ghcr.io/jellyfin/jellyfin:latest`. Don't worry, we have no plans to drop Docker Hub as a container registry, but we feel providing both gives users more choice and flexibility."

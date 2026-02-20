@@ -5,48 +5,24 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  pull_request_target:
+  pull_request:
   push:
     branches: [master]
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      - uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
-        with:
-          cache: npm
-          node-version: 20
-      - name: Configure Pages
-        if: github.event_name == 'push' && github.repository == 'jellyfin/jellyfin.org'
-        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
-      - name: Run build
-        run: |
-          npm ci --no-audit
-          npm run build
-      - name: Upload artifact
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
-        with:
-          name: jellyfin-org__build
-          path: build
-      - name: Upload pages artifact
-        if: github.event_name == 'push' && github.repository == 'jellyfin/jellyfin.org'
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
-        with:
-          path: build
+    uses: ./.github/workflows/__build.yml
+    permissions: {}
+    with:
+      ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      upload-pages-artifact: ${{ github.event_name == 'push' && github.repository == 'jellyfin/jellyfin.org' }}
 
   deploy:
     if: github.event_name == 'push' && github.repository == 'jellyfin/jellyfin.org'
     name: Deploy to GitHub Pages
+    permissions:
+      pages: write
+      id-token: write
     concurrency: build-deploy-pages
     environment:
       name: github-pages
@@ -66,7 +42,7 @@ jobs:
     steps:
       - name: Add comment
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
-        if: github.event_name == 'pull_request_target'
+        if: github.event_name == 'pull_request'
         with:
           github-token: ${{ secrets.JF_BOT_TOKEN }}
           message: |
@@ -81,7 +57,7 @@ jobs:
           comment-tag: CFPages-deployment
           mode: recreate
       - name: Download workflow artifact
-        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: jellyfin-org__build
           path: build
@@ -92,12 +68,12 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy build --project-name=jellyfin-org --branch=${{
-            (github.event_name != 'pull_request_target' || github.event.pull_request.head.repo.full_name == github.repository)
+            (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
             && (github.event.pull_request.head.ref || github.ref_name)
             || format('{0}/{1}', github.event.pull_request.head.repo.full_name, github.event.pull_request.head.ref)
             }} --commit-hash=${{ github.event.pull_request.head.sha || github.sha }}
       - name: Update status comment (Success)
-        if: ${{ github.event_name == 'pull_request_target' && success() }}
+        if: ${{ github.event_name == 'pull_request' && success() }}
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           github-token: ${{ secrets.JF_BOT_TOKEN }}
@@ -113,7 +89,7 @@ jobs:
           comment-tag: CFPages-deployment
           mode: recreate
       - name: Update status comment (Failure)
-        if: ${{ github.event_name == 'pull_request_target' && failure() }}
+        if: ${{ github.event_name == 'pull_request' && failure() }}
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           github-token: ${{ secrets.JF_BOT_TOKEN }}

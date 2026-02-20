@@ -29,7 +29,7 @@ Steps to run Jellyfin using Podman are similar to the Docker steps.
 
 3. Open the necessary ports in your machine's firewall if you wish to permit access to the Jellyfin server from outside the host.
    This is not done automatically when using rootless Podman.
-   If your distribution uses `firewalld`, the following commands save and load a new firewall rule opening the HTTP port `8096` for TCP connections. Additionaly port 7359 UDP needs to be opened for auto discovery.
+   If your distribution uses `firewalld`, the following commands save and load a new firewall rule opening the HTTP port `8096` for TCP connections. Additionally port 7359 UDP needs to be opened for auto discovery.
 
    ```sh
    sudo firewall-cmd --add-port=8096/tcp --permanent

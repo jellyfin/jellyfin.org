@@ -9,12 +9,6 @@ This page covers migrations of Jellyfin as well as migrations to Jellyfin.
 
 Jellyfins internal databases cannot be copied or adjusted easily. Depending on your case there may be ways to work around this, for example by just migrating parts of the data, or because it's possible maintain the same file paths.
 
-If that's not an option for you, there is also a script available to migrate the entire database without data loss, but it's not a turn-key solution.
-
-## Full Database Migration
-
-[Jellyfin Migrator](https://github.com/MMMZZZZ/Jellyfin-Migrator) is a third-party script that can migrate your entire installation from Windows to Linux or Linux Docker. It can also do other migrations, like a reorganization of your media files. All statistics, settings and metadata are preserved.
-
 ## Watched Status Migration
 
 There are third-party scripts available that will use the API to copy watched status and users from one instance to another.
