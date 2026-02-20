@@ -63,7 +63,6 @@ sudo a2enmod headers
     Header always set X-Frame-Options "SAMEORIGIN"
 
     # Cross-Origin Isolation Headers
-
     # COOP: Isolates the browsing context to prevent interaction with other windows
     Header always set Cross-Origin-Opener-Policy "same-origin"
 
