@@ -58,19 +58,17 @@ Supported filenames are:
 
 - `trailer`
 - `sample`
-- `theme` - Audio file of the theme song
 
 ```txt
 Best_Movie_Ever (2019)
 ├── Best_Movie_Ever (2019) - 1080P.mp4
-└── theme.mp3
+└── trailer.mp3
 ```
 
 ```txt
 Awesome TV Show (2024)
 ├── Season 1
 │   ├── Awesome TV Show (2024) S01E01 episode name.mp4
-│   └── theme.flac
 └── sample.mp4
 ```
 
