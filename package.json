@@ -31,7 +31,7 @@
     "@docusaurus/plugin-svgr": "3.9.2",
     "@docusaurus/theme-classic": "3.9.2",
     "@docusaurus/theme-mermaid": "3.9.2",
-    "@easyops-cn/docusaurus-search-local": "0.53.0",
+    "@easyops-cn/docusaurus-search-local": "0.55.0",
     "@fontsource/noto-sans": "5.2.10",
     "@icons-pack/react-simple-icons": "13.11.2",
     "@img-comparison-slider/react": "8.0.2",
