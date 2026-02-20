@@ -44,25 +44,6 @@ server {
     # Security / XSS Mitigation Headers
     add_header X-Content-Type-Options "nosniff";
 
-    # Referrer Policy: Prevents leaking your internal URLs to external sites
-    add_header Referrer-Policy "no-referrer" always;
-
-    # Prevents Clickjacking by restricting the page from being embedded in frames,
-    # except by pages from the same origin. The 'always' parameter ensures
-    # the header is sent even for error responses (e.g., 404, 500).
-    add_header X-Frame-Options "SAMEORIGIN";
-
-    # Cross-Origin Isolation Headers
-    # COOP: Isolates the browsing context to prevent interaction with other windows
-    add_header Cross-Origin-Opener-Policy "same-origin" always;
-
-    # CORP: Prevents other origins from loading your resources (images, scripts)
-    add_header Cross-Origin-Resource-Policy "same-origin" always;
-
-    # COEP: Prevents the document from loading any cross-origin resources that
-    # do not explicitly grant permission via CORP or CORS.
-    add_header Cross-Origin-Embedder-Policy 'require-corp' always;
-
     # Permissions policy. May cause issues with some clients
     add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
 
