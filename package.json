@@ -83,7 +83,7 @@
     "node-fetch": "3.3.2",
     "prettier": "3.8.1",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.54.0",
+    "typescript-eslint": "8.55.0",
     "typescript-plugin-css-modules": "5.2.0"
   }
 }
