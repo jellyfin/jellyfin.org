@@ -5,7 +5,7 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  pull_request_target:
+  pull_request:
   push:
     branches: [master]
 
@@ -42,7 +42,7 @@ jobs:
     steps:
       - name: Add comment
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
-        if: github.event_name == 'pull_request_target'
+        if: github.event_name == 'pull_request'
         with:
           github-token: ${{ secrets.JF_BOT_TOKEN }}
           message: |
@@ -65,14 +65,14 @@ jobs:
         id: cf
         uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
         env:
-          CF_PAGES_BRANCH: ${{ (github.event_name != 'pull_request_target' || github.event.pull_request.head.repo.full_name == github.repository) && (github.event.pull_request.head.ref || github.ref_name) || format('{0}/{1}', github.event.pull_request.head.repo.full_name, github.event.pull_request.head.ref) }}
+          CF_PAGES_BRANCH: ${{ (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) && (github.event.pull_request.head.ref || github.ref_name) || format('{0}/{1}', github.event.pull_request.head.repo.full_name, github.event.pull_request.head.ref) }}
           CF_PAGES_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy build --project-name=jellyfin-org --branch="${CF_PAGES_BRANCH}" --commit-hash="${CF_PAGES_COMMIT}"
       - name: Update status comment (Success)
-        if: ${{ github.event_name == 'pull_request_target' && success() }}
+        if: ${{ github.event_name == 'pull_request' && success() }}
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           github-token: ${{ secrets.JF_BOT_TOKEN }}
@@ -88,7 +88,7 @@ jobs:
           comment-tag: CFPages-deployment
           mode: recreate
       - name: Update status comment (Failure)
-        if: ${{ github.event_name == 'pull_request_target' && failure() }}
+        if: ${{ github.event_name == 'pull_request' && failure() }}
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           github-token: ${{ secrets.JF_BOT_TOKEN }}
