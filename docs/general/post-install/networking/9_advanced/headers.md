@@ -7,7 +7,7 @@ title: HTTP Security Headers
 
 HTTP Headers are a great booster for web security with easy implementation. Proper HTTP response headers can help prevent security vulnerabilities like Cross-Site Scripting, Clickjacking, Information disclosure and more.
 
-Here an exemple of headers that could be added to nginx configuration to improve security
+Here an example of headers that could be added to nginx configuration to improve security
 ```config
 server {
     # Nginx versions prior to 1.25
