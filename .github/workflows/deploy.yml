@@ -1,12 +1,12 @@
-name: Deploy
+name: deploy
 
 concurrency:
-  group: deploy-${{ github.event.workflow_run.head_sha }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 on:
   workflow_run:
-    workflows: ['Build']
+    workflows: [build]
     types:
       - completed
 
