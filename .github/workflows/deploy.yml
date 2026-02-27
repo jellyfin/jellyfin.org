@@ -19,6 +19,7 @@ jobs:
 
     name: Deploy to GitHub Pages
     permissions:
+      actions: read
       pages: write
       id-token: write
     concurrency: build-deploy-pages
@@ -55,6 +56,8 @@ jobs:
       github.repository == 'jellyfin/jellyfin.org'
 
     name: Deploy to Cloudflare Pages
+    permissions:
+      actions: read
     runs-on: ubuntu-latest
     steps:
       - name: Set PR metadata
