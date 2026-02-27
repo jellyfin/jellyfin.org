@@ -100,7 +100,7 @@ Here is linked below how to open ports for:
 
 Since Jellyfin is entirely self-hosted, you must manually expose it to the internet.
 To do so, you need a method to access the HTTP(S) ports remotely.
-Automatic discovery only works locally and should not be exposed externally
+Automatic discovery only works locally and should not be exposed externally.
 
 To access a server remotely there will need to be a way to find it or its network on the internet.
 This can be done through the public IP Address of the Device or for IPv6 the Server's directly.
