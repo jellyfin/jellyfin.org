@@ -1004,6 +1004,29 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'deejellie',
+    name: 'Dee Jellie',
+    description: 'A modern Liquid Glass Jellyfin client for iPhone, iPad, Mac, and Apple TV with download and lyrics support, CarPlay integration, and an Apple Watch companion.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop, DeviceType.TV],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.IOS, Platform.MacOS, Platform.TVOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/dee-jellie-jellyfin-music/id6755585736'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://www.deejellie.com'
+      },
+    ]
   }
 ];
 
