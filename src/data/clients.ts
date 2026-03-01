@@ -1004,6 +1004,34 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'radiccio',
+    name: 'Radiccio',
+    description: 'A music player for Mac, supporting multiple sources and types of servers. Fully native, built with SwiftUI and AppKit',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.MacOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/app/radiccio/id6751426653'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://radiccio.music'
+      },
+      {
+      	id: 'docs',
+      	name: 'User Guide',
+      	url: 'https://guide.radiccio.music/sources/jellyfin'
+      }
+    ]
   }
 ];
 
