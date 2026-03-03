@@ -26,7 +26,7 @@ This Privacy Policy explains how we collect, use, and protect your personal data
 
    We may transfer your personal data outside the European Economic Area (EEA).
 
-   Logs containing IP addresses will be moved to servers outside the EEA after 3 days at rest without an incident occurrence to ensure secure storage and functionality of automated security systems. Data at rest is protected against 3rd party access via industry standard encryption and is never shared with any 3rd party for any reason other than to ensure the secure operation of Jellyfin's services or other reasons as explicitly declared in this policy.
+   Logs containing IP addresses will be moved to servers outside the EEA to ensure secure storage and functionality of automated security systems. Data at rest is protected against 3rd party access via industry standard encryption and is never shared with any 3rd party for any reason other than to ensure the secure operation of Jellyfin's services or other reasons as explicitly declared in this policy.
 
 7. Data retention
 
