@@ -4,7 +4,7 @@ This Privacy Policy explains how we collect, use, and protect your personal data
 
 1. Data controller
 
-   Jellyfin is the data controller. You can contact us at core@jellyfin.org.
+   Jellyfin is the data controller. You can contact us at team@jellyfin.org.
 
 2. Personal data we collect
 
@@ -24,9 +24,9 @@ This Privacy Policy explains how we collect, use, and protect your personal data
 
 6. International transfers
 
-   We may transfer your personal data outside the EEA.
+   We may transfer your personal data outside the European Economic Area (EEA).
 
-   Logs containing IP addresses will be moved to servers outside the EEA after 3 days at rest when no incident occurs to ensure a secure storage and functioning of automated security systems. Data at rest is protected against 3rd party access via industry standard encryption and is never shared with any 3rd party for any reason other to ensure the secure operation of Jellyfins services or other reasons as declared in this policy.
+   Logs containing IP addresses will be moved to servers outside the EEA after 3 days at rest without an incident occurrence to ensure secure storage and functionality of automated security systems. Data at rest is protected against 3rd party access via industry standard encryption and is never shared with any 3rd party for any reason other than to ensure the secure operation of Jellyfin's services or other reasons as explicitly declared in this policy.
 
 7. Data retention
 
@@ -50,7 +50,7 @@ This Privacy Policy explains how we collect, use, and protect your personal data
 
     • right to erasure
 
-    To exercise these rights, contact us at core@jellyfin.org.
+    To exercise these rights, contact us at team@jellyfin.org.
 
 11. Changes to this policy
 
@@ -58,7 +58,7 @@ This Privacy Policy explains how we collect, use, and protect your personal data
 
 12. Contact
 
-    If you have questions about this policy, contact us at core@jellyfin.org.
+    If you have questions about this policy, contact us at team@jellyfin.org.
 
 13. Additional clauses
 
