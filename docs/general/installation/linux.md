@@ -15,20 +15,33 @@ curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
 ```
 
 :::note
-
 You can verify the script download integrity with (requires `sha256sum`):
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="shell">
+  <TabItem value="bash-zsh" label="Bash / Zsh">
 ```sh
 diff <( curl -s https://repo.jellyfin.org/install-debuntu.sh -o install-debuntu.sh; sha256sum install-debuntu.sh ) <( curl -s https://repo.jellyfin.org/install-debuntu.sh.sha256sum )
 ```
 
-An empty output means everything is correct. Then you can inspect the script to see what it does (optional but recommended) and execute it with:
+  </TabItem>
+  <TabItem value="fish" label="Fish">
+```sh
+curl -s https://repo.jellyfin.org/install-debuntu.sh -o install-debuntu.sh
+curl -s https://repo.jellyfin.org/install-debuntu.sh.sha256sum -o install-debuntu.sh.sha256sum
+sha256sum -c install-debuntu.sh.sha256sum
+```
 
+  </TabItem>
+</Tabs>
+
+An empty output / `install-debuntu.sh: OK` means everything is correct. Then you can inspect the script to see what it does (optional but recommended) and execute it with:
 ```sh
 less install-debuntu.sh
 sudo bash install-debuntu.sh
 ```
-
 :::
 
 :::note
