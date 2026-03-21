@@ -84,7 +84,7 @@ HDR is only supported on a very limited range of devices:
 
 - Some Chromium-based browsers on Linux will attempt Client-side HDR to SDR tonemapping. This generally looks very bad. There will be no server side involvement when this is happening.
 
-- HDR compatible Roku devices running the official Jellyfin Roku Client can play HDR content. While the official Jellyfin Roku Client was already supporting some HDR content, the 3.1.6 release of the client [added support for the direct playing of additional HDR formats](https://github.com/jellyfin/jellyfin-roku/pull/729) (Dolby Vision with HDR10 fallback, HDR10+, Dolby Vision with HDR10+ Metadata, and Dolby Vision with HLG fallback). Refer to the [Roku Documentation](https://developer.roku.com/docs/specs/hardware.md) to see HDR support for your specific Roku device.
+- HDR-compatible Roku devices running the official Jellyfin Roku client can play HDR content. While the official Jellyfin Roku client was already supporting some HDR content, the 3.1.6 release of the client [added support for the direct playing of additional HDR formats](https://github.com/jellyfin/jellyfin-roku/pull/729) (Dolby Vision with HDR10 fallback, HDR10+, Dolby Vision with HDR10+ metadata, and Dolby Vision with HLG fallback). Refer to the [Roku documentation](https://developer.roku.com/docs/specs/hardware.md) to see HDR support for your specific Roku device.
 
 Devices not listed above do not support HDR on any official client. Any HDR content will have to be converted to SDR by the server for proper playback on these clients. For more info, please refer to our [tone-mapping documentation](/docs/general/post-install/transcoding/#hdr-to-sdr-tone-mapping)
 
