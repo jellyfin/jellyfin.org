@@ -8,28 +8,28 @@ sidebar_position: 3
 ## Debian / Ubuntu and derivatives
 
 To simplify deployment and help automate this for as many users as possible, we provide a BASH script to handle repo installation as well as installing Jellyfin on Debian / Ubuntu and derivatives.
-All you need to do is run this command on your system (requires `curl`, or substitute `curl` with `wget -O-`):
+
+Download and verify the script, then execute it on your system (requires `curl` and `sha256sum`):
 
 ```sh
-curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
+curl -s https://repo.jellyfin.org/install-debuntu.sh -O && \
+curl -s https://repo.jellyfin.org/install-debuntu.sh.sha256sum -O && \
+sha256sum -c install-debuntu.sh.sha256sum
 ```
 
-:::note
+`install-debuntu.sh: OK` means the checksum is correct.
 
-You can verify the script download integrity with (requires `sha256sum`):
-
-```sh
-diff <( curl -s https://repo.jellyfin.org/install-debuntu.sh -o install-debuntu.sh; sha256sum install-debuntu.sh ) <( curl -s https://repo.jellyfin.org/install-debuntu.sh.sha256sum )
-```
-
-An empty output means everything is correct. Then you can inspect the script to see what it does (optional but recommended) and execute it with:
+You can optionally inspect the script to see what it does before executing it:
 
 ```sh
 less install-debuntu.sh
-sudo bash install-debuntu.sh
 ```
 
-:::
+Then execute it with:
+
+```sh
+sudo bash install-debuntu.sh
+```
 
 :::note
 
