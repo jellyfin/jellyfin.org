@@ -5,9 +5,9 @@ title: CSS Customization
 
 # CSS Customization
 
-In `Dashboard > General`, the "Custom CSS" field can be used to override current CSS in Jellyfin's stylesheet.
+In `Dashboard > Branding`, the "Custom CSS" field can be used to override current CSS in Jellyfin's stylesheet.
 
-[Custom CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) provides customization such as changing colors, changing layouts, and item size and behavior. Below is a list of various tweaks that can be applied. The CSS tweaks work on both the web client, and the [Android application](https://play.google.com/store/apps/details?id=org.jellyfin.mobile&hl=en_US). The code will apply in the order that it is written, however `!important` will overrule everything. To learn more about `!important` and more, see [CSS Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) or [specifishity](https://specifishity.com/). To implement these changes, go to `Dashboard > General > Custom CSS` to start.
+[Custom CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) provides customization such as changing colors, changing layouts, and item size and behavior. Below is a list of various tweaks that can be applied. The CSS tweaks work on all clients that load Jellyfin-Web from the Server. The code will apply in the order that it is written, however `!important` will overrule everything. To learn more about `!important` and more, see [CSS Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) or [specifishity](https://specifishity.com/). To implement these changes, go to `Dashboard > Branding > Custom CSS` to start.
 
 If you have little or no experience with CSS, various resources and tutorials can be found online. Using the tweaks and examples below makes it quite easy to get started with making your own changes to your Jellyfin instance.
 
