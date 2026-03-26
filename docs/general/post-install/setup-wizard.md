@@ -23,8 +23,7 @@ Set up an administrator account for managing the server. Choose a strong passwor
 Add media libraries at this page. Click on the + to add a library. Alternatively, click on "Next" without adding anything to skip this step and add media later.
 ![Setup Wizard Add Media Library Page](/images/docs/post-install/setup-wizard/setup-wizard-3-media-main.png)
 
-In the popup, chose a type on the "Content Type" dropdown, and set a display name in the "Display Name" field. Then, add some folders using the + button. If you don't see your media folders listed, you might have permission issues. You can get help on our [forum](https://forum.jellyfin.org/) or [chat rooms](/contact)
-Read more about media libraries at the [media libraries' documentation](/docs/general/server/libraries/)
+In the popup, chose a type on the "Content Type" dropdown, and set a display name in the "Display Name" field. Then, add some folders using the + button. If you don't see your media folders listed, you might have permission issues. You can get help on our [forum](https://forum.jellyfin.org/) or [chat rooms](/contact). Read more about media libraries at the [media libraries' documentation](/docs/general/server/libraries/).
 ![Setup Wizard Add Media Library Popup](/images/docs/post-install/setup-wizard/setup-wizard-4-media-popup.png)
 
 ## Set a Preferred Metadata Language
