@@ -198,7 +198,7 @@ If the container is unsupported, this will result in remuxing. The video and aud
 |                               Container                               | Chrome | Edge | Firefox | Safari | Android | Android TV | Kodi | Roku |
 | :-------------------------------------------------------------------: | :----: | :--: | :-----: | :----: | :-----: | :--------: | :--: | :--: |
 |    [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)<sup>1</sup>    |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
-|    [MKV](https://en.wikipedia.org/wiki/Matroska)<sup>2, 3, 8</sup>    |   ❌   |  ✅  |   ❌    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
+|    [MKV](https://en.wikipedia.org/wiki/Matroska)<sup>2, 3, 8, 9</sup> |   ✅   |  ✅  |   ❌    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
 |     [WebM](https://en.wikipedia.org/wiki/WebM)<sup>3, 5, 6</sup>      |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
 | [TS](https://en.wikipedia.org/wiki/MPEG_transport_stream)<sup>4</sup> |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
 |        [OGG](https://en.wikipedia.org/wiki/Ogg)<sup>5, 7</sup>        |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
@@ -218,3 +218,5 @@ If the container is unsupported, this will result in remuxing. The video and aud
 <sup>7</sup>OGG on Safari requires at least iOS 18.4 / macOS 15.4
 <br />
 <sup>8</sup>MKV support in Firefox is currently disabled in Jellyfin, as there are significant issues making it unusable for Jellyfin. [1](https://bugzilla.mozilla.org/show_bug.cgi?id=2000420) [2](https://bugzilla.mozilla.org/show_bug.cgi?id=1991746)
+<br />
+<sup>9</sup>MKV on Chrome requires at least Chrome 145.
