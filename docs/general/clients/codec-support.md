@@ -75,11 +75,11 @@ the server. For more info, please refer to our
 
 | HDR Format | Chrome | Edge | Firefox | Safari | Android<sup>1</sup> | Android TV<sup>2</sup> | iOS<sup>3</sup> | SwiftFin (iOS) | Roku<sup>4</sup> | WebOS<sup>5</sup> | Jellyfin Media Player |
 | :---------: | :----: | :--: | :-----: | :----: | :-----------------: | :--------------------: | :-------------: | :------------: | :--------------: | :---: | :-------------------: |
-| HDR10 | 🔶<sup>6</sup> | ✅<sup>7</sup> | 🔶<sup>8</sup> | ✅<sup>9</sup> | 🔶 | 🔶 | ✅ | ❌ | ✅ | ✅ | ❌ |
-| HDR10+ | ❌ | ❌ | ❌ | ❌ | 🔶 | 🔶 | ❌ | ❌ | ✅<sup>10</sup> | ✅ | ❌ |
-| HLG | ❌ | ❌ | ❌ | ✅<sup>9</sup> | 🔶 | 🔶 | ✅ | ❌ | 🔶<sup>10</sup> | ✅ | ❌ |
-| Dolby Vision | ❌ | 🔶<sup>11</sup> | ❌ | ✅<sup>9</sup> | 🔶 | 🔶 | ✅ | ❌ | ✅<sup>10</sup> | 🔶<sup>5</sup> | ❌ |
-| Dolby Vision P5 | ❌ | ❌ | ❌ | ✅<sup>9</sup> | ❌ | 🔶 | ❌ | ❌ | ❌ | ❌ | ❌ |
+| HDR10 | 🔶<sup>6</sup> | ✅<sup>7</sup> | 🔶<sup>8</sup> | ✅<sup>9</sup> | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+| HDR10+ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅<sup>10</sup> | ✅ | ❌ |
+| HLG | ❌ | ❌ | ❌ | ✅<sup>9</sup> | ✅ | ✅ | ✅ | ❌ | 🔶<sup>10</sup> | ✅ | ❌ |
+| Dolby Vision | ❌ | 🔶<sup>11</sup> | ❌ | ✅<sup>9</sup> | ✅ | ✅ | ✅ | ❌ | ✅<sup>10</sup> | 🔶<sup>5</sup> | ❌ |
+| Dolby Vision P5 | ❌ | ❌ | ❌ | ✅<sup>9</sup> | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 <sup>1</sup>Includes the official Android app and Chrome on Android. HDR support depends
 on the device hardware and source format.
