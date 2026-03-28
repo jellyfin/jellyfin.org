@@ -19,6 +19,10 @@ Note that each of the repositories also has its own documentation on how to get 
 
 The best way to get going on some actual development is to look through the [issues list](https://github.com/jellyfin/jellyfin/issues) of the associated repository, find an issue you would like to work on, and start hacking! Issues are triaged regularly by the administrative team, and labels assigned that should help you find issues within your skill-set. Once you start working on an issue, please comment on it stating your intent to work on the issue, to avoid unnecessary duplication of work.
 
+### Feature Proposals
+
+New features or substantial changes to existing behavior affecting multiple sub-projects should first be proposed as a [Jellyfin Meta discussion](https://github.com/jellyfin/jellyfin-meta/discussions).
+
 ### Major Issue Types
 
 A list of issue types can be found on the [issue guidelines](/docs/general/contributing/issues#issue-labels) section.
