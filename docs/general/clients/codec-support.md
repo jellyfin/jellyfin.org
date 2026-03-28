@@ -113,7 +113,7 @@ On non-Apple displays, other HDR formats will be tone-mapped to HDR10 by the
 client device.
 <br />
 <sup>10</sup>Requires Jellyfin Roku client version 3.1.6 or later. Dolby Vision is
-supported with HDR10 or HDR10+ fallback. HLG is only supported as a Dolby Vision
+supported with HDR10 or HDR10+ fallback. HLG is only supported via Dolby Vision
 with HLG fallback, not as a standalone format.
 <br />
 <sup>11</sup>Requires the [Dolby Vision extension from the Microsoft Store](https://apps.microsoft.com/detail/9pltg1lwphlf)
