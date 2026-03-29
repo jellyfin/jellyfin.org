@@ -1,4 +1,4 @@
----
+desk accessory to organize synths---
 uid: clients-codec-support
 title: Codec Support
 ---
@@ -68,12 +68,13 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 ### HDR Support
 
-HDR playback requires both a compatible client and an HDR-capable display with HDR
-enabled. Any HDR content not supported by the client will be converted to SDR by
+**HDR playback requires a compatible client, an HDR-capable display with HDR
+enabled, and hardware with HDR support.** Check your hardware's documentation for HDR support.
+Any HDR content not supported by the client will be converted to SDR by
 the server. For more info, please refer to our
 [tone-mapping documentation](/docs/general/post-install/transcoding/#hdr-to-sdr-tone-mapping).
 
-| HDR Format | Chrome | Edge | Firefox | Safari | Android<sup>1</sup> | Android TV<sup>2</sup> | iOS<sup>3</sup> | SwiftFin (iOS) | Roku<sup>4</sup> | WebOS<sup>5</sup> | Jellyfin Media Player |
+| HDR Format | Chrome | Edge | Firefox | Safari | Android<sup>1</sup> | Android TV | iOS<sup>3</sup> | SwiftFin (iOS) | Roku<sup>4</sup> | WebOS<sup>5</sup> | Jellyfin Media Player |
 | :---------: | :----: | :--: | :-----: | :----: | :-----------------: | :--------------------: | :-------------: | :------------: | :--------------: | :---: | :-------------------: |
 | HDR10 | 🔶<sup>6</sup> | ✅<sup>7</sup> | 🔶<sup>8</sup> | ✅<sup>9</sup> | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
 | HDR10+ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅<sup>10</sup> | ✅ | ❌ |
@@ -81,24 +82,16 @@ the server. For more info, please refer to our
 | Dolby Vision | ❌ | 🔶<sup>11</sup> | ❌ | ✅<sup>9</sup> | ✅ | ✅ | ✅ | ❌ | ✅<sup>10</sup> | 🔶<sup>5</sup> | ❌ |
 | Dolby Vision P5 | ❌ | ❌ | ❌ | ✅<sup>9</sup> | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
-<sup>1</sup>Includes the official Android app and Chrome on Android. HDR support depends
-on the device hardware and source format.
+<sup>1</sup>Includes the official Android app and Chrome on Android.
 <br />
-<sup>2</sup>The official Android TV app automatically detects HDR capabilities at
-runtime by querying device codec information. HDR10, HDR10+, HLG, Dolby Vision,
-and Dolby Vision Profile 5 are all supported if the device hardware supports them.
+<sup>3</sup>Supported in Safari and the Jellyfin iOS App.
+Supported codecs are HEVC, VP9, and AV1 (AV1 on newer devices only).
 <br />
-<sup>3</sup>Supported in Safari and the Jellyfin iOS App. SwiftFin does not support HDR.
-Requires an iOS device with an HDR-capable internal display. Supported codecs are
-HEVC, VP9, and AV1 (AV1 on newer devices only).
-<br />
-<sup>4</sup>Requires an HDR-compatible Roku device. Refer to the
+<sup>4</sup>Refer to the
 [Roku documentation](https://developer.roku.com/docs/specs/hardware.md) for
 device-specific HDR support.
 <br />
-<sup>5</sup>Requires webOS 4+ (2020+ LG Smart TVs) for Dolby Vision support. MKV
-containers are known to [cause issues](https://github.com/jellyfin/jellyfin-web/issues/4678);
-enable the "Force remux MKV to MP4" option in client settings as a workaround.
+<sup>5</sup>Requires webOS 4+ (2020+ LG Smart TVs) for Dolby Vision support.
 <br />
 <sup>6</sup>Chrome supports HDR10 on macOS (via HEVC, VP9, and AV1) and Windows.
 Edge generally produces better colors than Chrome when playing HDR content on Windows.
@@ -107,12 +100,12 @@ Edge generally produces better colors than Chrome when playing HDR content on Wi
 <br />
 <sup>8</sup>Firefox supports HDR10 on macOS only, via VP9 and AV1 codecs only.
 <br />
-<sup>9</sup>Requires a Mac with an HDR-capable display. Please refer to
+<sup>9</sup>Please refer to
 [the list of Macs that support HDR](https://support.apple.com/en-us/102205).
 On non-Apple displays, other HDR formats will be tone-mapped to HDR10 by the
 client device.
 <br />
-<sup>10</sup>Requires Jellyfin Roku client version 3.1.6 or later. Dolby Vision is
+<sup>10</sup>Dolby Vision is
 supported with HDR10 or HDR10+ fallback. HLG is only supported via Dolby Vision
 with HLG fallback, not as a standalone format.
 <br />
@@ -121,7 +114,7 @@ to be installed.
 
 :::warning
 Some Chromium-based browsers on Linux will attempt client-side HDR to SDR
-tonemapping. This generally looks very bad. There is no server-side involvement
+tone-mapping. This generally looks very bad. There is no server-side involvement
 when this occurs.
 :::
 
