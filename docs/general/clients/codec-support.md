@@ -74,42 +74,42 @@ Any HDR content not supported by the client will be converted to SDR by
 the server. For more info, please refer to our
 [tone-mapping documentation](/docs/general/post-install/transcoding/#hdr-to-sdr-tone-mapping).
 
-| HDR Format | Chrome | Edge | Firefox | Safari | Android<sup>1</sup> | Android TV | iOS<sup>3</sup> | SwiftFin (iOS) | Roku<sup>4</sup> | WebOS<sup>5</sup> | Jellyfin Media Player |
+| HDR Format | Chrome | Edge | Firefox | Safari | Android<sup>1</sup> | Android TV | iOS<sup>2</sup> | SwiftFin (iOS) | Roku<sup>3</sup> | WebOS | Jellyfin Media Player |
 | :---------: | :----: | :--: | :-----: | :----: | :-----------------: | :--------------------: | :-------------: | :------------: | :--------------: | :---: | :-------------------: |
-| HDR10 | 🔶<sup>6</sup> | ✅<sup>7</sup> | 🔶<sup>8</sup> | ✅<sup>9</sup> | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
-| HDR10+ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅<sup>10</sup> | ✅ | ❌ |
-| HLG | ❌ | ❌ | ❌ | ✅<sup>9</sup> | ✅ | ✅ | ✅ | ❌ | 🔶<sup>10</sup> | ✅ | ❌ |
-| Dolby Vision | ❌ | 🔶<sup>11</sup> | ❌ | ✅<sup>9</sup> | ✅ | ✅ | ✅ | ❌ | ✅<sup>10</sup> | 🔶<sup>5</sup> | ❌ |
-| Dolby Vision P5 | ❌ | ❌ | ❌ | ✅<sup>9</sup> | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| HDR10 | 🔶<sup>5</sup> | ✅<sup>6</sup> | 🔶<sup>7</sup> | ✅<sup>8</sup> | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+| HDR10+ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅<sup>9</sup> | ✅ | ❌ |
+| HLG | ❌ | ❌ | ❌ | ✅<sup>8</sup> | ✅ | ✅ | ✅ | ❌ | 🔶<sup>9</sup> | ✅ | ❌ |
+| Dolby Vision | ❌ | 🔶<sup>10</sup> | ❌ | ✅<sup>8</sup> | ✅ | ✅ | ✅ | ❌ | ✅<sup>9</sup> | 🔶<sup>4</sup> | ❌ |
+| Dolby Vision P5 | ❌ | ❌ | ❌ | ✅<sup>8</sup> | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 <sup>1</sup>Includes the official Android app and Chrome on Android.
 <br />
-<sup>3</sup>Supported in Safari and the Jellyfin iOS App.
+<sup>2</sup>Supported in Safari and the Jellyfin iOS App.
 Supported codecs are HEVC, VP9, and AV1 (AV1 on newer devices only).
 <br />
-<sup>4</sup>Refer to the
+<sup>3</sup>Refer to the
 [Roku documentation](https://developer.roku.com/docs/specs/hardware.md) for
 device-specific HDR support.
 <br />
-<sup>5</sup>Requires webOS 4+ (2020+ LG Smart TVs) for Dolby Vision support.
+<sup>4</sup>Requires webOS 4+ (2020+ LG Smart TVs) for Dolby Vision support.
 <br />
-<sup>6</sup>Chrome supports HDR10 on macOS (via HEVC, VP9, and AV1) and Windows.
+<sup>5</sup>Chrome supports HDR10 on macOS (via HEVC, VP9, and AV1) and Windows.
 Edge generally produces better colors than Chrome when playing HDR content on Windows.
 <br />
-<sup>7</sup>Requires Windows with HDR enabled in display settings.
+<sup>6</sup>Requires Windows with HDR enabled in display settings.
 <br />
-<sup>8</sup>Firefox supports HDR10 on macOS only, via VP9 and AV1 codecs only.
+<sup>7</sup>Firefox supports HDR10 on macOS only, via VP9 and AV1 codecs only.
 <br />
-<sup>9</sup>Please refer to
+<sup>8</sup>Please refer to
 [the list of Macs that support HDR](https://support.apple.com/en-us/102205).
 On non-Apple displays, other HDR formats will be tone-mapped to HDR10 by the
 client device.
 <br />
-<sup>10</sup>Dolby Vision is
+<sup>9</sup>Dolby Vision is
 supported with HDR10 or HDR10+ fallback. HLG is only supported via Dolby Vision
 with HLG fallback, not as a standalone format.
 <br />
-<sup>11</sup>Requires the [Dolby Vision extension from the Microsoft Store](https://apps.microsoft.com/detail/9pltg1lwphlf)
+<sup>10</sup>Requires the [Dolby Vision extension from the Microsoft Store](https://apps.microsoft.com/detail/9pltg1lwphlf)
 to be installed.
 
 :::warning
