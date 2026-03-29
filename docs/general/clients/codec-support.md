@@ -1,4 +1,3 @@
-desk accessory to organize synths---
 uid: clients-codec-support
 title: Codec Support
 ---
