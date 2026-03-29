@@ -35,7 +35,7 @@ jobs:
           RUN_ID: ${{ github.event.workflow_run.id }}
         run: gh run download "$RUN_ID" -n jellyfin-org__build -D build
       - name: Configure Pages
-        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - name: Create pages artifact
         run: tar --dereference --hard-dereference --directory build -cvf "$RUNNER_TEMP/artifact.tar" --exclude=.git --exclude=.github .
       - name: Upload pages artifact
