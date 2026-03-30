@@ -5,8 +5,6 @@ description: Installing Jellyfin as a Windows Service.
 sidebar_position: 5
 ---
 
-## Installing Jellyfin as a Windows Service
-
 :::note
 While a standard installation is recommended for most users, installing Jellyfin as a service is ideal for dedicated servers. This allows Jellyfin to start automatically at boot and remain active even when no users are logged into the system.
 :::  
@@ -56,10 +54,8 @@ After setting up a media folder, you should grant the service account read & exe
 3. Right-click **Jellyfin Server** service and select **Start**.
 4. Navigate to http://localhost:8096 to complete the wizard.
 
-:::tip
-If libraries appear empty during the wizard, ensure the `NETWORK SERVICE` has at least "List folder contents" permissions on any parent directories leading to your media folder.
-:::
+### Troubleshooting
 
-:::info
-To allow remote access to Jellyfin server, add a firewall rule that accepts `inbound` traffic for port `8096`.
-:::
+* **Missing ProgramData Folder:** If `C:\ProgramData\Jellyfin` does not exist yet, proceed to **Verify and Initialize** and follow steps 1 and 3. This will generate the necessary directory structure so you can then apply permissions.
+* **Empty Libraries:** If the setup wizard does not "see" your media, ensure the `NETWORK SERVICE` account has at least **List folder contents** permissions on the parent directory leading to your media folder (e.g., if media is in `D:\Media\Movies`, check permissions for `D:\Media`).
+* **Remote Access:** To allow other devices on your network to connect, you must add a Windows Firewall rule to allow **Inbound** traffic on TCP port `8096`. For detailed steps, see the [Networking Guide](../../post-install/networking/index.md).
