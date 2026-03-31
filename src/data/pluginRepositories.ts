@@ -121,5 +121,21 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       'WizdomSubs Downloader': 'https://github.com/DeDuplicate/Jellyfin_wizdomsubs_downloader'
     }
+  },
+  {
+    id: 'gh:GeiserX/jelly-subtitles',
+    name: 'Jelly Subtitles Repo',
+    url: 'https://geiserx.github.io/jelly-subtitles/manifest.json',
+    includes: {
+      JellySubtitles: 'https://github.com/GeiserX/jelly-subtitles'
+    }
+  },
+  {
+    id: 'gh:GeiserX/jelly-covers',
+    name: 'Jelly Covers Repo',
+    url: 'https://geiserx.github.io/jelly-covers/manifest.json',
+    includes: {
+      'Jelly Covers': 'https://github.com/GeiserX/jelly-covers'
+    }
   }
 ];
