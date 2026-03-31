@@ -121,5 +121,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       'WizdomSubs Downloader': 'https://github.com/DeDuplicate/Jellyfin_wizdomsubs_downloader'
     }
+  },
+  {
+    id: 'gh:GeiserX/whisper-subs',
+    name: "GeiserX's WhisperSubs Repo",
+    url: 'https://geiserx.github.io/whisper-subs/manifest.json',
+    includes: {
+      WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
+    }
   }
 ];
