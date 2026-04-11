@@ -238,7 +238,7 @@ docker-compose.yml look like this:
 
 :::
 
-```shell
+```yaml
 services:
   jellyfin:
     container_name: jellyfin
