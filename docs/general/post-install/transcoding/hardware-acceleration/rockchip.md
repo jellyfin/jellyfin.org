@@ -274,7 +274,7 @@ services:
       - default
  ```
 
-after saving docker-compose.yml - just run: docker compose up -d  - and it should work in rootless user mode.
+after saving `docker-compose.yml`, just run: `docker compose up -d`  - and it should work in rootless user mode.
 
 Hint: 
 If you arleardy have a container with docker compose up and running be sure to set all permissions in all your used path to your user before setup.
