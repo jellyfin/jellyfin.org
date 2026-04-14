@@ -1,4 +1,5 @@
 import Layout from '@theme/Layout';
+import React from 'react';
 
 import DiscordCard from '../components/contact/DiscordCard';
 import MatrixCard from '../components/contact/MatrixCard';
