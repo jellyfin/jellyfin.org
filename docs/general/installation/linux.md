@@ -42,3 +42,7 @@ If you do not want to execute a script with superuser permissions, you can also 
 ## Other Distributions
 
 For other distributions, [containers](/docs/general/installation/container) are the recommended way to install Jellyfin. There are also [community-maintained packages](/docs/general/installation/advanced/community) provided by 3rd parties if you would like to use them instead.
+
+## Non LTS Ubuntu Distro Install
+Below manual workaround to install in non LTS ubuntu versions, like 25.10
+https://forum.jellyfin.org/t-non-lts-install-jellyfin
