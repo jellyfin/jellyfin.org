@@ -33,7 +33,7 @@ This normally comes down to one of the following issues:
 
 1. [File permissions](https://wikipedia.org/wiki/File-system_permissions) are not properly configured on your media.
 2. Your media does not follow the organizational requirements for Jellyfin's scanner to properly identify media. (Valid organization schemes can be found in the documentation for [Movies](/docs/general/server/media/movies), [Shows](/docs/general/server/media/shows), [Music](/docs/general/server/media/music), and others.)
-3. In some edge cases, when deleting the folder of a media, and replacing the media with a different version in a different folder name (e.g. "Modern Family all seasons 360p" > "modern_family_1080p"), when running a scan you might encounter an `'UNIQUE constraint failed` database error in the logs that interrupts the scan. The solution for this currently is to recreate the the old folder name (even as if empty) or rename the current media folder to the old name.
+3. In some edge cases—such as deleting a media folder and replacing it with a different version using a new folder name (e.g., "Modern Family all seasons 360p" to "modern_family_1080p")—running a scan might trigger a `UNIQUE constraint failed` database error in the logs, which interrupts the process. The current solution is to recreate the old folder (even if empty) or rename the new media folder back to the original name.
 
    If it's not one of these, please consider asking for help as it might be a bug.
 
