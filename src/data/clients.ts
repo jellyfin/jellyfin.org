@@ -1004,6 +1004,34 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'dorsal',
+    name: 'Dorsal',
+    description: 'An album-focused iOS/iPadOS music player for Jellyfin.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'testflight',
+        name: 'TestFlight',
+        url: 'https://testflight.apple.com/join/p3cMepSH'
+      },
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/dorsal-music/id6762251157'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jaredreich/dorsal'
+      },
+    ]
   }
 ];
 
