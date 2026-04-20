@@ -123,19 +123,19 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     }
   },
   {
-    id: 'gh:GeiserX/whisper-subs',
-    name: "GeiserX's WhisperSubs Repo",
-    url: 'https://geiserx.github.io/whisper-subs/manifest.json',
-    includes: {
-      WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
-    }
-  },
-  {
     id: 'gh:GeiserX/smart-covers',
     name: "GeiserX's SmartCovers Repo",
     url: 'https://geiserx.github.io/smart-covers/manifest.json',
     includes: {
       SmartCovers: 'https://github.com/GeiserX/smart-covers'
+    }
+  },
+  {
+    id: 'gh:GeiserX/whisper-subs',
+    name: "GeiserX's WhisperSubs Repo",
+    url: 'https://geiserx.github.io/whisper-subs/manifest.json',
+    includes: {
+      WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
   }
 ];
