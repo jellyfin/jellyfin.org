@@ -129,5 +129,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:GeiserX/smart-covers',
+    name: "GeiserX's SmartCovers Repo",
+    url: 'https://geiserx.github.io/smart-covers/manifest.json',
+    includes: {
+      SmartCovers: 'https://github.com/GeiserX/smart-covers'
+    }
   }
 ];

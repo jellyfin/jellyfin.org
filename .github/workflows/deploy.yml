@@ -39,7 +39,7 @@ jobs:
       - name: Create pages artifact
         run: tar --dereference --hard-dereference --directory build -cvf "$RUNNER_TEMP/artifact.tar" --exclude=.git --exclude=.github .
       - name: Upload pages artifact
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: github-pages
           path: ${{ runner.temp }}/artifact.tar
@@ -88,7 +88,7 @@ jobs:
         run: gh run download "$RUN_ID" -n jellyfin-org__build -D build
       - name: Publish to Cloudflare
         id: cf
-        uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3.15.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
