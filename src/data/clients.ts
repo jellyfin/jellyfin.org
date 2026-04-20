@@ -9,7 +9,8 @@ export enum ClientType {
 export enum DeviceType {
   Desktop = 'Desktop',
   Mobile = 'Mobile',
-  TV = 'TV'
+  TV = 'TV',
+  Automotove = 'Automotive'
 }
 
 export enum LicenseType {
@@ -1002,6 +1003,29 @@ const thirdPartyClients: Array<Client> = [
         id: 'website',
         name: 'Website',
         url: 'https://jellify.app'
+      }
+    ]
+  },
+  {
+    id: 'sharkmarmalade',
+    name: 'Shark Marmalade',
+    description: 'A music player for Android Automotive OS',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Automotive],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Android],
+    primaryLinks: [
+      {
+        id: 'google-play',
+        name: 'Google Play',
+        url: 'https://play.google.com/store/apps/details?id=be.bendardenne.jellyfin.aaos'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/bendardenne/sharkmarmalade'
       }
     ]
   }
