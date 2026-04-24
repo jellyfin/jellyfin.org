@@ -19,8 +19,8 @@ If no transcoding URL is provided, the client can perform direct play using the 
 
 - **Endpoint:** `/Audio/{itemId}/stream`
 - **Query Parameters:**
-	- `playSessionId`: The sessionId returned by the posted playback info operation (required for authentication)
-	- `static=true`: Ensures no encoding is performed (static file delivery)
+	- `playSessionId`: The sessionId returned by the posted playback info operation (required for authentication).
+	- `static=true`: Ensures that no encoding is performed (static file delivery).
 	- `startTimeTicks=0`: (optional) Start at the beginning
 
 ### Example (TypeScript SDK-style)

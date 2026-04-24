@@ -15,7 +15,7 @@ Once a [device profile](./device-profiles.md) is created, it can be used to requ
 ## Key Fields in the Response
 
 - **transcodingUrl**: If transcoding is required, this field contains the URL to fetch the transcoded media stream. If direct play is possible, this may be omitted or a direct stream URL will be provided instead.
-- **sessionId**: This is required when fetching the media stream. The sessionId provided in the request to fetch the stream must match the Id returned by the playback info call for authentication.
+- **sessionId**: This is required when fetching the media stream. The sessionId provided in the request to fetch the stream must match the ID returned by the playback info call for authentication.
 
 ## Example (TypeScript SDK)
 
