@@ -27,9 +27,6 @@ export default function Index() {
                 { url: '/developers/docs/api/websockets', name: 'Connecting to WebSockets'},
                 { url: '/developers/docs/api/syncplay', name: 'Utilising the SyncPlay API' },
                 { url: '/developers/docs/api/playlists', name: 'Managing playlists' },
-                { url: '/developers/docs/api/device-profiles', name: 'Device profiles' },
-                { url: '/developers/docs/api/media-info', name: 'Fetching Media Info' },
-                { url: '/developers/docs/api/audio', name: 'Playing Audio' },
               ]}
             />
 
