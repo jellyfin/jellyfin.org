@@ -5,7 +5,7 @@ sidebar_position: 9
 
 # Audio
 
-When playing audio, the client must decide whether to use a transcoding stream or a direct play stream. This is determined by the playback info response from the server (see the Media Info documentation).
+When playing audio, the client must decide whether to use a transcoding stream or a direct play stream. This is determined by the [playback info response](./media-info.md) from the server.
 
 ### 1. Use the Transcoding URL (if provided)
 
@@ -46,5 +46,5 @@ function buildAudioStreamUrl(itemId: string, playSessionId: string, apiBase: str
 - The `static=true` parameter ensures the server does not transcode or re-encode the file for direct play.
 - If transcoding is required, always prefer the transcoding URL provided by the server.
 
-For more details, see the [Jellyfin Audio API documentation](https://api.jellyfin.org/#tag/Audio/operation/GetAudioStream).
+For more details, see the [Jellyfin Audio API Swagger page](https://api.jellyfin.org/#tag/Audio/operation/GetAudioStream).
 
