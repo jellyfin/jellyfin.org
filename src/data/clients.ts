@@ -338,6 +338,30 @@ const officialClients: Array<Client> = [
     recommended: true
   },
   {
+    id: 'jellyfin-Tizen',
+    name: 'Jellyfin for Tizen',
+    description: 'The official Jellyfin app for Samsung Tizen devices.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Tizen],
+    primaryLinks: [
+      {
+        id: 'samsung-store',
+        name: 'Smart TV App Store',
+        url: 'https://www.samsung.com/us/tvs/smart-tv/samsung-tv-apps-detail/?appId=3202007021208'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-tizen'
+      }
+    ],
+    recommended: true
+  },
+  {
     id: 'mopidy',
     name: 'Mopidy-Jellyfin',
     description: 'An official plugin for Mopidy that uses Jellyfin as a backend.',
