@@ -13,6 +13,7 @@ import {
   SiIos,
   SiKodi,
   SiLg,
+  SiSamsung,
   SiLinux,
   SiRoku,
   SiSailfishos,
@@ -98,6 +99,9 @@ const PlatformIcon = ({
 
     case Platform.SailfishOS:
       return <SiSailfishos size={size} className={className} />;
+    
+    case Platform.Tizen:
+      return <SiSamsung size={size} className={className} />;
 
     case Platform.TVOS:
       return <SiAppletv size={size} className={className} />;
