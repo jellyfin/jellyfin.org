@@ -1,0 +1,97 @@
+---
+title: Client Inclusion Rules Updates
+authors:
+  - joshuaboniface
+slug: client-inclusion-rules-update
+tags: [clients]
+---
+
+Hello Jellyfinners. Today, we are introducing [a new set of rules](https://jellyfin.org/docs/general/clients/#requirements-for-inclusion-in-all-clients) detailing the requirements for a new third-party client to be added to our [official clients list](https://jellyfin.org/downloads/clients/). These rules come into effect immediately;  the existing list will be modified shortly to remove clients that do not fit these rules, and the rules apply to all new entries in the list going forward. Note that these rules do not affect discussion of third-party clients elsewhere in our community, which is always permitted within the bounds of our existing rules and policies. Please read on for more information.
+
+{/* truncate */}
+
+In full, the new rules are as follows:
+
+>To be included in the official client list, a client must meet all of these requirements:
+>
+>* The client must support Jellyfin as a **first-class citizen**, and not be specifically **tied to a particular instance** or installation of Jellyfin (i.e. the server URL must be configurable).
+>* The developers of the client must be in **good standing** within the Jellyfin community, and both they and the client itself must **adhere our [community standards and rules](https://jellyfin.org/docs/general/community-standards/) and our [branding guidelines](https://jellyfin.org/docs/general/contributing/branding)**.
+>* The client must be **Free and Open Source**, released under a license listed as "Free Software" by [the Free Software Foundation](https://www.gnu.org/licenses/license-list.html), and must fully adhere to the terms and conditions of the chosen licence.
+>* The client must have **existing traction** within the community and be under **active development**; either: at least **1 year** of active development; or, evidence of significant user interest as determined by the Jellyfin team.
+>* The client must provide at least one **novel/unique feature** not found in other already-listed or official clients for the same platform(s) and not under active development within an official client. Said feature must actively exist in a public release and not be "under development".
+>
+>Clients that do not meet these requirements will not be added, and existing entries that do not meet these requirements or which change to no longer meet these requirements will be removed.
+
+We will provide some further explanation about why we're instituting these rules now, to help clear up any confusion.
+
+## The Problem
+
+Over the last few months we have been facing a mass influx of new clients seeking to be added to our official clients list. A significant number of these are "vibe-coded", and a number of them are proprietary.
+
+In the past, the barrier of creating a client was high enough that we did not feel the need to excessively formalize the requirements for inclusion into our official clients list. Each client was taken at face value and evaluated based on our thoughts as to how useful it would be to announce officially to the wider community.
+
+But with the rise of vibe-coding and the seeming proliferation of proprietary clients, we have felt it necessary to further clarify and expand the rules surrounding the listing of clients on our official website. These rules apply immediately, and the existing client list will be adjusted to reflect them, with the removal of any clients that are currently listed but which do not follow these requirements, regardless of how long they have been listed.
+
+We are not doing this to spite any specific client(s) or developer(s); rather, it is simply a matter of our team not being able to keep up and properly evaluate each client on its own merits, and our desire to codify, apply, and enforce a strict set of rules to govern the list. Our small team simply cannot possibly test and evaluate every client that someone puts together in the way we previously could, especially not in an era where creating such a client can be as simple as a few prompts to Claude Code or the like. In addition the lack of formal rules have been causing unwanted friction with third party developers during the review process due to unclear requirements. We are seeking to eliminate both problems with this change.
+
+And to again be clear: this only affects the official list at https://jellyfin.org/downloads/clients. Discussion of clients elsewhere is always permitted within the bounds of our existing rules and policies.
+
+## Breaking Down the Requirements
+
+There are 5 requirements under the new rules. A client must meet **all** of them without exception, or it will not be approved for inclusion in the list.
+
+> The client must support Jellyfin as a **first-class citizen**, and not be specifically **tied to a particular instance** or installation of Jellyfin (i.e. the server URL must be configurable).
+
+> The developers of the client must be in **good standing** within the Jellyfin community, and both they and the client itself must **adhere our [community standards and rules](https://jellyfin.org/docs/general/community-standards/) and our [branding guidelines](https://jellyfin.org/docs/general/contributing/branding)**.
+
+Hopefully these first two rules are clear and self-explanatory, as these have already been rules for client inclusion for some time. This update simply rewords them.
+
+Any client that is listed must fully support Jellyfin as a native, first-class citizen of its functionality, and the client must support arbitrary Jellyfin servers/instances without being tied to a specific instance. By a first-class citizen, we mean that there is not a signifiant difference in functionality between its Jellyfin component and any other components; this will of course only apply to clients that support multiple target systems, but is worth noting nonetheless.
+
+We will only accept clients from developers that follow our community standards and engage with the community, including existing Jellfin developers, with respect and in good faith. Blatant violations of community standards will result in a delisting. This includes the application itself adhering to our rules, especially our rules against piracy and our branding guidelines. If you are unsure about the branding aspect even after reviewing the document above, please reach out to the Core team for advice.
+
+> The client must be **Free and Open Source**, released under a license listed as "Free Software" by [the Free Software Foundation](https://www.gnu.org/licenses/license-list.html), and must fully adhere to the terms and conditions of the chosen licence.
+
+Going forward, we require all listed clients to be FLOSS. This is not negotiable. If your client does not have full source code available under a license approved by the FSF as a Free License, we will not include it, and it must actually adhere to that license's terms and conditions (attributing all developers, providing source code publicly, maintaining a readable history of changes, etc.).
+
+Jellyfin is a project that exists precisely because of its Free Software ideals, and it would be at odds with the ethos of the project to include clients that do not share these ideals.
+
+Note that this does not mean that a developer is prohibited from charging money for a client, though we will evaluate commercial restrictions closely as one component of the following client inclusion rules. But all clients must have their source code available under one of the aforementioned Free Licenses to qualify.
+
+This includes existing clients on the list; namely Infuse, Yatse, Manet, Symfonium, and Finer. All 5 of these will be removed from our list going forward. While Infuse and Yatse, especially, have been listed clients for an extremely long-time, we do not believe that making continued exceptions is worthwhile. In light of our desire to institute these new rules, we want to avoid "loopholes" for evaluating future clients, and the project has simply grown past the point where we feel the need to include every possible client for compatibility reasons, as we did during the early days when the aforementioned clients were added.
+
+All of this is not to say that we are opposed to the creation of proprietary, closed source clients. You as a client developer are free to choose whatever license you wish for your own project. And you are still **free to post about such clients in our community spaces** (including [`/r/jellyfin`](https://old.reddit.com/r/jellyfin) and the like). We do not want to discourage innovation in the Jellyfin ecosystem. This rule **only concerns inclusion in the official clients list on our website**, which can be seen by new users as our official endorsement. We simply do not wish to explicitly endorse proprietary clients going forward.
+
+> The client must have **existing traction** within the community and be under **active development**; either: at least **1 year** of active development; or, evidence of significant user interest as determined by the Jellyfin team.
+
+The purpose of this rule is to reduce attempts at including brand-new, unestablished clients until they can prove themselves as being relevant and persistent to the wider community. There are two parts to this rule.
+
+The first is active development time. We chose 1 year as a good ballpark, because this is, to us, about the amount of time it takes for a client to truly mature and for a developer to prove that they are committed to maintaing the client in the long-term. We do not want to list clients that are just throwing something into the ecosystem half-baked and then expecting others to run with it.
+
+The second is user interest. This both complements the 1-year development time requirement, and also offers an exception to it. 
+
+We understand that part of the desire of "being listed" is to drive users towards your client, but you must first put in the work to build a community of users yourself. We don't want the client list to be an advertisement; we want it to provide a list of clients that we believe best exemplify the Jellyfin ecosystem and provide a stable, consistent, and feature-rich experience for users.
+
+Massive user interest can be an exception to the time requirement. If you are able to demonstrate to the team proof of a sizeable userbase and active development from contributors other than just the original author, we **may** consider waving the 1-year requirement. By our definition, "massive user interest" means at least several thousand active users and significant, persistent, and organic discussion of and contribution to the client within the wider community. Unless you're absolutely certain that your client meets this high threshold, it almost certainly does not. These exceptions will be handled on a case-by-case basis and explicit proof will be required; if you believe you qualify, please [contact the Core team](https://jellyfin.org/contact/).
+
+> The client must provide at least one **novel/unique feature** not found in other already-listed or official clients for the same platform(s) and not under active development within an official client. Said feature must actively exist in a public release and not be "under development".
+
+With the rise in LLMs for development, there has been a proliferation of clients that we percieve as "same-y", that are distinct only in superficial or aesthetic ways. Going forward, we will require each unofficial client to clearly demonstrate some unique aspect -- a feature, design paradigm, technical implementation, or other significant difference -- that sets it apart, both from our official clients and from any other clients that are already listed for the same platform(s) (device class, operating system, etc.), in order to be considered for the clients list. A single "killer feature" to distinguish the client from any other is sufficient, but a reskin/retheme is not enough; it must be something truly novel.
+
+There is however an exception to this: if **our team is actively working on a particular feature in an official client** for less than 1 year (i.e. the amount of time that the client must have existed as per the fourth requirement), and your client is distinguished **only** by the presence of that feature, it will not count for the purposes of this requirement. We are adding this exception to discourage new clients from copying new feature code from in-development versions of official clients for quick clout/users, which has happened previously, rather than making an actual interesting and novel contribution to the ecosystem. We would prefer that you (try to) contribute to the feature development and release process of the official app to help get the feature to users, instead of just creating a one-trick client. And, again, as noted above: you are free to develop a client using in-development code, but we simply will not add it to the official clients list in such a state, and developers should be aware that such actions do not generally facilitate good relations with the team.
+
+The last line is a guard against a client proclaiming that "I'm working on this killer feature", but not actually having it ready. Inclusion can wait until it's ready and actually released to users.
+
+## How to Follow These Requirements
+
+When creating a pull request for addition to the clients list, we request that you provide detail on how your client meets all of the requirements. This includes things like a link to the GitHub page of the client (with a clear LICENSE definition and Git history), and a list of your interesting features and functionality. Please do not force us to go digging, and do not use an LLM to write this for you - use your own words (as per our [LLM policies](https://jellyfin.org/docs/general/contributing/llm-policies)) and make an active effort to _sell us_ on your client.
+
+After the PR is submitted, we will review it in good time. Please do not badger the team with requests to review it. If you're already meeting the 1-year requirement, a few more days (or possibly weeks) of waiting for review is not significant.
+
+Once merged, you must remain in full compliance with these requirements indefinitely. If it comes to our attention later that a listed client is violating any of the requirements, it will be removed from the list. Keep this in mind especially as you add new features and onboard new contributors.
+
+## Conclusion
+
+We hope this post provides an adequate explanation of our reasons for this change. We may reevaluate these rules as time goes on, but, for the most part, we do not envision them changing again any time soon. We hope everyone understands.
+
+Happy watching!
