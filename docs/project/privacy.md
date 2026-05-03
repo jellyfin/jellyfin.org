@@ -40,7 +40,7 @@ This policy seeks to outline the precise nature of such data and which systems a
 
    * This information will be logged and stored for technical evaluation for a period of not more than seven (7) days.
 
-   * This information will be stored on systems under the jurisdiction of Ontario, Canada, and for localized geodiverse mirror instances, the jurisdiction of the local mirror system (one of: the United States of America; The United Kingdom of Great Britan and Northern Ireland; The European Union; India; Singapore; or Australia) based on geoIP redirection.
+   * This information will be stored on systems under the jurisdiction of Ontario, Canada, and for localized geodiverse mirror instances, the jurisdiction of the local mirror system (one of: the United States of America; The United Kingdom of Great Britain and Northern Ireland; The European Union; India; Singapore; or Australia) based on geoIP redirection.
 
 * In addition, services which require registration (Forum, Weblate, Fider) will also store:
 
