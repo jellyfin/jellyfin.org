@@ -1,5 +1,5 @@
 import Link from '@docusaurus/Link';
-import { SiDigitalocean, SiJetbrains } from '@icons-pack/react-simple-icons';
+import { SiJetbrains } from '@icons-pack/react-simple-icons';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import React from 'react';
@@ -53,15 +53,6 @@ export default function Contribute() {
 
           <h3>Sponsors</h3>
           <div className={styles['sponsor-list']}>
-            <a
-              href='https://www.digitalocean.com'
-              className={clsx('button', 'button--lg', styles['button--digitalocean'])}
-              style={{ display: 'inline-flex' }}
-            >
-              <SiDigitalocean size={28} className='margin-right--sm' />
-              DigitalOcean
-            </a>
-
             <a
               href='https://www.jetbrains.com'
               className={clsx('button', 'button--lg', styles['button--jetbrains'])}

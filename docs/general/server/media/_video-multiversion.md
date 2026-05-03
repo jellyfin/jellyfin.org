@@ -2,7 +2,7 @@
 
 ## Multiple Versions
 
-Multiple versions of the same video can be stored together in the library using a file suffix in Movie and Music Video library types. The part before any suffixes **MUST** be exactly the same, including any years and/or metadata provider IDs.
+Jellyfin supports storing multiple versions of the same video within a single movie folder by using filename suffixes. Each file **must** begin exactly with the parent folder name - including any year and/or metadata provider IDs - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate movies.
 
 ```txt
 Movie (2021) [imdbid-tt12801262]

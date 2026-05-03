@@ -54,7 +54,7 @@ services:
 
   watchtower:
     container_name: watchtower
-    image: ghcr.io/containrrr/watchtower
+    image: ghcr.io/nicholas-fedor/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
@@ -77,7 +77,9 @@ located where the `docker-compose.yml` file is.
 With this compose file:
 
 - Jellyfin Vue will be accessible on `8080` port of the machine that's running the containers
-- Watchtower takes care of updating the container to the latest commit available on the [repository](https://github.com/jellyfin/jellyfin-vue).
+- Watchtower (fork, [the original is unmaintained](https://github.com/containrrr/watchtower/issues/2067))
+takes care of updating the container to the latest commit available on the
+[repository](https://github.com/jellyfin/jellyfin-vue).
   This is a good idea because:
   - As of now, stable releases don't exist and there have only been prereleases that don't necessarily meet a quality criteria, but
     [major development milestones](https://jellyfin.org/posts/vue-vue3/).

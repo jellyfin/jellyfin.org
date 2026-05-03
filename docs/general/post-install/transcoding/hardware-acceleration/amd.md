@@ -38,13 +38,11 @@ Hardware accelerated HDR/DV to SDR tone-mapping is supported on **all AMD GPUs t
 There are two different methods that can be used on Windows and/or Linux. Pros and cons are listed below:
 
 1. **OpenCL**
-
    - Pros - Supports Dolby Vision P5, detailed fine-tuning options, widely supported hardware.
 
    - Cons - Zero-copy is not supported on Linux.
 
 2. **Vulkan**
-
    - Pros - Supports Dolby Vision P5, libplacebo renderer, ROCm OpenCL runtime is not required.
 
    - Cons - Linux only, zero-copy only supports Polaris+ GPUs.
@@ -113,7 +111,7 @@ Encoding speed and quality:
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommeded. **AMF is not available in Windows Docker and WSL/WSL2.**
+Windows 10 64-bit and newer is recommended. **AMF is not available in Windows Docker and WSL/WSL2.**
 
 ### Known Issues And Limitations On Windows
 
@@ -126,7 +124,6 @@ Please refer to [this section](./known-issues.md#amd-on-windows) for known issue
 2. Clean install the latest driver from [AMD Drivers and Support](https://www.amd.com/en/support).
 
 3. Don't allow the GPU to be preempted by the Windows Remote desktop session.
-
    - Type `gpedit.msc` in Win+R shortcut key dialog and run to open the "Local Group Policy Editor".
 
    - Navigate in the left tree **[Computer Configuration > Administrative Templates > Windows Components]**
@@ -154,7 +151,6 @@ Please refer to [this section](./known-issues.md#amd-on-windows) for known issue
    Duplicate engine names indicate the GPU may have multiple video engines.
 
    :::
-
    - **3D** - 2D/3D engine or GPGPU workload
 
    - **Copy** - Blitter/Copy engine workload
@@ -311,7 +307,6 @@ Root permission is required.
    ```
 
 2. User mode Mesa drivers are required to be manually installed for VA-API and RADV Vulkan:
-
    - [libva-mesa-driver](https://archlinux.org/packages/extra/x86_64/libva-mesa-driver/)
 
    - [vulkan-radeon](https://archlinux.org/packages/extra/x86_64/vulkan-radeon/)
@@ -404,7 +399,6 @@ Root permission is required.
    ```
 
 2. Use Docker command line **or** docker compose:
-
    - Example command line:
 
      ```shell
@@ -486,7 +480,6 @@ Root permission is required.
 :::
 
 1. Install the `radeontop` package. The name varies between distros.
-
    - On Debian & Ubuntu:
 
      ```shell

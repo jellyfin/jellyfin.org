@@ -5,9 +5,9 @@ title: CSS Customization
 
 # CSS Customization
 
-In `Dashboard > General`, the "Custom CSS" field can be used to override current CSS in Jellyfin's stylesheet.
+In `Dashboard > Branding`, the "Custom CSS" field can be used to override current CSS in Jellyfin's stylesheet.
 
-[Custom CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) provides customization such as changing colors, changing layouts, and item size and behavior. Below is a list of various tweaks that can be applied. The CSS tweaks work on both the web client, and the [Android application](https://play.google.com/store/apps/details?id=org.jellyfin.mobile&hl=en_US). The code will apply in the order that it is written, however `!important` will overrule everything. To learn more about `!important` and more, see [CSS Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) or [specifishity](https://specifishity.com/). To implement these changes, go to `Dashboard > General > Custom CSS` to start.
+[Custom CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) provides customization such as changing colors, changing layouts, and item size and behavior. Below is a list of various tweaks that can be applied. The CSS tweaks work on all clients that load Jellyfin-Web from the Server. The code will apply in the order that it is written, however `!important` will overrule everything. To learn more about `!important` and more, see [CSS Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) or [specifishity](https://specifishity.com/). To implement these changes, go to `Dashboard > Branding > Custom CSS` to start.
 
 If you have little or no experience with CSS, various resources and tutorials can be found online. Using the tweaks and examples below makes it quite easy to get started with making your own changes to your Jellyfin instance.
 
@@ -95,7 +95,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
 
-### Transparant count indicators (eg. Series)
+### Transparent count indicators (eg. Series)
 
 ```css
 /* Make count indicator icon dark and transparent */
@@ -736,19 +736,19 @@ Material Icons:
 - Outlined:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css');
   ```
 
 - Rounded:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css');
   ```
 
 - Sharp:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css');
   ```
 
 Fontawesome Icons:
@@ -756,25 +756,25 @@ Fontawesome Icons:
 - Solid:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css');
   ```
 
 - Regular:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css');
   ```
 
 - Light:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css');
   ```
 
 - duotone:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css');
   ```
 
 ## Community Links

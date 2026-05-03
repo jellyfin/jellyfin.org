@@ -25,7 +25,7 @@ The objective of the guide is to configure the Jellyfin TVHeadend plugin to back
      - Change parameters: Rights,Channel number range,Channel tags,DVR configurations,Streaming profiles,Connection limits
      - Web interface: ✔
      - Streaming: Basic,Advanced,HTSP
-     - Video recoder: Basic,HTSP,View all
+     - Video recorder: Basic,HTSP,View all
      - (Optional) Comment: Comment for the user (for example: User used by Jellyfin)
      - (Optional) Allowed networks: _Network address with network mask to allow_ (for example 127.0.0.1/32)
      - Press Save
@@ -38,7 +38,7 @@ The objective of the guide is to configure the Jellyfin TVHeadend plugin to back
 
 :::note
 
-The parameters Change parameters, Streaming and Video recoder must be marked as shown. Otherwise, Jellyfin can connect to TVHeadend but problems may arise when reproducing the content.
+The parameters Change parameters, Streaming and Video recorder must be marked as shown. Otherwise, Jellyfin can connect to TVHeadend but problems may arise when reproducing the content.
 
 :::
 
@@ -56,7 +56,6 @@ By default the the _TVHeadend Hostname or IP Address_ section is configured by d
 :::
 
 3. Configure the channels for viewing in Jellyfin: even if Jellyfin manages to connect to TVHeadend, the guide will not be synchronized because there has to be a number assigned to the channels in TVHeadend. [Reference](https://emby.media/community/index.php?/topic/64583-no-channels-with-tvheadend-plugin/#entry642268)
-
    - Manual mode
      - Go to Configuration > Channel/EPG > Channels
      - Select the channel to be changed and press Edit
