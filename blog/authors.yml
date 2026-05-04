@@ -1,3 +1,9 @@
+jellyfin:
+  name: Jellyfin Team
+  title: Jellyfin Team
+  url: https://jellyfin.org/
+  image_url: https://avatars.githubusercontent.com/u/45698031?s=200&v=4
+
 1hitsong:
   name: 1hitsong
   title: Roku Team
