@@ -13,8 +13,7 @@ export enum DeviceType {
 }
 
 export enum LicenseType {
-  OpenSource,
-  Proprietary
+  OpenSource
 }
 
 type Link = {
@@ -609,53 +608,6 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'yatse',
-    name: 'Yatse',
-    description: 'A third party remote control for Jellyfin with support for Chromecast playback.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.Proprietary,
-    platforms: [Platform.Android],
-    primaryLinks: [
-      {
-        id: 'play-store',
-        name: 'Play Store',
-        url: 'https://play.google.com/store/apps/details?id=org.leetzone.android.yatsewidgetfree'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://yatse.tv/'
-      }
-    ]
-  },
-  {
-    id: 'infuse',
-    name: 'Infuse',
-    description: 'A third-party client for iOS, iPadOS, and tvOS devices.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile, DeviceType.TV],
-    licenseType: LicenseType.Proprietary,
-    platforms: [Platform.IOS, Platform.TVOS],
-    primaryLinks: [
-      {
-        id: 'apple-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/app/id1136220934?mt=8'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://firecore.com/infuse'
-      }
-    ],
-    recommended: true
-  },
-  {
     id: 'volumio',
     name: 'Jellyfin Plugin for Volumio',
     description: 'A Volumio plugin for playing audio from one or more Jellyfin servers.',
@@ -824,29 +776,6 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'manet',
-    name: 'Manet',
-    description: 'A third-party music client for iOS and macOS',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
-    licenseType: LicenseType.Proprietary,
-    platforms: [Platform.IOS, Platform.MacOS],
-    primaryLinks: [
-      {
-        id: 'app-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/us/app/manet-music/id6470928235'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://tilosoftware.io/manet/'
-      }
-    ]
-  },
-  {
     id: 'fladder',
     name: 'Fladder',
     description: 'A simple, cross-platform Jellyfin frontend built on top of Flutter.',
@@ -866,53 +795,6 @@ const thirdPartyClients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/DonutWare/Fladder'
-      }
-    ]
-  },
-  {
-    id: 'symfonium',
-    name: 'Symfonium',
-    description:
-      'An offline-first third-party music player that enhances your Jellyfin experience with streaming, syncing and full personalization',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.Proprietary,
-    platforms: [Platform.Android],
-    primaryLinks: [
-      {
-        id: 'play-store',
-        name: 'Play Store',
-        url: 'https://play.google.com/store/apps/details?id=app.symfonik.music.player'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://symfonium.app/'
-      }
-    ]
-  },
-  {
-    id: 'finer',
-    name: 'Finer',
-    description: 'Jellyfin Music Player for macOS/iPadOS/iOS, built with native technologies.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.Proprietary,
-    platforms: [Platform.MacOS, Platform.IOS],
-    primaryLinks: [
-      {
-        id: 'app-store',
-        name: 'App Store',
-        url: 'https://apps.apple.com/us/app/finer-player/id6738301953'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'website',
-        name: 'Website',
-        url: 'https://monk-studio.com/finer'
       }
     ]
   },
