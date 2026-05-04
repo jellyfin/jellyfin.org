@@ -30,6 +30,22 @@ export default function Contact() {
           </div>
           <div className='row'>
             <div className='col'>
+              <h2>Social</h2>
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col margin-bottom--md' style={{ display: 'flex' }}>
+              <ForumCard />
+            </div>
+            <div className='col margin-bottom--md' style={{ display: 'flex' }}>
+              <MastodonCard />
+            </div>
+            <div className='col margin-bottom--md' style={{ display: 'flex' }}>
+              <TwitterCard />
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col'>
               <h2>Email</h2>
             </div>
             <div className='col col--12 margin-bottom--md' style={{ display: 'flex' }}>
@@ -49,22 +65,6 @@ export default function Contact() {
                 email='security@jellyfin.org'
                 description='For reporting security issues or vulnerabilities. This reaches the security team directly. Please include as much detail as possible.'
               />
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col'>
-              <h2>Social</h2>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col margin-bottom--md' style={{ display: 'flex' }}>
-              <ForumCard />
-            </div>
-            <div className='col margin-bottom--md' style={{ display: 'flex' }}>
-              <MastodonCard />
-            </div>
-            <div className='col margin-bottom--md' style={{ display: 'flex' }}>
-              <TwitterCard />
             </div>
           </div>
         </section>
