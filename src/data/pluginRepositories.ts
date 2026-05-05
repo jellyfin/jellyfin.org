@@ -137,5 +137,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:wetrakr/wetrakr-jellyfin',
+    name: 'WeTrakr Repo',
+    url: 'https://wetrakr.github.io/wetrakr-jellyfin/manifest.json',
+    includes: {
+      WeTrakr: 'https://github.com/wetrakr/wetrakr-jellyfin'
+    }
   }
 ];
