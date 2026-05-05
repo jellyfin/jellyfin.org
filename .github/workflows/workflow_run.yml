@@ -37,7 +37,7 @@ jobs:
 
   deploy:
     name: Deploy
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_repository.full_name == 'jellyfin/jellyfin.org' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.repository == 'jellyfin/jellyfin.org' }}
     uses: ./.github/workflows/deploy.yml
     permissions:
       contents: read
