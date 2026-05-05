@@ -1,44 +1,46 @@
 name: deploy
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.workflow_run.head_branch || github.run_id }}
+  cancel-in-progress: true
+
 on:
-  workflow_call:
-    secrets:
-      JF_BOT_TOKEN:
-        required: true
-      CLOUDFLARE_ACCOUNT_ID:
-        required: true
-      CLOUDFLARE_API_TOKEN:
-        required: true
-    inputs:
-      branch:
-        required: true
-        type: string
-      commit:
-        required: false
-        type: string
-      comment:
-        required: false
-        type: boolean
-      pr_number:
-        required: false
-        type: string
-      workflow_run_id:
-        required: true
-        type: string
-      artifact_name:
-        required: false
-        type: string
-        default: jellyfin-org__build
-      is_preview:
-        required: true
-        type: boolean
+  workflow_run:
+    workflows:
+      - build
+    types:
+      - completed
 
 jobs:
+  metadata:
+    name: Metadata
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.repository == 'jellyfin/jellyfin.org'}}
+    runs-on: ubuntu-latest
+    outputs:
+      pr_number: ${{ steps.pr_number.outputs.pr_number }}
+    steps:
+      - name: Get Pull Request Number
+        id: pr_number
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          API_RESPONSE=$(gh pr list --repo "${GITHUB_REPOSITORY}" --search "${HEAD_SHA}" --state open --json number)
+          PR_NUMBER=$(echo "${API_RESPONSE}" | jq -r '.[0].number // ""')
+
+          echo "repository: ${GITHUB_REPOSITORY}"
+          echo "sha: ${HEAD_SHA}"
+          echo "response: ${API_RESPONSE}"
+          echo "pr: ${PR_NUMBER}"
+
+          echo "pr_number=${PR_NUMBER}" >> "${GITHUB_OUTPUT}"
+
   download-artifact:
     name: Download workflow artifact
     permissions:
       actions: read
     runs-on: ubuntu-latest
+    needs: metadata
     outputs:
       artifact-path: ${{ steps.download.outputs.artifact-path }}
     steps:
@@ -47,12 +49,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh run download "${{ inputs.workflow_run_id }}" -n "${{ inputs.artifact_name }}" -D build
+          gh run download "${{ github.event.workflow_run.id }}" -n "jellyfin-org__build" -D build
           echo "artifact-path=build" >> "${GITHUB_OUTPUT}"
 
   deploy:
     needs: download-artifact
-    if: ${{ !inputs.is_preview && inputs.branch == 'jellyfin/jellyfin.org/master' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'master' }}
 
     name: Deploy to GitHub Pages
     permissions:
@@ -85,8 +87,8 @@ jobs:
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
 
   preview:
-    needs: download-artifact
-    if: ${{ inputs.is_preview }}
+    needs: [download-artifact, metadata]
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch != 'master' }}
 
     name: Deploy to Cloudflare Pages
     permissions:
@@ -96,10 +98,10 @@ jobs:
       - name: Set PR metadata
         id: pr
         run: |
-          echo "number=${{ inputs.pr_number }}" >> $GITHUB_OUTPUT
-          echo "sha=${{ inputs.commit }}" >> $GITHUB_OUTPUT
+          echo "number=${{ needs.metadata.outputs.pr_number }}" >> $GITHUB_OUTPUT
+          echo "sha=${{ github.event.workflow_run.head_sha }}" >> $GITHUB_OUTPUT
       - name: Add comment
-        if: ${{ inputs.comment }}
+        if: ${{ needs.metadata.outputs.pr_number != '' }}
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           github-token: ${{ secrets.JF_BOT_TOKEN }}
@@ -116,17 +118,18 @@ jobs:
           mode: recreate
       - name: Publish to Cloudflare
         id: cf
-        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3.15.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: >
             pages deploy ${{ needs.download-artifact.outputs.artifact-path }}
             --project-name=jellyfin-org
-            --branch=${{ inputs.branch }}
+            --branch=${{ github.event.workflow_run.head_repository.full_name }}/${{ github.event.workflow_run.head_branch }}
             --commit-hash=${{ steps.pr.outputs.sha }}
+
       - name: Update status comment
-        if: ${{ inputs.comment }}
+        if: ${{ needs.metadata.outputs.pr_number != '' }}
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           github-token: ${{ secrets.JF_BOT_TOKEN }}
