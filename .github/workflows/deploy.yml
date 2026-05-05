@@ -14,7 +14,7 @@ on:
 jobs:
   metadata:
     name: Metadata
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.repository == 'jellyfin/jellyfin.org'}}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     outputs:
       pr_number: ${{ steps.pr_number.outputs.pr_number }}
@@ -37,6 +37,7 @@ jobs:
 
   download-artifact:
     name: Download workflow artifact
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.repository == 'jellyfin/jellyfin.org' }}
     permissions:
       actions: read
     runs-on: ubuntu-latest
