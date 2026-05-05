@@ -12,10 +12,6 @@ export enum DeviceType {
   TV = 'TV'
 }
 
-export enum LicenseType {
-  OpenSource
-}
-
 type Link = {
   id: string;
   name: string;
@@ -29,7 +25,6 @@ export type Client = {
   smallDescription?: string;
   clientType: ClientType;
   deviceTypes: Array<DeviceType>;
-  licenseType: LicenseType;
   platforms: Array<Platform>;
   primaryLinks: Array<Link>;
   secondaryLinks?: Array<Link>;
@@ -43,7 +38,6 @@ const officialClients: Array<Client> = [
     description: 'The official Jellyfin desktop client.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
@@ -72,7 +66,6 @@ const officialClients: Array<Client> = [
     description: 'A cross-platform cast client for Jellyfin.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
@@ -100,7 +93,6 @@ const officialClients: Array<Client> = [
     description: 'A modern web client for Jellyfin based on Vue',
     clientType: ClientType.OfficialBeta,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Browser],
     primaryLinks: [
       {
@@ -129,7 +121,6 @@ const officialClients: Array<Client> = [
       'A lightweight Kodi add-on that lets you browse and play media files directly from your Jellyfin server within the Kodi interface.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop, DeviceType.Mobile, DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Kodi],
     primaryLinks: [
       {
@@ -153,7 +144,6 @@ const officialClients: Array<Client> = [
     description: 'A Kodi add-on that syncs metadata from selected Jellyfin libraries into the local Kodi database.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop, DeviceType.Mobile, DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Kodi],
     primaryLinks: [
       {
@@ -176,7 +166,6 @@ const officialClients: Array<Client> = [
     description: 'The official Jellyfin app for Android devices.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android],
     primaryLinks: [
       {
@@ -210,7 +199,6 @@ const officialClients: Array<Client> = [
     description: 'The official Jellyfin app for iOS and iPadOS devices.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.IOS],
     primaryLinks: [
       {
@@ -235,7 +223,6 @@ const officialClients: Array<Client> = [
       'Swiftfin is a modern video client for Jellyfin. Redesigned in Swift to maximize direct play with the power of VLC and look native on all classes of Apple devices.',
     clientType: ClientType.OfficialBeta,
     deviceTypes: [DeviceType.Mobile, DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.IOS, Platform.TVOS],
     primaryLinks: [
       {
@@ -258,7 +245,6 @@ const officialClients: Array<Client> = [
     description: 'The official Jellyfin app for Android TV and Fire TV devices.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.AndroidTV, Platform.FireOS],
     primaryLinks: [
       {
@@ -294,7 +280,6 @@ const officialClients: Array<Client> = [
       'Due to a technical limitation of the Roku store, the Jellyfin app for Roku may state that a cable or satellite subscription is required. However, no subscription of any form is required to use the Jellyfin server or any official client.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Roku],
     primaryLinks: [
       {
@@ -318,7 +303,6 @@ const officialClients: Array<Client> = [
     description: 'The official Jellyfin app for WebOS devices.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.WebOS],
     primaryLinks: [
       {
@@ -342,7 +326,6 @@ const officialClients: Array<Client> = [
     description: 'An official plugin for Mopidy that uses Jellyfin as a backend.',
     clientType: ClientType.Official,
     deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
     platforms: [],
     primaryLinks: [
       {
@@ -365,7 +348,6 @@ const officialClients: Array<Client> = [
     description: 'The official Jellyfin app for Xbox consoles.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Xbox],
     primaryLinks: [
       {
@@ -392,7 +374,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A desktop client for listening to music from a Jellyfin server.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
@@ -415,7 +396,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
@@ -438,7 +418,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A full-featured Navidrome/Jellyfin compatible desktop music player.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
@@ -466,7 +445,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A modern streamlined music player for desktop with a minimal interface that is packed with features!',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
@@ -500,7 +478,6 @@ const thirdPartyClients: Array<Client> = [
       'A third-party Android application for Jellyfin that provides a native user interface to browse and play movies and series.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android],
     primaryLinks: [
       {
@@ -529,7 +506,6 @@ const thirdPartyClients: Array<Client> = [
       'A native music player for Android devices with transcoding support, gapless playback, favorites, playlists, and many other features.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android],
     primaryLinks: [
       {
@@ -557,7 +533,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A third party app for music playback with support for offline mode/downloading songs.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android, Platform.IOS],
     primaryLinks: [
       {
@@ -590,7 +565,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A Sailfish OS client for Jellyfin.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.SailfishOS],
     primaryLinks: [
       {
@@ -613,7 +587,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A Volumio plugin for playing audio from one or more Jellyfin servers.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
     platforms: [],
     primaryLinks: [
       {
@@ -630,7 +603,6 @@ const thirdPartyClients: Array<Client> = [
       'A fork, based on the original bot by KGT1, that has been refactored and supports the Discord command system',
     clientType: ClientType.ThirdParty,
     deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Discord],
     primaryLinks: [
       {
@@ -653,7 +625,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A modern Discord music bot for Jellyfin using slash commands, written in python.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Discord],
     primaryLinks: [
       {
@@ -669,7 +640,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A terminal player for Jellyfin, only for music at the moment.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
     platforms: [],
     primaryLinks: [
       {
@@ -692,7 +662,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A terminal client for Jellyfin built as a REPL interface, that uses mpv for multimedia playback.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [],
-    licenseType: LicenseType.OpenSource,
     platforms: [],
     primaryLinks: [
       {
@@ -715,7 +684,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A cross platform mobile app for book & comic reading for Jellyfin.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android, Platform.IOS],
     primaryLinks: [
       {
@@ -743,7 +711,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'Mobile audio streaming app for Jellyfin',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android, Platform.IOS],
     primaryLinks: [
       {
@@ -781,7 +748,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A simple, cross-platform Jellyfin frontend built on top of Flutter.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Linux, Platform.Windows, Platform.MacOS, Platform.Android, Platform.Browser],
     primaryLinks: [
       {
@@ -801,10 +767,10 @@ const thirdPartyClients: Array<Client> = [
   {
     id: 'streamyfin',
     name: 'Streamyfin',
-    description: 'A modern Jellyfin client with support for downloads, Live TV, skip intro & credits, trickplay image and more!',
+    description:
+      'A modern Jellyfin client with support for downloads, Live TV, skip intro & credits, trickplay image and more!',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android, Platform.IOS],
     primaryLinks: [
       {
@@ -837,7 +803,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A light, native music client for Linux.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Desktop, Platform.Linux],
     primaryLinks: [
       {
@@ -860,7 +825,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A free and open source music player available for iOS and Android',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.IOS, Platform.Android],
     primaryLinks: [
       {
