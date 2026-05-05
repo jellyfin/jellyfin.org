@@ -4,14 +4,8 @@
   padding: 24pt 0;
 }
 
-.landing-section:first-child {
-  border-top: 1px solid #eee;
-}
-
 .landing-section:nth-child(even) {
   background-color: #172138;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
 }
 
 .landing-section:last-child {
