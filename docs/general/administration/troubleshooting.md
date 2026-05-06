@@ -241,3 +241,10 @@ then start your Jellyfin instance again. If this still does not help with the is
 ### LXC specific issues
 
 It has been brought to the team's attention that there are issues with LXC specifically. If you are getting such errors on LXC after setting lock mode to `Optimistic`, it is recommended that you migrate to full virtualization (virtual machines) or Docker. There is unlikely to be a solution for LXC any time soon, and we will be unable to provide any support for database locked problems on LXC.
+
+## Media items not removed or old paths still in database
+Due to a quirk in how Jellyfin currently works, media items in the Jellyfin database may not reflect the current filesystem, which is working as-intended to preserve user data, but as it never expires and ends up being purged, can cause problems with your Jellyfin server.
+
+If you're experiencing this issue, create an empty file called `.forcerescan` (with appropriate permissions) in the root directory of a library path, and then `Scan Media Library`. After this, the problem should be resolved.
+
+If the directory you placed the `.forcerescan` file in is empty aside from that file, you will no longer have user data relating to positions in a piece of media, history of playback et al, which were otherwise previously found on that path.
