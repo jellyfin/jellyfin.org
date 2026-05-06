@@ -68,23 +68,55 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 ### HDR Support
 
-HDR is only supported on a very limited range of devices:
+**HDR playback requires a compatible client, an HDR-capable display with HDR
+enabled, and hardware with HDR support.** Check your hardware's documentation for HDR support.
+Any HDR content not supported by the client will be converted to SDR by
+the server. For more info, please refer to our
+[tone-mapping documentation](/docs/general/post-install/transcoding/#hdr-to-sdr-tone-mapping).
 
-- iOS Devices with an HDR capable internal display can display HDR content when using a browser or the Jellyfin iOS App (not Swiftfin) as long as the codec is supported by the client. All of them support HEVC and VP9, while AV1 is supported on newer devices. HDR10, Dolby Vision and HLG are supported.
+| HDR Format | Chrome | Edge | Firefox | Safari | Android<sup>1</sup> | Android TV | iOS<sup>2</sup> | SwiftFin (iOS) | Roku<sup>3</sup> | WebOS | Jellyfin Media Player |
+| :---------: | :----: | :--: | :-----: | :----: | :-----------------: | :--------------------: | :-------------: | :------------: | :--------------: | :---: | :-------------------: |
+| HDR10 | 🔶<sup>5</sup> | ✅<sup>6</sup> | 🔶<sup>7</sup> | ✅<sup>8</sup> | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+| HDR10+ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅<sup>9</sup> | ✅ | ❌ |
+| HLG | ❌ | ❌ | ❌ | ✅<sup>8</sup> | ✅ | ✅ | ✅ | ❌ | 🔶<sup>9</sup> | ✅ | ❌ |
+| Dolby Vision | ❌ | 🔶<sup>10</sup> | ❌ | ✅<sup>8</sup> | ✅ | ✅ | ✅ | ❌ | ✅<sup>9</sup> | 🔶<sup>4</sup> | ❌ |
+| Dolby Vision P5 | ❌ | ❌ | ❌ | ✅<sup>8</sup> | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
-- Android devices running either the official Android App or using Chrome can display HDR content if the device supports HDR and the source format. Format support depends on device.
+<sup>1</sup>Includes the official Android app and Chrome on Android.
+<br />
+<sup>2</sup>Supported in Safari and the Jellyfin iOS App.
+Supported codecs are HEVC, VP9, and AV1 (AV1 on newer devices only).
+<br />
+<sup>3</sup>Refer to the
+[Roku documentation](https://developer.roku.com/docs/specs/hardware.md) for
+device-specific HDR support.
+<br />
+<sup>4</sup>Requires webOS 4+ (2020+ LG Smart TVs) for Dolby Vision support.
+<br />
+<sup>5</sup>Chrome supports HDR10 on macOS (via HEVC, VP9, and AV1) and Windows.
+Edge generally produces better colors than Chrome when playing HDR content on Windows.
+<br />
+<sup>6</sup>Requires Windows with HDR enabled in display settings.
+<br />
+<sup>7</sup>Firefox supports HDR10 on macOS only, via VP9 and AV1 codecs only.
+<br />
+<sup>8</sup>Please refer to
+[the list of Macs that support HDR](https://support.apple.com/en-us/102205).
+On non-Apple displays, other HDR formats will be tone-mapped to HDR10 by the
+client device.
+<br />
+<sup>9</sup>Dolby Vision is
+supported with HDR10 or HDR10+ fallback. HLG is only supported via Dolby Vision
+with HLG fallback, not as a standalone format.
+<br />
+<sup>10</sup>Requires the [Dolby Vision extension from the Microsoft Store](https://apps.microsoft.com/detail/9pltg1lwphlf)
+to be installed.
 
-- Macs running macOS that support HDR can play HDR content when using Safari, Chrome or Firefox on an HDR capable display as long as the source codec is supported. Safari has the most complete support, including HDR10, Dolby Vision (including P5) and HLG. Chrome and Firefox only support HDR10. Chrome supports HDR10 on HEVC, VP9 and AV1. Firefox only supports HDR on VP9 and AV1 content. Please refer to [the list of Macs that support HDR](https://support.apple.com/en-us/102205) to check if your device is supported. On non-Apple displays, other HDR formats will be tone-mapped to HDR10 by the client device.
-
-- Windows PCs with an HDR display with HDR enabled in the settings using Edge or Chrome. Dolby Vision only works in Edge and requires [the Dolby Vision add-on from the Microsoft Store](https://apps.microsoft.com/detail/9pltg1lwphlf) to be installed. Edge generally produces better colors than Chrome when playing HDR content.
-
-- Android TV devices with HDR support running the official Android TV App. HDR format support depends on the specific device you are running.
-
-- WebOS devices (Newer LG Smart TVs) running the official WebOS client supports HDR. However, [mkv containers are known to cause issues](https://github.com/jellyfin/jellyfin-web/issues/4678). Please enable the force remux mkv to mp4 option in the client settings as a workaround.
-
-- Some Chromium-based browsers on Linux will attempt Client-side HDR to SDR tonemapping. This generally looks very bad. There will be no server side involvement when this is happening.
-
-Devices not listed above do not support HDR on any official client. Any HDR content will have to be converted to SDR by the server for proper playback on these clients. For more info, please refer to our [tone-mapping documentation](/docs/general/post-install/transcoding/#hdr-to-sdr-tone-mapping)
+:::warning
+Some Chromium-based browsers on Linux will attempt client-side HDR to SDR
+tone-mapping. This generally looks very bad. There is no server-side involvement
+when this occurs.
+:::
 
 ## [Audio Compatibility](https://en.wikipedia.org/wiki/Comparison_of_video_container_formats#Audio_coding_formats_support "Wikipedia's audio codec tables")
 
