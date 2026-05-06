@@ -1005,6 +1005,30 @@ const thirdPartyClients: Array<Client> = [
       }
     ]
   }
+  {
+    id: 'yomu',
+    name: 'Yomu',
+    description: 'A native manga, webtoon, and manhwa reader for iPhone, iPad, and Mac with built-in Jellyfin support. Reads CBZ, CBR, EPUB, and PDF book libraries served by Jellyfin.',
+    smallDescription: 'A native manga / comic reader for iPhone, iPad, and Mac.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.IOS, Platform.MacOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/app/yomu/id6760745234'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://yomureader.app'
+      }
+    ]
+  },
 ];
 
 export const Clients: Array<Client> = [...officialClients, ...thirdPartyClients];
