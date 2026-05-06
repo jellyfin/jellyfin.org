@@ -3,6 +3,7 @@ import { useThemeConfig } from '@docusaurus/theme-common';
 import { groupBlogSidebarItemsByYear } from '@docusaurus/plugin-content-blog/client';
 import Heading from '@theme/Heading';
 import type { Props } from '@theme/BlogSidebar/Content';
+import { SiRss } from '@icons-pack/react-simple-icons';
 
 function BlogSidebarYearGroup({
   year,
@@ -38,6 +39,28 @@ function BlogSidebarContent({ items, yearGroupHeadingClassName, ListComponent }:
       ) : (
         <ListComponent items={items} />
       )}
+      <div
+        style={{
+          marginTop: '1rem',
+          paddingTop: '1rem',
+          borderTop: '1px solid var(--ifm-toc-border-color)'
+        }}
+      >
+        <a
+          href='https://jellyfin.org/index.xml'
+          target='_blank'
+          rel='noopener noreferrer'
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}
+          aria-label='RSS Feed'
+        >
+          <SiRss size={18} />
+          <span>RSS Feed</span>
+        </a>
+      </div>
     </>
   );
 }
