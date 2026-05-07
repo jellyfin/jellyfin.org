@@ -140,10 +140,10 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
   },
   {
     id: 'gh:builtbyproxy/jellyfin-plugin-letterboxd',
-    name: "builtbyproxy's Letterboxd Sync Repo",
+    name: "builtbyproxy's LetterboxdSync Repo",
     url: 'https://raw.githubusercontent.com/builtbyproxy/jellyfin-plugin-letterboxd/main/manifest.json',
     includes: {
-      'Letterboxd Sync': 'https://github.com/builtbyproxy/jellyfin-plugin-letterboxd'
+      LetterboxdSync: 'https://github.com/builtbyproxy/jellyfin-plugin-letterboxd'
     }
   }
 ];
