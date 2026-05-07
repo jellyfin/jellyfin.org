@@ -137,5 +137,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:builtbyproxy/jellyfin-plugin-letterboxd',
+    name: "builtbyproxy's Letterboxd Sync Repo",
+    url: 'https://raw.githubusercontent.com/builtbyproxy/jellyfin-plugin-letterboxd/main/manifest.json',
+    includes: {
+      'Letterboxd Sync': 'https://github.com/builtbyproxy/jellyfin-plugin-letterboxd'
+    }
   }
 ];
