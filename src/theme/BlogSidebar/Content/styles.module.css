@@ -1,0 +1,25 @@
+.rssContainer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+
+.rssLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-700);
+  text-decoration: none;
+}
+
+.rssLink:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.rssIcon {
+  color: var(--ifm-color-emphasis-600);
+  flex-shrink: 0;
+}

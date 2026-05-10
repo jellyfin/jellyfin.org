@@ -4,6 +4,7 @@ import { groupBlogSidebarItemsByYear } from '@docusaurus/plugin-content-blog/cli
 import Heading from '@theme/Heading';
 import type { Props } from '@theme/BlogSidebar/Content';
 import { SiRss } from '@icons-pack/react-simple-icons';
+import styles from './styles.module.css';
 
 function BlogSidebarYearGroup({
   year,
@@ -24,8 +25,19 @@ function BlogSidebarYearGroup({
   );
 }
 
+function getBlogBasePath(items: Props['items']): string {
+  const firstItem = items[0];
+  if (!firstItem || !('permalink' in firstItem)) {
+    return '/posts';
+  }
+  const permalink = firstItem.permalink;
+  return permalink.substring(0, permalink.lastIndexOf('/'));
+}
+
 function BlogSidebarContent({ items, yearGroupHeadingClassName, ListComponent }: Props): ReactNode {
   const themeConfig = useThemeConfig();
+  const blogBasePath = getBlogBasePath(items);
+  const rssPath = `${blogBasePath}/rss.xml`;
   return (
     <>
       {themeConfig.blog.sidebar.groupByYear ? (
@@ -39,25 +51,9 @@ function BlogSidebarContent({ items, yearGroupHeadingClassName, ListComponent }:
       ) : (
         <ListComponent items={items} />
       )}
-      <div
-        style={{
-          marginTop: '1rem',
-          paddingTop: '1rem',
-          borderTop: '1px solid var(--ifm-toc-border-color)'
-        }}
-      >
-        <a
-          href='https://jellyfin.org/posts/rss.xml'
-          target='_blank'
-          rel='noopener noreferrer'
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem'
-          }}
-          aria-label='RSS Feed'
-        >
-          <SiRss size={18} />
+      <div className={styles.rssContainer}>
+        <a href={rssPath} target='_blank' rel='noopener noreferrer' className={styles.rssLink} aria-label='RSS Feed'>
+          <SiRss size={14} className={styles.rssIcon} />
           <span>RSS Feed</span>
         </a>
       </div>
