@@ -125,7 +125,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: >
-            pages deploy ${{ needs.download-artifact.outputs.artifact-path }}
+            pages deploy build
             --project-name=jellyfin-org
             --branch=${{ github.event.workflow_run.head_repository.full_name }}/${{ github.event.workflow_run.head_branch }}
             --commit-hash=${{ steps.pr.outputs.sha }}
