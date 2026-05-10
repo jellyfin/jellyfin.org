@@ -14,7 +14,7 @@ on:
 jobs:
   metadata:
     name: Metadata
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.repository == 'jellyfin/jellyfin.org' }}
     runs-on: ubuntu-latest
     outputs:
       pr_number: ${{ steps.pr_number.outputs.pr_number }}
@@ -35,26 +35,7 @@ jobs:
 
           echo "pr_number=${PR_NUMBER}" >> "${GITHUB_OUTPUT}"
 
-  download-artifact:
-    name: Download workflow artifact
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.repository == 'jellyfin/jellyfin.org' }}
-    permissions:
-      actions: read
-    runs-on: ubuntu-latest
-    needs: metadata
-    outputs:
-      artifact-path: ${{ steps.download.outputs.artifact-path }}
-    steps:
-      - name: Download workflow artifact
-        id: download
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh run download "${{ github.event.workflow_run.id }}" -n "jellyfin-org__build" -D build
-          echo "artifact-path=build" >> "${GITHUB_OUTPUT}"
-
   deploy:
-    needs: download-artifact
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'master' }}
 
     name: Deploy to GitHub Pages
@@ -70,10 +51,20 @@ jobs:
     steps:
       - name: Configure Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Download workflow artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download "${{ github.event.workflow_run.id }}" \
+          --repo "${GITHUB_REPOSITORY}" \
+          -n "jellyfin-org__build" \
+          -D build
+
       - name: Create pages artifact
         run: |
           tar --dereference --hard-dereference \
-            --directory ${{ needs.download-artifact.outputs.artifact-path }} \
+            --directory build \
             -cvf "$RUNNER_TEMP/artifact.tar" \
             --exclude=.git --exclude=.github .
 
@@ -88,7 +79,7 @@ jobs:
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
 
   preview:
-    needs: [download-artifact, metadata]
+    needs: [metadata]
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch != 'master' }}
 
     name: Deploy to Cloudflare Pages
@@ -101,6 +92,16 @@ jobs:
         run: |
           echo "number=${{ needs.metadata.outputs.pr_number }}" >> $GITHUB_OUTPUT
           echo "sha=${{ github.event.workflow_run.head_sha }}" >> $GITHUB_OUTPUT
+
+      - name: Download workflow artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download "${{ github.event.workflow_run.id }}" \
+          --repo "${GITHUB_REPOSITORY}" \
+          -n "jellyfin-org__build" \
+          -D build
+
       - name: Add comment
         if: ${{ needs.metadata.outputs.pr_number != '' }}
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
