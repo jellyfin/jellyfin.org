@@ -47,7 +47,7 @@ function BlogSidebarContent({ items, yearGroupHeadingClassName, ListComponent }:
         }}
       >
         <a
-          href='https://jellyfin.org/index.xml'
+          href='https://jellyfin.org/posts/rss.xml'
           target='_blank'
           rel='noopener noreferrer'
           style={{
