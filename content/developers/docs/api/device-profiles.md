@@ -38,36 +38,8 @@ While the exact structure may vary by implementation, a typical device profile i
 ## How Device Profiles Are Used
 
 1. **Client Sends Profile**: When a client connects, it provides its device profile to the server (or the server uses a default profile for known devices).
-2. **Server Evaluates Media**: When a user requests playback, the server checks the device profile to see if the media can be sent directly or needs to be transcoded.
+2. **Server Evaluates Media**: When a user requests playback, the server checks the device profile to see if the media can be sent directly or needs to be transcoded. See [Media Info](./media-info.md) for more details.
 3. **Optimized Delivery**: The server streams the media in the best format supported by the device, using direct play whenever possible.
-
-## Fields Explained
-
-- `MaxStreamingBitrate`: The maximum bitrate the device can handle for streaming.
-- `DirectPlayProfiles`: List of containers/codecs that can be played without transcoding.
-- `TranscodingProfiles`: List of formats/codecs the server can use when transcoding for this device.
-- `MusicStreamingTranscodingBitrate` (optional): Maximum bitrate for music transcoding.
-- `ContainerProfiles`, `CodecProfiles`, etc.: Advanced options for fine-tuning compatibility.
-
-## Example (TypeScript SDK)
-
-If you are using the TypeScript SDK, you can construct a device profile like this:
-
-```ts
-import { DeviceProfile, DlnaProfileType } from '@jellyfin/sdk/lib/generated-client';
-
-const profile: DeviceProfile = {
-	Name: 'My Device',
-	MaxStreamingBitrate: 10000000,
-	DirectPlayProfiles: [
-		{ Container: 'mp3', Type: DlnaProfileType.Audio },
-		{ Container: 'mp4', Type: DlnaProfileType.Video },
-	],
-	TranscodingProfiles: [
-		{ Container: 'ts', AudioCodec: 'aac', VideoCodec: 'h264', Type: DlnaProfileType.Video },
-	],
-};
-```
 
 ## See Also
 
