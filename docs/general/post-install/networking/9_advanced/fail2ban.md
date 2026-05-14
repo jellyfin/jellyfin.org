@@ -41,6 +41,48 @@ logpath = /path_to_logs/log_*.log
 
 Save and exit nano.
 
+Jellyfin rotates logs daily and `fail2ban` cannot detect the newly created log files without service restart or config reload.
+
+To fix this you need a daily timer that `reloads` above fail2ban jellyfin jail whenever the logs are rotated at roughly around midnight.
+
+```bash
+sudoedit /etc/systemd/system/fail2ban-jellyfin-reload.timer
+```
+Add this to the new file:
+```bash
+[Unit]
+Description=Reload Fail2Ban jellyfin jail daily
+
+[Timer]
+OnCalendar=*-*-* 00:45:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+Save and exit nano.
+
+```bash
+sudoedit /etc/systemd/system/fail2ban-jellyfin-reload.service
+```
+Add this to the new file:
+```bash
+[Unit]
+Description=Reload Fail2Ban jellyfin jail
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/fail2ban-client reload jellyfin
+```
+Save and exit nano.
+
+Enable and start the service:
+
+```bash
+sudo systemctl enable --now fail2ban-jellyfin-reload.timer
+```
+
+
 Note:
 
 1. If Jellyfin is running in a docker container, add the following to the `jellyfin.local` file:
