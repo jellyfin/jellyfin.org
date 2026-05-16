@@ -31,7 +31,7 @@ To take a new Backup, enter the Jellyfin Dashboard, open the `Backups` tab and c
 - Database. Always enabled. Will contain all data from the jellyfin.db or used database provider.
 - Metadata. The contents of the metadata folder and depending on your selected options may contain metadata images.
 - Subtitles. All extracted subtitles including downloaded ones.
-- Trickplay. All trickplay data that is stored not alongside media.
+- Trickplay. All Trickplay data that is stored not alongside media.
 
 The Backup system will check for at least 5GB of free space in the backup folder where backups a written to. However this can easily not be enough if you also backup Subtitles and Trickplay so ensure you have enough free space there.
 The Backup folder is located within your Jellyfin data directory, by default:

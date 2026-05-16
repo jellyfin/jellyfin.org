@@ -11,24 +11,10 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/__build.yml
-    permissions: {}
-    with:
-      ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      upload-pages-artifact: ${{ github.event_name == 'push' && github.repository == 'jellyfin/jellyfin.org' }}
-
-  deploy:
-    if: github.event_name == 'push' && github.repository == 'jellyfin/jellyfin.org'
-    name: Deploy to GitHub Pages
-    permissions:
-      pages: write
-      id-token: write
-    concurrency: build-deploy-pages
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    name: Build
     runs-on: ubuntu-latest
-    needs: build
+    permissions:
+      contents: read
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
@@ -44,20 +30,16 @@ jobs:
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         if: github.event_name == 'pull_request'
         with:
-          github-token: ${{ secrets.JF_BOT_TOKEN }}
-          message: |
-            ## Cloudflare Pages deployment
-
-            | **Latest commit** | <code>${{ github.event.pull_request.head.sha || github.sha }}</code> |
-            |-------------------|:-:|
-            | **Status**        | 🔄 Deploying... |
-            | **Preview URL**   | Not available |
-            | **Type**          | 🔀 Preview |
-          pr-number: ${{ github.event.pull_request.number }}
-          comment-tag: CFPages-deployment
-          mode: recreate
-      - name: Download workflow artifact
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version-file: .nvmrc
+      - name: Run build
+        run: |
+          npm ci --no-audit
+          npm run build
+      - name: Upload artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: jellyfin-org__build
           path: build
