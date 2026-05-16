@@ -40,7 +40,7 @@ export type Client = {
 const officialClients: Array<Client> = [
   {
     id: 'jellyfin-media-player',
-    name: 'Jellyfin Media Player',
+    name: 'Jellyfin Desktop',
     description: 'The official Jellyfin desktop client.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop],
@@ -50,19 +50,19 @@ const officialClients: Array<Client> = [
       {
         id: 'flathub',
         name: 'Flathub (Linux)',
-        url: 'https://flathub.org/apps/details/com.github.iwalton3.jellyfin-media-player'
+        url: 'https://flathub.org/en/apps/org.jellyfin.JellyfinDesktop'
       },
       {
         id: 'gh-downloads',
         name: 'GitHub Downloads',
-        url: 'https://github.com/jellyfin/jellyfin-media-player/releases'
+        url: 'https://github.com/jellyfin/jellyfin-desktop/releases'
       }
     ],
     secondaryLinks: [
       {
         id: 'github',
         name: 'GitHub',
-        url: 'https://github.com/jellyfin/jellyfin-media-player'
+        url: 'https://github.com/jellyfin/jellyfin-desktop'
       }
     ],
     recommended: true
