@@ -5,7 +5,7 @@ sidebar_position: 9
 
 # Audio
 
-When playing audio, the client must decide whether to use a transcoding stream or a direct play stream. This is determined by the [playback info response](./media-info.md) from the server.
+When playing audio, the client must decide whether to use transcoding or perform a direct play. This is determined by the [playback info response](./media-info.md) from the server.
 
 ### 1. Use the Transcoding URL (if provided)
 
