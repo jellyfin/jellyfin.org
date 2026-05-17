@@ -54,9 +54,11 @@ This PR addresses a number of slow queries in 10.11.x, particularly for folder-b
 
 Before testing the unstable 12.0 build, please note the following:
 
-A full backup of the data directory is strongly recommended before upgrading, as this release includes database changes that prevent rolling back without a full restore.
+Unstable builds are not guaranteed to work from one build to another. These builds should only be used for testing or evaluating new features, and running them as a daily driver is at your own risk.
 
-Please remove all installed repository plugins (anything not built-in) before upgrading. Plugins will likely need time to adapt to the new database changes, so removing them before upgrading and re-adding them afterward for testing is the safest approach.
+If upgrading from an earlier version, a full backup of the data directory is strongly recommended, as this release includes database changes that prevent rolling back without a full restore.
+
+Installed repository plugins (anything not built-in) should also be removed before migrating. Plugins will likely need time to adapt to the new database changes, so re-adding them afterward is the safest approach for testing.
 
 Official plugins compatible with Jellyfin are available through the unstable plugin repository. To test plugins for 12.0:
 
