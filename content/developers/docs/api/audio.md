@@ -20,7 +20,7 @@ If no transcoding URL is provided, the client can perform direct play using the 
 - **Endpoint:** `/Audio/{itemId}/stream`
 - **Query Parameters:**
 	- `playSessionId`: The sessionId returned by the posted playback info operation (required for authentication).
-	- `static=true`: Ensures that transcoding or remixing is not performed.
+	- `static=true`: Ensures that transcoding or remuxing is not performed.
 	- `startTimeTicks=0`: (optional) Start at the beginning
 
 ### Notes
