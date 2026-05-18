@@ -52,7 +52,7 @@ Devices like Google Chromecast or Google Streamer use hardcoded DNS Servers - th
 There are multiple workarounds for this issue.
 
 The easiest involves the usage of IPv6 Entries in the public DNS.
-Since IPv6 addresses do not differentiate between local and public, the address will be abled to be resolved locally.
+Since IPv6 addresses do not differentiate between local and public, the address will be able to be resolved locally.
 This, however, requires the use of a public DNS server - The Jellyfin Server does not have to be accessible from the outside though!
 
 </details>
