@@ -4,6 +4,11 @@
 
 External Subtitles and audio tracks can be added with file suffixes.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs defaultValue={props.defaultTab} queryString="libType">
+<TabItem value="movies" label="Movies">
 ```txt
 Movies
 └── Film (1986)
@@ -14,7 +19,8 @@ Movies
     ├── Film.en.sdh.srt
     └── Film.English Commentary.en.mp3
 ```
-
+</TabItem>
+<TabItem value="shows" label="Shows">
 ```txt
 Shows
 └── Series Name A (2021)
@@ -23,6 +29,8 @@ Shows
         ├── Series Name A (2021) S01E01 Title.ja.ass
         └── Series Name A (2021) S01E01 Title.commentary.ja.aac
 ```
+</TabItem>
+</Tabs>
 
 Each title/flag field can be a generic string, or a special flag. A file can have multiple flags, separated with `.`
 
