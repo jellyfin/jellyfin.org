@@ -6,8 +6,12 @@
  */
 
 html {
-  -moz-font-feature-settings: 'liga' on;
-  font-feature-settings: 'liga';
+  /* Note: "normal" activates all common ligatures */
+  font-variant-ligatures: normal;
+}
+
+code {
+  font-variant-ligatures: none;
 }
 
 :root {

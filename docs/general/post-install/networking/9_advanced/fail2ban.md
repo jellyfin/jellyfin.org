@@ -13,6 +13,7 @@ Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force 
 - Jellyfin remotely accessible
 - Fail2ban installed and running
 - Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/` for desktop and `/config/log/` for docker containers.
+- Jellyfin log level set to `Info` (failed authentication entries are not logged at `Error`). This setting is can be found in `logging.json`
 
 ## Step one: create the jail
 
@@ -35,10 +36,52 @@ filter = jellyfin
 maxretry = 3
 bantime = 86400
 findtime = 43200
-logpath = /path_to_logs/jellyfin*.log
+logpath = /path_to_logs/log_*.log
 ```
 
 Save and exit nano.
+
+Jellyfin rotates logs daily and `fail2ban` cannot detect the newly created log files without service restart or config reload.
+
+To fix this you need a daily timer that `reloads` above fail2ban jellyfin jail whenever the logs are rotated at roughly around midnight.
+
+```bash
+sudoedit /etc/systemd/system/fail2ban-jellyfin-reload.timer
+```
+Add this to the new file:
+```bash
+[Unit]
+Description=Reload Fail2Ban jellyfin jail daily
+
+[Timer]
+OnCalendar=*-*-* 00:45:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+Save and exit nano.
+
+```bash
+sudoedit /etc/systemd/system/fail2ban-jellyfin-reload.service
+```
+Add this to the new file:
+```bash
+[Unit]
+Description=Reload Fail2Ban jellyfin jail
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/fail2ban-client reload jellyfin
+```
+Save and exit nano.
+
+Enable and start the service:
+
+```bash
+sudo systemctl enable --now fail2ban-jellyfin-reload.timer
+```
+
 
 Note:
 
@@ -82,7 +125,7 @@ sudo systemctl status fail2ban
 Assuming you've at least one failed authentication attempt, you can test this new jail with `fail2ban-regex`:
 
 ```bash
-sudo fail2ban-regex /path_to_logs/*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
+sudo fail2ban-regex /path_to_logs/log_*.log /etc/fail2ban/filter.d/jellyfin.conf --print-all-matched
 ```
 
 ---

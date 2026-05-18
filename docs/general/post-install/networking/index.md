@@ -57,6 +57,18 @@ This, however, requires the use of a public DNS server - The Jellyfin Server doe
 
 </details>
 
+### Allowing Access
+
+Jellyfin provides flexible access control options. External access can either be completely disabled or selectively enabled for individual users.
+
+For these controls to function correctly, Jellyfin must know which IP ranges should be considered part of the local network.
+These ranges can be configured under `Networking` -> `Local Networks` using comma-separated CIDR notation entries.
+
+Global external access settings can be configured under `Networking` -> `Remote Access Settings`.
+User-specific external access permissions can be configured under `Users` -> `Edit User` -> `Allow remote connections to this server`.
+
+Ensure that the configured access permissions align with the network scope defined in the local network settings.
+
 ### Firewall / Port Forwarding
 
 Networks are usually divided from each other by firewalls. These block all incoming traffic and are meant to protect the network.
@@ -100,7 +112,7 @@ Here is linked below how to open ports for:
 
 Since Jellyfin is entirely self-hosted, you must manually expose it to the internet.
 To do so, you need a method to access the HTTP(S) ports remotely.
-Automatic discovery only works locally and should not be exposed externally
+Automatic discovery only works locally and should not be exposed externally.
 
 To access a server remotely there will need to be a way to find it or its network on the internet.
 This can be done through the public IP Address of the Device or for IPv6 the Server's directly.
