@@ -20,13 +20,13 @@ If no transcoding URL is provided, the client can perform direct play using the 
 - **Endpoint:** `/Audio/{itemId}/stream`
 - **Query Parameters:**
 	- `playSessionId`: The sessionId returned by the posted playback info operation (required for authentication).
-	- `static=true`: Ensures that no encoding is performed (static file delivery).
+	- `static=true`: Ensures that transcoding or remixing is not performed.
 	- `startTimeTicks=0`: (optional) Start at the beginning
 
 ### Notes
 
 - Always use the `sessionId` (or `playSessionId`) returned by the posted playback info operation for authentication.
-- The `static=true` parameter ensures the server does not transcode or re-encode the file for direct play.
+- The `static=true` parameter ensures the server does not transcode or remux the file for direct play.
 - Always use the transcoding URL if it was provided, instead of building a URL manually.
 
 For more details, see the [Jellyfin Audio API Swagger page](https://api.jellyfin.org/#tag/Audio/operation/GetAudioStream).
