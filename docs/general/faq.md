@@ -15,7 +15,7 @@ We explain the rationale for our fork on our [about page](/docs/general/about).
 Chances are, we would like to support it, but it has not been implemented yet.
 Jellyfin is an entirely volunteer-driven project, so until a developer is able and willing to implement a feature, it likely will not be done.
 We track community feature requests on [our Fider instance](https://features.jellyfin.org), so please check that out, upvote the features you like, and add your own requests. Note that the Fider does not guarantee prioritization, but instead provides developers a way of seeing what features might be popular to decide whether to work on them or not. This does unfortunately mean that even highly-soughtafter features might not be implemented until someone both interested and able to work on them comes along.
-If you're a developer and are interested in helping out, [please hack away](/docs/general/contributing) and let us know [on Matrix](/docs/general/getting-help) so we can help.
+If you're a developer and are interested in helping out, [please hack away](/developers/docs/contributing) and let us know [on Matrix](/docs/general/getting-help) so we can help.
 
 ## When will release \{X} happen? When will feature \{X} be available?
 
@@ -37,15 +37,15 @@ This normally comes down to one of the following issues:
 
 ## How can I contribute to this project?
 
-Please see our [contributing guide](/docs/general/contributing) page for details on how to get started.
+Please see our [contributing guide](/developers/docs/contributing) page for details on how to get started.
 We are always looking for C# and frontend developers, mobile app developers, translators, and documentation writers to help!
 
 ## How do I request a new feature?
 
-Please see our [requesting features](/docs/general/contributing/issues#requesting-features) page for details in requesting a new feature in Jellyfin.
+Please see our [requesting features](/developers/docs/contributing/issues#requesting-features) page for details in requesting a new feature in Jellyfin.
 
 ## How do I support this project?
 
-All we can ask is you [use Jellyfin](/docs/general/installation), [report any bugs](/docs/general/contributing/issues#reporting-bugs), and tell your friends about us!
+All we can ask is you [use Jellyfin](/docs/general/installation), [report any bugs](/developers/docs/contributing/issues#reporting-bugs), and tell your friends about us!
 Really, we're just people volunteering our time to help build a better media system, so joining the community is the best way to show your support.
-We do offer a donations page [on OpenCollective](https://opencollective.com/jellyfin), however please note that these funds are **only** used for infrastructure. All our developers are unpaid volunteers on principle. Many individual developers that are active in the project accept [donations](/docs/general/contributing/direct-donations.mdx) however.
+We do offer a donations page [on OpenCollective](https://opencollective.com/jellyfin), however please note that these funds are **only** used for infrastructure. All our developers are unpaid volunteers on principle. Many individual developers that are active in the project accept [donations](/developers/docs/contributing/direct-donations) however.
