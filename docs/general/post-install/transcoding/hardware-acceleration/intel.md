@@ -809,6 +809,11 @@ Root permission is required.
    - On Debian:
 
      ```shell
+     sudo apt update && sudo apt install -y firmware-intel-graphics
+     ```
+
+     Or, if you're on an older debian version :
+     ```shell
      sudo apt update && sudo apt install -y firmware-linux-nonfree
      ```
 
@@ -833,7 +838,7 @@ Root permission is required.
      sudo cp -r linux-firmware/i915 linux-firmware/xe /usr/lib/firmware
      ```
 
-2. Add the required i915 kernel parameter on the host system to enable loading GuC and HuC firmware:
+3. Add the required i915 kernel parameter on the host system to enable loading GuC and HuC firmware:
    - Check the kernel module in use, goto step 3 if **xe** kernel driver is in use.
 
    :::note
@@ -866,7 +871,7 @@ Root permission is required.
    sudo sh -c "echo 'options i915 enable_guc=2' >> /etc/modprobe.d/i915.conf"
    ```
 
-3. Update the initramfs and grub. The commands varies between distros.
+4. Update the initramfs and grub. The commands varies between distros.
    - On Debian & Ubuntu:
 
      ```shell
@@ -879,7 +884,7 @@ Root permission is required.
      sudo mkinitcpio -P && sudo update-grub
      ```
 
-4. Reboot the system and check the GuC & HuC status with the following commands, make sure there is no FAIL or ERROR in the outputs.
+5. Reboot the system and check the GuC & HuC status with the following commands, make sure there is no FAIL or ERROR in the outputs.
 
    ```shell
    sudo reboot
@@ -902,7 +907,7 @@ Root permission is required.
      sudo cat /sys/kernel/debug/dri/0/i915_huc_load_status
      ```
 
-5. Now you can safely enable the Intel Low-Power encoder in the Jellyfin dashboard.
+6. Now you can safely enable the Intel Low-Power encoder in the Jellyfin dashboard.
 
 :::tip
 
