@@ -38,4 +38,12 @@ Supported separators are:
 - `-` (dash)
 - `_` (underscore)
 
-This does not work with multiple versions or merging.
+Multiple parts can also be used in conjunction with multiple versions (stacked multi-versions).
+
+```txt
+Series Name
+└── Season 01
+    ├── Series Name S01E01 - 1080p - part1.mkv
+    ├── Series Name S01E01 - 1080p - part2.mkv
+    └── Series Name S01E01 - 4K.mkv
+```
