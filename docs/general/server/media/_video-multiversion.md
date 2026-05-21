@@ -2,14 +2,37 @@
 
 ## Multiple Versions
 
-Jellyfin supports storing multiple versions of the same video within a single movie folder by using filename suffixes. Each file **must** begin exactly with the parent folder name - including any year and/or metadata provider IDs - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate movies.
+Jellyfin supports storing multiple versions of the same video within a single folder by using filename suffixes. Each file **must** begin exactly with the base name - including any year, metadata provider IDs, or episode numbers - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items.
 
-```txt
-Movie (2021) [imdbid-tt12801262]
-├── Movie (2021) [imdbid-tt12801262] - 2160p.mp4
-├── Movie (2021) [imdbid-tt12801262] - 1080p.mp4
-└── Movie (2021) [imdbid-tt12801262] - Directors Cut.mp4
-```
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value='movies' label='Movies'>
+    For movies, each file must begin with the parent folder name.
+
+    ```txt
+    Movie (2021) [imdbid-tt12801262]
+    ├── Movie (2021) [imdbid-tt12801262] - 2160p.mp4
+    ├── Movie (2021) [imdbid-tt12801262] - 1080p.mp4
+    └── Movie (2021) [imdbid-tt12801262] - Directors Cut.mp4
+    ```
+
+  </TabItem>
+  <TabItem value='shows' label='Shows'>
+    For episodes, each file must begin with the standard episode naming.
+
+    ```txt
+    Shows
+    └── Series Name (2010)
+        └── Season 01
+            ├── Series Name S01E01 - 1080p.mkv
+            ├── Series Name S01E01 - 720p.mkv
+            └── Series Name S01E01 - Extended.mkv
+    ```
+
+  </TabItem>
+</Tabs>
 
 To distinguish between versions, each filename needs to have a space, hyphen, space, and then a label. Labels are not predetermined and can be made up by the user. The hyphen is required. Periods, commas and other characters are not supported.
 
@@ -23,9 +46,9 @@ Movies
     └── Best_Movie_Ever (2019) - [Directors Cut].mp4
 ```
 
-If labels are not added to the end of filenames, as shown above, each file will be treated as a unique movie and not a version of the same movie.
+If labels are not added to the end of filenames, as shown above, each file will be treated as a unique item and not a version of the same video.
 
-Movie versions are presented in an alphabetically sorted list. An exception applies to resolution names, which are sorted in descending order from highest to lowest resolution. A version name qualifies as a resolution name when ending with either a `p` or an `i`. The first movie version in the list is the one selected by default. An example of sorting as seen below.
+Video versions are presented in an alphabetically sorted list. An exception applies to resolution names, which are sorted in descending order from highest to lowest resolution. A version name qualifies as a resolution name when ending with either a `p` or an `i`. The first video version in the list is the one selected by default. An example of sorting as seen below.
 
 - Resolution sorting: `1080p`, `2160p`, `360p`, `480p`, `720p` → `2160p`, `1080p`, `720p`, `480p`, `360p`
 - Named versions sorting: `Extended Cut`, `Cinematic Cut`, `Director's Cut` → `Cinematic Cut`, `Director's Cut`, `Extended Cut`
