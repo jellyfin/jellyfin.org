@@ -56,3 +56,12 @@ import Podman from './\_container-podman.md';
 
 </TabItem>
 </Tabs>
+
+# Troubleshooting
+## Device: Raspberry Pi 4 | 2GB RAM
+I deployed Jellyfin on my Raspberry Pi using the docker compose file. I was able to deploy healthy but upon trying to access the server through multiple clients, I got a `DbUpdateConcurrencyException` exception. Both clients were trying to write to the same sqllite file around the same time. To fix the `DbUpdateConcurrencyException` exception, execute the following code 
+```bash
+sqlite3 /path/to/jellyfin/config/data/jellyfin.db "PRAGMA journal_mode=WAL;"
+```
+redploy the container and then you should be good to go using multiple clients.
+
