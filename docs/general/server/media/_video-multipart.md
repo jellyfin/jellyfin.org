@@ -2,8 +2,6 @@
 
 ## Multiple Parts
 
-Content that is split into multiple files can be stacked together if named correctly. Files should be named as follows:
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

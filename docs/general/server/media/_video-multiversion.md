@@ -4,29 +4,35 @@
 
 Jellyfin supports storing multiple versions of the same video within a single folder by using filename suffixes. Each file **must** begin exactly with the base name - including any year, metadata provider IDs, or episode numbers - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items.
 
-### Movies
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-For movies, each file must begin with the parent folder name.
+<Tabs>
+  <TabItem value='movies' label='Movies'>
+    For movies, each file must begin with the parent folder name.
 
-```txt
-Movie (2021) [imdbid-tt12801262]
-├── Movie (2021) [imdbid-tt12801262] - 2160p.mp4
-├── Movie (2021) [imdbid-tt12801262] - 1080p.mp4
-└── Movie (2021) [imdbid-tt12801262] - Directors Cut.mp4
-```
+    ```txt
+    Movie (2021) [imdbid-tt12801262]
+    ├── Movie (2021) [imdbid-tt12801262] - 2160p.mp4
+    ├── Movie (2021) [imdbid-tt12801262] - 1080p.mp4
+    └── Movie (2021) [imdbid-tt12801262] - Directors Cut.mp4
+    ```
 
-### TV Episodes
+  </TabItem>
+  <TabItem value='shows' label='Shows'>
+    For episodes, each file must begin with the standard episode naming.
 
-For episodes, each file must begin with the standard episode naming.
+    ```txt
+    Shows
+    └── Series Name (2010)
+        └── Season 01
+            ├── Series Name S01E01 - 1080p.mkv
+            ├── Series Name S01E01 - 720p.mkv
+            └── Series Name S01E01 - Extended.mkv
+    ```
 
-```txt
-Shows
-└── Series Name (2010)
-    └── Season 01
-        ├── Series Name S01E01 - 1080p.mkv
-        ├── Series Name S01E01 - 720p.mkv
-        └── Series Name S01E01 - Extended.mkv
-```
+  </TabItem>
+</Tabs>
 
 To distinguish between versions, each filename needs to have a space, hyphen, space, and then a label. Labels are not predetermined and can be made up by the user. The hyphen is required. Periods, commas and other characters are not supported.
 
