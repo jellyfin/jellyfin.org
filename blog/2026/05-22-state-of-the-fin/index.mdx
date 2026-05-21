@@ -73,9 +73,7 @@ After migrating:
 If you run into issues, please prefix bug reports with "[12.0]".
 #### Client Development Changes
 
-As mentioned [before](/blog/2025/10-19-jellyfin-release-10.11.0/index.mdx#client-development-changes), the API will no longer allow deprecated authorization mechanisms by default, so clients and tooling that haven't already migrated will need to update. Any new API changes or breaking modifications will now be deferred to 13.0, allowing client developers to begin targeting a stable API surface ahead of release.
-
-We've also added an option for developers to test their clients with deprecated authorization methods fully disabled. More details on how to authorize and run these tests are available in this [document](https://gist.github.com/nielsvanvelzen/ea047d9028f676185832e51ffaf12a6f).
+As mentioned [before](/blog/2025/10-19-jellyfin-release-10.11.0/index.mdx#client-development-changes), the API will no longer allow deprecated authorization mechanisms by default, so clients and tooling that haven't already migrated will need to update. Any new API changes or breaking modifications not already in progress will now be deferred to 13.0, allowing client developers to begin targeting a stable API surface ahead of release.
 
 That said, we've temporarily reverted the [default enforcement](https://github.com/jellyfin/jellyfin/pull/16754) during the testing phase, since some of our official clients are still in the process of completing the transition.
 
