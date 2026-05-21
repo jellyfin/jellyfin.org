@@ -1,0 +1,117 @@
+<svg viewBox="0 0 720 330" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Activity by month">
+  <defs>
+    <linearGradient id="sotf-activity-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#AA5CC3" />
+      <stop offset="100%" stop-color="#00A4DC" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M0.75,10.75 A10.0,10.0 0 0 1 10.75,0.75 L709.25,0.75 A10.0,10.0 0 0 1 719.25,10.75 L719.25,40.00 L0.75,40.00 Z"
+    fill="url(#sotf-activity-grad)"
+  />
+  <text
+    x="360.0"
+    y="26.0"
+    text-anchor="middle"
+    font-size="17"
+    font-weight="700"
+    font-family="Plus Jakarta Sans, system-ui, -apple-system, Segoe UI, sans-serif"
+    fill="#ffffff"
+  >Activity by Month</text>
+  <rect x="0.75" y="0.75" width="718.5" height="328.5" rx="10" ry="10" fill="none" stroke="url(#sotf-activity-grad)" stroke-width="1.5" />
+
+  <line x1="56" y1="270.0" x2="660" y2="270.0" stroke="currentColor" stroke-width="0.5" opacity="0.15" />
+  <text x="48" y="274.0" text-anchor="end" font-size="10" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">0</text>
+  <line x1="56" y1="220.0" x2="660" y2="220.0" stroke="currentColor" stroke-width="0.5" opacity="0.15" />
+  <text x="48" y="224.0" text-anchor="end" font-size="10" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">150</text>
+  <line x1="56" y1="170.0" x2="660" y2="170.0" stroke="currentColor" stroke-width="0.5" opacity="0.15" />
+  <text x="48" y="174.0" text-anchor="end" font-size="10" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">300</text>
+  <line x1="56" y1="120.0" x2="660" y2="120.0" stroke="currentColor" stroke-width="0.5" opacity="0.15" />
+  <text x="48" y="124.0" text-anchor="end" font-size="10" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">450</text>
+  <line x1="56" y1="70.0" x2="660" y2="70.0" stroke="currentColor" stroke-width="0.5" opacity="0.15" />
+  <text x="48" y="74.0" text-anchor="end" font-size="10" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">600</text>
+
+  <text x="56.0" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">May</text>
+  <text x="110.9" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Jun</text>
+  <text x="165.8" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Jul</text>
+  <text x="220.7" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Aug</text>
+  <text x="275.6" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Sep</text>
+  <text x="330.5" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Oct</text>
+  <text x="385.5" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Nov</text>
+  <text x="440.4" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Dec</text>
+  <text x="495.3" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Jan</text>
+  <text x="550.2" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Feb</text>
+  <text x="605.1" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Mar</text>
+  <text x="660.0" y="288.0" text-anchor="middle" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.7">Apr</text>
+
+  <polyline
+    points="56.0,155.7 110.9,143.7 165.8,184.7 220.7,172.7 275.6,155.3 330.5,125.3 385.5,179.7 440.4,131.0 495.3,176.7 550.2,209.3 605.1,148.7 660.0,157.0"
+    fill="none"
+    stroke="#22c55e"
+    stroke-width="2"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+  <circle cx="56.0" cy="155.7" r="3" fill="#22c55e"><title>May: 343 prs merged</title></circle>
+  <circle cx="110.9" cy="143.7" r="3" fill="#22c55e"><title>Jun: 379 prs merged</title></circle>
+  <circle cx="165.8" cy="184.7" r="3" fill="#22c55e"><title>Jul: 256 prs merged</title></circle>
+  <circle cx="220.7" cy="172.7" r="3" fill="#22c55e"><title>Aug: 292 prs merged</title></circle>
+  <circle cx="275.6" cy="155.3" r="3" fill="#22c55e"><title>Sep: 344 prs merged</title></circle>
+  <circle cx="330.5" cy="125.3" r="3" fill="#22c55e"><title>Oct: 434 prs merged</title></circle>
+  <circle cx="385.5" cy="179.7" r="3" fill="#22c55e"><title>Nov: 271 prs merged</title></circle>
+  <circle cx="440.4" cy="131.0" r="3" fill="#22c55e"><title>Dec: 417 prs merged</title></circle>
+  <circle cx="495.3" cy="176.7" r="3" fill="#22c55e"><title>Jan: 280 prs merged</title></circle>
+  <circle cx="550.2" cy="209.3" r="3" fill="#22c55e"><title>Feb: 182 prs merged</title></circle>
+  <circle cx="605.1" cy="148.7" r="3" fill="#22c55e"><title>Mar: 364 prs merged</title></circle>
+  <circle cx="660.0" cy="157.0" r="3" fill="#22c55e"><title>Apr: 339 prs merged</title></circle>
+
+  <polyline
+    points="56.0,129.7 110.9,123.0 165.8,171.0 220.7,159.7 275.6,137.3 330.5,102.0 385.5,161.3 440.4,105.3 495.3,148.0 550.2,190.7 605.1,110.7 660.0,107.0"
+    fill="none"
+    stroke="#ef4444"
+    stroke-width="2"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+  <circle cx="56.0" cy="129.7" r="3" fill="#ef4444"><title>May: 421 issues closed</title></circle>
+  <circle cx="110.9" cy="123.0" r="3" fill="#ef4444"><title>Jun: 441 issues closed</title></circle>
+  <circle cx="165.8" cy="171.0" r="3" fill="#ef4444"><title>Jul: 297 issues closed</title></circle>
+  <circle cx="220.7" cy="159.7" r="3" fill="#ef4444"><title>Aug: 331 issues closed</title></circle>
+  <circle cx="275.6" cy="137.3" r="3" fill="#ef4444"><title>Sep: 398 issues closed</title></circle>
+  <circle cx="330.5" cy="102.0" r="3" fill="#ef4444"><title>Oct: 504 issues closed</title></circle>
+  <circle cx="385.5" cy="161.3" r="3" fill="#ef4444"><title>Nov: 326 issues closed</title></circle>
+  <circle cx="440.4" cy="105.3" r="3" fill="#ef4444"><title>Dec: 494 issues closed</title></circle>
+  <circle cx="495.3" cy="148.0" r="3" fill="#ef4444"><title>Jan: 366 issues closed</title></circle>
+  <circle cx="550.2" cy="190.7" r="3" fill="#ef4444"><title>Feb: 238 issues closed</title></circle>
+  <circle cx="605.1" cy="110.7" r="3" fill="#ef4444"><title>Mar: 478 issues closed</title></circle>
+  <circle cx="660.0" cy="107.0" r="3" fill="#ef4444"><title>Apr: 489 issues closed</title></circle>
+
+  <polyline
+    points="56.0,253.3 110.9,249.7 165.8,254.0 220.7,254.7 275.6,253.3 330.5,249.0 385.5,250.3 440.4,245.0 495.3,249.3 550.2,254.0 605.1,245.7 660.0,246.0"
+    fill="none"
+    stroke="#eab308"
+    stroke-width="2"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+  <circle cx="56.0" cy="253.3" r="3" fill="#eab308"><title>May: 50 contributors</title></circle>
+  <circle cx="110.9" cy="249.7" r="3" fill="#eab308"><title>Jun: 61 contributors</title></circle>
+  <circle cx="165.8" cy="254.0" r="3" fill="#eab308"><title>Jul: 48 contributors</title></circle>
+  <circle cx="220.7" cy="254.7" r="3" fill="#eab308"><title>Aug: 46 contributors</title></circle>
+  <circle cx="275.6" cy="253.3" r="3" fill="#eab308"><title>Sep: 50 contributors</title></circle>
+  <circle cx="330.5" cy="249.0" r="3" fill="#eab308"><title>Oct: 63 contributors</title></circle>
+  <circle cx="385.5" cy="250.3" r="3" fill="#eab308"><title>Nov: 59 contributors</title></circle>
+  <circle cx="440.4" cy="245.0" r="3" fill="#eab308"><title>Dec: 75 contributors</title></circle>
+  <circle cx="495.3" cy="249.3" r="3" fill="#eab308"><title>Jan: 62 contributors</title></circle>
+  <circle cx="550.2" cy="254.0" r="3" fill="#eab308"><title>Feb: 48 contributors</title></circle>
+  <circle cx="605.1" cy="245.7" r="3" fill="#eab308"><title>Mar: 73 contributors</title></circle>
+  <circle cx="660.0" cy="246.0" r="3" fill="#eab308"><title>Apr: 72 contributors</title></circle>
+
+  <circle cx="200" cy="316" r="4" fill="#22c55e" />
+  <text x="210" y="320" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.85">PRs Merged</text>
+  <circle cx="340" cy="316" r="4" fill="#ef4444" />
+  <text x="350" y="320" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.85">Issues Closed</text>
+  <circle cx="480" cy="316" r="4" fill="#eab308" />
+  <text x="490" y="320" font-size="11" font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="currentColor" opacity="0.85">Contributors</text>
+</svg>
