@@ -372,7 +372,7 @@ Root permission is required.
 5. Update dynamic links and restart the Docker service:
 
    ```shell
-   docker exec -it jellyfin ldconfig
+   docker exec -it --user root jellyfin ldconfig
    sudo systemctl restart docker
    ```
 
