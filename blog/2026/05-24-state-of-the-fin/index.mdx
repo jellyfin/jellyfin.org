@@ -24,8 +24,6 @@ As with pretty much every open source project, we have been inundated with AI-au
 
 The Jellyfin Team is made up of a lot of different people, and everyone has different levels of acceptance of/interest in code that an AI agent has contributed to. This policy has been made to try and help find a path that everyone can at least appreciate, even if they don't fully agree.
 
-You may also see AI agents committing to projects that are run by the Jellyfin development team. These are not "AI slop" commits. The development team may be experimenting with (or fully using) an agent to help handle some of the tasks involved with writing and managing a large project like this, but the author (not the AI one) is experienced enough with the code to find the stuff the agent does wrong and fix it. That's why they're on the development team.
-
 #### Burnout / Remember the Person
 
 Jellyfin has been growing quickly as the landscape around us matures and changes. This is both a blessing and a curse. It is great that Jellyfin is so popular and loved by so many, however the increased support requests, combined with the AI code submissions, have led to burnout at various levels of the development and admin team. Abuse from users when something isn't working or a change isn't accepted only increases the loss of motivation. This has already led to delays in client and server improvements.
@@ -42,9 +40,9 @@ And of course, if you want to contribute code, we welcome it! Bug fixes are alwa
 
 #### What's New
 
-We've continued pushing bug and [security](https://github.com/jellyfin/jellyfin/security/advisories) fixes to the stable release. The upcoming 10.11.9 release is expected to be the final release in that branch, and we're now focused on 12.0, with the first release candidate planned in the coming weeks. A few items still need to be addressed before we can ship RC1: [Jellyfin 12.0](https://github.com/orgs/jellyfin/projects/73)
+We've continued pushing bug and [security](https://github.com/jellyfin/jellyfin/security/advisories) fixes to the stable release. Following the 10.11.9 release, development attention has largely shifted toward finalizing 12.0 ahead of the upcoming release candidate phase. A few items still need to be addressed before we can ship RC1: [Jellyfin 12.0](https://github.com/orgs/jellyfin/projects/73)
 
-For those following GitHub, the [Performance PR](https://github.com/jellyfin/jellyfin/pull/16062) has been merged into master and is available for testing in the weekly unstable releases. These are published every Monday, though we may push additional out-of-band builds for a while to support testing. Unstable builds can be accessed via Docker using the "unstable" tag or by selecting the unstable tab on our download page.
+The [Performance PR](https://github.com/jellyfin/jellyfin/pull/16062) which forms the foundation for much of the work in 12.0, has been merged into master and is now part of the weekly unstable releases. These are published every Monday, though we may push additional out-of-band builds for a while to support testing. Unstable builds can be accessed via Docker using the "unstable" tag or by selecting the unstable tab on our downloads page.
 
 This PR addresses a number of slow queries in 10.11.x, particularly for folder-based libraries like home videos & photos, and books. Other areas have also seen improvements, including collections, music libraries, playlists, and homepage load times. For more details, see the PR description.
 
@@ -73,9 +71,7 @@ After migrating:
 If you run into issues, please prefix bug reports with "[12.0]".
 #### Client Development Changes
 
-As mentioned [before](/blog/2025/10-19-jellyfin-release-10.11.0/index.mdx#client-development-changes), the API will no longer allow deprecated authorization mechanisms by default, so clients and tooling that haven't already migrated will need to update.
-
-We've also added an option for developers to test their clients with deprecated authorization methods fully disabled. More details on how to authorize and run these tests are available in this [document](https://gist.github.com/nielsvanvelzen/ea047d9028f676185832e51ffaf12a6f).
+As mentioned [before](/blog/2025/10-19-jellyfin-release-10.11.0/index.mdx#client-development-changes), the API will no longer allow deprecated authorization mechanisms by default, so clients and tooling that haven't already migrated will need to update. Any new API changes or breaking modifications not already in progress will now be deferred to 13.0, allowing client developers to begin targeting a stable API surface ahead of release.
 
 That said, we've temporarily reverted the [default enforcement](https://github.com/jellyfin/jellyfin/pull/16754) during the testing phase, since some of our official clients are still in the process of completing the transition.
 
