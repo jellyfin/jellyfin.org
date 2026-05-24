@@ -110,7 +110,7 @@ This version of the app will require Jellyfin server 10.11 or newer. Due to comm
 
 *- [Niels van Velzen](https://github.com/nielsvanvelzen)*
 
-### [Jellyfin for Desktop](https://github.com/jellyfin/jellyfin-desktop)
+### [Jellyfin Desktop](https://github.com/jellyfin/jellyfin-desktop)
 
 #### What's New
 Jellyfin Desktop is being completely rewritten to address several performance, feature, and maintainability issues. Qt and its Chromium-based QtWebEngine have been replaced with Chromium Embedded Framework (CEF) to drastically improve responsiveness. The removal of Qt means we are no longer bound to a dependency that has historically been problematic when maintaining this project (Qt5->6, Qt WebEngine memory leaks). As for the audio/video side of things, we've switched from the legacy libmpv pipeline to the same modern pipeline that standalone mpv uses. This enables both better GPU acceleration (`vo=gpu-next`) and native HDR playback (Wayland/macOS/Windows). CEF and mpv are integrated via platform-native mechanisms that seamlessly overlay CEF on top of the video playback performance of standalone mpv. Long term, this should allow us to combine the functionality of Jellyfin MPV Shim into the Jellyfin Desktop codebase.
