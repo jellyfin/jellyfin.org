@@ -139,7 +139,8 @@ Site content is licensed <a href='http://creativecommons.org/licenses/by-nd/4.0/
         fromExtensions: ['html'],
         redirects: redirects
       } satisfies ClientRedirects.Options
-    ]
+    ],
+    'docusaurus-plugin-copy-page-button'
   ],
   themes: [
     [
