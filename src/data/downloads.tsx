@@ -307,12 +307,7 @@ sudo apt install jellyfin`}
       {
         id: 'arch-stable-link',
         name: 'Arch Downloads',
-        url: 'https://archlinux.org/packages/?q=jellyfin'
-      },
-      {
-        id: 'arch-aur-link',
-        name: 'AUR Downloads',
-        url: 'https://aur.archlinux.org/packages/?K=jellyfin'
+        url: 'https://archlinux.org/packages/extra/x86_64/jellyfin-server/'
       }
     ],
     unstableButtons: [
@@ -332,7 +327,7 @@ makepkg -si`}
       {
         id: 'arch-aur-link',
         name: 'AUR Downloads',
-        url: 'https://aur.archlinux.org/packages/?K=jellyfin'
+        url: 'https://aur.archlinux.org/packages/jellyfin-server-git'
       }
     ],
     otherButtons: []

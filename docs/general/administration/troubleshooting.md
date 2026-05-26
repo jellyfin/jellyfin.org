@@ -49,10 +49,7 @@ To enable debug logging, create the `logging.json` file and add the following co
 {
   "Serilog": {
     "MinimumLevel": {
-      "Default": "Debug",
-      "Override": {
-        "": "Debug"
-      }
+      "Default": "Debug"
     }
   }
 }
@@ -216,3 +213,31 @@ If your active devices section in the dashboard is not showing progress of the c
 ```bash
 timedatectl set-ntp true
 ```
+
+## Database Locked Errors
+
+When encountering issues with failed scans or inconsistent data, check your log file(s) for errors like "Database Locked". If you encounter those you should first check your parallel scan task limit in your admin dashboard and set that lower. If its set to 0 set it to 1/2 your cores. If that does not help, you can set the locking mode instead (keep the task limit to a reasonable low number too).
+
+You have 3 options to set the locking mode to:
+
+- `NoLock` - This is the default mode which should work for most users
+- `Optimistic` - Defines that all writes should be attempted and should be retried when they fail.
+- `Pessimistic` - Defines a behavior that always blocks all reads while any one write is done.
+
+Stop your Jellyin server and navigate to its config directory. There are a lot of xml files, look for the `database.xml` file and edit the `LockingBehavior` option:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<DatabaseConfigurationOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DatabaseType>Jellyfin-SQLite</DatabaseType>
+  // highlight-start
+  <LockingBehavior>Optimistic</LockingBehavior>
+  // highlight-end
+</DatabaseConfigurationOptions>
+```
+
+then start your jellyfin instance again. If this still does not help with the issues, you can try setting the `LockingBehavior` to `Pessimistic` instead but this comes with a significant performance impact so it is only recommended when `Optimistic` does not help with the issues.
+
+### LXC specific issues
+
+It has been brought to the team's attention that there are issues with LXC specifically. If you are getting such errors on LXC after setting lock mode to `Optimistic`, it is recommended that you migrate to full virtualization (virtual machines) or Docker. There is unlikely to be a solution for LXC any time soon, and we will be unable to provide any support for database locked problems on LXC.

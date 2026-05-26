@@ -138,6 +138,13 @@ a.pills__item:not(.pills__item--active) {
   }
 }
 
+.tabs-container {
+  border: 1px solid #fff4;
+  background-color: #fff1;
+  border-radius: 8px;
+  padding: 16px;
+}
+
 select {
   border: inherit;
   font-size: inherit;

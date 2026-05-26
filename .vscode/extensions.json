@@ -1,3 +1,8 @@
 {
-  "recommendations": ["esbenp.prettier-vscode", "davidanson.vscode-markdownlint", "unifiedjs.vscode-mdx"]
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "davidanson.vscode-markdownlint",
+    "unifiedjs.vscode-mdx",
+    "streetsidesoftware.code-spell-checker"
+  ]
 }

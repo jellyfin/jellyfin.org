@@ -6,6 +6,8 @@ date: 2020-10-05
 slug: android-next
 ---
 
+<!-- markdownlint-disable MD001 -->
+
 This will be a net benefit for users and developers alike!
 
 <!-- truncate -->
