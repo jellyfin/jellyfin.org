@@ -2,14 +2,14 @@
 
 ## Multiple Versions
 
-Jellyfin supports storing multiple versions of the same video within a single folder by using filename suffixes. Each file **must** begin exactly with the base name - including any year, metadata provider IDs, or episode numbers - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items.
+Jellyfin supports storing multiple versions of the same video within a single folder by using filename suffixes.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value='movies' label='Movies'>
-    For movies, each file must begin with the parent folder name.
+    For movies, each file **must** begin exactly with the base name - including any year, metadata provider IDs, or episode numbers - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items. In addition, each file must begin with the parent folder name.
 
     ```txt
     Movie (2021) [imdbid-tt12801262]
@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 
   </TabItem>
   <TabItem value='shows' label='Shows'>
-    For episodes, each file must begin with the standard episode naming.
+    For episodes, each file must begin with the standard episode naming. For multiple versions of the same episode, they must identify to the same episode per the standard episode naming scheme.
 
     ```txt
     Shows
