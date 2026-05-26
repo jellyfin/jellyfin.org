@@ -80,11 +80,6 @@ mark {
   }
 }
 
-select {
-  appearance: none;
-  padding: 0.5rem;
-}
-
 a.pills__item {
   text-decoration: none;
 }
@@ -148,6 +143,8 @@ a.pills__item:not(.pills__item--active) {
 select {
   border: inherit;
   font-size: inherit;
+  appearance: none;
+  padding: 0.5rem;
 }
 
 // div label and select container
