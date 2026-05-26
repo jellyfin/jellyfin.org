@@ -50,7 +50,20 @@ Supported separators are:
 - `-` (dash)
 - `_` (underscore)
 
-Multiple parts can also be used in conjunction with multiple versions (stacked multi-versions).
+Multiple parts can also be used in conjunction with multiple versions (stacked multi-versions). When additional parts and alternate versions are combined, the version that has the additional part will be listed first in the selector. This is in contrast to when only dealing with alternative versions, which are ordered by highest resolution or alphabetically. This should be noted somewhere, either here or below, where we talk about ordering.
+
+    ```txt
+    S01E01 - 720p - Part 1.mkv
+    S01E01 - 720p - Part 2.mkv
+    S01E01 - 1080p.mkv
+    ```
+
+UI Selector order
+
+    ```txt
+    S01E01 - 720p - Part 1.mkv
+    S01E01 - 1080p.mkv
+    ```
 
 ```txt
 Series Name
