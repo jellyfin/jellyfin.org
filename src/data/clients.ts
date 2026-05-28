@@ -1004,6 +1004,29 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'jellyfin-tui',
+    name: 'jellyfin-tui',
+    description: 'A free and open source modern music streaming client for the terminal ',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Linux, Platform.MacOS],
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/dhonus/jellyfin-tui/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/dhonus/jellyfin-tui'
+      }
+    ]
   }
 ];
 
