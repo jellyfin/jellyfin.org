@@ -52,10 +52,22 @@ Devices like Google Chromecast or Google Streamer use hardcoded DNS Servers - th
 There are multiple workarounds for this issue.
 
 The easiest involves the usage of IPv6 Entries in the public DNS.
-Since IPv6 addresses do not differentiate between local and public, the address will be abled to be resolved locally.
+Since IPv6 addresses do not differentiate between local and public, the address will be able to be resolved locally.
 This, however, requires the use of a public DNS server - The Jellyfin Server does not have to be accessible from the outside though!
 
 </details>
+
+### Allowing Access
+
+Jellyfin provides flexible access control options. External access can either be completely disabled or selectively enabled for individual users.
+
+For these controls to function correctly, Jellyfin must know which IP ranges should be considered part of the local network.
+These ranges can be configured under `Networking` -> `Local Networks` using comma-separated CIDR notation entries.
+
+Global external access settings can be configured under `Networking` -> `Remote Access Settings`.
+User-specific external access permissions can be configured under `Users` -> `Edit User` -> `Allow remote connections to this server`.
+
+Ensure that the configured access permissions align with the network scope defined in the local network settings.
 
 ### Firewall / Port Forwarding
 
