@@ -103,8 +103,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                 </Link>
               </div>
             </div>
-
-            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}>
+            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-middle'])}>
               <div className='pills'>
                 <Link
                   to={`/downloads/clients${location.search}`}
@@ -120,6 +119,9 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                 </Link>
               </div>
             </div>
+
+            {/* The end pills column is used to right align the middle pills and should be empty */}
+            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}></div>
           </div>
 
           <div className='card card--outline margin-bottom--md'>
