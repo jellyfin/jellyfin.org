@@ -104,7 +104,7 @@ export default function DownloadsPage(options: { osType?: OsType }) {
                 </button>
               </div>
 
-              <div className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
+              <div className={clsx('pills', styles['filter-pills'])}>
                 <Link
                   to='/downloads/linux'
                   className={clsx('pills__item', { 'pills__item--active': osType === OsType.Linux })}
