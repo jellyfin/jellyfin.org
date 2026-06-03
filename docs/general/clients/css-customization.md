@@ -69,8 +69,5 @@ Some links to places where custom CSS has been discussed and shared!
 
 - [Ultrachromic - A custom theme for Jellyfin mediaserver created using CSS overrides](https://github.com/CTalvio/Ultrachromic)
 - [JellySkin - Vibrant Jellyfin theme with a lot a animations](https://github.com/prayag17/JellySkin)
-- [JellyFlix - The Best Netflix Clone for Jellyfin](https://github.com/prayag17/JellyFlix)
-- [Jellyfin Netflix Dark - The Best Netflix Dark Theme for Jellyfin Around!](https://github.com/DevilsDesigns/Jellyfin-Netflix-Dark)
-- [Dark and Green - A Emby like night mode skin](https://github.com/mbcooper83/jellyfin-css-darkandgreen)
 - [Hint of Green](https://github.com/looi-wh/HintOfGreenCSS)
 - [Scyfin - A modern Jellyfin theme](https://github.com/loof2736/scyfin)
