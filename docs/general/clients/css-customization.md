@@ -11,6 +11,14 @@ Custom CSS is only applied to clients that load Jellyfin Web from your server. A
 
 To add custom CSS, navigate to `Dashboard > Branding` and enter your stylesheet in the "Custom CSS" field. Custom CSS is loaded after Jellyfin's default styles, allowing you to override existing rules and customize elements such as colors, layouts and sizing.
 
+:::note
+
+External resources referenced by custom CSS are loaded by the client, not the Jellyfin server. Ensure these resources are accessible from all client devices. If a resource cannot be reached, Jellyfin Web may not render correctly.
+
+Using externally hosted stylesheets, fonts, or other assets can also affect offline functionality, as clients must be able to download those resources when loading the interface.
+
+:::
+
 ![Screenshot of the 'Custom CSS' setting in the administrator dashboard of the web client](/images/docs/custom-css-customcssfield.png)
 
 If you have little or no experience with CSS, consider reviewing the community resources and tutorials linked below.
