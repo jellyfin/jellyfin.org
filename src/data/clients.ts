@@ -1004,6 +1004,29 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'afinity',
+    name: 'AFinity',
+    description: 'A feature-rich Android Jellyfin client built with Kotlin, Jetpack Compose, Material 3, and LibMPV.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Android],
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/MakD/AFinity/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/MakD/AFinity'
+      }
+    ]
   }
 ];
 
