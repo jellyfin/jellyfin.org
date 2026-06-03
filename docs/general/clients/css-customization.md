@@ -65,18 +65,6 @@ CSS can be "chained" together to modify different sections together at the same 
 
 Some links to places where custom CSS has been discussed and shared!
 
-### Community Posts
-
-Keep in mind that these posts may have been made under previous versions of Jellyfin. Some of these tweaks listed in these guides may not work anymore!
-
-- [Custom CSS Guide](https://www.reddit.com/r/jellyfin/comments/fgmu6k/custom_css_updated_for_1050)
-- ["But wait, there is more Custom CSS!"](https://www.reddit.com/r/jellyfin/comments/htrfrx/but_wait_there_is_more_custom_css)
-- [Customizable Plug n' Play CSS for Jellyfin](https://www.reddit.com/r/jellyfin/comments/g9gmjj/customizable_plug_n_play_css_for_jellyfin)
-- [Easy Jellyfin custom CSS](https://www.reddit.com/r/jellyfin/comments/crxqk5/easy_jellyfin_custom_css)
-- [Custom CSS - updated for 10.5.0](https://www.reddit.com/r/jellyfin/comments/fgmu6k/custom_css_updated_for_1050)
-- [Sharing even more custom CSS (and some fixes to previous stuff)](https://www.reddit.com/r/jellyfin/comments/bvnt65/sharing_even_more_custom_css_and_some_fixes_to)
-- [Posting my Jellyfin Custom CSS](https://www.reddit.com/r/jellyfin/comments/p13yqg/posting_my_jellyfin_custom_css/)
-
 ### Community Themes
 
 - [Ultrachromic - A custom theme for Jellyfin mediaserver created using CSS overrides](https://github.com/CTalvio/Ultrachromic)
