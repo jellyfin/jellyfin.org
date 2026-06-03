@@ -68,10 +68,12 @@ CSS can be "chained" together to modify different sections together at the same 
 ## Community Links
 
 The community maintains a wide range of themes and guides for CSS customization. Some useful resources can be found below.
+Before applying a theme or customization, verify that it is actively maintained and compatible with your version of Jellyfin. Themes that have not been updated for recent releases may not work correctly or could cause unexpected UI issues. These resources are maintained by the community and are not supported by the Jellyfin Project.
 
 ### Community Themes
 
-- [Ultrachromic - A custom theme for Jellyfin mediaserver created using CSS overrides](https://github.com/CTalvio/Ultrachromic)
-- [JellySkin - Vibrant Jellyfin theme with a lot a animations](https://github.com/prayag17/JellySkin)
+- [ElegantFin](https://github.com/lscambo13/ElegantFin)
 - [Hint of Green](https://github.com/looi-wh/HintOfGreenCSS)
+- [JellySkin - Vibrant Jellyfin theme with a lot a animations](https://github.com/prayag17/JellySkin)
 - [Scyfin - A modern Jellyfin theme](https://github.com/loof2736/scyfin)
+- [Ultrachromic - A custom theme for Jellyfin mediaserver created using CSS overrides](https://github.com/CTalvio/Ultrachromic)
