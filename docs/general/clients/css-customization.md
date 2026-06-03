@@ -5,15 +5,19 @@ title: CSS Customization
 
 # CSS Customization
 
-In `Dashboard > Branding`, the "Custom CSS" field can be used to override current CSS in Jellyfin's stylesheet.
+Jellyfin allows users to customize the appearance of the web interface by applying custom CSS. This feature is intended for advanced customization and should be used with care. Support is not provided for issues caused by custom CSS.
 
-[Custom CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) provides customization such as changing colors, changing layouts, and item size and behavior. Below is a list of various tweaks that can be applied. The CSS tweaks work on all clients that load Jellyfin-Web from the Server. The code will apply in the order that it is written, however `!important` will overrule everything. To learn more about `!important` and more, see [CSS Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) or [specifishity](https://specifishity.com/). To implement these changes, go to `Dashboard > Branding > Custom CSS` to start.
+Custom CSS is only applied to clients that load Jellyfin Web from your server. As a result, it does not affect all Jellyfin clients. Some web-based clients bundle their own version of Jellyfin Web and therefore do not load custom CSS from the server.
 
-If you have little or no experience with CSS, various resources and tutorials can be found online. Using the tweaks and examples below makes it quite easy to get started with making your own changes to your Jellyfin instance.
+To add custom CSS, navigate to `Dashboard > Branding` and enter your stylesheet in the "Custom CSS" field. Custom CSS is loaded after Jellyfin's default styles, allowing you to override existing rules and customize elements such as colors, layouts and sizing.
 
 ![Screenshot of the 'Custom CSS' setting in the administrator dashboard of the web client](/images/docs/custom-css-customcssfield.png)
 
+If you have little or no experience with CSS, consider reviewing the community resources and tutorials linked below.
+
 ## General Information About CSS
+
+CSS rules are applied in the order they are written, although declarations marked with `!important` take precedence over most other rules. For more information, see the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) on CSS and CSS specificity.
 
 You can learn more about CSS using sites like [w3schools](https://www.w3schools.com/css/default.asp) and [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS). Below are some very basic CSS knowledge that will let you do rough edits to the pre-made tweaks below.
 
@@ -63,7 +67,7 @@ CSS can be "chained" together to modify different sections together at the same 
 
 ## Community Links
 
-Some links to places where custom CSS has been discussed and shared!
+The community maintains a wide range of themes and guides for CSS customization. Some useful resources can be found below.
 
 ### Community Themes
 
