@@ -392,28 +392,6 @@ const officialClients: Array<Client> = [
 
 const thirdPartyClients: Array<Client> = [
   {
-    id: 'jellyamp',
-    name: 'Jellyamp',
-    description: 'A desktop client for listening to music from a Jellyfin server.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Desktop],
-    platforms: [Platform.Desktop],
-    primaryLinks: [
-      {
-        id: 'gh-downloads',
-        name: 'GitHub Downloads',
-        url: 'https://github.com/m0ngr31/jellyamp/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/m0ngr31/jellyamp'
-      }
-    ]
-  },
-  {
     id: 'supersonic',
     name: 'Supersonic',
     description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
@@ -523,34 +501,6 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'gelli',
-    name: 'Gelli',
-    description:
-      'A native music player for Android devices with transcoding support, gapless playback, favorites, playlists, and many other features.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    platforms: [Platform.Android],
-    primaryLinks: [
-      {
-        id: 'gh-downloads',
-        name: 'GitHub Downloads',
-        url: 'https://github.com/dkanada/gelli/releases'
-      },
-      {
-        id: 'fdroid',
-        name: 'F-Droid',
-        url: 'https://f-droid.org/packages/com.dkanada.gramophone/'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/dkanada/gelli'
-      }
-    ]
-  },
-  {
     id: 'finamp',
     name: 'Finamp',
     description: 'A third party app for music playback with support for offline mode/downloading songs.',
@@ -579,28 +529,6 @@ const thirdPartyClients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/UnicornsOnLSD/finamp'
-      }
-    ]
-  },
-  {
-    id: 'sailfin',
-    name: 'Sailfin',
-    description: 'A Sailfish OS client for Jellyfin.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    platforms: [Platform.SailfishOS],
-    primaryLinks: [
-      {
-        id: 'open-repos',
-        name: 'OpenRepos',
-        url: 'https://openrepos.net/content/ahappyhuman/sailfin'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/heartfin/harbour-sailfin'
       }
     ]
   },
@@ -654,28 +582,6 @@ const thirdPartyClients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/felix920506/jellychord'
-      }
-    ]
-  },
-  {
-    id: 'jellycli',
-    name: 'Jellycli',
-    description: 'A terminal player for Jellyfin, only for music at the moment.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [],
-    platforms: [],
-    primaryLinks: [
-      {
-        id: 'gh-downloads',
-        name: 'GitHub Downloads',
-        url: 'https://github.com/tryffel/jellycli/releases'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/tryffel/jellycli'
       }
     ]
   },
