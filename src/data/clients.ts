@@ -321,12 +321,11 @@ const officialClients: Array<Client> = [
     recommended: true
   },
   {
-    id: 'jellyfin-Tizen',
+    id: 'jellyfin-tizen',
     name: 'Jellyfin for Tizen',
     description: 'The official Jellyfin app for Samsung Tizen devices.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.TV],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Tizen],
     primaryLinks: [
       {
