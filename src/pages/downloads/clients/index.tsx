@@ -34,6 +34,43 @@ function toggleValue<Type>(array: Type[], value: Type): Type[] {
   }
 }
 
+function getPlatform(userAgent: string): Platform | null {
+  const parser = new UAParser(userAgent);
+  const os = parser.getOS();
+  switch (os.name) {
+    case 'macOS':
+      // TODO : Re-enable platform-specific clients once Platform.Desktop is no longer used for all desktop platforms.
+      // return Platform.MacOS;
+      return Platform.Desktop;
+    case 'Windows':
+      // TODO : Re-enable platform-specific clients once Platform.Desktop is no longer used for all desktop platforms.
+      // return Platform.MacOS;
+      return Platform.Desktop;
+    case 'Linux':
+    case 'Ubuntu':
+    case 'Debian':
+    case 'Arch':
+    case 'CentOS':
+    case 'Fedora':
+    case 'Gentoo':
+    case 'Sailfish':
+      // TODO : Re-enable platform-specific clients once Platform.Desktop is no longer used for all desktop platforms.
+      // return Platform.Linux;
+      return Platform.Desktop;
+    case 'Android':
+      return Platform.Android;
+    case 'watchOS':
+    case 'iOS':
+      return Platform.IOS;
+    case 'WebOS':
+      return Platform.WebOS;
+    case 'Xbox':
+      return Platform.Xbox;
+    default:
+      return null;
+  }
+}
+
 export default function ClientsPage(options: { filter?: ClientFilter }) {
   const history = useHistory();
   const location = useLocation();
@@ -50,64 +87,8 @@ export default function ClientsPage(options: { filter?: ClientFilter }) {
   const [filter, setFilterValue] = useState<ClientFilter>(optionFilter);
 
   const isBrowser = useIsBrowser();
-  let platform = filter.platform;
-  if (isBrowser && platform === undefined) {
-    const parser = new UAParser(navigator.userAgent);
-    const os = parser.getOS();
-    switch (os.name) {
-      case 'macOS':
-        // TODO : Re-enable platform-specific clients once Platform.Desktop is no longer used for all desktop platforms.
-        // platform = Platform.MacOS;
-        platform = Platform.Desktop;
-        break;
-      case 'Windows':
-        // TODO : Re-enable platform-specific clients once Platform.Desktop is no longer used for all desktop platforms.
-        // platform = Platform.Windows;
-        platform = Platform.Desktop;
-        break;
-      case 'Linux':
-        // TODO : Re-enable platform-specific clients once Platform.Desktop is no longer used for all desktop platforms.
-        // platform = Platform.Linux;
-        platform = Platform.Desktop;
-        break;
-      case 'Android':
-        platform = Platform.Android;
-        break;
-      case 'watchOS':
-      case 'iOS':
-        platform = Platform.IOS;
-        break;
-      case 'WebOS':
-        platform = Platform.WebOS;
-        break;
-      case 'Xbox':
-        platform = Platform.Xbox;
-        break;
-      case 'Sailfish':
-        platform = Platform.SailfishOS;
-        break;
-      case 'Ubuntu':
-        platform = Platform.Ubuntu;
-        break;
-      case 'Debian':
-        platform = Platform.Debian;
-        break;
-      case 'Arch':
-        platform = Platform.Arch;
-        break;
-      case 'CentOS':
-        platform = Platform.CentOS;
-        break;
-      case 'Fedora':
-        platform = Platform.Fedora;
-        break;
-      case 'Gentoo':
-        platform = Platform.Gentoo;
-        break;
-      default:
-        platform = null;
-        break;
-    }
+  if (isBrowser && filter.platform === undefined) {
+    const platform = getPlatform(navigator.userAgent);
     setFilterValue((filter) => ({ ...filter, platform: platform as Platform | null }));
   }
 
