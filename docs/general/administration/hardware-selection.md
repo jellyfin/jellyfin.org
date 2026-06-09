@@ -26,7 +26,7 @@ Some component recommendations do not change regardless of the hardware configur
 
 Different vendors have different hardware encoder implementations and produce different results. Usually, newer generations within the same vendor will provide better results. The following is a quick comparison on the quality between vendors on modern products.
 
-Apple ≥ Intel ≥ NVIDIA >>> AMD<sup>\*</sup>
+NVIDIA (Blackwell) ≥ Intel (Battlemage) ≥ Apple ≥ Intel ≥ NVIDIA ≥ AMD ≥ AMD H.264 (RDNA4) >>> AMD H.264<sup>\*</sup>
 
 <sup>\*</sup> This only represents the default Jellyfin settings. The quality may be different depending on your exact configuration.
 
@@ -132,16 +132,18 @@ It is recommended to add more memory when using Windows 11 due to the OS being h
 
 With modern systems, the media engines are usually located on the GPUs. Therefore, the available hardware acceleration options are determined by the choice of GPU.
 
-Encoder Quality: Apple ≥ Intel ≥ NVIDIA >>> AMD<sup>\*</sup>
+Encoder Quality: NVIDIA (Blackwell) ≥ Intel (Battlemage) ≥ Apple ≥ Intel ≥ NVIDIA ≥ AMD ≥ AMD H.264 (RDNA4) >>> AMD H.264<sup>\*</sup>
 
 <sup>\*</sup> This only represents the default Jellyfin settings. The quality may be different depending on your exact configuration.
 
+NVIDIA (Blackwell) represents the state of the art in hardware encoder quality as of writing. It introduces more optimized encoding tools, allowing it to deliver significant quality gains over its predecessor, Ada, and even Intel Battlemage. The most visible difference is that Intel's encoder is more likely to produce blocky artifacts when processing dark details.
+
 Intel is always recommended on non-Apple hardware for the following reasons:
 
-- Intel provides a good quality encoder, slightly better than NVIDIA and significantly better than AMD.
-- Intel drivers and the compute environment is much easier to setup than both NVIDIA and AMD
+- Intel provides a good quality encoder, slightly better than pre-Blackwell NVIDIA and significantly better than AMD H.264.
+- Intel drivers and the compute environment is much easier to setup than NVIDIA.
 
-AMD is not recommended due to poor quality H.264 and H.265 (HEVC) output, as well as being hard to set up the compute environment. While AMD has significantly improved AV1 encoder quality, you are still more likely to transcode to H.264 or H.265 than to AV1 due to the hardware capabilities of the average Jellyfin client.
+AMD is the last choice because their H.264 encoders prior to RDNA4 delivered poor or below-average quality. While their H.265 (HEVC) and AV1 encoders generally provide a significantly better quality, you are still more likely to transcode to H.264 than to H.265 or AV1 due to the hardware capabilities of the average Jellyfin client.
 
 A list of common codecs can be found in the [codec support documentation](/docs/general/clients/codec-support/).
 
