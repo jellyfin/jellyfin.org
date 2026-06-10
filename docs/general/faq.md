@@ -1,7 +1,7 @@
 ---
 uid: faq
 title: FAQ
-sidebar_position: 2
+sidebar_position: 102
 ---
 
 # Frequently Asked Questions
@@ -33,7 +33,7 @@ This normally comes down to one of the following issues:
 
 1. [File permissions](https://wikipedia.org/wiki/File-system_permissions) are not properly configured on your media.
 2. Your media does not follow the organizational requirements for Jellyfin's scanner to properly identify media. (Valid organization schemes can be found in the documentation for [Movies](/docs/general/server/media/movies), [Shows](/docs/general/server/media/shows), [Music](/docs/general/server/media/music), and others.)
-If it's not one of these, please consider asking for help as it might be a bug.
+   If it's not one of these, please consider asking for help as it might be a bug.
 
 ## How can I contribute to this project?
 
@@ -48,4 +48,4 @@ Please see our [requesting features](/docs/general/contributing/issues#requestin
 
 All we can ask is you [use Jellyfin](/docs/general/installation), [report any bugs](/docs/general/contributing/issues#reporting-bugs), and tell your friends about us!
 Really, we're just people volunteering our time to help build a better media system, so joining the community is the best way to show your support.
-We do offer a donations page [on OpenCollective](https://opencollective.com/jellyfin), however please note that these funds are **only** used for infrastructure. All our developers are unpaid volunteers on principle.
+We do offer a donations page [on OpenCollective](https://opencollective.com/jellyfin), however please note that these funds are **only** used for infrastructure. All our developers are unpaid volunteers on principle. Many individual developers that are active in the project accept [donations](/docs/general/contributing/direct-donations.mdx) however.

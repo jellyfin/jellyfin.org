@@ -1,0 +1,91 @@
+---
+title: Jellyfin for iOS 1.6.0
+authors:
+  - thornbill
+slug: ios-v1.6.0
+tags: [release, ios]
+---
+
+Jellyfin for iOS is back with the first release in nearly 3 years!
+
+{/* truncate */}
+
+Version 1.6.0 of the Jellyfin app for iOS marks a new milestone for the development of the app. A complete list of changes, including their
+respective pull requests, can be found on [GitHub](https://github.com/jellyfin/jellyfin-expo/releases/tag/v1.6.0). An update on the
+development of the app, a summary of included changes, and some future plans can be found below.
+
+### Renewed development with more frequent releases
+
+I'm sure a lot of people are curious why it has been so long since the last app release. There are a few reasons for this. First, we have
+not released any breaking changes to Jellyfin that required an app update. Perhaps most significantly the toolkit we use to build the app
+made some changes that essentially prevented my continued development of the app without access to a modern Mac. However, thanks to the
+generosity of contributors to [Jellyfin's open collective](https://opencollective.com/jellyfin), I was able to expense the majority of the
+cost to purchase a new Mac Mini for development. Finally, the build system provided by the toolkit we were using had been discontinued. We
+have now replaced that build system with a fully automated GitHub Action workflow that builds and publishes the app to
+[TestFlight](https://testflight.apple.com/join/jJP75akQ) on demand.
+
+### Longstanding bugs squashed
+
+This release features fixes for the following longstanding bugs:
+
+- Improved video player UI by allowing the video to cover the entire screen and hiding the home screen indicator.
+- Removed an incorrect check for (e)ac3 audio support.
+- Fixed an issue that caused the app to display a blank screen sometimes when left open in the background.
+- Added user device name entitlement so the app can report the correct device name on iOS 16+.
+- Excluded unused features from the build so the app no longer requests access to permissions it doesn't need (like fitness data).
+
+### What is next?
+
+While the primary focus of the next couple releases will be to do some dependency maintenance and updates, you can also expect work to
+continue on some exciting new features. Few people are probably aware that I started working on offline support
+[3 years ago](https://github.com/jellyfin/jellyfin-expo/pull/366)! Unfortunately it
+[wasn't quite ready](https://github.com/jellyfin/jellyfin-expo/issues/372) for this release, but my goal is to make it available as a
+general alpha/beta feature later this year. I have some other ideas to address some well-known limitations of the app and a new contributor
+has expressed interest in developing some new features also. You can track all new developments on the
+[project roadmap](https://github.com/orgs/jellyfin/projects/40/views/4) on GitHub.
+
+### Supported iOS versions
+
+The Jellyfin app currently supports iOS versions as old as iOS 12. Over the next few releases, we will be updating our core dependencies
+which will force us to increase our minimum supported version to iOS 15.1. If you are using a device that cannot be updated to a newer
+iOS version, you will still be able to use the Jellyfin web interface but future app updates will be unavailable.
+
+## Contributors
+
+Jellyfin is completely developed by volunteers, and couldn't be made without their great skills and dedication. Consider donating if you
+appreciate their work. A big shout-out to all contributors that made this release possible:
+
+**Jellyfin Team**
+
+- [@thornbill](https://github.com/thornbill) - Donate via [GitHub sponsors](https://github.com/sponsors/thornbill)
+- [@anthonylavado](https://github.com/anthonylavado) - Donate via [GitHub sponsors](https://github.com/sponsors/anthonylavado)
+- [@Bond-009](https://github.com/Bond-009) - Donate via [GitHub sponsors](https://github.com/sponsors/Bond-009)
+- [@JPKribs](https://github.com/JPKribs)
+
+**Other contributors**
+
+- [@Drew-Daniels](https://github.com/Drew-Daniels)
+- [@fidoriel](https://github.com/fidoriel)
+- [@Cyberbeni](https://github.com/Cyberbeni)
+
+And finally a big thank you to everyone who contributed translations, reported bugs, provided feedback and participated in beta testing!
+
+### Helping out
+
+If you have experience with React Native development and are interested in contributing yourself, feel free to dive into the
+[source code](https://github.com/jellyfin/jellyfin-expo) and open a pull request. Likewise, if you have experience with
+JavaScript/TypeScript and React, [jellyfin-web](https://github.com/jellyfin/jellyfin-web) is always looking for additional contributors.
+Alternatively, you can help with translating the app into your own language on our
+[Weblate](https://translate.jellyfin.org/engage/jellyfin-expo/) instance.
+
+## Downloads
+
+Update your app now to check out all these changes! The AppStore will auto-update your Jellyfin app if you're already using the app. For
+new users, you can find the app on the Apple App Store.
+
+<a href='https://apps.apple.com/us/app/jellyfin-mobile/id1480192618'>
+  <img width='153' alt='Download on the App Store' src='/images/store-icons/app-store.svg' />
+</a>
+
+You can also join our [TestFlight](https://testflight.apple.com/join/jJP75akQ) and help test new versions before they're released to the
+public.

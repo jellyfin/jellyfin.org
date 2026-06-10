@@ -6,8 +6,12 @@
  */
 
 html {
-  -moz-font-feature-settings: 'liga' on;
-  font-feature-settings: 'liga';
+  /* Note: "normal" activates all common ligatures */
+  font-variant-ligatures: normal;
+}
+
+code {
+  font-variant-ligatures: none;
 }
 
 :root {
@@ -131,4 +135,11 @@ a.pills__item:not(.pills__item--active) {
   .hidden--desktop {
     display: none;
   }
+}
+
+.tabs-container {
+  border: 1px solid #fff4;
+  background-color: #fff1;
+  border-radius: 8px;
+  padding: 16px;
 }

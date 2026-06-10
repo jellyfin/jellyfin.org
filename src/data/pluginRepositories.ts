@@ -105,5 +105,37 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       TubeArchivistMetadata: 'https://github.com/tubearchivist/tubearchivist-jf-plugin'
     }
+  },
+  {
+    id: 'gh:neptunehub/audiomuse-ai-plugin',
+    name: "AudioMuse-AI's Repo",
+    url: 'https://raw.githubusercontent.com/neptunehub/audiomuse-ai-plugin/master/manifest.json',
+    includes: {
+      'AudioMuse-AI': 'https://github.com/neptunehub/audiomuse-ai-plugin'
+    }
+  },
+  {
+    id: 'gh:DeDuplicate/Jellyfin_wizdomsubs_downloader',
+    name: "DeDuplicate's WizdomSubs Downloader Repo",
+    url: 'https://raw.githubusercontent.com/DeDuplicate/Jellyfin_wizdomsubs_downloader/refs/heads/main/manifest.json',
+    includes: {
+      'WizdomSubs Downloader': 'https://github.com/DeDuplicate/Jellyfin_wizdomsubs_downloader'
+    }
+  },
+  {
+    id: 'gh:GeiserX/smart-covers',
+    name: "GeiserX's SmartCovers Repo",
+    url: 'https://geiserx.github.io/smart-covers/manifest.json',
+    includes: {
+      SmartCovers: 'https://github.com/GeiserX/smart-covers'
+    }
+  },
+  {
+    id: 'gh:GeiserX/whisper-subs',
+    name: "GeiserX's WhisperSubs Repo",
+    url: 'https://geiserx.github.io/whisper-subs/manifest.json',
+    includes: {
+      WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
+    }
   }
 ];

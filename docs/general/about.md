@@ -1,6 +1,7 @@
 ---
 uid: about
 title: About Jellyfin
+sidebar_position: 100
 ---
 
 # About Jellyfin

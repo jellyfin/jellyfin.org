@@ -1,3 +1,9 @@
+jellyfin:
+  name: Jellyfin Team
+  title: Jellyfin Team
+  url: https://jellyfin.org/
+  image_url: https://avatars.githubusercontent.com/u/45698031?s=200&v=4
+
 1hitsong:
   name: 1hitsong
   title: Roku Team
@@ -33,6 +39,10 @@ joshuaboniface:
   title: Project Leader
   url: https://github.com/joshuaboniface
   image_url: https://avatars.githubusercontent.com/u/4031396?v=4
+  socials:
+    github: joshuaboniface
+    mastodon: https://social.bonifacelabs.ca/@joshuaboniface
+    reddit: https://reddit.com/u/djbon2112
 
 mcarlton00:
   name: Matt Carlton
@@ -66,3 +76,12 @@ JPVenson:
   title: Server Team
   url: https://github.com/JPVenson
   image_url: https://avatars.githubusercontent.com/u/6794763?v=4
+
+thornbill:
+  name: Bill Thornton
+  page: true
+  title: Core Team, Web and iOS Lead
+  image_url: https://avatars.githubusercontent.com/u/3450688?v=4
+  socials:
+    github: thornbill
+    mastodon: https://fosstodon.org/@thornbill

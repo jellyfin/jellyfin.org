@@ -42,6 +42,9 @@ const MatrixCard = () => {
             <h4>Development Rooms</h4>
             <ul>
               <li>
+                <a href='https://matrix.to/#/#jellyfin-documentation:matrix.org'>#jellyfin-documentation</a>
+              </li>
+              <li>
                 <a href='https://matrix.to/#/#jellyfin-dev:matrix.org'>#jellyfin-dev</a>
               </li>
               <li>

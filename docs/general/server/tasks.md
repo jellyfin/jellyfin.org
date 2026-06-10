@@ -7,9 +7,11 @@ title: Tasks
 
 Tasks are operations that are scheduled to run periodically. They can also be triggered manually by clicking the run button on the right.
 
+Note: If your media files are unavailable when the `Clean up collections and playlists` task runs (e.g. a network share not yet mounted) your playlists will be lost. By default it runs at Jellyfin startup.
+
 ## Default Jellyfin Tasks
 
-Below is a list of tasks that Jellyfin runs peoridically by default:
+Below is a list of tasks that Jellyfin runs periodically by default:
 
 ### Libraries
 
@@ -30,6 +32,7 @@ Below is a list of tasks that Jellyfin runs peoridically by default:
 - Clear Cache Folder
 - Clear Activity Logs
 - Clear Transcodes Folder
+- Clean up collections and playlists
 
 ## Plugin Tasks
 

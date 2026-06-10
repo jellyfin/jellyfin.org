@@ -43,7 +43,7 @@ When writing a bug issue, please ensure you capture as much relevant detail as p
 
 Bugs should be tagged with `[bug]` at the beginning of their title. This will later be removed by the Jellyfin team when assigning labels. To assist in triaging, if you know which other [label(s)](/docs/general/contributing/issues#issue-labels) should be applied to your issue, please add them after the `[bug]` label.
 
-Bugs should be reproduceable. That is, you should be able to have determined through troubleshooting how to replicate the issue. While one-time bugs should not be ignored, if they're difficult or impossible to reproduce, it's likely very hard to fix them. Please attempt to reproduce the bug before filing the issue and include the smallest test case you can to demonstrate it.
+Bugs should be reproducible. That is, you should be able to have determined through troubleshooting how to replicate the issue. While one-time bugs should not be ignored, if they're difficult or impossible to reproduce, it's likely very hard to fix them. Please attempt to reproduce the bug before filing the issue and include the smallest test case you can to demonstrate it.
 
 If you ever need assistance for troubleshooting or opening an issue, please [contact the community](/docs/general/getting-help) and we'll try to help you out!
 

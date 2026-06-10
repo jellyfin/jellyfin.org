@@ -43,7 +43,7 @@ For the following options it should be noted that if you never set up Live TV, u
 
 :::note
 
-More information about transcoding can be found [here](/docs/general/server/transcoding).
+Find more information in the [transcoding documentation](/docs/general/post-install/transcoding).
 
 :::
 
@@ -120,6 +120,8 @@ These options allow you to restrict access to specific content by this user or t
 `Block items with no or unrecognized rating information` Allows you to always hide items with no or unrecognized rating information.
 
 `Block items with tags` Allows you to always hide items when they contain specific tags, you can add tags to items by editing their metadata.
+
+`Allow items with tags` Allows you to only show items that contain specific tags, you can add tags to items by editing their metadata.
 
 `Access Schedule` Allows you to set the timeframe(s) where this user is allowed to login, media can only play during the timeframe and will be stopped past it.
 

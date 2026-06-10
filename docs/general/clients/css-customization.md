@@ -5,9 +5,9 @@ title: CSS Customization
 
 # CSS Customization
 
-In `Dashboard > General`, the "Custom CSS" field can be used to override current CSS in Jellyfin's stylesheet.
+In `Dashboard > Branding`, the "Custom CSS" field can be used to override current CSS in Jellyfin's stylesheet.
 
-[Custom CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) provides customization such as changing colors, changing layouts, and item size and behavior. Below is a list of various tweaks that can be applied. The CSS tweaks work on both the web client, and the [Android application](https://play.google.com/store/apps/details?id=org.jellyfin.mobile&hl=en_US). The code will apply in the order that it is written, however `!important` will overrule everything. To learn more about `!important` and more, see [CSS Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) or [specifishity](https://specifishity.com/). To implement these changes, go to `Dashboard > General > Custom CSS` to start.
+[Custom CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) provides customization such as changing colors, changing layouts, and item size and behavior. Below is a list of various tweaks that can be applied. The CSS tweaks work on all clients that load Jellyfin-Web from the Server. The code will apply in the order that it is written, however `!important` will overrule everything. To learn more about `!important` and more, see [CSS Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) or [specifishity](https://specifishity.com/). To implement these changes, go to `Dashboard > Branding > Custom CSS` to start.
 
 If you have little or no experience with CSS, various resources and tutorials can be found online. Using the tweaks and examples below makes it quite easy to get started with making your own changes to your Jellyfin instance.
 
@@ -28,7 +28,7 @@ Some examples of hex color codes:
 - Red: `#d00000`
 - Transparent Black: `#00000058`
 
-Go [here](https://htmlcolorcodes.com/color-picker) for a hex color chart to get a code for any given color.
+Use the [HTML Color Picker](https://htmlcolorcodes.com/color-picker) to find the hex code for any given color.
 
 If you are looking for a more standard and less specific color, typing the literal name of colors suits that purpose well. For example, to get the color "yellow" you can simply write "yellow", this will use a preset yellow color.
 
@@ -37,7 +37,7 @@ If you are looking for a more standard and less specific color, typing the liter
 `aquamarine` Aquamarine <br />
 `lightseagreen` Light Sea Green
 
-Go [here](https://www.w3schools.com/colors/colors_names.asp) for a list of color names supported.
+You can find a list of supported color names on the [W3Schools Color Names reference](https://www.w3schools.com/colors/colors_names.asp).
 
 ### Comments
 
@@ -76,6 +76,7 @@ This will affect the played/watched indicator. Replace the hex color with any va
 ### Green Indicators
 
 ```css
+/* Make watched icon green */
 .playedIndicator {
   background: #5dd000;
 }
@@ -87,16 +88,20 @@ This will affect the played/watched indicator. Replace the hex color with any va
 
 ```css
 /* Make watched icon dark and transparent */
-.indicator { background: #00000058 !important; }
+.playedIndicator {
+  background: #00000058 !important;
+}
 ```
 
 ![Screenshot of watched indicators with a custom transparent color applied](/images/docs/custom-css-transparentwatched.png)
 
-### Transparant count indicators (eg. Series)
+### Transparent count indicators (eg. Series)
 
 ```css
 /* Make count indicator icon dark and transparent */
-.countIndicator {background: #00000058;}
+.countIndicator {
+  background: #00000058;
+}
 ```
 
 ### Display external links in mobile layout
@@ -386,11 +391,11 @@ The episode previews in season view are sized based on horizontal resolution. Th
 This will drastically change the style of cast info into something very similar to how Plex approaches it. This override will lead to somewhat smaller thumbnails, and also works with all themes.
 
 ```css
-/* Shrink and square (or round) cast thumnails */
+/* Shrink and square (or round) cast thumbnails */
 #castContent .card.overflowPortraitCard.personCard.card-hoverable.card-withuserdata {width: 4.2cm !important; font-size: 90% !important;}
 #castContent .card.overflowPortraitCard.personCard.card-withuserdata {width: 4.2cm !important; font-size: 90% !important;}
 
-/* Correct image aspect ratio behaviour, set border-radius to zero for square tiles */
+/* Correct image aspect ratio behavior, set border-radius to zero for square tiles */
 #castContent .cardContent-button.cardImageContainer.coveredImage.cardContent.cardContent-shadow.itemAction.lazy {background-size: cover; !important; border-radius: 2.5cm;}
 #castContent .cardContent-button.cardImageContainer.coveredImage.defaultCardBackground.defaultCardBackground1.cardContent.cardContent-shadow.itemAction {background-size: cover; !important; border-radius: 2.5cm;}
 #castContent .cardContent-button.cardImageContainer.coveredImage.defaultCardBackground.defaultCardBackground2.cardContent.cardContent-shadow.itemAction {background-size: cover; !important; border-radius: 2.5cm;}
@@ -731,19 +736,19 @@ Material Icons:
 - Outlined:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Outline.css');
   ```
 
 - Rounded:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css');
   ```
 
 - Sharp:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Sharp.css');
   ```
 
 Fontawesome Icons:
@@ -751,25 +756,25 @@ Fontawesome Icons:
 - Solid:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/solid.css');
   ```
 
 - Regular:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/regular.css');
   ```
 
 - Light:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/light.css');
   ```
 
 - duotone:
 
   ```css
-  @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css");
+  @import url('https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/Font%20Awesome/duotone.css');
   ```
 
 ## Community Links
