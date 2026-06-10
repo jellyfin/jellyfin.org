@@ -16,24 +16,24 @@ Neither does Jellyfin require an internet connection to run; however you should 
 
 This section aims to provide an administrator with knowledge on what ports Jellyfin binds to and what purpose they serve.
 
-| Port | Protocol | Configurable | Description |
-|---|---|---|---|
-| 8096 | TCP | ✔️ | Default HTTP |
-| 8920 | TCP | ✔️ | Default HTTPS |
-| 7359 | UDP | ❌ | Client Discovery |
+| Port | Protocol | Configurable | Description      |
+| ---- | -------- | ------------ | ---------------- |
+| 8096 | TCP      | ✔️           | Default HTTP     |
+| 8920 | TCP      | ✔️           | Default HTTPS    |
+| 7359 | UDP      | ❌           | Client Discovery |
 
 <details>
 <summary>See details</summary>
 
 - **HTTP Traffic** (8096/TCP):
-    The web frontend can be accessed here. You can modify this setting from the **Networking** page in the admin settings.
+  The web frontend can be accessed here. You can modify this setting from the **Networking** page in the admin settings.
 
 - **HTTPS Traffic** (8920/TCP):
-    Used when https is enabled. By default this port will not be used.
-    This setting can also be modified from the **Networking** page to use a different port.
+  Used when https is enabled. By default this port will not be used.
+  This setting can also be modified from the **Networking** page to use a different port.
 
 - **Client Discovery** (7359/UDP):
-    Allows clients to discover Jellyfin on the local network. A broadcast message to this port will return detailed information about your server that includes name, ip-address and ID.
+  Allows clients to discover Jellyfin on the local network. A broadcast message to this port will return detailed information about your server that includes name, ip-address and ID.
 
 </details>
 
@@ -48,14 +48,26 @@ However its also possible to create a local DNS entry that will point to your Je
 <details>
 <summary>Learn more about limitations with local DNS</summary>
 
-Devices like Google Chromecast or Google Streamer use hardcoded DNS Servers - therefore they will not make use of your local DNS entries.
-There are multiple workarounds for this issue.
+Devices like Google Chromecast or Google TV Streamer may ignore the DNS server provided by your local network.
+As a result, they may not resolve custom local DNS entries correctly.
 
-The easiest involves the usage of IPv6 Entries in the public DNS.
-Since IPv6 addresses do not differentiate between local and public, the address will be abled to be resolved locally.
-This, however, requires the use of a public DNS server - The Jellyfin Server does not have to be accessible from the outside though!
+One option to work around this is to publish an IPv6 DNS record through a public DNS provider.
+If your Jellyfin server has a globally routable IPv6 address, devices can resolve it without relying on your local DNS server.
+The server itself does not need to be publicly accessible. Inbound access can still be restricted through your firewall.
 
 </details>
+
+### Allowing Access
+
+Jellyfin provides flexible access control options. External access can either be completely disabled or selectively enabled for individual users.
+
+For these controls to function correctly, Jellyfin must know which IP ranges should be considered part of the local network.
+These ranges can be configured under `Networking` -> `Local Networks` using comma-separated CIDR notation entries.
+
+Global external access settings can be configured under `Networking` -> `Remote Access Settings`.
+User-specific external access permissions can be configured under `Users` -> `Edit User` -> `Allow remote connections to this server`.
+
+Ensure that the configured access permissions align with the network scope defined in the local network settings.
 
 ### Firewall / Port Forwarding
 
@@ -67,18 +79,18 @@ Opening a port directly to the Internet is therefore insecure and not recommende
 
 There are different layers where a firewall can be placed:
 
-| Layer | Example | Description |
-| --- | --- | --- |
-| Local | Docker, VM | Open ports at this layer to allow traffic from the Host to enter the Application |
-| Host | physical machine, operating system | Open ports at this layer to allow traffic from the Network to enter the Host device |
-| Network | Router | Open ports at this layer to allow traffic from the Internet to enter the Local Network |
+| Layer   | Example                            | Description                                                                            |
+| ------- | ---------------------------------- | -------------------------------------------------------------------------------------- |
+| Local   | Docker, VM                         | Open ports at this layer to allow traffic from the Host to enter the Application       |
+| Host    | physical machine, operating system | Open ports at this layer to allow traffic from the Network to enter the Host device    |
+| Network | Router                             | Open ports at this layer to allow traffic from the Internet to enter the Local Network |
 
 <details>
 <summary>Port forwarding vs. opening a Port</summary>
 
 Whilst Routers often allow you to forward a port, firewalls typically only allow you to open one.
 The difference is within the Target. Opening a Port essentially just means that traffic on this Port will go through.
-Forwarding a Port you typically do in NAT scenarios - traffic is coming in on your public IP Address, what device inside your network should recieve it.
+Forwarding a Port you typically do in NAT scenarios - traffic is coming in on your public IP Address, what device inside your network should receive it.
 Sometimes, port forwarding also lets you map an external port to a different internal port.
 
 </details>
@@ -100,7 +112,7 @@ Here is linked below how to open ports for:
 
 Since Jellyfin is entirely self-hosted, you must manually expose it to the internet.
 To do so, you need a method to access the HTTP(S) ports remotely.
-Automatic discovery only works locally and should not be exposed externally
+Automatic discovery only works locally and should not be exposed externally.
 
 To access a server remotely there will need to be a way to find it or its network on the internet.
 This can be done through the public IP Address of the Device or for IPv6 the Server's directly.

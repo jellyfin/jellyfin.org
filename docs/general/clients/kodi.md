@@ -28,7 +28,7 @@ The installation method for the repository varies depending on what kind of devi
      - If prompted, enter settings and enable "Unknown Sources", then go back to the Add-on Browser
    - Select the newly downloaded file and it will be installed
 
-#### "Embedded" Devices (Android TV, Firestick, and other TV Boxes)
+#### "Embedded" Devices (Android TV, FireTV Stick, and other TV Boxes)
 
 1. Open Kodi, go to the settings menu, and navigate to "File manager"
    - Select "Add source"

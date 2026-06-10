@@ -12,6 +12,7 @@ enum Platform {
   TVOS = 'tvOS',
   WebOS = 'webOS',
   Xbox = 'Xbox',
+  Tizen = "Tizen",
 
   // Server platforms
   Arch = 'Arch Linux',
@@ -44,6 +45,7 @@ export const FeaturedClientPlatforms = [
   Platform.Kodi,
   Platform.Roku,
   Platform.TVOS,
+  Platform.Tizen,
   Platform.WebOS,
   Platform.Xbox
 ];

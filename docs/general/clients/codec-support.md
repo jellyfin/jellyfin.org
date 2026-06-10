@@ -48,7 +48,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 <br />
 <sup>12</sup>Need to be manually enabled in Settings > Playback > Enable H.264 High 10 Profile. Playback on Apple Silicon Macs with macOS version < 14 and Intel Macs with all macOS versions may result in blank frames if this is enabled.
 <br />
-<sup>13</sup>VP9 is only availble with Swiftfin (VLCKit) player.
+<sup>13</sup>VP9 is only available with Swiftfin (VLCKit) player.
 <br />
 <sup>14</sup>AV1 is enabled by default for Swiftfin (VLCKit). AV1 is disabled by default but can be enabled for Native (AVKit) using Custom Device Profiles. Enabling AV1 may result in a poor experience for SOCs prior to A17.
 <br />
@@ -198,7 +198,7 @@ If the container is unsupported, this will result in remuxing. The video and aud
 |                               Container                               | Chrome | Edge | Firefox | Safari | Android | Android TV | Kodi | Roku |
 | :-------------------------------------------------------------------: | :----: | :--: | :-----: | :----: | :-----: | :--------: | :--: | :--: |
 |    [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)<sup>1</sup>    |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
-|    [MKV](https://en.wikipedia.org/wiki/Matroska)<sup>2, 3, 8</sup>    |   ❌   |  ✅  |   ❌    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
+|    [MKV](https://en.wikipedia.org/wiki/Matroska)<sup>2, 3, 8, 9</sup> |   ✅   |  ✅  |   ❌    |   ❌   |   ✅    |     ✅     |  ✅  |  ✅  |
 |     [WebM](https://en.wikipedia.org/wiki/WebM)<sup>3, 5, 6</sup>      |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
 | [TS](https://en.wikipedia.org/wiki/MPEG_transport_stream)<sup>4</sup> |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
 |        [OGG](https://en.wikipedia.org/wiki/Ogg)<sup>5, 7</sup>        |   ✅   |  ✅  |   ✅    |   ✅   |   ✅    |     ✅     |  ✅  |  ✅  |
@@ -218,3 +218,5 @@ If the container is unsupported, this will result in remuxing. The video and aud
 <sup>7</sup>OGG on Safari requires at least iOS 18.4 / macOS 15.4
 <br />
 <sup>8</sup>MKV support in Firefox is currently disabled in Jellyfin, as there are significant issues making it unusable for Jellyfin. [1](https://bugzilla.mozilla.org/show_bug.cgi?id=2000420) [2](https://bugzilla.mozilla.org/show_bug.cgi?id=1991746)
+<br />
+<sup>9</sup>MKV on Chrome requires at least Chrome 145.
