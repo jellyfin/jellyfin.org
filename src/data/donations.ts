@@ -79,6 +79,16 @@ export const donations: Array<DonationTarget> = [
     ]
   },
   {
+    title: 'Jimi (jimdogx)',
+    roles: [GetProjectRole(Projects.Roku, ProjectRole.Contributor)],
+    links: [
+      {
+        url: 'https://buymeacoffee.com/jimdogx',
+        name: SponsorTypes.BuyMeACoffee
+      }
+    ]
+  },
+  {
     title: 'Niels van Velzen',
     roles: [
       MiscRoles.CoreTeam,
