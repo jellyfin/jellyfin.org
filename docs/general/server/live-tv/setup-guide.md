@@ -105,7 +105,7 @@ The guide data will now automatically import. You can check that the data has be
 
 It's possible to use TVHeadend with Jellyfin through as an M3U/XMLTV integrations. 
 This integration requires more CPU processing, and the plugin is therefore recommended.
-This approach is recommended when the plugin fails for some reason.
+This approach can be used as a backup when the plugin does not work.
 
 1. Go to LiveTV, Tuner devices, and add a new M3U Tuner
 2. Set the URL to point to `http://your.tvheadend.server:port/playlist/channels.m3u`
