@@ -41,7 +41,11 @@ This policy describes what data is collected and which systems or services it ap
 
 - Jellyfin may use other services covered by their own privacy policies, such as OpenCollective for donations or GitHub for code development. See the relevant provider policies for details.
 
-## GDPR Compliance
+<!-- markdownlint-disable MD034 -->
+
+## GDPR Compliance for the Jellyfin website (https://jellyfin.org)
+
+<!-- markdownlint-enable MD034 -->
 
 - Data controller: Jellyfin. Contact us at `team@jellyfin.org`.
 - Personal data we collect: IP addresses.
