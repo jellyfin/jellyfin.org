@@ -12,7 +12,7 @@ This policy describes what data is collected and which systems or services it ap
 ## Jellyfin Server
 
 - The Jellyfin server installed on your own computer contains no telemetry functionality. No data except that explicitly described below is transmitted to the Jellyfin project.
-- As a scheduled task, the server contacts our official plugin repository at `https://repo.jellyfin.org`, hosted on [DigitalOcean](https://www.digitalocean.com), to obtain plugin manifests, cover images, and plugin binaries for installation. See the next section for details.
+- As a scheduled task, the server contacts our official plugin repository at `https://repo.jellyfin.org`, hosted on [DigitalOcean](https://www.digitalocean.com), to obtain plugin manifests, cover images, and plugin binaries for installation. See the [Jellyfin Self-Hosted Services section](#jellyfin-self-hosted-services) for details.
 
 ## Jellyfin Clients
 
