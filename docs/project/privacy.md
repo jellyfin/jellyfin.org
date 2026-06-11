@@ -16,7 +16,8 @@ This policy describes what data is collected and which systems or services it ap
 
 ## Jellyfin Clients
 
-- Individual Jellyfin clients may collect platform-specific data. Each client has its own privacy policy.
+- First party Jellyfin clients do not collect user data, and do not contain any telemetry functionality.
+- 3rd party clients may collect user data, please refer to the privacy policy of the client in question for more information.
 
 ## Jellyfin Self-Hosted Services
 
