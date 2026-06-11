@@ -26,7 +26,7 @@ Some component recommendations do not change regardless of the hardware configur
 
 Different vendors have different hardware encoder implementations and produce different results. Usually, newer generations within the same vendor will provide better results. The following is a quick comparison on the quality between vendors on modern products.
 
-NVIDIA (Blackwell) ≥ Intel (Battlemage) ≥ Apple ≥ Intel ≥ NVIDIA ≥ AMD ≥ AMD H.264 (RDNA4) >>> AMD H.264<sup>\*</sup>
+NVIDIA (RTX 50) ≥ Intel (Arc-B) ≥ Apple ≥ Intel ≥ NVIDIA ≥ AMD ≥ AMD H.264 (RX 9000) >>> AMD H.264<sup>\*</sup>
 
 <sup>\*</sup> This only represents the default Jellyfin settings. The quality may be different depending on your exact configuration.
 
@@ -130,20 +130,26 @@ It is recommended to add more memory when using Windows 11 due to the OS being h
 
 ### Graphics Cards (GPUs)
 
+:::note
+
+The quality of transcoded video is highly dependent on the target codecs used by your client and your GPU architecture. Make sure you have verified them so you can choose the GPU best suited for your use case.
+
+:::
+
 With modern systems, the media engines are usually located on the GPUs. Therefore, the available hardware acceleration options are determined by the choice of GPU.
 
-Encoder Quality: NVIDIA (Blackwell) ≥ Intel (Battlemage) ≥ Apple ≥ Intel ≥ NVIDIA ≥ AMD ≥ AMD H.264 (RDNA4) >>> AMD H.264<sup>\*</sup>
+Encoder Quality: NVIDIA (RTX 50) ≥ Intel (Arc-B) ≥ Apple ≥ Intel ≥ NVIDIA ≥ AMD ≥ AMD H.264 (RX 9000) >>> AMD H.264<sup>\*</sup>
 
 <sup>\*</sup> This only represents the default Jellyfin settings. The quality may be different depending on your exact configuration.
 
-NVIDIA (Blackwell) represents the state of the art in hardware encoder quality as of writing. It introduces more optimized encoding tools, allowing it to deliver significant quality gains over its predecessor, Ada, and even Intel Battlemage. The most visible difference is that Intel's encoder is more likely to produce blocky artifacts when processing dark details.
+NVIDIA [Blackwell (RTX 50) NVENC](https://en.wikipedia.org/wiki/NVENC#Versions) represents the state of the art in hardware encoder quality. It introduces more optimized encoding tools, allowing it to deliver significant quality gains over its predecessor, Ada (RTX 40), and even Intel Arc Battlemage. The most visible difference is that Intel's encoder is more likely to produce blocky artifacts when processing dark details.
 
 Intel is always recommended on non-Apple hardware for the following reasons:
 
 - Intel provides a good quality encoder, slightly better than pre-Blackwell NVIDIA and significantly better than AMD H.264.
 - Intel drivers and the compute environment is much easier to setup than NVIDIA.
 
-AMD is the last choice because their H.264 encoders prior to RDNA4 delivered poor or below-average quality. While their H.265 (HEVC) and AV1 encoders generally provide a significantly better quality, you are still more likely to transcode to H.264 than to H.265 or AV1 due to the hardware capabilities of the average Jellyfin client.
+AMD is the least preferred choice due to its sub-par H.264 encoders prior to RDNA4 (RX 9000). While its H.265 (HEVC) and AV1 encoders offer noticeable improvements, they still lag behind Intel and NVIDIA. Since the average Jellyfin client relies heavily on H.264 hardware decoding, you will inevitably transcode to H.264 most of the time, making AMD's weakness a major bottleneck.
 
 A list of common codecs can be found in the [codec support documentation](/docs/general/clients/codec-support/).
 
@@ -177,7 +183,10 @@ Certain low-end cards (e.g. GT 1030) do not have encoding hardware. Please be ca
 
 #### AMD Graphics
 
-AMD graphics is not recommended for Jellyfin, this information is solely provided for reference. Further reading on AMD VCE supported codecs: [https://en.wikipedia.org/wiki/Video_Coding_Engine](https://en.wikipedia.org/wiki/Video_Coding_Engine).
+AMD graphics are the least preferred choice for Jellyfin, this information is solely provided for reference. Further reading on AMD VCN & VCE supported codecs:
+
+- [https://en.wikipedia.org/wiki/Video_Core_Next](https://en.wikipedia.org/wiki/Video_Core_Next)
+- [https://en.wikipedia.org/wiki/Video_Coding_Engine](https://en.wikipedia.org/wiki/Video_Coding_Engine)
 
 Certain low-end cards (e.g., RX 6400, RX 6500) do not have encoding hardware. Please be careful when choosing a GPU.
 
