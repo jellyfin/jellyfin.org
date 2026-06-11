@@ -126,12 +126,12 @@ This Privacy Policy explains how we collect, use, and protect your personal data
 
 13. Additional clauses
 
-    The Jellyfin website is hosted on Github Pages. The privacy policy of the provider may also partially or fully apply:
+    The Jellyfin website is hosted on GitHub Pages. The privacy policy of the provider may also partially or fully apply:
 
-    https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement
+    * [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
 
-    https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection
+    * [GitHub Pages data collection](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection)
 
-    Jellyfin hosts their publically accessable repository (https://repo.jellyfin.org) or other resources on servers hosted at Digital Ocean. The privacy policy of the provider may also partially or fully apply:
+    Jellyfin hosts their publicly accessible repository (`https://repo.jellyfin.org`) or other resources on servers hosted at DigitalOcean. The privacy policy of the provider may also partially or fully apply:
 
-    https://www.digitalocean.com/legal/privacy-policy
+    * [DigitalOcean Privacy Policy](https://www.digitalocean.com/legal/privacy-policy)
