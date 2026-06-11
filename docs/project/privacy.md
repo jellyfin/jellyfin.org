@@ -6,8 +6,8 @@ This policy describes what data is collected and which systems or services it ap
 
 ## General
 
-- We do not collect any data beyond what is described below.
-- We do not share or transfer data to any third parties except as required by law.
+- We do not, and will not collect any data beyond what is described below.
+- We do not, and will not share or transfer data to any third parties except when required by law.
 
 ## Jellyfin Server
 
