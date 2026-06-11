@@ -95,7 +95,7 @@ const config: Config = {
           to: '/contact'
         },
         {
-          label: 'Privacy Policy/GDPR Compliance',
+          label: 'Privacy Policy',
           to: '/docs/project/privacy'
         }
       ],
