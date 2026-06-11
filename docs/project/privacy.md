@@ -72,3 +72,6 @@ This policy describes what data is collected and which systems or services it ap
   - [GitHub Pages data collection](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection)
 - Jellyfin hosts its public repository and other resources on servers hosted at DigitalOcean. The provider's privacy policy may also apply:
   - [DigitalOcean Privacy Policy](https://www.digitalocean.com/legal/privacy-policy)
+- Jellyfin hosts Docker images on Docker Hub and GitHub Container Registry (GHCR). The provider's privacy policies may also apply:
+  - [Docker Privacy Policy](https://www.docker.com/legal/docker-privacy-policy/)
+  - [Github Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
