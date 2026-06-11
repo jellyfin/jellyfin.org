@@ -62,7 +62,7 @@ Jellyfin may leverage other services which are covered by their own Privacy Poli
 
 For any other questions or concerns, please reach out to [our core team](https://jellyfin.org/contact).
 
-# GDPR Policy for Jellyfin (https://jellyfin.org)
+## GDPR Policy for Jellyfin (https://jellyfin.org)
 
 This Privacy Policy explains how we collect, use, and protect your personal data in accordance with the General Data Protection Regulation (GDPR).
 
