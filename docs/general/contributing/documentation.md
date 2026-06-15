@@ -11,11 +11,11 @@ Documentation is fast-moving and ever-changing. Please think carefully about wha
 
 ## Please Self-Review
 
-Before finalizing your changes, please be courteous to reviewers and run your changes through, at least, a spellchecker (e.g. `apsell`) and potentially a grammar checker. AI is fine for this though please use it sparingly for *generating* content. Make sure you re-read what comes out and adjust as required. We appreciate individual writing styles but the bulk of our review back-and-forth is over minor issues like this, so please do your part to get it right first.
+Before finalizing your changes, please be courteous to reviewers and run your changes through, at least, a spellchecker (e.g. `apsell`) and potentially a grammar checker. AI is fine for this though please use it sparingly for _generating_ content. Make sure you re-read what comes out and adjust as required. We appreciate individual writing styles but the bulk of our review back-and-forth is over minor issues like this, so please do your part to get it right first.
 
 ## Peer Copyediting
 
-For very large changes, we encourage the idea of peer copyediting. Instead of submitting a massive PR and then having back-and-forth line-by-line editing in there, we suggest placing your new/updated doc in a collaborative document editor such as [Framapad](https://framapad.org/abc/en/) and sharing it in our [documentation Matrix room](/contact). You can then, between chat and the collaborative editor, obtain a line-by-line copyedit for spelling, grammar, and formatting, without back-and-forth in the PR. Once both sides are happy with the changes, a pull request can then be submitted.
+For very large changes, we encourage the idea of peer copyediting. Instead of submitting a massive PR and then having back-and-forth line-by-line editing in there, we suggest placing your new/updated doc in a collaborative document editor such as [HackMD](https://hackmd.io) and sharing it in our [documentation Matrix room](/contact). You can then, between chat and the collaborative editor, obtain a line-by-line copyedit for spelling, grammar, and formatting, without back-and-forth in the PR. Once both sides are happy with the changes, a pull request can then be submitted.
 
 While this does seem like "more work", for substantial changes this should ideally be a small part of the entire process, and will help ensure that final reviews go more smoothly.
 

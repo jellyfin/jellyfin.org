@@ -28,7 +28,7 @@ The installation method for the repository varies depending on what kind of devi
      - If prompted, enter settings and enable "Unknown Sources", then go back to the Add-on Browser
    - Select the newly downloaded file and it will be installed
 
-#### "Embedded" Devices (Android TV, Firestick, and other TV Boxes)
+#### "Embedded" Devices (Android TV, FireTV Stick, and other TV Boxes)
 
 1. Open Kodi, go to the settings menu, and navigate to "File manager"
    - Select "Add source"
@@ -91,40 +91,9 @@ To use Add-on mode, simply choose "Add-on" at the dialog and proceed to [Library
 
 #### Native Mode
 
-:::caution
-
-Do not use Native mode! Use Addon-mode instead.
-
-Jellyfin 10.10 no longer provides the shared network folder via the API, and as such native mode does not get the required information to function.
-
-:::
 Native mode accesses your media files directly from the filesystem, bypassing the Jellyfin server during playback. Native mode needs more setup and configuration, but it can, on rare occasions, lead to better performance where network bandwidth is a limitation. It requires your media to be available to the device Kodi is running on over either NFS or Samba, and therefore should only be used on a LAN or over a VPN connection.
 
-To use Native mode, first set up your libraries in Jellyfin with a remote path.
-
-:::caution
-
-Starting from Jellyfin 10.9 it is no longer possible to set the shared network folder.
-
-:::
-
-1. In the Jellyfin server, navigate to the Libraries section of the admin dashboard.
-   - Select an existing library (or create a new one)
-   - Select the media folder
-   - Enter the path to your network share in the "Shared network folder" textbox
-   - Possible formats:
-     - NFS
-       - `nfs://192.168.0.10:/path/to/media`
-     - Samba
-       - Guest User - `\\192.168.0.10\share_name`
-       - Custom User (Not Recommended) - `\\user:password@192.168.0.10\share_name`
-         - It's more secure to use the generic Guest mapping here and specify credentials from within Kodi
-     - Mounted share
-       - If you have mounted your network share, you can reference the local mount point. This can be more performant but generally means it only works for one type of operating system, given the difference between the file systems
-         - `/mnt/media` (Linux)
-         - `Z:\media` (Windows)
-         - `/Volumes/media` (Mac OS)
-2. Configure libraries in Kodi
+1. Configure libraries in Kodi
    - Skip the initial library selection. We need to add file shares to Kodi first
    - Within Kodi, navigate to the settings menu and select "File manager"
    - Select "Add source"
@@ -134,7 +103,8 @@ Starting from Jellyfin 10.9 it is no longer possible to set the shared network f
    - Select your newly created location and choose "Ok"
    - Give your media source a name and choose "Ok"
    - Go to Add-ons -> Jellyfin -> Manage Libraries -> Add Libraries
-3. Proceed to [Library Syncing](/docs/general/clients/kodi#library-syncing)
+2. Proceed to [Library Syncing](/docs/general/clients/kodi#library-syncing)
+3. Make sure to set up path replacements to rewrite paths on your Jellyfin server to the correct paths on your network share
 
 #### Library Syncing
 

@@ -13,13 +13,14 @@ You WILL NOT receive any support for running Jellyfin in Docker on platforms oth
 
 :::
 
-Create a `docker-compose.yml` file with the following contents. Add in the UID and GID that you would like to run jellyfin as in the user line below, or remove the user line to use the default (root).
+Create a `docker-compose.yml` file like the following.
 
 ```yml
 services:
   jellyfin:
     image: jellyfin/jellyfin
     container_name: jellyfin
+    # Optional - specify the uid and gid you would like Jellyfin to use instead of root
     user: uid:gid
     ports:
       - 8096:8096/tcp
