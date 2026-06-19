@@ -1046,7 +1046,7 @@ const thirdPartyClients: Array<Client> = [
       {
         id: 'amazon-store',
         name: 'Amazon Appstore',
-        url: 'https://www.amazon.com/gp/product/B0G8RQQR9T/ref=mas_pm_wholphin'
+        url: 'https://www.amazon.com/gp/product/B0G8RQQR9T'
       }
     ],
     secondaryLinks: [
