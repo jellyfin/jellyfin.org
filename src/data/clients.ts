@@ -1028,6 +1028,34 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'wholphin',
+    name: 'Wholphin',
+    description: ' An OSS Android TV client for Jellyfin',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.AndroidTV, Platform.FireOS],
+    primaryLinks: [
+      {
+        id: 'google-play',
+        name: 'Google Play',
+        url: 'https://play.google.com/store/apps/details?id=com.github.damontecres.wholphin'
+      },
+      {
+        id: 'amazon-store',
+        name: 'Amazon Appstore',
+        url: 'https://www.amazon.com/gp/product/B0G8RQQR9T/ref=mas_pm_wholphin'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/damontecres/Wholphin'
+      }
+    ]
   }
 ];
 
