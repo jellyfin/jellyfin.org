@@ -85,7 +85,7 @@ These hardware platforms might lead to a poor Jellyfin experience. Please be car
 - Most Single Board Computers (SBC): Most SBCs (including the Raspberry Pi, **especially the Raspberry Pi 5**) are too slow to provide an acceptable Jellyfin experience as they often lack proper support for hardware acceleration. If you really want to run Jellyfin on an SBC, you may wish to consider models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
 - AMD Graphics: AMD Graphics have poor encoder quality and poor driver support. **This applies even on Linux**.
 - Low-end GPUs: Certain low-end GPUs (e.g. GT1030, RX6400) are not capable of hardware encoding. These models cannot be used for hardware acceleration for a Jellyfin Server.
-- Very old X86 CPUs: Starting with Jellyfin 10.11, X86 CPUs that support the AVX2 instruction set is a requirement.  For Intel Core, Haswell (Q2 2013) and newer support AVX2.  For Intel Atom/Pentium/Celeron, Tiger Lake (Q3 2020) and newer support AVX2.  For AMD, Excavator (Q2 2015) and newer support AVX2.
+- Very old X86 CPUs: Starting with Jellyfin 10.11, X86 CPUs that support the SSE4.1 instruction set is a requirement.  For Intel, Penryn (Q4 2007) and newer support SSE4.1.  For AMD, Bulldozer (Q4 2011) and newer support SSE4.1.
 
 ## Detailed Guide
 
