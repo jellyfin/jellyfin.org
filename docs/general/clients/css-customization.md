@@ -31,11 +31,11 @@ If you have little or no experience with CSS, consider reviewing additional comm
 
 CSS rules are applied in the order they are written, although declarations marked with `!important` take precedence over most other rules. For more information, see the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) on CSS and CSS specificity.
 
-You can learn more about CSS using sites like [w3schools](https://www.w3schools.com/css/default.asp) and [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS). Below are some very basic CSS knowledge that will let you do rough edits to the pre-made tweaks below.
+You can learn more about CSS using sites like [w3schools](https://www.w3schools.com/css/default.asp) and [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS). Below is some very basic CSS knowledge that will let you do rough edits.
 
 ### Colors
 
-CSS supports multiple color formats, but typically the hex color codes are used for specific colors. To get a specific color, exact color data such as the hex codes below have to be used.
+CSS supports multiple color formats, but typically hex color codes are used for specific colors. To get a specific color, exact color data such as the hex codes below have to be used.
 
 Some examples of hex color codes:
 
