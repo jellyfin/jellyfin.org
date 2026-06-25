@@ -1011,7 +1011,7 @@ const thirdPartyClients: Array<Client> = [
     description: 'A Live TV client for Jellyfin on iOS, iPadOS, and macOS',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
-    licenseType: LicenseType.Proprietary,
+    licenseType: LicenseType.OpenSource,
     platforms: [Platform.IOS, Platform.MacOS],
     primaryLinks: [
       {
@@ -1020,7 +1020,12 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://apps.apple.com/us/app/livefin/id6748318433'
       }
     ],
-      secondaryLinks: [
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/LiveFin/LiveFin'
+      },
       {
         id: 'website',
         name: 'Website',
