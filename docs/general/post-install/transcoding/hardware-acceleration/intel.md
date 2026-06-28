@@ -809,6 +809,11 @@ Root permission is required.
    - On Debian:
 
      ```shell
+     sudo apt update && sudo apt install -y firmware-intel-graphics
+     ```
+
+     Or, if you're on an older debian version :
+     ```shell
      sudo apt update && sudo apt install -y firmware-linux-nonfree
      ```
 
