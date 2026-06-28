@@ -137,5 +137,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:ricardo3m/Jellyfin_PDF_plugin',
+    name: "ricardo3m's PDF Thumbnails Repo",
+    url: 'https://raw.githubusercontent.com/ricardo3m/Jellyfin_PDF_plugin/main/manifest.json',
+    includes: {
+      'PDF Thumbnails': 'https://github.com/ricardo3m/Jellyfin_PDF_plugin'
+    }
   }
 ];
