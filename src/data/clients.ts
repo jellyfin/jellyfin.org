@@ -548,35 +548,6 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
-    id: 'gelli',
-    name: 'Gelli',
-    description:
-      'A native music player for Android devices with transcoding support, gapless playback, favorites, playlists, and many other features.',
-    clientType: ClientType.ThirdParty,
-    deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
-    platforms: [Platform.Android],
-    primaryLinks: [
-      {
-        id: 'gh-downloads',
-        name: 'GitHub Downloads',
-        url: 'https://github.com/dkanada/gelli/releases'
-      },
-      {
-        id: 'fdroid',
-        name: 'F-Droid',
-        url: 'https://f-droid.org/packages/com.dkanada.gramophone/'
-      }
-    ],
-    secondaryLinks: [
-      {
-        id: 'github',
-        name: 'GitHub',
-        url: 'https://github.com/dkanada/gelli'
-      }
-    ]
-  },
-  {
     id: 'finamp',
     name: 'Finamp',
     description: 'A third party app for music playback with support for offline mode/downloading songs.',
@@ -1026,6 +997,35 @@ const thirdPartyClients: Array<Client> = [
         id: 'website',
         name: 'Website',
         url: 'https://jellify.app'
+      }
+    ]
+  },
+    {
+    id: 'jamfish',
+    name: 'Jamfish',
+    description:
+      'Delicious native Android music player for Jellyfin, based on Gelli.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Android],
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/adrianvic/jamfish/releases'
+      },
+      {
+        id: 'fdroid',
+        name: 'F-Droid',
+        url: 'https://f-droid.org/en/packages/org.adrianvictor.geleia/'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/adrianvic/jamfish'
       }
     ]
   }
