@@ -65,7 +65,7 @@
     "cspell": "10.0.1",
     "docusaurus-plugin-sass": "0.2.6",
     "eslint": "9.39.4",
-    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-jsx-a11y-x": "0.2.0",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.1.1",
     "globals": "17.7.0",
