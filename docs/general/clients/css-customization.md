@@ -7,7 +7,7 @@ title: CSS Customization
 
 Jellyfin allows users to customize the appearance of the web interface by applying custom CSS. This feature is intended for advanced customization and should be used with care. Support is not provided for issues caused by custom CSS.
 
-Custom CSS is only applied to clients that load Jellyfin Web from your server. As a result, it does not affect all Jellyfin clients. Some web-based clients bundle their own version of Jellyfin Web and therefore do not load custom CSS from the server.
+Custom CSS is only applied to clients that use Jellyfin Web. As a result, it does not affect all Jellyfin clients.
 
 :::warning
 
