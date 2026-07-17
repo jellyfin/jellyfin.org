@@ -28,7 +28,6 @@ The core team consists of those with merge permissions on the main Jellyfin repo
 |---|---|---|
 | Joshua Boniface | [GitHub](https://github.com/joshuaboniface) [Matrix](https://matrix.to/#/@joshuaboniface:bonifacelabs.ca) [Email](mailto:joshua@boniface.me) | **Project Leader**, Packaging, Releases, Finance, Infrastructure |
 | Anthony Lavado | [GitHub](https://github.com/anthonylavado) | Social Media, Outreach, Finance |
-| Andrew Rabert  | [GitHub](https://github.com/nvllsvm) | Finance |
 | Bond-009 | [GitHub](https://github.com/Bond-009) | Server |
 | Claus Vium | [GitHub](https://github.com/cvium) | Server |
 | Bill Thornton | [GitHub](https://github.com/thornbill) | Web |
