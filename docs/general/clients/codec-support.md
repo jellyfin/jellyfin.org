@@ -13,16 +13,16 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 [Test your browser's compatibility for any codec profile.](https://cconcolato.github.io/media-mime-support/)
 
-| Sorted by efficiency (excluding bit depth)                                                                         | Chrome | Edge           | Firefox         | Safari         | Android        | Android TV     | iOS | SwiftFin (iOS) | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | Jellyfin Media Player |
-| ------------------------------------------------------------------------------------------------------------------ | ------ | -------------- | --------------- | -------------- | -------------- | -------------- | --- | -------------- | ------------------------------------------------------------------------------- | ---- | --------------------- |
-| [MPEG-4 Part 2/SP](https://en.wikipedia.org/wiki/DivX)                                                             | ❌     | ❌             | ❌              | ❌             | ❌             | ❌             | ❌  | ✅             | ✅                                                                              | ✅   | ✅                    |
-| [MPEG-4 Part 2/ASP](<https://en.wikipedia.org/wiki/MPEG-4_Part_2#Advanced_Simple_Profile_(ASP)>)                   | ❌     | ❌             | ❌              | ❌             | ❌             | ❌             | ❌  | ✅             |                                                                                 | ✅   | ✅                    |
-| [H.264 8Bit](https://caniuse.com/#feat=mpeg4 'H264 Browser Support Reference')                                     | ✅     | ✅             | 🔶<sup>10</sup> | ✅             | ✅             | ✅             | ✅  | ✅             | ✅                                                                              | ✅   | ✅                    |
-| [H.264 10Bit](https://caniuse.com/#feat=mpeg4 'H264 Browser Support Reference')                                    | ✅     | ✅             | ❌              | 🔶<sup>6</sup> | ✅             | ✅             | ❌  | ✅             | ❌                                                                              | ✅   | ✅                    |
-| [H.265 8Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                      | 🔶     | 🔶<sup>3</sup> | 🔶<sup>9</sup>  | ✅             | 🔶<sup>1</sup> | ✅             | ✅  | ✅             | 🔶<sup>4</sup>                                                                  | ✅   | ✅                    |
-| [H.265 10Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                     | 🔶     | 🔶<sup>3</sup> | 🔶<sup>9</sup>  | ✅             | 🔶<sup>1</sup> | 🔶             | ✅  | ✅             | 🔶<sup>4</sup>                                                                  | ✅   | ✅                    |
-| [VP9](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#VP9 'V9 Browser Support Reference')  | ✅     | ✅             | ✅              | ✅             | ✅             | ✅             | ❌  | ⚠️<sup>7</sup> | ✅                                                                              | ✅   | ✅                    |
-| [AV1](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#AV1 'AV1 Browser Support Reference') | ✅     | ✅             | ✅              | 🔶<sup>5</sup> | ✅             | 🔶<sup>2</sup> | ❌  | 🔶<sup>8</sup> | ✅                                                                              | ✅   | ✅                    |
+| Sorted by efficiency (excluding bit depth)                                                                         | Chrome | Edge           | Firefox        | Safari         | Android        | Android TV     | iOS | SwiftFin (iOS) | [Roku](https://developer.roku.com/docs/specs/media/streaming-specifications.md) | Kodi | Jellyfin Media Player |
+| ------------------------------------------------------------------------------------------------------------------ | ------ | -------------- | -------------- | -------------- | -------------- | -------------- | --- | -------------- | ------------------------------------------------------------------------------- | ---- | --------------------- |
+| [MPEG-4 Part 2/SP](https://en.wikipedia.org/wiki/DivX)                                                             | ❌     | ❌             | ❌             | ❌             | ❌             | ❌             | ❌  | ✅             | ✅                                                                              | ✅   | ✅                    |
+| [MPEG-4 Part 2/ASP](<https://en.wikipedia.org/wiki/MPEG-4_Part_2#Advanced_Simple_Profile_(ASP)>)                   | ❌     | ❌             | ❌             | ❌             | ❌             | ❌             | ❌  | ✅             |                                                                                 | ✅   | ✅                    |
+| [H.264 8Bit](https://caniuse.com/#feat=mpeg4 'H264 Browser Support Reference')                                     | ✅     | ✅             | 🔶<sup>9</sup> | ✅             | ✅             | ✅             | ✅  | ✅             | ✅                                                                              | ✅   | ✅                    |
+| [H.264 10Bit](https://caniuse.com/#feat=mpeg4 'H264 Browser Support Reference')                                    | ✅     | ✅             | ❌             | 🔶<sup>5</sup> | ✅             | ✅             | ❌  | ✅             | ❌                                                                              | ✅   | ✅                    |
+| [H.265 8Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                      | 🔶     | 🔶<sup>3</sup> | 🔶<sup>8</sup> | ✅             | 🔶<sup>1</sup> | ✅             | ✅  | ✅             | 🔶<sup>4</sup>                                                                  | ✅   | ✅                    |
+| [H.265 10Bit](https://caniuse.com/#feat=hevc 'HEVC Browser Support Reference')                                     | 🔶     | 🔶<sup>3</sup> | 🔶<sup>8</sup> | ✅             | 🔶<sup>1</sup> | 🔶             | ✅  | ✅             | 🔶<sup>4</sup>                                                                  | ✅   | ✅                    |
+| [VP9](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#VP9 'V9 Browser Support Reference')  | ✅     | ✅             | ✅             | ✅             | ✅             | ✅             | ❌  | ⚠️<sup>6</sup> | ✅                                                                              | ✅   | ✅                    |
+| [AV1](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#AV1 'AV1 Browser Support Reference') | ✅     | ✅             | ✅             | 🔶             | ✅             | 🔶<sup>2</sup> | ❌  | 🔶<sup>7</sup> | ✅                                                                              | ✅   | ✅                    |
 
 Legends: ❌=Not Supported, 🔶=Support depends on device and/or settings, ⚠️=Software Decode Only, ✅=Fully supported (Hardware support with software fallback) <br />
 This table shows the support status of **recent** client software and OS versions. Legacy versions may differ in support. <br />
@@ -32,21 +32,19 @@ For this table, Remuxing due to container compatibility is considered fully supp
 <br />
 <sup>2</sup>Needs at least Android TV 10.
 <br />
-<sup>3</sup>HEVC decoding is only supported on Windows with the HEVC Video Extension from the Microsoft <a href="https://www.microsoft.com/store/productId/9NMZLZ57R3T7">store</a>.
+<sup>3</sup>Windows requires the [HEVC video extension from Microsoft Store](https://apps.microsoft.com/detail/9nmzlz57r3t7).
 <br />
 <sup>4</sup>HEVC decoding is only supported on 4K devices.
 <br />
-<sup>5</sup>AV1 decoding is only available on devices with A17 or M3 series chips or newer and requires at least Safari 17.
+<sup>5</sup>Needs to be manually enabled in Settings > Playback > Enable H.264 High 10 Profile. Requires macOS >= 14 and Apple Silicon.
 <br />
-<sup>6</sup>Need to be manually enabled in Settings > Playback > Enable H.264 High 10 Profile. Playback on Apple Silicon Macs with macOS version < 14 and Intel Macs with all macOS versions may result in blank frames if this is enabled.
+<sup>6</sup>VP9 is only available with Swiftfin (VLCKit) player.
 <br />
-<sup>7</sup>VP9 is only available with Swiftfin (VLCKit) player.
+<sup>7</sup>AV1 is enabled by default for Swiftfin (VLCKit). AV1 is disabled by default for Native (AVKit). Enabling AV1 may result in a poor experience for older devices.
 <br />
-<sup>8</sup>AV1 is enabled by default for Swiftfin (VLCKit). AV1 is disabled by default but can be enabled for Native (AVKit) using Custom Device Profiles. Enabling AV1 may result in a poor experience for SOCs prior to A17.
+<sup>8</sup>Windows requires the [HEVC video extension from Microsoft Store](https://apps.microsoft.com/detail/9nmzlz57r3t7). Linux requires system ffmpeg for support.
 <br />
-<sup>9</sup>On Windows 11 22H2+ and Windows 10 1507-1709, you can play H.265 (HEVC) video natively. Windows 10 1803+ and Windows 11 21H2 need the [HEVC video extension from Microsoft Store](https://apps.microsoft.com/detail/9nmzlz57r3t7). Linux requires system ffmpeg for support.
-<br />
-<sup>10</sup>Some Linux distributions have improperly packaged Firefox builds, which results in H264 not being available.
+<sup>9</sup>Some Linux distributions have improperly packaged Firefox builds, which results in H264 not being available.
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
 
