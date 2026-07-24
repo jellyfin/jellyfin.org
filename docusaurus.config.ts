@@ -93,6 +93,10 @@ const config: Config = {
         {
           label: 'Contact',
           to: '/contact'
+        },
+        {
+          label: 'Privacy Policy',
+          to: '/docs/project/privacy'
         }
       ],
       copyright: `<a href="https://github.com/jellyfin/jellyfin/releases/latest">
