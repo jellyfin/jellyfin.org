@@ -315,18 +315,6 @@ If you would prefer to install everything manually, the full steps are as follow
    sudo apt install jellyfin
    ```
 
-   :::note
-
-   If you want to be explicit, instead of the metapackage, you can install the sub-packages individually:
-
-   ```sh
-   sudo apt install jellyfin-server jellyfin-web
-   ```
-
-   The `jellyfin-server` package will automatically select the right `jellyfin-ffmpeg` package for you as well.
-
-   :::
-
 7. Manage the Jellyfin system service:
 
    ```sh
