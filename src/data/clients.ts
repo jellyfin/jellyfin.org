@@ -412,6 +412,29 @@ const officialClients: Array<Client> = [
 
 const thirdPartyClients: Array<Client> = [
   {
+    id: 'deskfin',
+    name: 'Deskfin',
+    description: 'A thin Jellyfin desktop client with Web and MPV playback.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/jessielw/Deskfin/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jessielw/Deskfin'
+      }
+    ]
+  },
+  {
     id: 'jellyamp',
     name: 'Jellyamp',
     description: 'A desktop client for listening to music from a Jellyfin server.',
