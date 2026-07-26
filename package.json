@@ -22,7 +22,7 @@
     "test:web-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-web-urls.json"
   },
   "dependencies": {
-    "@fontsource/noto-sans": "5.2.10",
+    "@fontsource/noto-sans": "5.3.0",
     "@icons-pack/react-simple-icons": "13.13.0",
     "@img-comparison-slider/react": "8.0.2",
     "@mdi/js": "7.4.47",
