@@ -547,6 +547,35 @@ const thirdPartyClients: Array<Client> = [
       }
     ]
   },
+{
+  id: 'linthra',
+  name: 'Linthra',
+  description:
+  'An open-source Android music player for Jellyfin with offline caching, playlists, favorites, Chromecast, and Android Auto.',
+  clientType: ClientType.ThirdParty,
+  deviceTypes: [DeviceType.Mobile],
+  licenseType: LicenseType.OpenSource,
+  platforms: [Platform.Android],
+  primaryLinks: [
+    {
+      id: 'fdroid',
+      name: 'F-Droid',
+      url: 'https://f-droid.org/packages/io.github.thezupzup.linthra/'
+    },
+    {
+      id: 'gh-downloads',
+      name: 'GitHub Downloads',
+      url: 'https://github.com/TheZupZup/Linthra/releases'
+    }
+  ],
+  secondaryLinks: [
+    {
+      id: 'github',
+      name: 'GitHub',
+      url: 'https://github.com/TheZupZup/Linthra'
+    }
+  ]
+},
   {
     id: 'gelli',
     name: 'Gelli',
