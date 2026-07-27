@@ -139,7 +139,7 @@ Each knob is a `CustomDatabaseOption` with a `Key` and a `Value` child element. 
 
 | Key                 | Default            | Description                                                                                                             |
 | ------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| `cacheSize`         | unset (SQLite 2 MiB) | SQLite `cache_size`. A positive value is a page count. A negative value is a size in KiB, so `-262144` is 256 MiB. Applied per connection. |
+| `cacheSize`         | unset (SQLite 2 MiB) | SQLite `cache_size`. A **positive** value is a number of pages, so the resulting memory depends on the page size (`262144` pages is ~1 GiB at a 4 KiB page size). A **negative** value is a size in KiB and is page-size independent, so `-262144` is always 256 MiB. Prefer the negative form to get a predictable memory footprint. Applied per connection. |
 | `lockingmode`       | `NORMAL`           | SQLite `locking_mode`.                                                                                                   |
 | `journalsizelimit`  | `134217728`        | SQLite `journal_size_limit` in bytes.                                                                                    |
 | `tempstoremode`     | `2`                | SQLite `temp_store` (`2` is memory).                                                                                     |
