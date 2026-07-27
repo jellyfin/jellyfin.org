@@ -257,6 +257,7 @@ mirrorlist
 mirrorstats
 mirrorsync
 mkinitcpio
+mmap
 mmdb
 mobi
 modeset
