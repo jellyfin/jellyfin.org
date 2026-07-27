@@ -238,6 +238,8 @@ Stop your Jellyfin server and navigate to its config directory. There are a lot 
 
 then start your Jellyfin instance again. If this still does not help with the issues, you can try setting the `LockingBehavior` to `Pessimistic` instead but this comes with a significant performance impact so it is only recommended when `Optimistic` does not help with the issues.
 
+For the other `database.xml` options, including `cacheSize` tuning for large libraries, see the [Database section](/docs/general/administration/configuration#database) of the Configuration page.
+
 ### LXC specific issues
 
 It has been brought to the team's attention that there are issues with LXC specifically. If you are getting such errors on LXC after setting lock mode to `Optimistic`, it is recommended that you migrate to full virtualization (virtual machines) or Docker. There is unlikely to be a solution for LXC any time soon, and we will be unable to provide any support for database locked problems on LXC.
