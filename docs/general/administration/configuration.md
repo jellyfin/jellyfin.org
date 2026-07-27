@@ -126,13 +126,16 @@ Most installs never need to touch this. The main reason to tune it is a large li
   <DatabaseType>Jellyfin-SQLite</DatabaseType>
   <CustomProviderOptions>
     <Options>
-      <CustomDatabaseOption Key="cacheSize" Value="-262144" />
+      <CustomDatabaseOption>
+        <Key>cacheSize</Key>
+        <Value>-262144</Value>
+      </CustomDatabaseOption>
     </Options>
   </CustomProviderOptions>
 </DatabaseConfigurationOptions>
 ```
 
-Each knob is a `CustomDatabaseOption` with a `Key` and a `Value`. The available keys:
+Each knob is a `CustomDatabaseOption` with a `Key` and a `Value` child element. The available keys:
 
 | Key                 | Default            | Description                                                                                                             |
 | ------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
