@@ -680,6 +680,29 @@ const thirdPartyClients: Array<Client> = [
     recommended: true
   },
   {
+    id: 'neptune',
+    name: 'Neptune',
+    description: 'A native Jellyfin client for Apple TV.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.TVOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/neptune-media-player/id6756797773'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://neptuneplayer.com/'
+      }
+    ]
+  },
+  {
     id: 'volumio',
     name: 'Jellyfin Plugin for Volumio',
     description: 'A Volumio plugin for playing audio from one or more Jellyfin servers.',
