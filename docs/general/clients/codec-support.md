@@ -28,8 +28,6 @@ Legends: ❌=Not Supported, 🔶=Support depends on device and/or settings, ⚠�
 This table shows the support status of **recent** client software and OS versions. Legacy versions may differ in support. <br />
 For this table, Remuxing due to container compatibility is considered fully supported. <br />
 
-<sup>1</sup>Android playback is currently broken. Client reports that HEVC is supported and attempts to Direct Stream.
-<br />
 <sup>2</sup>Needs at least Android TV 10.
 <br />
 <sup>3</sup>Windows requires the [HEVC video extension from Microsoft Store](https://apps.microsoft.com/detail/9nmzlz57r3t7).
