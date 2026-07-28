@@ -42,7 +42,7 @@ For this table, Remuxing due to container compatibility is considered fully supp
 <br />
 <sup>8</sup>Windows requires the [HEVC video extension from Microsoft Store](https://apps.microsoft.com/detail/9nmzlz57r3t7). Linux requires system ffmpeg for support.
 <br />
-<sup>9</sup>Some Linux distributions have improperly packaged Firefox builds, which results in H264 not being available.
+<sup>9</sup>Some Linux distributions provide a Firefox package that do not have H264 support, causing transcoding to be required. You may need to install additional packages on these system. The most obvious symptom is Jellyfin attempting to transcode to VP9.
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
 
