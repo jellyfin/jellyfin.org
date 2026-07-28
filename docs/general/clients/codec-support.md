@@ -24,9 +24,13 @@ The goal is to Direct Play all media. This means the container, video, audio and
 | [VP9](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#VP9 'V9 Browser Support Reference')  | ✅     | ✅             | ✅             | ✅             | ✅             | ✅             | ❌  | ⚠️<sup>6</sup> | ✅             | ✅   | ✅                    |
 | [AV1](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#AV1 'AV1 Browser Support Reference') | ✅     | ✅             | ✅             | 🔶             | ✅             | 🔶<sup>2</sup> | ❌  | 🔶<sup>7</sup> | ✅             | ✅   | ✅                    |
 
-Legends: ❌=Not Supported, 🔶=Support depends on device and/or settings, ⚠️=Software Decode Only, ✅=Fully supported (Hardware support with software fallback) <br />
-This table shows the support status of **recent** client software and OS versions. Legacy versions may differ in support. <br />
-For this table, Remuxing due to container compatibility is considered fully supported. <br />
+Legends:<br />
+❌=Not Supported.<br />
+🔶=Support depends on device and/or settings.<br />
+⚠️=Software Decode Only.<br />
+✅=Fully supported (Hardware support with software fallback).<br />
+<br />
+This table shows the support status of **recent** client software and OS versions. Legacy versions may differ in support. Remuxing due to container compatibility is considered fully supported for this table. <br /><br />
 
 <sup>2</sup>Needs at least Android TV 10.
 <br />
