@@ -264,12 +264,12 @@ resources:
     gpu.intel.com/i915: 1
     # or nvidia.com/gpu: 1
 
-extraVolumes:
+volumes:
   - name: dri
     hostPath:
       path: /dev/dri
 
-extraVolumeMounts:
+volumeMounts:
   - name: dri
     mountPath: /dev/dri
 ```
