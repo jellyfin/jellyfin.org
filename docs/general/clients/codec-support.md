@@ -46,7 +46,7 @@ This table shows the support status of **recent** client software and OS version
 <br />
 <sup>7</sup>Windows requires the [HEVC video extension from Microsoft Store](https://apps.microsoft.com/detail/9nmzlz57r3t7). Linux requires system ffmpeg for support.
 <br />
-<sup>8</sup>Some Linux distributions provide a Firefox package that do not have H264 support, causing transcoding to be required. You may need to install additional packages on these system. The most obvious symptom is Jellyfin attempting to transcode to VP9.
+Some Linux distributions provide a Firefox package that does not have H264 support, causing transcoding to be required. You may need to install additional packages on these system. The most obvious symptom is Jellyfin attempting to transcode to VP9.
 
 [Format Cheatsheet:](https://en.wikipedia.org/wiki/MPEG-4#MPEG-4_Parts)
 
