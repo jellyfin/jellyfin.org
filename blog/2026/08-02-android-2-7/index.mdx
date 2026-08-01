@@ -14,6 +14,11 @@ quality-of-life enhancements.
 
 Thank you to everyone who contributed code, tested beta releases, reported bugs, and helped improve the app throughout this release cycle.
 
+import androidDownloadDemoPng from './android-download-demo.png';
+
+<div className="row">
+  <div className="col col--8">
+
 ## Redesigned downloads
 
 The download functionality of the app was completely redesigned, adding many new features and making your downloads fully manageable in-app.
@@ -24,9 +29,19 @@ all your downloads in. Unfortunately, your existing downloads cannot be migrated
 And this is only the start! We're planning to add better filtering and browsing of your downloads and improved offline support where your
 watch state will be synchronized with the server once you're back online.
 
+  </div>
+  <div className="col col--4 margin-top--md">
+    <img
+      src={androidDownloadDemoPng}
+      alt="Screenshot of the redesigned downloads screen"
+      style={{ width: '100%', maxWidth: '400px' }}
+    />
+  </div>
+</div>
+
 ## Android Auto support
 
-![Android Auto demo picture](./android-auto-demo.jpg)
+![Photo of the Android Auto integration](./android-auto-demo.jpg)
 
 Android Auto support has long been one of the Jellyfin app's most popular features, making it easy to enjoy your music while on the go. This
 release brings a major overhaul to the Android Auto support. You can now browse your large music libraries without being limited to just 250
