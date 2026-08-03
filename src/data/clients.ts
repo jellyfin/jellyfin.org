@@ -48,11 +48,6 @@ const officialClients: Array<Client> = [
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
-        id: 'flathub',
-        name: 'Flathub (Linux)',
-        url: 'https://flathub.org/apps/details/com.github.iwalton3.jellyfin-media-player'
-      },
-      {
         id: 'gh-downloads',
         name: 'GitHub Downloads',
         url: 'https://github.com/jellyfin/jellyfin-media-player/releases'
@@ -943,7 +938,8 @@ const thirdPartyClients: Array<Client> = [
   {
     id: 'streamyfin',
     name: 'Streamyfin',
-    description: 'A modern Jellyfin client with support for downloads, Live TV, skip intro & credits, trickplay image and more!',
+    description:
+      'A modern Jellyfin client with support for downloads, Live TV, skip intro & credits, trickplay image and more!',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,
