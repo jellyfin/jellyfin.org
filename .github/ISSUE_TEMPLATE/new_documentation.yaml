@@ -1,0 +1,55 @@
+name: New/expand documentation
+description: Request new documentation for a feature or functionality that is missing.
+labels:
+  - enhancement
+  - documentation
+body:
+  - type: checkboxes
+    id: before-posting
+    attributes:
+      label: 'This issue respects the following points:'
+      description: All conditions are **required**.
+      options:
+        - label: This issue is **not** already reported on [GitHub](https://github.com/jellyfin/jellyfin.org/issues?q=is%3Aopen+is%3Aissue) _(I've searched it)_.
+          required: true
+        - label: I agree to follow Jellyfin's [Code of Conduct](https://jellyfin.org/docs/general/community-standards.html#code-of-conduct).
+          required: true
+        - label: This report addresses only a single issue; If you encounter multiple issues, kindly create separate reports for each one.
+          required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## Documentation information
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the missing documentation
+      description: |
+        A clear and exact description of the missing documentation.
+      placeholder: |
+        There is no documentation on how to install Jellyfin on Docker. This would be helpful for ...
+    validations:
+      required: true
+  - type: textarea
+    id: reasoning
+    attributes:
+      label: reasoning
+      description: |
+        Explain why this documentation is needed.
+      placeholder: |
+        This documentation would help users who are new to Docker and want to run Jellyfin in a container.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Additional
+  - type: input
+    id: other-sources
+    attributes:
+      label: Other sources
+      description: Please link the related forum topics or chat messages that prompted you open this issue.
+      placeholder: https://forum.jellyfin.org/…
+    validations:
+      required: false
