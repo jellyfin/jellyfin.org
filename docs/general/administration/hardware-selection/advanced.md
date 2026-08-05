@@ -1,86 +1,6 @@
-# Selecting Appropriate Hardware
+# Advanced Hardware Selection Guide
 
-The following is intended to help you choose appropriate hardware for a Jellyfin server and take full advantage of its features (e.g. hardware acceleration).
-
-## Simple Guide
-
-Below is a list of recommended specs to run Jellyfin. Whilst Jellyfin can work on relatively low-end hardware, the following specs are recommended for a good experience.
-
-### Shared Items
-
-Some component recommendations do not change regardless of the hardware configuration:
-
-- Storage: 100GB SSD for your OS, Jellyfin files and transcoding cache.<sup>1</sup> Consider adding more on Windows 11, or if you have many large media files that need transcoding.
-- Networking: Gigabit Ethernet Adapter or faster, WiFi or Powerline not recommended.
-- Internet Connection: At least 20 Mbps upload bandwidth for remote access.<sup>2</sup>
-
-<sup>1</sup>Your largest media file times the max number of concurrent streams all your users will consume can be used as a rule of thumb for the transcoding file size. <br />
-<sup>2</sup>If you have less than 100 Mbps of total upload bandwidth, a bandwidth limit of 70% of your upload speed for Jellyfin is recommended to avoid affecting internet usage outside of Jellyfin. This option can be found in the Jellyfin Server `Dashboard`.
-
-### Hardware Encoder Quality
-
-Different vendors have different hardware encoder implementations and produce different results. Usually, newer generations within the same vendor will provide better results. The following is a quick comparison on the quality between vendors on modern products.
-
-NVIDIA (RTX 50) ≥ Intel (Arc-B) ≥ Apple ≥ Intel ≥ NVIDIA ≥ AMD ≥ AMD H.264 (RX 9000) >>> AMD H.264<sup>\*</sup>
-
-<sup>\*</sup> This only represents the default Jellyfin settings. The quality may be different depending on your exact configuration.
-
-### Server with Integrated Graphics
-
-If you do not intend to use a dedicated graphics card, the following specs are recommended:
-
-- CPU: Intel Core i5-11400, Intel Pentium Gold G7400, Intel N100, Apple M series or newer (excluding Intel J/M/N/Y series up to 11th gen)
-- RAM: 8GB System RAM (Consider adding more on Windows 11)
-- Graphics: Intel UHD 710, Apple M series or newer
-
-AMD is **NOT** recommended if you intend to use integrated graphics for Jellyfin.
-
-:::caution
-
-Intel 7-10th gen CPUs have been removed from this list, since the toolkit for these generations has been deprecated by Intel. If you own a 7-10th gen CPU with integrated graphics, please continue to use them for Jellyfin, as they are still perfectly capable of performing the task. If you are making a purchase decision, you may wish to consider alternatives.
-
-:::
-
-### Server with Dedicated Graphics
-
-If you intend to use a dedicated graphics card (including upgrading an old system with a dedicated GPU), the following specs are recommended:
-
-- CPU: Intel Core i5-2300，AMD FX-8100 or better (Geekbench 6 Multicore 1500 or better), CPU Vendor / Performance will **NOT** affect hardware encode speed or quality
-- RAM: 8GB. (4GB may be sufficient for a Linux server without its own GUI.)
-- Graphics: Intel Arc A series or newer, NVIDIA GTX16/RTX20 series or newer (Excluding GTX1650), **AMD is NOT recommended**.
-
-Intel Drivers are much easier to install on Linux, with many distributions including them by default. If you do not need CUDA for other applications, it is highly recommended that you stick with Intel Graphics on Linux.
-
-:::caution
-
-Intel ARC B-series cards require ReBar to be enabled. This means you must use it on a platform with Intel 10th gen, AMD Ryzen 3000 series or newer. Intel ARC A-series cards do not require ReBar to function, however, ReBar should be enabled for optimal performance.
-
-:::
-
-### Servers without GPUs
-
-Not having a GPU is **NOT** recommended for Jellyfin, as video transcoding on the CPU is very performance demanding. HDR
-to SDR tone-mapping can make the situation even worse. Depending on your configuration, you may end up in situations
-where a Ryzen 9 5950X cannot handle even a single video stream. Please read [the section below for more details](/docs/general/administration/hardware-selection#software-hdr-to-sdr-tone-mapping)
-
-### Low Power Servers
-
-For users with expensive electricity, or running battery-powered servers:
-
-- Intel 12th gen or above N series platforms
-- Apple M Series Mac mini
-- Rockchip RK3588 / RK3588S SBC (**Advanced Users Only**)
-
-### Potentially Problematic Hardware
-
-These hardware platforms might lead to a poor Jellyfin experience. Please be careful to avoid them when shopping for hardware.
-
-- Intel "Atom" CPUs: Intel J/M/N/Y series low power CPUs up to 11th gen use a different architecture than higher end parts, leading to subpar performance despite what their names might suggest. It is advised to avoid using these parts in a Jellyfin Server.
-- Prebuilt NAS Appliances: The software environment on most prebuilt NAS appliances often makes third-party software more challenging to install, sometimes even preventing it from working properly despite a successful installation. They may have low-end processors that are too slow for an acceptable Jellyfin experience. (e.g. Intel Atom, Realtek ARM CPUs, etc.).
-- Most Single Board Computers (SBC): Most SBCs (including the Raspberry Pi, **especially the Raspberry Pi 5**) are too slow to provide an acceptable Jellyfin experience as they often lack proper support for hardware acceleration. If you really want to run Jellyfin on an SBC, you may wish to consider models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
-- AMD Graphics: AMD Graphics have poor encoder quality and poor driver support. **This applies even on Linux**.
-- Low-end GPUs: Certain low-end GPUs (e.g. GT1030, RX6400) are not capable of hardware encoding. These models cannot be used for hardware acceleration for a Jellyfin Server.
-- Very old X86 CPUs: Starting with Jellyfin 10.11, X86 CPUs that support the SSE4.1 instruction set is a requirement. For Intel, Penryn (Q4 2007) and newer support SSE4.1. For AMD, Bulldozer (Q4 2011) and newer support SSE4.1.
+The following article is intended to help you understand the deeper mechanics behind the basic recommended specifications.
 
 ## Detailed Guide
 
@@ -95,13 +15,13 @@ Whilst most audio codecs will only utilize a single core, they are very lightwei
 
 Video in unsupported codecs are usually older formats that are easier to decode. Assuming hardware acceleration is properly configured, any modern CPU with 4 threads should be able to handle the workload.
 
-However, newer codecs can also require software decoding if there are no available hardware decoders. HEVC, VP9 and AV1 can be **VERY** demanding even on modern CPUs if hardware acceleration is not available on a Jellyfin Server. This is why a hardware platform capable of HEVC 10bit hardware decoding is strongly recommended.
+It is generally recommended to use dedicated hardware to handle newer codecs, as they are increasingly heavy in order to reduce bandwidth and file sizes for the same quality. This makes them very demanding even on relatively modern CPUs if there is no hardware acceleration available. Therefore hardware acceleration is strongly recommended.
 
-In our custom `jellyfin-ffmpeg` fork, the dav1d decoder is enabled, leading to faster software decoding compared to HEVC or VP9. However, it will still use significantly more resources compared to software decoding H.264 and older codecs. Since we have a more efficient AV1 software decoder, and AV1 media isn't common yet, you shouldn't worry about AV1 when choosing components for your Jellyfin Server.
+Decode speed (approx.): MJPEG (Fastest) ~ MPEG-2 > H264 >> AV1 (dav1d) ≥ VP9 ~ H265 (slowest)
 
 #### Integrated Graphics
 
-Integrated graphics can be useful for transcoding video. For more information, please refer to [the GPU section](/docs/general/administration/hardware-selection#graphics-cards-gpus).
+Integrated graphics can be useful for transcoding video. For more information, please refer to [the GPU section](#graphics-cards-gpus).
 
 #### Resizable BAR
 
@@ -196,7 +116,7 @@ Please check the product page of your CPU for more info.
 
 #### Apple Silicon
 
-All Apple Silicon systems provide good output quality.
+All Apple Silicon systems provide good output quality and have mostly the same capabilities. M3 or newer supports AV1 decoding. For Intel-based macs please refer to the Intel and AMD GPU sections.
 
 #### Rockchip VPU
 
