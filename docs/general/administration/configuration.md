@@ -112,6 +112,56 @@ This section lists all the configuration options available and explains their fu
 | `FFmpeg:analyzeduration` | `"200M"`                               | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
 | `PublishedServerUrl`     | Server Url based on primary IP address | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
 
+## Database
+
+Jellyfin stores its library metadata in a SQLite database (`jellyfin.db`) inside the [data directory](#data-directory). Since 10.11 the SQLite provider can be tuned through a `database.xml` file in the [configuration directory](#configuration-directory). This file is optional. If it is missing, the built in defaults are used.
+
+Most installs never need to touch this. The main reason to tune it is a large library (roughly 100k+ items) where broad queries such as `/Artists`, `/Studios` and `/Genres` feel slow, which is usually the SQLite page cache being too small to hold the working set (see [jellyfin/jellyfin#17405](https://github.com/jellyfin/jellyfin/issues/17405)).
+
+### database.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<DatabaseConfigurationOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DatabaseType>Jellyfin-SQLite</DatabaseType>
+  <CustomProviderOptions>
+    <Options>
+      <CustomDatabaseOption>
+        <Key>cacheSize</Key>
+        <Value>-262144</Value>
+      </CustomDatabaseOption>
+    </Options>
+  </CustomProviderOptions>
+</DatabaseConfigurationOptions>
+```
+
+Each knob is a `CustomDatabaseOption` with a `Key` and a `Value` child element. The available keys:
+
+| Key                 | Default            | Description                                                                                                             |
+| ------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `cacheSize`         | unset (SQLite 2 MiB) | SQLite `cache_size`. A **positive** value is a number of pages, so the resulting memory depends on the page size (`262144` pages is ~1 GiB at a 4 KiB page size). A **negative** value is a size in KiB and is page-size independent, so `-262144` is always 256 MiB. Prefer the negative form to get a predictable memory footprint. Applied per connection. |
+| `lockingmode`       | `NORMAL`           | SQLite `locking_mode`.                                                                                                   |
+| `journalsizelimit`  | `134217728`        | SQLite `journal_size_limit` in bytes.                                                                                    |
+| `tempstoremode`     | `2`                | SQLite `temp_store` (`2` is memory).                                                                                     |
+| `syncmode`          | `1`                | SQLite `synchronous` (`1` is NORMAL).                                                                                    |
+| `pooling`           | `True`             | Enable connection pooling.                                                                                              |
+| `command-timeout`   | `60`               | Command timeout in seconds.                                                                                              |
+
+Any additional PRAGMA can be set by prefixing the key with `#PRAGMA:`, for example `<CustomDatabaseOption Key="#PRAGMA:mmap_size" Value="268435456" />`.
+
+### Cache size and large libraries
+
+`cacheSize` is the setting that matters most for large libraries. SQLite defaults to a 2 MiB page cache. On a large database the metadata queries touch more pages than that in a single request, so the cache thrashes and pages are re-read from disk on every call.
+
+Raising `cache_size` so the hot working set stays in memory removes the thrashing. On a 189k item library, setting `cacheSize` to `-262144` (256 MiB) dropped `/Studios` from tens of seconds to roughly 2 to 3 seconds. The gain flattens out once the cache is large enough to hold the working set, so there is little point going much beyond a couple hundred MiB.
+
+Guidance:
+
+- Small libraries or low memory devices (Raspberry Pi, small NAS): leave it unset, or set a modest `-16384` (16 MiB).
+- Large libraries with memory to spare: `-131072` (128 MiB) or `-262144` (256 MiB).
+
+The value is per connection and allocated lazily, so it is an upper bound rather than a fixed reservation. Pick a value that fits comfortably within the memory available to the server. `cache_size` only affects performance, never query results, so it is safe to change.
+
 ## Fonts
 
 Jellyfin uses fonts to render text in many places.
