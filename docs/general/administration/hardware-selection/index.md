@@ -21,7 +21,7 @@ Below is a list of recommended specs to run Jellyfin. Whilst Jellyfin can work o
 - Internet: Ethernet, Broadband Internet
 - Storage 100GB Free Space, SSD.
 
-### Low Power or Budget Servers
+## Low Power or Budget Servers
 
 For users with expensive electricity, or running battery-powered servers:
 
