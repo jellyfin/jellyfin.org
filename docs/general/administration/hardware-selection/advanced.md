@@ -196,48 +196,11 @@ Please check the product page of your CPU for more info.
 
 #### Apple Silicon
 
-Supported codecs are listed below:
-
-| Codec       | M1, M2 Family | M3 Family      |
-| ----------- | ------------- | -------------- |
-| H.264 8bit  | ✅            | ✅             |
-| H.264 10bit | 🔶            | 🔶             |
-| H.265 8bit  | ✅            | ✅             |
-| H.265 10bit | ✅            | ✅             |
-| VP9 8bit    | 🔶            | 🔶             |
-| VP9 10bit   | 🔶            | 🔶             |
-| AV1         | ❌            | ❌<sup>1</sup> |
-
-✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
-
-<sup>1</sup> Although the hardware does support AV1 decoding, [ffmpeg does not yet support it](https://trac.ffmpeg.org/ticket/10642).
-
-:::caution
-
-No Apple Silicon media engine drivers currently exist for non-macOS operating systems. You will NOT be able to use hardware acceleration if the server is running [Asahi Linux](https://asahilinux.org/).
-
-:::
+All Apple Silicon systems provide good output quality.
 
 #### Rockchip VPU
 
 Currently only the VPU on RK3588/3588S SoC is recommended, which can handle most common video codecs, including AV1 decode.
-
-Supported codecs are listed below:
-
-| Codec          | RK3588/3588S |
-| -------------- | ------------ |
-| MPEG1/2/4 8bit | 🔶           |
-| VC1 8bit       | ❌           |
-| H.264 8bit     | ✅           |
-| H.264 10bit    | 🔶           |
-| H.265 8bit     | ✅           |
-| H.265 10bit    | 🔶           |
-| VP8 8bit       | 🔶           |
-| VP9 8bit       | 🔶           |
-| VP9 10bit      | 🔶           |
-| AV1            | 🔶           |
-
-✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
 
 ### Storage
 
