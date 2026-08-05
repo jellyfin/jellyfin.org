@@ -33,7 +33,11 @@ Select a preferred language and region for metadata fetching as the server-wide 
 
 ## Networking Settings
 
-Some basic options for networking can be set on this page. For most users, it is recommended to **enable** the "Allow remote access to this server" option, and **disable** the "Enable automatic port mapping" option.
+Some basic networking options can be configured on this page. For most users, it is recommended to **enable** the "Allow remote access to this server" option.
+Detailed information about remote access configuration can be found in our dedicated [Networking Guide](./networking/index.md#allowing-access).
+
+Since "automatic port mapping" relies on UPnP, a protocol commonly associated with security concerns, it is recommended to **disable** this option unless it is specifically required.
+
 ![Setup Wizard Networking Page](/images/docs/post-install/setup-wizard/setup-wizard-6-networking.png)
 
 ## Next Steps

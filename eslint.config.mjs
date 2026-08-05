@@ -2,7 +2,7 @@ import { globalIgnores } from 'eslint/config';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import ts from 'typescript-eslint';
-import jsxA11Y from 'eslint-plugin-jsx-a11y';
+import jsxA11yX from 'eslint-plugin-jsx-a11y-x';
 import globals from 'globals';
 import importX from 'eslint-plugin-import-x';
 
@@ -25,7 +25,7 @@ export default ts.config([
   react.configs.flat.recommended,
   reactHooks.configs.flat.recommended,
   ...ts.configs.recommended,
-  jsxA11Y.flatConfigs.recommended,
+  jsxA11yX.flatConfigs.recommended,
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
   {

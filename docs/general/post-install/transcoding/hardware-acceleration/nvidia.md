@@ -45,13 +45,15 @@ Most NVIDIA GPUs come with NVENC/NVDEC support but **some low-end and mobile mod
 
 :::
 
-Video codec support can be checked via the [NVIDIA GPU Codec Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) prior to buying a GPU suitable for hardware acceleration.
+Video codec support can be checked via the [NVIDIA GPU Codec Support Matrix](https://developer.nvidia.com/video-encode-decode-support-matrix) prior to buying a GPU suitable for hardware acceleration.
 
 ### Transcode H.264
 
 AVC / H.264 8-bit is still widely used due to its excellent compatibility. All NVIDIA GPUs supporting NVENC/NVDEC can decode and/or encode it.
 
 - **Decoding & Encoding H.264 8-bit** - Any NVIDIA GPU supporting NVENC/NVDEC
+
+- **Decoding & Encoding H.264 10-bit** - Blackwell and newer (WIP, it's not currently enabled in Jellyfin)
 
 ### Transcode HEVC
 
@@ -85,7 +87,7 @@ NVIDIA added support for AV1 acceleration in their latest GPUs:
 
 Please refer to these links:
 
-- [NVIDIA GPU Codec Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new)
+- [NVIDIA GPU Codec Support Matrix](https://developer.nvidia.com/video-encode-decode-support-matrix)
 
 - [NVIDIA Hardware Transcoding Calculator](https://www.elpamsoft.com/?p=Plex-Hardware-Transcoding)
 
@@ -93,9 +95,9 @@ Please refer to these links:
 
 Encoding quality:
 
-- H.264 & HEVC - Blackwell/Ada/Ampere/Turing > Turing TU117/Volta/Pascal > Maxwell
+- H.264 & HEVC - Blackwell > Ada/Ampere/Turing > Turing TU117/Volta/Pascal > Maxwell
 
-- AV1 - Ada Lovelace and Blackwell only
+- AV1 - Blackwell > Ada Lovelace
 
 Decoding & Encoding speed within the same generation:
 
@@ -113,7 +115,7 @@ NVENC/NVDEC performance tables:
 
 ## Windows Setups
 
-Windows 10 64-bit and newer is recommended. **In Jellyfin 10.10 the minimum required NVIDIA driver version is 522.25**.
+Windows 10 64-bit and newer is recommended. **In Jellyfin 10.11 the minimum required NVIDIA driver version is 522.25**.
 
 ### Configure On Windows Host
 
@@ -150,7 +152,7 @@ Refer to [Configure On Linux Host](./nvidia.md#configure-on-linux-host) and [Con
 
 ## Linux Setups
 
-A 64-bit Linux distribution is required. **In Jellyfin 10.10 the minimum required NVIDIA driver version is 520.56.06**.
+A 64-bit Linux distribution is required. **In Jellyfin 10.11 the minimum required NVIDIA driver version is 520.56.06**.
 
 ### Configure On Linux Host
 
@@ -307,7 +309,7 @@ Root permission is required.
 1. Install the NVIDIA proprietary driver on the host system. See above instructions.
 
 2. Install the NVIDIA Container Toolkit on the host system by following this link:
-   - [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installation-guide)
+   - [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
 3. Use the Docker command line **or** docker-compose:
    - Example command line:
