@@ -257,6 +257,7 @@ mirrorinfo
 mirrorlist
 mirrorstats
 mirrorsync
+MJPEG
 mkinitcpio
 mmdb
 mobi
