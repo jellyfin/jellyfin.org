@@ -65,11 +65,11 @@ import VideoMetadataProviders from './\_video-metadata-providers.md';
 
 import ExternalStreams from './\_video-external-streams.md';
 
-<ExternalStreams />
+<ExternalStreams defaultTab="shows"/>
 
 import ExternalExtras from './\_video-external-extras.md';
 
-<ExternalExtras />
+<ExternalExtras defaultTab="shows"/>
 
 ### Show Specials
 
@@ -95,12 +95,12 @@ import ThemeMedia from './\_video-theme-media.md';
 
 import Video3D from './\_video-3d.md';
 
-<Video3D />
+<Video3D defaultTab="shows"/>
 
 import Multipart from './\_video-multipart.md';
 
-<Multipart />
+<Multipart defaultTab="shows"/>
 
 import MetadataImages from './\_metadata-images.md';
 
-<MetadataImages />
+<MetadataImages defaultTab="shows"/>
