@@ -1024,6 +1024,34 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'navarre',
+    name: 'Navarre',
+    description: 'A third-party client for Android TV, Android, and Windows, built around a turnkey living-room experience.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.TV, DeviceType.Mobile, DeviceType.Desktop],
+    licenseType: LicenseType.Proprietary,
+    platforms: [Platform.AndroidTV, Platform.Android, Platform.Windows],
+    primaryLinks: [
+      {
+        id: 'google-play-tv',
+        name: 'Google Play (TV)',
+        url: 'https://play.google.com/store/apps/details?id=com.navarre.tv'
+      },
+      {
+        id: 'google-play',
+        name: 'Google Play',
+        url: 'https://play.google.com/store/apps/details?id=com.navarre.mobile'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://navarre.tv/?utm_source=jellyfin-forum&utm_medium=clients-list&utm_campaign=launch-2026-08'
+      }
+    ]
   }
 ];
 
