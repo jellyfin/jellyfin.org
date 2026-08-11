@@ -2,6 +2,7 @@
   "extends": "@docusaurus/tsconfig",
   "include": ["src/"],
   "compilerOptions": {
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "types": ["@docusaurus/module-type-aliases", "@docusaurus/types"]
   }
 }
