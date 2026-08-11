@@ -124,11 +124,13 @@ Most installs never need to touch this. The main reason to tune it is a large li
 <?xml version="1.0" encoding="utf-8"?>
 <DatabaseConfigurationOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <DatabaseType>Jellyfin-SQLite</DatabaseType>
+  <LockingBehavior>NoLock</LockingBehavior>
   <CustomProviderOptions>
     <Options>
+      <!-- 1024 * 1024 * 1024 / 4096 = 1G -->
       <CustomDatabaseOption>
         <Key>cacheSize</Key>
-        <Value>-262144</Value>
+        <Value>262144</Value>
       </CustomDatabaseOption>
     </Options>
   </CustomProviderOptions>
@@ -147,7 +149,14 @@ Each knob is a `CustomDatabaseOption` with a `Key` and a `Value` child element. 
 | `pooling`           | `True`             | Enable connection pooling.                                                                                              |
 | `command-timeout`   | `60`               | Command timeout in seconds.                                                                                              |
 
-Any additional PRAGMA can be set by prefixing the key with `#PRAGMA:`, for example `<CustomDatabaseOption Key="#PRAGMA:mmap_size" Value="268435456" />`.
+Any additional PRAGMA can be set by prefixing the key with `#PRAGMA:`, for example:
+
+```xml
+<CustomDatabaseOption>
+  <Key>#PRAGMA:mmap_size</Key>
+  <Value>268435456</Value>
+</CustomDatabaseOption>
+```
 
 ### Cache size and large libraries
 
