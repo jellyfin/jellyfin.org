@@ -126,6 +126,7 @@ failregex
 fanart
 fastcgi
 favorited
+fdroid
 fedor
 ferferga
 FFMPEGDIR

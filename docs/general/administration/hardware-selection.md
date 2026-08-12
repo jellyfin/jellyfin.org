@@ -26,7 +26,7 @@ Some component recommendations do not change regardless of the hardware configur
 
 Different vendors have different hardware encoder implementations and produce different results. Usually, newer generations within the same vendor will provide better results. The following is a quick comparison on the quality between vendors on modern products.
 
-Apple ≥ Intel ≥ NVIDIA >>> AMD<sup>\*</sup>
+NVIDIA (RTX 50) ≥ Intel (Arc-B) ≥ Apple ≥ Intel ≥ NVIDIA ≥ AMD ≥ AMD H.264 (RX 9000) >>> AMD H.264<sup>\*</sup>
 
 <sup>\*</sup> This only represents the default Jellyfin settings. The quality may be different depending on your exact configuration.
 
@@ -85,6 +85,7 @@ These hardware platforms might lead to a poor Jellyfin experience. Please be car
 - Most Single Board Computers (SBC): Most SBCs (including the Raspberry Pi, **especially the Raspberry Pi 5**) are too slow to provide an acceptable Jellyfin experience as they often lack proper support for hardware acceleration. If you really want to run Jellyfin on an SBC, you may wish to consider models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
 - AMD Graphics: AMD Graphics have poor encoder quality and poor driver support. **This applies even on Linux**.
 - Low-end GPUs: Certain low-end GPUs (e.g. GT1030, RX6400) are not capable of hardware encoding. These models cannot be used for hardware acceleration for a Jellyfin Server.
+- Very old X86 CPUs: Starting with Jellyfin 10.11, X86 CPUs that support the SSE4.1 instruction set is a requirement.  For Intel, Penryn (Q4 2007) and newer support SSE4.1.  For AMD, Bulldozer (Q4 2011) and newer support SSE4.1.
 
 ## Detailed Guide
 
@@ -130,18 +131,26 @@ It is recommended to add more memory when using Windows 11 due to the OS being h
 
 ### Graphics Cards (GPUs)
 
+:::note
+
+The quality of transcoded video is highly dependent on the target codecs used by your client and your GPU architecture. Make sure you have verified them so you can choose the GPU best suited for your use case.
+
+:::
+
 With modern systems, the media engines are usually located on the GPUs. Therefore, the available hardware acceleration options are determined by the choice of GPU.
 
-Encoder Quality: Apple ≥ Intel ≥ NVIDIA >>> AMD<sup>\*</sup>
+Encoder Quality: NVIDIA (RTX 50) ≥ Intel (Arc-B) ≥ Apple ≥ Intel ≥ NVIDIA ≥ AMD ≥ AMD H.264 (RX 9000) >>> AMD H.264<sup>\*</sup>
 
 <sup>\*</sup> This only represents the default Jellyfin settings. The quality may be different depending on your exact configuration.
 
+NVIDIA [Blackwell (RTX 50) NVENC](https://en.wikipedia.org/wiki/NVENC#Versions) represents the state of the art in hardware encoder quality. It introduces more optimized encoding tools, allowing it to deliver significant quality gains over its predecessor, Ada (RTX 40), and even Intel Arc Battlemage. The most visible difference is that Intel's encoder is more likely to produce blocky artifacts when processing dark details.
+
 Intel is always recommended on non-Apple hardware for the following reasons:
 
-- Intel provides a good quality encoder, slightly better than NVIDIA and significantly better than AMD.
-- Intel drivers and the compute environment is much easier to setup than both NVIDIA and AMD
+- Intel provides a good quality encoder, slightly better than pre-Blackwell NVIDIA and significantly better than AMD H.264.
+- Intel drivers and the compute environment is much easier to setup than NVIDIA.
 
-AMD is not recommended due to poor quality H.264 and H.265 (HEVC) output, as well as being hard to set up the compute environment. While AMD has significantly improved AV1 encoder quality, you are still more likely to transcode to H.264 or H.265 than to AV1 due to the hardware capabilities of the average Jellyfin client.
+AMD is the least preferred choice due to its sub-par H.264 encoders prior to RDNA4 (RX 9000). While its H.265 (HEVC) and AV1 encoders offer noticeable improvements, they still lag behind Intel and NVIDIA. Since the average Jellyfin client relies heavily on H.264 hardware decoding, you will inevitably transcode to H.264 most of the time, making AMD's weakness a major bottleneck.
 
 A list of common codecs can be found in the [codec support documentation](/docs/general/clients/codec-support/).
 
@@ -175,7 +184,10 @@ Certain low-end cards (e.g. GT 1030) do not have encoding hardware. Please be ca
 
 #### AMD Graphics
 
-AMD graphics is not recommended for Jellyfin, this information is solely provided for reference. Further reading on AMD VCE supported codecs: [https://en.wikipedia.org/wiki/Video_Coding_Engine](https://en.wikipedia.org/wiki/Video_Coding_Engine).
+AMD graphics are the least preferred choice for Jellyfin, this information is solely provided for reference. Further reading on AMD VCN & VCE supported codecs:
+
+- [https://en.wikipedia.org/wiki/Video_Core_Next](https://en.wikipedia.org/wiki/Video_Core_Next)
+- [https://en.wikipedia.org/wiki/Video_Coding_Engine](https://en.wikipedia.org/wiki/Video_Coding_Engine)
 
 Certain low-end cards (e.g., RX 6400, RX 6500) do not have encoding hardware. Please be careful when choosing a GPU.
 

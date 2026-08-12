@@ -43,17 +43,17 @@ This section focusses on how to make Jellyfin Available within Networks.
 Here you will find descriptions on how to make Jellyfin accessible both only locally and through the Internet.
 
 In general, Jellyfin will be available locally on the specified port over the host-ip - e.g. `http://10.0.0.2:8096`.
-However its also possible to create a local DNS entry that will point to your Jellyfin-Server - e.g. `http://jellyfin.local:8096`.
+However its also possible to create a local DNS entry that will point to your Jellyfin-Server - e.g. `http://jellyfin.internal:8096`.
 
 <details>
 <summary>Learn more about limitations with local DNS</summary>
 
-Devices like Google Chromecast or Google Streamer use hardcoded DNS Servers - therefore they will not make use of your local DNS entries.
-There are multiple workarounds for this issue.
+Devices like Google Chromecast or Google TV Streamer may ignore the DNS server provided by your local network.
+As a result, they may not resolve custom local DNS entries correctly.
 
-The easiest involves the usage of IPv6 Entries in the public DNS.
-Since IPv6 addresses do not differentiate between local and public, the address will be abled to be resolved locally.
-This, however, requires the use of a public DNS server - The Jellyfin Server does not have to be accessible from the outside though!
+One option to work around this is to publish an IPv6 DNS record through a public DNS provider.
+If your Jellyfin server has a globally routable IPv6 address, devices can resolve it without relying on your local DNS server.
+The server itself does not need to be publicly accessible. Inbound access can still be restricted through your firewall.
 
 </details>
 
@@ -66,6 +66,7 @@ These ranges can be configured under `Networking` -> `Local Networks` using comm
 
 Global external access settings can be configured under `Networking` -> `Remote Access Settings`.
 User-specific external access permissions can be configured under `Users` -> `Edit User` -> `Allow remote connections to this server`.
+External access settings through a reverse proxy will only work if [known proxies](./8_reverse-proxy/index.md#forwarded-for-headers) are set up correctly!
 
 Ensure that the configured access permissions align with the network scope defined in the local network settings.
 
