@@ -2,7 +2,7 @@ import React from 'react';
 
 import DetailsCard from '../common/DetailsCard';
 import PlatformIcon from '../common/PlatformIcon';
-import { Client, ClientType, LicenseType } from '../../data/clients';
+import { Client, ClientType } from '../../data/clients';
 
 const ClientTypeBadge = ({ clientType }: { clientType: ClientType }) => {
   switch (clientType) {
@@ -15,14 +15,6 @@ const ClientTypeBadge = ({ clientType }: { clientType: ClientType }) => {
   }
 };
 
-const LicenseTypeBadge = ({ licenseType }: { licenseType: LicenseType }) => {
-  if (licenseType === LicenseType.OpenSource) {
-    return <span className='badge badge--success margin-right--sm'>Open Source</span>;
-  } else if (licenseType === LicenseType.Proprietary) {
-    return <span className='badge badge--warning margin-right--sm'>Proprietary</span>;
-  }
-};
-
 const ClientDetails = ({ client }: { client: Client }) => (
   <DetailsCard
     title={client.name}
@@ -31,7 +23,7 @@ const ClientDetails = ({ client }: { client: Client }) => (
     badges={
       <>
         <ClientTypeBadge clientType={client.clientType} />
-        <LicenseTypeBadge licenseType={client.licenseType} />
+        <span className='badge badge--success margin-right--sm'>Open Source</span>
       </>
     }
     icons={client.platforms.map((platform, index) => (
