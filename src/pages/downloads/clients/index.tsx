@@ -43,8 +43,6 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
     platforms: (searchParams.get('platform')?.split(',') ?? []) as Platform[]
   });
 
-  const [isFiltersVisible, setIsFiltersVisible] = useState(false);
-
   const setFilter = (filter: ClientFilter) => {
     const search = new URLSearchParams();
 
@@ -105,7 +103,6 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                 </Link>
               </div>
             </div>
-
             <div className={clsx('col', 'margin-bottom--md', styles['header-pills-middle'])}>
               <div className='pills'>
                 <Link
@@ -123,83 +120,65 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
               </div>
             </div>
 
-            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}>
-              <button
-                className={clsx(
-                  'button',
-                  'button--outline',
-                  'button--primary',
-                  { 'button--active': isFiltersVisible },
-                  'button--icon',
-                  styles['filters-button']
-                )}
-                onClick={() => {
-                  setIsFiltersVisible(!isFiltersVisible);
-                }}
-              >
-                <Icon path={mdiFilter} size='1em' />
-                Filters
-              </button>
-            </div>
+            {/* The end pills column is used to right align the middle pills and should be empty */}
+            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}></div>
           </div>
 
-          {isFiltersVisible && (
-            <div className='card card--outline margin-bottom--md'>
-              <div className='card__body'>
-                <ul className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
+          <div className='card card--outline margin-bottom--md'>
+            <div className='card__body'>
+              <ul className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
+                <Pill
+                  active={filter.deviceTypes.length === 0}
+                  onClick={() => {
+                    setFilter({ ...filter, deviceTypes: [] });
+                  }}
+                >
+                  All Device Types
+                </Pill>
+                {Object.entries(DeviceType).map(([key, deviceType]) => (
                   <Pill
-                    active={filter.deviceTypes.length === 0}
+                    key={key}
+                    active={filter.deviceTypes.includes(deviceType)}
                     onClick={() => {
-                      setFilter({ ...filter, deviceTypes: [] });
+                      setFilter({
+                        ...filter,
+                        deviceTypes: toggleValue(filter.deviceTypes, deviceType)
+                      });
                     }}
                   >
-                    All Device Types
+                    {deviceType}
                   </Pill>
-                  {Object.entries(DeviceType).map(([key, deviceType]) => (
+                ))}
+              </ul>
+
+              <ul className={clsx('pills', styles['filter-pills'])}>
+                <Pill
+                  active={filter.platforms.length === 0}
+                  onClick={() => {
+                    setFilter({ ...filter, platforms: [] });
+                  }}
+                >
+                  All Platforms
+                </Pill>
+                {Object.entries(Platform)
+                  .filter(([, platform]) => FeaturedClientPlatforms.includes(platform))
+                  .map(([key, platform]) => (
                     <Pill
                       key={key}
-                      active={filter.deviceTypes.includes(deviceType)}
+                      active={filter.platforms.includes(platform)}
                       onClick={() => {
                         setFilter({
                           ...filter,
-                          deviceTypes: toggleValue(filter.deviceTypes, deviceType)
+                          platforms: toggleValue(filter.platforms, platform)
                         });
                       }}
                     >
-                      {deviceType}
+                      {platform}
                     </Pill>
                   ))}
-                </ul>
-
-                <ul className={clsx('pills', styles['filter-pills'])}>
-                  <Pill
-                    active={filter.platforms.length === 0}
-                    onClick={() => {
-                      setFilter({ ...filter, platforms: [] });
-                    }}
-                  >
-                    All Platforms
-                  </Pill>
-                  {Object.entries(Platform)
-                    .filter(([, platform]) => FeaturedClientPlatforms.includes(platform))
-                    .map(([key, platform]) => (
-                      <Pill
-                        key={key}
-                        active={filter.platforms.includes(platform)}
-                        onClick={() => {
-                          setFilter({
-                            ...filter,
-                            platforms: toggleValue(filter.platforms, platform)
-                          });
-                        }}
-                      >
-                        {platform}
-                      </Pill>
-                    ))}
-                </ul>
-              </div>
+              </ul>
             </div>
-          )}
+          </div>
 
           {filteredClients.length === 0 ? (
             <div className='card padding-vert--lg'>
