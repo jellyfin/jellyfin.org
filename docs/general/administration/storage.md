@@ -58,4 +58,4 @@ Note that changing the record size on an existing ZFS dataset will not change th
 
 As ZFS snapshots can use a lot of storage over time without a sensible `destroy` schedule, there may be a temptation to keep your data on a mechanical drive instead of an SSD. Do not use ZFS-formatted mechanical drives to store your Jellyfin Server data (everything except your media files), as this will result in poor performance. An SSD is strongly recommended.
 
-For SQLite tuning options such as the `cacheSize` setting that helps large libraries, see the [Database section](/docs/general/administration/configuration#database) of the Configuration page.
+For SQLite tuning options such as the `cacheSize` setting that may help large libraries, see the [Database section](/docs/general/administration/configuration#database) of the Configuration page.
