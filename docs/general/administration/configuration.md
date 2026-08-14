@@ -114,9 +114,19 @@ This section lists all the configuration options available and explains their fu
 
 ## Database
 
+:::danger
+
+The options below are for advanced users only.
+
+A wrong value can corrupt the database. Back up the database before you change any option here.
+
+These options are not part of the stable API. Jellyfin can change or remove them in any release. Jellyfin does not migrate the values you set.
+
+:::
+
 By default, Jellyfin stores its library metadata in a SQLite database (`<Data Directory>/jellyfin.db`) in the [data directory](#data-directory). Set the `path` custom database option to use a different database file. Since 10.11 the SQLite provider can be tuned through a `database.xml` file in the [configuration directory](#configuration-directory). This file is optional. If it is missing, the built in defaults are used.
 
-Most installs never need to touch this. The main reason to tune it is a large library (roughly 100k+ items) where broad queries such as `/Artists`, `/Studios` and `/Genres` feel slow, which is usually the SQLite page cache being too small to hold the working set (see [jellyfin/jellyfin#17405](https://github.com/jellyfin/jellyfin/issues/17405)).
+Most installs keep the defaults. These options exist for administrators of very large libraries who investigate slow metadata queries (see [jellyfin/jellyfin#17405](https://github.com/jellyfin/jellyfin/issues/17405)).
 
 ### database.xml
 
@@ -142,7 +152,7 @@ Each knob is a `CustomDatabaseOption` with a `Key` and a `Value` child element. 
 | Key                 | Default            | Description                                                                                                             |
 | ------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | `path`              | `<Data Directory>/jellyfin.db` | SQLite database file path.                                                                                             |
-| `cacheSize`         | unset (~2 MiB)     | SQLite `cache_size`. A **positive** value is a page count, so the resulting memory depends on the page size (`262144` pages is ~1 GiB at a 4 KiB page size). A **negative** value requests approximately that many KiB, which SQLite converts to a page count using the current page size, so `-262144` requests approximately 256 MiB. Prefer the negative form instead of choosing a page count manually. Applied per connection. |
+| `cacheSize`         | unset              | SQLite `cache_size`, applied per connection. A positive value is a page count. A negative value is a size in KiB, so `-262144` is about 256 MiB. See the [SQLite documentation](https://www.sqlite.org/pragma.html#pragma_cache_size). |
 | `lockingmode`       | `NORMAL`           | SQLite `locking_mode`.                                                                                                   |
 | `journalsizelimit`  | `134217728`        | SQLite `journal_size_limit` in bytes.                                                                                    |
 | `tempstoremode`     | `2`                | SQLite `temp_store` (`2` is memory).                                                                                     |
@@ -161,16 +171,11 @@ Any additional PRAGMA can be set by prefixing the key with `#PRAGMA:`, for examp
 
 ### Cache size and large libraries
 
-`cacheSize` is the setting that matters most for large libraries. When it is unset, Jellyfin does not emit `PRAGMA cache_size`, so SQLite's default suggested cache size of `-2000` (2,048,000 bytes, approximately 2 MiB) applies. On a large database the metadata queries touch more pages than that in a single request, so the cache thrashes and pages are re-read from disk on every call.
+Some users report that a higher `cacheSize` speeds up broad metadata queries on very large libraries. Other users see no change.
 
-Raising `cache_size` so the hot working set stays in memory removes the thrashing. On a 189k item library, setting `cacheSize` to `-262144` (256 MiB) dropped `/Studios` from tens of seconds to roughly 2 to 3 seconds. The gain flattens out once the cache is large enough to hold the working set, so there is little point going much beyond a couple hundred MiB.
+Query speed depends on many things. Storage speed, free memory, CPU and the library contents all affect it. A higher `cacheSize` is not a general recommendation.
 
-Guidance:
-
-- Small libraries or low memory devices (Raspberry Pi, small NAS): leave it unset, or set a modest `-16384` (16 MiB).
-- Large libraries with memory to spare: `-131072` (128 MiB) or `-262144` (256 MiB).
-
-The value is per connection and allocated lazily, so it is an upper bound rather than a fixed reservation. Pick a value that fits comfortably within the memory available to the server. `cache_size` only affects performance, never query results, so it is safe to change.
+To test `cacheSize` on your server, raise the value in steps and measure each step. The value applies per connection, so keep it well inside the memory available to Jellyfin. If you leave `cacheSize` unset, SQLite uses its own default.
 
 ## Fonts
 
