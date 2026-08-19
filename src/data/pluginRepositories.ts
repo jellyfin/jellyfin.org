@@ -137,5 +137,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:jpedrofontes/jellyfin-imdb-plugin',
+    name: "jpedrofontes's IMDb Ratings Repo",
+    url: 'https://raw.githubusercontent.com/jpedrofontes/jellyfin-imdb-plugin/main/manifest.json',
+    includes: {
+      'IMDb Ratings': 'https://github.com/jpedrofontes/jellyfin-imdb-plugin'
+    }
   }
 ];
