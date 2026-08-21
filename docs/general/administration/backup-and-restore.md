@@ -24,6 +24,12 @@ There are two ways of backing up your Jellyfin data. One is with its built-in Ba
 Jellyfin's built-in backup system is able to create a backup while your system is online and running, as opposed to the manual process that **requires** you to stop Jellyfin beforehand.
 However we still recommend performing the backup process during a time of low activity and while no scan is currently active.
 
+:::note Feature History:
+
+- 10.11: Builtin Backup feature was added
+
+:::
+
 ### Create a Built-in Backup
 
 To take a new Backup, enter the Jellyfin Dashboard, open the `Backups` tab and click on the `Create Backup` button. The popup will now ask you to select what data you want to backup.
