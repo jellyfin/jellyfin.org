@@ -16,11 +16,11 @@ Movies
 Shows
 └── Series Name (2018) [tvdbid-79168]
     ├── Season 01
-    |   ├── Series Name B S01E01.mkv
-    |   └── Series Name B S01E02.mkv
+    |   ├── Series Name S01E01.mkv
+    |   └── Series Name S01E02.mkv
     └── Season 02
-        ├── Series Name B S02E01-E02.mkv
-        └── Series Name B S02E03.mkv
+        ├── Series Name S02E01-E02.mkv
+        └── Series Name S02E03.mkv
 ```
 
 ## Supported Metadata Providers
