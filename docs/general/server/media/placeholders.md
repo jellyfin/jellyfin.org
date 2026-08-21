@@ -28,6 +28,8 @@ Blade Runner (1982).bluray.disc
 Blade Runner (1982).vhs.disc
 ```
 
+<!-- cSpell:disable -->
+
 The following types are recognized:
 
 | Keyword  | Type    |
@@ -42,6 +44,8 @@ The following types are recognized:
 | `hdtv`   | TV      |
 | `pdtv`   | TV      |
 | `dsr`    | TV      |
+
+<!-- cSpell:enable -->
 
 The type is optional. Any file ending in `.disc` is recognized as a placeholder.
 
