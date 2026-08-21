@@ -22,7 +22,13 @@ There are two ways of backing up your Jellyfin data. One is with its built-in Ba
 ## Built-in Backup
 
 Jellyfin's built-in backup system is able to create a backup while your system is online and running, as opposed to the manual process that **requires** you to stop Jellyfin beforehand.
-However in 10.11 we still recommend performing the backup process during a time of low activity and while no scan is currently active.
+However we still recommend performing the backup process during a time of low activity and while no scan is currently active.
+
+:::note Feature History:
+
+- 10.11: Builtin Backup feature was added
+
+:::
 
 ### Create a Built-in Backup
 
