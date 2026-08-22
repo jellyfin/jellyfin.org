@@ -1024,6 +1024,36 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'musevu',
+    name: 'MuseVu',
+    description:
+      'A cinematic Jellyfin client for Android TV, phones and tablets — moving billboard previews, trailers, continue watching with auto next episode, adaptive quality for older TVs and 8 languages.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.TV],
+    licenseType: LicenseType.Proprietary,
+    platforms: [
+      Platform.Android,
+      Platform.AndroidTV,
+      Platform.FireOS,
+      Platform.WebOS,
+      Platform.Tizen
+    ],
+    primaryLinks: [
+      {
+        id: 'google-play',
+        name: 'Google Play',
+        url: 'https://play.google.com/store/apps/details?id=com.thefuturecoderx.musevu'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://musevu.com'
+      }
+    ]
   }
 ];
 
