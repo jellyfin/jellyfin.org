@@ -71,3 +71,8 @@ Shows
 ## Client Behavior
 
 Jellyfin adds placeholders to the library like other media items, allowing them to have metadata and artwork. The item is marked as a placeholder instead of playable media.
+
+## Metadata
+
+`.disc`-Files will be treated as a real media file. You can attach additional files like images or `.nfo` files just as usual.
+Check the documentation regarding [TV shows](./shows.md) or [Movies](./movies.md) depending on the desired Placeholder-Type.
