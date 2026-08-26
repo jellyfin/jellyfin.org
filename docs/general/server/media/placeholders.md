@@ -1,6 +1,6 @@
 ---
 uid: server-media-placeholders
-title: Media Placeholders
+title: Placeholders
 ---
 
 Media placeholders let you add video items to a Jellyfin library without providing a playable video file.
