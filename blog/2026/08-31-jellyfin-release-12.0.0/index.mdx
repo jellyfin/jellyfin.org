@@ -184,7 +184,7 @@ HTTP API
     ItemByName responses are restricted and people are deduplicated.
     Newly obsolete but still functional: GetTrailers (use GetItems with includeItemTypes=Trailer), GetArtists and GetAlbumArtists (use GetPersons), GetArtistByName (use GetPerson), GetMusicGenre (use GetGenre), the music genre instant mix endpoints (use GetInstantMixFromItem), GetRecordingsSeries, and the startup routes (use the configuration endpoints). UserDto.HasPassword is also obsolete and no longer provides useful information. The HLS controllers are hidden from the specification.
     Swashbuckle has been updated to v10, which changes the generated OpenAPI document. SDKs need to be regenerated.
-    Removed routes: POST /Users/{userId}/EasyPassword, GET /Items/{itemId}/CriticReviews, GET /Environment/NetworkShares, POST /System/MediaEncoder/Path, and GET /LiveTv/Recordings/Groups/{groupId} were all obsolete no-ops returning 403, 404, or an empty result. GET /QuickConnect/Initiate did work and was an alias for the POST route, so clients using the GET form need to switch to POST.
+    Removed routes: POST /Users/\{userId\}/EasyPassword, GET /Items/\{itemId\}/CriticReviews, GET /Environment/NetworkShares, POST /System/MediaEncoder/Path, and GET /LiveTv/Recordings/Groups/\{groupId\} were all obsolete no-ops returning 403, 404, or an empty result. GET /QuickConnect/Initiate did work and was an alias for the POST route, so clients using the GET form need to switch to POST.
 
 As a general reminder of our API support policy: if an endpoint is not listed in the OpenAPI specification it should not be used, and if an endpoint or parameter is marked obsolete it should not be used. Deprecations will normally be marked for an entire major release cycle before removal.
 Plugins
