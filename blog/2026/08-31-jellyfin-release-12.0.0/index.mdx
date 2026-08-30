@@ -18,23 +18,29 @@ If you just want a quick summary of what you need to know to get your system upg
 
 ## TL; DR
 
+:::info 
+
 **IT IS VERY IMPORTANT THAT YOU READ THIS SECTION BEFORE UPGRADING TO JELLYFIN 12.0!** Failure to do so may cause issues! Always feel free to [ask for help in our chat](/contact) if you are unclear or run into trouble.
 
-1. As always for major upgrades, ensure you **STOP Jellyfin and take a [FULL MANUAL BACKUP OF YOUR DATA AND CONFIG DIRECTORIES](/docs/general/administration/backup-and-restore/#manual-backup) before upgrading**! This release changes the database schema and actively rewrites data on first boot, so a backup is the only way back to your previous version.
+This release changes the database schema and actively rewrites data on first boot, so a backup is the only way back to your previous version.
+
+:::
+
+1. As always for major upgrades, ensure you **STOP Jellyfin and take a [FULL MANUAL BACKUP OF YOUR DATA AND CONFIG DIRECTORIES](/docs/general/administration/backup-and-restore/#manual-backup) before upgrading**!
 
 2. You must be running Jellyfin **10.10.7 or any 10.11.x release** before upgrading to 12.0. Upgrading directly from 10.11.x is fully supported and no intermediate step is needed. If you are on anything older than 10.10.7, upgrade to 10.10.7 **first**, then upgrade to 12.0.
 
-3. **A full library scan is REQUIRED after upgrading.** As part of fixing how alternate versions are stored, versions that Jellyfin grouped automatically, not ones you merged yourself, are cleared during the upgrade. Until you run the scan those versions will look like they are missing.
+3. **Check your usernames before upgrading.** Usernames are now case insensitive, so two accounts can't have names that only differ by capitalization. If you have users that match this pattern the database migration will fail.
 
-4. **The first scan after upgrading will take significantly longer than normal**, and some movies may appear as newly added. This is expected. Jellyfin now checks every item in your library against the files on disk to clear out leftovers from previous versions, and anything that was previously filed incorrectly gets corrected as it goes. **Do not stop the server while migrations are running.**
+4. **A full library scan is REQUIRED after upgrading.** As part of fixing how alternate versions are stored, versions that Jellyfin grouped automatically, not ones you merged yourself, are cleared during the upgrade. Until you run the scan those versions will look like they are missing.
 
-5. After the scan completes, run the **"Optimize database"** scheduled task once from Dashboard -> Scheduled Tasks.
+5. **The first scan after upgrading will take significantly longer than normal**, and some movies may appear as newly added. This is expected. Jellyfin now checks every item in your library against the files on disk to clear out leftovers from previous versions, and anything that was previously filed incorrectly gets corrected as it goes. **Do not stop the server while migrations are running.**
 
-6. **Remove any third-party plugins before upgrading.** Plugins built for 10.11 will not load on 12.0 and need updated builds from their authors, so give them time to catch up before adding them back. Official plugins have been updated for 12.0 support.
+6. After the scan completes, run the **"Optimize database"** scheduled task once from Dashboard -> Scheduled Tasks.
 
-7. **Very old third-party clients will stop working.** Support for the legacy `/emby/` and `/mediabrowser/` addresses has been removed, and the deprecated way of signing in is now disabled, including on existing servers. Clients that have not seen an update in years are the ones at risk here.
+7. **Remove any third-party plugins before upgrading.** Plugins built for 10.11 will not load on 12.0 and need updated builds from their authors, so give them time to catch up before adding them back. Official plugins have been updated for 12.0 support.
 
-8. **Check your usernames before upgrading.** Usernames are now case insensitive, so two accounts can't have names that only differ by capitalization. If you have users that match this pattern the database migration will fail.
+8. **Very old third-party clients will stop working.** Support for the legacy `/emby/` and `/mediabrowser/` addresses has been removed, and the deprecated way of signing in is now disabled, including on existing servers. Clients that have not seen an update in years are the ones at risk here.
 
 9. This release contains security fixes, so we recommend upgrading rather than staying on an older release once you are ready.
 
@@ -90,7 +96,7 @@ On the server:
 * Posters are generated for EPUBs and every supported comic archive format, and external covers work for audiobook files.
 * Name, index, year, and series are read from book filenames, and volume and chapter numbers are picked up from comic filenames when they are there.
 * Page counts are extracted from comic archives and PDFs.
-* Chapters are extracted from audiobooks. The server knows about them now but no client shows them yet, so expect them to turn up in your favorite audiobook app before our next release.
+* Chapters are extracted from audiobooks.
 * Bookshelf has been split into separate GoogleBooks and ComicVine providers, and a new OpenLibrary plugin provides metadata and images.
 * ISBN external IDs and links are supported.
 
@@ -102,7 +108,11 @@ In the web client:
 * Progress indicators work again for supported eBooks, sorting by index number and release date is available, and font size selection for EPUBs has been improved.
 * Background audiobook playback works on iOS devices.
 
-> NOTE: The Bookshelf plugin has been deprecated. Its features have been merged into the server or extracted into the ComicVine and GoogleBooks providers.
+:::note
+
+The Bookshelf plugin has been deprecated. Its features have been merged into the server or extracted into the ComicVine and GoogleBooks providers.
+
+:::
 
 ## Better recommendations, and a search that plugins can extend
 
@@ -143,7 +153,7 @@ This release includes a number of security fixes on both the server and the web 
 
 ## New Features & Enhancements
 
-### User Experience
+### User Experience - Web Client
 
 * A "still watching" prompt.
 * `,` and `.` scrub frame-by-frame during playback.
@@ -156,7 +166,7 @@ This release includes a number of security fixes on both the server and the web 
 * The web client caches more data in your browser, so screens you have already visited come back faster, and artwork no longer looks blurry on high resolution displays.
 * Game controller navigation fixes, keyboard shortcuts that work on non-Latin keyboard layouts, and support for rewind and fast forward buttons on remotes.
 
-### Administrator Experience
+### Administrator Experience - Web Client
 
 * The log viewer can follow a log live instead of needing a refresh.
 * Sorting and filtering on the Activity page.
