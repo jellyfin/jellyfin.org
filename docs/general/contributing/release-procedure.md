@@ -9,7 +9,9 @@ This document is a guide for the core team, provided publicly to ensure transpar
 
 ## Versioning
 
-Jellyfin uses [semantic versioning](https://semver.org). All releases will have versions in the `X.Y.Z` format, starting from `10.0.0`. Note however that the `10.Y.Z` release chain represents the "cleanup" of the codebase, so it should be accepted that `10.Y.Z` breaks all compatibility, at some point, with previous Emby-compatible interfaces, and may also break compatibility with previous `10.Y` releases if required for later cleanup work. Our versioning will typically follow the patterns below:
+Jellyfin uses [semantic versioning](https://semver.org). Starting with Jellyfin 12, release numbers follow the `X.Y.Z` format, where the first number is the major release (for example `12.0.0` or `13.1.0`). The older `10.Y.Z` scheme was used during the previous compatibility cycle and is no longer the active release convention.
+
+Our versioning will typically follow the patterns below:
 
 ### X: Major Versions
 
