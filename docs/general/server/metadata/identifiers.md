@@ -5,12 +5,14 @@ title: Metadata Provider Identifiers
 
 # Metadata Provider Identifiers
 
-To improve the accuracy of media identification, you can manually specify a metadata provider identifier for each movie or show. Each metadata provider uses a unique identifier for its content, and adding these identifiers greatly improves media identification. Identifiers can be specified in your movie/show file or folder name. Multiple identifiers can be specified. For example:
+To improve the accuracy of media identification, you can manually specify a metadata provider identifier for each movie or show. Each metadata provider uses a unique identifier for its content, and adding these identifiers greatly improves media identification. Identifiers can be specified in your movie/show file or folder name. Multiple identifiers can be specified. Jellyfin also accepts Plex-style provider IDs, so both the Jellyfin form (`[tmdbid-680]`) and the Plex form (`{tmdb-680}` or `[tmdb-680]`) are supported. For example:
 
 ```txt
 Movies
 ├── Best_Movie_Ever (1994) [tmdbid-680] [imdbid-1234]
 │   ├── Best_Movie_Ever (1994) [tmdbid-680].mp4
+├── Best_Movie_Ever_2 (1994) {tmdb-680}
+│   └── Best_Movie_Ever_2 (1994) {tmdb-680}.mp4
 └── Movie (2021) [imdbid-tt12801262]
     └── Movie (2021) [imdbid-tt12801262].mp4
 Shows
