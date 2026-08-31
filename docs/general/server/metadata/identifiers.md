@@ -28,7 +28,7 @@ Shows
 The following metadata providers are supported:
 
 - [The Movie DB (TMDB)](https://www.themoviedb.org/)
-- [The TV Database (TVDB)](https://www.thetvdb.com/) (Shows Only)
+- [The TV Database (TVDB)](https://www.thetvdb.com/)
 - [OMDb API (OMDB)](https://www.omdbapi.com/) (English Only)
 
 ## Finding Metadata Provider Identifiers
