@@ -180,9 +180,10 @@ This release includes a number of security fixes on both the server and the web 
 * Backups no longer fail outright when they hit a corrupt record, and you now get a warning before restoring a backup, or before starting one while a library scan is running.
 * A restyled startup interface that shows version and activity information.
 * Collections and playlists can be filtered by library, so each library can show only its own.
-* More ways to filter when searching for people, the option to prefer a title's original language for audio, and the new "Included In" listing on item pages.
+* More ways to filter when searching for people, the option to prefer a title's original language for audio, and the new "Collections" listing on item pages.
 * Live TV: XMLTV background images and episode thumbnails are imported, unreachable "server-local" streaming URLs are no longer returned to clients, and XMLTV guide imports now skip programs whose data has not changed, making repeat guide refreshes considerably cheaper.
 * Metadata: TVDB IDs work for movies, AudioDb artist search, ReplayGain album gain is read from music files, MusicBrainz lookups are more resilient, WEB-DL tags in filenames are recognized, and provider IDs can be set on season and episode folder names.
+* Curly braces and parentheses are now supported, along with the existing square brackets, for parsing Provider Identifier values. New aliases are also supported: tvdb for tvdbid, imdb for imdbid, and tmdb for tmdbid.
 
 ### Transcoding and Media Handling
 
@@ -192,7 +193,7 @@ This release includes a number of security fixes on both the server and the web 
 * A spec-compliant `dvh1` HLS variant for Dolby Vision Profile 5 for better device compatibility.
 * Fixed a potential A/V desync in HLS when transcoding video while remuxing audio.
 * Subtitle writing now goes through SubtitleEdit, which avoids the old SSA to ASS conversion and the loss of styling that came with it.
-* VobSub subtitle support, external subtitles can be embedded into MKV when transcoding, the subtitle extraction timeout is configurable, and image-based subtitles can be rendered by the client during remuxing.
+* VobSub subtitle support, external subtitles can be embedded into MKS when transcoding, the subtitle extraction timeout is configurable, and image-based subtitles can be rendered by the client during remuxing.
 * A device profile option for Android TV boxes that cannot handle rotated video, so phone footage shot sideways plays the right way up.
 * Trickplay picks up files that already exist on scan instead of regenerating them, no longer produces duplicates for interlaced video, works with bad timestamps in the source file, and cleans up after itself when generation fails.
 * Better device support in the web client: Dolby Vision in MKV files on webOS 25 and newer, AV1 direct streaming on TV clients, anamorphic video direct play on Tizen, and on iOS both background playback with the screen off and a fix for audio normalization affecting pitch and speed.
@@ -215,7 +216,7 @@ As a general reminder of our API support policy: if an endpoint is not listed in
 ### Plugins
 
 * **The server now targets .NET 10, and several plugin interfaces changed.** Plugins need to be retargeted and rebuilt for 12.0.
-* **New things plugins can do:** provide search results, provide similarity and recommendation data, provide comic metadata, save chapters for non-video items such as audiobooks, handle a password reset for a username the server does not recognize, and clean up their own extracted files when an item's data is pruned. Live TV plugins can also query Schedules Direct availability through the server instead of reimplementing it.
+* **New things plugins can do:** provide search results, provide similarity and recommendation data, provide comic metadata, provide unaired and missing episode data, save chapters for non-video items such as audiobooks, handle a password reset for a username the server does not recognize, and clean up their own extracted files when an item's data is pruned. Live TV plugins can also query Schedules Direct availability through the server instead of reimplementing it.
 * **Plugins that worked with alternate versions or playlist contents need attention**, since those are no longer stored inside the parent item. There are new library methods for both.
 * The full list of new, changed, and removed interfaces is in the release notes - `ISearchEngine`, `IAuthenticationProvider.HasPassword`, parts of `IItemRepository`, and a few `IUserManager` members are the notable breaks.
 
