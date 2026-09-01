@@ -137,5 +137,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:yonie/jellyfin-plugin-autoplaylist',
+    name: "yonie's AutoPlaylist Repo",
+    url: 'https://raw.githubusercontent.com/yonie/jellyfin-plugin-autoplaylist/main/manifest.json',
+    includes: {
+      AutoPlaylist: 'https://github.com/yonie/jellyfin-plugin-autoplaylist'
+    }
   }
 ];
