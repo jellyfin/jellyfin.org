@@ -62,7 +62,7 @@
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
     "caniuse-lite": "1.0.30001809",
-    "cspell": "10.1.0",
+    "cspell": "10.1.1",
     "docusaurus-plugin-sass": "0.2.6",
     "eslint": "9.39.5",
     "eslint-plugin-jsx-a11y-x": "0.2.0",
