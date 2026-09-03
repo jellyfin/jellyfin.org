@@ -66,14 +66,13 @@ Supported filenames are:
 
 - `trailer`
 - `sample`
-- `theme` - Audio file of the theme song
 
 <Tabs defaultValue={props.defaultTab} queryString="libType">
 <TabItem value="movies" label="Movies">
 ```txt
 Best_Movie_Ever (2019)
 ├── Best_Movie_Ever (2019) - 1080P.mp4
-└── theme.mp3
+└── trailer.mp4
 ```
 </TabItem>
 <TabItem value="shows" label="Shows">
@@ -81,7 +80,6 @@ Best_Movie_Ever (2019)
 Awesome TV Show (2024)
 ├── Season 1
 │   ├── Awesome TV Show (2024) S01E01 episode name.mp4
-│   └── theme.flac
 └── sample.mp4
 ```
 </TabItem>

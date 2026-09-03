@@ -48,11 +48,6 @@ const officialClients: Array<Client> = [
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
-        id: 'flathub',
-        name: 'Flathub (Linux)',
-        url: 'https://flathub.org/apps/details/com.github.iwalton3.jellyfin-media-player'
-      },
-      {
         id: 'gh-downloads',
         name: 'GitHub Downloads',
         url: 'https://github.com/jellyfin/jellyfin-media-player/releases'
@@ -333,6 +328,30 @@ const officialClients: Array<Client> = [
         id: 'github',
         name: 'GitHub',
         url: 'https://github.com/jellyfin/jellyfin-webos'
+      }
+    ],
+    recommended: true
+  },
+  {
+    id: 'jellyfin-Tizen',
+    name: 'Jellyfin for Tizen',
+    description: 'The official Jellyfin app for Samsung Tizen devices.',
+    clientType: ClientType.Official,
+    deviceTypes: [DeviceType.TV],
+    licenseType: LicenseType.OpenSource,
+    platforms: [Platform.Tizen],
+    primaryLinks: [
+      {
+        id: 'samsung-store',
+        name: 'Smart TV App Store',
+        url: 'https://www.samsung.com/us/tvs/smart-tv/samsung-tv-apps-detail/?appId=3202007021208'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/jellyfin/jellyfin-tizen'
       }
     ],
     recommended: true
@@ -919,7 +938,8 @@ const thirdPartyClients: Array<Client> = [
   {
     id: 'streamyfin',
     name: 'Streamyfin',
-    description: 'A modern Jellyfin client with support for downloads, Live TV, skip intro & credits, trickplay image and more!',
+    description:
+      'A modern Jellyfin client with support for downloads, Live TV, skip intro & credits, trickplay image and more!',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
     licenseType: LicenseType.OpenSource,

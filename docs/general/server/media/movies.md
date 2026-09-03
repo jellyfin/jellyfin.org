@@ -77,6 +77,10 @@ import ExternalExtras from './\_video-external-extras.md';
 
 <ExternalExtras defaultTab="movies"/>
 
+import ThemeMedia from './\_video-theme-media.md';
+
+<ThemeMedia />
+
 import MetadataImages from './\_metadata-images.md';
 
 <MetadataImages defaultTab="movies"/>

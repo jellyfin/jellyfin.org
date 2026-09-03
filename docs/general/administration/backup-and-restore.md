@@ -22,7 +22,13 @@ There are two ways of backing up your Jellyfin data. One is with its built-in Ba
 ## Built-in Backup
 
 Jellyfin's built-in backup system is able to create a backup while your system is online and running, as opposed to the manual process that **requires** you to stop Jellyfin beforehand.
-However in 10.11 we still recommend performing the backup process during a time of low activity and while no scan is currently active.
+However we still recommend performing the backup process during a time of low activity and while no scan is currently active.
+
+:::note Feature History:
+
+- 10.11: Builtin Backup feature was added
+
+:::
 
 ### Create a Built-in Backup
 
@@ -31,7 +37,7 @@ To take a new Backup, enter the Jellyfin Dashboard, open the `Backups` tab and c
 - Database. Always enabled. Will contain all data from the jellyfin.db or used database provider.
 - Metadata. The contents of the metadata folder and depending on your selected options may contain metadata images.
 - Subtitles. All extracted subtitles including downloaded ones.
-- Trickplay. All trickplay data that is stored not alongside media.
+- Trickplay. All Trickplay data that is stored not alongside media.
 
 The Backup system will check for at least 5GB of free space in the backup folder where backups a written to. However this can easily not be enough if you also backup Subtitles and Trickplay so ensure you have enough free space there.
 The Backup folder is located within your Jellyfin data directory, by default:
