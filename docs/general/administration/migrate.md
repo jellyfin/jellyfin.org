@@ -95,7 +95,7 @@ We have found many subtle bugs due to the inconsistent database schemas that res
 :::
 
 The original procedure is provided below for reference however we cannot support it nor guarantee that a system upgraded in this way will work properly, if at all.
-If anyone is interested in writing a database migration script which will correct the deficiencies in the existing database and properly import them into Jellyfin, [we would welcome it however](/docs/general/contributing)!
+If anyone is interested in writing a database migration script which will correct the deficiencies in the existing database and properly import them into Jellyfin, [we would welcome it however](/developers/docs/contributing)!
 
 :::caution
 
