@@ -5,7 +5,7 @@ title: Metadata Provider Identifiers
 
 # Metadata Provider Identifiers
 
-To improve the accuracy of media identification, you can manually specify a metadata provider identifier for each movie or show. Each metadata provider uses a unique identifier for its content, and adding these identifiers greatly improves media identification. Identifiers can be specified in your movie/show file or folder name. Multiple identifiers can be specified. Jellyfin also accepts Plex-style provider IDs, so both the Jellyfin form (`[tmdbid-680]`) and the Plex form (`{tmdb-680}` or `[tmdb-680]`) are supported. For example:
+To improve the accuracy of media identification, you can manually specify a metadata provider identifier for each movie or show. Each metadata provider uses a unique identifier for its content, and adding these identifiers greatly improves media identification. Identifiers can be specified in your movie/show file or folder name. Multiple identifiers can be specified. For example:
 
 ```txt
 Movies
@@ -24,6 +24,8 @@ Shows
         ├── Series Name S02E01-E02.mkv
         └── Series Name S02E03.mkv
 ```
+
+Metadata identifiers support square brackets `[]`, parentheses `()`, and curly braces `{}`.
 
 ## Supported Metadata Providers
 
@@ -44,6 +46,7 @@ The identifier is found in the URL of the title. For example:
 URL: `https://www.themoviedb.org/movie/569094-spider-man-across-the-spider-verse`
 
 Identifier: `[tmdbid-569094]`
+Alias: `[tmdb-569094]`
 
 ### The TV Database (TVDB)
 
@@ -52,6 +55,7 @@ The identifier is found on the main page of the title. For example:
 ![How to find The TVDB media identifier](/images/docs/tvdb-media-identifier-example.png)
 
 Identifier: `[tvdbid-266189]`
+Alias: `[tvdb-266189]`
 
 ### OMDb API (OMDB)
 
@@ -60,3 +64,4 @@ OMDB provider uses Internet Movie Database (IMDB) IDs as identifiers. The identi
 URL: `https://www.imdb.com/title/tt9362722/`
 
 Identifier: `[imdbid-tt9362722]`
+Alias: `[imdb-tt9362722]`
