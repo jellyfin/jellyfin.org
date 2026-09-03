@@ -23,7 +23,6 @@ const ClientDetails = ({ client }: { client: Client }) => (
     badges={
       <>
         <ClientTypeBadge clientType={client.clientType} />
-        <span className='badge badge--success margin-right--sm'>Open Source</span>
       </>
     }
     icons={client.platforms.map((platform, index) => (
