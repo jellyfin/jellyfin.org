@@ -1,0 +1,56 @@
+name: Incorrect documentation
+description: Report outdated or incorrect documentation.
+labels:
+  - bug
+  - documentation
+body:
+  - type: checkboxes
+    id: before-posting
+    attributes:
+      label: 'This issue respects the following points:'
+      description: All conditions are **required**.
+      options:
+        - label: This issue is **not** already reported on [GitHub](https://github.com/jellyfin/jellyfin.org/issues?q=is%3Aopen+is%3Aissue) _(I've searched it)_.
+          required: true
+        - label: I agree to follow Jellyfin's [Code of Conduct](https://jellyfin.org/docs/general/community-standards.html#code-of-conduct).
+          required: true
+        - label: This report addresses only a single issue; If you encounter multiple issues, kindly create separate reports for each one.
+          required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## Documentation information
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the incorrect documentation
+      description: |
+        A clear and exact description of the incorrect documentation.
+      placeholder: |
+        Under `Post-Install Setup > Networking`, Port 8096 is listed as the default port for HTTP, but it should be XYZ.
+        This came with the release of Jellyfin 10.1.1, where the default port was changed to XYZ.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: suggestion
+      description: |
+        Suggest how to correct the documentation.
+      placeholder: |
+        The default port for HTTP should be XYZ.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Additional
+  - type: input
+    id: other-sources
+    attributes:
+      label: Other sources
+      description: Please link the related forum topics or chat messages that prompted you open this issue.
+      placeholder: https://forum.jellyfin.org/…
+    validations:
+      required: false

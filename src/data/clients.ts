@@ -41,11 +41,6 @@ const officialClients: Array<Client> = [
     platforms: [Platform.Desktop],
     primaryLinks: [
       {
-        id: 'flathub',
-        name: 'Flathub (Linux)',
-        url: 'https://flathub.org/apps/details/com.github.iwalton3.jellyfin-media-player'
-      },
-      {
         id: 'gh-downloads',
         name: 'GitHub Downloads',
         url: 'https://github.com/jellyfin/jellyfin-media-player/releases'
