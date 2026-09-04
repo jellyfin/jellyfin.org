@@ -9,20 +9,18 @@ This document is a guide for the core team, provided publicly to ensure transpar
 
 ## Versioning
 
-Jellyfin uses [semantic versioning](https://semver.org). All releases will have versions in the `X.Y.Z` format, starting from `10.0.0`. Note however that the `10.Y.Z` release chain represents the "cleanup" of the codebase, so it should be accepted that `10.Y.Z` breaks all compatibility, at some point, with previous Emby-compatible interfaces, and may also break compatibility with previous `10.Y` releases if required for later cleanup work. Our versioning will typically follow the patterns below:
+Jellyfin uses [semantic versioning](https://semver.org). Starting with Jellyfin 12, release numbers follow the `X.Y` format, where the first number is the major release (for example `12.0` or `13.1`). The older `10.X.Y` scheme was used during the previous compatibility cycle and is no longer the active release convention.
+
+Our versioning will typically follow the patterns below:
 
 ### X: Major Versions
 
-* Breaks compatibility with the HTTP or plugin APIs
+- Breaks compatibility with the HTTP or plugin APIs
+- Introduces new features
 
-### Y: Minor Versions
+### Y: Hotfix Versions
 
-* Introduces new features
-* Makes minor backwards-compatible API changes
-
-### Z: Hotfix Versions
-
-* Critical bug fixes or minor changes
+- Critical bug fixes or minor changes
 
 ## General Release Philosophy
 
@@ -32,7 +30,7 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 #### Preparation
 
-1. Testing is ongoing via `master` nightly builds, so `master` should be generally unbroken before proceeding. The version of `master` should already reflect the upcoming major release version (i.e. `X.Y.0`).
+1. Testing is ongoing via `master` nightly builds, so `master` should be generally unbroken before proceeding. The version of `master` should already reflect the upcoming major release version (i.e. `X.Y`).
 
 1. Once `master` is in a generally stable state after extensive work, announce a "golden nightly" is incoming via the [jellyfin-dev](https://matrix.to/#/#jellyfin-dev:matrix.org) Matrix/Riot channel and Forum.
 
@@ -48,11 +46,11 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 1. Create a release branch on the [jellyfin-web](https://github.com/jellyfin/jellyfin-web) repository via CLI from `master`, named `release-X.Y.z`, where `X` and `Y` are the new version number, and `z` is a literal `z`. Push the new branch to GitHub.
 
-2. Create a GitHub release for the new version, based on the newly-created `release-X.Y.z` branch. The tag should be named `vX.Y.Z` (i.e. `vX.Y.0`) and the release named "Release X.Y.Z". The release body should contain the following link only, replacing the version as required:
+2. Create a GitHub release for the new version, based on the newly-created `release-X.Y.z` branch. The tag should be named `vX.Y` (i.e. `vX.Y`) and the release named "Release X.Y". The release body should contain the following link only, replacing the version as required:
 
-    ```md
-    [Please see the release announcement on the main repository.](https://github.com/jellyfin/jellyfin/releases/tag/vX.Y.Z)
-    ```
+   ```md
+   [Please see the release announcement on the main repository.](https://github.com/jellyfin/jellyfin/releases/tag/vX.Y.Z)
+   ```
 
 3. Publish the release.
 
@@ -60,9 +58,9 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 1. Create a release branch on the [jellyfin](https://github.com/jellyfin/jellyfin) repository via CLI from `master`, named `release-X.Y.z`, where `X` and `Y` are the new version number, and `z` is a literal `z`. Push the new branch to GitHub.
 
-2. Create a GitHub release for the new version, based on the newly-created `release-X.Y.z` branch. The tag should be named `vX.Y.Z` (i.e. `vX.Y.0`) and the release named "Release X.Y.Z". The release body should contain the following components:
+2. Create a GitHub release for the new version, based on the newly-created `release-X.Y.z` branch. The tag should be named `vX.Y` (i.e. `vX.Y`) and the release named "Release X.Y". The release body should contain the following components:
 
-   a. A quick top blurb under a `# Jellyfin X.Y.Z` header.
+   a. A quick top blurb under a `# Jellyfin X.Y` header.
 
    a. A list of features, including in-line links to Fider if available, under a `## New Features and Major Improvements` header.
 
@@ -85,10 +83,8 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 1. Collect the list of merged `stable-backport` PRs from all relevant repositories.
 
 1. For each repository, perform stable branch reconciliation for the relevant PRs:
-
    1. For each PR slated for backport:
-
-      1. Grab the *merge commit* hash for the PR from `master` branch.
+      1. Grab the _merge commit_ hash for the PR from `master` branch.
 
       1. Cherry-pick the merge commit into the `release-x.y.z` branch via: `git cherry-pick -sx -m1 <merge-commit-hash>`.
 
@@ -96,25 +92,25 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
       1. Finalize the cherry-pick via: `git add` and `git commit -v`.
 
-   1. For the main [jellyfin](https://github.com/jellyfin/jellyfin) repository, bump the version of the repository to the new hotfix version with the `bump_version` script and commit the result with the message "Bump version for X.Y.Z".
+   1. For the main [jellyfin](https://github.com/jellyfin/jellyfin) repository, bump the version of the repository to the new hotfix version with the `bump_version` script and commit the result with the message "Bump version for X.Y".
 
    1. Push the updated release branch to GitHub.
 
 #### Web Client
 
-1. Create a GitHub release for the new version, based on the relevant `release-X.Y.z` branch. The tag should be named `vX.Y.Z` and the release named "Release X.Y.Z". The release body should contain the following link only, replacing the version as required:
+1. Create a GitHub release for the new version, based on the relevant `release-X.Y.z` branch. The tag should be named `vX.Y` and the release named "Release X.Y". The release body should contain the following link only, replacing the version as required:
 
-    ```md
-    [Please see the release announcement on the main repository.](https://github.com/jellyfin/jellyfin/releases/tag/vX.Y.Z)
-    ```
+   ```md
+   [Please see the release announcement on the main repository.](https://github.com/jellyfin/jellyfin/releases/tag/vX.Y.Z)
+   ```
 
 2. Publish the release on GitHub and the archive repository.
 
 #### Server
 
-1. Create a GitHub release for the new version, based on the relevant `release-X.Y.z` branch. The tag should be named `vX.Y.Z` and the release named "Release X.Y.Z". The release body should contain the following components:
+1. Create a GitHub release for the new version, based on the relevant `release-X.Y.z` branch. The tag should be named `vX.Y` and the release named "Release X.Y". The release body should contain the following components:
 
-   a. A quick top blurb under a `# Jellyfin X.Y.Z` header.
+   a. A quick top blurb under a `# Jellyfin X.Y` header.
 
    a. A list of known release notes, categorized by the relevant platform (e.g. `[All]` or `[Windows]`), under a `## Important Release Notes` header.
 
