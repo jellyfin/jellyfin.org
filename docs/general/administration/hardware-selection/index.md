@@ -2,9 +2,9 @@
 
 The following is intended to help you choose appropriate hardware for a Jellyfin server and take full advantage of its features (e.g. hardware acceleration).
 
-## Basic System Requirements
+## Minimum System Requirements
 
-This is a list of system requirements for the current release of Jellyfin. Systems that do not meet these requirements will not function at all for Jellyfin.
+This is a list of system requirements for the current release of Jellyfin. Systems that do not meet these requirements will not be able to run the latest release of Jellyfin.
 
 - CPU (x86): SSE4.1 Support (Intel 45nm Core 2 Duo, AMD FX or above).
 - CPU (ARM): 64-bit ARM CPU.
