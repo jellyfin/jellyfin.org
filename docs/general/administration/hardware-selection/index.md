@@ -40,7 +40,11 @@ The following hardware is explicitly recommended against for a Jellyfin server, 
   <details>
     Prebuilt NAS appliances often come with weird software environments and very low end hardware. This will lead to both difficulty in setting Jellyfin up and/or poor performance.
   </details>
-- Most Single Board Computers (SBC): If you really want to run Jellyfin on an SBC, you may wish to consider models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series.
+- Most Single Board Computers (SBCs), especially Raspberry Pi 5.
+  <details>
+    Most SBCs perform poorly and/or lack hardware acceleration support, or does not have the hardware at all. For modern current-gen high-end SBCs, this is especially the case for the Raspberry Pi 5 (no hardware encoders), Allwinner and Amlogic boards (no driver support).
+    If you really want to run Jellyfin on an SBC, you may wish to consider models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series.
+  </details>
 - AMD Graphics: AMD Graphics have poor driver support on Windows and poor encoder quality.
   <details>
     You may consider RX 7000 series or newer AMD graphics if you are primarily using a Linux desktop and wish to host Jellyfin on the same system.
