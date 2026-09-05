@@ -2,7 +2,7 @@
 
 ## Multiple Versions
 
-Jellyfin supports storing multiple versions of the same video within a single folder by using filename suffixes.
+Jellyfin supports multiple versions of the same video for movies and episodes.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
