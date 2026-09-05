@@ -37,6 +37,9 @@ The following hardware is explicitly recommended against for a Jellyfin server, 
 
 - Intel "Atom" CPUs (Intel J/M/N/Y series low power CPUs) up to 11th gen
 - Prebuilt NAS Appliances
+  <details>
+    Prebuilt NAS appliances often come with weird software environments and very low end hardware. This will lead to both difficulty in setting Jellyfin up and/or poor performance.
+  </details>
 - Most Single Board Computers (SBC): If you really want to run Jellyfin on an SBC, you may wish to consider models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series.
 - AMD Graphics: AMD Graphics have poor driver support on Windows and poor encoder quality.
   <details>
