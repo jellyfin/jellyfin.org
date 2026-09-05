@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value='movies' label='Movies'>
-    For movies, each file **must** begin exactly with the base name - including any year, metadata provider IDs, or episode numbers - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items. In addition, each file must begin with the parent folder name.
+    For movies, videos within a single movie folder are recognized as multiple versions by matching filename prefixes and using suffixes to differentiate them. Each file **must** begin exactly with the base name of the parent folder - including any year and/or metadata provider IDs - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items. 
 
     ```txt
     Movie (2021) [imdbid-tt12801262]
