@@ -13,7 +13,7 @@ This is a list of system requirements for the current release of Jellyfin. Syste
 
 ## Recommended System Requirements
 
-Below is a list of recommended specs to run Jellyfin. Whilst Jellyfin can work on relatively low-end hardware, the following specs are recommended for a good experience.
+Below is a list of recommended specs to run Jellyfin. A good Jellyfin experience can be had with minimal tweaking on platforms that meet these specs. Whilst Jellyfin can work on relatively low-end hardware, the following specs are recommended for a good experience.
 
 - CPU: Intel Core i5-2300, AMD Ryzen 3 1200, Apple M1 or above.
 - RAM: 8GB or above, 16GB or above for Windows 11.
