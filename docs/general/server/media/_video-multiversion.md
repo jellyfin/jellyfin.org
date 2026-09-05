@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 
   </TabItem>
   <TabItem value='shows' label='Shows'>
-    For episodes, each file must begin with the standard episode naming. For multiple versions of the same episode, they must identify to the same episode per the standard episode naming scheme.
+    For episodes, multiple versions are recognized when they are in the same season folder and are identified as the same episode per the standard naming scheme.
 
     ```txt
     Shows
