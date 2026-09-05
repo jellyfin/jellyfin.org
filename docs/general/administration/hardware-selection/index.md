@@ -29,7 +29,7 @@ For users on a budget, with expensive electricity, or running battery-powered se
 - Apple M Series Mac mini
 - Rockchip RK3588 / RK3588S SBC (**Advanced Users Only**)
 
-These platforms are all relatively affordable, use very little power (<5w at idle) while providing good performance, and are well-supported by Jellyfin with hardware acceleration.
+These platforms are all relatively affordable, use very little power (\<5w at idle) while providing good performance, and are well-supported by Jellyfin with hardware acceleration.
 
 ## What not to buy
 
