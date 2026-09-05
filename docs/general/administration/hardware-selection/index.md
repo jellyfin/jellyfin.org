@@ -23,11 +23,13 @@ Below is a list of recommended specs to run Jellyfin. A good Jellyfin experience
 
 ## Low Power or Budget Servers
 
-For users with expensive electricity, or running battery-powered servers:
+For users on a budget, with expensive electricity, or running battery-powered servers:
 
 - Intel 12th gen or above N series platforms
 - Apple M Series Mac mini
 - Rockchip RK3588 / RK3588S SBC (**Advanced Users Only**)
+
+These platforms are all relatively affordable, use very little power (<5w at idle) while providing good performance, and are well-supported by Jellyfin with hardware acceleration.
 
 ## What not to buy
 
