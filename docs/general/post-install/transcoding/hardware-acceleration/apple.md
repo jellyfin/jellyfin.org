@@ -20,13 +20,11 @@ Hardware accelerated HDR to SDR tone-mapping is supported on all Macs from 2017 
 There are two different methods that can be used. Pros and cons are listed below:
 
 1. **Metal**
-
    - Pros: Supports Dolby Vision P5, detailed fine-tuning options.
 
    - Cons: Slower on low end GPUs, especially on Intel iGPUs.
 
 2. **VideoToolbox Native**
-
    - Pros: Lower power consumption, less dependency on GPU performance, good visual quality without manual fine-tuning.
 
    - Cons: Lack of tuning options, does not support Dolby Vision P5.
@@ -51,7 +49,7 @@ If your Mac does not have an internal display, you may need to connect it to a m
 
 AVC / H.264 8-bit is still widely used due to its excellent compatibility. Most GPUs after 2011 can decode and encode it.
 
-Any VideoToolbox-supported Mac supports decoding and encoding H.264 8-bit.
+Any VideoToolbox-supported Mac supports decoding and encoding H.264 8-bit. Apple Silicon supports decoding H.264 10-bit.
 
 ### Transcode HEVC
 
