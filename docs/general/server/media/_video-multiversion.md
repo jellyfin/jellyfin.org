@@ -4,37 +4,6 @@
 
 Jellyfin supports multiple versions of the same video for movies and episodes.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs>
-  <TabItem value='movies' label='Movies'>
-    For movies, videos within a single movie folder are recognized as multiple versions by matching filename prefixes and using suffixes to differentiate them. Each file **must** begin exactly with the base name of the parent folder - including any year and/or metadata provider IDs - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items. 
-    The version label must be separated from the filename prefix by either a hyphen, dot, underscore, or enclosed in square brackets. Spaces before and after the separator are optional. Labels are not predetermined and can be made up by the user.
-
-    ```txt
-    Movie (2021) [imdbid-tt12801262]
-    ├── Movie (2021) [imdbid-tt12801262] - 2160p.mp4
-    ├── Movie (2021) [imdbid-tt12801262] - 1080p.mp4
-    └── Movie (2021) [imdbid-tt12801262] - Directors Cut.mp4
-    ```
-
-  </TabItem>
-  <TabItem value='shows' label='Shows'>
-    For episodes, multiple versions are recognized when they are in the same season folder and are identified as the same episode per the standard naming scheme.
-
-    ```txt
-    Shows
-    └── Series Name (2010)
-        └── Season 01
-            ├── Series Name S01E01 - 1080p.mkv
-            ├── Series Name S01E01 - 720p.mkv
-            └── Series Name S01E01 - Extended.mkv
-    ```
-
-  </TabItem>
-</Tabs>
-
 To distinguish between versions, each filename needs to have a space, hyphen, space, and then a label. Labels are not predetermined and can be made up by the user. The hyphen is required. Periods, commas and other characters are not supported.
 
 Labels can optionally be placed between brackets with the same result as seen below.
