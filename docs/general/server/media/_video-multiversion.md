@@ -35,20 +35,6 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-To distinguish between versions, each filename needs to have a space, hyphen, space, and then a label. Labels are not predetermined and can be made up by the user. The hyphen is required. Periods, commas and other characters are not supported.
-
-Labels can optionally be placed between brackets with the same result as seen below.
-
-```txt
-Movies
-└── Best_Movie_Ever (2019)
-    ├── Best_Movie_Ever (2019) - [1080P].mp4
-    ├── Best_Movie_Ever (2019) - [720P].mp4
-    └── Best_Movie_Ever (2019) - [Directors Cut].mp4
-```
-
-If labels are not added to the end of filenames, as shown above, each file will be treated as a unique item and not a version of the same video.
-
 Video versions are presented in an alphabetically sorted list. An exception applies to resolution names, which are sorted in descending order from highest to lowest resolution. A version name qualifies as a resolution name when ending with either a `p` or an `i`. The first video version in the list is the one selected by default. An example of sorting as seen below.
 
 - Resolution sorting: `1080p`, `2160p`, `360p`, `480p`, `720p` → `2160p`, `1080p`, `720p`, `480p`, `360p`
