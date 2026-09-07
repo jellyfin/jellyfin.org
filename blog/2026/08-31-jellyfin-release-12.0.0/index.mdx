@@ -36,7 +36,7 @@ This release changes the database schema and actively rewrites data on first boo
 
 5. **The first scan after upgrading will take significantly longer than normal**, and some movies may appear as newly added. This is expected. Jellyfin now checks every item in your library against the files on disk to clear out leftovers from previous versions, and anything that was previously filed incorrectly gets corrected as it goes. **Do not stop the server while migrations are running.**
 
-6. After the scan completes, run the **"Optimize database"** scheduled task once from Dashboard -> Scheduled Tasks.
+6. Once installed, please ensure you hard refresh (e.g. Ctrl+Shift+R or similar) and/or clear your web cache for your Jellyfin instance if you notice any UX anomalies. Bad cached assets are the #1 cause of such issues.
 
 7. **Remove any third-party plugins before upgrading.** Plugins built for 10.11 will not load on 12.0 and need updated builds from their authors, so give them time to catch up before adding them back. Official plugins have been updated for 12.0 support.
 
@@ -184,6 +184,10 @@ This release includes a number of security fixes on both the server and the web 
 * Live TV: XMLTV background images and episode thumbnails are imported, unreachable "server-local" streaming URLs are no longer returned to clients, and XMLTV guide imports now skip programs whose data has not changed, making repeat guide refreshes considerably cheaper.
 * Metadata: TVDB IDs work for movies, AudioDb artist search, ReplayGain album gain is read from music files, MusicBrainz lookups are more resilient, WEB-DL tags in filenames are recognized, and provider IDs can be set on season and episode folder names.
 * Curly braces and parentheses are now supported, along with the existing square brackets, for parsing Provider Identifier values. New aliases are also supported: tvdb for tvdbid, imdb for imdbid, and tmdb for tmdbid.
+* The optimize database task now analyzes and vacuums the DB when triggered and at shutdown.
+* The Refresh People task now properly cleans up removed people and checks for updates for people with missing images.
+* Live TV: EPG now honors SchedulesDirect API error codes, preventing lockouts. HDHomeRun tuners will now direct play on clients that support it. M3U tuners will no longer direct play and will instead default to remuxing.
+* The playlist library image can now be set for all users through the Metadata Manager. Duplicate tracks are now allowed in playlists.
 
 ### Transcoding and Media Handling
 
@@ -216,7 +220,7 @@ As a general reminder of our API support policy: if an endpoint is not listed in
 ### Plugins
 
 * **The server now targets .NET 10, and several plugin interfaces changed.** Plugins need to be retargeted and rebuilt for 12.0.
-* **New things plugins can do:** provide search results, provide similarity and recommendation data, provide comic metadata, provide unaired and missing episode data, save chapters for non-video items such as audiobooks, handle a password reset for a username the server does not recognize, and clean up their own extracted files when an item's data is pruned. Live TV plugins can also query Schedules Direct availability through the server instead of reimplementing it.
+* **New things plugins can do:** provide search results, provide similarity and recommendation data, provide comic metadata, provide unaired and missing episode data, use aggregated credits for cast members, save chapters for non-video items such as audiobooks, handle a password reset for a username the server does not recognize, and clean up their own extracted files when an item's data is pruned. Live TV plugins can also query Schedules Direct availability through the server instead of reimplementing it.
 * **Plugins that worked with alternate versions or playlist contents need attention**, since those are no longer stored inside the parent item. There are new library methods for both.
 * The full list of new, changed, and removed interfaces is in the release notes - `ISearchEngine`, `IAuthenticationProvider.HasPassword`, parts of `IItemRepository`, and a few `IUserManager` members are the notable breaks.
 
