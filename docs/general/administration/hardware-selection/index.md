@@ -50,3 +50,4 @@ The following hardware is explicitly recommended against for a Jellyfin server, 
     You may consider RX 7000 series or newer AMD graphics if you are primarily using a Linux desktop and wish to host Jellyfin on the same system.
   </details>
 - Low-end GPUs: Certain low-end GPUs (e.g. GT1030, RX6400) are not capable of hardware encoding. These models cannot be used for hardware acceleration for a Jellyfin Server.
+- Windows on ARM: Poor support for hardware acceleration.
