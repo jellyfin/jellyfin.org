@@ -40,5 +40,3 @@ Video versions are presented in an alphabetically sorted list. An exception appl
 
 - Resolution sorting: `1080p`, `2160p`, `360p`, `480p`, `720p` → `2160p`, `1080p`, `720p`, `480p`, `360p`
 - Named versions sorting: `Extended Cut`, `Cinematic Cut`, `Director's Cut` → `Cinematic Cut`, `Director's Cut`, `Extended Cut`
-
-To group media manually, long-click or right-click media to highlight then select additional media to merge. Use the new bar that appears to 'Group Versions'.
