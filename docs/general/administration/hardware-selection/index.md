@@ -42,7 +42,7 @@ The following hardware is explicitly recommended against for a Jellyfin server, 
   </details>
 - Most Single Board Computers (SBCs), especially Raspberry Pi 5.
   <details>
-    Most SBCs perform poorly and/or lack hardware acceleration support, or does not have the hardware at all. For modern current-gen high-end SBCs, this is especially the case for the Raspberry Pi 5 (no hardware encoders), Allwinner and Amlogic boards (no driver support).
+    Most SBCs perform poorly and/or lack hardware acceleration support, or does not have the hardware at all. For modern current-gen high-end SBCs, this is especially the case for the Raspberry Pi 5 (no hardware encoders), Allwinner, Qualcomm and Amlogic boards (no driver support).
     If you really want to run Jellyfin on an SBC, you may wish to consider models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series.
   </details>
 - AMD Graphics: AMD Graphics have poor driver support on Windows and poor encoder quality.
