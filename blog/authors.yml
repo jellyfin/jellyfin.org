@@ -85,3 +85,10 @@ thornbill:
   socials:
     github: thornbill
     mastodon: https://fosstodon.org/@thornbill
+
+crobibero:
+  name: Cody Robibero
+  title: Core Team, Server and Plugins
+  image_url: https://avatars.githubusercontent.com/u/24963659?v=4
+  socials:
+    github: crobibero
