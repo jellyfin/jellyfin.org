@@ -9,7 +9,8 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value='movies' label='Movies'>
-    For movies, videos within a single movie folder are recognized as multiple versions by matching filename prefixes and using suffixes to differentiate them. Each file **must** begin exactly with the base name of the parent folder - including any year and/or metadata provider IDs - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items. 
+    For movies, videos within a single movie folder are recognized as multiple versions by matching filename prefixes and using suffixes to differentiate them. Each file **must** begin exactly with the base name of the parent folder - including any year and/or metadata provider IDs - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items.
+
     The version label must be separated from the filename prefix by either a hyphen, dot, underscore, or enclosed in square brackets. Spaces before and after the separator are optional. Labels are not predetermined and can be made up by the user.
 
     ```txt
