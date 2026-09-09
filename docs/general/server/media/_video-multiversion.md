@@ -7,7 +7,7 @@ Jellyfin supports multiple versions of the same video for movies and episodes.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
+<Tabs defaultValue={pops.defaultTab} queryString="libType">
   <TabItem value='movies' label='Movies'>
     For movies, videos within a single movie folder are recognized as multiple versions by matching filename prefixes and using suffixes to differentiate them. Each file **must** begin exactly with the base name of the parent folder - including any year and/or metadata provider IDs - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items.
 
