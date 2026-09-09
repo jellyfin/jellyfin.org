@@ -1,0 +1,44 @@
+.tabsFrame {
+  background-color: rgb(33, 43, 65);
+  border-radius: 8px;
+}
+
+.tabList {
+  /* border: 2px solid rgba(255, 255, 255, 0.2); */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 16px;
+  margin-bottom: 2.5rem;
+  border: 2px solid rgb(33, 43, 65);
+  border-top: none;
+  background-clip: padding-box;
+  border-radius: 0 0 8px 8px;
+  background-color: var(--ifm-background-color);
+}
+
+.tabItem {
+  margin-top: 0 !important;
+  border: 2px solid #0000;
+  font-weight: 400;
+  border-bottom: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.tabItem:hover {
+  background-color: rgba(10, 21, 46);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: 2px solid rgb(33, 43, 65);
+  border-bottom: none;
+}
+
+.activeItem {
+  background-color: var(--ifm-background-color);
+  border-color: #fff2;
+  border-bottom-color: var(--ifm-background-color);
+}
