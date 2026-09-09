@@ -91,7 +91,11 @@ Note that this will show them in both the `Specials` season, as well as the seas
 
 import ThemeMedia from './\_video-theme-media.md';
 
-<ThemeMedia />
+<ThemeMedia defaultTab="movies"/>
+
+import Multiversion from './\_video-multiversion.md';
+
+<Multiversion defaultTab="shows"/>
 
 import Video3D from './\_video-3d.md';
 

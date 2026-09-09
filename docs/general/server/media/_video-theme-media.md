@@ -34,7 +34,7 @@ Just like any other media, Theme media will be transcoded when required or reque
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
+<Tabs defaultValue={props.defaultTab} queryString="libType">
   <TabItem value='movies' label='Movies'>
     ```txt
     Movies
@@ -69,6 +69,3 @@ import TabItem from '@theme/TabItem';
     ```
   </TabItem>
 </Tabs>
-
-
-

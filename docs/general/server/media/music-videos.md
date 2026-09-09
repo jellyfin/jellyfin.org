@@ -45,7 +45,7 @@ import ExternalStreams from './\_video-external-streams.md';
 
 import Multiversion from './\_video-multiversion.md';
 
-<Multiversion />
+<Multiversion defaultTab="movies"/>
 
 import Video3D from './\_video-3d.md';
 
