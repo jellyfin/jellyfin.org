@@ -35,7 +35,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs defaultValue={props.defaultTab} queryString="libType">
-<Tabs>
   <TabItem value='movies' label='Movies'>
     ```txt
     Movies
