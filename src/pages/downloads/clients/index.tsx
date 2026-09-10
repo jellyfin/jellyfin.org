@@ -1,3 +1,4 @@
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import Link from '@docusaurus/Link';
 import { useHistory, useLocation } from '@docusaurus/router';
 import { mdiFilter } from '@mdi/js';
@@ -10,6 +11,7 @@ import ClientDetails from '../../../components/clients/ClientDetails';
 import Pill from '../../../components/common/Pill';
 import { Clients, DeviceType } from '../../../data/clients';
 import Platform, { FeaturedClientPlatforms } from '../../../data/platform';
+import { UAParser } from 'ua-parser-js';
 
 import styles from '../index.module.scss';
 import ExternalLinkIcon from '@theme/Icon/ExternalLink';
@@ -17,7 +19,7 @@ import ExternalLinkIcon from '@theme/Icon/ExternalLink';
 type ClientFilter = {
   recommended: boolean;
   deviceTypes: DeviceType[];
-  platforms: Platform[];
+  platform: Platform | null;
 };
 
 /**
@@ -32,16 +34,63 @@ function toggleValue<Type>(array: Type[], value: Type): Type[] {
   }
 }
 
-export default function ClientsPage({ recommended = true }: { recommended?: boolean }) {
+function getPlatform(userAgent: string): Platform | null {
+  const parser = new UAParser(userAgent);
+  const os = parser.getOS();
+  switch (os.name) {
+    case 'macOS':
+      // TODO : Re-enable platform-specific clients once Platform.Desktop is no longer used for all desktop platforms.
+      // return Platform.MacOS;
+      return Platform.Desktop;
+    case 'Windows':
+      // TODO : Re-enable platform-specific clients once Platform.Desktop is no longer used for all desktop platforms.
+      // return Platform.MacOS;
+      return Platform.Desktop;
+    case 'Linux':
+    case 'Ubuntu':
+    case 'Debian':
+    case 'Arch':
+    case 'CentOS':
+    case 'Fedora':
+    case 'Gentoo':
+    case 'Sailfish':
+      // TODO : Re-enable platform-specific clients once Platform.Desktop is no longer used for all desktop platforms.
+      // return Platform.Linux;
+      return Platform.Desktop;
+    case 'Android':
+      return Platform.Android;
+    case 'watchOS':
+    case 'iOS':
+      return Platform.IOS;
+    case 'WebOS':
+      return Platform.WebOS;
+    case 'Xbox':
+      return Platform.Xbox;
+    default:
+      return null;
+  }
+}
+
+export default function ClientsPage(options: { filter?: ClientFilter }) {
   const history = useHistory();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
-  const [filter, setFilterValue] = useState<ClientFilter>({
-    recommended,
-    deviceTypes: (searchParams.get('type')?.split(',') ?? []) as DeviceType[],
-    platforms: (searchParams.get('platform')?.split(',') ?? []) as Platform[]
-  });
+  let optionFilter = options.filter;
+  if (!optionFilter) {
+    optionFilter = {
+      recommended: true,
+      deviceTypes: (searchParams.get('type')?.split(',') ?? []) as DeviceType[],
+      platform: (searchParams.get('platform') ?? undefined) as Platform | null
+    };
+  }
+  const [filter, setFilterValue] = useState<ClientFilter>(optionFilter);
+
+  const isBrowser = useIsBrowser();
+  if (isBrowser && filter.platform === undefined) {
+    const platform = getPlatform(navigator.userAgent);
+    setFilterValue((filter) => ({ ...filter, platform: platform as Platform | null }));
+  }
 
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
 
@@ -51,8 +100,8 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
     if (filter.deviceTypes.length > 0) {
       search.set('type', filter.deviceTypes.join(','));
     }
-    if (filter.platforms.length > 0) {
-      search.set('platform', filter.platforms.join(','));
+    if (filter.platform) {
+      search.set('platform', filter.platform);
     }
     history.push({
       search: search.toString()
@@ -76,8 +125,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
             client.deviceTypes.some((deviceType) => filter.deviceTypes.includes(deviceType)));
 
         result =
-          result &&
-          (filter.platforms.length === 0 || client.platforms.some((platform) => filter.platforms.includes(platform)));
+          result && (filter.platform === null || client.platforms.some((platform) => filter.platform === platform));
 
         return result;
       }),
@@ -173,9 +221,9 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
 
                 <ul className={clsx('pills', styles['filter-pills'])}>
                   <Pill
-                    active={filter.platforms.length === 0}
+                    active={filter.platform === null}
                     onClick={() => {
-                      setFilter({ ...filter, platforms: [] });
+                      setFilter({ ...filter, platform: null });
                     }}
                   >
                     All Platforms
@@ -185,12 +233,9 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                     .map(([key, platform]) => (
                       <Pill
                         key={key}
-                        active={filter.platforms.includes(platform)}
+                        active={filter.platform === platform}
                         onClick={() => {
-                          setFilter({
-                            ...filter,
-                            platforms: toggleValue(filter.platforms, platform)
-                          });
+                          setFilter({ ...filter, platform });
                         }}
                       >
                         {platform}
