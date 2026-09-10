@@ -321,7 +321,7 @@ If you would prefer to install everything manually, the full steps are as follow
    sudo apt install jellyfin-server jellyfin-web
    ```
 
-   The `jellyfin-server` package will not automatically select a ffmpeg package. You must provide a ffmpeg executable manually, either in the form of `jellyfin-ffmpeg` (recommended), or any other generic ffmpeg build.
+   The `jellyfin-server` recommends a `jellyfin-ffmpeg` package, but does not strictly require one. The recommended `jellyfin-ffmpeg` version can be found in [the packaging repository](https://github.com/jellyfin/jellyfin-packaging/blob/master/debian/control#L20). You must provide a ffmpeg executable manually, either in the form of `jellyfin-ffmpeg` (recommended), or any other generic ffmpeg build.
 
    :::
 
