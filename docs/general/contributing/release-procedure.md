@@ -44,21 +44,21 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 #### Release Web Client
 
-1. Create a release branch on the [jellyfin-web](https://github.com/jellyfin/jellyfin-web) repository via CLI from `master`, named `release-X.Y.z`, where `X` and `Y` are the new version number, and `z` is a literal `z`. Push the new branch to GitHub.
+1. Create a release branch on the [jellyfin-web](https://github.com/jellyfin/jellyfin-web) repository via CLI from `master`, named `release-X.Y`, where `X` and `Y` are the new version number. Push the new branch to GitHub.
 
-2. Create a GitHub release for the new version, based on the newly-created `release-X.Y.z` branch. The tag should be named `vX.Y` (i.e. `vX.Y`) and the release named "Release X.Y". The release body should contain the following link only, replacing the version as required:
+2. Create a GitHub release for the new version, based on the newly-created `release-X.Y` branch. The tag should be named `vX.Y` (i.e. `vX.Y`) and the release named "Release X.Y". The release body should contain the following link only, replacing the version as required:
 
    ```md
-   [Please see the release announcement on the main repository.](https://github.com/jellyfin/jellyfin/releases/tag/vX.Y.Z)
+   [Please see the release announcement on the main repository.](https://github.com/jellyfin/jellyfin/releases/tag/vX.Y)
    ```
 
 3. Publish the release.
 
 #### Release Server
 
-1. Create a release branch on the [jellyfin](https://github.com/jellyfin/jellyfin) repository via CLI from `master`, named `release-X.Y.z`, where `X` and `Y` are the new version number, and `z` is a literal `z`. Push the new branch to GitHub.
+1. Create a release branch on the [jellyfin](https://github.com/jellyfin/jellyfin) repository via CLI from `master`, named `release-X.Y`, where `X` and `Y` are the new version number. Push the new branch to GitHub.
 
-2. Create a GitHub release for the new version, based on the newly-created `release-X.Y.z` branch. The tag should be named `vX.Y` (i.e. `vX.Y`) and the release named "Release X.Y". The release body should contain the following components:
+2. Create a GitHub release for the new version, based on the newly-created `release-X.Y` branch. The tag should be named `vX.Y` (i.e. `vX.Y`) and the release named "Release X.Y". The release body should contain the following components:
 
    a. A quick top blurb under a `# Jellyfin X.Y` header.
 
@@ -86,7 +86,7 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
    1. For each PR slated for backport:
       1. Grab the _merge commit_ hash for the PR from `master` branch.
 
-      1. Cherry-pick the merge commit into the `release-x.y.z` branch via: `git cherry-pick -sx -m1 <merge-commit-hash>`.
+      1. Cherry-pick the merge commit into the `release-x.y` branch via: `git cherry-pick -sx -m1 <merge-commit-hash>`.
 
       1. Fix any merge conflicts, generally keeping what's in the merge. If there are significant merge conflicts, this likely indicates that the fix is too large for backporting.
 
@@ -98,7 +98,7 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 #### Web Client
 
-1. Create a GitHub release for the new version, based on the relevant `release-X.Y.z` branch. The tag should be named `vX.Y` and the release named "Release X.Y". The release body should contain the following link only, replacing the version as required:
+1. Create a GitHub release for the new version, based on the relevant `release-X.Y` branch. The tag should be named `vX.Y` and the release named "Release X.Y". The release body should contain the following link only, replacing the version as required:
 
    ```md
    [Please see the release announcement on the main repository.](https://github.com/jellyfin/jellyfin/releases/tag/vX.Y.Z)
@@ -108,7 +108,7 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 #### Server
 
-1. Create a GitHub release for the new version, based on the relevant `release-X.Y.z` branch. The tag should be named `vX.Y` and the release named "Release X.Y". The release body should contain the following components:
+1. Create a GitHub release for the new version, based on the relevant `release-X.Y` branch. The tag should be named `vX.Y` and the release named "Release X.Y". The release body should contain the following components:
 
    a. A quick top blurb under a `# Jellyfin X.Y` header.
 
