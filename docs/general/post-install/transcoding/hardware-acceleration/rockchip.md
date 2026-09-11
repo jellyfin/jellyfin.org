@@ -77,7 +77,24 @@ Rockchip added support for AV1 acceleration in their latest SoCs:
 
 ### Transcode Other Codecs
 
-Please refer to these links:
+Codec support table for RK3588/3588S:
+
+| Codec          | RK3588/3588S |
+| -------------- | ------------ |
+| MPEG1/2/4 8bit | 🔶           |
+| VC1 8bit       | ❌           |
+| H.264 8bit     | ✅           |
+| H.264 10bit    | 🔶           |
+| H.265 8bit     | ✅           |
+| H.265 10bit    | 🔶           |
+| VP8 8bit       | 🔶           |
+| VP9 8bit       | 🔶           |
+| VP9 10bit      | 🔶           |
+| AV1            | 🔶           |
+
+✅ = Encode + Decode, 🔶 = Decode Only, ❌ = Not Supported.
+
+Please refer to these links for more information:
 
 - [GitHub - rockchip-linux/mpp](https://github.com/rockchip-linux/mpp)
 
