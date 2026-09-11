@@ -774,6 +774,38 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'jellybox',
+    name: 'JellyBox',
+    description: 'A native music player for Jellyfin with offline downloads, lyrics and artwork-based theming.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop, DeviceType.Mobile],
+    platforms: [Platform.Desktop, Platform.IOS, Platform.Android],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/us/app/jellybox-player/id6469732117'
+      },
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/avdept/JellyBoxPlayer/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/avdept/JellyBoxPlayer'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://jellybox.app'
+      }
+    ]
   }
 ];
 
