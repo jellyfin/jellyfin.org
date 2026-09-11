@@ -778,7 +778,8 @@ const thirdPartyClients: Array<Client> = [
   {
     id: 'jellybox',
     name: 'JellyBox',
-    description: 'A native music player for Jellyfin with offline downloads, lyrics and artwork-based theming.',
+    description:
+      'A native music player for Jellyfin with CarPlay, AirPlay and DLNA streaming, offline downloads, lyrics and artwork-based theming.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop, DeviceType.Mobile],
     platforms: [Platform.Desktop, Platform.IOS, Platform.Android],
@@ -787,6 +788,11 @@ const thirdPartyClients: Array<Client> = [
         id: 'app-store',
         name: 'App Store',
         url: 'https://apps.apple.com/us/app/jellybox-player/id6469732117'
+      },
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=com.prodigytech.jellybox'
       },
       {
         id: 'gh-downloads',
