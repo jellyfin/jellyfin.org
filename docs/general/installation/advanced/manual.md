@@ -15,7 +15,6 @@ sidebar_position: 3
 2. Create a folder `jellyfin` at your preferred install location.
 3. Copy the extracted folder into the `jellyfin` folder and rename it to `system`.
 4. Create `jellyfin.bat` within your `jellyfin` folder containing:
-
    - To use the default library/data location at `%localappdata%`:
 
    ```cmd
@@ -296,7 +295,6 @@ If you would prefer to install everything manually, the full steps are as follow
    :::note
 
    The supported values for the above variables are:
-
    - `${VERSION_OS}`: One of `debian` or `ubuntu`; if it is not, use the closest one for your distribution.
    - `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
    - `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
@@ -323,7 +321,7 @@ If you would prefer to install everything manually, the full steps are as follow
    sudo apt install jellyfin-server jellyfin-web
    ```
 
-   The `jellyfin-server` package will automatically select the right `jellyfin-ffmpeg` package for you as well.
+   The `jellyfin-server` recommends a `jellyfin-ffmpeg` package, but does not strictly require one. Apt will usually install recommended packages, but it might be disabled on some systems, or otherwise not be installable. The recommended `jellyfin-ffmpeg` version can be found in [the packaging repository](https://github.com/jellyfin/jellyfin-packaging/blob/master/debian/control#L20). If apt has been configured to not install recommended packages, or the `jellyfin-ffmpeg` package is not able to be installed, you must provide a ffmpeg executable manually, either in the form of `jellyfin-ffmpeg` (recommended), or any other generic ffmpeg build.
 
    :::
 
