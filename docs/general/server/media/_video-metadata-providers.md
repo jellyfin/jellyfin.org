@@ -10,6 +10,8 @@ Movie Name (year) [metadata provider id]
 Series Name (year) [metadata provider id]
 ```
 
+If adding a metadata provider to a movie with multiple versions, the provider ID **must** be added to both the parent folder and file.
+
 Seasons and episodes can also include metadata provider IDs.
 
 ```txt
