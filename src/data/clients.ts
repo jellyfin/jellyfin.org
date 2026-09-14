@@ -774,6 +774,39 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'swiftly-player',
+    name: 'Swiftly Player',
+    description:
+      'A Jellyfin client for iPhone, iPad, Apple TV and Mac, plus Windows and Linux. Plays through VLC with Direct Play for common codecs, and can hand playback from one device to another. Includes downloads, Seerr requests and Skip Intro support.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.TV, DeviceType.Desktop],
+    platforms: [Platform.IOS, Platform.TVOS, Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'apple-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/app/id6806824067'
+      },
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/paulherter/swiftly-player/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/paulherter/swiftly-player'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://swiftlyplayer.com'
+      }
+    ]
   }
 ];
 
