@@ -137,5 +137,16 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:TidBits16/FinPlugins',
+    name: "TidBits16's FinPlugins Repo",
+    url: 'https://raw.githubusercontent.com/TidBits16/FinPlugins/main/manifest.json',
+    includes: {
+      MusicFin: 'https://github.com/TidBits16/MusicFin',
+      ExplicitFin: 'https://github.com/TidBits16/ExplicitFin',
+      LyricFin: 'https://github.com/TidBits16/LyricFin',
+      ArtistFin: 'https://github.com/TidBits16/ArtistFin'
+    }
   }
 ];
