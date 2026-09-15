@@ -50,15 +50,6 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     }
   },
   {
-    id: 'gh:k-matti/jellyfin-plugin-repository',
-    name: "k-matti's Repo",
-    url: 'https://raw.githubusercontent.com/k-matti/jellyfin-plugin-repository/master/manifest.json',
-    includes: {
-      'SMS Notifications': 'https://github.com/k-matti/jellyfin-plugin-sms',
-      NapiSub: 'https://github.com/k-matti/jellyfin-plugin-napi'
-    }
-  },
-  {
     id: 'gh:LinFor/jellyfin-plugin-kinopoisk',
     name: "LinFor's Repo",
     url: 'https://raw.githubusercontent.com/LinFor/jellyfin-plugin-kinopoisk/master/dist/manifest.json',
