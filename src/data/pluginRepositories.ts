@@ -32,14 +32,6 @@ export const OfficialPluginRepositories: Array<PluginRepository> = [
 
 export const ThirdPartyRepositories: Array<PluginRepository> = [
   {
-    id: 'gh:9p4/jellyfin-plugin-sso',
-    name: "9p4's Single-Sign-On (SSO) Repo",
-    url: 'https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json',
-    includes: {
-      "9p4's Single Sign On Plugin": 'https://github.com/9p4/jellyfin-plugin-sso'
-    }
-  },
-  {
     id: 'gh:vosmiic/jellyfin-ani-sync',
     name: 'Ani-Sync Repo',
     url: 'https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json',
@@ -55,14 +47,6 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
       'Merge Versions': 'https://github.com/danieladov/jellyfin-plugin-mergeversions',
       'Skin Manager': 'https://github.com/danieladov/jellyfin-plugin-skin-manager',
       'Theme Songs': 'https://github.com/danieladov/jellyfin-plugin-themesongs'
-    }
-  },
-  {
-    id: 'gh:dkanada/jellyfin-plugin-intros',
-    name: "dkanada's Repo",
-    url: 'https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json',
-    includes: {
-      Intros: 'https://github.com/dkanada/jellyfin-plugin-intros'
     }
   },
   {
