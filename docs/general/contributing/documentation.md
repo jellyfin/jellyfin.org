@@ -9,6 +9,12 @@ title: Contributing to Documentation
 
 Documentation is fast-moving and ever-changing. Please think carefully about what you're changing and why; what will it contribute going forward? Extensive rewrites and new pages should be considered very carefully and coordinated in our [documentation Matrix room](/contact).
 
+## Documenting Server PRs
+
+If you have opened a PR on the [jellyfin-server](https://github.com/jellyfin/jellyfin) repository, you are very welcome to open a Pull Request to document the resulting changes yourself.
+
+To avoid duplicate work and reduce the number of stale documentation PRs, please wait until your PR on `jellyfin/jellyfin` has been merged before opening the corresponding Pull Request in the documentation repository.
+
 ## Please Self-Review
 
 Before finalizing your changes, please be courteous to reviewers and run your changes through, at least, a spellchecker (e.g. `[aspell](https://github.com/GNUAspell/aspell)`) and potentially a grammar checker. AI is fine for this though please use it sparingly for _generating_ content. Make sure you re-read what comes out and adjust as required. We appreciate individual writing styles but the bulk of our review back-and-forth is over minor issues like this, so please do your part to get it right first.
