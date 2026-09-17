@@ -11,7 +11,7 @@ Documentation is fast-moving and ever-changing. Please think carefully about wha
 
 ## Documenting Server PRs
 
-If you have opened a PR on the [jellyfin-server](https://github.com/jellyfin/jellyfin) repository, you are very welcome to open a Pull Request to document the resulting changes yourself.
+If you have opened a Pull Request (PR) on the [jellyfin-server](https://github.com/jellyfin/jellyfin) repository, you are very welcome to open a PR to document the resulting changes yourself.
 
 To avoid duplicate work and reduce the number of stale documentation PRs, please wait until your PR on `jellyfin/jellyfin` has been merged before opening the corresponding Pull Request in the documentation repository.
 
