@@ -9,6 +9,7 @@ alac
 albumartistsort
 allports
 alpn
+Amlogic
 analyzeduration
 AniDB
 AniList
@@ -257,6 +258,7 @@ mirrorinfo
 mirrorlist
 mirrorstats
 mirrorsync
+MJPEG
 mkinitcpio
 mmap
 mmdb
