@@ -113,6 +113,7 @@ elrc
 emby
 enddate
 enmod
+equirectangular
 ETSI
 evermeet
 executionpolicy
@@ -262,6 +263,7 @@ mmap
 mmdb
 mobi
 modeset
+monoscopic
 mopidy
 mpaa
 mpvqt
@@ -273,6 +275,7 @@ musicbrainzalbumartistid
 musicbrainzalbumid
 musicbrainzartistid
 musicbrainzreleasegroupid
+mvhevc
 mycoolname
 myjellyfin
 myvideos
