@@ -774,6 +774,29 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'solound',
+    name: 'Solound',
+    description:
+      'An Android music player with Jellyfin streaming, offline downloads and playlist sync. Jellyfin access requires Solound Premium. Music only; no video support.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    platforms: [Platform.Android],
+    primaryLinks: [
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=top.ibetterlife.solound'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://solound.com/'
+      }
+    ]
   }
 ];
 
