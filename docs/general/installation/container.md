@@ -69,3 +69,14 @@ import Podman from './\_container-podman.md';
 
 </TabItem>
 </Tabs>
+
+## Hosting Platforms
+
+[Easypanel](https://easypanel.io) is a self-hosted Docker deployment platform, and it maintains a one-click deployment template for Jellyfin.
+
+[![Deploy on Easypanel][easypanel-btn]][easypanel-deploy]
+
+![Jellyfin service running in the Easypanel dashboard](/images/docs/easypanel/easypanel-panel.jpg)
+
+[easypanel-btn]: https://easypanel.io/img/deploy-on-easypanel-40.svg
+[easypanel-deploy]: https://easypanel.io/templates/jellyfin
