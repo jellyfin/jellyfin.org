@@ -32,7 +32,7 @@ If you don't see the icon in the main menu after the installation of `Container 
 
 ### Downloading the Jellyfin Image
 
-Navigate to the "Registry" tab and search for "Jellyfin". You should see the official jellyfin/jellyfin image. Click on it and then click "Download".
+Navigate to the "Registry" tab and search for "Jellyfin". You should see the official `jellyfin/jellyfin` image. Click on it and then click "Download".
 
 ![Downloading the Image](/images/docs/advanced/synology/install-synology-0.png)
 

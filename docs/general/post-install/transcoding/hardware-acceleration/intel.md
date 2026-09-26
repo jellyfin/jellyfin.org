@@ -275,7 +275,7 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`, if you choose to use vanilla ffmpeg, instead of jellyfin-ffmpeg, you will need to install the following [intel packages](https://github.com/intel/media-driver/wiki).
+1. Assuming you have added the Jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`, if you choose to use vanilla FFmpeg, instead of `jellyfin-ffmpeg`, you will need to install the following [intel packages](https://github.com/intel/media-driver/wiki).
 
    :::note
    If you are running Debian, you will need to add "non-free" to your apt config.
@@ -319,7 +319,7 @@ Root permission is required.
    sudo systemctl restart jellyfin
    ```
 
-5. Check the version of `intel-opencl-icd` thats the Linux distro provides:
+5. Check the version of `intel-opencl-icd` that the Linux distro provides:
 
    :::note
 
@@ -395,7 +395,7 @@ Root permission is required.
 
 :::
 
-1. Install the Archlinux/extra [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package:
+1. Install the [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package from Arch Linux's `extra` repository:
 
    ```shell
    sudo pacman -Syu jellyfin-ffmpeg
@@ -489,7 +489,7 @@ What you need to do is pass the host's `render` group id to Docker and modify th
    getent group render | cut -d: -f3
    ```
 
-2. Use docker command line **or** docker compose:
+2. Use Docker command line **or** Docker Compose:
    - Example command line:
 
      ```shell
@@ -542,7 +542,7 @@ What you need to do is pass the host's `render` group id to Docker and modify th
 
 7. Enable QSV or VA-API in Jellyfin and uncheck the unsupported codecs.
 
-#### Linuxserver.io Docker
+#### LinuxServer.io Docker
 
 LSIO Docker images are maintained by [linuxserver.io](https://www.linuxserver.io/), please refer their docs from [GitHub - linuxserver/docker-jellyfin](https://github.com/linuxserver/docker-jellyfin).
 
@@ -812,7 +812,8 @@ Root permission is required.
      sudo apt update && sudo apt install -y firmware-intel-graphics
      ```
 
-     Or, if you're on an older debian version :
+     Or, if you're on an older Debian version :
+
      ```shell
      sudo apt update && sudo apt install -y firmware-linux-nonfree
      ```

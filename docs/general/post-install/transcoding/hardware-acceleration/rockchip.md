@@ -103,7 +103,7 @@ A 64-bit Linux distribution is recommended. **The Rockchip BSP kernel (6.1 or 5.
 
 The `jellyfin-ffmpeg*` deb package required by Jellyfin comes with all necessary user mode Rockchip MPP & RGA drivers.
 
-Besides that you only need to install the OpenCL runtime (libmali) and configure the the device permissions.
+Besides that you only need to install the OpenCL runtime (libmali) and configure the device permissions.
 
 :::note
 
@@ -111,7 +111,7 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg8`.
+1. Assuming you have added the Jellyfin repository to your apt source list and installed the `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg8`.
 
 2. Make sure `dma_heap`, `dri`, `mpp_service` and `rga` exist in `/dev`. Otherwise upgrade your BSP kernel to 5.10 LTS and newer.
 
@@ -232,9 +232,9 @@ Root permission is required.
 
 #### LXC (Linux Containers)
 
-This setup might be useful for those, who use RK3588/3588S SoC as [Proxmox](https://www.proxmox.com/en/) host, where LXC is the official and the only supported way of doing lightweight virtualization with the help of system containers (LXC) vs application containers (docker). As of today Proxmox team does not support ARM platforms as hosts - and probably will never do - however successful deployments on ARM devices [are possible](https://github.com/jiangcuo/Proxmox-Port?tab=readme-ov-file).
+This setup might be useful for those, who use RK3588/3588S SoC as [Proxmox](https://www.proxmox.com/en/) host, where LXC is the official and the only supported way of doing lightweight virtualization with the help of system containers (LXC) vs application containers (Docker). As of today Proxmox team does not support ARM platforms as hosts - and probably will never do - however successful deployments on ARM devices [are possible](https://github.com/jiangcuo/Proxmox-Port?tab=readme-ov-file).
 
-LXC setup idea is a bit similar to docker - you need to pass the **device files** of VPU from host to LXC and enable the **privileged mode** (see also important "_note_" below about privileged LXC containers).
+LXC setup idea is a bit similar to Docker - you need to pass the **device files** of VPU from host to LXC and enable the **privileged mode** (see also important "_note_" below about privileged LXC containers).
 
 1. To find the list of device files to pass inside container, use the next one-liner in Linux host:
 
@@ -266,12 +266,12 @@ LXC setup idea is a bit similar to docker - you need to pass the **device files*
 
    :::warning
 
-   Privileged LXC containers are considered unsafe by design - read more [on the LXC official documentation](https://linuxcontainers.org/lxc/security/). This guide however does not cover steps required to make jellyfin VPU hardware acceleration working in unprivileged container.
+   Privileged LXC containers are considered unsafe by design - read more [on the LXC official documentation](https://linuxcontainers.org/lxc/security/). This guide however does not cover steps required to make Jellyfin VPU hardware acceleration working in unprivileged container.
 
    :::
 
-2. Install supported [jellyfin package](https://jellyfin.org/docs/general/installation/linux) into LXC container or optionally you can even use an official docker image inside LXC container.
-3. Verify OpenCL runtime status as following - example is collected from LXC runtime of Ubuntu Jammy - steps are the same as docker deployments:
+2. Install supported [jellyfin package](https://jellyfin.org/docs/general/installation/linux) into LXC container or optionally you can even use an official Docker image inside LXC container.
+3. Verify OpenCL runtime status as following - example is collected from LXC runtime of Ubuntu Jammy - steps are the same as Docker deployments:
    - _libmali user-space drivers should be installed inside LXC container, otherwise opencl=ocl@rk device won't be initialized_
 
    ```shell

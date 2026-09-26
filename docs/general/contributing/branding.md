@@ -21,7 +21,10 @@ Do not use the Jellyfin logo in the promotion of piracy or to affiliate yourself
 
 ## Writing Style
 
+<!-- vale Jellyfin.Terms = NO -->
+
 As a general rule, Jellyfin should always be capitalized, but language, file, or system conventions trump Jellyfin naming conventions. Avoid "JellyFin".
+<!-- vale Jellyfin.Terms = YES -->
 
 Specific examples include:
 

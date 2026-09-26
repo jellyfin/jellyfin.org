@@ -9,10 +9,10 @@ sidebar_position: 4
 
 ## Container images
 
-Official container image: `jellyfin/jellyfin` [![jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg)](https://hub.docker.com/r/jellyfin/jellyfin).  
+Official container image: `jellyfin/jellyfin` [![Jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg)](https://hub.docker.com/r/jellyfin/jellyfin).  
 This image is also published on the GitHub Container Registry: `ghcr.io/jellyfin/jellyfin`.
 
-LinuxServer.io image: `linuxserver/jellyfin` [![linuxserver jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg)](https://hub.docker.com/r/linuxserver/jellyfin).
+LinuxServer.io image: `linuxserver/jellyfin` [![LinuxServer.io Jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg)](https://hub.docker.com/r/linuxserver/jellyfin).
 
 hotio image: `ghcr.io/hotio/jellyfin`.
 
@@ -44,7 +44,7 @@ You WILL NOT receive any support for running Jellyfin in a Container on platform
 
 :::
 
-Replace `uid:gid` if you want to run jellyfin as a specific user/group. Exclude the `user` argument entirely if you want to use the default user.
+Replace `uid:gid` if you want to run Jellyfin as a specific user/group. Exclude the `user` argument entirely if you want to use the default user.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

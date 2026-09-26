@@ -7,7 +7,7 @@ title: Metadata
 
 Jellyfin can get metadata for your media through multiple sources. By default, Jellyfin ships with the following providers:
 
-- The Movie Database (TMDb)
+- The Movie Database (TMDB)
 - The Open Movie Database API (OMDb API)[^1]
 - [Local .nfo files](nfo)
 
@@ -23,7 +23,7 @@ Because of external factors, certain metadata providers may not be accessible in
 Below is a list of known inaccessible providers: <br />
 下方为已知无法访问的提供者：
 
-- The Movie Database (TMDb)
+- The Movie Database (TMDB)
 - TheTVDB
 
 :::

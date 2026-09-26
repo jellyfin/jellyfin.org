@@ -20,12 +20,12 @@ This can be done from Plex, Emby or another Jellyfin instance.
 
 ## Migrating Linux install to Docker
 
-It's possible to use the data of a local install in the official docker image by mapping files and folders to the same locations and configuring the image accordingly. It's possible to do this via the command line or by using Docker environment variables. To read more, see the [Configuration](/docs/general/administration/configuration) page.
+It's possible to use the data of a local install in the official Docker image by mapping files and folders to the same locations and configuring the image accordingly. It's possible to do this via the command line or by using Docker environment variables. To read more, see the [Configuration](/docs/general/administration/configuration) page.
 
 :::note
 
-You need to have exactly matching paths for your files inside the docker container!
-This means that if your media is stored at `/media/raid/` this path needs to be accessible at `/media/raid/` inside the docker container too - the configurations below do include examples.
+You need to have exactly matching paths for your files inside the Docker container!
+This means that if your media is stored at `/media/raid/` this path needs to be accessible at `/media/raid/` inside the Docker container too - the configurations below do include examples.
 
 :::
 
@@ -44,7 +44,7 @@ To properly map the folders for your install, go to `Dashboard > Paths`.
 
 :::
 
-### Using docker cli
+### Using Docker CLI
 
 ```sh
 docker run -d \

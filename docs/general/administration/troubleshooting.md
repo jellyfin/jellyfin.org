@@ -11,7 +11,7 @@ This page outlines some solutions to common issues beginners may encounter when 
 
 The easiest way to check for issues is by checking the logs, which can be accessed through the console for the web client or in the log directory on your server.
 
-If media is unable to transcode, first check the ffmpeg logs.
+If media is unable to transcode, first check the FFmpeg logs.
 
 ## Networking Issues
 
@@ -101,7 +101,7 @@ If you are running Debian, RedHat, or another similar Linux distribution, run th
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl -p
 ```
 
-If you are running ArchLinux, run the following command instead:
+If you are running Arch Linux, run the following command instead:
 
 ```sh
 echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
@@ -110,9 +110,9 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 Then paste it in your terminal and press Enter to run it. For Docker, this needs to be done on the host, not the container.  
 See the [Guard Listen README on increasing inotify watchers](https://github.com/guard/listen/blob/master/README.md#increasing-the-amount-of-inotify-watchers) for more information.
 
-## Uninstalling Jellyfin on MacOS
+## Uninstalling Jellyfin on macOS
 
-To fully remove all data of Jellyfin from MacOS, run these commands:
+To fully remove all data of Jellyfin from macOS, run these commands:
 
 ```bash
 rm -Rfv ~/.config/jellyfin

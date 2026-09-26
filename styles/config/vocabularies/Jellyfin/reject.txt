@@ -1,0 +1,1 @@
+# Add disallowed terms here, one regular expression per line.

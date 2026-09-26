@@ -53,7 +53,7 @@ Partial acceleration may result in higher CPU usage and lower transcoding speed.
 
 Jellyfin supports full acceleration for:
 
-- Mainstream Intel and Nvidia GPUs on Windows and Linux
+- Mainstream Intel and NVIDIA GPUs on Windows and Linux
 - AMD Polaris and newer GPUs on Linux via VA-API and Vulkan interop
 - Older AMD GPUs on Windows
 - Rockchip VPU of RK3588/3588S
@@ -104,7 +104,7 @@ See the table below to pick the best hardware acceleration method for your hardw
 | AMD        | [AMF (Windows)](./amd.md#windows-setups)      | [VideoToolbox](./apple.md) | [VAAPI (AMD)](./amd.md#linux-setups)      |
 | Apple      | N/A                                           | [VideoToolbox](./apple.md) | N/A                                       |
 | Intel      | [QSV (Windows)](./intel.md#windows-setups)    | [VideoToolbox](./apple.md) | [QSV (Linux)](./intel.md#linux-setups)    |
-| Nvidia     | [NVENC (Windows)](./nvidia.md#windows-setups) | N/A                        | [NVENC (Linux)](./nvidia.md#linux-setups) |
+| NVIDIA     | [NVENC (Windows)](./nvidia.md#windows-setups) | N/A                        | [NVENC (Linux)](./nvidia.md#linux-setups) |
 | Rockchip   | N/A                                           | N/A                        | [RKMPP](./rockchip.md)                    |
 
 ## Remote Hardware Acceleration

@@ -79,13 +79,13 @@ This page lists all known issues and limitations of hardware acceleration with J
     - Issue: [https://github.com/jellyfin/jellyfin/issues/11380](https://github.com/jellyfin/jellyfin/issues/11380)
     - Ubuntu bug: [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2072755)
 
-13. Intel Compute-Runtime versions starting at 25.18.33578.6 are broken for certain GPUs. The issue has been verified on Arc A series GPUs. If you are using one of the effected models it will be necessary to install the latest known working version of 25.13.33276.16 until the [issue](https://github.com/intel/compute-runtime/issues/831) is fixed. This can effect containers as well, if you are not using the [official image](https://hub.docker.com/r/jellyfin/jellyfin), check your version in container as well.
+13. Intel Compute-Runtime versions starting at `25.18.33578.6` are broken for certain GPUs. The issue has been verified on Arc A series GPUs. If you are using one of the effected models it will be necessary to install the latest known working version of `25.13.33276.16` until the [issue](https://github.com/intel/compute-runtime/issues/831) is fixed. This can effect containers as well, if you are not using the [official image](https://hub.docker.com/r/jellyfin/jellyfin), check your version in container as well.
 
 14. Resizable-BAR is mandatory for hardware acceleration on BMG / ARC B-series cards, or the [media driver will crash the transcoder](https://github.com/intel/media-driver/issues/1893).
 
 15. Intel Compute-Runtime currently uses LLVM 14 for compilation [as seen on the Intel bug report page](https://github.com/intel/intel-graphics-compiler/issues/289), making it unavailable in some distributions like Debian Trixie [as seen on the Debian bug report page](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1072376). Intel provided releases [on the Intel GitHub page](https://github.com/intel/compute-runtime/releases) which only require matching a matching libc runtime may be used instead.
 
-## Nvidia
+## NVIDIA
 
 1. Consumer targeted [Geforce and some entry-level Quadro](https://developer.nvidia.com/video-encode-decode-support-matrix) cards have an artificial limit on the number of concurrent NVENC encoding sessions. This restriction can be circumvented by applying an [unofficial patch](https://github.com/keylase/nvidia-patch) to the NVIDIA Linux and Windows driver.
 
@@ -96,10 +96,10 @@ This page lists all known issues and limitations of hardware acceleration with J
    | 530 to 546    | Up to 5 encoding sessions  |
    | pre-530       | Up to 3 encoding sessions  |
 
-2. When using Nvidia GPUs in containers (e.g. Docker, LXC), the container might randomly lose access to the GPU. A few potential workarounds can be found below:
+2. When using NVIDIA GPUs in containers (e.g. Docker, LXC), the container might randomly lose access to the GPU. A few potential workarounds can be found below:
    - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/48](https://github.com/NVIDIA/nvidia-container-toolkit/issues/48)
    - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/538](https://github.com/NVIDIA/nvidia-container-toolkit/issues/538)
    - [https://github.com/ollama/ollama/issues/6928#issuecomment-2586208913](https://github.com/ollama/ollama/issues/6928#issuecomment-2586208913)
-3. Docker desktop isn't supported by Nvidia Container Toolkit.
+3. Docker desktop isn't supported by NVIDIA Container Toolkit.
    - [https://github.com/NVIDIA/nvidia-container-toolkit/issues/219#issuecomment-1903941381](https://github.com/NVIDIA/nvidia-container-toolkit/issues/219#issuecomment-1903941381)
-     If you need a GUI, use the docker package and podman, or similar.
+     If you need a GUI, use the Docker package and Podman, or similar.

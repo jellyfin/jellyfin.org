@@ -3,7 +3,7 @@ uid: network-letsencrypt
 title: Let's Encrypt
 ---
 
-LetsEncrypt is a service that provides free SSL/TLS certificates to users. Certbot is a client that makes this easy to accomplish and automate. In addition, it has plugins for Apache and Nginx that make automating certificate generation even easier.
+Let's Encrypt is a service that provides free SSL/TLS certificates to users. Certbot is a client that makes this easy to accomplish and automate. In addition, it has plugins for Apache and nginx that make automating certificate generation even easier.
 
 Installation instructions for most Linux distributions can be found on the [Certbot](https://certbot.eff.org/docs/install.html#operating-system-packages) website.
 
@@ -31,7 +31,7 @@ echo "0 0 * * *  root  certbot renew --quiet --no-self-upgrade --post-hook 'syst
 
 #### Debian
 
-If the certbot apache plugin doesn't work with your config, use webroot instead.
+If the Certbot Apache plugin doesn't work with your config, use webroot instead.
 
 Add the following to your `<VirtualHost>` section after configuring it a reverse proxy:
 
@@ -41,7 +41,7 @@ DocumentRoot /var/www/html/
 ProxyPass /.well-known !
 ```
 
-Run the certbot command as root:
+Run the Certbot command as root:
 
 ```sh
 sudo certbot certonly --webroot -w /var/www/html --agree-tos --email YOUR_EMAIL -d DOMAIN_NAME
@@ -100,11 +100,11 @@ Add a job to cron so the certificate will be renewed automatically.
 @monthly /usr/bin/certbot renew --renew-hook "/usr/local/bin/letsencrypt-renew.sh" >> /var/log/letsencrypt-renewal.log
 ```
 
-## Nginx
+## nginx
 
-After installing Certbot and the Nginx plugin with `sudo apt install certbot python3-certbot-nginx`, generate the certificate.
+After installing Certbot and the nginx plugin with `sudo apt install certbot python3-certbot-nginx`, generate the certificate.
 
-**Note**: For Fedora Linux distributions (e.g. CentOS 8) use `sudo dnf install python3-certbot-nginx` to install the Nginx plugin.
+**Note**: For Fedora Linux distributions (e.g. CentOS 8) use `sudo dnf install python3-certbot-nginx` to install the nginx plugin.
 
 ```sh
 sudo certbot --nginx --agree-tos --redirect --hsts --staple-ocsp --email YOUR_EMAIL -d DOMAIN_NAME
@@ -112,7 +112,7 @@ sudo certbot --nginx --agree-tos --redirect --hsts --staple-ocsp --email YOUR_EM
 
 Add the `--rsa-key-size 4096` parameter if you want a 4096 bit key instead.
 
-Copy and paste the whole Nginx sample configuration file from above, changing the parameters according to your setup and uncommenting the lines.
+Copy and paste the whole nginx sample configuration file from above, changing the parameters according to your setup and uncommenting the lines.
 
 Add a job to cron so the certificate will be renewed automatically.
 
@@ -122,28 +122,34 @@ echo "0 0 * * *  root  certbot renew --quiet --no-self-upgrade --post-hook 'syst
 
 ## Let's Encrypt and Docker
 
-This section assumes that Jellyfin is running in a Docker container (on Linux). This section also assumes that you wish to run Let's Encrypt in a Docker container as well. The Linuxserver/swag Docker container has a built-in nginx webserver to handle the reverse proxy.
+This section assumes that Jellyfin is running in a Docker container (on Linux). This section also assumes that you wish to run Let's Encrypt in a Docker container as well. The `linuxserver/swag` Docker container has a built-in nginx webserver to handle the reverse proxy.
 
 `linuxserver/letsencrypt` is deprecated in favor of `linuxserver/swag`. See the [SWAG migration guide on GitHub](https://github.com/linuxserver/docker-swag#migrating-from-the-old-linuxserverletsencrypt-image) for information on how to migrate if needed.
 
 First, you need to determine a few things.
 
-1. **MAKE SURE YOU HAVE A CNAME FOR JELLYFIN WITH YOUR DNS PROVIDER BEFORE PROCEEDING**
-2. Where you wish to store information regarding Let's Encrypt (docker calls these "volumes")
-3. What subdomain or subfolder you wish to use with Let's Encrypt (ex. jellyfin.example.com)
-4. What timezone you wish to use
-5. If you'll be using either HTTP-01 or DNS-01 for challenges.
-6. What network you'll be running on (I'd recommend the default macvlan network called "br0")
-7. What IP you want your container running on
-8. What ports you'll be using (ex. 180 for port 80, and 1443 for 443)
-9. Make sure ports 80 (if using http validation) and 443 are forwarded to the docker container from your router (instructions vary upon manufacturer)
-10. What user will the container be running as (you can determine the PUID and PGID by running `id` (replacing "user" with the username of the user the container will be running as)
+<!-- vale Jellyfin.Terms = NO -->
+
+:::warning
+**MAKE SURE YOU HAVE A CNAME FOR JELLYFIN WITH YOUR DNS PROVIDER BEFORE PROCEEDING**
+:::
+<!-- vale Jellyfin.Terms = YES -->
+
+1. Where you wish to store information regarding Let's Encrypt (Docker calls these "volumes")
+2. What subdomain or subfolder you wish to use with Let's Encrypt (ex. `jellyfin.example.com`)
+3. What timezone you wish to use
+4. If you'll be using either HTTP-01 or DNS-01 for challenges.
+5. What network you'll be running on (I'd recommend the default macvlan network called "br0")
+6. What IP you want your container running on
+7. What ports you'll be using (ex. 180 for port 80, and 1443 for 443)
+8. Make sure ports 80 (if using http validation) and 443 are forwarded to the Docker container from your router (instructions vary upon manufacturer)
+9. What user will the container be running as (you can determine the PUID and PGID by running `id` (replacing "user" with the username of the user the container will be running as)
 
 If you're using the DNS-01 challenge, you can find the [list of supported DNS plugins in the Certbot documentation](https://certbot.eff.org/docs/using.html#dns-plugins).
 
 Then, depending on what those settings are, you'll need to adjust the values below as needed.
 
-For example, the docker create command from the LinuxServer team for the Swag Docker container:
+For example, the `docker create` command from the LinuxServer.io team for the Swag Docker container:
 
 ```sh
 docker create \
@@ -175,7 +181,7 @@ Assuming I follow this template and adjust for my region, ports, and path, it wo
 docker create --name=swag --cap-add=NET_ADMIN -e PUID=1000 -e PGID=1000 -e TZ=America/Chicago -e URL=example.com -e SUBDOMAINS=jellyfin -e VALIDATION=http -e EMAIL=email@email.com -e DHLEVEL=2048 -e ONLY_SUBDOMAINS=false -e STAGING=false -p 443:443 -p 80:80 -v /path/to/appdata/swag/:/config --restart unless-stopped linuxserver/swag
 ```
 
-This will pull down the linuxserver/letsencrypt container, and then create it with the variables specified. You'll then want to start the docker container with `docker start swag`. You can verify this is started by running `docker ps`, which will produce an output like this:
+This will pull down the `linuxserver/letsencrypt` container, and then create it with the variables specified. You'll then want to start the Docker container with `docker start swag`. You can verify this is started by running `docker ps`, which will produce an output like this:
 
 ```text
 CONTAINER ID        IMAGE                     COMMAND             CREATED             STATUS              PORTS                                      NAMES
@@ -184,7 +190,7 @@ CONTAINER ID        IMAGE                     COMMAND             CREATED       
 
 At this point, navigate to what volume you selected (in my example, it's `/mnt/swag`). You'll then need to navigate to `nginx/proxy-confs` within that directory. If you list the contents of that directory, you'll see a lot of files.
 
-The one we're interested in for jellyfin is `jellyfin.subdomain.conf.sample` (if using a subdomain) or `jellyfin.subfolder.conf.sample` (if using a subfolder). You'll want to copy the file needed, removing the .sample (ex. `cp jellyfin.subdomain.conf.sample jellyfin.subdomain.conf`). Open the file in your text editor of choice.
+The one we're interested in for Jellyfin is `jellyfin.subdomain.conf.sample` (if using a subdomain) or `jellyfin.subfolder.conf.sample` (if using a subfolder). You'll want to copy the file needed, removing the .sample (ex. `cp jellyfin.subdomain.conf.sample jellyfin.subdomain.conf`). Open the file in your text editor of choice.
 
 It should look like this (this file is `jellyfin.subdomain.conf`, although `jellyfin.subfolder.conf` looks very similar):
 
@@ -229,4 +235,4 @@ The lines we're interested in is `set $upstream_app jellyfin`. Now, assuming Jel
 
 Then, within Jellyfin settings (Dashboard -> Networking), scroll down to "Public HTTP port number" and "Public HTTPS port number", and make sure HTTP Port number is 8096, while HTTPS port number is 8920.
 
-Restart your Let's Encrypt docker container by running `docker restart swag`, and then you can follow the logs with `docker logs -f swag`. Assuming everything works, you should see `Server Ready` at the very end of the logs. This tells you Lets Encrypt is running without issue.
+Restart your Let's Encrypt Docker container by running `docker restart swag`, and then you can follow the logs with `docker logs -f swag`. Assuming everything works, you should see `Server Ready` at the very end of the logs. This tells you Let's Encrypt is running without issue.

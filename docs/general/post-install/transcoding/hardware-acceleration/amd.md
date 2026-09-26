@@ -187,7 +187,7 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
+1. Assuming you have added the Jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
 
 2. Install the `jellyfin-ffmpeg8` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
@@ -300,7 +300,7 @@ Root permission is required.
 
 :::
 
-1. Install the Archlinux/extra [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package:
+1. Install the [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package from Arch Linux's `extra` repository:
 
    ```shell
    sudo pacman -Syu jellyfin-ffmpeg
@@ -367,9 +367,9 @@ sudo ldd -v /usr/lib/jellyfin-ffmpeg/ffmpeg
 
 Install other necessary Mesa driver packages and their dependencies that contain these key words:
 
-- Mesa libva vaapi driver - RadeonSI
+- Mesa libva VAAPI driver - RadeonSI
 
-- Mesa vulkan driver - RADV
+- Mesa Vulkan driver - RADV
 
 ### Configure With Linux Virtualization
 
@@ -398,7 +398,7 @@ Root permission is required.
    getent group video | cut -d: -f3
    ```
 
-2. Use Docker command line **or** docker compose:
+2. Use Docker command line **or** Docker Compose:
    - Example command line:
 
      ```shell
@@ -451,7 +451,7 @@ Root permission is required.
 
 7. Enable VA-API in Jellyfin and uncheck the unsupported codecs.
 
-#### Linuxserver.io Docker
+#### LinuxServer.io Docker
 
 LSIO Docker images are maintained by [linuxserver.io](https://www.linuxserver.io/), please refer their docs from [GitHub - linuxserver/docker-jellyfin](https://github.com/linuxserver/docker-jellyfin).
 

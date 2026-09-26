@@ -14,9 +14,10 @@ This feature streamlines the sign-in process, especially on devices with limited
 By default, Quick Connect is enabled.
 To disable it, follow these steps:
 
-1. Go to the **Admin Dashboard** on your Jellyfin server.  
+1. Go to the **Admin Dashboard** on your Jellyfin server.
 
-    `Settings` > `Dashboard`
+   `Settings` > `Dashboard`
+
 2. Navigate to the **General** Tab
 3. Uncheck the box:  
    ✅ **Enable Quick Connect on this server**
@@ -25,22 +26,22 @@ To disable it, follow these steps:
 
 Quick Connect functionality is supported in two contexts:
 
-| Client               | Log In | Authorize Others |
-|----------------------|--------|------------------|
-| JellyCon             | ✅     | ❌               |
-| Jellyfin Android     | ✅     | ✅               |
-| Jellyfin Android TV  | ✅     | ❌               |
-| Jellyfin Kodi        | ❌     | ❌               |
-| Jellyfin Media Player| ✅     | ✅               |
-| Jellyfin Mobile (iOS)| ✅     | ✅               |
-| Jellyfin MPV Shim    | ❌     | ❌               |
-| Jellyfin Roku        | ✅     | ❌               |
-| Jellyfin Vue         | ❌     | ❌               |
-| Jellyfin Web         | ✅     | ✅               |
-| Jellyfin WebOS       | ✅     | ✅               |
-| Jellyfin Xbox        | ✅     | ✅               |
-| Swiftfin (iOS)       | ✅     | ✅               |
-| Swiftfin (tvOS)      | ✅     | ❌               |
+| Client                | Log In | Authorize Others |
+| --------------------- | ------ | ---------------- |
+| JellyCon              | ✅     | ❌               |
+| Jellyfin Android      | ✅     | ✅               |
+| Jellyfin Android TV   | ✅     | ❌               |
+| Jellyfin Kodi         | ❌     | ❌               |
+| Jellyfin Media Player | ✅     | ✅               |
+| Jellyfin Mobile (iOS) | ✅     | ✅               |
+| Jellyfin MPV Shim     | ❌     | ❌               |
+| Jellyfin Roku         | ✅     | ❌               |
+| Jellyfin Vue          | ❌     | ❌               |
+| Jellyfin Web          | ✅     | ✅               |
+| Jellyfin webOS        | ✅     | ✅               |
+| Jellyfin Xbox         | ✅     | ✅               |
+| Swiftfin (iOS)        | ✅     | ✅               |
+| Swiftfin (tvOS)       | ✅     | ❌               |
 
 ## Using Quick Connect
 
@@ -52,7 +53,7 @@ The Quick Connect process involves two devices:
 ### On Device A (New Device - the one you want to log into)
 
 1. Open the Jellyfin client and choose **Quick Connect** (usually found on the login screen).
-    On some clients, you will first need to press **Manual Login**; others may display the quick-connect code directly.
+   On some clients, you will first need to press **Manual Login**; others may display the quick-connect code directly.
 2. A **6-character code** will be displayed. Keep this screen open.
 
 ![Quick Connect code example](/images/docs/server/quick-connect/quick-connect-code.png)

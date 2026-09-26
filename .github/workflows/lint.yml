@@ -48,6 +48,22 @@ jobs:
       - name: Run markdownlint
         run: npm run lint:markdown
 
+  vale:
+    name: Lint documentation prose
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Run Vale
+        uses: vale-cli/vale-action@v3
+        with:
+          files: docs
+          version: 3.22.0
+          min_alert_level: error
+          fail_on_error: true
+
   cspell:
     name: Check spelling
     runs-on: ubuntu-latest
