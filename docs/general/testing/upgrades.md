@@ -11,11 +11,11 @@ This document provides details on upgrading and downgrading between Stable and U
 
 Which install type to pick depends on your needs; ultimately, Unstable is for testing new things, while Stable is for running a server for others to use reliably.
 
-- Stable provides the most consistent and predictable user experience. A particular major release (e.g. 12.x, 13.x) will not introduce, remove, or change major features or functionality (with minor caveats for security). Bugfixes are provided in point releases, which are released as needed during the lifecycle of the major release in response to bugfixes and security advisories. Most users should generally use Stable releases, as this will ensure maximum uptime and consistency for your end users.
+- Stable provides the most consistent and predictable user experience. A particular major release (for example, 12.x, 13.x) will not introduce, remove, or change major features or functionality (with minor caveats for security). Bugfixes are provided in point releases, which are released as needed during the lifecycle of the major release in response to bugfixes and security advisories. Most users should generally use Stable releases, as this will ensure maximum uptime and consistency for your end users.
 
 - Unstable provides the most up-to-date, cutting edge features, but may have rapid and unpredictable breaking changes or serious bugs, and has more limited client support as API changes are made over time. Unstable releases are provided via weekly binary builds on Monday mornings around 5:00 AM UTC, or by [building your own packages from the `master` code branches](https://github.com/jellyfin/jellyfin-packaging).
 
-In addition, Unstable is used to test forthcoming releases during the major release cycle since we provide no beta builds. If you want to help us test upcoming releases - and we ask that anyone able to do so does - you will need to run the Unstable builds for at least some amount of time, before switching back to Stable on release.
+Unstable is also used to test forthcoming releases during the major release cycle since we provide no beta builds. If you want to help us test upcoming releases - and we ask that anyone able to do so does - you will need to run the Unstable builds for at least some amount of time, before switching back to Stable on release.
 
 ### What do you mean "no beta builds"
 
@@ -35,7 +35,7 @@ The only way to downgrade from an Unstable to an older Stable is to restore from
 
 **Always make a backup of your instance data and configuration directories before upgrading to Unstable for any reason.** You never know what might go wrong, be it a failure in migrations, a breaking bug that forces a downgrade back, or some other corruption. This applies even for testing right before a Stable release. It is always better to have a backup ready, perform some testing immediately after upgrading, and revert if things aren't working right - after reporting your bug, of course!
 
-You can utilize certain plugins to help with this, for instance the Trakt plugin to synchronize watched status, but this will not necessarily preserve everything. So be careful here, and know the limitations before proceeding.
+You can use certain plugins to help with this, for instance the Trakt plugin to synchronize watched status, but this will not necessarily preserve everything. So be careful here, and know the limitations before proceeding.
 
 Follow [the process listed in the documentation here](/docs/general/administration/backup-and-restore) for more details.
 
@@ -45,7 +45,7 @@ Running with automatic updates while on Unstable, or during a pre-release testin
 
 ## Upgrading from Stable to Unstable
 
-The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (e.g. manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of individual platforms, please see the child articles under [Testing Jellyfin Server](/docs/general/testing/server).
+The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (for example, manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of individual platforms, please see the child articles under [Testing Jellyfin Server](/docs/general/testing/server).
 
 We assume you are already running Jellyfin Stable releases.
 
@@ -53,10 +53,10 @@ We assume you are already running Jellyfin Stable releases.
 
 We provide plugins for Stable and Unstable releases in separate repositories with separate versioning. This is done to avoid accidental incompatibilities and allow us to release Unstable plugins at a much quicker cadence in response to ongoing changes in the `master` branch. You will need to switch to the Unstable plugin repository if you use any plugins. If you do this before upgrading, plugins will be automatically upgraded afterwards.
 
-Plugins are versioned in such a way that Unstable plugins will seamlessly upgrade from the latest Stable plugin version to an Unstable plugin version, and then permit a seamless upgrade from the Unstable version to the next Stable version (e.g. 13.0.0.0 Stable -> 13.2024.0429.0 Unstable -> 14.0.0.0 Stable).
+Plugins are versioned in such a way that Unstable plugins will seamlessly upgrade from the latest Stable plugin version to an Unstable plugin version, and then permit a seamless upgrade from the Unstable version to the next Stable version (for example, 13.0.0.0 Stable -> 13.2024.0429.0 Unstable -> 14.0.0.0 Stable).
 
 1. In your Jellyfin server instance, navigate to the Dashboard -> Plugins -> Manage Repositories.
-2. Delete the default "Stable" repository by clicking the trashcan button.
+2. Delete the default "Stable" repository by selecting the trashcan button.
 3. Add a new repository with the "+" button. Name the repository whatever you wish, and use the following as the Repository URL.
 
    ```sh
@@ -89,7 +89,7 @@ When a new major version of Jellyfin is released, it is possible - until the nex
 
 As part of the release process, Unstable weekly builds will be temporarily disabled for 1-2 weeks to provide a window for this to occur, after which they will resume as normal. If you wish to remain on Unstable, you can simply wait this out, otherwise follow the process here to "upgrade" back to the new Stable version.
 
-The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (e.g. manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of individual platforms, please see the child articles under ["Testing Jellyfin Server"](/docs/general/testing/server).
+The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (for example, manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of individual platforms, please see the child articles under ["Testing Jellyfin Server"](/docs/general/testing/server).
 
 We assume you are already running Jellyfin Unstable releases.
 
@@ -97,10 +97,10 @@ We assume you are already running Jellyfin Unstable releases.
 
 We provide plugins for Stable and Unstable releases in separate repositories with separate versioning. You will need to switch (back) to the Stable plugin repository if you use any plugins, to avoid installing future incompatible versions of the Unstable plugins onto your Stable install. Note that plugins may not be available for a few hours to a few days after a new release, depending on the plugin; if they are already ready and you follow these steps, they should automatically upgrade when switching back to Stable.
 
-Plugins are versioned in such a way that Unstable plugins will seamlessly upgrade from the latest Stable plugin version to an Unstable plugin version, and then permit a seamless upgrade from the Unstable version to the next Stable version (e.g. 13.0.0.0 Stable -> 13.2024.0429.0 Unstable -> 14.0.0.0 Stable).
+Plugins are versioned in such a way that Unstable plugins will seamlessly upgrade from the latest Stable plugin version to an Unstable plugin version, and then permit a seamless upgrade from the Unstable version to the next Stable version (for example, 13.0.0.0 Stable -> 13.2024.0429.0 Unstable -> 14.0.0.0 Stable).
 
 1. In your Jellyfin server instance, navigate to the Dashboard -> Plugins -> Manage Repositories.
-2. Delete the "Unstable" repository by clicking the trashcan button.
+2. Delete the "Unstable" repository by selecting the trashcan button.
 3. Add a new repository with the "+" button. Name the repository whatever you wish ("Stable" is the default), and use the following as the Repository URL.
 
    ```sh
@@ -137,7 +137,7 @@ Plugins are versioned in such a way that Unstable plugins will seamlessly upgrad
 
 As mentioned above, this process requires restoring from a backup taken before you first upgraded to Unstable.
 
-The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (e.g. manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of individual platforms, please see the child articles under [Testing Jellyfin Server](/docs/general/testing/server).
+The exact details of this process depend on your platform and installation method. This document will detail the two most popular: Debian/Ubuntu packages via our repository, and Docker. The process is generally the same for others (for example, manual downloads, Windows installers, etc.) with the exact details changed; for the specifics of individual platforms, please see the child articles under [Testing Jellyfin Server](/docs/general/testing/server).
 
 We assume you are already running Jellyfin Unstable releases.
 

@@ -13,7 +13,7 @@ The goal is to Direct Play all media. This means the container, video, audio and
 
 [Test your browser's compatibility for any codec profile.](https://cconcolato.github.io/media-mime-support/)
 
-| Sorted by efficiency (excluding bit depth)                                                                         | Chrome | Edge           | Firefox        | Safari         | Android | Android TV     | iOS | SwiftFin (iOS) | Roku           | Kodi | Jellyfin Media Player |
+| Sorted by efficiency (excluding bit depth)                                                                         | Chrome | Edge           | Firefox        | Safari         | Android | Android TV     | iOS | Swiftfin (iOS) | Roku           | Kodi | Jellyfin Media Player |
 | ------------------------------------------------------------------------------------------------------------------ | ------ | -------------- | -------------- | -------------- | ------- | -------------- | --- | -------------- | -------------- | ---- | --------------------- |
 | [MPEG-4 Part 2/SP](https://en.wikipedia.org/wiki/DivX)                                                             | ❌     | ❌             | ❌             | ❌             | ❌      | ❌             | ❌  | ✅             | ✅             | ✅   | ✅                    |
 | [MPEG-4 Part 2/ASP](<https://en.wikipedia.org/wiki/MPEG-4_Part_2#Advanced_Simple_Profile_(ASP)>)                   | ❌     | ❌             | ❌             | ❌             | ❌      | ❌             | ❌  | ✅             |                | ✅   | ✅                    |
@@ -44,7 +44,7 @@ This table shows the support status of **recent** client software and OS version
 <br />
 <sup>6</sup>AV1 is enabled by default for Swiftfin (VLCKit). AV1 is disabled by default for Native (AVKit). Enabling AV1 may result in a poor experience for older devices.
 <br />
-<sup>7</sup>Windows requires the [HEVC video extension from Microsoft Store](https://apps.microsoft.com/detail/9nmzlz57r3t7). Linux requires system ffmpeg for support.
+<sup>7</sup>Windows requires the [HEVC video extension from Microsoft Store](https://apps.microsoft.com/detail/9nmzlz57r3t7). Linux requires system FFmpeg for support.
 <br />
 Some Linux distributions provide a Firefox package that does not have H264 support, causing transcoding to be required. You may need to install additional packages on these system. The most obvious symptom is Jellyfin attempting to transcode to VP9.
 
@@ -64,7 +64,7 @@ Some Linux distributions provide a Firefox package that does not have H264 suppo
 
 HDR is only supported on a very limited range of devices:
 
-- iOS Devices with an HDR capable internal display can display HDR content when using a browser or the Jellyfin iOS App (not Swiftfin) as long as the codec is supported by the client. All of them support HEVC and VP9, while AV1 is supported on newer devices. HDR10, Dolby Vision and HLG are supported.
+- iOS Devices with an HDR capable internal display can display HDR content when using a browser or the Jellyfin iOS App (not Swiftfin) as long as the codec is supported by the client. They all support HEVC and VP9, while AV1 is supported on newer devices. HDR10, Dolby Vision and HLG are supported.
 
 - Android devices running either the official Android App or using Chrome can display HDR content if the device supports HDR and the source format. Format support depends on device.
 
@@ -74,7 +74,7 @@ HDR is only supported on a very limited range of devices:
 
 - Android TV devices with HDR support running the official Android TV App. HDR format support depends on the specific device you are running.
 
-- WebOS devices (Newer LG Smart TVs) running the official WebOS client supports HDR. However, [mkv containers are known to cause issues](https://github.com/jellyfin/jellyfin-web/issues/4678). Please enable the force remux mkv to mp4 option in the client settings as a workaround.
+- webOS devices (Newer LG Smart TVs) running the official webOS client supports HDR. However, [mkv containers are known to cause issues](https://github.com/jellyfin/jellyfin-web/issues/4678). Please enable the force remux mkv to mp4 option in the client settings as a workaround.
 
 - Some Chromium-based browsers on Linux will attempt Client-side HDR to SDR tonemapping. This generally looks very bad. There will be no server side involvement when this is happening.
 
@@ -84,7 +84,7 @@ Devices not listed above do not support HDR on any official client. Any HDR cont
 
 If the audio codec is unsupported or incompatible (such as playing a 5.1 channel stream on a stereo device), the audio codec must be transcoded. This is not nearly as intensive as video transcoding.
 
-|                                    Codec                                    |     Chrome     | Edge | Firefox |        Safari        | Android | Android TV |         iOS          | SwiftFin (iOS) |      Roku      | Kodi | Desktop |
+|                                    Codec                                    |     Chrome     | Edge | Firefox |        Safari        | Android | Android TV |         iOS          | Swiftfin (iOS) |      Roku      | Kodi | Desktop |
 | :-------------------------------------------------------------------------: | :------------: | :--: | :-----: | :------------------: | :-----: | :--------: | :------------------: | :------------: | :------------: | :--: | :-----: |
 |                                    FLAC                                     |       ✅       |  ✅  |   ✅    |          ✅          |   ✅    |     ✅     |          ✅          |       ✅       |       ✅       |  ✅  |   ✅    |
 |                                     MP3                                     | 🔶<sup>1</sup> |  ✅  |   🔶    |          ✅          |   ✅    |     ✅     |          ✅          |       ✅       |       ✅       |  ✅  |   ✅    |
@@ -161,7 +161,7 @@ SDH and CC are subtitles for the Deaf and Hard of Hearing. They include extra co
 
 #### Forced
 
-"Forced subtitles are common on movies and only provide subtitles when the characters speak a foreign or alien language, or a sign, flag, or other text in a scene is not translated in the localization and dubbing process. In some cases, foreign dialogue may be left untranslated if the movie is meant to be seen from the point of view of a particular character who does not speak the language in question." - [Wikipedia](https://en.wikipedia.org/wiki/Subtitles#Categories)
+"Forced subtitles are common on movies and only provide subtitles when the characters speak a foreign or alien language, or a sign, flag, or other text in a scene is not translated in the localization and dubbing process. Sometimes, foreign dialogue may be left untranslated if the movie is meant to be seen from the point of view of a particular character who does not speak the language in question." - [Wikipedia](https://en.wikipedia.org/wiki/Subtitles#Categories)
 
 ### Extracting Subtitles
 

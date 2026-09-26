@@ -19,7 +19,7 @@ For general use computers, such as workstations or laptops, it's recommended to 
    pip3 install --user mopidy-jellyfin
    ```
 
-3. (Optional) Install other mopidy related packages:
+3. (Optional) Install other Mopidy related packages:
 
    ```sh
    pip3 install --user mopidy-mpd mopidy-musicbox-webclient
@@ -59,7 +59,7 @@ Utilizing a Raspberry Pi (or other small form factor computer) it's possible to 
 6. Configure your `mopidy.conf` located at `/etc/mopidy/mopidy.conf`:
    See [Config File](/docs/general/clients/mopidy#config-file)
 
-7. Enable and start the mopidy service:
+7. Enable and start the Mopidy service:
 
    ```sh
    sudo systemctl enable --now mopidy

@@ -52,7 +52,7 @@ Ideally, you should use a record size of `4 K` or `8 K` on the dataset that cont
 
 The record size for your media file dataset(s) must not be using `4 K` or `8 K`, otherwise you will likely encounter performance issues as your database scales.
 
-For ZFS datasets containing large media files (i.e., not the dataset containing the Jellyfin Server SQLite database), a record size of `1 M` is likely appropriate for optimal performance.
+For ZFS datasets containing large media files (that is, not the dataset containing the Jellyfin Server SQLite database), a record size of `1 M` is likely appropriate for optimal performance.
 
 Note that changing the record size on an existing ZFS dataset will not change the existing data within it, meaning performance will not be any different for anything but newly-written changes into the dataset. As such, it is recommended to rewrite your data into the dataset to take advantage of the change in record size; otherwise, the configuration change will not yield the expected change in performance.
 

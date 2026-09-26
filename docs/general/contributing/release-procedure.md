@@ -30,7 +30,7 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 #### Preparation
 
-1. Testing is ongoing via `master` nightly builds, so `master` should be generally unbroken before proceeding. The version of `master` should already reflect the upcoming major release version (i.e. `X.Y`).
+1. Testing is ongoing via `master` nightly builds, so `master` should be generally unbroken before proceeding. The version of `master` should already reflect the upcoming major release version (that is, `X.Y`).
 
 1. Once `master` is in a generally stable state after extensive work, announce a "golden nightly" is incoming via the [jellyfin-dev](https://matrix.to/#/#jellyfin-dev:matrix.org) Matrix/Riot channel and Forum.
 
@@ -46,7 +46,7 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 1. Create a release branch on the [jellyfin-web](https://github.com/jellyfin/jellyfin-web) repository via CLI from `master`, named `release-X.Y`, where `X` and `Y` are the new version number. Push the new branch to GitHub.
 
-2. Create a GitHub release for the new version, based on the newly-created `release-X.Y` branch. The tag should be named `vX.Y` (i.e. `vX.Y`) and the release named "Release X.Y". The release body should contain the following link only, replacing the version as required:
+2. Create a GitHub release for the new version, based on the newly-created `release-X.Y` branch. The tag should be named `vX.Y` (that is, `vX.Y`) and the release named "Release X.Y". The release body should contain the following link only, replacing the version as required:
 
    ```md
    [Please see the release announcement on the main repository.](https://github.com/jellyfin/jellyfin/releases/tag/vX.Y)
@@ -58,13 +58,13 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
 1. Create a release branch on the [jellyfin](https://github.com/jellyfin/jellyfin) repository via CLI from `master`, named `release-X.Y`, where `X` and `Y` are the new version number. Push the new branch to GitHub.
 
-2. Create a GitHub release for the new version, based on the newly-created `release-X.Y` branch. The tag should be named `vX.Y` (i.e. `vX.Y`) and the release named "Release X.Y". The release body should contain the following components:
+2. Create a GitHub release for the new version, based on the newly-created `release-X.Y` branch. The tag should be named `vX.Y` (that is, `vX.Y`) and the release named "Release X.Y". The release body should contain the following components:
 
    a. A quick top blurb under a `# Jellyfin X.Y` header.
 
    a. A list of features, including in-line links to Fider if available, under a `## New Features and Major Improvements` header.
 
-   a. A list of known release notes, categorized by the relevant platform (e.g. `[All]` or `[Windows]`), under a `## Important Release Notes` header.
+   a. A list of known release notes, categorized by the relevant platform (for example, `[All]` or `[Windows]`), under a `## Important Release Notes` header.
 
    a. If applicable, a set of release notes/comments about FFmpeg, under a `## FFmpeg` header.
 
@@ -112,7 +112,7 @@ Releases will generally be performed on Sundays "when ready". For Major/Minor re
 
    a. A quick top blurb under a `# Jellyfin X.Y` header.
 
-   a. A list of known release notes, categorized by the relevant platform (e.g. `[All]` or `[Windows]`), under a `## Important Release Notes` header.
+   a. A list of known release notes, categorized by the relevant platform (for example, `[All]` or `[Windows]`), under a `## Important Release Notes` header.
 
    a. If applicable, a set of release notes/comments about FFmpeg, under a `## FFmpeg` header.
 

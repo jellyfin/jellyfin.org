@@ -5,7 +5,7 @@ title: Hardware Selection
 
 # Selecting Appropriate Hardware
 
-The following is intended to help you choose appropriate hardware for a Jellyfin server and take full advantage of its features (e.g. hardware acceleration).
+The following is intended to help you choose appropriate hardware for a Jellyfin server and take full advantage of its features (for example, hardware acceleration).
 
 ## Simple Guide
 
@@ -81,11 +81,11 @@ For users with expensive electricity, or running battery-powered servers:
 These hardware platforms might lead to a poor Jellyfin experience. Please be careful to avoid them when shopping for hardware.
 
 - Intel "Atom" CPUs: Intel J/M/N/Y series low power CPUs up to 11th gen use a different architecture than higher end parts, leading to subpar performance despite what their names might suggest. It is advised to avoid using these parts in a Jellyfin Server.
-- Prebuilt NAS Appliances: The software environment on most prebuilt NAS appliances often makes third-party software more challenging to install, sometimes even preventing it from working properly despite a successful installation. They may have low-end processors that are too slow for an acceptable Jellyfin experience. (e.g. Intel Atom, Realtek ARM CPUs, etc.).
+- Prebuilt NAS Appliances: The software environment on most prebuilt NAS appliances often makes third-party software more challenging to install, sometimes even preventing it from working properly despite a successful installation. They may have low-end processors that are too slow for an acceptable Jellyfin experience. (for example, Intel Atom, Realtek ARM CPUs, etc.).
 - Most Single Board Computers (SBC): Most SBCs (including the Raspberry Pi, **especially the Raspberry Pi 5**) are too slow to provide an acceptable Jellyfin experience as they often lack proper support for hardware acceleration. If you really want to run Jellyfin on an SBC, you may wish to consider models based on the following platforms: Rockchip RK3588 / RK3588S, Intel Core, Intel 12th gen N series
 - AMD Graphics: AMD Graphics have poor encoder quality and poor driver support. **This applies even on Linux**.
-- Low-end GPUs: Certain low-end GPUs (e.g. GT1030, RX6400) are not capable of hardware encoding. These models cannot be used for hardware acceleration for a Jellyfin Server.
-- Very old X86 CPUs: Starting with Jellyfin 10.11, X86 CPUs that support the SSE4.1 instruction set is a requirement.  For Intel, Penryn (Q4 2007) and newer support SSE4.1.  For AMD, Bulldozer (Q4 2011) and newer support SSE4.1.
+- Low-end GPUs: Certain low-end GPUs (for example, GT1030, RX6400) are not capable of hardware encoding. These models cannot be used for hardware acceleration for a Jellyfin Server.
+- Very old X86 CPUs: Starting with Jellyfin 10.11, X86 CPUs that support the SSE4.1 instruction set is a requirement. For Intel, Penryn (Q4 2007) and newer support SSE4.1. For AMD, Bulldozer (Q4 2011) and newer support SSE4.1.
 
 ## Detailed Guide
 
@@ -96,7 +96,7 @@ The CPU will be responsible for many tasks, notably:
 - Transcoding Audio
 - Decoding video in unsupported codecs
 
-Whilst most audio codecs will only utilize a single core, they are very lightweight and most CPUs should be able to handle them without issues. (e.g. a Ryzen 5950X transcoding `FLAC -> AAC` runs at ~110x real-time.)
+While most audio codecs use only a single CPU core, they are lightweight, and most CPUs can handle them without issues. For example, a Ryzen 9 5950X transcoding FLAC to AAC runs at about 110× real time.
 
 Video in unsupported codecs are usually older formats that are easier to decode. Assuming hardware acceleration is properly configured, any modern CPU with 4 threads should be able to handle the workload.
 
@@ -150,7 +150,7 @@ Intel is always recommended on non-Apple hardware for the following reasons:
 - Intel provides a good quality encoder, slightly better than pre-Blackwell NVIDIA and significantly better than AMD H.264.
 - Intel drivers and the compute environment is much easier to setup than NVIDIA.
 
-AMD is the least preferred choice due to its sub-par H.264 encoders prior to RDNA4 (RX 9000). While its H.265 (HEVC) and AV1 encoders offer noticeable improvements, they still lag behind Intel and NVIDIA. Since the average Jellyfin client relies heavily on H.264 hardware decoding, you will inevitably transcode to H.264 most of the time, making AMD's weakness a major bottleneck.
+AMD is the least preferred choice due to its sub-par H.264 encoders before RDNA4 (RX 9000). While its H.265 (HEVC) and AV1 encoders offer noticeable improvements, they still lag behind Intel and NVIDIA. Since the average Jellyfin client relies heavily on H.264 hardware decoding, you will inevitably transcode to H.264 most of the time, making AMD's weakness a major bottleneck.
 
 A list of common codecs can be found in the [codec support documentation](/docs/general/clients/codec-support/).
 
@@ -180,7 +180,7 @@ Intel 10th gen and older integrated graphics are losing support for QSV on Linux
 
 Please refer to [this table](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) for supported codecs.
 
-Certain low-end cards (e.g. GT 1030) do not have encoding hardware. Please be careful when choosing a GPU.
+Certain low-end cards (for example, GT 1030) do not have encoding hardware. Please be careful when choosing a GPU.
 
 #### AMD Graphics
 
@@ -189,7 +189,7 @@ AMD graphics are the least preferred choice for Jellyfin, this information is so
 - [https://en.wikipedia.org/wiki/Video_Core_Next](https://en.wikipedia.org/wiki/Video_Core_Next)
 - [https://en.wikipedia.org/wiki/Video_Coding_Engine](https://en.wikipedia.org/wiki/Video_Coding_Engine)
 
-Certain low-end cards (e.g., RX 6400, RX 6500) do not have encoding hardware. Please be careful when choosing a GPU.
+Certain low-end cards (for example, RX 6400, RX 6500) do not have encoding hardware. Please be careful when choosing a GPU.
 
 Many AMD CPUs do not have integrated graphics. These are intended to be used with a dedicated graphics card.
 
@@ -254,7 +254,7 @@ Anything with higher sequential access speed than bitrate of media is acceptable
 
 #### Jellyfin Files
 
-The files for Jellyfin itself (i.e., not your media files) will see a lot of random access, therefore SSDs are recommended for these files. AVOID mechanical drives that use [SMR (Shingled Magnetic Recording)](https://en.wikipedia.org/wiki/Shingled_magnetic_recording) as they will result in a VERY poor experience.
+The files for Jellyfin itself (that is, not your media files) will see a lot of random access, therefore SSDs are recommended for these files. AVOID mechanical drives that use [SMR (Shingled Magnetic Recording)](https://en.wikipedia.org/wiki/Shingled_magnetic_recording) as they will result in a VERY poor experience.
 
 ### Networking
 

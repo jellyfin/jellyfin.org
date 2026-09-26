@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD041 -->
 
-[Docker](https://www.docker.com/) allows you to run containers on Linux, Windows and MacOS.
+[Docker](https://www.docker.com/) allows you to run containers on Linux, Windows and macOS.
 
 The basic steps to create and run a Jellyfin container using Docker are as follows.
 
@@ -33,7 +33,7 @@ The basic steps to create and run a Jellyfin container using Docker are as follo
 :::note
 
 The default network mode for Docker is bridge mode. Bridge mode will be used if host mode is omitted.
-Using host networking (`--net=host`) is optional but required in order to use DLNA.
+Using host networking (`--net=host`) is optional but required to use DLNA.
 
 :::
 
@@ -62,7 +62,7 @@ Multiple media libraries can be bind mounted if needed:
 ...etc
 ```
 
-Custom [server-side system fonts](/docs/general/administration/configuration/#server-side-system-fonts) directory can be optionally bind mounted in order to use these fonts during transcoding with subtitle burn-in:
+Custom [server-side system fonts](/docs/general/administration/configuration/#server-side-system-fonts) directory can be optionally bind mounted to use these fonts during transcoding with subtitle burn-in:
 
 ```sh
 --mount type=bind,source=/path/to/fonts,target=/usr/local/share/fonts/custom,readonly

@@ -68,9 +68,9 @@ Music
         └── Song 3.lrc
 ```
 
-Lyrics can be jumped to within Jellyfin's UI, meaning it's possible for a user to click on any line and jump straight to the corresponding timestamp where the line appears in the song. The lyrics file can be synchronised or unsynchronised. It can have some extra metadata, but won't be shown in the Jellyfin client.
+Lyrics can be jumped to within Jellyfin's UI, meaning it's possible for a user to select any line and jump straight to the corresponding timestamp where the line appears in the song. The lyrics file can be synchronised or unsynchronised. It can have some extra metadata, but won't be shown in the Jellyfin client.
 
-- Synchronized lyrics are interactive, enabling users to click on any line to jump directly to the corresponding timestamp in the song. You have the option to either manually synchronize the text, which can be time-consuming and may lack accuracy, or utilize lyrics synchronization software such as MiniLyrics. A synchronised lyrics file would likely look something like the following:
+- Synchronized lyrics are interactive, enabling users to select any line to jump directly to the corresponding timestamp in the song. You have the option to either manually synchronize the text, which can be time-consuming and may lack accuracy, or use lyrics synchronization software such as MiniLyrics. A synchronised lyrics file would likely look something like the following:
 
 ```txt
 [ar: Some Artist]
@@ -113,7 +113,7 @@ Jellyfin supports most common music formats, with some exceptions:
 
 :::tip Alternate containers
 
-Problematic files can be remuxed to `.mka` containers with ffmpeg with this command:
+Problematic files can be remuxed to `.mka` containers with FFmpeg with this command:
 
 ```sh
 ffmpeg -i <Input File> -c:a copy <Output File>.mka

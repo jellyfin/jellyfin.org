@@ -28,15 +28,15 @@ The creation and initialization of a volume will not be touched in this guide. F
 ## Installation
 
 The installation is done with the Synology Container Manager.
-If you don't see the icon in the main menu after the installation of `Container Manager`, it can be found by clicking the top left corner of the main menu.
+If you don't see the icon in the main menu after the installation of `Container Manager`, it can be found by selecting the top left corner of the main menu.
 
 ### Downloading the Jellyfin Image
 
-Navigate to the "Registry" tab and search for "Jellyfin". You should see the official jellyfin/jellyfin image. Click on it and then click "Download".
+Navigate to the "Registry" tab and search for "Jellyfin". You should see the official `jellyfin/jellyfin` image. Select it and then select "Download".
 
 ![Downloading the Image](/images/docs/advanced/synology/install-synology-0.png)
 
-A new window will open and a Jellyfin version can be selected for installation. The latest version is recommended. Click `Apply` after selection a version.
+A new window will open and a Jellyfin version can be selected for installation. The latest version is recommended. Select `Apply` after selection a version.
 
 ![Downloading the Image](/images/docs/advanced/synology/install-synology-1.png)
 
@@ -44,10 +44,10 @@ After the image is downloaded, it can be found in the `Image` tab.
 
 ### Creating the Container
 
-Navigate to the `Container` tab and click `Create`.
+Navigate to the `Container` tab and select `Create`.
 Select the `Jellyfin` image and give the container a name. This is mainly for identification purposes and can be set to anything desired. `auto-restart` can be enabled to automatically start Jellyfin when the NAS boots.
 Resource limits can also be set for the container. It is recommended that all CPU resources and at least 4GB of ram be allocated to the Jellyfin container.
-Click `Next` to proceed to the next step.
+Select `Next` to proceed to the next step.
 ![Creating the Container](/images/docs/advanced/synology/install-synology-2.png)
 
 #### Network and Port Settings
@@ -57,15 +57,15 @@ For the [Network Settings](https://jellyfin.org/docs/general/post-install/networ
 #### Volume Settings
 
 This setting maps, directories on the host within the container. Use this setting to allow Jellyfin access to media and a place to store application data.
-To add a volume, click "Add Folder" and select the folder desired. The mount point is set in the middle column and the directory will be accessible at this path within the container. For media files, `/media` can be used, and for config files, `/config` can be used.
+To add a volume, select "Add Folder" and select the folder desired. The mount point is set in the middle column and the directory will be accessible at this path within the container. For media files, `/media` can be used, and for config files, `/config` can be used.
 
 #### Example
 
 Your settings should look like this:
 ![Advanced Settings](/images/docs/advanced/synology/install-synology-3.png)
 ![Advanced Settings](/images/docs/advanced/synology/install-synology-4.png)
-Click `Next` to proceed to the next step.
+Select `Next` to proceed to the next step.
 
-Settings can be reviewed on this screen. Check the `Run this container after the wizard is finished` checkbox and click `Apply` if everything looks correct. The container should now be shown in the `Container` tab.
+Settings can be reviewed on this screen. Check the `Run this container after the wizard is finished` checkbox and select `Apply` if everything looks correct. The container should now be shown in the `Container` tab.
 Browse to `http://SERVER_IP:8096` in a browser on a other device to finish setting up the Jellyfin server.
 If a different port was used, replace `8096` with the port used instead.

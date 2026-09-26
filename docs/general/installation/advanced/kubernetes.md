@@ -15,7 +15,7 @@ This guide covers deploying Jellyfin on Kubernetes using the [official Helm char
 - Helm 3.x installed
 - `kubectl` configured for your cluster
 - Sufficient storage for media and configuration
-- Ingress controller (e.g. traefik) for external access (required for this tutorial, see [official docs](https://github.com/jellyfin/jellyfin-helm/tree/master/charts/jellyfin) for alternatives)
+- Ingress controller (for example, Traefik) for external access (required for this tutorial, see [official docs](https://github.com/jellyfin/jellyfin-helm/tree/master/charts/jellyfin) for alternatives)
 
 ## Installation
 
@@ -167,7 +167,7 @@ Access at: `http://localhost:8096`
 
 ### External Access
 
-Once ingress is configured, access Jellyfin at your configured domain (e.g., `https://jellyfin.example.com`).
+Once ingress is configured, access Jellyfin at your configured domain (for example, `https://jellyfin.example.com`).
 
 ## Monitoring
 

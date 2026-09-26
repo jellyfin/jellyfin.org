@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Testing Jellyfin
 
-In addition to contributing code, testing is also very important for Jellyfin.
+Testing is another important way to contribute to Jellyfin.
 
 ## Testing Basics
 

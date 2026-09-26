@@ -9,10 +9,10 @@ sidebar_position: 4
 
 ## Container images
 
-Official container image: `jellyfin/jellyfin` [![jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg)](https://hub.docker.com/r/jellyfin/jellyfin).  
+Official container image: `jellyfin/jellyfin` [![Jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/jellyfin/jellyfin.svg)](https://hub.docker.com/r/jellyfin/jellyfin).  
 This image is also published on the GitHub Container Registry: `ghcr.io/jellyfin/jellyfin`.
 
-LinuxServer.io image: `linuxserver/jellyfin` [![linuxserver jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg)](https://hub.docker.com/r/linuxserver/jellyfin).
+LinuxServer.io image: `linuxserver/jellyfin` [![LinuxServer.io Jellyfin Docker Pull Count](https://img.shields.io/docker/pulls/linuxserver/jellyfin.svg)](https://hub.docker.com/r/linuxserver/jellyfin).
 
 hotio image: `ghcr.io/hotio/jellyfin`.
 
@@ -22,10 +22,10 @@ These images are based on Debian and [built directly from the Jellyfin source co
 Several tags are available tracking different builds and [version](/docs/general/contributing/release-procedure/#versioning) levels.
 
 - `latest` always tracks the latest stable release, including through major and minor version bumps
-- `X` (e.g. `10`) tracks the major version, e.g. the latest 10.Y.Z
-- `X.Y` (e.g. `10.11`) tracks the minor version, e.g. the latest 10.11.Z
-- `X.Y.Z` (e.g. `10.11.0`) tracks a specific release
-- `X.Y.Z.YYYYMMDD-HHMMSS` (e.g. `10.11.0.20251020-004604`) tracks a specific packaging build
+- `X` (for example, `10`) tracks the major version, for example the latest 10.Y.Z
+- `X.Y` (for example, `10.11`) tracks the minor version, for example the latest 10.11.Z
+- `X.Y.Z` (for example, `10.11.0`) tracks a specific release
+- `X.Y.Z.YYYYMMDD-HHMMSS` (for example, `10.11.0.20251020-004604`) tracks a specific packaging build
 
 Additionally, there are several third parties providing unofficial container images, including the [LinuxServer.io](https://www.linuxserver.io/) ([Dockerfile](https://github.com/linuxserver/docker-jellyfin/blob/master/Dockerfile)) project and [hotio](https://github.com/hotio) ([Dockerfile](https://github.com/hotio/jellyfin/blob/release/linux-amd64.Dockerfile)), which offer images based on Ubuntu and the official Jellyfin Ubuntu binary packages.
 
@@ -44,7 +44,7 @@ You WILL NOT receive any support for running Jellyfin in a Container on platform
 
 :::
 
-Replace `uid:gid` if you want to run jellyfin as a specific user/group. Exclude the `user` argument entirely if you want to use the default user.
+Replace `uid:gid` if you want to run Jellyfin as a specific user/group. Exclude the `user` argument entirely if you want to use the default user.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

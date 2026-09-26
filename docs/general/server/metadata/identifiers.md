@@ -57,9 +57,9 @@ The identifier is found on the main page of the title. For example:
 Identifier: `[tvdbid-266189]`
 Alias: `[tvdb-266189]`
 
-### OMDb API (OMDB)
+### OMDb API (OMDb)
 
-OMDB provider uses Internet Movie Database (IMDB) IDs as identifiers. The identifier is found in the URL of the title. For example:
+OMDb provider uses Internet Movie Database (IMDB) IDs as identifiers. The identifier is found in the URL of the title. For example:
 
 URL: `https://www.imdb.com/title/tt9362722/`
 

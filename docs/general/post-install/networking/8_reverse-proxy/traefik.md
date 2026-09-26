@@ -5,7 +5,7 @@ title: Traefik
 
 [Traefik](https://traefik.io/) is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy. Traefik integrates with your existing infrastructure components (ie: Docker) and generally configures itself dynamically as services are added or removed.
 
-This document provides a complete configuration of Traefik v2.x and Jellyfin. It uses a number of files including a `docker-compose.yml` file, `traefik.toml` (your Traefik static configuration), `traefik-provider.toml` (a file-based provider for Traefik), `traefik.log` (an optional log file), `.env` (the environment which may be needed for your ACME/LetsEncrypt providers), and `acme.json` (the state data for your ACME/LetsEncrypt certificate). The files should all be created in the **same** directory. Alternately, alter the paths in the volume section of the `traefik` service in `docker-compose.yml`. You can optionally jam some of the traefik.toml file into labels for the traefik service in `docker-compose.yml`, however this method is much clearer and easier to comment.
+This document provides a complete configuration of Traefik v2.x and Jellyfin. It uses a number of files including a `docker-compose.yml` file, `traefik.toml` (your Traefik static configuration), `traefik-provider.toml` (a file-based provider for Traefik), `traefik.log` (an optional log file), `.env` (the environment which may be needed for your ACME/Let's Encrypt providers), and `acme.json` (the state data for your ACME/Let's Encrypt certificate). The files should all be created in the **same** directory. Alternately, alter the paths in the volume section of the `traefik` service in `docker-compose.yml`. You can optionally move parts of `traefik.toml` configuration into labels for the Traefik service in `docker-compose.yml`, but keeping the configuration in a separate file is clearer and makes it easier to add comments.
 
 :::note
 
@@ -15,11 +15,11 @@ Ensure you enable some basic firewall or auth protection for Traefik or disable 
 
 :::note
 
-Traefik has many options for the configuration of LetsEncrypt using your choice of challenges. If your server is accessible from the Internet via port 80 or 443, you can use the HTTP-01 or TLS-ALPN-01 challenges. If so, the certificatesresolvers.leresolver.acme.httpchallenge.entrypoint must be reachable by Let's Encrypt through port 80/443. You can also use a DNS-01 challenge via one of the available [providers](https://docs.traefik.io/https/acme/#providers). Configuration is beyond the scope of this guide. This guide can use both HTTP-01 and DNS-01 by commenting or uncommenting the various blocks. You are most likely to use HTTP-01 unless you have full access to your DNS configuration. The configuration below uses RFC2136 (as set by certificatesresolvers.leresolver.acme.dnsChallenge of `traefik.toml`) and the variables for that provider are shown in the `.env` file as a formatting guide. See provider documentation and comments about configuration of your ACME provider of choice, or change the configuration to HTTP-01 in `traefik.toml`'s comments.
+Traefik has many options for the configuration of Let's Encrypt using your choice of challenges. If your server is accessible from the Internet via port 80 or 443, you can use the HTTP-01 or TLS-ALPN-01 challenges. If so, the certificatesresolvers.leresolver.acme.httpchallenge.entrypoint must be reachable by Let's Encrypt through port 80/443. You can also use a DNS-01 challenge via one of the available [providers](https://docs.traefik.io/https/acme/#providers). Configuration is beyond the scope of this guide. This guide can use both HTTP-01 and DNS-01 by commenting or uncommenting the various blocks. You are most likely to use HTTP-01 unless you have full access to your DNS configuration. The configuration below uses RFC2136 (as set by certificatesresolvers.leresolver.acme.dnsChallenge of `traefik.toml`) and the variables for that provider are shown in the `.env` file as a formatting guide. See provider documentation and comments about configuration of your ACME provider of choice, or change the configuration to HTTP-01 in `traefik.toml`'s comments.
 
 :::
 
-The configuration below creates a Traefik v2.x installation with access at entryPoint ports 80 (labelled 'http'), 443 (labeled 'https'), and 9999 (labeled 'secure'). Unrelated to this Jellyfin configuration, it redirects all traffic from http (port 80) to https (port 443) to ensure all data is encrypted. As for Jellyfin, it makes the service accessible without a path on the secure entry point. This configuration is intended to be used as a starting point and some adaptation is likely required for your configuration. If you want Jellyfin to be accessible without using a port (using the default https port), simply change 'secure' to 'https' in `docker-compose.yml` where indicated and remove the ':9999' from the SSLHost parameter. If you want Jellyfin to be accessible with a path, simply add the PathPrefix (i.e. '/jellyfin') and see the note near the end of this document about configuring Jellyfin.
+The configuration below creates a Traefik v2.x installation with access at entryPoint ports 80 (labelled 'http'), 443 (labeled 'https'), and 9999 (labeled 'secure'). Unrelated to this Jellyfin configuration, it redirects all traffic from http (port 80) to https (port 443) to ensure all data is encrypted. As for Jellyfin, it makes the service accessible without a path on the secure entry point. This configuration is intended to be used as a starting point and some adaptation is likely required for your configuration. If you want Jellyfin to be accessible without using a port (using the default https port), simply change 'secure' to 'https' in `docker-compose.yml` where indicated and remove the ':9999' from the SSLHost parameter. If you want Jellyfin to be accessible with a path, simply add the PathPrefix (that is, `/jellyfin`) and see the note near the end of this document about configuring Jellyfin.
 
 ## docker-compose.yml
 
@@ -132,7 +132,7 @@ TOML files can't support environment variables, so all values must be hard coded
 
 :::
 
-## traefik.toml
+## `traefik.toml`
 
 ```toml
 [log]
@@ -222,7 +222,7 @@ TOML files can't support environment variables, so all values must be hard coded
 [retry]
 ```
 
-Due to a [quirk](https://github.com/containous/traefik/issues/5559) in Traefik, you cannot dynamically route to containers when network_mode=host. We have created a static route to the docker host (192.168.1.xx:8096) in `traefik-provider.toml`. The use of host networking (as in this doc) or macvlan are required to use DLNA or an HdHomeRun so it can utilize the multicast network. `traefik-provider.toml` defines the jellyfin-svc@file service which we are pointing the router to in the `docker-compose.yml` file. You can not set a URL in `docker-compose.yml` which is why we set up this service externally. Be sure to update the IP address below to the IP address of the host on the local network (in this case, 192.168.1.xx).
+Due to a [quirk](https://github.com/containous/traefik/issues/5559) in Traefik, you cannot dynamically route to containers when network_mode=host. We have created a static route to the Docker host (`192.168.1.xx:8096`) in `traefik-provider.toml`. The use of host networking (as in this doc) or macvlan are required to use DLNA or an HDHomeRun so it can use the multicast network. `traefik-provider.toml` defines the jellyfin-svc@file service which we are pointing the router to in the `docker-compose.yml` file. You can not set a URL in `docker-compose.yml` which is why we set up this service externally. Be sure to update the IP address below to the IP address of the host on the local network (in this case, `192.168.1.xx`).
 
 ## traefik-provider.toml
 
@@ -268,7 +268,7 @@ RFC2136_TSIG_KEY=...
 RFC2136_TSIG_SECRET=...
 ```
 
-Finally, create an empty acme.json and traefik.log file to handle the certificate and log file for any logging
+Finally, create an empty `acme.json` and `traefik.log` file to handle the certificate and log file for any logging
 
 ```bash
 touch acme.json traefik.log
@@ -287,6 +287,6 @@ Launch the Traefik and Jellyfin services.
 docker compose up -d
 ```
 
-If you set a PathPrefix (i.e. /jellyfin), you need to configure Jellyfin to expect it. After starting the service, access Jellyfin directly (via the host's IP at port 8096) and change the 'Base URL' in Dashboard / Advanced / Networking to match the '/jellyfin' path (if you used one in this configuration). Afterward, you may wish to create a firewall rule to prevent direct access to Jellyfin at port 8096 on the host, or simply ensure the port is not accessible via the Internet.
+If you set a PathPrefix (that is, `/jellyfin`), you need to configure Jellyfin to expect it. After starting the service, access Jellyfin directly (via the host's IP at port 8096) and change the 'Base URL' in Dashboard / Advanced / Networking to match the `/jellyfin` path (if you used one in this configuration). Afterward, you may wish to create a firewall rule to prevent direct access to Jellyfin at port 8096 on the host, or simply ensure the port is not accessible via the Internet.
 
-Congratulations, your stack with Traefik 2.x and Jellyfin is (hopefully) running! Check the log file or run without the '-d' parameter to review any errors that may come up, particularly with respect to the LetsEncrypt configuration.
+Congratulations, your stack with Traefik 2.x and Jellyfin is (hopefully) running! Check the log file or run without the '-d' parameter to review any errors that may come up, particularly with respect to the Let's Encrypt configuration.

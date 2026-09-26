@@ -73,12 +73,12 @@ Go to SCALE's Apps section.
 
 ![Custom App Button](/images/docs/install-truenas-1.png)
 
-Click on the **Discover Apps** button on the top-right of the page.
+Select the **Discover Apps** button on the top-right of the page.
 It will bring you to the community app store.
 
 ![YAML Button](/images/docs/install-truenas-2.png)
 
-There, click on the 3-dot menu on the top-right and then on **Install via YAML**.
+There, select the 3-dot menu on the top-right and then on **Install via YAML**.
 
 - Note that you can also install a custom app using SCALE's guided app launcher GUI. Refer to the steps on [installing the community app](#installing-with-the-scale-community-app) since the layout is largely the same.
   - If you go this route, your final Jellyfin container will only be editable through this GUI. If you want access to the Compose YAML editor afterwards, you need to launch your container with the YAML option.
@@ -274,33 +274,33 @@ version: 1.0.0
 ```
 
 After this, just go to the custom app in the **Apps page**.
-Open the **Edit** option in **Application Info**, then click on **Save** at the bottom.
+Open the **Edit** option in **Application Info**, then select **Save** at the bottom.
 This will update the custom app's icon with Jellyfin's logo.
 
 ---
 
 ## Installing with the SCALE Community App
 
-To install the **Jellyfin** application, go to **Apps**, click **Discover Apps**, either begin typing Jellyfin into the search field or scroll down to locate the **Jellyfin** application widget.
-You might need to click "Refresh Catalog" if no Jellyfin app is showing in the results.
+To install the **Jellyfin** application, go to **Apps**, select **Discover Apps**, either begin typing Jellyfin into the search field or scroll down to locate the **Jellyfin** application widget.
+You might need to select "Refresh Catalog" if no Jellyfin app is showing in the results.
 
 ![Jellyfin App Widget](/images/docs/install-truenas-8.png)
 
-Click on the widget to open the **Jellyfin** application details screen.
+Select the widget to open the **Jellyfin** application details screen.
 
 ![Jellyfin App Details Screen](/images/docs/install-truenas-9.png)
 
-Click **Install** to open the Jellyfin application configuration screen.
+Select **Install** to open the Jellyfin application configuration screen.
 
 Application configuration settings are presented in several sections, each explained below.
-To find specific fields, click in the **Search Input Fields** search field, scroll down to a particular section or click on the section heading on the navigation area in the upper-right corner.
+To find specific fields, select in the **Search Input Fields** search field, scroll down to a particular section or select the section heading on the navigation area in the upper-right corner.
 
 ![Install Jellyfin Screen](/images/docs/install-truenas-10.png)
 
 ### Application Name Settings
 
 Accept the default value or enter a name in the **Application Name** field.
-In most cases, use the default name, but if adding a second deployment of the application you must change this name.
+Usually, use the default name, but if adding a second deployment of the application you must change this name.
 
 Accept the default version number in **Version**.
 When a new version becomes available, the application has an update badge.
@@ -312,7 +312,7 @@ You can accept the defaults in the **Jellyfin Configuration** settings, or enter
 
 You can enter a **Published Server URL** for use in UDP autodiscovery, or leave it blank.
 
-If needed, click **Add** to define **Additional Environment Variables**, see [Configuration](/docs/general/administration/configuration/) for options.
+If needed, select **Add** to define **Additional Environment Variables**, see [Configuration](/docs/general/administration/configuration/) for options.
 
 ### User and Group Settings
 
@@ -369,7 +369,7 @@ If there's not enough storage here, you will run into playback issues when a tra
 
 #### Mounting Additional Storage
 
-Click **Add** next to **Additional Storage** to add the media library storage path(s) on your system.
+Select **Add** next to **Additional Storage** to add the media library storage path(s) on your system.
 
 ![Additional Storage](/images/docs/install-truenas-15.png)
 
@@ -378,7 +378,7 @@ You can select **iXvolume (Dataset created automatically by the system)** to cre
 
 Mounting an SMB share allows data synchronization between the share and the app.
 The SMB share mount does not include ACL protections at this time. Permissions are currently limited to the permissions of the user that mounted the share.
-Alternate data streams (metadata), finder colors tags, previews, resource forks, and MacOS metadata are stripped from the share along with filesystem permissions, but this functionality is undergoing active development and implementation planned for a future TrueNAS SCALE release.
+Alternate data streams (metadata), finder colors tags, previews, resource forks, and macOS metadata are stripped from the share along with filesystem permissions, but this functionality is undergoing active development and implementation planned for a future TrueNAS SCALE release.
 
 - Note that if you want to take advantage of Jellyfin's built-in feature of **real-time media scanning**, you need to mount your media directly with a **Host Path** as SMB connections do not support this feature.
 
@@ -469,7 +469,7 @@ For the GPU Configuration, check the **Passthrough available (non-NVIDIA) GPUs**
 
 ### Finalizing Install
 
-Click **Install**.
+Select **Install**.
 
 A container launches with root privileges to apply the correct permissions to the Jellyfin directories.
 Afterward, the Jellyfin container runs as a non-root user (default: 568).
@@ -480,32 +480,32 @@ When the installation completes, it changes to **Running**.
 
 ![App Page](/images/docs/install-truenas-17.png)
 
-Click the **Web UI** button on the **Application Info** widget to open the Jellyfin web initial setup wizard to set up your admin account and begin administering libraries.
+Select the **Web UI** button on the **Application Info** widget to open the Jellyfin web initial setup wizard to set up your admin account and begin administering libraries.
 
 ![Jellyfin Web Portal](/images/docs/install-truenas-18.png)
 
 ### Editing the Jellyfin Application
 
 Go to the **Installed Applications** screen and select Jellyfin from the list of installed applications.
-Click **Edit** on the **Application Info** widget to open the **Edit Jellyfin** screen.
+Select **Edit** on the **Application Info** widget to open the **Edit Jellyfin** screen.
 The settings on the edit screen are the same as on the install screen.
 
 - You cannot edit **Storage Configuration** paths after the initial app install **_if they have been automatically created by the system (ixVolume)_**.
   - You can still modify existing **Host Paths** storage mounts and paths.
 
-Click **Update** to save changes.
+Select **Update** to save changes.
 TrueNAS automatically updates, recreates, and redeploys the Jellyfin container with the updated environment variables.
 
 ---
 
 ## Volume Mount Info & Real-Time Jellyfin Logs
 
-You can access Jellyfin's real-time logs by going to the **Workloads** widget and clicking on the logs icon on the bottom-right.
+You can access Jellyfin's real-time logs by going to the **Workloads** widget and selecting the logs icon on the bottom-right.
 
 ![Volume Mount Info Location](/images/docs/install-truenas-5.png)
 
 If you didn't specify an external location to mount your config & cache directories, they will be automatically created somewhere on your system.
-To see the current location of these (and other mounts to the container), click the folder icon on the bottom-right as well in the **Workloads** widget.
+To see the current location of these (and other mounts to the container), select the folder icon on the bottom-right as well in the **Workloads** widget.
 
 ![Volume Mount Info Opened](/images/docs/install-truenas-6.png)
 
@@ -517,8 +517,8 @@ Note that you will need root (sudo) access to reach Docker-related directories o
 
 ![App Settings Config Dropdown](/images/docs/install-truenas-7.png)
 
-If you want to see the exact images installed on your TrueNAS SCALE server, go to the main Apps page, then click on the `Configuration` button.
-On the dropdown menu, click on **Manage Container Images**.
+If you want to see the exact images installed on your TrueNAS SCALE server, go to the main Apps page, then select the `Configuration` button.
+On the dropdown menu, select **Manage Container Images**.
 You will be brought to a new page where you will see a list of all installed Docker images.
 
 You can also pull new images to use in the future.
@@ -528,9 +528,9 @@ You can also pull new images to use in the future.
 You can choose to pull from Jellyfin's [Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin) or [GitHub Container Registry](https://github.com/jellyfin/jellyfin/pkgs/container/jellyfin).
 
 - To pull from Docker Hub, use: `jellyfin/jellyfin`
-- To pull from from GHCR, use: `ghcr.io/jellyfin/jellyfin`
+- To pull from GHCR, use: `ghcr.io/jellyfin/jellyfin`
 - [You can check this blog post for more info about GHCR:](/posts/jellyfin-release-10.9.0#key-release-notesbreaking-changes)
-  - "Docker users: We now offer GitHub Container Registry (GHCR) as an alternative container registry in addition to Docker Hub. You can pull images from the new registry via URIs like `ghcr.io/jellyfin/jellyfin:latest`. Don't worry, we have no plans to drop Docker Hub as a container registry, but we feel providing both gives users more choice and flexibility."
+  - "Docker users: We now offer GitHub Container Registry (GHCR) as an alternative container registry along with Docker Hub. You can pull images from the new registry via URIs like `ghcr.io/jellyfin/jellyfin:latest`. Don't worry, we have no plans to drop Docker Hub as a container registry, but we feel providing both gives users more choice and flexibility."
 - Also check out [this forum post](https://forum.jellyfin.org/t-new-jellyfin-server-web-release-10-9-6?pid=25895#pid25895) about how Docker image tags can be used.
 
 If you have a container using any of your images, SCALE should notify you of an available update to the image through its GUI provided you used the **latest** tag, or one of the other tags that doesn't point to a single release.

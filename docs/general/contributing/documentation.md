@@ -11,7 +11,9 @@ Documentation is fast-moving and ever-changing. Please think carefully about wha
 
 ## Please Self-Review
 
-Before finalizing your changes, please be courteous to reviewers and run your changes through, at least, a spellchecker (e.g. `[aspell](https://github.com/GNUAspell/aspell)`) and potentially a grammar checker. AI is fine for this though please use it sparingly for _generating_ content. Make sure you re-read what comes out and adjust as required. We appreciate individual writing styles but the bulk of our review back-and-forth is over minor issues like this, so please do your part to get it right first.
+Before finalizing your changes, please be courteous to reviewers and run your changes through, at least, a spellchecker (for example, `[aspell](https://github.com/GNUAspell/aspell)`) and potentially a grammar checker. AI is fine for this, though please use it sparingly for _generating_ content. Make sure you re-read what comes out and adjust as required. We appreciate individual writing styles but the bulk of our review back-and-forth is over minor issues like this, so please do your part to get it right first.
+
+Documentation is also expected to be ran through a prose linter such as [Vale](https://docs.errata.ai/vale/), which can be run locally or in CI. Please see the [Vale documentation](https://docs.errata.ai/vale/) for installation and usage instructions. The Vale configuration file is located at `.vale.ini` in the root of this repository and enforces our documentation style guide.
 
 ## Peer Copyediting
 
@@ -27,4 +29,4 @@ Before (or, immediately after) submitting a PR for review, we ask you to find an
 
 ## Blog Posts
 
-Blog posts are exclusively written by our team members; we do not accept outside blog posts under any circumstances. Blog posts should follow all the above processes, and further require final approval from the Core team in addition to regular documentation approvers. Blog posts may stay in draft or review status for some time, until the event they correlate with (e.g. a release); the date should always reflect the final (expected) publishing date.
+Blog posts are exclusively written by our team members; we do not accept outside blog posts under any circumstances. Blog posts should follow all the above processes, and further require final approval from the Core team in addition to regular documentation approvers. Blog posts may stay in draft or review status for some time, until the event they correlate with (for example, a release); the date should always reflect the final (expected) publishing date.

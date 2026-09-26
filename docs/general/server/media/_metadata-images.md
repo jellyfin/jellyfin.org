@@ -59,14 +59,14 @@ Image types:
 | Logo     | Logo displayed on the top of a media item.                                              |
 | Thumb    | Thumbnail for homepage and for browsing library in thumb mode. Video only. <sup>2</sup> |
 
-<sup>1</sup>Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen, e.g. `backdrop-1.jpg`, `backdrop2.jpg`.
+<sup>1</sup>Multiple backdrop images can be used to cycle through several over time. Simply append a number to the end of the filename directly after or after a hyphen, for example, `backdrop-1.jpg`, `backdrop2.jpg`.
 
 <sup>2</sup>These can be added to both video and audio content, but are not used by any client for audio content.
 
 <details>
 <summary>Filenames, their respective types and supported media types</summary>
 
-Unless otherwise noted, all filenames can be used either standalone (e.g. `logo.png`) or as a suffix (e.g. `movie-logo.png`)
+Unless otherwise noted, all filenames can be used either standalone (for example, `logo.png`) or as a suffix (for example, `movie-logo.png`)
 
 | Filename                    | Type     | Movies          | Series | Season | Episode | Music | Artist |
 | --------------------------- | -------- | --------------- | ------ | ------ | ------- | ----- | ------ |
@@ -90,7 +90,7 @@ Unless otherwise noted, all filenames can be used either standalone (e.g. `logo.
 | thumb                       | Thumb    | ✅              | ✅     | ✅     |         | ✅    |        |
 
 <sup>1</sup> For example: `S01E01 Some Episode-thumb.jpg` <br />
-<sup>2</sup> These file names can also be embedded in supported media containers (e.g. mkv) and will be used when the `Embedded Image Extractor` source is enabled for movies.
+<sup>2</sup> These file names can also be embedded in supported media containers (for example, mkv) and will be used when the `Embedded Image Extractor` source is enabled for movies.
 
 </details>
 

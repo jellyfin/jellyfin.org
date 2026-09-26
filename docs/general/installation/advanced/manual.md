@@ -5,8 +5,6 @@ description: Install Jellyfin Manually.
 sidebar_position: 3
 ---
 
-<!-- markdownlint-disable MD036 no-emphasis-as-heading -->
-
 ## Portable Windows Package
 
 ### Portable Windows Install
@@ -63,10 +61,10 @@ sidebar_position: 3
 
 1. Download the latest version of Jellyfin.
 2. Extract it into the Applications folder.
-3. Open Terminal and type `cd` followed with a space then drag the jellyfin folder into the terminal.
+3. Open Terminal and type `cd` followed with a space then drag the Jellyfin folder into the terminal.
 4. Type `xattr -rd com.apple.quarantine .` to remove the quarantine flag.
 5. Type `codesign -fs - --deep jellyfin` to create an ad-hoc signature for the server.
-6. Type `./jellyfin` to run jellyfin.
+6. Type `./jellyfin` to run Jellyfin.
 7. Open your browser at [http://localhost:8096](http://localhost:8096).
 
 Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmux can prevent this from happening.
@@ -76,10 +74,10 @@ Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmu
 1. Download the latest version.
 2. Stop the currently running server either via the dashboard or using `CTRL+C` in the terminal window.
 3. Extract the latest version into Applications
-4. Open Terminal and type `cd` followed with a space then drag the jellyfin folder into the terminal.
+4. Open Terminal and type `cd` followed with a space then drag the Jellyfin folder into the terminal.
 5. Type `xattr -rd com.apple.quarantine .` to remove the quarantine flag.
 6. Type `codesign -fs - --deep jellyfin` to create an ad-hoc signature for the server.
-7. Type `./jellyfin` to run jellyfin.
+7. Type `./jellyfin` to run Jellyfin.
 8. Open your browser at [http://localhost:8096](http://localhost:8096)
 
 ### Uninstalling the Portable macOS Version
@@ -94,7 +92,7 @@ Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmu
 The portable version doesn't come with FFmpeg by default. There are a few options for installing FFmpeg:
 
 - download jellyfin-ffmpeg from the [Jellyfin repo](https://repo.jellyfin.org/?path=/ffmpeg/macos) (recommended)
-- use the package manager homebrew by typing `brew install ffmpeg` into your Terminal ([here's how to install homebrew if you don't have it already](https://treehouse.github.io/installation-guides/mac/homebrew)
+- use the package manager homebrew by typing `brew install ffmpeg` into your terminal ([here is how to install homebrew if you do not have it already](https://treehouse.github.io/installation-guides/mac/homebrew)
 - download the most recent [static build](https://evermeet.cx/ffmpeg/get/zip) (compiled by a third party see [evermeet.cx](https://evermeet.cx/ffmpeg/) for options and information) (Apple Silicon builds are not available from this source)
 - compile from source available from the official [website](https://ffmpeg.org/download.html)
 
@@ -113,7 +111,7 @@ Generic `amd64`, `arm64`, and `armhf` Linux builds in TAR archive format are ava
 
 ### Base Installation Process
 
-Create a directory in `/opt` for jellyfin and its files, and enter that directory.
+Create a directory in `/opt` for Jellyfin and its files, and enter that directory.
 
 ```sh
 sudo mkdir /opt/jellyfin
@@ -121,7 +119,7 @@ cd /opt/jellyfin
 ```
 
 Download the latest generic Linux build for your architecture.
-The rest of these instructions assume version 10.10.7 is being installed (i.e. `jellyfin_10.10.7-amd64.tar.gz`).
+The rest of these instructions assume version 10.10.7 is being installed (that is, `jellyfin_10.10.7-amd64.tar.gz`).
 Download the generic build, then extract the archive:
 
 ```sh

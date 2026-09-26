@@ -8,24 +8,24 @@ sidebar_position: 1
 
 ## Add a TV Tuner to Jellyfin (Automatic Discovery)
 
-Click on the Admin Panel Icon in the top right corner (1)
-Click 'Live TV' (2) under the 'Live TV' section
-Click the '+' button (3) next to 'Tuner Devices'
+Select the Admin Panel Icon in the top right corner (1)
+Select 'Live TV' (2) under the 'Live TV' section
+Select the '+' button (3) next to 'Tuner Devices'
 
 ![How to access the 'Tuner Devices' page](/images/docs/live-tv-setup-tuner1.png)
 
-Click 'Detect My Devices' from the 'Live TV Tuner Setup' page that opens
+Select 'Detect My Devices' from the 'Live TV Tuner Setup' page that opens
 Jellyfin will search and hopefully find your tuner automatically:
 
 ![An example of detected TV tuner devices](/images/docs/live-tv-setup-tuner2.png)
 
-Click on the device you'd like to set up then set any options then click 'Save'
+Select the device you'd like to set up then set any options then select 'Save'
 
 ![Saving TV tuner setup](/images/docs/live-tv-setup-tuner3.png)
 
 ## Add a TV Tuner to Jellyfin (Manual Setup)
 
-You can set up your tuners manually if they were not automatically discovered. Click the 'Tuner Type' pull down. Choose between 'HD Homerun', 'M3U Tuner', and 'Other'
+You can set up your tuners manually if they were not automatically discovered. Select the 'Tuner Type' pull down. Choose between 'HD Homerun', 'M3U Tuner', and 'Other'
 
 ![Manually adding a TV tuner](/images/docs/live-tv-setup-tuner4.png)
 
@@ -37,7 +37,7 @@ You can set up your tuners manually if they were not automatically discovered. C
 
 - Restrict to channels marked as favorite will only import channels that are designated as favorite channels on the tuner. This helps if your tuner autoscans and adds new channels that you do not want and/or adds channels that you are able to receive due to atmospheric conditions but later are not accessible.
 
-To set a favorite, go to the [HDHomeRun website](http://my.hdhomerun.com), select your tuner and then click on the grey star next to the channel name to change the star to yellow. The yellow star indicates a favorited channel. In this example, only the channels with yellow stars will be imported into Jellyfin
+To set a favorite, go to the [HDHomeRun website](http://my.hdhomerun.com), select your tuner and then select the grey star next to the channel name to change the star to yellow. The yellow star indicates a favorited channel. In this example, only the channels with yellow stars will be imported into Jellyfin
 
 ![Selecting favorites in HDHomeRun](/images/docs/live-tv-setup-hdhr_opt1.png)
 
@@ -75,7 +75,7 @@ Here is a list of legal samples to use to test connectivity.
 
 ## Adding Guide Data
 
-Guide data is necessary for scheduling tv recordings and for browsing what's currently playing and what will air later. Follow these steps once you have a tuner device set up. Click on the Admin Panel Icon in the top right corner, Click 'Live TV' (2) under the 'Live TV' section, Click the '+' button next to 'TV Guide Data Providers' :
+Guide data is necessary for scheduling tv recordings and for browsing what's currently playing and what will air later. Follow these steps once you have a tuner device set up. Select the Admin Panel Icon in the top right corner, Select 'Live TV' (2) under the 'Live TV' section, Select the '+' button next to 'TV Guide Data Providers' :
 
 ![How to add guide data](/images/docs/live-tv-setup-guide1.png)
 
@@ -91,19 +91,19 @@ This option allows for downloading of guide data in the [XMLTV](http://wiki.xmlt
 
 ## Mapping Channels
 
-Guide data from the 'TV Guide Data Providers' will need to be mapped to the physical channel from the tuner. Click the '...' next to the guide provider you set up and select 'Map Channels'
+Guide data from the 'TV Guide Data Providers' will need to be mapped to the physical channel from the tuner. Select the '...' next to the guide provider you set up and select 'Map Channels'
 
 ![Step 1 of mapping channels](/images/docs/live-tv-setup-channels1.png)
 
-The list of physical channels will be displayed. Click the pencil icon to the right of the channel and then select the corresponding channel from the guide provider to map the channel. Do this for all channels. Click the left arrow at the top left of the window to exit and save the information.
+The list of physical channels will be displayed. Select the pencil icon to the right of the channel and then select the corresponding channel from the guide provider to map the channel. Do this for all channels. Select the left arrow at the top left of the window to exit and save the information.
 
 ![Step 2 of mapping channels](/images/docs/live-tv-setup-channels2.png)
 
 The guide data will now automatically import. You can check that the data has been imported correctly by going to the 'Live TV Guide' page from the main Jellyfin web page on your server.
 
-## Integrating TVHeadend without a plugin
+## Integrating Tvheadend without a plugin
 
-It's possible to use TVHeadend with Jellyfin through as an M3U/XMLTV integrations. 
+It's possible to use Tvheadend with Jellyfin through as an M3U/XMLTV integrations.
 This integration requires more CPU processing, and the plugin is therefore recommended.
 This approach can be used as a backup when the plugin does not work.
 

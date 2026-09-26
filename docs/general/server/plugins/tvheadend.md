@@ -1,23 +1,23 @@
 ---
 uid: server-plugins-tvheadend
-title: TVHeadend
+title: Tvheadend
 ---
 
-# TVHeadend
+# Tvheadend
 
-The objective of the guide is to configure the Jellyfin TVHeadend plugin to backend a TVHeadend server.
+The objective of the guide is to configure the Jellyfin Tvheadend plugin to backend a Tvheadend server.
 
 ## Requirements
 
-- TVHeadend server
+- Tvheadend server
 - Jellyfin server
-- TVHeadend plugin installed in Jellyfin
+- Tvheadend plugin installed in Jellyfin
 
 ## Configuration
 
 <!-- markdownlint-disable MD029 ol-prefix -->
 
-1. Create a user for Jellyfin in TVHeadend: it is convenient to create a specific user for Jellyfin.
+1. Create a user for Jellyfin in Tvheadend: it is convenient to create a specific user for Jellyfin.
    - Go to Configuration > Users > Access Entries > Add
    - Give the user parameters
      - Enabled: ✔
@@ -38,24 +38,24 @@ The objective of the guide is to configure the Jellyfin TVHeadend plugin to back
 
 :::note
 
-The parameters Change parameters, Streaming and Video recorder must be marked as shown. Otherwise, Jellyfin can connect to TVHeadend but problems may arise when reproducing the content.
+The parameters Change parameters, Streaming and Video recorder must be marked as shown. Otherwise, Jellyfin can connect to Tvheadend but problems may arise when reproducing the content.
 
 :::
 
-2. Adjust the Jellyfin TVHeadend plugin to establish the connection.
-   - Go to Dashboard > Plugins > TVHeadend > Settings
+2. Adjust the Jellyfin Tvheadend plugin to establish the connection.
+   - Go to Dashboard > Plugins > Tvheadend > Settings
    - Provide creator access data previously:
-     - TVHeadend Hostname or IP Address: _IP address of the TVHeadend server_ (for example: 127.0.0.1)
+     - Tvheadend Hostname or IP Address: _IP address of the Tvheadend server_ (for example: 127.0.0.1)
      - Username: _The user created previously_ (for example: Jellyfin)
      - Password: _The password created previously_ (for example: Jellyfin_password)
 
 :::note
 
-By default the the _TVHeadend Hostname or IP Address_ section is configured by default with the hostname _localhost_, it is preferable to use the IP address _127.0.0.1_ instead of _localhost_. [Reference](https://emby.media/community/index.php?/topic/55768-tv-headend-plugin-where-does-it-store-data/#entry542181)
+By default the _Tvheadend Hostname or IP Address_ section is configured by default with the hostname _localhost_, it is preferable to use the IP address _127.0.0.1_ instead of _localhost_. [Reference](https://emby.media/community/index.php?/topic/55768-tv-headend-plugin-where-does-it-store-data/#entry542181)
 
 :::
 
-3. Configure the channels for viewing in Jellyfin: even if Jellyfin manages to connect to TVHeadend, the guide will not be synchronized because there has to be a number assigned to the channels in TVHeadend. [Reference](https://emby.media/community/index.php?/topic/64583-no-channels-with-tvheadend-plugin/#entry642268)
+3. Configure the channels for viewing in Jellyfin: even if Jellyfin manages to connect to Tvheadend, the guide will not be synchronized because there has to be a number assigned to the channels in Tvheadend. [Reference](https://emby.media/community/index.php?/topic/64583-no-channels-with-tvheadend-plugin/#entry642268)
    - Manual mode
      - Go to Configuration > Channel/EPG > Channels
      - Select the channel to be changed and press Edit
@@ -67,7 +67,7 @@ By default the the _TVHeadend Hostname or IP Address_ section is configured by d
      - In the option _Channel numbers from_ we enter the number so we want the numbering of the channels to start (for example: 1), this number must be nonzero
      - Press save
 
-4. Update the data from the TVHeadend guide to Jellyfin
+4. Update the data from the Tvheadend guide to Jellyfin
    - Go to Dashboard > Live TV
    - Refresh guide data
 

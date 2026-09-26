@@ -60,7 +60,7 @@ All package builds begin with these two steps:
    podman run -d -p 8096:8096 $USERNAME/jellyfin
    ```
 
-## Linux or MacOS
+## Linux or macOS
 
 3. Use the included `build` script to perform builds.
 
@@ -81,9 +81,9 @@ This will very likely be split out into a separate repository at some point in t
 ## Windows
 
 3. Install dotnet SDK 8.0 from [Microsoft's Website](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) and [install Git for Windows](https://gitforwindows.org/).
-   You must be on Powershell 3 or higher.
+   You must be on PowerShell 3 or higher.
 
-4. From Powershell set the execution policy to unrestricted.
+4. From PowerShell set the execution policy to unrestricted.
 
    ```powershell
    set-executionpolicy unrestricted

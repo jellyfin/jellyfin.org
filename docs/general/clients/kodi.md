@@ -128,7 +128,7 @@ Kodi's default skin does not display all unicode characters. To display unicode 
 
 ### Multiple Clients
 
-When using multiple Kodi clients do not copy Kodi's database (i.e. `myvideosXYZ.db`, `jellyfin.db`) files from one client to the other to try and reduce initial syncing time. This will partially work, but it will cause conflicts between clients and the sync process from the server will not work properly.
+When using multiple Kodi clients do not copy Kodi's database (that is, `myvideosXYZ.db`, `jellyfin.db`) files from one client to the other to try and reduce initial syncing time. This will partially work, but it will cause conflicts between clients and the sync process from the server will not work properly.
 
 ## JellyCon
 
@@ -149,13 +149,13 @@ JellyCon behaves more like a standard Kodi streaming add-on. Media is accessed p
 
 ### Configuring Home
 
-Many Kodi skins allow for customizing of the home menu with custom nodes and widgets. However, all of these use slightly different layouts and terminology. Rather than a step-by-step guide, this section serves as a barebones introduction to customizing a skin.
+Many Kodi skins allow for customizing of the home menu with custom nodes and widgets. However, they all use slightly different layouts and terminology. Rather than a step-by-step guide, this section serves as a barebones introduction to customizing a skin.
 
 #### Examples
 
 If you would like a link on the home screen to open a library in your Jellyfin server called "Kid's Movies", you would point the menu item to the path: `Add-On -> Video Add-On -> JellyCon -> Jellyfin Libraries -> Kid's Movies -> Create menu item to here`.
 
-Beyond just modifying where the home menu headers go, many skins also allow you to use widgets. Widgets help populate the home screen with data, often the posters of media in the selected image. If you would like to display the most recent movies across all of your Jellyfin libraries on the home screen, the path would be: `Add-On -> Video Add-On -> JellyCon -> Global Lists -> Movies -> Movies - Recently Added (20) -> Use as widget`
+Beyond just modifying where the home menu headers go, many skins also allow you to use widgets. Widgets help populate the home screen with data, often the posters of media in the selected image. If you would like to display the most recent movies across all your Jellyfin libraries on the home screen, the path would be: `Add-On -> Video Add-On -> JellyCon -> Global Lists -> Movies -> Movies - Recently Added (20) -> Use as widget`
 
 Another common use case of widgets would be to display the next available episodes of shows that you may be watching. As above, this can be done both with individual libraries or with all libraries combined:
 

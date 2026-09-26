@@ -70,11 +70,11 @@ If you encounter errors, you may have to enable `mod_proxy`, `mod_ssl`, `proxy_w
 sudo a2enmod proxy proxy_http ssl proxy_wstunnel remoteip http2 headers
 ```
 
-## Apache with Subpath (example.org/jellyfin)
+## Apache with Subpath (`example.org/jellyfin`)
 
 When connecting to server from a client application, enter `http(s)://DOMAIN_NAME/jellyfin` in the address field.
 
-Set the [base URL](../index.md#base-url) field in the Jellyfin server. This can be done by navigating to the Admin Dashboard -> Networking -> Base URL in the web client. Fill in this box with `/jellyfin` and click Save. The server will need to be restarted before this change takes effect.
+Set the [base URL](../index.md#base-url) field in the Jellyfin server. This can be done by navigating to the Admin Dashboard -> Networking -> Base URL in the web client. Fill in this box with `/jellyfin` and select Save. The server will need to be restarted before this change takes effect.
 
 :::caution
 

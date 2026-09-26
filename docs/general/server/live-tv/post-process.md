@@ -18,7 +18,7 @@ Described below is one way to do post processing, there may be other ways (other
 
 :::
 
-Mess around with this to change to your needs. Search around, post questions to the [Jellyfin Forum](https://forum.jellyfin.org) or elsewhere, and others may be able to help. Logging is your friend! Make sure your script(s) logs adequately to a file or elsewhere in order to troubleshoot any issues you may encounter, as any output to stdout/stderror will not be seen in the Jellyfin logs.
+Mess around with this to change to your needs. Search around, post questions to the [Jellyfin Forum](https://forum.jellyfin.org) or elsewhere, and others may be able to help. Logging is your friend! Make sure your script(s) logs adequately to a file or elsewhere to troubleshoot any issues you may encounter, as any output to stdout/stderror will not be seen in the Jellyfin logs.
 
 ## Jellyfin Dashboard/DVR/Recording Post Processing Settings
 
@@ -68,8 +68,8 @@ In the sample script:
 - Logging is enabled, and a logfile is created at some location accessible by your Jellyfin instance.
 - Command line arguments are checked, if no argument provided, script exits.
 - Variables are determined for things such as the full non-transcoded file path, the basename, the file to be transcoded with extension, transcoded file name and path, and more.
-- FFMPEG command is created and ran.
-  - In this example, the `h264_videotoolbox` video codec is used, and the audio is copied from source. Change the ffmpeg command to fit your requirements.
+- FFmpeg command is created and ran.
+  - In this example, the `h264_videotoolbox` video codec is used, and the audio is copied from source. Change the FFmpeg command to fit your requirements.
 - Nontranscoded file is moved out of the Series/Season directory, into a folder not accessible by Jellyfin, called OLDFILES (This portion could also be configured to delete the non-transcoded file)
 
 ### An example `record_post_process.py` script
