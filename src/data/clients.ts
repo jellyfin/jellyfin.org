@@ -781,7 +781,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A Live TV client for Jellyfin on iOS, iPadOS, and macOS',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile, DeviceType.Desktop],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.IOS, Platform.MacOS],
     primaryLinks: [
       {
