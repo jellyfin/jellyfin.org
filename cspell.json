@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en, en-US, en-GB",
+  "allowCompoundWords": true,
+  "files": ["**/*.md", "**/*.mdx", "**/*.tsx"],
+  "dictionaryDefinitions": [
+    {
+      "name": "project-words",
+      "path": "./project-words.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": ["project-words"],
+  "ignorePaths": [
+    "node_modules",
+    "/project-words.txt",
+    "/src/components/common/PlatformIcon.tsx",
+
+    "/blog/2019/*",
+    "/blog/2020/*",
+    "/blog/2021/*",
+    "/blog/2022/*",
+    "/blog/2023/*",
+    "/blog/2024/*",
+    "/blog/2025/*"
+  ]
+}

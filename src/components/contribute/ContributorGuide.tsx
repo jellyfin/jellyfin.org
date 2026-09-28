@@ -84,7 +84,7 @@ export default function ContributorGuide() {
       {contributorOption === ContributorOption.Code && (
         <>
           <div className='margin-top--md'>
-            There are a couple ways to get involved with Jellyfin depending on your skillset.
+            There are a couple ways to get involved with Jellyfin depending on your skill set.
           </div>
           <div>
             <button
@@ -467,7 +467,7 @@ export default function ContributorGuide() {
 
           {otherOption === OtherOption.Troubleshoot && (
             <div className='margin-top--md'>
-              We have a large and diverse userbase, with so many features that the combinations and configurations are
+              We have a large and diverse user base, with so many features that the combinations and configurations are
               almost endless. But as a volunteer-run project, the contributors can often be limited in the help they can
               provide. If you are well-versed in Jellyfin&apos;s operation, we welcome you to try to help troubleshoot
               problems your fellow users are having. Troubleshooting generally occurs in our{' '}

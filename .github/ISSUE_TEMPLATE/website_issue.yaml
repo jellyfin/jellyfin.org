@@ -1,0 +1,66 @@
+name: Website problem or improvement
+description: Report a website bug, rendering issue, navigation problem, search issue, accessibility concern, or a suggestion for improvement.
+labels:
+  - bug
+  - enhancement
+body:
+  - type: checkboxes
+    id: before-posting
+    attributes:
+      label: 'This issue respects the following points:'
+      description: All conditions are **required**.
+      options:
+        - label: This issue is **not** already reported on [GitHub](https://github.com/jellyfin/jellyfin.org/issues?q=is%3Aopen+is%3Aissue) _(I've searched it)_.
+          required: true
+        - label: I agree to follow Jellyfin's [Code of Conduct](https://jellyfin.org/docs/general/community-standards.html#code-of-conduct).
+          required: true
+        - label: This report addresses only a single issue; If you encounter multiple issues, kindly create separate reports for each one.
+          required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## Website information
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the website issue or improvement
+      description: |
+        A clear and exact description of the problem or the improvement you would like to see.
+      placeholder: |
+        The mobile navigation menu overlaps the page content on the downloads page and cannot be closed.
+        The search box should return relevant results for docs and blog posts.
+    validations:
+      required: true
+  - type: textarea
+    id: location
+    attributes:
+      label: Where does it happen?
+      description: |
+        Specify the affected page, section, or component.
+      placeholder: |
+        The home page hero section, the downloads page, the top navigation, the search bar, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: What is the expected behavior?
+      description: |
+        Explain what should happen instead or how the improvement should work.
+      placeholder: |
+        The menu should open and close correctly, and the search should return useful results without breaking the page.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Additional
+  - type: input
+    id: other-sources
+    attributes:
+      label: Other sources
+      description: Please link any related forum topics, screenshots, or chat messages that prompted you to open this issue.
+      placeholder: https://forum.jellyfin.org/…
+    validations:
+      required: false

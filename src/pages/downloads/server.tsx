@@ -13,13 +13,14 @@ import { UAParser } from 'ua-parser-js';
 import styles from './index.module.scss';
 import ExternalLinkIcon from '@theme/Icon/ExternalLink';
 
-export default function DownloadsPage({ osType }: { osType?: OsType }) {
+export default function DownloadsPage(options: { osType?: OsType }) {
   const [isStableLinks, setIsStableLinks] = useState<boolean>(true);
   const [isStableHelpVisible, setIsStableHelpVisible] = useState<boolean>(false);
   const [activeButton, setActiveButton] = useState<string>();
 
   const isBrowser = useIsBrowser();
 
+  let osType = options.osType;
   if (isBrowser && osType === undefined) {
     const parser = new UAParser(navigator.userAgent);
     const os = parser.getOS();
@@ -139,13 +140,12 @@ export default function DownloadsPage({ osType }: { osType?: OsType }) {
           {isStableHelpVisible && (
             <Admonition type='tip' title='Stable or Unstable?'>
               <p>
-                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable version.
-                If you want to help test the latest improvements and features and can handle some occasional breakage,
-                use the Unstable version. New Unstable releases are published Weekly on Monday mornings (~05:00 UTC).
-                NOTE: Always back up your existing configuration before testing Unstable releases as there is NO
-                DOWNGRADE PATH; you must restore your Stable configuration from a backup.
-
-                For more details, [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
+                Generally, if you&apos;re a new user or don&apos;t want your server to change often, use the Stable
+                version. If you want to help test the latest improvements and features and can handle some occasional
+                breakage, use the Unstable version. New Unstable releases are published Weekly on Monday mornings
+                (~05:00 UTC). NOTE: Always back up your existing configuration before testing Unstable releases as there
+                is NO DOWNGRADE PATH; you must restore your Stable configuration from a backup. For more details,
+                [please see this documentation](/docs/general/testing/upgrading-and-downgrading).
               </p>
             </Admonition>
           )}

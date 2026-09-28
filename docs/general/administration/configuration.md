@@ -112,6 +112,71 @@ This section lists all the configuration options available and explains their fu
 | `FFmpeg:analyzeduration` | `"200M"`                               | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
 | `PublishedServerUrl`     | Server Url based on primary IP address | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
 
+## Database
+
+:::danger
+
+The options below are for advanced users only.
+
+A wrong value can corrupt the database. Back up the database before you change any option here.
+
+These options are not part of the stable API. Jellyfin can change or remove them in any release. Jellyfin does not migrate the values you set.
+
+:::
+
+By default, Jellyfin stores its library metadata in a SQLite database (`<Data Directory>/jellyfin.db`) in the [data directory](#data-directory). Set the `path` custom database option to use a different database file. Since 10.11 the SQLite provider can be tuned through a `database.xml` file in the [configuration directory](#configuration-directory). This file is optional. If it is missing, the built in defaults are used.
+
+Most installs keep the defaults. These options exist for administrators of very large libraries who investigate slow metadata queries (see [jellyfin/jellyfin#17405](https://github.com/jellyfin/jellyfin/issues/17405)).
+
+### database.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<DatabaseConfigurationOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DatabaseType>Jellyfin-SQLite</DatabaseType>
+  <LockingBehavior>NoLock</LockingBehavior>
+  <CustomProviderOptions>
+    <Options>
+      <!-- 256 MiB: negative cache_size values specify KiB -->
+      <CustomDatabaseOption>
+        <Key>cacheSize</Key>
+        <Value>-262144</Value>
+      </CustomDatabaseOption>
+    </Options>
+  </CustomProviderOptions>
+</DatabaseConfigurationOptions>
+```
+
+Each knob is a `CustomDatabaseOption` with a `Key` and a `Value` child element. The available keys:
+
+| Key                 | Default            | Description                                                                                                             |
+| ------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `path`              | `<Data Directory>/jellyfin.db` | SQLite database file path.                                                                                             |
+| `cacheSize`         | unset              | SQLite `cache_size`, applied per connection. A positive value is a page count. A negative value is a size in KiB, so `-262144` is about 256 MiB. See the [SQLite documentation](https://www.sqlite.org/pragma.html#pragma_cache_size). |
+| `lockingmode`       | `NORMAL`           | SQLite `locking_mode`.                                                                                                   |
+| `journalsizelimit`  | `134217728`        | SQLite `journal_size_limit` in bytes.                                                                                    |
+| `tempstoremode`     | `2`                | SQLite `temp_store` (`2` is memory).                                                                                     |
+| `syncmode`          | `1`                | SQLite `synchronous` (`1` is NORMAL).                                                                                    |
+| `pooling`           | `True`             | Enable connection pooling.                                                                                              |
+| `command-timeout`   | `60`               | Command timeout in seconds.                                                                                              |
+
+Any additional PRAGMA can be set by prefixing the key with `#PRAGMA:`, for example:
+
+```xml
+<CustomDatabaseOption>
+  <Key>#PRAGMA:mmap_size</Key>
+  <Value>268435456</Value>
+</CustomDatabaseOption>
+```
+
+### Cache size and large libraries
+
+Some users report that a higher `cacheSize` speeds up broad metadata queries on very large libraries. Other users see no change.
+
+Query speed depends on many things. Storage speed, free memory, CPU and the library contents all affect it. A higher `cacheSize` is not a general recommendation.
+
+To test `cacheSize` on your server, raise the value in steps and measure each step. The value applies per connection, so keep it well inside the memory available to Jellyfin. If you leave `cacheSize` unset, SQLite uses its own default.
+
 ## Fonts
 
 Jellyfin uses fonts to render text in many places.
