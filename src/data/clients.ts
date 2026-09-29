@@ -779,7 +779,7 @@ const thirdPartyClients: Array<Client> = [
     id: 'jellybox',
     name: 'JellyBox',
     description:
-      'A native music player for Jellyfin with CarPlay, AirPlay and DLNA streaming, offline downloads, lyrics and artwork-based theming.',
+      'A native music player for Jellyfin with CarPlay, AirPlay and DLNA streaming, offline downloads, lyrics and artwork-based theming, spotify-like playlists and playback continuity.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop, DeviceType.Mobile],
     platforms: [Platform.Desktop, Platform.IOS, Platform.Android],
