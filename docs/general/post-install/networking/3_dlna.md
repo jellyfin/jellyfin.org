@@ -17,13 +17,13 @@ Make sure to restart your Jellyfin-Server to complete the plugin installation.
 - 1900 udp
 
 DLNA is based on UPnP.
-Therefore it will make use of its **Service Discovery** (SSDP) running on Port 1900 UDP.
-Since UPnP is a standard Protocol expected to be on UDP port 1900, its not possible to configure this.
+Therefore it will use its **Service Discovery** (SSDP) running on Port 1900 UDP.
+Since UPnP is a standard Protocol expected to be on UDP port 1900, it is impossible to configure this.
 Make sure to open this port to your local network. You will find more information about how to do this in the [Firewall guide](./index.md#firewall--port-forwarding).
 
 DLNA discovery works by sending a broadcast to the current subnet and waiting for DLNA Servers to respond.
 This means that clients will not be able to find your server if it is not in the same subnet.
-Using DLNA remotely is not possible.
+Using DLNA remotely is impossible.
 If you are using Docker, the network should use **Host Mode**, otherwise the broadcast signal will not reach the bridged network inside of Docker.
 
 ## Troubleshooting

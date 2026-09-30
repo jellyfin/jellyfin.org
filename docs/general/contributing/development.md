@@ -15,7 +15,7 @@ Summarized here are the two biggest ones, one for backend devs and another for f
 - [Jellyfin Server](https://github.com/jellyfin/jellyfin): The server portion, built using .NET 9 and C#.
 - [Jellyfin Web](https://github.com/jellyfin/jellyfin-web): The main client application built for browsers, but also used in some of our other clients that are just wrappers.
 
-Note that each of the repositories also has its own documentation on how to get started with that project, generally found in the repository README. You can also view the organization [source tree](/docs/general/contributing/source-tree) to see how some of the bigger projects are structured.
+Note that each of the repositories also has its own documentation on how to get started with that project, generally found in the repository README. You can also view the organization [source tree](/docs/general/contributing/source-tree) to see how some bigger projects are structured.
 
 The best way to get going on some actual development is to look through the [issues list](https://github.com/jellyfin/jellyfin/issues) of the associated repository, find an issue you would like to work on, and start hacking! Issues are triaged regularly by the administrative team, and labels assigned that should help you find issues within your skill-set.
 
@@ -35,7 +35,7 @@ If there isn't already an issue dealing with the changes you want to make, pleas
 
 Once you've found something you want to work on or improve, the next step is to make your changes in the code, test them, then submit a Pull Request (PR) on GitHub.
 
-For simplicity, all examples assume the developer is operating on Linux with SSH access to GitHub, however the general ideas can be applied to HTTP-based GitHub interfaces, and can be translated to Windows or MacOS.
+For simplicity, all examples assume the developer is operating on Linux with SSH access to GitHub, however the general ideas can be applied to HTTP-based GitHub interfaces, and can be translated to Windows or macOS.
 
 If you aren't familiar with Git, we recommend the [official documentation](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) to understand how this version control system works and how to use it.
 

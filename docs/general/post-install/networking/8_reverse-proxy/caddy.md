@@ -35,14 +35,14 @@ example.com {
 Please proceed with caution when using this option:
 
 - This will **NOT** automatically update your DNS records if you have a dynamic IP.
-- This is **NOT** required for automatic HTTPS to work in most cases.
+- This is usually **NOT** required for automatic HTTPS to work.
 - Misconfiguration can lead to **compromised domains and/or accounts**.
 - API keys should only be granted the least permissions required for the application to function.
 
 Please read the [Let's Encrypt documentation](https://letsencrypt.org/docs/challenge-types/) for more info.
 :::
 
-### One-liners
+## One-liners
 
 The easiest way to reverse proxy to Jellyfin is with the `reverse-proxy` command:
 
@@ -59,7 +59,7 @@ caddy reverse-proxy --from example.com --to 127.0.0.1:8096
 
 You will see Caddy provision a TLS certificate for your site and if it succeeds, you can then access your Jellyfin server over HTTPS with your domain name.
 
-### Caddyfile
+## Caddyfile
 
 If you want to use a config file, create a file called `Caddyfile` for the configuration.
 The following config is equivalent to the command above.
@@ -70,7 +70,7 @@ example.com
 reverse_proxy 127.0.0.1:8096
 ```
 
-### Subpath
+## Subpath
 
 You can serve Jellyfin only at a particular base path and not proxy all other requests.
 

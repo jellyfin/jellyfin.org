@@ -15,7 +15,7 @@ To achieve full acceleration, [Metal](https://developer.apple.com/metal/) is req
 
 ## Tone-mapping Methods
 
-Hardware accelerated HDR to SDR tone-mapping is supported on all Macs from 2017 and later, with the exception of the MacBook Air (13-inch, 2017).
+Hardware accelerated HDR to SDR tone-mapping is supported on all Macs from 2017 and later, except for the MacBook Air (13-inch, 2017).
 
 There are two different methods that can be used. Pros and cons are listed below:
 
@@ -37,7 +37,7 @@ When both methods are enabled, VideoToolbox Native will be used for most videos,
 
 Hardware accelerated transcoding is supported on all Macs that support [VideoToolbox](https://developer.apple.com/documentation/videotoolbox). This includes most 2011 and later Macs.<sup>\*</sup>
 
-Full acceleration is available on most Macs from 2017 and later, with the exception of the MacBook Air (13-inch, 2017).
+Full acceleration is available on most Macs from 2017 and later, except for the MacBook Air (13-inch, 2017).
 
 To have native Apple Silicon support, Jellyfin server 10.9.0+ and `jellyfin-ffmpeg6` 6.0.1-5 or higher is required.
 
@@ -65,9 +65,9 @@ Starting with the M3 series, Apple Silicon-based Mac supports hardware-accelerat
 
 ### Performance Consideration
 
-An Apple Silicon-based Mac is preferred in most cases. Even an entry-level M1 can handle three 4K 24fps Dolby Vision HEVC 10-bit transcoding tasks simultaneously while performing tone-mapping to SDR.<sup>1</sup> <sup>2</sup>
+An Apple Silicon-based Mac is usually preferred. Even an entry-level M1 can handle three 4K 24fps Dolby Vision HEVC 10-bit transcoding tasks simultaneously while performing tone-mapping to SDR.<sup>1</sup> <sup>2</sup>
 
-The "Max" variant chips come with an additional video encoding engine. VideoToolbox can utilize this extra engine even when there is only a single transcoding session, enabling support for 4K 120fps transcoding and tone-mapping.<sup>1</sup>
+The "Max" variant chips come with an additional video encoding engine. VideoToolbox can use this extra engine even when there is only a single transcoding session, enabling support for 4K 120fps transcoding and tone-mapping.<sup>1</sup>
 
 The "Ultra" variant chips feature 2 video decoding engines and 4 video encoding engines, effectively doubling the capability compared to the "Max" variant chips.
 
@@ -92,6 +92,6 @@ On legacy Intel Macs, you may encounter performance issues with tone-mapping usi
 
 1. Play a video in the Jellyfin web client and trigger video transcoding by setting a lower resolution or bitrate.
 
-2. Open the "Activity Monitor" and search for ffmpeg.
+2. Open the "Activity Monitor" and search for FFmpeg.
 
-3. If ffmpeg is not using a few hundred percent CPU, then hardware acceleration is working. It is normal to see the GPU usage close to 0. For pure transcoding, everything is performed on a dedicated accelerator, and that will not count as GPU usage under macOS.
+3. If FFmpeg is not using a few hundred percent CPU, then hardware acceleration is working. It is normal to see the GPU usage close to 0. For pure transcoding, everything is performed on a dedicated accelerator, and that will not count as GPU usage under macOS.

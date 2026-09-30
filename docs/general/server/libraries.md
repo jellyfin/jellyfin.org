@@ -10,9 +10,9 @@ Libraries are virtual collections of media and can contain files from several di
 You will see a page to add libraries when you first create the server, but they can also be added or removed at any time from the settings.
 
 1. Log in to the Jellyfin web interface in your web browser.
-2. On the menu that appears, click `Admin` > `Dashboard`.
+2. On the menu that appears, select `Admin` > `Dashboard`.
 3. Then again on the left side menu go to `Server` > `Libraries`.
-4. Click "Add Media Library".
+4. Select "Add Media Library".
 5. The server will now add your new media. There will be a progress bar at the top of the page indicating its progress.
 
 ## Content

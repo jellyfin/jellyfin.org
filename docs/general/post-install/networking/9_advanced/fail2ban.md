@@ -4,7 +4,7 @@ title: fail2ban
 ---
 
 [Fail2ban](https://github.com/fail2ban/fail2ban) is an intrusion prevention software framework that protects computer servers from brute-force attacks.
-Fail2ban operates by monitoring log files (e.g. /var/log/auth.log, /var/log/apache/access.log, etc.) for selected entries and running scripts based on their content.
+Fail2ban operates by monitoring log files (for example, `/var/log/auth.log`, `/var/log/apache/access.log`, and other application log files) for selected entries and running scripts based on their content.
 
 Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force attacks on your machine.
 
@@ -12,7 +12,7 @@ Jellyfin produces logs that can be monitored by Fail2ban to prevent brute-force 
 
 - Jellyfin remotely accessible
 - Fail2ban installed and running
-- Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/` for desktop and `/config/log/` for docker containers.
+- Knowing where the logs for Jellyfin are stored: by default `/var/log/jellyfin/` for desktop and `/config/log/` for Docker containers.
 - Jellyfin log level set to `Info` (failed authentication entries are not logged at `Error`). This setting is can be found in `logging.json`
 
 ## Step one: create the jail
@@ -23,7 +23,7 @@ You need to create a jail for Fail2ban. If you're on Ubuntu and use nano as edit
 sudoedit /etc/fail2ban/jail.d/jellyfin.local
 ```
 
-Add this to the new file, replacing `/path_to_logs` with the path to the log files above, e.g. `/var/log/jellyfin/`:
+Add this to the new file, replacing `/path_to_logs` with the path to the log files above, for example, `/var/log/jellyfin/`:
 
 ```bash
 [jellyfin]
@@ -43,12 +43,14 @@ Save and exit nano.
 
 Jellyfin rotates logs daily and `fail2ban` cannot detect the newly created log files without service restart or config reload.
 
-To fix this you need a daily timer that `reloads` above fail2ban jellyfin jail whenever the logs are rotated at roughly around midnight.
+To fix this you need a daily timer that `reloads` above fail2ban Jellyfin jail whenever the logs are rotated at roughly around midnight.
 
 ```bash
 sudoedit /etc/systemd/system/fail2ban-jellyfin-reload.timer
 ```
+
 Add this to the new file:
+
 ```bash
 [Unit]
 Description=Reload Fail2Ban jellyfin jail daily
@@ -60,12 +62,15 @@ Persistent=true
 [Install]
 WantedBy=timers.target
 ```
+
 Save and exit nano.
 
 ```bash
 sudoedit /etc/systemd/system/fail2ban-jellyfin-reload.service
 ```
+
 Add this to the new file:
+
 ```bash
 [Unit]
 Description=Reload Fail2Ban jellyfin jail
@@ -74,6 +79,7 @@ Description=Reload Fail2Ban jellyfin jail
 Type=oneshot
 ExecStart=/usr/bin/fail2ban-client reload jellyfin
 ```
+
 Save and exit nano.
 
 Enable and start the service:
@@ -82,10 +88,9 @@ Enable and start the service:
 sudo systemctl enable --now fail2ban-jellyfin-reload.timer
 ```
 
-
 Note:
 
-1. If Jellyfin is running in a docker container, add the following to the `jellyfin.local` file:
+1. If Jellyfin is running in a Docker container, add the following to the `jellyfin.local` file:
 
    ```bash
    action = iptables-allports[name=jellyfin, chain=DOCKER-USER]
@@ -246,7 +251,7 @@ Replace `<upstream-server-ip>` with the actual IP address of your upstream serve
 
    Since you're using a proxy server, we need Jellyfin to output the correct IPs in logs for fail2ban to read.
 
-   Depending on your hosting setup, these IP ranges could be from internal Docker IPs, haproxy, or some other service.
+   Depending on your hosting setup, these IP ranges could be from internal Docker IPs, HAProxy, or some other service.
 
    Jellyfin accepts IPs with subnet masks such as `172.18.0.1/24`. You'll need a comma-separated list of these.
 

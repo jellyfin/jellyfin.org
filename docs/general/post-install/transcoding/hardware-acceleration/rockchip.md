@@ -43,7 +43,7 @@ Hardware accelerated HDR to SDR tone-mapping is **only** supported on **RK3588/3
 
 ## Select SoC/VPU Hardware
 
-RK3588/3588S is currently the most recommended SoC. In addition to common codecs, it also supports **10-bit H.264 (High10)** and **AV1 decoding**, and has an H.264/HEVC **encoding speed** of up to **1080p@480fps or 4k@120fps**. Older chips may be supported but we were unable to test, such as RK356x and RK33xx. They have fairly limited encoding resolution support, as well as lacking of hardware HDR tone-mapping support. Best to check the datasheet of Rockchip SoC before purchasing a new SBC for hardware acceleration.
+RK3588/3588S is currently the most recommended SoC. Along with common codecs, it also supports **10-bit H.264 (High10)** and **AV1 decoding**, and has an H.264/HEVC **encoding speed** of up to **1080p@480fps or 4k@120fps**. Older chips may be supported but we were unable to test, such as RK356x and RK33xx. They have fairly limited encoding resolution support, as well as lacking of hardware HDR tone-mapping support. Best to check the datasheet of Rockchip SoC before purchasing a new SBC for hardware acceleration.
 
 ### Transcode H.264
 
@@ -51,7 +51,7 @@ AVC / H.264 8-bit is still widely used due to its excellent compatibility. All R
 
 - **Decoding & Encoding H.264 8-bit** - Any Rockchip SoCs supporting RKMPP.
 
-- **Decoding H.264 10-bit** - Almost all Rockchip SoCs from RK33xx onwards.
+- **Decoding H.264 10-bit** - Most Rockchip SoCs from RK33xx onwards.
 
 ### Transcode HEVC
 
@@ -59,11 +59,11 @@ HEVC / H.265 remains the first choice for storing 4K 10-bit, HDR and Dolby Visio
 
 The HEVC support on Rockchip is complicated:
 
-- **Decoding HEVC 8-bit** - Almost all Rockchip SoCs from RK33xx onwards.
+- **Decoding HEVC 8-bit** - Most Rockchip SoCs from RK33xx onwards.
 
-- **Encoding HEVC 8-bit** - Almost all Rockchip SoCs from RK35xx onwards.
+- **Encoding HEVC 8-bit** - Most Rockchip SoCs from RK35xx onwards.
 
-- **Decoding HEVC 10-bit** - Almost all Rockchip SoCs from RK33xx onwards.
+- **Decoding HEVC 10-bit** - Most Rockchip SoCs from RK33xx onwards.
 
 ### Transcode AV1
 
@@ -103,7 +103,7 @@ A 64-bit Linux distribution is recommended. **The Rockchip BSP kernel (6.1 or 5.
 
 The `jellyfin-ffmpeg*` deb package required by Jellyfin comes with all necessary user mode Rockchip MPP & RGA drivers.
 
-Besides that you only need to install the OpenCL runtime (libmali) and configure the the device permissions.
+Besides that you only need to install the OpenCL runtime (libmali) and configure the device permissions.
 
 :::note
 
@@ -111,7 +111,7 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg8`.
+1. Assuming you have added the Jellyfin repository to your apt source list and installed the `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg8`.
 
 2. Make sure `dma_heap`, `dri`, `mpp_service` and `rga` exist in `/dev`. Otherwise upgrade your BSP kernel to 5.10 LTS and newer.
 
@@ -232,9 +232,9 @@ Root permission is required.
 
 #### LXC (Linux Containers)
 
-This setup might be useful for those, who use RK3588/3588S SoC as [Proxmox](https://www.proxmox.com/en/) host, where LXC is the official and the only supported way of doing lightweight virtualization with the help of system containers (LXC) vs application containers (docker). As of today Proxmox team does not support ARM platforms as hosts - and probably will never do - however successful deployments on ARM devices [are possible](https://github.com/jiangcuo/Proxmox-Port?tab=readme-ov-file).
+This setup might be useful for those, who use RK3588/3588S SoC as [Proxmox](https://www.proxmox.com/en/) host, where LXC is the official and the only supported way of doing lightweight virtualization with the help of system containers (LXC) vs application containers (Docker). As of today Proxmox team does not support ARM platforms as hosts - and probably will never do - however successful deployments on ARM devices [are possible](https://github.com/jiangcuo/Proxmox-Port?tab=readme-ov-file).
 
-LXC setup idea is a bit similar to docker - you need to pass the **device files** of VPU from host to LXC and enable the **privileged mode** (see also important "_note_" below about privileged LXC containers).
+LXC setup idea is a bit similar to Docker - you need to pass the **device files** of VPU from host to LXC and enable the **privileged mode** (see also important "_note_" below about privileged LXC containers).
 
 1. To find the list of device files to pass inside container, use the next one-liner in Linux host:
 
@@ -266,12 +266,12 @@ LXC setup idea is a bit similar to docker - you need to pass the **device files*
 
    :::warning
 
-   Privileged LXC containers are considered unsafe by design - read more [on the LXC official documentation](https://linuxcontainers.org/lxc/security/). This guide however does not cover steps required to make jellyfin VPU hardware acceleration working in unprivileged container.
+   Privileged LXC containers are considered unsafe by design - read more [on the LXC official documentation](https://linuxcontainers.org/lxc/security/). However, this guide does not cover the steps required to enable Rockchip VPU hardware acceleration for Jellyfin in an unprivileged container.
 
    :::
 
-2. Install supported [jellyfin package](https://jellyfin.org/docs/general/installation/linux) into LXC container or optionally you can even use an official docker image inside LXC container.
-3. Verify OpenCL runtime status as following - example is collected from LXC runtime of Ubuntu Jammy - steps are the same as docker deployments:
+2. Install supported [jellyfin package](https://jellyfin.org/docs/general/installation/linux) into LXC container or optionally you can even use an official Docker image inside LXC container.
+3. Verify OpenCL runtime status as following - example is collected from LXC runtime of Ubuntu Jammy - steps are the same as Docker deployments:
    - _libmali user-space drivers should be installed inside LXC container, otherwise opencl=ocl@rk device won't be initialized_
 
    ```shell

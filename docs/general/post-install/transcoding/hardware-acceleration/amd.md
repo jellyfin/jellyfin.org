@@ -130,9 +130,9 @@ Please refer to [this section](./known-issues.md#amd-on-windows) for known issue
 
    - Here you can find **[Remote Desktop Services > Remote Desktop Session Host > Remote Session Environment]**
 
-   - On the right side, double click the **[Use hardware graphics adapters for all Remote Desktop Services sessions]**
+   - On the right side, double-click on **[Use hardware graphics adapters for all Remote Desktop Services sessions]**
 
-   - Set **[Disabled]** in the pop-up dialog window and click **[OK]**, reboot the system.
+   - Set **[Disabled]** in the pop-up dialog window and select **[OK]**, reboot the system.
 
    ![Remote desktop GPU setup](/images/docs/hwa-gpedit-mstsc.png)
 
@@ -187,7 +187,7 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
+1. Assuming you have added the Jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
 
 2. Install the `jellyfin-ffmpeg8` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
@@ -300,7 +300,7 @@ Root permission is required.
 
 :::
 
-1. Install the Archlinux/extra [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package:
+1. Install the Arch Linux [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package from the `extra` repository:
 
    ```shell
    sudo pacman -Syu jellyfin-ffmpeg
@@ -369,7 +369,7 @@ Install other necessary Mesa driver packages and their dependencies that contain
 
 - Mesa libva vaapi driver - RadeonSI
 
-- Mesa vulkan driver - RADV
+- Mesa Vulkan driver - RADV
 
 ### Configure With Linux Virtualization
 
@@ -398,7 +398,7 @@ Root permission is required.
    getent group video | cut -d: -f3
    ```
 
-2. Use Docker command line **or** docker compose:
+2. Use Docker command line **or** Docker Compose:
    - Example command line:
 
      ```shell
@@ -451,9 +451,9 @@ Root permission is required.
 
 7. Enable VA-API in Jellyfin and uncheck the unsupported codecs.
 
-#### Linuxserver.io Docker
+#### LinuxServer.io Docker
 
-LSIO Docker images are maintained by [linuxserver.io](https://www.linuxserver.io/), please refer their docs from [GitHub - linuxserver/docker-jellyfin](https://github.com/linuxserver/docker-jellyfin).
+LSIO Docker images are maintained by [LinuxServer.io](https://www.linuxserver.io/), please refer their docs from [GitHub - linuxserver/docker-jellyfin](https://github.com/linuxserver/docker-jellyfin).
 
 :::note
 

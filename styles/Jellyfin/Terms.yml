@@ -1,0 +1,88 @@
+extends: substitution
+message: "Use '%s' instead of '%s' when referring to the product."
+level: warning
+ignorecase: true
+nonword: true
+scope: text & ~link
+vocab: false
+action:
+  name: replace
+
+# The spelling rule accepts command, package, and identifier forms such as
+# `ffmpeg`, `jellyfin-ffmpeg`, and `FFMPEGDIR`. This rule separately enforces
+# canonical brand names in prose. The boundaries exclude hyphenated package
+# names and identifiers; Vale excludes inline and fenced code. Link text is
+# excluded because labels often preserve lowercase repository or package names.
+# Keep brand tokens out of the active vocabulary because vocabulary entries
+# are global rule exceptions; add their tokens to Jellyfin.Spelling instead.
+swap:
+  '(?<![-\w])amd(?![-\w])': AMD
+  '(?<![-\w])anidb(?![-\w])': AniDB
+  '(?<![-\w])anilist(?![-\w])': AniList
+  '(?<![-\w])android(?![-\w])': Android
+  '(?<![-\w])apache(?![-\w])': Apache
+  '(?<![-\w])apple(?![-\w])': Apple
+  '(?<![-\w])arch[ -]?linux(?![-\w])': Arch Linux
+  '(?<![-\w])armbian(?![-\w])': Armbian
+  '(?<![-\w])asahi(?![-\w])': Asahi
+  '(?<![-\w])caddy(?![-\w])': Caddy
+  '(?<![-\w])certbot(?![-\w])': Certbot
+  '(?<![-\w])chrome(?![-\w])': Chrome
+  '(?<![-\w])chromecast(?![-\w])': Chromecast
+  '(?<![-\w])cloudflare(?![-\w])': Cloudflare
+  '(?<![-\w])debian(?![-\w])': Debian
+  '(?<![-\w])docker(?![-\w])': Docker
+  '(?<![-\w])docusaurus(?![-\w])': Docusaurus
+  '(?<![-\w])ffmpeg(?![-\w])': FFmpeg
+  '(?<![-\w])firefox(?![-\w])': Firefox
+  '(?<![-\w])freebsd(?![-\w])': FreeBSD
+  '(?<![-\w])github(?![-\w])': GitHub
+  '(?<![-\w])gitlab(?![-\w])': GitLab
+  '(?<![-\w])google(?![-\w])': Google
+  '(?<![-\w])haproxy(?![-\w])': HAProxy
+  '(?<![-\w])hdhomerun(?![-\w])': HDHomeRun
+  '(?<![-\w])intel(?![-\w])': Intel
+  '(?<![-\w])ios(?![-\w])': iOS
+  '(?<![-\w])jellyfin(?![-\w])': Jellyfin
+  '(?<![-\w])jetbrains(?![-\w])': JetBrains
+  '(?<![-\w])kodi(?![-\w])': Kodi
+  '(?<![-\w])kubernetes(?![-\w])': Kubernetes
+  "(?<![-\\w])let'?s[ -]?encrypt(?![-\\w])": Let's Encrypt
+  '(?<![-\w])linuxserver(?:[.]io)?(?![-\w])': LinuxServer.io
+  '(?<![-\w])macos(?![-\w])': macOS
+  '(?<![-\w])microsoft(?![-\w])': Microsoft
+  '(?<![-\w])mopidy(?![-\w])': Mopidy
+  '(?<![-\w])nginx(?![-\w])': nginx
+  '(?<![-\w])nvidia(?![-\w])': NVIDIA
+  '(?<![-\w])omdb(?![-\w])': OMDb
+  '(?<![-\w])open ?suse(?![-\w])': openSUSE
+  '(?<![-\w])plex(?![-\w])': Plex
+  '(?<![-\w])podman(?![-\w])': Podman
+  '(?<![-\w])powershell(?![-\w])': PowerShell
+  '(?<![-\w])proxmox(?![-\w])': Proxmox
+  '(?<![-\w])radeon(?![-\w])': Radeon
+  '(?<![-\w])raspbian(?![-\w])': Raspbian
+  '(?<![-\w])rockchip(?![-\w])': Rockchip
+  '(?<![-\w])roku(?![-\w])': Roku
+  '(?<![-\w])rpm[ -]?fusion(?![-\w])': RPM Fusion
+  '(?<![-\w])selinux(?![-\w])': SELinux
+  '(?<![-\w])safari(?![-\w])': Safari
+  '(?<![-\w])shoutcast(?![-\w])': Shoutcast
+  '(?<![-\w])swiftfin(?![-\w])': Swiftfin
+  '(?<![-\w])synology(?![-\w])': Synology
+  '(?<![-\w])tailscale(?![-\w])': Tailscale
+  '(?<![-\w])tmdb(?![-\w])': TMDB
+  '(?<![-\w])traefik(?![-\w])': Traefik
+  '(?<![-\w])truenas(?![-\w])': TrueNAS
+  '(?<![-\w])tvdb(?![-\w])': TVDB
+  '(?<![-\w])tvheadend(?![-\w])': Tvheadend
+  '(?<![-\w])tvos(?![-\w])': tvOS
+  '(?<![-\w])ubuntu(?![-\w])': Ubuntu
+  '(?<![-\w])videotoolbox(?![-\w])': VideoToolbox
+  '(?<![-\w])vue(?![-\w])': Vue
+  '(?<![-\w])vulkan(?![-\w])': Vulkan
+  '(?<![-\w])webos(?![-\w])': webOS
+  '(?<![-\w])webstorm(?![-\w])': WebStorm
+  '(?<![-\w])windows(?![-\w])': Windows
+  '(?<![-\w])wireguard(?![-\w])': WireGuard
+  '(?<![-\w])youtube(?![-\w])': YouTube

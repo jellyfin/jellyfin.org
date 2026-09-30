@@ -42,8 +42,8 @@ This section aims to provide an administrator with knowledge on what ports Jelly
 This section focusses on how to make Jellyfin Available within Networks.
 Here you will find descriptions on how to make Jellyfin accessible both only locally and through the Internet.
 
-In general, Jellyfin will be available locally on the specified port over the host-ip - e.g. `http://10.0.0.2:8096`.
-However its also possible to create a local DNS entry that will point to your Jellyfin-Server - e.g. `http://jellyfin.internal:8096`.
+In general, Jellyfin will be available locally on the specified port over the host-ip - for example, `http://10.0.0.2:8096`.
+However its also possible to create a local DNS entry that will point to your Jellyfin-Server - for example, `http://jellyfin.internal:8096`.
 
 <details>
 <summary>Learn more about limitations with local DNS</summary>
@@ -151,7 +151,7 @@ While Jellyfin supports HTTPS, it is strongly recommended to handle HTTPS termin
 
 ### Base URL
 
-Running Jellyfin with a path (e.g. `https://example.com/jellyfin`) is supported.
+Running Jellyfin with a path (for example, `https://example.com/jellyfin`) is supported.
 
 :::caution
 
@@ -163,12 +163,12 @@ The Base URL setting is a setting used to specify the URL prefix that your Jelly
 
 The entered value on the configuration page will be normalized to include a leading `/` if this is missing.
 
-This setting requires a server restart to change, in order to avoid invalidating existing paths until the administrator is ready.
+This setting requires a server restart to change, to avoid invalidating existing paths until the administrator is ready.
 
 There are three main caveats to this setting.
 
-1. When setting a new Base URL (i.e. from `/` to `/baseurl`) or changing a Base URL (i.e. from `/baseurl` to `/newbaseurl`), the Jellyfin web server will automatically handle redirects to avoid displaying users invalid pages. For instance, accessing a server with a Base URL of `/jellyfin` on the `/` path will automatically append the `/jellyfin` Base URL. However, entirely removing a Base URL (i.e. from `/baseurl` to `/`, an empty value in the configuration) will not - all URLs with the old Base URL path will become invalid and throw 404 errors. This should be kept in mind when removing an existing Base URL.
+1. When setting a new Base URL (that is, from `/` to `/baseurl`) or changing a Base URL (that is, from `/baseurl` to `/newbaseurl`), the Jellyfin web server will automatically handle redirects to avoid displaying users invalid pages. For instance, accessing a server with a Base URL of `/jellyfin` on the `/` path will automatically append the `/jellyfin` Base URL. However, entirely removing a Base URL (that is, from `/baseurl` to `/`, an empty value in the configuration) will not - all URLs with the old Base URL path will become invalid and throw 404 errors. This should be kept in mind when removing an existing Base URL.
 
-2. Client applications generally, for now, do not handle the Base URL redirects implicitly. Therefore, for instance in the Android TV app, the `Host` setting _must_ include the BaseURL as well (e.g. `http://myserver:8096/baseurl`), or the connection will fail.
+2. Client applications generally, for now, do not handle the Base URL redirects implicitly. Therefore, for instance in the Android TV app, the `Host` setting _must_ include the BaseURL as well (for example, `http://myserver:8096/baseurl`), or the connection will fail.
 
 3. Any reverse proxy configurations must be updated to handle a new Base URL. Generally, passing `/` back to the Jellyfin instance will work fine in all cases and the paths will be normalized, and this is the standard configuration in our examples. Keep this in mind however when doing more advanced routing.

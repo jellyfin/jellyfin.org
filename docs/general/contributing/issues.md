@@ -19,7 +19,7 @@ Please note that feature and enhancement requests should be directed towards [ou
 
 Before opening an issue, please [search the existing issues](https://github.com/jellyfin/jellyfin/issues?utf8=✓&q=is%3Aissue) to see if a similar problem or feature request has been reported. Duplicate issues clutter the repository and should be avoided.
 
-If you do find an issue that matches, or closely matches, your issue, please make use of the :+1: reaction to confirm the issue also affects you or that you support the feature request. If you wish, add a comment as well describing your version of the issue or feature use case.
+If you do find an issue that matches, or closely matches, your issue, please use the :+1: reaction to confirm the issue also affects you or that you support the feature request. If you wish, add a comment as well describing your version of the issue or feature use case.
 
 If the existing issue is closed, please read through it to see if the accepted workaround(s) apply to your case. If not, leave a comment and the issue will be reopened. Note that, since PRs go into `dev` first but releases are built from `master`, an issue's fix won't be immediately available in the official sources, but will be included in the next release.
 

@@ -27,7 +27,7 @@ Media segments are provided by plugins. In general, they include a `begin` and `
 
 ### Plugins
 
-Plugins can utilize this system to store their information about intros, outros, commercials and all other types of segments. This information can then be used by clients to provide actions, such as a "skip" button in their user interface. This approach generalizes how segments are handled, so more platforms can be easily supported, without custom modifications to clients.
+Plugins can use this system to store their information about intros, outros, commercials and all other types of segments. This information can then be used by clients to provide actions, such as a "skip" button in their user interface. This approach generalizes how segments are handled, so more platforms can be easily supported, without custom modifications to clients.
 
 There is an official `Chapter Segments Provider` plugin that creates media segments based on chapters and chapter-names.
 

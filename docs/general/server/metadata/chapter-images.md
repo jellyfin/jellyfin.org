@@ -15,9 +15,10 @@ Jellyfin stores the chapter images within the metadata directory, which should b
 
 ## Getting Started
 
-The feature is enabled per library. There are 2 ways to get to the library settings
+The feature is enabled per library. There are 2 ways to get to the library settings:
+
 1. When you add a new library, pick a video Content type, then navigate to "Chapter Images"
-2. Click the 3 dots of an existing library and then navigate to "Chapter Images"
+2. Select the 3 dots of an existing library and then navigate to "Chapter Images"
 
 ### Enable chapter image extraction
 
@@ -41,7 +42,7 @@ In the dashboard, you can configure other behaviours of the chapter image featur
 
 This creates dummy chapters at a given interval (0 will disable dummy chapters) if no chapters are detected in the media file. The value is in seconds.
 
-:::note 
+:::note
 
 Not recommended to use small values here. Small intervals could slow down video playback as Jellyfin's webUI video player will try to render all the chapters on the timeline.
 

@@ -5,7 +5,7 @@ title: IPBan
 
 [IPBan](https://github.com/DigitalRuby/IPBan) is an intrusion prevention much like fail2ban, but multi-platform
 
-Install with one command on windows (elevated powershell prompt)
+Install with one command on Windows (elevated PowerShell prompt)
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/DigitalRuby/IPBan/master/IPBanCore/Windows/Scripts/install_latest.ps1'))

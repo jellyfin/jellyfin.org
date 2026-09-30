@@ -79,7 +79,7 @@ Do not use models of Intel processors ending with "F" - those do not have an int
 
 :::
 
-Quick Sync Video support can be checked via the [Intel ark website](https://ark.intel.com/content/www/us/en/ark.html) prior to buying a new GPU suitable for hardware acceleration.
+Quick Sync Video support can be checked via the [Intel ark website](https://ark.intel.com/content/www/us/en/ark.html) before buying a new GPU suitable for hardware acceleration.
 
 ### Transcode H.264
 
@@ -222,9 +222,9 @@ Please refer to [this section](/docs/general/post-install/transcoding/hardware-a
 
    - Here you can find **[Remote Desktop Services > Remote Desktop Session Host > Remote Session Environment]**
 
-   - On the right side, double click the **[Use hardware graphics adapters for all Remote Desktop Services sessions]**
+   - On the right side, double-click on **[Use hardware graphics adapters for all Remote Desktop Services sessions]**
 
-   - Set **[Disabled]** in the pop-up dialog window and click **[OK]**, reboot the system.
+   - Set **[Disabled]** in the pop-up dialog window and select **[OK]**, reboot the system.
 
    ![Remote desktop GPU setup](/images/docs/hwa-gpedit-mstsc.png)
 
@@ -275,7 +275,7 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`, if you choose to use vanilla ffmpeg, instead of jellyfin-ffmpeg, you will need to install the following [intel packages](https://github.com/intel/media-driver/wiki).
+1. Assuming you have added the Jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`, if you choose to use vanilla FFmpeg, instead of jellyfin-ffmpeg, you will need to install the following [intel packages](https://github.com/intel/media-driver/wiki).
 
    :::note
    If you are running Debian, you will need to add "non-free" to your apt config.
@@ -319,7 +319,7 @@ Root permission is required.
    sudo systemctl restart jellyfin
    ```
 
-5. Check the version of `intel-opencl-icd` thats the Linux distro provides:
+5. Check the version of `intel-opencl-icd` that the Linux distro provides:
 
    :::note
 
@@ -395,7 +395,7 @@ Root permission is required.
 
 :::
 
-1. Install the Archlinux/extra [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package:
+1. Install the Arch Linux [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package from the `extra` repository:
 
    ```shell
    sudo pacman -Syu jellyfin-ffmpeg
@@ -489,7 +489,7 @@ What you need to do is pass the host's `render` group id to Docker and modify th
    getent group render | cut -d: -f3
    ```
 
-2. Use docker command line **or** docker compose:
+2. Use Docker command line **or** Docker compose:
    - Example command line:
 
      ```shell
@@ -542,7 +542,7 @@ What you need to do is pass the host's `render` group id to Docker and modify th
 
 7. Enable QSV or VA-API in Jellyfin and uncheck the unsupported codecs.
 
-#### Linuxserver.io Docker
+#### LinuxServer.io Docker
 
 LSIO Docker images are maintained by [linuxserver.io](https://www.linuxserver.io/), please refer their docs from [GitHub - linuxserver/docker-jellyfin](https://github.com/linuxserver/docker-jellyfin).
 
@@ -643,13 +643,13 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
 
 #### LXC On Proxmox
 
-1. Make sure your GPU is available as a DRI render device on the Proxmox host, e.g. `/dev/dri/renderD128`.
+1. Make sure your GPU is available as a DRI render device on the Proxmox host, for example, `/dev/dri/renderD128`.
    If not, [install the necessary drivers](#debian-and-ubuntu-linux) on the host.
 
 2. **Proxmox VE 8 or Newer**:
 
    Setup a `Device Passthrough` for the render device via the `Resources` section of the web interface.
-   Be sure to set the correct GID via the advanced options of the dialog, e.g. `989` for the `render` group.
+   Be sure to set the correct GID via the advanced options of the dialog, for example, `989` for the `render` group.
    GIDs can be looked up in `/etc/group` inside the LXC.
 
    :::note
@@ -685,7 +685,7 @@ This has been tested with LXC 3.0 and may or may not work with older versions.
 
 3. Restart your container and [install the required drivers in your container](#configure-on-linux-host).
 
-4. Add the `jellyfin` user to the group you chose in Step 2, i.e. the group that owns the DRI render device inside the LXC.
+4. Add the `jellyfin` user to the group you chose in Step 2, that is, the group that owns the DRI render device inside the LXC.
 
 5. Configure Jellyfin to use QSV or VA-API acceleration and change the default GPU `renderD128` if necessary.
 
@@ -767,7 +767,7 @@ More detail information about Intel video hardware can be found [on the Intel me
 
 :::note
 
-Gen X refers to [Intel graphics architecture](https://en.wikipedia.org/wiki/Intel_Graphics_Technology) instead of the CPU generation. (i.e. Gen 9 graphics ≠ 9th Gen processors)
+Gen X refers to [Intel graphics architecture](https://en.wikipedia.org/wiki/Intel_Graphics_Technology) instead of the CPU generation. (that is, Gen 9 graphics ≠ 9th Gen processors)
 
 :::
 
@@ -812,7 +812,8 @@ Root permission is required.
      sudo apt update && sudo apt install -y firmware-intel-graphics
      ```
 
-     Or, if you're on an older debian version :
+     Or, if you're on an older Debian version :
+
      ```shell
      sudo apt update && sudo apt install -y firmware-linux-nonfree
      ```

@@ -26,4 +26,4 @@ sidebar_position: 1
 
 1. Go to [Add or remove programs](https://support.microsoft.com/en-us/windows/uninstall-or-remove-apps-and-programs-in-windows-4b55f974-2cc6-2d2b-d092-5905080eaf98) in Windows settings.
 2. Search for Jellyfin.
-3. Click Uninstall.
+3. Select Uninstall.

@@ -9,7 +9,7 @@ User management can be done under `Users` in the `Dashboard`. Here you can see y
 
 ## Adding a User
 
-To add a new user, click the `+` symbol at the top of the page. This will open a new page where you can enter the user's name as it will be either displayed on or has to be typed into login screen. By default, this will be displayed, but this can be changed at any point by modifying the user, explained further down.
+To add a new user, select the `+` symbol at the top of the page. This will open a new page where you can enter the user's name as it will be either displayed on or has to be typed into login screen. By default, this will be displayed, but this can be changed at any point by modifying the user, explained further down.
 
 ### Manage User Library Access
 
@@ -17,11 +17,11 @@ By default, the `enables access to all libraries` option will be enabled, disabl
 
 ## Manage a User
 
-To manage a user either click on their portrait to go straight to their `Profile` tab, or click the `...` symbol inside that user's portrait. The later will open a small submenu with the options `Open` `Library access` `Parental control`, and `delete`. Except for delete, which does the obvious, these options will lead to different tabs but are otherwise all on the same page. `Open` corresponds to the Profile tab, `Library access` to access, `Parental control` to Parental Control, and there is an additional fourth tab `Password` for Password control. Changes to any option on any of these tabs need to be saved using `Save` at the bottom of the page.
+To manage a user either select their portrait to go straight to their `Profile` tab, or select the `…` symbol inside that user's portrait. The later will open a small submenu with the options `Open` `Library access` `Parental control`, and `delete`. Except for delete, which does the obvious, these options will lead to different tabs but are otherwise all on the same page. `Open` corresponds to the Profile tab, `Library access` to access, `Parental control` to Parental Control, and there is an additional fourth tab `Password` for Password control. Changes to any option on any of these tabs need to be saved using `Save` at the bottom of the page.
 
 ### Profile
 
-Directly under the tabs you have a link to `Edit this user's profile, image and personal preferences.` Clicking that allows you to change the user's personal settings, any setting here can be changed by both user and admin.
+Directly under the tabs you have a link to `Edit this user's profile, image and personal preferences.` Selecting that allows you to change the user's personal settings, any setting here can be changed by both user and admin.
 
 Under `name` you can change the user's name as it will be either displayed on or has to be typed into login screen.
 

@@ -9,7 +9,7 @@ Version 2.0
 
 ## Basics
 
-1. You **shall** abide by our [Community Standards](/docs/general/community-standards) at all times.
+1. You **shall** always abide by our [Community Standards](/docs/general/community-standards).
 
 2. You **shall not** do any of the following things:
 
@@ -18,7 +18,7 @@ Version 2.0
    - Post offensive, sexual, or otherwise inappropriate content - keep it "Safe For Work" in all channels.
    - Discuss media acquisition or related tools, regardless of its legality. Where your media comes from or how to get it is none of our or our community's business.
    - Spam the chat rooms in any way, including but not limited to Telegram short links and Self advertisement.
-   - Post verbatim replies from "AI" Chat systems (e.g. ChatGPT) as answers.
+   - Post verbatim replies from "AI" Chat systems (for example, ChatGPT) as answers.
    - Engage in the discussion of media acquisition or related tools, regardless of its legality. Please note that this is different from what is allowed on the [forum](https://forum.jellyfin.org).
 
 3. Your username and profile fields **shall** be appropriate with respect to our above standards and **shall not** contain swearing, slurs, piracy, or attempts to impersonate others.
