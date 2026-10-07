@@ -121,6 +121,14 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
       'YouTube Metadata': 'https://github.com/ankenyr/jellyfin-youtube-metadata-plugin',
       'Smart Playlist': 'https://github.com/ankenyr/jellyfin-smartplaylist-plugin'
     }
+  },
+  {
+    id: 'gh:magnetgrouplabs/jellyfin-plugin-themesongs-12',
+    name: "magnetgrouplabs's Theme Songs 12 Repo",
+    url: 'https://raw.githubusercontent.com/magnetgrouplabs/jellyfin-plugin-themesongs-12/master/manifest.json',
+    includes: {
+      'Theme Songs 12': 'https://github.com/magnetgrouplabs/jellyfin-plugin-themesongs-12'
+    }
   }
 ];
 
