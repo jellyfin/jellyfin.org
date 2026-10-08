@@ -456,11 +456,11 @@ You can customize limits on the CPU and memory allocated to the container Jellyf
 
 - **CPUs** expects a value in **number of threads** to assign as a max CPU thread limit.
   - You should set this option to the number of threads your CPU contains.
-  - [Refer here for reasonable CPU limits based on your SCALE server's CPU](/docs/general/administration/hardware-selection#cpu)
+  - [Refer here for reasonable CPU limits based on your SCALE server's CPU](/docs/general/administration/hardware-selection/advanced#cpu)
 - **Memory (in MB)** expects a value in **megabytes**.
   - The default is **4096** which means the container will be limited to 4GB of RAM usage.
   - To calculate a value in gigabytes, use this formula where **X** is a number in MB: `X * 1024`
-  - [Refer here for sensible RAM limits for your Jellyfin server](/docs/general/administration/hardware-selection#system-memory-ram)
+  - [Refer here for sensible RAM limits for your Jellyfin server](/docs/general/administration/hardware-selection/advanced#system-memory-ram)
 - The max limit you can assign to either limit depends on your SCALE server's specs.
 
 For the GPU Configuration, check the **Passthrough available (non-NVIDIA) GPUs** option if you need to pass a GPU device for hardware acceleration use with Jellyfin.
