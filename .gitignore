@@ -7,6 +7,8 @@
 # Generated files
 .docusaurus
 .cache-loader
+/styles/Microsoft/
+/styles/Std/
 
 # Misc
 .DS_Store

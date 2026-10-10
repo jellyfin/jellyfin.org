@@ -34,7 +34,7 @@ However we still recommend performing the backup process during a time of low ac
 
 To take a new Backup, enter the Jellyfin Dashboard, open the `Backups` tab and click on the `Create Backup` button. The popup will now ask you to select what data you want to backup.
 
-- Database. Always enabled. Will contain all data from the jellyfin.db or used database provider.
+- Database. Always enabled. Will contain all data from `jellyfin.db` or used database provider.
 - Metadata. The contents of the metadata folder and depending on your selected options may contain metadata images.
 - Subtitles. All extracted subtitles including downloaded ones.
 - Trickplay. All Trickplay data that is stored not alongside media.
@@ -45,24 +45,24 @@ The Backup folder is located within your Jellyfin data directory, by default:
 - Official Docker: `<volume path>/config/data/backups` where `<volume path>` is where your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
 - LinuxServer.io Docker: `<volume path>/config/data/data/backups` where `<volume path>` is where your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`.
 - Debian/Ubuntu packages: `/var/lib/jellyfin/data/backups`.
-- RPMFusion Fedora/CentOS packages: `/var/lib/jellyfin/data/backups`.
+- RPM Fusion Fedora/CentOS packages: `/var/lib/jellyfin/data/backups`.
 - Windows User Install: `%LOCALAPPDATA%\Jellyfin\data\backups` (`C:\Users\<Username>\AppData\Local\Jellyfin\data\backups`)
 - Windows Service Install: `%PROGRAMDATA%\Jellyfin\Server\data\backups` (`C:\ProgramData\Jellyfin\Server\data\backups`)
-- MacOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/data/backups`, `~/.local/share/jellyfin/data/backups`, `~/Library/Application Support/Jellyfin/data/backups`:
+- macOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/data/backups`, `~/.local/share/jellyfin/data/backups`, `~/Library/Application Support/Jellyfin/data/backups`:
 - Portable Installs:
   - Linux: Data is stored in `~/.local/share/jellyfin/data/backups`.
   - Windows: Data and config is in `C:\Users\<Username>\AppData\Local\jellyfin\data\backups`, using `%LOCALAPPDATA%`.
-  - MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/data/backups`, `~/.local/share/jellyfin/data/backups`, `~/Library/Application Support/Jellyfin/data/backups`.
+  - macOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/data/backups`, `~/.local/share/jellyfin/data/backups`, `~/Library/Application Support/Jellyfin/data/backups`.
 
 After clicking on the `Create` button all data will be written into a new zip archive.
 
 ### Restore from a Built-in Backup
 
-To restore from a Backup you can either use the webUI by navigating to the same view as for the step above and clicking on the restore button in the list of backups, or you can start jellyfin with the `--restore-archive PATH_TO_BACKUP_ZIP` argument. Note that when you start a restore from the webUI, your server will immediately restart for this process to take place and will be unavailable for that time.
+To restore from a Backup you can either use the webUI by navigating to the same view as for the step above and clicking on the restore button in the list of backups, or you can start Jellyfin with the `--restore-archive PATH_TO_BACKUP_ZIP` argument. Note that when you start a restore from the webUI, your server will immediately restart for this process to take place and will be unavailable for that time.
 
 ## Manual Backup
 
-Taking a manual Backup essentially involves you copying all the data jellyfin requires on your own.
+Taking a manual Backup essentially involves you copying all the data Jellyfin requires on your own.
 
 ### Create a Manual Backup
 
@@ -71,7 +71,7 @@ Taking a manual Backup essentially involves you copying all the data jellyfin re
    - Docker: `docker stop jellyfin`
    - Debian/Ubuntu packages: `sudo systemctl stop jellyfin` or `sudo service jellyfin stop`
    - Windows Installer: Right-click the Tray app, and select "Quit"; or, in Process Manager, find the Jellyfin process and terminate it.
-   - MacOS Installer (.dmg): In Activity Monitor, find the Jellyfin process and terminate it.
+   - macOS Installer (.dmg): In Activity Monitor, find the Jellyfin process and terminate it.
    - Portable Installs (regardless of platform): Stop the running `jellyfin` or `jellyfin.exe` program, however it was started.
 
 2. Copy your data and configuration directories to a destination of your choice. What you name the copies is up to you; personally, I like to use dated and versioned directory names e.g. `jellyfin.2024-05-01_10.8.13`. Where these files are also depends on the platform; generally these follow the [XDG Directory Specification](https://specifications.freedesktop.org/basedir-spec/latest/) for platforms that support it. For more information see [the configuration documentation](/docs/general/administration/configuration/#server-paths).
@@ -80,13 +80,13 @@ Taking a manual Backup essentially involves you copying all the data jellyfin re
    - Official Docker: The data directory is wherever your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`. This directory contains the config directory as well.
    - LinuxServer.io Docker: The config directory is wherever your `/config` volume is sourced from; this is set in your `docker-compose.yml` or in your `-v` options to `docker run`. This directory contains the data directory as well.
    - Debian/Ubuntu packages: The data directory is `/var/lib/jellyfin` and the config directory is `/etc/jellyfin`; these are defined in `/etc/default/jellyfin`.
-   - RPMFusion Fedora/CentOS packages: The data directory is `/var/lib/jellyfin` and the config directory is `/etc/jellyfin`; these are defined in `/etc/sysconfig/jellyfin`.
+   - RPM Fusion Fedora/CentOS packages: The data directory is `/var/lib/jellyfin` and the config directory is `/etc/jellyfin`; these are defined in `/etc/sysconfig/jellyfin`.
    - Windows Tray/Installer (.exe): The data directory is `%PROGRAMDATA%\Jellyfin\Server` (`C:\ProgramData\Jellyfin\Server`) or `%LOCALAPPDATA%\Jellyfin` (`C:\Users\<Username>\AppData\Local\Jellyfin`). This directory contains the config directory as well.
-   - MacOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
+   - macOS Installer (.dmg): Data is stored in one of these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
    - Portable Installs:
      - Linux: The data and config directories are both `~/.local/share/jellyfin`.
      - Windows: The data directory is `%LOCALAPPDATA%\jellyfin` (`C:\Users\<Username>\AppData\Local\jellyfin`). This directory contains the config directory as well.
-     - MacOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
+     - macOS: Data is stored in these paths; back up whichever one(s) exist: `~/.config/jellyfin/`, `~/.local/share/jellyfin/`, `~/Library/Application Support/Jellyfin/`.
 
    As an example, on Debian, you can do this with these commands to make a copy of both directories into a single target directory:
 

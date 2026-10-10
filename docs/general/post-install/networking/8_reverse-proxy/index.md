@@ -54,8 +54,8 @@ While not a reverse proxy, Let's Encrypt can be used independently or with a rev
 
 When following these guides, be sure to replace the following variables with your information.
 
-- `DOMAIN_NAME`: Your public domain name to access Jellyfin on (e.g. jellyfin.example.com)
-- `example.com`: The domain name Jellyfin services will run under (e.g. example.com)
+- `DOMAIN_NAME`: Your public domain name to access Jellyfin on (e.g. `jellyfin.example.com`)
+- `example.com`: The domain name Jellyfin services will run under (e.g. `example.com`)
 - `SERVER_IP_ADDRESS`: The IP address of your Jellyfin server (if the reverse proxy is on the same server use 127.0.0.1)
 
 In addition, the examples are configured for use with Let's Encrypt certificates. If you have a certificate from another source, change the SSL configuration from `/etc/letsencrypt/DOMAIN_NAME/` to the location of your certificate and key.

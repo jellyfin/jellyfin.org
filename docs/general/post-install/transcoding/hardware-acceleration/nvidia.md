@@ -168,7 +168,7 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
+1. Assuming you have added the Jellyfin repository to your apt source list and installed the `jellyfin-server` and `jellyfin-web`.
 
 2. Install the `jellyfin-ffmpeg8` package. Remove the deprecated `jellyfin` meta package if it breaks the dependencies:
 
@@ -230,7 +230,7 @@ Root permission is required.
 
 :::
 
-1. Install the Archlinux/extra [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package:
+1. Install the [`jellyfin-ffmpeg`](https://archlinux.org/packages/extra/x86_64/jellyfin-ffmpeg/) package from Arch Linux's `extra` repository:
 
    ```shell
    sudo pacman -Syu jellyfin-ffmpeg
@@ -398,7 +398,7 @@ Note that the official Jellyfin Docker image already sets the required environme
 
 :::
 
-#### Linuxserver.io Docker
+#### LinuxServer.io Docker
 
 LSIO Docker images are maintained by [linuxserver.io](https://www.linuxserver.io/), please refer their docs from [GitHub - linuxserver/docker-jellyfin](https://github.com/linuxserver/docker-jellyfin).
 
@@ -442,9 +442,9 @@ The paths of Jellyfin config and data folders in the official and LSIO Docker im
 
    See: [Support for Container Device Interface — NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html)
 
-4. Adapt your podman commandline or systemd container file to use the device: `nvidia.com/gpu=0`
+4. Adapt your Podman commandline or systemd container file to use the device: `nvidia.com/gpu=0`
 
-   For example, your podman commandline should now look like this:
+   For example, your Podman commandline should now look like this:
 
    ```sh
    podman run \

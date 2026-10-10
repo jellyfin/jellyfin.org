@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD041 -->
 
-[Docker](https://www.docker.com/) allows you to run containers on Linux, Windows and MacOS.
+[Docker](https://www.docker.com/) allows you to run containers on Linux, Windows and macOS.
 
 The basic steps to create and run a Jellyfin container using Docker are as follows.
 

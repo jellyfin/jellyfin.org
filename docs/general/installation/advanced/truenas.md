@@ -149,12 +149,16 @@ services:
     <tbody>
       <tr>
         <td>container_name</td>
+        <!-- vale Jellyfin.Terms = NO -->
         <td>`"jellyfin"`</td>
+        <!-- vale Jellyfin.Terms = YES -->
         <td>The name of your Docker container.</td>
       </tr>
       <tr>
         <td>image</td>
+        <!-- vale Jellyfin.Terms = NO -->
         <td>`ghcr.io/jellyfin/jellyfin:latest`</td>
+        <!-- vale Jellyfin.Terms = YES -->
         <td>The Docker image to use for the container.</td>
       </tr>
       <tr>
@@ -185,7 +189,9 @@ services:
       <tr>
         <td>ports</td>
         <td>`host-port:container-port`</td>
+        <!-- vale Jellyfin.Terms = NO -->
         <td>Forward the host port to the container port. Refer to the TrueNAS [**default port list**](https://www.truenas.com/docs/references/defaultports/) for a list of assigned port numbers.</td>
+        <!-- vale Jellyfin.Terms = YES -->
       </tr>
       <tr>
         <td>cpus</td>
@@ -204,7 +210,9 @@ services:
       </tr>
       <tr>
         <td>volumes</td>
+        <!-- vale Jellyfin.Terms = NO -->
         <td>`/mnt/tank/jellyfin/my-config-dataset:/config:rw`</td>
+        <!-- vale Jellyfin.Terms = YES -->
         <td>Host mount paths on the host system onto the container</td>
       </tr>
     </tbody>
@@ -378,7 +386,7 @@ You can select **iXvolume (Dataset created automatically by the system)** to cre
 
 Mounting an SMB share allows data synchronization between the share and the app.
 The SMB share mount does not include ACL protections at this time. Permissions are currently limited to the permissions of the user that mounted the share.
-Alternate data streams (metadata), finder colors tags, previews, resource forks, and MacOS metadata are stripped from the share along with filesystem permissions, but this functionality is undergoing active development and implementation planned for a future TrueNAS SCALE release.
+Alternate data streams (metadata), finder colors tags, previews, resource forks, and macOS metadata are stripped from the share along with filesystem permissions, but this functionality is undergoing active development and implementation planned for a future TrueNAS SCALE release.
 
 - Note that if you want to take advantage of Jellyfin's built-in feature of **real-time media scanning**, you need to mount your media directly with a **Host Path** as SMB connections do not support this feature.
 
@@ -528,7 +536,7 @@ You can also pull new images to use in the future.
 You can choose to pull from Jellyfin's [Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin) or [GitHub Container Registry](https://github.com/jellyfin/jellyfin/pkgs/container/jellyfin).
 
 - To pull from Docker Hub, use: `jellyfin/jellyfin`
-- To pull from from GHCR, use: `ghcr.io/jellyfin/jellyfin`
+- To pull from GHCR, use: `ghcr.io/jellyfin/jellyfin`
 - [You can check this blog post for more info about GHCR:](/posts/jellyfin-release-10.9.0#key-release-notesbreaking-changes)
   - "Docker users: We now offer GitHub Container Registry (GHCR) as an alternative container registry in addition to Docker Hub. You can pull images from the new registry via URIs like `ghcr.io/jellyfin/jellyfin:latest`. Don't worry, we have no plans to drop Docker Hub as a container registry, but we feel providing both gives users more choice and flexibility."
 - Also check out [this forum post](https://forum.jellyfin.org/t-new-jellyfin-server-web-release-10-9-6?pid=25895#pid25895) about how Docker image tags can be used.

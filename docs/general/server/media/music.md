@@ -113,7 +113,7 @@ Jellyfin supports most common music formats, with some exceptions:
 
 :::tip Alternate containers
 
-Problematic files can be remuxed to `.mka` containers with ffmpeg with this command:
+Problematic files can be remuxed to `.mka` containers with FFmpeg with this command:
 
 ```sh
 ffmpeg -i <Input File> -c:a copy <Output File>.mka

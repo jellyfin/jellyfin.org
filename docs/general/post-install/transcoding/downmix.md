@@ -13,11 +13,11 @@ Algorithms used to downmix multi-channel audio to stereo. Each algorithm has its
 
 ### None
 
-Don't use any custom algorithm; instead, use ffmpeg's built-in channel downmixing system. This is the default and safest setting. It guarantees that as long as the input channel layout is supported by ffmpeg, it will always find a way to downmix it to stereo output. A common misconception is that this mode just discards all other channels, which is incorrect. ffmpeg has its own mechanism to build a downmixing matrix and will apply that when possible. When other custom algorithms cannot support the input layout, Jellyfin will fallback to this mode.
+Don't use any custom algorithm; instead, use FFmpeg's built-in channel downmixing system. This is the default and safest setting. It guarantees that as long as the input channel layout is supported by FFmpeg, it will always find a way to downmix it to stereo output. A common misconception is that this mode just discards all other channels, which is incorrect. FFmpeg has its own mechanism to build a downmixing matrix and will apply that when possible. When other custom algorithms cannot support the input layout, Jellyfin will fallback to this mode.
 
 **Strengths:**
 
-- Supports all channel layouts that ffmpeg can handle.
+- Supports all channel layouts that FFmpeg can handle.
 - Produces satisfactory mixing results for most use cases.
 
 **Weaknesses:**
@@ -82,4 +82,4 @@ A standardized downmixing algorithm originally created for AC-4 audio, defined i
 
 ## Audio boost when downmixing
 
-This option applies a volume gain in normalized ratio when performing a stereo downmix. The valid range is 0.5 to 3. A value of 1 means the original volume level is maintained, while a value of 2 means the volume is increased to 200%. The default value is 2, which is suitable for the default ffmpeg built-in downmixing. If you change the downmix algorithm, remember to adjust this value accordingly, as different algorithms produce different volume levels. Reduce this value to 1 if you're unsure, and increase it if the result is too quiet.
+This option applies a volume gain in normalized ratio when performing a stereo downmix. The valid range is 0.5 to 3. A value of 1 means the original volume level is maintained, while a value of 2 means the volume is increased to 200%. The default value is 2, which is suitable for the default FFmpeg built-in downmixing. If you change the downmix algorithm, remember to adjust this value accordingly, as different algorithms produce different volume levels. Reduce this value to 1 if you're unsure, and increase it if the result is too quiet.

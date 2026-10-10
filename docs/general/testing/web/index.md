@@ -53,7 +53,7 @@ Below is a list of things to prepare before testing Jellyfin web clients.
 - (Optional) A text editor or web IDE to make changes during testing, eg. [VSCode](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/), [Jetbrains Webstorm](https://www.jetbrains.com/webstorm/).
 
 :::note
-Installing Github CLI or Github Desktop will automatically install Git on the system.
+Installing GitHub CLI or GitHub Desktop will automatically install Git on the system.
 :::
 
 ### Obtaining source code

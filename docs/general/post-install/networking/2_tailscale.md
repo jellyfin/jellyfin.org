@@ -6,7 +6,7 @@ sidebar-position: 3
 
 # Tailscale
 
-[Tailscale](https://tailscale.com) is a VPN based on Wireguard which offers easy configuration and high performance. It provides an effective alternative in situations where opening ports is undesirable or not feasible, such as when the network is behind a carrier-grade NAT (CGNAT), or if your ISP blocks incoming traffic on certain ports.
+[Tailscale](https://tailscale.com) is a VPN based on WireGuard which offers easy configuration and high performance. It provides an effective alternative in situations where opening ports is undesirable or not feasible, such as when the network is behind a carrier-grade NAT (CGNAT), or if your ISP blocks incoming traffic on certain ports.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Setup on server:
 Setup on clients:
 
 1. Install the Tailscale app on the client device. Instructions are available in [Tailscale's official install guide](https://tailscale.com/kb/1347/installation)
-2. Login to the Tailscale client and connect to the tailnet. On Windows and macOS that can be done through the icon in the system tray. On Linux that can be done with the command `sudo tailscale up`. On mobile devices that can be done through the tailscale app.
+2. Login to the Tailscale client and connect to the tailnet. On Windows and macOS that can be done through the icon in the system tray. On Linux that can be done with the command `sudo tailscale up`. On mobile devices that can be done through the Tailscale app.
 3. Type in the server IP from above into your browser or Jellyfin client of choice and connect. (e.g. 100.12.34.56:8096)
 
 ## Using Tailscale with a reverse proxy
@@ -52,7 +52,7 @@ Setup on Jellyfin server:
 Setup on reverse proxy server:
 
 1. Install the Tailscale app on the client device. Instructions are available in [Tailscale's official install guide](https://tailscale.com/kb/1347/installation)
-2. Login to the tailscale client and connect to the tailnet. On Linux this can be done with the command `sudo tailscale up`
+2. Login to the Tailscale client and connect to the tailnet. On Linux this can be done with the command `sudo tailscale up`
 3. Setup a reverse proxy of your choice and set the upstream server to the IP from above. Example [Caddy](./reverse-proxy/caddy) configuration: (Assuming server has Tailscale IP of 100.12.34.56)
 
    ```txt

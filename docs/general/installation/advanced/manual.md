@@ -62,10 +62,10 @@ sidebar_position: 3
 
 1. Download the latest version of Jellyfin.
 2. Extract it into the Applications folder.
-3. Open Terminal and type `cd` followed with a space then drag the jellyfin folder into the terminal.
+3. Open Terminal and type `cd` followed with a space then drag the Jellyfin folder into the terminal.
 4. Type `xattr -rd com.apple.quarantine .` to remove the quarantine flag.
 5. Type `codesign -fs - --deep jellyfin` to create an ad-hoc signature for the server.
-6. Type `./jellyfin` to run jellyfin.
+6. Type `./jellyfin` to run Jellyfin.
 7. Open your browser at [http://localhost:8096](http://localhost:8096).
 
 Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmux can prevent this from happening.
@@ -75,10 +75,10 @@ Closing the terminal window will end Jellyfin. Running Jellyfin in screen or tmu
 1. Download the latest version.
 2. Stop the currently running server either via the dashboard or using `CTRL+C` in the terminal window.
 3. Extract the latest version into Applications
-4. Open Terminal and type `cd` followed with a space then drag the jellyfin folder into the terminal.
+4. Open Terminal and type `cd` followed with a space then drag the Jellyfin folder into the terminal.
 5. Type `xattr -rd com.apple.quarantine .` to remove the quarantine flag.
 6. Type `codesign -fs - --deep jellyfin` to create an ad-hoc signature for the server.
-7. Type `./jellyfin` to run jellyfin.
+7. Type `./jellyfin` to run Jellyfin.
 8. Open your browser at [http://localhost:8096](http://localhost:8096)
 
 ### Uninstalling the Portable macOS Version
@@ -112,7 +112,7 @@ Generic `amd64`, `arm64`, and `armhf` Linux builds in TAR archive format are ava
 
 ### Base Installation Process
 
-Create a directory in `/opt` for jellyfin and its files, and enter that directory.
+Create a directory in `/opt` for Jellyfin and its files, and enter that directory.
 
 ```sh
 sudo mkdir /opt/jellyfin

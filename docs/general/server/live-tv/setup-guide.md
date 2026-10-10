@@ -101,9 +101,9 @@ The list of physical channels will be displayed. Click the pencil icon to the ri
 
 The guide data will now automatically import. You can check that the data has been imported correctly by going to the 'Live TV Guide' page from the main Jellyfin web page on your server.
 
-## Integrating TVHeadend without a plugin
+## Integrating Tvheadend without a plugin
 
-It's possible to use TVHeadend with Jellyfin through as an M3U/XMLTV integrations. 
+It's possible to use Tvheadend with Jellyfin through as an M3U/XMLTV integrations.
 This integration requires more CPU processing, and the plugin is therefore recommended.
 This approach can be used as a backup when the plugin does not work.
 

@@ -2,6 +2,7 @@
 uid: jellyfin-vue
 title: Jellyfin Vue
 ---
+
 import Link from '@docusaurus/Link';
 
 # Jellyfin Vue
@@ -67,7 +68,7 @@ services:
     restart: on-failure
 ```
 
-<Link id="why-updates-needed"/>
+<Link id='why-updates-needed' />
 
 :::success
 Getting things up and running is as easy as doing `docker compose up -d` with your terminal
@@ -78,8 +79,8 @@ With this compose file:
 
 - Jellyfin Vue will be accessible on `8080` port of the machine that's running the containers
 - Watchtower (fork, [the original is unmaintained](https://github.com/containrrr/watchtower/issues/2067))
-takes care of updating the container to the latest commit available on the
-[repository](https://github.com/jellyfin/jellyfin-vue).
+  takes care of updating the container to the latest commit available on the
+  [repository](https://github.com/jellyfin/jellyfin-vue).
   This is a good idea because:
   - As of now, stable releases don't exist and there have only been prereleases that don't necessarily meet a quality criteria, but
     [major development milestones](https://jellyfin.org/posts/vue-vue3/).
@@ -114,7 +115,7 @@ to further customize Jellyfin Vue to your liking at Jellyfin Vue's wiki.
 ### Using your own webserver
 
 Since Jellyfin Vue is an SPA web application, you can use any web server to serve it:
-Apache, nginx (the one used in Jellyfin's Vue docker image), Traefik, etc...
+Apache, nginx (the one used in Jellyfin's Vue Docker image), Traefik, etc...
 
 If you already have a [reverse proxy](/docs/general/post-install/networking/index.md) set up, do you want to do more complex stuff
 that it's out of the scope of this documentation like serving at a subpath, in another subdomain, etc...,

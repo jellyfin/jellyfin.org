@@ -92,6 +92,6 @@ On legacy Intel Macs, you may encounter performance issues with tone-mapping usi
 
 1. Play a video in the Jellyfin web client and trigger video transcoding by setting a lower resolution or bitrate.
 
-2. Open the "Activity Monitor" and search for ffmpeg.
+2. Open the "Activity Monitor" and search for FFmpeg.
 
-3. If ffmpeg is not using a few hundred percent CPU, then hardware acceleration is working. It is normal to see the GPU usage close to 0. For pure transcoding, everything is performed on a dedicated accelerator, and that will not count as GPU usage under macOS.
+3. If FFmpeg is not using a few hundred percent CPU, then hardware acceleration is working. It is normal to see the GPU usage close to 0. For pure transcoding, everything is performed on a dedicated accelerator, and that will not count as GPU usage under macOS.

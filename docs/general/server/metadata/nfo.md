@@ -30,7 +30,7 @@ If there are multiple tags that map to the same internal Jellyfin data like `plo
 :::
 
 :::note
-It's currently not possible to disable .nfo metadata. Local metadata will always be fetched and has priority over remote metadata providers like TMDb.
+It's currently not possible to disable .nfo metadata. Local metadata will always be fetched and has priority over remote metadata providers like TMDB.
 :::
 
 :::note
@@ -68,7 +68,7 @@ User data importing is only possible for a single user. This user can be set in 
 | credits       | multiple tags allowed                                                                                                  |
 | writer        | multiple tags allowed                                                                                                  |
 | actor         | multiple tags allowed                                                                                                  |
-| trailer       | kodi format                                                                                                            |
+| trailer       | Kodi format                                                                                                            |
 | displayorder  |                                                                                                                        |
 | year          |                                                                                                                        |
 | rating        | same as customrating                                                                                                   |
@@ -88,7 +88,7 @@ User data importing is only possible for a single user. This user can be set in 
 
 Provider id tags are supported as well if they follow the scheme: `<PROVIDER_NAME`+ `id>`.
 
-You can also use your .nfo files to help Jellyfin identify your media. You can just enter an IMDb, TMDb or TVDb link, to link the media to the specific provider id.
+You can also use your .nfo files to help Jellyfin identify your media. You can just enter an IMDb, TMDB or TVDB link, to link the media to the specific provider id.
 
 For more information about .nfo files, please also see the [Kodi wiki](https://kodi.wiki/view/NFO_files).
 
@@ -99,7 +99,7 @@ Jellyfin can write metadata to .nfo files. To enable this option, select the "Nf
 | .nfo tag                  | Note                                                                                                                          |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | title                     |                                                                                                                               |
-| id                        | IMDb id for movies, TVDb id for tv shows,                                                                                     |
+| id                        | IMDb id for movies, TVDB id for tv shows,                                                                                     |
 | originaltitle             |                                                                                                                               |
 | seasonnumber              | only for tv show seasons                                                                                                      |
 | showtitle                 | only for tv show episodes                                                                                                     |
@@ -121,7 +121,7 @@ Jellyfin can write metadata to .nfo files. To enable this option, select the "Nf
 | mpaa                      |                                                                                                                               |
 | aspectratio               |                                                                                                                               |
 | dateadded                 | in UTC                                                                                                                        |
-| collectionnumber          | TMDb collection id                                                                                                            |
+| collectionnumber          | TMDB collection id                                                                                                            |
 | set                       | collection name; only for movies                                                                                              |
 | imdb_id                   | only for TV shows                                                                                                             |
 | imdbid                    | for all other media types                                                                                                     |

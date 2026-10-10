@@ -105,12 +105,12 @@ The main server configuration is built upon the ASP .NET [configuration framewor
 
 This section lists all the configuration options available and explains their function.
 
-| Key                      | Default Value                          | Description                                                                                                                                                             |
-| ------------------------ | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hostwebclient`          | `True`                                 | Set to `True` if the server should host the web client.                                                                                                                 |
-| `FFmpeg:probesize`       | `"1G"`                                 | Value to set for the FFmpeg `probesize` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.           |
-| `FFmpeg:analyzeduration` | `"200M"`                               | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
-| `PublishedServerUrl`     | Server Url based on primary IP address | The Server URL to publish in udp Auto Discovery response.                                                                                                               |
+| Key                      | Default Value                          | Description                                                                                                                                                              |
+| ------------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hostwebclient`          | `True`                                 | Set to `True` if the server should host the web client.                                                                                                                  |
+| `FFmpeg:probesize`       | `"1G"`                                 | Value to set for the FFmpeg `probesize` format option. See the FFmpeg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details.           |
+| `FFmpeg:analyzeduration` | `"200M"`                               | The value to set for the FFmpeg `analyzeduration` format option. See the FFmpeg [documentation](https://ffmpeg.org/ffmpeg-formats.html#Format-Options) for more details. |
+| `PublishedServerUrl`     | Server Url based on primary IP address | The Server URL to publish in udp Auto Discovery response.                                                                                                                |
 
 ## Database
 
@@ -149,16 +149,16 @@ Most installs keep the defaults. These options exist for administrators of very 
 
 Each knob is a `CustomDatabaseOption` with a `Key` and a `Value` child element. The available keys:
 
-| Key                 | Default            | Description                                                                                                             |
-| ------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| `path`              | `<Data Directory>/jellyfin.db` | SQLite database file path.                                                                                             |
-| `cacheSize`         | unset              | SQLite `cache_size`, applied per connection. A positive value is a page count. A negative value is a size in KiB, so `-262144` is about 256 MiB. See the [SQLite documentation](https://www.sqlite.org/pragma.html#pragma_cache_size). |
-| `lockingmode`       | `NORMAL`           | SQLite `locking_mode`.                                                                                                   |
-| `journalsizelimit`  | `134217728`        | SQLite `journal_size_limit` in bytes.                                                                                    |
-| `tempstoremode`     | `2`                | SQLite `temp_store` (`2` is memory).                                                                                     |
-| `syncmode`          | `1`                | SQLite `synchronous` (`1` is NORMAL).                                                                                    |
-| `pooling`           | `True`             | Enable connection pooling.                                                                                              |
-| `command-timeout`   | `60`               | Command timeout in seconds.                                                                                              |
+| Key                | Default                        | Description                                                                                                                                                                                                                            |
+| ------------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `path`             | `<Data Directory>/jellyfin.db` | SQLite database file path.                                                                                                                                                                                                             |
+| `cacheSize`        | unset                          | SQLite `cache_size`, applied per connection. A positive value is a page count. A negative value is a size in KiB, so `-262144` is about 256 MiB. See the [SQLite documentation](https://www.sqlite.org/pragma.html#pragma_cache_size). |
+| `lockingmode`      | `NORMAL`                       | SQLite `locking_mode`.                                                                                                                                                                                                                 |
+| `journalsizelimit` | `134217728`                    | SQLite `journal_size_limit` in bytes.                                                                                                                                                                                                  |
+| `tempstoremode`    | `2`                            | SQLite `temp_store` (`2` is memory).                                                                                                                                                                                                   |
+| `syncmode`         | `1`                            | SQLite `synchronous` (`1` is NORMAL).                                                                                                                                                                                                  |
+| `pooling`          | `True`                         | Enable connection pooling.                                                                                                                                                                                                             |
+| `command-timeout`  | `60`                           | Command timeout in seconds.                                                                                                                                                                                                            |
 
 Any additional PRAGMA can be set by prefixing the key with `#PRAGMA:`, for example:
 
