@@ -60,8 +60,51 @@ export default function DownloadsPage(options: { osType?: OsType }) {
               </div>
             </div>
 
-            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-middle'])}>
-              <div className='pills' style={{ overflowX: 'auto' }}>
+            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}>
+              <a href='https://github.com/jellyfin/jellyfin/releases/latest'>
+                <img alt='Current Release' src='https://img.shields.io/github/release/jellyfin/jellyfin.svg' />
+              </a>
+            </div>
+          </div>
+
+          <div className='card card--outline margin-bottom--md'>
+            <div className='card__body'>
+              <div className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
+                <ul className={clsx('pills', 'margin-bottom--none', styles['stable-links'])}>
+                  <Pill
+                    active={!isStableLinks}
+                    onClick={() => {
+                      setIsStableLinks(false);
+                      setActiveButton(null);
+                    }}
+                  >
+                    Unstable
+                  </Pill>
+                  <Pill
+                    active={isStableLinks}
+                    onClick={() => {
+                      setIsStableLinks(true);
+                      setActiveButton(null);
+                    }}
+                  >
+                    Stable
+                  </Pill>
+                </ul>
+
+                <button
+                  className='button button--link'
+                  onClick={() => {
+                    setIsStableHelpVisible(!isStableHelpVisible);
+                  }}
+                  style={{
+                    verticalAlign: 'baseline'
+                  }}
+                >
+                  Help?
+                </button>
+              </div>
+
+              <div className={clsx('pills', styles['filter-pills'])}>
                 <Link
                   to='/downloads/linux'
                   className={clsx('pills__item', { 'pills__item--active': osType === OsType.Linux })}
@@ -94,47 +137,6 @@ export default function DownloadsPage(options: { osType?: OsType }) {
                 </Link>
               </div>
             </div>
-
-            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}>
-              <ul className={clsx('pills', 'margin-bottom--none', styles['stable-links'])}>
-                <Pill
-                  active={!isStableLinks}
-                  onClick={() => {
-                    setIsStableLinks(false);
-                    setActiveButton(null);
-                  }}
-                >
-                  Unstable
-                </Pill>
-                <Pill
-                  active={isStableLinks}
-                  onClick={() => {
-                    setIsStableLinks(true);
-                    setActiveButton(null);
-                  }}
-                >
-                  Stable
-                </Pill>
-              </ul>
-
-              <button
-                className='button button--link'
-                onClick={() => {
-                  setIsStableHelpVisible(!isStableHelpVisible);
-                }}
-                style={{
-                  verticalAlign: 'baseline'
-                }}
-              >
-                Help?
-              </button>
-            </div>
-          </div>
-
-          <div className='text--center margin-bottom--md'>
-            <a href='https://github.com/jellyfin/jellyfin/releases/latest'>
-              <img alt='Current Release' src='https://img.shields.io/github/release/jellyfin/jellyfin.svg' />
-            </a>
           </div>
 
           {isStableHelpVisible && (
