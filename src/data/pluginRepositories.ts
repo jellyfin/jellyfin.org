@@ -112,5 +112,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:magnetgrouplabs/jellyfin-plugin-themesongs-12',
+    name: "magnetgrouplabs's Theme Songs 12 Repo",
+    url: 'https://raw.githubusercontent.com/magnetgrouplabs/jellyfin-plugin-themesongs-12/master/manifest.json',
+    includes: {
+      'Theme Songs 12': 'https://github.com/magnetgrouplabs/jellyfin-plugin-themesongs-12'
+    }
   }
 ];
