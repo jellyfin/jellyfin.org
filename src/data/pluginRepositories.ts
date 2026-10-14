@@ -112,5 +112,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:gregorymcewanmarriot/jellyfin-plugin-guru-audio-enhancer',
+    name: 'Guru Audio Enhancer Repo',
+    url: 'https://raw.githubusercontent.com/gregorymcewanmarriot/jellyfin-plugin-guru-audio-enhancer/main/manifest.json',
+    includes: {
+      'Guru Audio Enhancer': 'https://github.com/gregorymcewanmarriot/jellyfin-plugin-guru-audio-enhancer'
+    }
   }
 ];
