@@ -774,6 +774,34 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'jellyboxd',
+    name: 'Jellyboxd',
+    description:
+      'A free and open source iPhone client with a cinematic interface and native playback with Picture in Picture and AirPlay.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    platforms: [Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/app/jellyboxd/id6816114676'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/matthewhalf/jellyboxd'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://jellyboxd.boxdsuite.app'
+      }
+    ]
   }
 ];
 
