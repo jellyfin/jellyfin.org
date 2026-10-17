@@ -112,5 +112,13 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:GeiserX/quality-gate',
+    name: "GeiserX's QualityGate Repo",
+    url: 'https://geiserx.github.io/quality-gate/manifest.json',
+    includes: {
+      QualityGate: 'https://github.com/GeiserX/quality-gate'
+    }
   }
 ];
