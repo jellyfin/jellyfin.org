@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import DetailsCard from '../common/DetailsCard';
 import { Plugin, PluginWithRepository } from '../../data/plugins';
 import { RepositoryById } from '../../data/pluginRepositories';
 
 function PluginDetails({ plugin }: { plugin: Plugin | PluginWithRepository }) {
+  const [copied, setCopied] = useState(false);
   const repository = 'repository' in plugin ? RepositoryById(plugin.repository) : null;
   // TODO: Add filtering?
   if (repository.unstable) return;
 
   const targetAbi = plugin.versions.find((version) => version.targetAbi)?.targetAbi ?? null;
-  const latestVersion = plugin.versions.find((version) => version.sourceUrl && version.version) ?? null;
+  const copyRepositoryUrl = async () => {
+    await navigator.clipboard.writeText(repository.url);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <DetailsCard
@@ -31,11 +36,9 @@ function PluginDetails({ plugin }: { plugin: Plugin | PluginWithRepository }) {
       }
       description={plugin.description}
       primaryButtons={[
-        latestVersion && (
-          <a key='download' href={latestVersion.sourceUrl} className='button button--primary'>
-            Download {latestVersion.version}
-          </a>
-        )
+        <button key='copy' type='button' className='button button--primary' onClick={copyRepositoryUrl}>
+          {copied ? 'Copied!' : 'Copy repository URL'}
+        </button>
       ]}
       // description={<pre>{JSON.stringify(plugin, null, '\t')}</pre>}
       // footerDetails={<img src={plugin.imageUrl} />}
