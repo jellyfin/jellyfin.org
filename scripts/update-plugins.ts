@@ -1,5 +1,5 @@
 import { AllPluginRepositories, type PluginRepository } from '../src/data/pluginRepositories.ts';
-import type { Plugin } from '../src/data/plugins.ts';
+import type { Plugin, PluginManifestEntry, PluginVersion } from '../src/data/plugins.ts';
 import { writeFile } from 'node:fs/promises';
 
 const OUTPUT_PATH = new URL('../src/data/plugins.generated.json', import.meta.url);
@@ -15,14 +15,20 @@ async function getPluginManifest(repository: PluginRepository) {
   }
 }
 
+function getLatestVersion(versions: Array<PluginVersion> = []) {
+  return [...versions].sort((a, b) => (b.version ?? '').localeCompare(a.version ?? '', undefined, { numeric: true }))[0];
+}
+
 async function getPlugins(repositories: Array<PluginRepository>) {
   const plugins: { repository: string; plugin: Plugin }[] = [];
 
   for (const repository of repositories) {
     const manifest = await getPluginManifest(repository);
-    for (const plugin of manifest) {
+    for (const { versions, ...plugin } of manifest as Array<PluginManifestEntry>) {
       // Only the latest version is displayed, so drop the release history to keep the data small
-      plugins.push({ repository: repository.id, plugin: { ...plugin, versions: plugin.versions.slice(0, 1) } });
+      const version = getLatestVersion(versions);
+      if (!version) continue;
+      plugins.push({ repository: repository.id, plugin: { ...plugin, version } });
     }
   }
 

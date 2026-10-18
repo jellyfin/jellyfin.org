@@ -1,6 +1,8 @@
 import GeneratedPlugins from './plugins.generated.json';
 
-export type PluginManifest = Array<Plugin>;
+export type PluginManifest = Array<PluginManifestEntry>;
+
+export type PluginManifestEntry = Omit<Plugin, 'version'> & { versions: Array<PluginVersion> };
 
 export type Plugin = {
   guid: string;
@@ -10,7 +12,7 @@ export type Plugin = {
   category: string;
   owner: string;
   imageUrl?: string;
-  versions: Array<PluginVersion>;
+  version: PluginVersion;
 };
 
 export type PluginWithRepository = Plugin & { repository: string };
