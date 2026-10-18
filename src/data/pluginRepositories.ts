@@ -112,6 +112,15 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     includes: {
       WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
+  },
+  {
+    id: 'gh:ankenyr/jellyfin-plugin-repo',
+    name: "ankenyr's Repo",
+    url: 'https://raw.githubusercontent.com/ankenyr/jellyfin-plugin-repo/master/manifest.json',
+    includes: {
+      'YouTube Metadata': 'https://github.com/ankenyr/jellyfin-youtube-metadata-plugin',
+      'Smart Playlist': 'https://github.com/ankenyr/jellyfin-smartplaylist-plugin'
+    }
   }
 ];
 
