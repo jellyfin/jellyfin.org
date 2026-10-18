@@ -1,0 +1,48 @@
+name: update-plugins
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Update plugin data
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Update plugin data
+        run: |
+          npm ci --no-audit
+          npm run update-plugins
+
+      - name: Create or update pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.JF_BOT_TOKEN }}
+          branch: ci/update-plugins
+          add-paths: src/data/plugins.generated.json
+          commit-message: Update generated plugin data
+          committer: jellyfin-bot <team@jellyfin.org>
+          author: jellyfin-bot <team@jellyfin.org>
+          title: Update generated plugin data
+          body: Automated update of the generated plugin data from the configured plugin repositories.
+          labels: dependencies
+          delete-branch: true
