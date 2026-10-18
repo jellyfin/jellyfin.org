@@ -30,7 +30,7 @@ async function getPlugins(repositories: Array<PluginRepository>) {
 
 async function updatePlugins(repositories = AllPluginRepositories) {
   console.log(`Downloading data for ${repositories.length} repositories`);
-  const plugins = await getPlugins(AllPluginRepositories);
+  const plugins = await getPlugins(repositories);
   console.log(`Writing ${plugins.length} plugins to ${OUTPUT_PATH}`);
   await writeFile(OUTPUT_PATH, JSON.stringify(plugins, null, '\t'));
 }
