@@ -1,5 +1,5 @@
-import { AllPluginRepositories, PluginRepository } from '../src/data/pluginRepositories';
-import { Plugin } from '../src/data/plugins';
+import { AllPluginRepositories, type PluginRepository } from '../src/data/pluginRepositories.ts';
+import type { Plugin } from '../src/data/plugins.ts';
 import { writeFile } from 'node:fs/promises';
 
 const OUTPUT_PATH = new URL('../src/data/plugins.generated.json', import.meta.url);
