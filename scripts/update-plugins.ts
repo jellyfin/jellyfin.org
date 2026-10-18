@@ -21,7 +21,8 @@ async function getPlugins(repositories: Array<PluginRepository>) {
   for (const repository of repositories) {
     const manifest = await getPluginManifest(repository);
     for (const plugin of manifest) {
-      plugins.push({ repository: repository.id, plugin });
+      // Only the latest version is displayed, so drop the release history to keep the data small
+      plugins.push({ repository: repository.id, plugin: { ...plugin, versions: plugin.versions.slice(0, 1) } });
     }
   }
 
