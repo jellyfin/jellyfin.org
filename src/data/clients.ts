@@ -1011,7 +1011,6 @@ const thirdPartyClients: Array<Client> = [
     description: 'A feature-rich Android Jellyfin client built with Kotlin, Jetpack Compose, Material 3, and LibMPV.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Mobile],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android],
     primaryLinks: [
       {
