@@ -1,3 +1,9 @@
+jellyfin:
+  name: Jellyfin Team
+  title: Jellyfin Team
+  url: https://jellyfin.org/
+  image_url: https://avatars.githubusercontent.com/u/45698031?s=200&v=4
+
 1hitsong:
   name: 1hitsong
   title: Roku Team
@@ -79,3 +85,10 @@ thornbill:
   socials:
     github: thornbill
     mastodon: https://fosstodon.org/@thornbill
+
+crobibero:
+  name: Cody Robibero
+  title: Core Team, Server and Plugins
+  image_url: https://avatars.githubusercontent.com/u/24963659?v=4
+  socials:
+    github: crobibero

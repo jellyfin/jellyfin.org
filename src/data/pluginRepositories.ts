@@ -32,14 +32,6 @@ export const OfficialPluginRepositories: Array<PluginRepository> = [
 
 export const ThirdPartyRepositories: Array<PluginRepository> = [
   {
-    id: 'gh:9p4/jellyfin-plugin-sso',
-    name: "9p4's Single-Sign-On (SSO) Repo",
-    url: 'https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json',
-    includes: {
-      "9p4's Single Sign On Plugin": 'https://github.com/9p4/jellyfin-plugin-sso'
-    }
-  },
-  {
     id: 'gh:vosmiic/jellyfin-ani-sync',
     name: 'Ani-Sync Repo',
     url: 'https://raw.githubusercontent.com/vosmiic/jellyfin-ani-sync/master/manifest.json',
@@ -55,23 +47,6 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
       'Merge Versions': 'https://github.com/danieladov/jellyfin-plugin-mergeversions',
       'Skin Manager': 'https://github.com/danieladov/jellyfin-plugin-skin-manager',
       'Theme Songs': 'https://github.com/danieladov/jellyfin-plugin-themesongs'
-    }
-  },
-  {
-    id: 'gh:dkanada/jellyfin-plugin-intros',
-    name: "dkanada's Repo",
-    url: 'https://raw.githubusercontent.com/dkanada/jellyfin-plugin-intros/master/manifest.json',
-    includes: {
-      Intros: 'https://github.com/dkanada/jellyfin-plugin-intros'
-    }
-  },
-  {
-    id: 'gh:k-matti/jellyfin-plugin-repository',
-    name: "k-matti's Repo",
-    url: 'https://raw.githubusercontent.com/k-matti/jellyfin-plugin-repository/master/manifest.json',
-    includes: {
-      'SMS Notifications': 'https://github.com/k-matti/jellyfin-plugin-sms',
-      NapiSub: 'https://github.com/k-matti/jellyfin-plugin-napi'
     }
   },
   {
@@ -120,6 +95,22 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
     url: 'https://raw.githubusercontent.com/DeDuplicate/Jellyfin_wizdomsubs_downloader/refs/heads/main/manifest.json',
     includes: {
       'WizdomSubs Downloader': 'https://github.com/DeDuplicate/Jellyfin_wizdomsubs_downloader'
+    }
+  },
+  {
+    id: 'gh:GeiserX/smart-covers',
+    name: "GeiserX's SmartCovers Repo",
+    url: 'https://geiserx.github.io/smart-covers/manifest.json',
+    includes: {
+      SmartCovers: 'https://github.com/GeiserX/smart-covers'
+    }
+  },
+  {
+    id: 'gh:GeiserX/whisper-subs',
+    name: "GeiserX's WhisperSubs Repo",
+    url: 'https://geiserx.github.io/whisper-subs/manifest.json',
+    includes: {
+      WhisperSubs: 'https://github.com/GeiserX/whisper-subs'
     }
   }
 ];

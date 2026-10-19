@@ -31,6 +31,19 @@ Additionally, there are several third parties providing unofficial container ima
 
 ## Installation Instructions
 
+:::warning
+
+If you wish to use [Windows](/docs/general/installation/windows) or [macOS](/docs/general/installation/macos), please install Jellyfin natively instead.
+
+While it is possible to run Jellyfin in a Container on a Windows or macOS host, it is NOT supported. Some features are known to be broken when running in a Container on platforms other than Linux, Notably:
+
+- Hardware Accelerated Transcoding
+- [Scanning on macOS in Docker](https://github.com/jellyfin/jellyfin/issues/13093)
+
+You WILL NOT receive any support for running Jellyfin in a Container on platforms other than Linux.
+
+:::
+
 Replace `uid:gid` if you want to run jellyfin as a specific user/group. Exclude the `user` argument entirely if you want to use the default user.
 
 import Tabs from '@theme/Tabs';

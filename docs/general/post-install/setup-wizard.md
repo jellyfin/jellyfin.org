@@ -23,8 +23,7 @@ Set up an administrator account for managing the server. Choose a strong passwor
 Add media libraries at this page. Click on the + to add a library. Alternatively, click on "Next" without adding anything to skip this step and add media later.
 ![Setup Wizard Add Media Library Page](/images/docs/post-install/setup-wizard/setup-wizard-3-media-main.png)
 
-In the popup, chose a type on the "Content Type" dropdown, and set a display name in the "Display Name" field. Then, add some folders using the + button. If you don't see your media folders listed, you might have permission issues. You can get help on our [forum](https://forum.jellyfin.org/) or [chat rooms](/contact)
-Read more about media libraries at the [media libraries' documentation](/docs/general/server/libraries/)
+In the popup, chose a type on the "Content Type" dropdown, and set a display name in the "Display Name" field. Then, add some folders using the + button. If you don't see your media folders listed, you might have permission issues. You can get help on our [forum](https://forum.jellyfin.org/) or [chat rooms](/contact). Read more about media libraries at the [media libraries' documentation](/docs/general/server/libraries/).
 ![Setup Wizard Add Media Library Popup](/images/docs/post-install/setup-wizard/setup-wizard-4-media-popup.png)
 
 ## Set a Preferred Metadata Language
@@ -34,7 +33,11 @@ Select a preferred language and region for metadata fetching as the server-wide 
 
 ## Networking Settings
 
-Some basic options for networking can be set on this page. For most users, it is recommended to **enable** the "Allow remote access to this server" option, and **disable** the "Enable automatic port mapping" option.
+Some basic networking options can be configured on this page. For most users, it is recommended to **enable** the "Allow remote access to this server" option.
+Detailed information about remote access configuration can be found in our dedicated [Networking Guide](./networking/index.md#allowing-access).
+
+Since "automatic port mapping" relies on UPnP, a protocol commonly associated with security concerns, it is recommended to **disable** this option unless it is specifically required.
+
 ![Setup Wizard Networking Page](/images/docs/post-install/setup-wizard/setup-wizard-6-networking.png)
 
 ## Next Steps

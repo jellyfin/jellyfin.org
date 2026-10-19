@@ -11,7 +11,7 @@ Documentation is fast-moving and ever-changing. Please think carefully about wha
 
 ## Please Self-Review
 
-Before finalizing your changes, please be courteous to reviewers and run your changes through, at least, a spellchecker (e.g. `apsell`) and potentially a grammar checker. AI is fine for this though please use it sparingly for _generating_ content. Make sure you re-read what comes out and adjust as required. We appreciate individual writing styles but the bulk of our review back-and-forth is over minor issues like this, so please do your part to get it right first.
+Before finalizing your changes, please be courteous to reviewers and run your changes through, at least, a spellchecker (e.g. `[aspell](https://github.com/GNUAspell/aspell)`) and potentially a grammar checker. AI is fine for this though please use it sparingly for _generating_ content. Make sure you re-read what comes out and adjust as required. We appreciate individual writing styles but the bulk of our review back-and-forth is over minor issues like this, so please do your part to get it right first.
 
 ## Peer Copyediting
 
