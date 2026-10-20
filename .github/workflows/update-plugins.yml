@@ -5,6 +5,9 @@ on:
     - cron: '17 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: false
@@ -13,8 +16,6 @@ jobs:
   update:
     name: Update plugin data
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
 
     steps:
       - name: Check out repository
