@@ -169,12 +169,12 @@
 			"category": "Administration",
 			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-reports.png",
 			"version": {
-				"version": "19.0.0.0",
-				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#108) @crobibero, @claude, @jellyfin-bot\n- fix: export limiting to maximum 100 lines (#100) @Yghore\n\n### Dependency updates ###\n- Update dependency ClosedXML to 0.105.1 (#109) [@renovate[bot]](https://github.com/apps/renovate)",
-				"targetAbi": "12.0.0.0",
-				"sourceUrl": "https://repo.jellyfin.org/files/plugin/reports/reports_19.0.0.0.zip",
-				"checksum": "fd7c172b61bfc5c4baebc32587397126",
-				"timestamp": "2026-09-08T02:38:45Z"
+				"version": "20.0.0.0",
+				"changelog": "- Add a bitrate column for Audio and Video respectively  (#106) @jcv8-dev, @crobibero\n- Use ApiKey query parameter for report export (#118) @quantumbagel, @crobibero",
+				"targetAbi": "12.2.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/reports/reports_20.0.0.0.zip",
+				"checksum": "3e9cfb43d6a69ae8824fcbcb9b2a6aa7",
+				"timestamp": "2026-10-19T22:24:31Z"
 			}
 		}
 	},
@@ -465,13 +465,15 @@
 			"overview": "Scrobble to Simkl",
 			"owner": "crobibero",
 			"category": "General",
+			"image": "image.png",
+			"imageUrl": "https://repo.jellyfin.org/files/plugin/simkl/image.png",
 			"version": {
-				"version": "9.0.0.0",
-				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#64) @crobibero, @jellyfin-bot\n- Fix: typo 'compouter' in login instructions (#65) @bretthysuik\n- feat: live-scrobbling support (#61) @samip5, @claude, @crobibero\n\n### New features and improvements ###\n- Add external url provider (#39) @crobibero",
-				"targetAbi": "12.0.0.0",
-				"sourceUrl": "https://repo.jellyfin.org/files/plugin/simkl/simkl_9.0.0.0.zip",
-				"checksum": "d6c2e4f0db080e8595c7f6ba5e10bf6e",
-				"timestamp": "2026-09-08T02:38:56Z"
+				"version": "10.0.0.0",
+				"changelog": "- Add the Simkl OAuth 2 device flow and two-way watched state sync (#73) @ekleop, @crobibero",
+				"targetAbi": "12.2.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/simkl/simkl_10.0.0.0.zip",
+				"checksum": "15a208d7fdedaea94006cbd9464cfba1",
+				"timestamp": "2026-10-19T22:39:18Z"
 			}
 		}
 	},
@@ -737,12 +739,12 @@
 			"category": "Anime",
 			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-anilist.png",
 			"version": {
-				"version": "14.2609.23.0",
+				"version": "14.2610.24.0",
 				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#114) @crobibero, @jellyfin-bot\n- Allow filtering people by role (#110) @HansLehnert, @nielsvanvelzen\n- Add anilist episode provider (#104) @ivanjx, @nielsvanvelzen\n- Change image type for banner images from Backdrop to Banner (#109) @vodkapmp, @nielsvanvelzen",
 				"targetAbi": "13.0.0.0",
-				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/anilist/anilist_14.2609.23.0.zip",
-				"checksum": "38a90e49399c1bb6379eb7f35a582e1d",
-				"timestamp": "2026-09-14T14:36:21Z"
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/anilist/anilist_14.2610.24.0.zip",
+				"checksum": "ed8452c68bfebcb9eebecd3619edd291",
+				"timestamp": "2026-10-19T15:09:48Z"
 			}
 		}
 	},
