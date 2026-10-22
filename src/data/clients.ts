@@ -774,6 +774,34 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'shuttle-music',
+    name: 'Shuttle Music',
+    description:
+      'An Android music player for local files and Jellyfin, Emby and Plex libraries, with Android Auto, Chromecast, a custom equalizer, ReplayGain and batch tag editing.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    platforms: [Platform.Android],
+    primaryLinks: [
+      {
+        id: 'play-store',
+        name: 'Play Store',
+        url: 'https://play.google.com/store/apps/details?id=com.simplecityapps.shuttle'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/timusus/Shuttle2'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://shuttlemusicplayer.com'
+      }
+    ]
   }
 ];
 
