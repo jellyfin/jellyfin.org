@@ -436,6 +436,33 @@ const thirdPartyClients: Array<Client> = [
     ]
   },
   {
+    id: 'discophile',
+    name: 'Discophile',
+    description: 'A desktop and web music player for Jellyfin and Subsonic servers, with Audiobookshelf audiobooks in the same app.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Desktop],
+    platforms: [Platform.Desktop],
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/debba/discophile/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/debba/discophile'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://discophile.app'
+      }
+    ]
+  },
+  {
     id: 'tauon-music-box',
     name: 'Tauon Music Box',
     description: 'A modern streamlined music player for desktop with a minimal interface that is packed with features!',
