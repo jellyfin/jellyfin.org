@@ -121,6 +121,22 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
       'YouTube Metadata': 'https://github.com/ankenyr/jellyfin-youtube-metadata-plugin',
       'Smart Playlist': 'https://github.com/ankenyr/jellyfin-smartplaylist-plugin'
     }
+  },
+  {
+    id: 'gh:zzzLiu/jellyfin-plugin-color-tags',
+    name: "zzzLiu's Color Tags Repo",
+    url: 'https://raw.githubusercontent.com/zzzLiu/jellyfin-plugin-color-tags/main/manifest.json',
+    includes: {
+      'Jellyfin Color Tags': 'https://github.com/zzzLiu/jellyfin-plugin-color-tags'
+    }
+  },
+  {
+    id: 'gh:zzzLiu/jellyfin-plugin-library-cover-enhancer',
+    name: "zzzLiu's Library Cover Enhancer Repo",
+    url: 'https://raw.githubusercontent.com/zzzLiu/jellyfin-plugin-library-cover-enhancer/main/manifest.json',
+    includes: {
+      'Jellyfin Library Cover Enhancer': 'https://github.com/zzzLiu/jellyfin-plugin-library-cover-enhancer'
+    }
   }
 ];
 
