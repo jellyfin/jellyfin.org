@@ -74,7 +74,7 @@
     "node-fetch": "3.3.2",
     "prettier": "3.9.10",
     "react-dom": "18.3.1",
-    "sass": "1.105.1",
+    "sass": "1.106.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.71.2",
     "typescript-plugin-css-modules": "5.2.0"
