@@ -1,10 +1,12 @@
 ---
-title: "Packaging Updates for 10.6.0"
-description: "Some backend packaging changes are here: what you should know"
+title: 'Packaging Updates for 10.6.0'
+description: 'Some backend packaging changes are here: what you should know'
 authors: joshuaboniface
 date: 2020-06-21
 slug: packaging-updates
 ---
+
+<!-- markdownlint-disable MD001 -->
 
 Packaging and building binaries for releases and testing has long been an issue for us. From fighting with duct-tape-and-coat-hanger scripts, to testing breaking changes, to massaging official releases, how we were doing things for the last year-and-a-half needed some improvements.
 
@@ -24,7 +26,7 @@ The main difference is the naming - the `jellyfin-web` repository binaries are n
 
 ### Azure Pipelines builds
 
-Our previous build infrastructure consisted of a veritable spaghetti factory of Bash, Python, and Docker scripts that were executed on our build server, a DigitalOcean droplet. For the most part, it worked, but the process was very fragile, opaque (I'm not even sure *I* understand how it all worked all the time, and I wrote it all!), and resource-intensive.
+Our previous build infrastructure consisted of a veritable spaghetti factory of Bash, Python, and Docker scripts that were executed on our build server, a DigitalOcean droplet. For the most part, it worked, but the process was very fragile, opaque (I'm not even sure _I_ understand how it all worked all the time, and I wrote it all!), and resource-intensive.
 
 As we've moved more and more functions to Azure for testing, verification, linting, etc. in the various repositories, it became obvious that Azure Pipelines had a lot of flexibility, and would be able to perform nearly all of our build steps for us. This eliminated at least 2/3 of the build server, and gives us another cool option - unstable builds, which I'll touch on shortly.
 
@@ -48,7 +50,7 @@ For the remaining platforms, including the archive packages for Windows, MacOS, 
 
 One of the cool things that this new setup enables is "unstable" builds. For quite a while now, we've been providing (when not broken) "nightly" builds, which as their name implies are build every night if there were merged PRs from the previous day. However, these had a number of drawbacks. First, they broke a lot; second, on a busy day it would be possible for there to be up to a dozen separate PRs that made up the nightly changeset; third, they could often be totally messed up in terms of contents, for instance if the unsplit build grabbed the wrong version of Web.
 
-The new split builds, Azure builds, and metapackages/metaimages instead let us do something far superior: build "unstable" releases for *every merged PR*. We don't have to worry about resource usage (Azure provides this), disk space, or other aspects of the build process. We can know immediately if something breaks. And most importantly, it lets anyone test our master branch in a very clear way, knowing *exactly* what version of the repository you are using and what the last merged PR was if something goes wrong.
+The new split builds, Azure builds, and metapackages/metaimages instead let us do something far superior: build "unstable" releases for _every merged PR_. We don't have to worry about resource usage (Azure provides this), disk space, or other aspects of the build process. We can know immediately if something breaks. And most importantly, it lets anyone test our master branch in a very clear way, knowing _exactly_ what version of the repository you are using and what the last merged PR was if something goes wrong.
 
 Unstable builds are versioned based on the Azure build ID, which is in the format "[date].[id]", for example "20200620.12" for the 12th build on June 20th 2020. Thus this version string will tell you exactly which Azure build generated the binary, and thus which PR in which repository triggered it. For those binaries with changelogs (`.deb` and `.rpm` packages only for now), the changelog data includes the PR ID explicitly as well.
 

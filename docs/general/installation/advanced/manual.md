@@ -15,7 +15,6 @@ sidebar_position: 3
 2. Create a folder `jellyfin` at your preferred install location.
 3. Copy the extracted folder into the `jellyfin` folder and rename it to `system`.
 4. Create `jellyfin.bat` within your `jellyfin` folder containing:
-
    - To use the default library/data location at `%localappdata%`:
 
    ```cmd
@@ -121,19 +120,12 @@ cd /opt/jellyfin
 ```
 
 Download the latest generic Linux build for your architecture.
-The rest of these instructions assume version 10.8.13 is being installed (i.e. `jellyfin_10.8.13_amd64.tar.gz`).
+The rest of these instructions assume version 10.10.7 is being installed (i.e. `jellyfin_10.10.7-amd64.tar.gz`).
 Download the generic build, then extract the archive:
 
 ```sh
-sudo wget https://repo.jellyfin.org/?path=/server/linux/stable/combined/jellyfin_10.8.13_amd64.tar.gz
-sudo tar xvzf jellyfin_10.8.13_amd64.tar.gz
-```
-
-Create a symbolic link to the Jellyfin 10.8.13 directory.
-This allows an upgrade by repeating the above steps and enabling it by simply re-creating the symbolic link to the new version.
-
-```sh
-sudo ln -s jellyfin_10.8.13 jellyfin
+sudo wget https://repo.jellyfin.org/files/server/linux/latest-stable/amd64/jellyfin_10.10.7-amd64.tar.gz
+sudo tar xvzf jellyfin_10.10.7-amd64.tar.gz
 ```
 
 Create four sub-directories for Jellyfin data.
@@ -162,13 +154,13 @@ sudo apt install -f
 
 ### Running Jellyfin
 
-Due to the number of command line options that must be passed on to the Jellyfin binary, it is easiest to create a small script to run Jellyfin.
+Due to the number of [command line options](https://jellyfin.org/docs/general/administration/configuration/#command-line-options) that must be passed on to the Jellyfin binary, it is easiest to create a small script to run Jellyfin.
 
 ```sh
 sudoedit jellyfin.sh
 ```
 
-Then paste the following commands and modify as needed.
+Then paste the following commands, optionally changing arguments as needed for custom deployments.
 
 ```sh
 #!/bin/bash
@@ -187,7 +179,9 @@ Assuming you desire Jellyfin to run as a non-root user, `chmod` all files and di
 Also make the startup script above executable.
 
 ```sh
-sudo chown -R user:group *
+USER=$(id --name --user)
+GROUP=$(id --name --group)
+sudo chown -R $USER:$GROUP *
 sudo chmod u+x jellyfin.sh
 ```
 
@@ -301,7 +295,6 @@ If you would prefer to install everything manually, the full steps are as follow
    :::note
 
    The supported values for the above variables are:
-
    - `${VERSION_OS}`: One of `debian` or `ubuntu`; if it is not, use the closest one for your distribution.
    - `${VERSION_CODENAME}`: One of our supported [Debian](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L7) or [Ubuntu](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L8) release codenames. These can change as new releases come out and old releases are dropped, so check the script to be sure yours is supported.
    - `${DPKG_ARCHITECTURE}`: One of our [supported architectures](https://github.com/jellyfin/jellyfin-repo-helper-scripts/blob/master/install-debuntu.sh#L6). Microsoft does not provide a .NET for 32-bit x86 Linux systems, and hence Jellyfin is **not** supported on the `i386` architecture.
@@ -328,7 +321,7 @@ If you would prefer to install everything manually, the full steps are as follow
    sudo apt install jellyfin-server jellyfin-web
    ```
 
-   The `jellyfin-server` package will automatically select the right `jellyfin-ffmpeg` package for you as well.
+   The `jellyfin-server` package recommends a matching `(jellyfin-)ffmpeg` package, but does not depend on it. If APT is configured not to install recommended packages, you must provide a FFmpeg executable manually, either in the form of `jellyfin-ffmpeg` (recommended), or any other generic FFmpeg build.
 
    :::
 
@@ -366,25 +359,13 @@ The repository is the preferred way to obtain Jellyfin on Debian and Ubuntu syst
 
 2. Download the desired `jellyfin-server`, `jellyfin-web`, and `jellyfin-ffmpeg` `.deb` packages from the repository; `jellyfin` is a metapackage and is not required.
 
-3. Install the downloaded `.deb` packages:
+3. Install the downloaded `.deb` packages with `apt` to handle dependency resolution:
 
    ```sh
-   sudo dpkg -i jellyfin_*.deb jellyfin-ffmpeg_*.deb
+   sudo apt install ./jellyfin-server_*.deb ./jellyfin-web_*.deb ./jellyfin-ffmpeg_*.deb
    ```
 
-   :::note
-
-   This step may throw errors; continue to the next step to resolve them.
-
-   :::
-
-4. Use `apt` to install any missing dependencies:
-
-   ```sh
-   sudo apt -f install
-   ```
-
-5. Manage the Jellyfin system service:
+4. Manage the Jellyfin system service:
 
    ```sh
    sudo systemctl {action} jellyfin

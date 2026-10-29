@@ -11,7 +11,7 @@ This document provides details on upgrading and downgrading between Stable and U
 
 Which install type to pick depends on your needs; ultimately, Unstable is for testing new things, while Stable is for running a server for others to use reliably.
 
-- Stable provides the most consistent and predictable user experience. A particular major release (e.g. 10.8.z, 10.9.z) will not introduce, remove, or change major features or functionality (with minor caveats for security). Bugfixes are provided in point releases, which are released as needed during the lifecycle of the major release in response to bugfixes and security advisories. Most users should generally use Stable releases, as this will ensure maximum uptime and consistency for your end users.
+- Stable provides the most consistent and predictable user experience. A particular major release (e.g. 12.x, 13.x) will not introduce, remove, or change major features or functionality (with minor caveats for security). Bugfixes are provided in point releases, which are released as needed during the lifecycle of the major release in response to bugfixes and security advisories. Most users should generally use Stable releases, as this will ensure maximum uptime and consistency for your end users.
 
 - Unstable provides the most up-to-date, cutting edge features, but may have rapid and unpredictable breaking changes or serious bugs, and has more limited client support as API changes are made over time. Unstable releases are provided via weekly binary builds on Monday mornings around 5:00 AM UTC, or by [building your own packages from the `master` code branches](https://github.com/jellyfin/jellyfin-packaging).
 
@@ -55,7 +55,7 @@ We provide plugins for Stable and Unstable releases in separate repositories wit
 
 Plugins are versioned in such a way that Unstable plugins will seamlessly upgrade from the latest Stable plugin version to an Unstable plugin version, and then permit a seamless upgrade from the Unstable version to the next Stable version (e.g. 13.0.0.0 Stable -> 13.2024.0429.0 Unstable -> 14.0.0.0 Stable).
 
-1. In your Jellyfin server instance, navigate to the Dashboard -> Plugins -> Repositories.
+1. In your Jellyfin server instance, navigate to the Dashboard -> Plugins -> Manage Repositories.
 2. Delete the default "Stable" repository by clicking the trashcan button.
 3. Add a new repository with the "+" button. Name the repository whatever you wish, and use the following as the Repository URL.
 
@@ -99,7 +99,7 @@ We provide plugins for Stable and Unstable releases in separate repositories wit
 
 Plugins are versioned in such a way that Unstable plugins will seamlessly upgrade from the latest Stable plugin version to an Unstable plugin version, and then permit a seamless upgrade from the Unstable version to the next Stable version (e.g. 13.0.0.0 Stable -> 13.2024.0429.0 Unstable -> 14.0.0.0 Stable).
 
-1. In your Jellyfin server instance, navigate to the Dashboard -> Plugins -> Repositories.
+1. In your Jellyfin server instance, navigate to the Dashboard -> Plugins -> Manage Repositories.
 2. Delete the "Unstable" repository by clicking the trashcan button.
 3. Add a new repository with the "+" button. Name the repository whatever you wish ("Stable" is the default), and use the following as the Repository URL.
 

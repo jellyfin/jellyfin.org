@@ -1,0 +1,1674 @@
+[
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "9c4e63f1-031b-4f25-988b-4f7d78a8b53e",
+			"name": "Bookshelf",
+			"description": "Supports several different metadata providers and options for organizing your collection.\n",
+			"overview": "Manage your books",
+			"owner": "jellyfin",
+			"category": "Books",
+			"version": {
+				"version": "13.0.0.0",
+				"changelog": "- Jellyfin 10.11 support (#130) @crobibero",
+				"targetAbi": "10.11.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/bookshelf/bookshelf_13.0.0.0.zip",
+				"checksum": "6e29bb9bdc18e571c41964c6fdb07a49",
+				"timestamp": "2025-10-20T01:25:49Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "170a157f-ac6c-437a-abdd-ca9c25cebd39",
+			"name": "Fanart",
+			"description": "Scrape poster images for movies, shows, and artists in your library.",
+			"overview": "Scrape poster images from Fanart",
+			"owner": "jellyfin",
+			"category": "MoviesAndShows",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-fanart.png",
+			"version": {
+				"version": "15.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#78) @crobibero, @enter-a-random-username, @jellyfin-bot\n- Use preview  image for faster loading times (#81) @enter-a-random-username, @crobibero",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/fanart/fanart_15.0.0.0.zip",
+				"checksum": "bbe8ea54bc956933b238388b0a78b9ce",
+				"timestamp": "2026-09-08T02:37:20Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "e29621a5-fa9e-4330-982e-ef6e54c0cad2",
+			"name": "IMVDb",
+			"description": "Get Music Video metadata from IMVDb\n",
+			"overview": "Get Music Video metadata from IMVDb",
+			"owner": "jellyfin",
+			"category": "Music",
+			"imageUrl": "https://repo.jellyfin.org/files/plugin/images/jellyfin-plugin-imvdb.png",
+			"version": {
+				"version": "7.0.0.0",
+				"changelog": "- Maintenance (#40) @Shadowghost, @crobibero",
+				"targetAbi": "12.1.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/imvdb/imvdb_7.0.0.0.zip",
+				"checksum": "a1c89a035556e9c96a94d9ac22ca0eb2",
+				"timestamp": "2026-09-15T22:39:43Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "771e19d6-5385-4caf-b35c-28a0e865cf63",
+			"name": "Kodi Sync Queue",
+			"description": "This plugin will track all media changes while Kodi clients are offline to decrease sync times.",
+			"overview": "Sync all media changes with Kodi clients",
+			"owner": "jellyfin",
+			"category": "General",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-kodisyncqueue.png",
+			"version": {
+				"version": "16.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#118) @crobibero, @jellyfin-bot\n- fix: add authentication for sync queue API (#110) @Theta-Dev\n\n### Dependency updates ###\n- Update dependency LiteDB to 5.0.21 (#119) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/kodi-sync-queue/kodi-sync-queue_16.0.0.0.zip",
+				"checksum": "df03db426916aea31560c851cbc19a3d",
+				"timestamp": "2026-09-08T02:37:57Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "958aad66-3784-4d2a-b89a-a7b6fab6e25c",
+			"name": "LDAP Authentication",
+			"description": "Authenticate your Jellyfin users against an LDAP database, and optionally create users who do not yet exist automatically.\n\nAllows the administrator to customize most aspects of the LDAP authentication process, including customizable search attributes, username attribute, and a search filter for administrative users (set on user creation). The user, via the \"Manual Login\" process, can enter any valid attribute value, which will be mapped back to the specified username attribute automatically as well.\n",
+			"overview": "Authenticate users against an LDAP database",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-ldapauth.png",
+			"version": {
+				"version": "24.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#213) @crobibero, @jellyfin-bot\n- Fix LDAP admin filter username resolution (#223) @ddwalias",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/ldap-authentication/ldap-authentication_24.0.0.0.zip",
+				"checksum": "1e34d0e48336187922622c35d938380c",
+				"timestamp": "2026-09-08T02:38:05Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "9574ac10-bf23-49bc-949f-924f23cfa48f",
+			"name": "NextPVR",
+			"description": "Provides access to live TV, program guide, and recordings from NextPVR.\n",
+			"overview": "Live TV plugin for NextPVR",
+			"owner": "jellyfin",
+			"category": "LiveTV",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-nextpvr.png",
+			"version": {
+				"version": "15.0.0.0",
+				"changelog": "- Maintenance (#82) @Shadowghost, @crobibero",
+				"targetAbi": "12.1.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/nextpvr/nextpvr_15.0.0.0.zip",
+				"checksum": "06fc689c679fd0fa3113ee34daa21164",
+				"timestamp": "2026-09-15T22:37:37Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "4b9ed42f-5185-48b5-9803-6ff2989014c4",
+			"name": "Open Subtitles",
+			"description": "Download subtitles from the internet to use with your media files. (Requires configuration)",
+			"overview": "Download subtitles for your media",
+			"owner": "jellyfin",
+			"category": "Subtitles",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-opensubtitles.png",
+			"version": {
+				"version": "25.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#207) @crobibero, @jellyfin-bot\n- Add handling for small video files (#192) @MBR-0001\n\n### Dependency updates ###\n- Update dependency xunit.runner.visualstudio to v4 (#215) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency coverlet.collector to v10 (#212) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/open-subtitles/open-subtitles_25.0.0.0.zip",
+				"checksum": "4fe7744c4e24f22fcb395c90d66fbfb6",
+				"timestamp": "2026-09-08T02:38:35Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "5c534381-91a3-43cb-907a-35aa02eb9d2c",
+			"name": "Playback Reporting",
+			"description": "Collect and show user play statistics",
+			"overview": "Collect and show user play statistics",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-playbackreporting.png",
+			"version": {
+				"version": "19.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#127) @crobibero, @jellyfin-bot\n- Redesign pages, add CSS where it is missing (#111) @Krafting, Krafting\n- Remove unsafe SQLite reconfiguration (#139) @IDisposable\n- Fix URL parameter name for loading backup file (#138) @realansgar\n- Change total_time type from int to long (#120) @wafflesLL",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/playback-reporting/playback-reporting_19.0.0.0.zip",
+				"checksum": "d7b71b4e82c0cfa61c52eb333e19f179",
+				"timestamp": "2026-09-08T02:38:36Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "d4312cd9-5c90-4f38-82e8-51da566790e8",
+			"name": "Reports",
+			"description": "Generate reports of your media library",
+			"overview": "Generate reports of your media library",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-reports.png",
+			"version": {
+				"version": "20.0.0.0",
+				"changelog": "- Add a bitrate column for Audio and Video respectively  (#106) @jcv8-dev, @crobibero\n- Use ApiKey query parameter for report export (#118) @quantumbagel, @crobibero",
+				"targetAbi": "12.2.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/reports/reports_20.0.0.0.zip",
+				"checksum": "3e9cfb43d6a69ae8824fcbcb9b2a6aa7",
+				"timestamp": "2026-10-19T22:24:31Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "bc4aad2e-d3d0-4725-a5e2-fd07949e5b42",
+			"name": "TMDb Box Sets",
+			"description": "Automatically create movie box sets based on TMDb collections",
+			"overview": "Automatically create movie box sets based on TMDb collections",
+			"owner": "jellyfin",
+			"category": "MoviesAndShows",
+			"version": {
+				"version": "15.0.0.0",
+				"changelog": "- Fix queue handling (#134) @Shadowghost, @crobibero",
+				"targetAbi": "12.1.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/tmdb-box-sets/tmdb-box-sets_15.0.0.0.zip",
+				"checksum": "a09e829c3fd2cf088b323c807e8b4403",
+				"timestamp": "2026-09-15T22:42:27Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "4fe3201e-d6ae-4f2e-8917-e12bda571281",
+			"name": "Trakt",
+			"description": "Record your watched media with Trakt.\n",
+			"overview": "Record your watched media with Trakt",
+			"owner": "jellyfin",
+			"category": "General",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-trakt.png",
+			"version": {
+				"version": "33.0.0.0",
+				"changelog": "- Optimize syncing and reduce trakt request volume (#311) @StefanFriptu, @crobibero",
+				"targetAbi": "12.1.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/trakt/trakt_33.0.0.0.zip",
+				"checksum": "209aa134acff0e0049c093f0f461ece6",
+				"timestamp": "2026-09-15T22:37:38Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "3fd018e5-5e78-4e58-b280-a0c068febee0",
+			"name": "TVHeadend",
+			"description": "Manage TVHeadend from Jellyfin",
+			"overview": "Manage TVHeadend from Jellyfin",
+			"owner": "jellyfin",
+			"category": "LiveTV",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-tvheadend.png",
+			"version": {
+				"version": "15.0.0.0",
+				"changelog": "- Fix HTSP handling across TVHeadend versions (#114) @Shadowghost, @crobibero\n- Enable Analyzers and migrate to slnx (#113) @Shadowghost, @crobibero",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/tvheadend/tvheadend_15.0.0.0.zip",
+				"checksum": "067c17c9a10e8f2965555caa20820797",
+				"timestamp": "2026-09-09T22:13:47Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "8119f3c6-cfc2-4d9c-a0ba-028f1d93e526",
+			"name": "Cover Art Archive",
+			"description": "This plugin provides images from the Cover Art Archive https://musicbrainz.org/doc/Cover_Art_Archive and depends on the MusicBrainz metadata provider to know what images belong where\n",
+			"overview": "MusicBrainz Cover Art Archive",
+			"owner": "jellyfin",
+			"category": "Music",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-coverartarchive.png",
+			"version": {
+				"version": "10.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#47) @crobibero, @jellyfin-bot\n\n### Dependency updates ###\n- Update MetaBrainz (#50) [@renovate[bot]](https://github.com/apps/renovate)\n- Update MetaBrainz to v7 (major) (#31) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency Microsoft.Extensions.Http to v10 (#41) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/cover-art-archive/cover-art-archive_10.0.0.0.zip",
+				"checksum": "51fa13d04d26d05ffe6a62c27b07057e",
+				"timestamp": "2026-09-08T02:37:07Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "a677c0da-fac5-4cde-941a-7134223f14c8",
+			"name": "TheTVDB",
+			"description": "Get TV metadata from TheTvdb\n",
+			"overview": "Get TV metadata from TheTvdb",
+			"owner": "jellyfin",
+			"category": "MoviesAndShows",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-tvdb.png",
+			"version": {
+				"version": "24.0.0.0",
+				"changelog": "- Do not return invalid image URLs (#260) @Shadowghost, @crobibero\n- Check against the Series Tvdb Id instead of GetTvdbId (#267) @scampower3, @crobibero\n- Fix identification of titles containing punctuation (#264) @Shadowghost, @crobibero\n- Use season/episode TVDB IDs from path when available (#239) @IDisposable, @Shadowghost\n- Option to import for original title (#263) @enter-a-random-username, @Shadowghost",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/thetvdb/thetvdb_24.0.0.0.zip",
+				"checksum": "4ed207018366e6711ce6b5f440bcb18f",
+				"timestamp": "2026-09-09T22:18:22Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "a2b2a7ed-aa28-4521-a64a-63d86901f246",
+			"name": "AniDB",
+			"description": "AniDB metadata provider\n",
+			"overview": "AniDB metadata provider",
+			"owner": "jellyfin",
+			"category": "Anime",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-anidb.png",
+			"version": {
+				"version": "13.0.0.0",
+				"changelog": "- Close out six open issues across metadata, matching and artwork (#108) @Shadowghost, @crobibero\n- Implement similarity providers and update README (#107) @Shadowghost, @crobibero\n- Set the production year on a series, and fail rather than blank an item while banned (#109) @Shadowghost, @crobibero",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/anidb/anidb_13.0.0.0.zip",
+				"checksum": "ee3a952012bc8a4c306fa45665dec9e7",
+				"timestamp": "2026-09-09T22:18:33Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "1bd22884-44be-40f3-ad95-fc4a7834ba2c",
+			"name": "AniList",
+			"description": "AniList metadata provider\n",
+			"overview": "AniList metadata provider",
+			"owner": "jellyfin",
+			"category": "Anime",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-anilist.png",
+			"version": {
+				"version": "15.0.0.0",
+				"changelog": "- Use RateLimiter from AniDb plugin, fix GraphQL (#117) @Shadowghost, @crobibero",
+				"targetAbi": "12.1.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/anilist/anilist_15.0.0.0.zip",
+				"checksum": "7894285e510f2e22b2364df570a546b3",
+				"timestamp": "2026-09-15T22:42:33Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "776d9158-b91f-49d9-82c5-dacce63d63b8",
+			"name": "AniSearch",
+			"description": "AniSearch metadata provider\n",
+			"overview": "AniSearch metadata provider",
+			"owner": "jellyfin",
+			"category": "Anime",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-anisearch.png",
+			"version": {
+				"version": "6.0.0.0",
+				"changelog": "- Jellyfin 10.11 support (#28) @crobibero",
+				"targetAbi": "10.11.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/anisearch/anisearch_6.0.0.0.zip",
+				"checksum": "24e3cfbf7c5500ec56aaa2aebaafb160",
+				"timestamp": "2025-10-20T01:27:49Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "88d809e2-056b-47f4-9911-073949b9963f",
+			"name": "Kitsu",
+			"description": "Kitsu metadata provider\n",
+			"overview": "Kitsu metadata provider",
+			"owner": "jellyfin",
+			"category": "Anime",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-kitsu.png",
+			"version": {
+				"version": "8.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#45) @crobibero, @jellyfin-bot\n- Add title language configuration (#39) @nepellion\n- Add missing dates to metadata (#38) @nepellion\n\n### Dependency updates ###\n- Update dependency Microsoft.Extensions.Http to 9.0.11 (#31) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/kitsu/kitsu_8.0.0.0.zip",
+				"checksum": "1e06b85ed653422d1b09495982d63ea8",
+				"timestamp": "2026-09-08T02:38:13Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "a4a488d0-17a3-4919-8d82-7f3de4f6b209",
+			"name": "TVmaze",
+			"description": "Get TV metadata from TVmaze\n",
+			"overview": "Get TV metadata from TVmaze",
+			"owner": "jellyfin",
+			"category": "MoviesAndShows",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-tvmaze.png",
+			"version": {
+				"version": "14.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#67) @crobibero, @claude, @jellyfin-bot\n- Use the TvMaze Season ID and Episode ID if known. (#65) @IDisposable\n- Revert \"Update dependency Microsoft.Extensions.Http to v10\" (#62) @Shadowghost\n\n### Dependency updates ###\n- Update dependency Microsoft.Extensions.Http to 9.0.11 (#52) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency Microsoft.Extensions.Http to v10 (#59) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/tvmaze/tvmaze_14.0.0.0.zip",
+				"checksum": "c979445ec2517a49ef61b1f057a9de76",
+				"timestamp": "2026-09-08T02:39:36Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "71552a5a-5c5c-4350-a2ae-ebe451a30173",
+			"name": "Webhook",
+			"description": "Sends notifications to destinations via webhooks.\n",
+			"overview": "Sends notifications.",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-webhook.png",
+			"version": {
+				"version": "22.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#387) @crobibero, @jellyfin-bot\n- Construct SMTP addresses by parsing (#324) @andrasmaroy\n- Fix color formatting in Discord template (#390) @espdesign",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/webhook/webhook_22.0.0.0.zip",
+				"checksum": "1bb9033caa69ff54ef56cfa8669b5ac5",
+				"timestamp": "2026-09-08T02:39:50Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "f30880ae-3365-449e-b9e6-bf133c8401b0",
+			"name": "OPDS",
+			"description": "Provides an OPDS feed for book browsing.\n",
+			"overview": "Provides an OPDS book feed",
+			"owner": "jellyfin",
+			"category": "Books",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-opds.png",
+			"version": {
+				"version": "8.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#53) @crobibero, @jellyfin-bot",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/opds/opds_8.0.0.0.zip",
+				"checksum": "374576137edc04552eb5ccd6806b7022",
+				"timestamp": "2026-09-08T02:38:32Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "ec9e2a74-1311-4a14-b302-158e3d95fd1d",
+			"name": "Session Cleaner",
+			"description": "Removes old sessions (devices).\n",
+			"overview": "Removes old sessions (devices).",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"version": {
+				"version": "6.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#32) @crobibero, @jellyfin-bot\n- add emby-button class to the help button (#26) @Krafting\n\n### Dependency updates ###\n- Update dependency StyleCop.Analyzers to 1.2.0-beta.556 (#33) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/session-cleaner/session-cleaner_6.0.0.0.zip",
+				"checksum": "3334bbd5e76e32d5f25d5476b03afa77",
+				"timestamp": "2026-09-08T02:38:50Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "44616595-5798-47ad-8658-3c09f3030505",
+			"name": "VGMdb",
+			"description": "Adds support for VGMdb to music libraries. Can provide both images and metadata for artists and albums.\n",
+			"overview": "Adds support for VGMdb to music libraries. Can provide both images and metadata for artists and albums.",
+			"owner": "jellyfin",
+			"category": "Music",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-vgmdb.png",
+			"version": {
+				"version": "6.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#36) @crobibero, @jellyfin-bot\n- Revert \"Update dependency Microsoft.Extensions.Http to v10\" (#32) @Shadowghost\n\n### Dependency updates ###\n- Update dependency Microsoft.Extensions.Http to 9.0.11 (#25) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency Microsoft.Extensions.Http to v10 (#29) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency StyleCop.Analyzers to 1.2.0-beta.556 (#19) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/vgmdb/vgmdb_6.0.0.0.zip",
+				"checksum": "e8ba5a99a2c2a5f4d1dba77f81a7132b",
+				"timestamp": "2026-09-08T02:39:49Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "07caef58-a94b-4211-a62c-f9774e04ebdb",
+			"name": "Simkl",
+			"description": "Scrobble your watched Movies, TV Shows and Anime to Simkl and share your progress with friends!\n",
+			"overview": "Scrobble to Simkl",
+			"owner": "crobibero",
+			"category": "General",
+			"image": "image.png",
+			"imageUrl": "https://repo.jellyfin.org/files/plugin/simkl/image.png",
+			"version": {
+				"version": "10.0.0.0",
+				"changelog": "- Add the Simkl OAuth 2 device flow and two-way watched state sync (#73) @ekleop, @crobibero",
+				"targetAbi": "12.2.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/simkl/simkl_10.0.0.0.zip",
+				"checksum": "15a208d7fdedaea94006cbd9464cfba1",
+				"timestamp": "2026-10-19T22:39:18Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "cd893c24-b59e-4060-87b2-184070e1bf68",
+			"name": "Subtitle Extract",
+			"description": "Extracts embedded subtitles proactively.\n",
+			"overview": "Extracts subtitles proactively.",
+			"owner": "jellyfin",
+			"category": "Subtitles",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-subtitleextract.png",
+			"version": {
+				"version": "8.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#65) @crobibero, @jellyfin-bot\n- doc: Make documentation and plugin short descriptions a bit clearer. (#68) @mgla",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/subtitle-extract/subtitle-extract_8.0.0.0.zip",
+				"checksum": "e3186613d48582deb73b687e8bbb2758",
+				"timestamp": "2026-09-08T02:38:58Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "4ce89c27-d3a1-4e4b-8f5f-4bd9191c857e",
+			"name": "Discogs",
+			"description": "Get music metadata from Discogs\n",
+			"overview": "Get music metadata from Discogs",
+			"owner": "jellyfin",
+			"category": "Music",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-discogs.png",
+			"version": {
+				"version": "3.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#22) @crobibero, @jellyfin-bot\n- Revert \"Update dependency System.Threading.RateLimiting to v10\" (#18) @Shadowghost\n\n### Dependency updates ###\n- Update dependency System.Threading.RateLimiting to v10 (#11) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/discogs/discogs_3.0.0.0.zip",
+				"checksum": "1f4bc68b65751d318b5f8b76fdf55a63",
+				"timestamp": "2026-09-08T02:37:12Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "7871d3b1-f1b9-4318-9c27-f35998ffbbcc",
+			"name": "Artwork",
+			"description": "Downloads artwork from a repository for various media types.\n",
+			"overview": "Download artwork",
+			"owner": "jellyfin",
+			"category": "General",
+			"version": {
+				"version": "3.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#33) @crobibero, @jellyfin-bot\n\n### Dependency updates ###\n- Update dependency Microsoft.Extensions.Http to 9.0.11 (#24) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/artwork/artwork_3.0.0.0.zip",
+				"checksum": "8993c10376a1aba60748e7ac2913ccde",
+				"timestamp": "2026-09-08T02:36:54Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "07d86795-01f2-4d22-b174-cdc6056c3e7c",
+			"name": "Local Intros",
+			"description": "Select a flashy pre-roll from local storage to run before any video content. The video details are loaded from disk after a video is played from the library from the beginning of the video. A random video is selected, and all videos in the local directory are enabled by default. Specific videos can be enabled or disabled as necessary. After videos are loaded for the first time, additional videos found in the directory are not enabled by default.\n",
+			"overview": "Display flashy intros before movies and other videos",
+			"owner": "Jellyfin",
+			"category": "MoviesAndShows",
+			"version": {
+				"version": "5.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#60) @crobibero, @jellyfin-bot\n- Update link to Pre-rolls Community website (#56) @klaxusnexus, @crobibero",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/local-intros/local-intros_5.0.0.0.zip",
+				"checksum": "4bae70614e5a531ab9015592d112fcf5",
+				"timestamp": "2026-09-08T02:37:45Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "33eba9cd-7da1-4720-967f-dd7dae7b74a1",
+			"name": "DLNA",
+			"description": "Adds DLNA capability to Jellyfin\n",
+			"overview": "DLNA Service",
+			"owner": "jellyfin",
+			"category": "General",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-dlna.png",
+			"version": {
+				"version": "14.0.0.0",
+				"changelog": "- Fix track changes that renderers ignore or overrun (#245) @Shadowghost, @crobibero",
+				"targetAbi": "12.1.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/dlna/dlna_14.0.0.0.zip",
+				"checksum": "32bcfdeec406a81b5d1448f3042c438e",
+				"timestamp": "2026-09-15T22:34:11Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "a0444c3b-fe1c-4258-9e0f-a139fc093949",
+			"name": "Transcode Killer",
+			"description": "Kills transcodes above set resolutions to prevent server overload.",
+			"overview": "Kills transcodes to prevent server overload.",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"version": {
+				"version": "5.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#13) @crobibero, @jellyfin-bot",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/transcode-killer/transcode-killer_5.0.0.0.zip",
+				"checksum": "6793ba5f328c193e290520934efbdbd8",
+				"timestamp": "2026-09-08T02:39:26Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "698b6f33-14ca-49b5-9d79-fc3c0ab941f5",
+			"name": "Chapter Segments Provider",
+			"description": "Create media segments based on chapters.\n",
+			"overview": "Create media segments based on chapters.",
+			"owner": "jellyfin",
+			"category": "General",
+			"version": {
+				"version": "5.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#22) @crobibero, @jellyfin-bot\n\n### Dependency updates ###\n- Update mcr.microsoft.com/devcontainers/dotnet Docker tag to v2 (#18) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/chapter-segments-provider/chapter-segments-provider_5.0.0.0.zip",
+				"checksum": "524b22cd0c8047cce8683905b53c11ab",
+				"timestamp": "2026-09-08T02:36:56Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "d106ebe6-9ca8-4fbc-9cd1-a92a213da9f9",
+			"name": "LrcLib Lyrics",
+			"description": "Download lyrics from https://lrclib.net/\n",
+			"overview": "Download lyrics from https://lrclib.net/",
+			"owner": "jellyfin",
+			"category": "Music",
+			"version": {
+				"version": "5.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#36) @crobibero, @jellyfin-bot\n- Modernize Analyzers and add synced lyric option (#44) @Shadowghost, @crobibero",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/lrclib-lyrics/lrclib-lyrics_5.0.0.0.zip",
+				"checksum": "122f89ba5195c14967c6e9c0cc7b55fc",
+				"timestamp": "2026-09-08T02:38:11Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "7a9f4890-b216-4d75-a0e4-4c9f29ed5217",
+			"name": "Google Books",
+			"description": "Pulls book metadata and cover images from Google Books.\n",
+			"overview": "Google Books Metadata Provider",
+			"owner": "jellyfin",
+			"category": "Books",
+			"version": {
+				"version": "3.0.0.0",
+				"changelog": "- feat: adds Google Books API key support (#23) @sodagunz, @crobibero",
+				"targetAbi": "12.1.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/google-books/google-books_3.0.0.0.zip",
+				"checksum": "ee6ac08d0574f5603875e387451eba18",
+				"timestamp": "2026-10-02T20:24:26Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "309ec7e5-4981-4e8c-992f-8e4dde9591e0",
+			"name": "Comic Vine",
+			"description": "Pulls comic metadata and cover images from Comic Vine.\n",
+			"overview": "Comic Vine Metadata Provider",
+			"owner": "jellyfin",
+			"category": "Books",
+			"version": {
+				"version": "2.0.0.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#16) @crobibero, @claude, @jellyfin-bot\n- Update dependency coverlet.collector to v10 (#21) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency coverlet.collector to 6.0.4 (#18) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency NSubstitute to v6 (#23) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency xunit to 2.9.3 (#15) [@renovate[bot]](https://github.com/apps/renovate), @crobibero",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/comic-vine/comic-vine_2.0.0.0.zip",
+				"checksum": "ec6b7e269f476b41dcdead8a825df993",
+				"timestamp": "2026-09-08T02:36:58Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "a4df60c5-6ab4-412a-8f79-2cab93fb2bc5",
+			"name": "OpenLibrary",
+			"description": "Provides book and author metadata from OpenLibrary.org for your Jellyfin book libraries. Automatically fetches book descriptions, series information, publication dates, genres, and author biographies from the OpenLibrary API.\n",
+			"overview": "OpenLibrary metadata provider for Jellyfin",
+			"owner": "jellyfin",
+			"category": "Books",
+			"version": {
+				"version": "2.0.0.0",
+				"changelog": "- Fix: Set ClientSideRateLimitedHandler to public (#9) @jordanmichaelrushing, @crobibero",
+				"targetAbi": "12.2.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/openlibrary/openlibrary_2.0.0.0.zip",
+				"checksum": "8d5dbc80e566847827b1693ae5e53509",
+				"timestamp": "2026-10-06T00:41:44Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin",
+		"plugin": {
+			"guid": "f982556e-29c5-4fc0-9f68-83d00257041a",
+			"name": "Folio",
+			"description": "Organizes book series into collections\n",
+			"overview": ".",
+			"owner": "jellyfin",
+			"category": "Books",
+			"version": {
+				"version": "1.0.0.0",
+				"changelog": "- Initial release",
+				"targetAbi": "10.12.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin/folio/folio_1.0.0.0.zip",
+				"checksum": "cfa8ec5ab2c17dd891b7185c55ef88d7",
+				"timestamp": "2026-09-08T02:45:04Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "a2b2a7ed-aa28-4521-a64a-63d86901f246",
+			"name": "AniDB",
+			"description": "AniDB metadata provider\n",
+			"overview": "AniDB metadata provider",
+			"owner": "jellyfin",
+			"category": "Anime",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-anidb.png",
+			"version": {
+				"version": "11.2609.17.0",
+				"changelog": "- Jellyfin 10.11 support (#78) @crobibero",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/anidb/anidb_11.2609.17.0.zip",
+				"checksum": "b282bdcb4c95e517e0ac4040a6f075d8",
+				"timestamp": "2026-09-06T02:01:11Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "1bd22884-44be-40f3-ad95-fc4a7834ba2c",
+			"name": "AniList",
+			"description": "AniList metadata provider\n",
+			"overview": "AniList metadata provider",
+			"owner": "jellyfin",
+			"category": "Anime",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-anilist.png",
+			"version": {
+				"version": "14.2610.24.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#114) @crobibero, @jellyfin-bot\n- Allow filtering people by role (#110) @HansLehnert, @nielsvanvelzen\n- Add anilist episode provider (#104) @ivanjx, @nielsvanvelzen\n- Change image type for banner images from Backdrop to Banner (#109) @vodkapmp, @nielsvanvelzen",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/anilist/anilist_14.2610.24.0.zip",
+				"checksum": "ed8452c68bfebcb9eebecd3619edd291",
+				"timestamp": "2026-10-19T15:09:48Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "776d9158-b91f-49d9-82c5-dacce63d63b8",
+			"name": "AniSearch",
+			"description": "AniSearch metadata provider\n",
+			"overview": "AniSearch metadata provider",
+			"owner": "jellyfin",
+			"category": "Anime",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-anisearch.png",
+			"version": {
+				"version": "7.2609.14.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#38) @crobibero, @jellyfin-bot\n- Revert \"Update dependency Microsoft.Extensions.Http to v10\" (#34) @Shadowghost\n\n### Dependency updates ###\n- Update dependency Microsoft.Extensions.Http to 9.0.11 (#24) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency Microsoft.Extensions.Http to v10 (#32) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/anisearch/anisearch_7.2609.14.0.zip",
+				"checksum": "ca1990191ad8cf8f52c0da20f3a42a9c",
+				"timestamp": "2026-09-14T14:36:32Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "8119f3c6-cfc2-4d9c-a0ba-028f1d93e526",
+			"name": "Cover Art Archive",
+			"description": "This plugin provides images from the Cover Art Archive https://musicbrainz.org/doc/Cover_Art_Archive and depends on the MusicBrainz metadata provider to know what images belong where\n",
+			"overview": "MusicBrainz Cover Art Archive",
+			"owner": "jellyfin",
+			"category": "Music",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-coverartarchive.png",
+			"version": {
+				"version": "9.2609.15.0",
+				"changelog": "- Jellyfin 10.11 support (#39) @crobibero",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/cover-art-archive/cover-art-archive_9.2609.15.0.zip",
+				"checksum": "c4af0603719084f45eaf40a06d4e07e0",
+				"timestamp": "2026-09-07T13:50:32Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "7871d3b1-f1b9-4318-9c27-f35998ffbbcc",
+			"name": "Artwork",
+			"description": "Downloads artwork from a repository for various media types.\n",
+			"overview": "Download artwork",
+			"owner": "jellyfin",
+			"category": "General",
+			"version": {
+				"version": "3.2609.16.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#33) @crobibero, @jellyfin-bot\n\n### Dependency updates ###\n- Update dependency Microsoft.Extensions.Http to 9.0.11 (#24) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/artwork/artwork_3.2609.16.0.zip",
+				"checksum": "d5c707dd8d2c3ec2b7e3b0239278e36a",
+				"timestamp": "2026-09-14T14:36:50Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "33eba9cd-7da1-4720-967f-dd7dae7b74a1",
+			"name": "DLNA",
+			"description": "Adds DLNA capability to Jellyfin\n",
+			"overview": "DLNA Service",
+			"owner": "jellyfin",
+			"category": "General",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-dlna.png",
+			"version": {
+				"version": "13.2609.34.0",
+				"changelog": "- Fix v12 regressions (#243) @Shadowghost, @crobibero\n- Keep genre and artist containers within the library they were browsed in from (#239) @Shadowghost, @crobibero\n- Keep polling the renderer through a transport change (#240) @Shadowghost, @crobibero",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/dlna/dlna_13.2609.34.0.zip",
+				"checksum": "5ef13c319d039ad57c6dbbea1cbd81da",
+				"timestamp": "2026-09-14T14:39:01Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "170a157f-ac6c-437a-abdd-ca9c25cebd39",
+			"name": "Fanart",
+			"description": "Scrape poster images for movies, shows, and artists in your library.",
+			"overview": "Scrape poster images from Fanart",
+			"owner": "jellyfin",
+			"category": "MoviesAndShows",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-fanart.png",
+			"version": {
+				"version": "15.2609.14.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#78) @crobibero, @enter-a-random-username, @jellyfin-bot\n- Use preview  image for faster loading times (#81) @enter-a-random-username, @crobibero",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/fanart/fanart_15.2609.14.0.zip",
+				"checksum": "c35a21e86a8e227e4b58e4712d9346e2",
+				"timestamp": "2026-09-14T14:37:49Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "9c4e63f1-031b-4f25-988b-4f7d78a8b53e",
+			"name": "Bookshelf",
+			"description": "Supports several different metadata providers and options for organizing your collection.\n",
+			"overview": "Manage your books",
+			"owner": "jellyfin",
+			"category": "Books",
+			"version": {
+				"version": "13.2606.16.0",
+				"changelog": "- Jellyfin 10.11 support (#130) @crobibero",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/bookshelf/bookshelf_13.2606.16.0.zip",
+				"checksum": "d6c9855b20d42978060cd40d81539c7d",
+				"timestamp": "2026-06-24T21:53:51Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "e29621a5-fa9e-4330-982e-ef6e54c0cad2",
+			"name": "IMVDb",
+			"description": "Get Music Video metadata from IMVDb\n",
+			"overview": "Get Music Video metadata from IMVDb",
+			"owner": "jellyfin",
+			"category": "Music",
+			"imageUrl": "https://repo.jellyfin.org/files/plugin/images/jellyfin-plugin-imvdb.png",
+			"version": {
+				"version": "6.2609.15.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#37) @crobibero, @jellyfin-bot\n- Revert \"Update dependency Microsoft.Extensions.Http to v10\" (#33) @Shadowghost\n\n### Dependency updates ###\n- Update dependency Microsoft.Extensions.Http to 9.0.11 (#22) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency Microsoft.Extensions.Http to v10 (#31) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/imvdb/imvdb_6.2609.15.0.zip",
+				"checksum": "290f00c2ed6bf5ffd59d57d46739af1e",
+				"timestamp": "2026-09-15T22:37:01Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "88d809e2-056b-47f4-9911-073949b9963f",
+			"name": "Kitsu",
+			"description": "Kitsu metadata provider\n",
+			"overview": "Kitsu metadata provider",
+			"owner": "jellyfin",
+			"category": "Anime",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-kitsu.png",
+			"version": {
+				"version": "8.2609.13.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#45) @crobibero, @jellyfin-bot\n- Add title language configuration (#39) @nepellion\n- Add missing dates to metadata (#38) @nepellion\n\n### Dependency updates ###\n- Update dependency Microsoft.Extensions.Http to 9.0.11 (#31) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/kitsu/kitsu_8.2609.13.0.zip",
+				"checksum": "bd9c1baf9f464c3be08deb61fbd3a7f3",
+				"timestamp": "2026-09-14T14:38:35Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "771e19d6-5385-4caf-b35c-28a0e865cf63",
+			"name": "Kodi Sync Queue",
+			"description": "This plugin will track all media changes while Kodi clients are offline to decrease sync times.",
+			"overview": "Sync all media changes with Kodi clients",
+			"owner": "jellyfin",
+			"category": "General",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-kodisyncqueue.png",
+			"version": {
+				"version": "16.2609.15.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#118) @crobibero, @jellyfin-bot\n- fix: add authentication for sync queue API (#110) @Theta-Dev\n\n### Dependency updates ###\n- Update dependency LiteDB to 5.0.21 (#119) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/kodi-sync-queue/kodi-sync-queue_16.2609.15.0.zip",
+				"checksum": "1b5decdbca9ca20ea07a55969c8b566e",
+				"timestamp": "2026-09-14T14:39:20Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "4ce89c27-d3a1-4e4b-8f5f-4bd9191c857e",
+			"name": "Discogs",
+			"description": "Get music metadata from Discogs\n",
+			"overview": "Get music metadata from Discogs",
+			"owner": "jellyfin",
+			"category": "Music",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-discogs.png",
+			"version": {
+				"version": "2.2609.18.0",
+				"changelog": "- Jellyfin 10.11 support (#15) @crobibero",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/discogs/discogs_2.2609.18.0.zip",
+				"checksum": "fc5be1db9d69eaa3910f3616a77e73aa",
+				"timestamp": "2026-09-06T02:02:21Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "958aad66-3784-4d2a-b89a-a7b6fab6e25c",
+			"name": "LDAP Authentication",
+			"description": "Authenticate your Jellyfin users against an LDAP database, and optionally create users who do not yet exist automatically.\n\nAllows the administrator to customize most aspects of the LDAP authentication process, including customizable search attributes, username attribute, and a search filter for administrative users (set on user creation). The user, via the \"Manual Login\" process, can enter any valid attribute value, which will be mapped back to the specified username attribute automatically as well.\n",
+			"overview": "Authenticate users against an LDAP database",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-ldapauth.png",
+			"version": {
+				"version": "24.2609.17.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#213) @crobibero, @jellyfin-bot\n- Fix LDAP admin filter username resolution (#223) @ddwalias",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/ldap-authentication/ldap-authentication_24.2609.17.0.zip",
+				"checksum": "59b4f16ce259e2af94391ddca08db915",
+				"timestamp": "2026-09-14T14:40:27Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "5c534381-91a3-43cb-907a-35aa02eb9d2c",
+			"name": "Playback Reporting",
+			"description": "Collect and show user play statistics",
+			"overview": "Collect and show user play statistics",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-playbackreporting.png",
+			"version": {
+				"version": "19.2609.14.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#127) @crobibero, @jellyfin-bot\n- Redesign pages, add CSS where it is missing (#111) @Krafting, Krafting\n- Remove unsafe SQLite reconfiguration (#139) @IDisposable\n- Fix URL parameter name for loading backup file (#138) @realansgar\n- Change total_time type from int to long (#120) @wafflesLL",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/playback-reporting/playback-reporting_19.2609.14.0.zip",
+				"checksum": "693f1ce008bdeafc13f05e2f5f5339db",
+				"timestamp": "2026-09-14T14:43:31Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "f30880ae-3365-449e-b9e6-bf133c8401b0",
+			"name": "OPDS",
+			"description": "Provides an OPDS feed for book browsing.\n",
+			"overview": "Provides an OPDS book feed",
+			"owner": "jellyfin",
+			"category": "Books",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-opds.png",
+			"version": {
+				"version": "8.2609.17.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#53) @crobibero, @jellyfin-bot",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/opds/opds_8.2609.17.0.zip",
+				"checksum": "07c5d9e392eb9cf8b92f4f600975fc3f",
+				"timestamp": "2026-09-14T14:42:55Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "d4312cd9-5c90-4f38-82e8-51da566790e8",
+			"name": "Reports",
+			"description": "Generate reports of your media library",
+			"overview": "Generate reports of your media library",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-reports.png",
+			"version": {
+				"version": "19.2609.15.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#108) @crobibero, @claude, @jellyfin-bot\n- fix: export limiting to maximum 100 lines (#100) @Yghore\n\n### Dependency updates ###\n- Update dependency ClosedXML to 0.105.1 (#109) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/reports/reports_19.2609.15.0.zip",
+				"checksum": "fbfbf8cd7344e4eaf979464803309e21",
+				"timestamp": "2026-09-14T14:40:13Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "07caef58-a94b-4211-a62c-f9774e04ebdb",
+			"name": "Simkl",
+			"description": "Scrobble your watched Movies, TV Shows and Anime to Simkl and share your progress with friends!\n",
+			"overview": "Scrobble to Simkl",
+			"owner": "crobibero",
+			"category": "General",
+			"version": {
+				"version": "9.2609.14.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#64) @crobibero, @jellyfin-bot\n- Fix: typo 'compouter' in login instructions (#65) @bretthysuik\n- feat: live-scrobbling support (#61) @samip5, @claude, @crobibero\n\n### New features and improvements ###\n- Add external url provider (#39) @crobibero",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/simkl/simkl_9.2609.14.0.zip",
+				"checksum": "97c22e2b201cbb920c2855b6e71cf49e",
+				"timestamp": "2026-09-14T14:42:38Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "4b9ed42f-5185-48b5-9803-6ff2989014c4",
+			"name": "Open Subtitles",
+			"description": "Download subtitles from the internet to use with your media files. (Requires configuration)",
+			"overview": "Download subtitles for your media",
+			"owner": "jellyfin",
+			"category": "Subtitles",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-opensubtitles.png",
+			"version": {
+				"version": "25.2609.21.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#207) @crobibero, @jellyfin-bot\n- Add handling for small video files (#192) @MBR-0001\n\n### Dependency updates ###\n- Update dependency xunit.runner.visualstudio to v4 (#215) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency coverlet.collector to v10 (#212) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/open-subtitles/open-subtitles_25.2609.21.0.zip",
+				"checksum": "b462902fbb61f8a06afe485e6b2d75da",
+				"timestamp": "2026-09-14T14:39:11Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "cd893c24-b59e-4060-87b2-184070e1bf68",
+			"name": "Subtitle Extract",
+			"description": "Extracts embedded subtitles proactively.\n",
+			"overview": "Extracts subtitles proactively.",
+			"owner": "jellyfin",
+			"category": "Subtitles",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-subtitleextract.png",
+			"version": {
+				"version": "8.2609.16.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#65) @crobibero, @jellyfin-bot\n- doc: Make documentation and plugin short descriptions a bit clearer. (#68) @mgla",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/subtitle-extract/subtitle-extract_8.2609.16.0.zip",
+				"checksum": "d4cbfda564bf8aa01174edc525fbcfaf",
+				"timestamp": "2026-09-14T14:40:58Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "ec9e2a74-1311-4a14-b302-158e3d95fd1d",
+			"name": "Session Cleaner",
+			"description": "Removes old sessions (devices).\n",
+			"overview": "Removes old sessions (devices).",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"version": {
+				"version": "6.2609.12.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#32) @crobibero, @jellyfin-bot\n- add emby-button class to the help button (#26) @Krafting\n\n### Dependency updates ###\n- Update dependency StyleCop.Analyzers to 1.2.0-beta.556 (#33) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/session-cleaner/session-cleaner_6.2609.12.0.zip",
+				"checksum": "99c71d98cbe33e593428860251ee8a35",
+				"timestamp": "2026-09-14T14:40:02Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "a677c0da-fac5-4cde-941a-7134223f14c8",
+			"name": "TheTVDB",
+			"description": "Get TV metadata from TheTvdb\n",
+			"overview": "Get TV metadata from TheTvdb",
+			"owner": "jellyfin",
+			"category": "MoviesAndShows",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-tvdb.png",
+			"version": {
+				"version": "22.2609.23.0",
+				"changelog": "- Revert \"Update dependency Microsoft.Extensions.Http to v10\" (#228) @Shadowghost",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/thetvdb/thetvdb_22.2609.23.0.zip",
+				"checksum": "4fcf3cdbc42dccd4a456f2f1bffa129a",
+				"timestamp": "2026-09-06T02:03:59Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "a4a488d0-17a3-4919-8d82-7f3de4f6b209",
+			"name": "TVmaze",
+			"description": "Get TV metadata from TVmaze\n",
+			"overview": "Get TV metadata from TVmaze",
+			"owner": "jellyfin",
+			"category": "MoviesAndShows",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-tvmaze.png",
+			"version": {
+				"version": "14.2609.15.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#67) @crobibero, @claude, @jellyfin-bot\n- Use the TvMaze Season ID and Episode ID if known. (#65) @IDisposable\n- Revert \"Update dependency Microsoft.Extensions.Http to v10\" (#62) @Shadowghost\n\n### Dependency updates ###\n- Update dependency Microsoft.Extensions.Http to 9.0.11 (#52) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency Microsoft.Extensions.Http to v10 (#59) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/tvmaze/tvmaze_14.2609.15.0.zip",
+				"checksum": "dec7b27b0331cae56bf6c4678c8d2288",
+				"timestamp": "2026-09-14T14:44:46Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "44616595-5798-47ad-8658-3c09f3030505",
+			"name": "VGMdb",
+			"description": "Adds support for VGMdb to music libraries. Can provide both images and metadata for artists and albums.\n",
+			"overview": "Adds support for VGMdb to music libraries. Can provide both images and metadata for artists and albums.",
+			"owner": "jellyfin",
+			"category": "Music",
+			"version": {
+				"version": "6.2609.13.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#36) @crobibero, @jellyfin-bot\n- Revert \"Update dependency Microsoft.Extensions.Http to v10\" (#32) @Shadowghost\n\n### Dependency updates ###\n- Update dependency Microsoft.Extensions.Http to 9.0.11 (#25) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency Microsoft.Extensions.Http to v10 (#29) [@renovate[bot]](https://github.com/apps/renovate)\n- Update dependency StyleCop.Analyzers to 1.2.0-beta.556 (#19) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/vgmdb/vgmdb_6.2609.13.0.zip",
+				"checksum": "548ed9d536714ee35f76db2525c41ff1",
+				"timestamp": "2026-09-14T14:43:25Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "4fe3201e-d6ae-4f2e-8917-e12bda571281",
+			"name": "Trakt",
+			"description": "Record your watched media with Trakt.\n",
+			"overview": "Record your watched media with Trakt",
+			"owner": "jellyfin",
+			"category": "General",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-trakt.png",
+			"version": {
+				"version": "31.2609.19.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#287) @crobibero\n- Fix watched movies/shows import only fetching the first page (#298) @rbcetin, @claude, @Shadowghost\n- Fix duplicate watched-history plays for shows with local/trakt numbering mismatches (#303) @InoriHimea, @Shadowghost\n- Fix episode external URL generation (#301) @vicente-higino, @Shadowghost\n- Fix a null-check gap and two exception-swallowing bugs in the sync/API layer (#304) @InoriHimea, @Shadowghost\n- Fix timezone bug in Trakt LastPlayedDate comparison (#308) @jvandenbroek\n\n### Dependency updates ###\n- Update jellyfin/jellyfin-meta-plugins digest to bd147a5 (#284) [@renovate[bot]](https://github.com/apps/renovate)\n\n### CI & build changes ###\n- Update jellyfin/jellyfin-meta-plugins digest to bd147a5 (#284) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/trakt/trakt_31.2609.19.0.zip",
+				"checksum": "a6ed25dddb8506b2e615828f0446a3ee",
+				"timestamp": "2026-09-14T14:40:15Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "bc4aad2e-d3d0-4725-a5e2-fd07949e5b42",
+			"name": "TMDb Box Sets",
+			"description": "Automatically create movie box sets based on TMDb collections",
+			"overview": "Automatically create movie box sets based on TMDb collections",
+			"owner": "jellyfin",
+			"category": "MoviesAndShows",
+			"version": {
+				"version": "13.2609.15.0",
+				"changelog": "- Fix: Honor minimum movies setting and exclude disabled libraries (#94) (#113) @elio42",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/tmdb-box-sets/tmdb-box-sets_13.2609.15.0.zip",
+				"checksum": "0aab4df335fb772114e5fb7e6ec22dd9",
+				"timestamp": "2026-09-06T02:03:30Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "71552a5a-5c5c-4350-a2ae-ebe451a30173",
+			"name": "Webhook",
+			"description": "Sends notifications to destinations via webhooks.\n",
+			"overview": "Sends notifications.",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-webhook.png",
+			"version": {
+				"version": "22.2609.19.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#387) @crobibero, @jellyfin-bot\n- Construct SMTP addresses by parsing (#324) @andrasmaroy\n- Fix color formatting in Discord template (#390) @espdesign",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/webhook/webhook_22.2609.19.0.zip",
+				"checksum": "839194b44782414406866223ec8e2bdd",
+				"timestamp": "2026-09-14T14:43:22Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "07d86795-01f2-4d22-b174-cdc6056c3e7c",
+			"name": "Local Intros",
+			"description": "Select a flashy pre-roll from local storage to run before any video content. The video details are loaded from disk after a video is played from the library from the beginning of the video. A random video is selected, and all videos in the local directory are enabled by default. Specific videos can be enabled or disabled as necessary. After videos are loaded for the first time, additional videos found in the directory are not enabled by default.\n",
+			"overview": "Display flashy intros before movies and other videos",
+			"owner": "Jellyfin",
+			"category": "MoviesAndShows",
+			"version": {
+				"version": "5.2609.15.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#60) @crobibero, @jellyfin-bot\n- Update link to Pre-rolls Community website (#56) @klaxusnexus, @crobibero",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/local-intros/local-intros_5.2609.15.0.zip",
+				"checksum": "20049f98f8475de8cad14ccefddb6526",
+				"timestamp": "2026-09-14T14:39:31Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "3fd018e5-5e78-4e58-b280-a0c068febee0",
+			"name": "TVHeadend",
+			"description": "Manage TVHeadend from Jellyfin",
+			"overview": "Manage TVHeadend from Jellyfin",
+			"owner": "jellyfin",
+			"category": "LiveTV",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-tvheadend.png",
+			"version": {
+				"version": "13.2609.12.0",
+				"changelog": "- Jellyfin 10.11 support (#100) @crobibero\n- Restore subtitles and multiple audio that got destroyed in commit db8cd9af238813a7b141ba826168fdaa22f1509e on Feb 18, 2018 (#68) @roman-vanicek\n- Further Release 10.9.x improvements (#92) @lomion0815\n- Readme: update build requirements (#93) @citronalco\n- Fixed link to TVHeadend image (#83) @lomion0815\n- Set correct dates for recordings (#84) @lomion0815\n- Changed HTSP field \"summary\" to correct name \"subtitle\". (#85) @lomion0815",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/tvheadend/tvheadend_13.2609.12.0.zip",
+				"checksum": "80a0276c68076e9cee0adf345ee16f9b",
+				"timestamp": "2026-09-06T02:03:57Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "698b6f33-14ca-49b5-9d79-fc3c0ab941f5",
+			"name": "Chapter Segments Provider",
+			"description": "Create media segments based on chapters.\n",
+			"overview": "Create media segments based on chapters.",
+			"owner": "jellyfin",
+			"category": "General",
+			"version": {
+				"version": "5.2609.9.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#22) @crobibero, @jellyfin-bot\n\n### Dependency updates ###\n- Update mcr.microsoft.com/devcontainers/dotnet Docker tag to v2 (#18) [@renovate[bot]](https://github.com/apps/renovate)",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/chapter-segments-provider/chapter-segments-provider_5.2609.9.0.zip",
+				"checksum": "e8e00a1043125f1f0b894ad44bc65712",
+				"timestamp": "2026-09-14T14:37:04Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "d106ebe6-9ca8-4fbc-9cd1-a92a213da9f9",
+			"name": "LrcLib Lyrics",
+			"description": "Download lyrics from https://lrclib.net/\n",
+			"overview": "Download lyrics from https://lrclib.net/",
+			"owner": "jellyfin",
+			"category": "Music",
+			"version": {
+				"version": "5.2609.9.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#36) @crobibero, @jellyfin-bot\n- Modernize Analyzers and add synced lyric option (#44) @Shadowghost, @crobibero",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/lrclib-lyrics/lrclib-lyrics_5.2609.9.0.zip",
+				"checksum": "e3ac3a5a6f68f19e87e255912e02e9cb",
+				"timestamp": "2026-09-14T14:41:10Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "9574ac10-bf23-49bc-949f-924f23cfa48f",
+			"name": "NextPVR",
+			"description": "Provides access to live TV, program guide, and recordings from NextPVR.\n",
+			"overview": "Live TV plugin for NextPVR",
+			"owner": "jellyfin",
+			"category": "LiveTV",
+			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-nextpvr.png",
+			"version": {
+				"version": "13.2609.9.0",
+				"changelog": "- UTC fixes (#70) @emveepee\n- Use 7.0.3 deferred art (#71) @emveepee",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/nextpvr/nextpvr_13.2609.9.0.zip",
+				"checksum": "542e6e439fa5344c3534da5e5ddc8f76",
+				"timestamp": "2026-09-06T02:02:49Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "a0444c3b-fe1c-4258-9e0f-a139fc093949",
+			"name": "Transcode Killer",
+			"description": "Kills transcodes above set resolutions to prevent server overload.",
+			"overview": "Kills transcodes to prevent server overload.",
+			"owner": "jellyfin",
+			"category": "Administration",
+			"version": {
+				"version": "5.2609.8.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#13) @crobibero, @jellyfin-bot",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/transcode-killer/transcode-killer_5.2609.8.0.zip",
+				"checksum": "5ec188637d16d575246d87f1f5ff17c4",
+				"timestamp": "2026-09-14T14:43:17Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "7a9f4890-b216-4d75-a0e4-4c9f29ed5217",
+			"name": "Google Books",
+			"description": "Pulls book metadata and cover images from Google Books.\n",
+			"overview": "Google Books Metadata Provider",
+			"owner": "jellyfin",
+			"category": "Books",
+			"version": {
+				"version": "2.2609.13.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#14) @crobibero, @claude, @jellyfin-bot\n- Update dependency NSubstitute to v6 (#21) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency xunit.runner.visualstudio to v4 (#20) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency coverlet.collector to v10 (#18) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency NSubstitute to 5.3.0 (#17) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency coverlet.collector to 6.0.4 (#15) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency xunit to 2.9.3 (#13) [@renovate[bot]](https://github.com/apps/renovate), @crobibero",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/google-books/google-books_2.2609.13.0.zip",
+				"checksum": "f33c9a42e42fe23ab7ada86f69b3823c",
+				"timestamp": "2026-09-14T14:40:45Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "309ec7e5-4981-4e8c-992f-8e4dde9591e0",
+			"name": "Comic Vine",
+			"description": "Pulls comic metadata and cover images from Comic Vine.\n",
+			"overview": "Comic Vine Metadata Provider",
+			"owner": "jellyfin",
+			"category": "Books",
+			"version": {
+				"version": "2.2609.12.0",
+				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#16) @crobibero, @claude, @jellyfin-bot\n- Update dependency coverlet.collector to v10 (#21) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency coverlet.collector to 6.0.4 (#18) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency NSubstitute to v6 (#23) [@renovate[bot]](https://github.com/apps/renovate), @crobibero\n- Update dependency xunit to 2.9.3 (#15) [@renovate[bot]](https://github.com/apps/renovate), @crobibero",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/comic-vine/comic-vine_2.2609.12.0.zip",
+				"checksum": "cecfe9fee728ed8b34c4b4d842f7cbab",
+				"timestamp": "2026-09-14T14:37:21Z"
+			}
+		}
+	},
+	{
+		"repository": "jellyfin-unstable",
+		"plugin": {
+			"guid": "a4df60c5-6ab4-412a-8f79-2cab93fb2bc5",
+			"name": "OpenLibrary",
+			"description": "Provides book and author metadata from OpenLibrary.org for your Jellyfin book libraries. Automatically fetches book descriptions, series information, publication dates, genres, and author biographies from the OpenLibrary API.\n",
+			"overview": "OpenLibrary metadata provider for Jellyfin",
+			"owner": "jellyfin",
+			"category": "Books",
+			"version": {
+				"version": "1.2609.7.0",
+				"changelog": "Initial release - Book metadata provider - Author/person metadata provider - Support for book descriptions, series, genres, and publication dates - Support for author biographies and birth/death dates\n",
+				"targetAbi": "13.0.0.0",
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/openlibrary/openlibrary_1.2609.7.0.zip",
+				"checksum": "2703d17febed764acd84a970b5e5e14b",
+				"timestamp": "2026-09-14T14:42:35Z"
+			}
+		}
+	},
+	{
+		"repository": "gh:vosmiic/jellyfin-ani-sync",
+		"plugin": {
+			"category": "General",
+			"guid": "c78f11cf-93e6-4423-8c42-d2c255b70e47",
+			"name": "Ani-Sync",
+			"description": "Synchronize anime watch status between Jellyfin and anime tracking sites.",
+			"owner": "vosmiic",
+			"overview": "Synchronize anime watch status",
+			"version": {
+				"checksum": "0d398377b33c27840c021779497c72dc",
+				"changelog": "1. Rate limiting improvements 2. Added support for custom Shikimori domains",
+				"targetAbi": "10.11.11.0",
+				"sourceUrl": "https://github.com/vosmiic/jellyfin-ani-sync/releases/download/v4.4/10.11.11.-.ani-sync_4.4.0.0.zip",
+				"timestamp": "2026-06-10T00:00:00Z",
+				"version": "4.4.0.0"
+			}
+		}
+	},
+	{
+		"repository": "gh:danieladov/JellyfinPluginManifest",
+		"plugin": {
+			"guid": "f21bbed8-3a97-4d8b-88b2-48aaa65427cb",
+			"name": "Merge Versions",
+			"description": "Jellyfin Merge Versions plugin is a plugin that automatically groups every repeated movie\n",
+			"overview": "Automatically merge repeated movies",
+			"owner": "danieladov",
+			"imageUrl": "https://raw.githubusercontent.com/danieladov/JellyfinPluginManifest/master/resources/MergeVersions/thumb.png",
+			"category": "General",
+			"version": {
+				"version": "12.0.1.0",
+				"changelog": "Fix splitting",
+				"targetAbi": "12.0",
+				"sourceUrl": "https://github.com/danieladov/jellyfin-plugin-mergeversions/releases/download/12.0.1/Jellyfin.Plugin.MergeVersions.zip",
+				"checksum": "da80a65414f968f990163236c853cc5c",
+				"timestamp": "2026-10-17T19:15:00"
+			}
+		}
+	},
+	{
+		"repository": "gh:danieladov/JellyfinPluginManifest",
+		"plugin": {
+			"guid": "afe1de9c-63e4-4692-8d8c-7c964df19eb2",
+			"name": "Theme Songs",
+			"description": "Jellyfin Theme Songs plugin is a plugin that automatically downloads every theme song of your tv shows library\n",
+			"overview": "Automatically downloads theme songs of your tv shows",
+			"owner": "danieladov",
+			"category": "General",
+			"version": {
+				"version": "10.11.0.2",
+				"changelog": "Add url template config",
+				"targetAbi": "10.11.0.0",
+				"sourceUrl": "https://github.com/danieladov/jellyfin-plugin-themesongs/releases/download/10.11.0.2/Jellyfin-Plugin-ThemeSongs.zip",
+				"checksum": "b8f1494ae368947f6b1f6e09403feada",
+				"timestamp": "2025-11-05T17:30:00"
+			}
+		}
+	},
+	{
+		"repository": "gh:danieladov/JellyfinPluginManifest",
+		"plugin": {
+			"guid": "e9ca8b8e-ca6d-40e7-85dc-58e536df8eb3",
+			"name": "Skin Manager",
+			"description": "Skin manager helps you to download and install most popular skins for jellyfin\n",
+			"overview": "Skins for jellyfin",
+			"owner": "danieladov",
+			"imageUrl": "https://raw.githubusercontent.com/danieladov/jellyfin-plugin-skin-manager/master/src/img/thumb.png",
+			"category": "General",
+			"version": {
+				"version": "2.0.2.0",
+				"changelog": "Fix Version\n",
+				"targetAbi": "10.7.0.0",
+				"sourceUrl": "https://github.com/danieladov/jellyfin-plugin-skin-manager/releases/download/2.0.2/Jellyfin-Plugin-SkinManager.zip",
+				"checksum": "74df0156b96ebcb678bc9ff973a7d4f0",
+				"timestamp": "2024-11-04T23:02:52"
+			}
+		}
+	},
+	{
+		"repository": "gh:LinFor/jellyfin-plugin-kinopoisk",
+		"plugin": {
+			"category": "Metadata",
+			"guid": "33e6d249-648f-44cd-a9ce-497be06c08df",
+			"name": "КиноПоиск",
+			"overview": "Информация о фильмах и сериалах с КиноПоиска",
+			"owner": "LinFor & skrashevich",
+			"description": "Загружает рейтинг, описания, актёров, трейлеры и т.д. с сайта КиноПоиск. Может потребоваться зарегистрировать свой ApiToken, см. информацию в параметрах плагина. Для точного распознавания рекомендуется указывать id фильма с сайта КиноПоиск в имени файла в формате kp-12345 или kp12345. Подробнее см. https://github.com/LinFor/jellyfin-plugin-kinopoisk/blob/master/README.md\n",
+			"imageUrl": "https://kinopoisk.userecho.com/s/attachments/28876/0/1/25f8c0315e6ccb2aa6c2642e48f2c9e9.png",
+			"version": {
+				"version": "10.10.3.0",
+				"checksum": "de4cf02e03339d61933a6869bf6be6f4",
+				"changelog": "Исправлена совместимость с 10.10.*",
+				"targetAbi": "10.10.0",
+				"sourceUrl": "https://github.com/LinFor/jellyfin-plugin-kinopoisk/releases/download/v10.10.3.0/jellyfin-plugin-kinopoisk_10.10.3.0.zip",
+				"timestamp": "2026-02-18T07:38:15Z"
+			}
+		}
+	},
+	{
+		"repository": "lizardbyte.dev",
+		"plugin": {
+			"guid": "e41ef0c4-c413-41ba-b4fa-8c565dc3c969",
+			"name": "Themerr",
+			"description": "Automatically add theme songs to movies and tv shows using ThemerrDB",
+			"overview": "Automatically add theme songs to movies and tv shows using ThemerrDB",
+			"owner": "LizardByte",
+			"category": "Metadata",
+			"image": "themerr-jellyfin.png",
+			"imageUrl": "https://lizardbyte.github.io/jellyfin-plugin-repo/themerr/themerr-jellyfin.png",
+			"version": {
+				"version": "2026.1006.1228.21",
+				"changelog": "## What's Changed\n* chore(deps): update codecov/codecov-action action to v7.1.1 by [@renovate[bot]](https://github.com/apps/renovate) in [#918](https://github.com/LizardByte/Themerr-jellyfin/pull/918)\n* docs: migrate documentation to Dockle by [@ReenigneArcher](https://github.com/ReenigneArcher) in [#919](https://github.com/LizardByte/Themerr-jellyfin/pull/919)\n* chore(deps): update readthedocs/ubuntu docker tag to v26 by [@renovate[bot]](https://github.com/apps/renovate) in [#921](https://github.com/LizardByte/Themerr-jellyfin/pull/921)\n* chore(deps): update dependency flake8 to v7.4.0 by [@renovate[bot]](https://github.com/apps/renovate) in [#923](https://github.com/LizardByte/Themerr-jellyfin/pull/923)\n* chore(deps): update astral-sh/setup-uv action to v10.2.0 by [@renovate[bot]](https://github.com/apps/renovate) in [#922](https://github.com/LizardByte/Themerr-jellyfin/pull/922)\n* build(deps): bump third-party/dockle from `c1bca82` to `ce11c38` by [@dependabot[bot]](https://github.com/apps/dependabot) in [#924](https://github.com/LizardByte/Themerr-jellyfin/pull/924)\n* chore(deps): update dependency @lizardbyte/shared-web to v2026.925.2800 by [@renovate[bot]](https://github.com/apps/renovate) in [#926](https://github.com/LizardByte/Themerr-jellyfin/pull/926)\n* chore(deps): update dependency flake8 to v7.4.1 by [@renovate[bot]](https://github.com/apps/renovate) in [#925](https://github.com/LizardByte/Themerr-jellyfin/pull/925)\n* chore(deps): update dependency moq to 4.21.0 by [@renovate[bot]](https://github.com/apps/renovate) in [#927](https://github.com/LizardByte/Themerr-jellyfin/pull/927)\n* chore(deps): update dependency breathe to v5 by [@renovate[bot]](https://github.com/apps/renovate) in [#928](https://github.com/LizardByte/Themerr-jellyfin/pull/928)\n* chore(deps): update dependency coverlet.collector to 10.1.0 by [@renovate[bot]](https://github.com/apps/renovate) in [#930](https://github.com/LizardByte/Themerr-jellyfin/pull/930)\n* chore(deps): update dependency coverlet.msbuild to 10.1.0 by [@renovate[bot]](https://github.com/apps/renovate) in [#931](https://github.com/LizardByte/Themerr-jellyfin/pull/931)\n* chore(deps): update dependency sonaranalyzer.csharp to 10.35.0.4138 by [@renovate[bot]](https://github.com/apps/renovate) in [#933](https://github.com/LizardByte/Themerr-jellyfin/pull/933)\n* chore(deps): update dependency @lizardbyte/shared-web to v2026.930.34219 by [@renovate[bot]](https://github.com/apps/renovate) in [#932](https://github.com/LizardByte/Themerr-jellyfin/pull/932)\n* chore(deps): update lizardbyte/actions action to v2026.928.123224 by [@renovate[bot]](https://github.com/apps/renovate) in [#934](https://github.com/LizardByte/Themerr-jellyfin/pull/934)\n* chore(deps): update dependency node to v26 by [@renovate[bot]](https://github.com/apps/renovate) in [#937](https://github.com/LizardByte/Themerr-jellyfin/pull/937)\n* chore(deps): update dependency breathe to v5.1.0 by [@renovate[bot]](https://github.com/apps/renovate) in [#936](https://github.com/LizardByte/Themerr-jellyfin/pull/936)\n* refactor: flatten configuration page promise chains by [@ReenigneArcher](https://github.com/ReenigneArcher) in [#938](https://github.com/LizardByte/Themerr-jellyfin/pull/938)\n* chore(deps): lock file maintenance by [@renovate[bot]](https://github.com/apps/renovate) in [#939](https://github.com/LizardByte/Themerr-jellyfin/pull/939)\n* chore: announce archival and replacement by Themerr by [@ReenigneArcher](https://github.com/ReenigneArcher) in [#940](https://github.com/LizardByte/Themerr-jellyfin/pull/940)\n* chore(l10n): update translations by [@LizardByte-bot](https://github.com/LizardByte-bot) in [#941](https://github.com/LizardByte/Themerr-jellyfin/pull/941)\n* build(deps): bump third-party/dockle from `ce11c38` to `c1304a7` by [@dependabot[bot]](https://github.com/apps/dependabot) in [#942](https://github.com/LizardByte/Themerr-jellyfin/pull/942)\n\n\n**Full Changelog**: https://github.com/LizardByte/Themerr-jellyfin/compare/v2026.915.1549.59...v2026.1006.1228.21\n\n---\n## Contributors\n<a href=\"https://github.com/apps/renovate\" target=\"_blank\" rel=\"external noopener noreferrer\" aria-label=\"GitHub profile of contributor, renovate[bot]\" ><img src=\"https://avatars.githubusercontent.com/in/2740?size=40\" width=\"40\" height=\"40\" alt=\"renovate[bot]\" title=\"renovate[bot]: 16 merges\" ></a><a href=\"https://github.com/ReenigneArcher\" target=\"_blank\" rel=\"external noopener noreferrer\" aria-label=\"GitHub profile of contributor, ReenigneArcher\" ><img src=\"https://github.com/ReenigneArcher.png?size=40\" width=\"40\" height=\"40\" alt=\"ReenigneArcher\" title=\"ReenigneArcher: 3 merges\" ></a><a href=\"https://github.com/apps/dependabot\" target=\"_blank\" rel=\"external noopener noreferrer\" aria-label=\"GitHub profile of contributor, dependabot[bot]\" ><img src=\"https://avatars.githubusercontent.com/in/29110?size=40\" width=\"40\" height=\"40\" alt=\"dependabot[bot]\" title=\"dependabot[bot]: 2 merges\" ></a><a href=\"https://github.com/LizardByte-bot\" target=\"_blank\" rel=\"external noopener noreferrer\" aria-label=\"GitHub profile of contributor, LizardByte-bot\" ><img src=\"https://github.com/LizardByte-bot.png?size=40\" width=\"40\" height=\"40\" alt=\"LizardByte-bot\" title=\"LizardByte-bot: 1 merge\" ></a>\n",
+				"targetAbi": "12.1.0.0",
+				"sourceUrl": "https://github.com/LizardByte/Themerr-jellyfin/releases/download/v2026.1006.1228.21/themerr-jellyfin.zip",
+				"checksum": "6e6f1fbdcb20c90b46ec7024a01f9065",
+				"timestamp": "2026-10-06T12:30:52Z"
+			}
+		}
+	},
+	{
+		"repository": "gh:ShokoAnime/Shokofin",
+		"plugin": {
+			"guid": "5216ccbf-d24a-4eb3-8a7e-7da4230b7052",
+			"name": "Shoko",
+			"description": "A Jellyfin plugin to integrate [Jellyfin](https://jellyfin.org/docs/) with [Shoko Server](https://shokoanime.com/downloads/shoko-server/).\n## Read this before installing\n**This plugin requires that you have already set up and are using Shoko Server**, and that the files you intend to include in Jellyfin are **indexed** (and optionally managed) by Shoko Server. **Otherwise, the plugin won't be able to provide metadata for your files**, since there is no metadata to find for them.\n",
+			"overview": "Manage your anime from Jellyfin using metadata from Shoko",
+			"owner": "ShokoAnime",
+			"category": "Anime",
+			"imageUrl": "https://raw.githubusercontent.com/ShokoAnime/Shokofin/metadata/banner.png",
+			"version": {
+				"version": "6.0.5.11",
+				"changelog": "Only compatible with **10.11.z**.\n\nSee the [release notes](https://github.com/ShokoAnime/Shokofin/releases/tag/v6.0.5) for more info.",
+				"targetAbi": "10.11.0.0",
+				"sourceUrl": "https://github.com/ShokoAnime/Shokofin/releases/download/v6.0.5/shoko_6.0.5.0_for_10.11.zip",
+				"checksum": "42eeab4935b923a6ba7d2709b5a739f3",
+				"timestamp": "2026-03-22T19:56:40Z"
+			}
+		}
+	},
+	{
+		"repository": "gh:tubearchivist/tubearchivist-jf-plugin",
+		"plugin": {
+			"category": "Metadata",
+			"guid": "dc97d0c6-28b0-4242-afb4-5833ae1b3715",
+			"name": "TubeArchivistMetadata",
+			"description": "TubeArchivistMetadata is a plugin that automatically manages metadata for videos downloaded with TubeArchivist from YouTube.\n",
+			"owner": "DarkFighterLuke",
+			"overview": "Metadata for your TubeArchivist library on Jellyfin",
+			"imageUrl": "https://raw.githubusercontent.com/tubearchivist/tubearchivist-jf-plugin/master/images/logo.png",
+			"version": {
+				"version": "1.5.0.0",
+				"changelog": "Add compatibility with Jellyfin 12.0\n",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://github.com/tubearchivist/tubearchivist-jf-plugin/releases/download/v1.5.0/tubearchivistmetadata_1.5.0.0.zip",
+				"checksum": "4cbe28aaaeab80e696d26a25b48b0000",
+				"timestamp": "2026-10-05T22:05:29Z"
+			}
+		}
+	},
+	{
+		"repository": "gh:neptunehub/audiomuse-ai-plugin",
+		"plugin": {
+			"guid": "e3831be1-c025-4ebc-bc79-121ad0dfc4e1",
+			"name": "AudioMuse AI",
+			"owner": "NeptuneHub",
+			"category": "General",
+			"overview": "AudioMuse-AI Jellyfin Pluging integrates Jellyfin with an AudioMuse AI backend.",
+			"description": "AudioMuse-AI Jellyfin Plugin integrates Jellyfin with the AudioMuse-AI backend. This plugin works only with the AudioMuse-AI side container, which must be installed separately. After installing both, configure the plugin with the side container's endpoint. Learn more: https://github.com/NeptuneHub/AudioMuse-AI",
+			"imageUrl": "https://raw.githubusercontent.com/NeptuneHub/audiomuse-ai-plugin/master/Jellyfin.Plugin.AudioMuseAi/audiomuseai.png",
+			"version": {
+				"version": "0.3.5.0",
+				"changelog": "- code review fix (9f629fa)\n- Uniform distance across the three similarity providers + The re-exposed /AudioMuseAI endpoints no longer follow the configured provider, which now applies only to the Instant Mix and \"More Like This\" + other minor fix (7e839dc)\n- ci: Update manifest.json for release v0.3.4 (6a45f75)",
+				"targetAbi": "12.0.0.0",
+				"sourceUrl": "https://github.com/NeptuneHub/audiomuse-ai-plugin/releases/download/v0.3.5/audiomuse-ai_0.3.5.0.zip",
+				"checksum": "0c66823ea17fc939cb0a8dea208ccfa8",
+				"timestamp": "2026-09-01T12:52:25Z"
+			}
+		}
+	},
+	{
+		"repository": "gh:DeDuplicate/Jellyfin_wizdomsubs_downloader",
+		"plugin": {
+			"guid": "7f9a7b9b-2c61-4c2f-9a1e-6cf5b2c9d111",
+			"name": "WizdomSubs Downloader",
+			"overview": "Hebrew subtitle downloads from WizdomSubs for Jellyfin (movies & episodes).",
+			"description": "Provides a Jellyfin subtitle provider that searches WizdomSubs by IMDb id, downloads Hebrew SRT files, and attaches them beside media files.",
+			"owner": "DeDuplicate",
+			"category": "Metadata",
+			"imageUrl": "https://raw.githubusercontent.com/DeDuplicate/Jellyfin_wizdomsubs_downloader/main/assets/WizdomSubsLogo.png",
+			"version": {
+				"version": "0.2.0.0",
+				"changelog": "Jellyfin 10.11.2 compatibility: Updated to .NET 9.0, fixed ILibraryManager API changes, improved HttpClient management with IHttpClientFactory, automatic series IMDb resolution for TV episodes.",
+				"targetAbi": "10.11.0.0",
+				"sourceUrl": "https://github.com/DeDuplicate/Jellyfin_wizdomsubs_downloader/releases/download/v0.2.0.0/WizdomSubsDownloader.zip",
+				"checksum": "6a7a2e13587423f424c6c8bb8f7cf4fa",
+				"timestamp": "2025-11-16T21:00:00Z"
+			}
+		}
+	},
+	{
+		"repository": "gh:GeiserX/smart-covers",
+		"plugin": {
+			"guid": "82eef869-3f18-4678-968d-06efc10b60cf",
+			"name": "SmartCovers",
+			"overview": "Cover extraction for books, audiobooks, comics, and music — with online fallback via Open Library & Google Books.",
+			"description": "Cover provider for Jellyfin libraries. Renders PDF first pages with a built-in PDFium, takes the image named as the cover, else the first page, of CBZ and CBR comics, finds the cover inside EPUB and MOBI files, and pulls embedded artwork from audio files and folder audiobooks with Jellyfin's ffmpeg. When the file has no cover and online fetching is on (the default), fetches one from Open Library and then Google Books.",
+			"owner": "GeiserX",
+			"category": "General",
+			"imageUrl": "https://raw.githubusercontent.com/GeiserX/smart-covers/main/docs/images/icon.png",
+			"version": {
+				"version": "7.4.0.0",
+				"changelog": "Audiobooks that are a folder of tracks get a cover: the book identity now comes from the folder (climbing out of disc folders), covers already on disk are found under any name, folder items get a cover, and one lookup serves a whole book. MOBI/AZW covers. A daily scheduled task retries items that never got a cover. Edition and narration tags are stripped before searching. A crafted MOBI header can no longer index past the record.",
+				"targetAbi": "10.11.0.0",
+				"sourceUrl": "https://github.com/GeiserX/smart-covers/releases/download/v7.4.0.0/smart-covers_7.4.0.0.zip",
+				"checksum": "c10efe880a8ede9d037d86a274307c72",
+				"timestamp": "2026-09-22T09:19:30Z"
+			}
+		}
+	},
+	{
+		"repository": "gh:GeiserX/whisper-subs",
+		"plugin": {
+			"guid": "97124bd9-c8cd-4a53-a213-e593aa3fef52",
+			"name": "WhisperSubs",
+			"description": "Automated subtitle generation for Jellyfin using local Whisper AI models.",
+			"overview": "Generate subtitles for your media library using local speech-to-text AI (whisper.cpp). Supports CPU and GPU-accelerated transcription. All processing happens locally on your server.",
+			"owner": "GeiserX",
+			"category": "Subtitles",
+			"version": {
+				"version": "4.16.0.0",
+				"changelog": "See https://github.com/GeiserX/whisper-subs/releases",
+				"targetAbi": "10.11.0.0",
+				"sourceUrl": "https://github.com/GeiserX/whisper-subs/releases/download/v4.16.0.0/WhisperSubs_4.16.0.0.zip",
+				"checksum": "c2975459c93fd6a84783eb9b2d72e891",
+				"timestamp": "2026-10-10T01:08:37Z"
+			}
+		}
+	},
+	{
+		"repository": "gh:ankenyr/jellyfin-plugin-repo",
+		"plugin": {
+			"guid": "3C96F5BC-4182-4B86-B05D-F730F2611E45",
+			"name": "Smart Playlist",
+			"description": "Create automatically updating playlists based on rules.\n",
+			"overview": "Create automatically updating playlists based on rules.",
+			"owner": "ankenyr",
+			"category": "General",
+			"version": {
+				"version": "1.0.0.1",
+				"changelog": "Updating code to be compatible with 10.7.5",
+				"targetAbi": "10.7.0.0",
+				"sourceUrl": "https://github.com/ankenyr/jellyfin-smartplaylist-plugin/releases/download/1.0.0.1/Smart.Playlist.zip",
+				"checksum": "780C6F368F4DA2989A0CA5B0B138F913",
+				"timestamp": "2021-05-05T00:00:00Z"
+			}
+		}
+	},
+	{
+		"repository": "gh:ankenyr/jellyfin-plugin-repo",
+		"plugin": {
+			"guid": "b4b4353e-dc57-4398-82c1-de9079e7146a",
+			"name": "YouTube Metadata",
+			"description": "Provides YouTube metadata from the YouTube API and Youtube-dl metadata files.",
+			"overview": "YouTube metadata provider",
+			"owner": "ankenyr",
+			"category": "Metadata",
+			"version": {
+				"version": "1.0.3.15",
+				"changelog": "#154 staticdev: fix targetAbi and target to Jellyfin 10.11.2\n",
+				"targetAbi": "10.11.2",
+				"sourceUrl": "https://github.com/ankenyr/jellyfin-youtube-metadata-plugin/releases/download/v1.0.3.15/youtube-metadata_1.0.3.15.zip",
+				"checksum": "3c6185def2abdb6bb5785a4f5494435a",
+				"timestamp": "2026-02-03T11:58:20Z"
+			}
+		}
+	}
+]

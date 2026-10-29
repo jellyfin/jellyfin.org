@@ -207,7 +207,7 @@ TOML files can't support environment variables, so all values must be hard coded
   email = "YOU@DOMAIN_NAME"
   storage = "acme.json"
   # Use HTTP-01 ACME challenge
-  #[certificateresolvers.leresolver.acme.httpChallenge]
+  #[certificatesresolvers.leresolver.acme.httpChallenge]
   #  entryPoint = "http"
   # Use a DNS-01 ACME challenge rather than HTTP-01 challenge.
   # Mandatory for wildcard certificate generation.

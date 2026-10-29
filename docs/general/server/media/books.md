@@ -5,8 +5,6 @@ title: Books
 
 # Books
 
-The bookshelf plugin is required for books libraries.
-
 Books should be organized by type (Audiobooks, Books, Comics), then optionally by Author. Each book should be in their own folder.
 
 ```txt
@@ -47,11 +45,11 @@ For audiobooks, most common audio extensions are supported. For other books, the
 
 ## Metadata
 
-Online metadata is not supported for the books library type.
+Books can use built-in online metadata providers such as GoogleBooks, ComicVine, and OpenLibrary, as well as embedded metadata from supported files.
 
 For media in audio formats, the metadata is read from the embedded tags of the audio files. FLAC files with WebP embedded images or ID3 tags might fail to play on some browsers. Enable the `Always remux flac option` in the settings if you are experiencing this problem.
 
-For books in epub format, embedded metadata can be provided, For other formats, the metadata has to be provided in an external `content.opf`, `metadata.opf` or `ComicInfo.xml` file. The ComicInfo (from ComicRack) and ComicBookInfo (from ComicBookLover) formats are supported for `ComicInfo.xml` files.
+For books in epub format, embedded metadata can be provided. For other formats, metadata can still be provided in an external `content.opf`, `metadata.opf` or `ComicInfo.xml` file when needed. The ComicInfo (from ComicRack) and ComicBookInfo (from ComicBookLover) formats are supported for `ComicInfo.xml` files.
 
 Additionally, information about year and issue number can be provided in the file names, as seen in the example above. For comics or magazines with issues across multiple years, the year of the first issue should be used.
 

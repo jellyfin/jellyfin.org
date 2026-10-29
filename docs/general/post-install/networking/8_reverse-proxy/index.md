@@ -19,7 +19,7 @@ Important things to note when using Jellyfin behind a reverse proxy.
 
 Be careful when logging requests with your reverse proxy. Jellyfin sometimes sends authentication information as part of the URL (e.g. `api_key` parameter), so logging the full request path can expose secrets to your logfile.
 We recommend that you either protect your logfiles or do not log full request URLs or censor sensitive data from the logfile.
-Our [proxy guides](./#guides) include examples on how to censor sensitive information from a logfile.
+Our [proxy guides](./index.md#guides) include examples on how to censor sensitive information from a logfile.
 
 ### Forwarded-For Headers
 
@@ -27,7 +27,7 @@ When traffic is forwarded through a reverse proxy, Jellyfin sees the proxy’s I
 This introduces potential security risks and can also break compatibility, since Jellyfin will not be able to differentiate between local and remote connections.
 Therefore, if set up incorrectly, all limitations for external access will not work.
 
-Therefore, the IP address(es) of your reverse proxy must be configured under “Known Proxies” in Jellyfin’s **Network** settings.
+Therefore, **the IP address(es) of your reverse proxy must be configured under “Known Proxies”** in Jellyfin’s Network settings.
 This allows Jellyfin to respect the `X-Forwarded-For`, `X-Forwarded-Proto`, and `X-Forwarded-Host` headers and use the associated value as the source IP address. By default, Jellyfin will discard all forwarded-for headers that do not originate from a "known Proxy". This is so that malicious devices will not be able to hide their IP address by providing a forwarded-for header.
 
 This assumes that the reverse proxy is set up to include this header, which is not always the case by default.
@@ -43,14 +43,14 @@ We recommend using [Caddy](https://caddyserver.com/) for its ease of use, especi
 
 If you do not want to use Caddy, some other popular options for reverse proxy systems are [Nginx](https://www.nginx.com), [Traefik](https://traefik.io), [Haproxy](https://www.haproxy.com) and [Apache](https://httpd.apache.org). Note that these have a greater learning curve than the recommended reverse proxy Caddy. You can find respective guides here:
 
-- [Nginx](./nginx)
-- [Traefik](./traefik)
-- [HAProxy](./haproxy)
-- [Apache](./apache)
+- [Nginx](./nginx.md)
+- [Traefik](./traefik.md)
+- [HAProxy](./haproxy.md)
+- [Apache](./apache.md)
 
 While not a reverse proxy, Let's Encrypt can be used independently or with a reverse proxy to provide SSL certificates.
 
-- [Let's Encrypt](../advanced/letsencrypt)
+- [Let's Encrypt](../9_advanced/letsencrypt.md)
 
 When following these guides, be sure to replace the following variables with your information.
 

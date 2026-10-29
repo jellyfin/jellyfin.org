@@ -30,28 +30,32 @@ Please verify it meets the requirements below and [submit a pull request](https:
 
 :::
 
-### Requirements for Inclusion in All Clients
+### Requirements for Inclusion in Clients list
 
-Clients must meet the following guidelines for inclusion in the list of all clients:
+To be included in the official client list, a client must meet **all** of these requirements:
 
-- Must be aligned with the [Jellyfin Community Standards](/docs/general/community-standards).
-  - In particular, the client must **NOT** engage in, encourage, or facilitate piracy.
-  - The developer must be in good community standing in accordance to the Community Standards.
-- Must adhere to the [Jellyfin Branding Guidelines](/docs/general/contributing/branding), including usage of the Jellyfin name, trademarks and icons.
-  - This includes usage of the Jellyfin name or `org.jellyfin` namespace that could hinder the ability to publish an official client to a store in the future.
-- Must include first rate support for Jellyfin servers. (i.e. Support for Jellyfin should be a primary function or at the same level of integration of any other supported services.)
-- Must **NOT** be specific to or intended to promote a specific hosted Jellyfin server instance.
-- Must have clear licensing and be void of any known issues related to attribution, copyright, or license violations.
+* The client must support Jellyfin as a **first-class citizen**, and not be specifically **tied to a particular instance** or installation of Jellyfin (i.e. the server URL must be configurable).
+* The developers of the client must be in **good standing** within the Jellyfin community, and both they and the client itself must **adhere our [community standards and rules](https://jellyfin.org/docs/general/community-standards/) and our [branding guidelines](https://jellyfin.org/docs/general/contributing/branding)**.
+* The client must be **Free and Open Source**, released under a license listed as "Free Software" by [the Free Software Foundation](https://www.gnu.org/licenses/license-list.html), and must fully adhere to the terms and conditions of the chosen licence.
+* The client must have **existing traction** within the community and be under **active development**; either: at least **1 year** of active development; or, evidence of significant user interest as determined by the Jellyfin team.
+* The client must provide at least one **novel/unique feature** not found in other already-listed or official clients for the same platform(s) and not under active development within an official client. Said feature must actively exist in a public release and not be "under development".
 
-The final decision for inclusion is at the discretion of the Jellyfin Contributor Team following the decision-making guidelines in the [Jellyfin Constitution](https://github.com/jellyfin/jellyfin-meta/blob/master/policies-and-procedures/jellyfin-constitution.md).
+Clients that do not meet these requirements will not be added, and existing entries that do not meet these requirements or which change to no longer meet these requirements will be removed. The final decision for inclusion is at the discretion of the Jellyfin Team, Core Team, and Project Leader.
 
-### Requirements for Inclusion as a Recommended Client
+### Removal from the clients list
 
-- The client must be a first-party client (meaning published and maintained by the Jellyfin team with source freely licensed and available in the [Jellyfin GitHub organization](https://github.com/jellyfin)).
+We strive to maintain an up-to-date and accurate client list; however, we do not wish to remove clients without just cause. To ensure the integrity and relevance of the client list, we will conduct regular maintenance.
+The Jellyfin team reserves the right to remove any listed client at any time.
 
-  **OR**
+Typically, a client will be removed if any of the following criteria are met:
 
-- The client must fill a significant void in the current first-party client offerings. Must be a high-quality client on a popular platform.
+- The client no longer fulfills the inclusion criteria outlined above.
+- The client is no longer maintained or does not support the latest stable version of the Jellyfin server.
+- The client is malfunctioning (key features are not operating correctly).
+
+In general, the team will attempt to contact the maintainers of a listed client prior to removal. However, if this is not feasible (e.g., the maintainers cannot be reached), the team may proceed with removal without prior notice.
+
+Additionally, there are situations where contacting maintainers is unnecessary, such as in cases of malware distribution or violations of community guidelines. In these instances, clients will be removed from the list without notification.
 
 ## Supported Browsers
 

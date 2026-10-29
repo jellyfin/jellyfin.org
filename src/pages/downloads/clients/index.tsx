@@ -4,14 +4,15 @@ import { mdiFilter } from '@mdi/js';
 import Icon from '@mdi/react';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import ClientDetails from '../../../components/clients/ClientDetails';
 import Pill from '../../../components/common/Pill';
-import { Client, Clients, DeviceType } from '../../../data/clients';
+import { Clients, DeviceType } from '../../../data/clients';
 import Platform, { FeaturedClientPlatforms } from '../../../data/platform';
 
 import styles from '../index.module.scss';
+import ExternalLinkIcon from '@theme/Icon/ExternalLink';
 
 type ClientFilter = {
   recommended: boolean;
@@ -36,7 +37,6 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
-  const [filteredClients, setFilteredClients] = useState<Client[]>([...Clients]);
   const [filter, setFilterValue] = useState<ClientFilter>({
     recommended,
     deviceTypes: (searchParams.get('type')?.split(',') ?? []) as DeviceType[],
@@ -61,8 +61,8 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
     setFilterValue(filter);
   };
 
-  useEffect(() => {
-    setFilteredClients(
+  const filteredClients = useMemo(
+    () =>
       Clients.filter((client) => {
         let result = true;
 
@@ -80,9 +80,9 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
           (filter.platforms.length === 0 || client.platforms.some((platform) => filter.platforms.includes(platform)));
 
         return result;
-      })
-    );
-  }, [filter, setFilteredClients]);
+      }),
+    [filter]
+  );
 
   return (
     <Layout title='Clients'>
@@ -101,6 +101,7 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
                 </Link>
                 <Link to='https://repo.jellyfin.org' className='pills__item'>
                   Full Repository
+                  <ExternalLinkIcon />
                 </Link>
               </div>
             </div>

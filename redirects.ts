@@ -13,7 +13,7 @@ const redirects: ClientRedirects.Options['redirects'] = [
       '/docs/general/server/media/subtitles.html',
       '/docs/general/server/media/external-files'
     ],
-    to: '/docs/general/server/media/movies#external-subtitles-and-audio-racks'
+    to: '/docs/general/server/media/movies#external-subtitles-and-audio-tracks'
   },
   // Storage docs moved from the server guide to administrative docs
   {
@@ -111,11 +111,6 @@ const redirects: ClientRedirects.Options['redirects'] = [
   {
     from: '/docs/general/networking/nginx',
     to: '/docs/general/post-install/networking/reverse-proxy/nginx'
-  },
-  // quick start replaced with post install
-  {
-    from: '/docs/general/quick-start',
-    to: '/docs/general/post-install/setup-wizard'
   }
 ];
 export default redirects;

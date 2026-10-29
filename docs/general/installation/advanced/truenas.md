@@ -1,23 +1,21 @@
 ---
 uid: installation-truenas
-title: TrueNAS SCALE
-description: Install on TrueNAS SCALE.
+title: TrueNAS
+description: Install on TrueNAS.
 sidebar_position: 4
 ---
 
-Jellyfin can be installed on iX-systems' [TrueNAS SCALE](https://www.truenas.com/truenas-scale/).
+Jellyfin can be installed on iX-systems' [TrueNAS Community Edition](https://www.truenas.com/truenas-community-edition/).
 
-This document is written for TrueNAS SCALE v24.10.0 (Electric Eel) or higher.
+This document is written for TrueNAS SCALE v24.10.0 (Electric Eel) or higher. Starting with version 25.04 (Fangtooth), TrueNAS SCALE is officially named TrueNAS Community Edition.
 
-Consider reviewing the [TrueNAS Apps documentation](https://www.truenas.com/docs/truenasapps/) if you have not previously configured applications on your system.
-
-- Note: TrueNAS CORE and TrueNAS SCALE are different. Jellyfin is not supported on TrueNAS CORE.
+Consider reviewing the [TrueNAS Apps documentation](https://apps.truenas.com/getting-started/) if you have not previously configured applications on your system.
 
 ## Introduction and Preparation
 
-TrueNAS SCALE lets you run apps using Docker.
+TrueNAS lets you run apps using Docker.
 
-There are two supported methods of installing Jellyfin on your TrueNAS SCALE server:
+There are two supported methods of installing Jellyfin on your TrueNAS server:
 
 1. Custom App
 2. Community 3rd Party App provided by ix-systems
@@ -27,7 +25,7 @@ This document will cover both install methods.
 
 You can configure environment variables at any time after deploying the application.
 
-It is recommend to set the TrueNAS SCALE App system to a storage pool comprised of SSDs.
+It is recommend to set the TrueNAS App system to a storage pool comprised of SSDs.
 
 ---
 
@@ -39,12 +37,12 @@ The official Jellyfin Docker image internally creates the following necessary di
 2. config
 3. cache/transcodes
 
-If you use the community app, you can allow SCALE to create datasets for the directories Jellyfin requires automatically during app installation.
+If you use the community app, you can allow TrueNAS to create datasets for the directories Jellyfin requires automatically during app installation.
 You can also choose to create a static **transcodes** dataset or use temporary storage on the disk or in memory (system RAM) for transcoding.
 
 - Note that using RAM for transcodes can be a bad idea as transcodes can take up a lot of space. If there isn't enough memory available in RAM for a transcode, the transcode will fail. It is recommended that you place the transcode directory on a drive with a decent amount of free space to avoid this issue. Consider using an SSD instead of an HDD to avoid possible slowdowns.
 
-You can also [create your own custom datasets](https://www.truenas.com/docs/scale/scaletutorials/storage/datasets/datasetsscale/) to use in the **Storage Configuration** section as `host paths` during installation.
+You can also [create your own custom datasets](https://www.truenas.com/docs/scale/datasets/) to use in the **Storage Configuration** section as `host paths` during installation.
 
 You can organize datasets as one parent with two child datasets, for example `/mnt/tank/jellyfin/config`, `/mnt/tank/jellyfin/cache`, and so on.
 With Docker, you can organize these in any way as long as you mount them under the correct name to the Docker container.
@@ -59,9 +57,9 @@ It is also recommended to use datasets located on an SSD Storage Pool for Jellyf
 ### Users & Permissions
 
 You can set the user and group that will run your container when setting up Jellyfin.
-If you want to run the application with a user or group other than the default apps (568) user and group, [create them](https://www.truenas.com/docs/scale/scaletutorials/credentials/managelocalusersscale/) now.
+If you want to run the application with a user or group other than the default apps (568) user and group, [create them](https://www.truenas.com/docs/scale/credentials/users/manageusers/) now.
 
-Make sure your datasets have appropriate [permissions set](https://www.truenas.com/docs/scale/scaletutorials/datasets/permissionsscale/) to allow the Jellyfin container user to access your datasets.
+Make sure your datasets have appropriate [permissions set](https://www.truenas.com/docs/scale/datasets/permissions/configuringacls/) to allow the Jellyfin container user to access your datasets.
 
 ---
 
@@ -69,7 +67,7 @@ Make sure your datasets have appropriate [permissions set](https://www.truenas.c
 
 ### Using YAML
 
-Go to SCALE's Apps section.
+Go to TrueNAS's Apps section.
 
 ![Custom App Button](/images/docs/install-truenas-1.png)
 
@@ -80,11 +78,11 @@ It will bring you to the community app store.
 
 There, click on the 3-dot menu on the top-right and then on **Install via YAML**.
 
-- Note that you can also install a custom app using SCALE's guided app launcher GUI. Refer to the steps on [installing the community app](#installing-with-the-scale-community-app) since the layout is largely the same.
+- Note that you can also install a custom app using TrueNAS's guided app launcher GUI. Refer to the steps on [installing the community app](#installing-with-the-community-app) since the layout is largely the same.
   - If you go this route, your final Jellyfin container will only be editable through this GUI. If you want access to the Compose YAML editor afterwards, you need to launch your container with the YAML option.
-  - You will need to pull Jellyfin's image onto your SCALE server depending on the setting you choose on the guided GUI.
+  - You will need to pull Jellyfin's image onto your TrueNAS server depending on the setting you choose on the guided GUI.
     - For the **Repository** field, simply enter `jellyfin/jellyfin`. You then specify what **Tag** (version) you want to pull from the Docker Hub.
-    - See [this for more info on container images on SCALE](#managing-container-images)
+    - See [this for more info on container images on TrueNAS](#managing-container-images)
 
 A tab will open from the right side of the page where you launch your custom app using a Docker Compose file.
 
@@ -94,7 +92,7 @@ A tab will open from the right side of the page where you launch your custom app
 
 Here, give the custom app a name and write/paste the lines for your compose file.
 
-See here for [documentation on using Docker Compose with Jellyfin](/docs/general/installation/container#using-docker-compose).
+See here for [documentation on using Docker Compose with Jellyfin](/docs/general/installation/container?method=docker-compose).
 Alternatively, here's a basic compose file where you should edit the volumes to use on your system, then copy & paste it into the editor to launch Jellyfin:
 
 ```yml
@@ -129,9 +127,9 @@ services:
 - You can determine the time zone identifier for you region [on Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 - Note that lines with `#` in front indicate a comment. They will not apply until you remove it.
 - Uncomment the `group_add` and `devices` options if you have a GPU and want to use [hardware acceleration](/docs/general/post-install/transcoding/hardware-acceleration/).
-  - If you have an NVIDIA GPU, [please read this](#nvidia-gpus-on-scale-v2410).
+  - If you have an NVIDIA GPU, [please read this](#nvidia-gpus-on-truenas-v2410).
   - Unless you set the container to run as root, you need to add the render group ID to the container with `group_add`.
-  - In case the render group's ID is not `107` on all SCALE servers by default, go to your system shell and run the following command to get your render group's ID: `cat /etc/group | grep render`
+  - In case the render group's ID is not `107` on all TrueNAS servers by default, go to your system shell and run the following command to get your render group's ID: `cat /etc/group | grep render`
 - Jellyfin's auto discovery ports should also be configured if possible.
   - [See more info here](/docs/general/post-install/networking/#port-bindings)
 
@@ -216,11 +214,11 @@ services:
 Once installed, you'll be taken back to the main application screen.
 Here, you can see the status of your Jellyfin container, as well as edit the existing compose file you used to launch it to add more to the container.
 
-- TrueNAS SCALE's YAML interface will re-arrange and remove any comments on your YAML file.
+- TrueNAS Community Edition's YAML interface will re-arrange and remove any comments on your YAML file.
 
 Once the status icon of your Jellyfin container turns to the green **Running** icon on the UI, your Jellyfin server is up and running.
 
-You can now reach your Jellyfin server by going to a web browser on your local network and using your SCALE server's IP address along the port number you set for Jellyfin (default HTTP port is 8096).
+You can now reach your Jellyfin server by going to a web browser on your local network and using your TrueNAS server's IP address along the port number you set for Jellyfin (default HTTP port is 8096).
 If you used the previous example compose file and your server's IP address is `192.168.1.10`, you would use this URL on a browser: `http://192.168.1.10:8096`
 
 ![Jellyfin Web Portal](/images/docs/install-truenas-18.png)
@@ -231,7 +229,7 @@ You can also [refer to the Jellyfin docs for further assistance](/docs/).
 
 ### Adding the Jellyfin Logo to Custom Apps
 
-When you install a custom app on SCALE, it will have a generic SCALE icon instead of the app's official logo.
+When you install a custom app on TrueNAS, it will have a generic TrueNAS icon instead of the app's official logo.
 
 You can add Jellyfin's logo back by doing the following:
 
@@ -244,7 +242,7 @@ You can add Jellyfin's logo back by doing the following:
 7. Press `ESC` to exit **Insert Mode**, then type `:wq` and hit `ENTER` to save & quit.
 
 - Notes:
-  - You can paste to the SCALE Shell using `SHIFT + INSERT`
+  - You can paste to the TrueNAS Shell using `SHIFT + INSERT`
   - You can force quit without saving in vim by hitting `ESC`, then typing `:q!`
 
 The file should now look like this:
@@ -279,7 +277,7 @@ This will update the custom app's icon with Jellyfin's logo.
 
 ---
 
-## Installing with the SCALE Community App
+## Installing with the Community App
 
 To install the **Jellyfin** application, go to **Apps**, click **Discover Apps**, either begin typing Jellyfin into the search field or scroll down to locate the **Jellyfin** application widget.
 You might need to click "Refresh Catalog" if no Jellyfin app is showing in the results.
@@ -359,7 +357,7 @@ Select **Host Path (Path that already exists on the system)** to browse to and s
 For **Jellyfin Transcodes Storage**, in **Type**, select:
 
 - **Host Path (Path that already exists on the system)** to use an existing dataset created on the system
-- **ixVolume (dataset created automatically by the system)** to let SCALE create the dataset
+- **ixVolume (dataset created automatically by the system)** to let TrueNAS create the dataset
 - **Temporary (Temporary directory created on the disk)** to use a temporary storage directory created somewhere on the storage pool you set for the Apps system
 - **tmpfs (Temporary directory created on the RAM)** to use a temporary storage directory created on the system RAM
 
@@ -378,14 +376,14 @@ You can select **iXvolume (Dataset created automatically by the system)** to cre
 
 Mounting an SMB share allows data synchronization between the share and the app.
 The SMB share mount does not include ACL protections at this time. Permissions are currently limited to the permissions of the user that mounted the share.
-Alternate data streams (metadata), finder colors tags, previews, resource forks, and MacOS metadata are stripped from the share along with filesystem permissions, but this functionality is undergoing active development and implementation planned for a future TrueNAS SCALE release.
+Alternate data streams (metadata), finder colors tags, previews, resource forks, and MacOS metadata are stripped from the share along with filesystem permissions, but this functionality is undergoing active development and implementation planned for a future TrueNAS Community Edition release.
 
 - Note that if you want to take advantage of Jellyfin's built-in feature of **real-time media scanning**, you need to mount your media directly with a **Host Path** as SMB connections do not support this feature.
 
 For all types, enter a **Mount Path** to be used within the Jellyfin container.
 
 - For example, the local **Host Path** /mnt/tank/video/movies could be assigned the **Mount Path** /media/movies.
-  - With this example, you would browse to `/media/movies` in Jellyfin to see the contents of `/mnt/tank/video/movies` on your SCALE server.
+  - With this example, you would browse to `/media/movies` in Jellyfin to see the contents of `/mnt/tank/video/movies` on your TrueNAS server.
 
 <details>
   <summary>Additional Storage Fields</summary>
@@ -456,16 +454,16 @@ You can customize limits on the CPU and memory allocated to the container Jellyf
 
 - **CPUs** expects a value in **number of threads** to assign as a max CPU thread limit.
   - You should set this option to the number of threads your CPU contains.
-  - [Refer here for reasonable CPU limits based on your SCALE server's CPU](/docs/general/administration/hardware-selection#cpu)
+  - [Refer here for reasonable CPU limits based on your TrueNAS server's CPU](/docs/general/administration/hardware-selection#cpu)
 - **Memory (in MB)** expects a value in **megabytes**.
   - The default is **4096** which means the container will be limited to 4GB of RAM usage.
   - To calculate a value in gigabytes, use this formula where **X** is a number in MB: `X * 1024`
   - [Refer here for sensible RAM limits for your Jellyfin server](/docs/general/administration/hardware-selection#system-memory-ram)
-- The max limit you can assign to either limit depends on your SCALE server's specs.
+- The max limit you can assign to either limit depends on your TrueNAS server's specs.
 
 For the GPU Configuration, check the **Passthrough available (non-NVIDIA) GPUs** option if you need to pass a GPU device for hardware acceleration use with Jellyfin.
 
-- If you have an NVIDIA GPU, [please read this](#nvidia-gpus-on-scale-v2410).
+- If you have an NVIDIA GPU, [please read this](#nvidia-gpus-on-truenas-v2410).
 
 ### Finalizing Install
 
@@ -511,13 +509,13 @@ To see the current location of these (and other mounts to the container), click 
 
 Once opened, you will see a list of all mounts and their paths.
 You can use this info to navigate to them on your system shell.
-Note that you will need root (sudo) access to reach Docker-related directories on SCALE.
+Note that you will need root (sudo) access to reach Docker-related directories on TrueNAS.
 
 ## Managing Container Images
 
 ![App Settings Config Dropdown](/images/docs/install-truenas-7.png)
 
-If you want to see the exact images installed on your TrueNAS SCALE server, go to the main Apps page, then click on the `Configuration` button.
+If you want to see the exact images installed on your TrueNAS Community Edition server, go to the main Apps page, then click on the `Configuration` button.
 On the dropdown menu, click on **Manage Container Images**.
 You will be brought to a new page where you will see a list of all installed Docker images.
 
@@ -527,15 +525,15 @@ You can also pull new images to use in the future.
 
 You can choose to pull from Jellyfin's [Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin) or [GitHub Container Registry](https://github.com/jellyfin/jellyfin/pkgs/container/jellyfin).
 
-- To pull from Docker Hub, use: `jellyfin/jellyin`
+- To pull from Docker Hub, use: `jellyfin/jellyfin`
 - To pull from from GHCR, use: `ghcr.io/jellyfin/jellyfin`
 - [You can check this blog post for more info about GHCR:](/posts/jellyfin-release-10.9.0#key-release-notesbreaking-changes)
   - "Docker users: We now offer GitHub Container Registry (GHCR) as an alternative container registry in addition to Docker Hub. You can pull images from the new registry via URIs like `ghcr.io/jellyfin/jellyfin:latest`. Don't worry, we have no plans to drop Docker Hub as a container registry, but we feel providing both gives users more choice and flexibility."
 - Also check out [this forum post](https://forum.jellyfin.org/t-new-jellyfin-server-web-release-10-9-6?pid=25895#pid25895) about how Docker image tags can be used.
 
-If you have a container using any of your images, SCALE should notify you of an available update to the image through its GUI provided you used the **latest** tag, or one of the other tags that doesn't point to a single release.
+If you have a container using any of your images, TrueNAS should notify you of an available update to the image through its GUI provided you used the **latest** tag, or one of the other tags that doesn't point to a single release.
 
-## NVIDIA GPUs on SCALE (v24.10+)
+## NVIDIA GPUs on TrueNAS (v24.10+)
 
 - For users with an NVIDIA GPU, [read the v24.10 Electric Eel release notes regarding your GPU:](https://www.truenas.com/docs/scale/24.10/gettingstarted/scalereleasenotes/#upgrade-notes)
   - `"Starting in 24.10, TrueNAS does not include a default NVIDIA GPU driver and instead provides a simple NVIDIA driver download option in the web interface. This allows for driver updates between TrueNAS release versions."`
