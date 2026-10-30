@@ -25,9 +25,9 @@ Shows
         └── Series Name S02E03.mkv
 ```
 
-Metadata identifiers support square brackets `[]`, parentheses `()`, and curly braces `{}`.
+For movies, the provider ID must be added to both the parent folder and file when using [Multiple Versions](/docs/general/server/media/movies.md#multiple-versions).
 
-If a movie or show has multiple versions, each file **must** begin exactly with the base name of the parent folder - including any year and/or metadata provider IDs - before adding a version label. This prefix must match character-for-character; otherwise, the files will be treated as separate items.
+Metadata identifiers support square brackets `[]`, parentheses `()`, and curly braces `{}`.
 
 ## Supported Metadata Providers
 

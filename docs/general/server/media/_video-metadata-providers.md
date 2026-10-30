@@ -10,6 +10,8 @@ Movie Name (year) [metadata provider id]
 Series Name (year) [metadata provider id]
 ```
 
+For movies, the provider ID must be added to both the parent folder and file when using [Multiple Versions](/docs/general/server/media/movies.md#multiple-versions).
+
 Seasons and episodes can also include metadata provider IDs.
 
 ```txt
@@ -17,7 +19,5 @@ Series Name (year) [metadata provider id]
 └── Season 01 [metadata provider id]
    └── S01E01 [metadata provider id].mkv
 ```
-
-If adding a metadata provider to a movie or show with multiple versions, the provider ID **must** be added to both the parent folder and file.
 
 Read more about it in the [metadata provider identifiers section](/docs/general/server/metadata/identifiers.md).
