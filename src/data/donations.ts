@@ -29,7 +29,8 @@ export enum Projects {
   Vue = 'Jellyfin Vue',
   JellyfinWeb = 'Jellyfin Web',
   IOS = 'Jellyfin for iOS',
-  Kodi = 'Jellyfin for Kodi'
+  Kodi = 'Jellyfin for Kodi',
+  Documentation = 'Jellyfin Documentation'
 }
 
 export enum ProjectRole {
@@ -201,6 +202,16 @@ export const donations: Array<DonationTarget> = [
       {
         url: 'https://buymeacoffee.com/oddstr13',
         name: SponsorTypes.BuyMeACoffee
+      }
+    ]
+  },
+  {
+    title: 'BotBlake',
+    roles: [MiscRoles.CommunityMod, GetProjectRole(Projects.Documentation, ProjectRole.Contributor)],
+    links: [
+      {
+        url: 'https://github.com/sponsors/botblake',
+        name: SponsorTypes.GithubSponsor
       }
     ]
   }
