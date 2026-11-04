@@ -38,7 +38,7 @@ const officialClients: Array<Client> = [
     description: 'The official Jellyfin desktop client.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop],
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'gh-downloads',
@@ -61,7 +61,7 @@ const officialClients: Array<Client> = [
     description: 'A cross-platform cast client for Jellyfin.',
     clientType: ClientType.Official,
     deviceTypes: [DeviceType.Desktop],
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'flathub',
@@ -392,7 +392,7 @@ const thirdPartyClients: Array<Client> = [
     description: 'A lightweight and full-featured desktop music player for self-hosted servers.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'installation',
@@ -414,7 +414,7 @@ const thirdPartyClients: Array<Client> = [
     description: 'A full-featured Navidrome/Jellyfin compatible desktop music player.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'browser',
@@ -441,7 +441,7 @@ const thirdPartyClients: Array<Client> = [
     description: 'A modern streamlined music player for desktop with a minimal interface that is packed with features!',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
-    platforms: [Platform.Desktop],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'flathub',
@@ -727,7 +727,7 @@ const thirdPartyClients: Array<Client> = [
     description: 'A light, native music client for Linux.',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Desktop],
-    platforms: [Platform.Desktop, Platform.Linux],
+    platforms: [Platform.Linux, Platform.MacOS, Platform.Windows],
     primaryLinks: [
       {
         id: 'flathub',
