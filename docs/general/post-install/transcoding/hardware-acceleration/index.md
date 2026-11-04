@@ -99,13 +99,13 @@ lshw -C display
 
 See the table below to pick the best hardware acceleration method for your hardware:
 
-| GPU Vendor | Windows                                    | macOS                      | Linux                                  |
-| ---------- | ------------------------------------------ | -------------------------- | -------------------------------------- |
+| GPU Vendor | Windows                                       | macOS                      | Linux                                     |
+| ---------- | --------------------------------------------- | -------------------------- | ----------------------------------------- |
 | AMD        | [AMF (Windows)](./amd.md#windows-setups)      | [VideoToolbox](./apple.md) | [VAAPI (AMD)](./amd.md#linux-setups)      |
-| Apple      | N/A                                        | [VideoToolbox](./apple.md) | N/A                                    |
+| Apple      | N/A                                           | [VideoToolbox](./apple.md) | N/A                                       |
 | Intel      | [QSV (Windows)](./intel.md#windows-setups)    | [VideoToolbox](./apple.md) | [QSV (Linux)](./intel.md#linux-setups)    |
 | Nvidia     | [NVENC (Windows)](./nvidia.md#windows-setups) | N/A                        | [NVENC (Linux)](./nvidia.md#linux-setups) |
-| Rockchip   | N/A                                        | N/A                        | [RKMPP](./rockchip.md)                    |
+| Rockchip   | N/A                                           | N/A                        | [RKMPP](./rockchip.md)                    |
 
 ## Remote Hardware Acceleration
 
@@ -127,7 +127,7 @@ Dolby Vision (P5 & P8) to SDR tone-mapping is supported in Jellyfin 10.8 and req
 
 - Intel VPP HDR10 tone-mapping is supported on Intel QSV and VA-API on Linux.
 
-- VPP is prefered if both tone-mapping options are enabled.
+- VPP is preferred if both tone-mapping options are enabled.
 
 - Rockchip RKMPP does support Dolby Vision tone-mapping Jellyfin 10.11 and later versions.
 

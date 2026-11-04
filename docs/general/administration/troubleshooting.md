@@ -214,6 +214,16 @@ If your active devices section in the dashboard is not showing progress of the c
 timedatectl set-ntp true
 ```
 
+## Shows Or Movies Not Being Identified Correctly
+
+If Jellyfin is mislabeling your shows or movies, try the following process:
+
+1. Move one of the effected shows or movies OUT of the library folder.
+2. Manually initiate a scan of the Library from the server `Dashboard` > `Libraries` > `Libraries` > `context menu` > `Scan library` > `Refresh`.
+3. Rename the files and directories to ensure they comply with the official documention for [shows](https://jellyfin.org/docs/general/server/media/shows) or [movies](https://jellyfin.org/docs/general/server/media/movies).
+4. Move the now renamed directories and folders back into your target library folder. Make sure to follow Jellyfin's expected folder structure and avoid adding extra subfolders between the library root and your media.
+5. Manually initiate a scan of the Library from the server `dashboard` > `Libraries` > `Libraries` > `context menu` > `Scan library` > `Refresh`.
+
 ## Database Locked Errors
 
 When encountering issues with failed scans or inconsistent data, check your log file(s) for errors like "Database Locked". If you encounter those you should first check your parallel scan task limit in your admin dashboard and set that lower. If its set to 0 set it to 1/2 your cores. If that does not help, you can set the locking mode instead (keep the task limit to a reasonable low number too).
@@ -224,7 +234,7 @@ You have 3 options to set the locking mode to:
 - `Optimistic` - Defines that all writes should be attempted and should be retried when they fail.
 - `Pessimistic` - Defines a behavior that always blocks all reads while any one write is done.
 
-Stop your Jellyin server and navigate to its config directory. There are a lot of xml files, look for the `database.xml` file and edit the `LockingBehavior` option:
+Stop your Jellyfin server and navigate to its config directory. There are a lot of xml files, look for the `database.xml` file and edit the `LockingBehavior` option:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -236,4 +246,10 @@ Stop your Jellyin server and navigate to its config directory. There are a lot o
 </DatabaseConfigurationOptions>
 ```
 
-then start your jellyfin instance again. If this still does not help with the issues, you can try setting the `LockingBehavior` to `Pessimistic` instead but this comes with a significant performance impact so it is only recommended when `Optimistic` does not help with the issues.
+then start your Jellyfin instance again. If this still does not help with the issues, you can try setting the `LockingBehavior` to `Pessimistic` instead but this comes with a significant performance impact so it is only recommended when `Optimistic` does not help with the issues.
+
+For the other `database.xml` options, including `cacheSize` tuning for large libraries, see the [Database section](/docs/general/administration/configuration#database) of the Configuration page.
+
+### LXC specific issues
+
+It has been brought to the team's attention that there are issues with LXC specifically. If you are getting such errors on LXC after setting lock mode to `Optimistic`, it is recommended that you migrate to full virtualization (virtual machines) or Docker. There is unlikely to be a solution for LXC any time soon, and we will be unable to provide any support for database locked problems on LXC.

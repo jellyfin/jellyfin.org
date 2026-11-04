@@ -2,16 +2,20 @@
 
 ### Metadata providers
 
-Jellyfin fetches information about the media automatically from external metadata providers. The following metadata providers are supported:
+Jellyfin fetches information about the media automatically from external metadata providers for most types of content.
+Movies and shows can be named with a metadata provider ID to improve matching.
 
-- [TheMovieDB (TMDB)](https://www.themoviedb.org/)
-- [TheTVDB (TVDB)](https://www.thetvdb.com/) (Shows Only)
-- [OMDb API (OMDB)](https://www.omdbapi.com/) (English Only)
+```txt
+Movie Name (year) [metadata provider id]
+Series Name (year) [metadata provider id]
+```
 
-Movies and show series can be named with a metadata provider ID to improve matching. They can be added to a file name in the following format:
+Seasons and episodes can also include metadata provider IDs.
 
-- `[imdbid-tt12345678]`
-- `[tmdbid-12345]`
-- `[tvdbid-67890]`
+```txt
+Series Name (year) [metadata provider id]
+└── Season 01 [metadata provider id]
+   └── S01E01 [metadata provider id].mkv
+```
 
-Multiple IDs can be added in the same file / folder. e.g. `Jellyfin Documentary [imdbid-tt00000000] [tmdbid-00000].mkv`
+Read more about it in the [metadata provider identifiers section](/docs/general/server/metadata/identifiers.md).

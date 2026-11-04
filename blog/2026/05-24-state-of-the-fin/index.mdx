@@ -1,0 +1,265 @@
+---
+title: State of the Fin 2026-05-24
+authors:
+  - jellyfin
+slug: state-of-the-fin-2026-05-24
+tags: [state-of-the-fin]
+---
+
+import ActivityChart from './activity-by-month.svg';
+
+Welcome to the second edition of State of the Fin! This update will be slightly different to the previous one as we don't have as many large updates to announce (yet)! Still, we want to keep you informed on what is happening and what the Jellyfin development team are working on. Please enjoy, and contribute through our [standard channels](/contact) if you have questions or comments.
+
+{/* truncate */}
+
+## Project Updates
+
+#### Versioning
+
+As mentioned in the last [State of the Fin](/blog/2026/01-06-state-of-the-fin/index.mdx#versioning), we're dropping the major version "10" from our naming scheme. With 10.11.x being the final release branch to use it, the next major release will move directly to 12.0. The primary reason for this is to reduce confusion about what a "major" version is and eliminate the redundancy of a never-changing `10`. version prefix.
+
+#### LLM/"AI" Policy
+
+As with pretty much every open source project, we have been inundated with AI-authored pull requests of varying quality. This has vastly increased the amount of work the team has on their plate. To that end, an LLM/AI Policy has been created to try and help set standards. The tl;dr is **AI use isn't completely forbidden in pull requests/code submissions, however you must understand HOW it does what it does, and any posts to a pull request/issue should be written by the user. You cannot function as a go-between between your AI and our questions/comments, just copy-pasting whatever the AI tells you.** For more information, please read the [LLM/"AI" developmental policy](/docs/general/contributing/llm-policies) we have published.
+
+The Jellyfin Team is made up of a lot of different people, and everyone has different levels of acceptance of/interest in code that an AI agent has contributed to. This policy has been made to try and help find a path that everyone can at least appreciate, even if they don't fully agree.
+
+#### Burnout / Remember the Person
+
+Jellyfin has been growing quickly as the landscape around us matures and changes. This is both a blessing and a curse. It is great that Jellyfin is so popular and loved by so many, however the increased support requests, combined with the AI code submissions, have led to burnout at various levels of the development and admin team. Abuse from users when something isn't working or a change isn't accepted only increases the loss of motivation. This has already led to delays in client and server improvements.
+
+Please remember Jellyfin is open source and is written by volunteers. There are real people doing the work, and they're doing this for the love of the project. Yelling at them/insulting them will not make anything happen faster, and is actually more likely to delay fixes or improvements.
+
+If you'd like to get involved in helping fellow users, hang out in the [standard Matrix/Discord channels](/contact), or look at the [forums](https://forum.jellyfin.org/)/[subreddit](https://reddit.com/r/jellyfin) and volunteer answers when you think the question is something you know. Straight AI searching and copy-paste answering aren't good responses and are explicitly banned by the aforementioned LLM policy, but if it's something you have dealt with, please contribute! The more people who help answer the easy questions, the more we can allow the devs to work on the hard stuff.
+
+And of course, if you want to contribute code, we welcome it! Bug fixes are always welcome as-is; but features require a bit more work and a policy that we are still in the process of defining. But if you want to work on a feature, the short answer is: please ask us before you start implementing it and work with the team on a full design/scope discussion to help ensure your work will be accepted!
+
+## Development Updates
+
+<ActivityChart />
+
+#### What's New
+
+We've continued pushing bug and [security](https://github.com/jellyfin/jellyfin/security/advisories) fixes to the stable release. Following the 10.11.10 release, development attention has largely shifted toward finalizing 12.0 ahead of the upcoming release candidate phase. A few items still need to be addressed before we can ship RC1: [Jellyfin 12.0](https://github.com/orgs/jellyfin/projects/73)
+
+The [Performance PR](https://github.com/jellyfin/jellyfin/pull/16062) which forms the foundation for much of the work in 12.0, has been merged into master and is now part of the weekly unstable releases. These are published every Monday, though we may push additional out-of-band builds for a while to support testing. Unstable builds can be accessed via Docker using the "unstable" tag or by selecting the unstable tab on our downloads page.
+
+This PR addresses a number of slow queries in 10.11.x, particularly for folder-based libraries like home videos & photos, and books. Other areas have also seen improvements, including collections, music libraries, playlists, and homepage load times. For more details, see the PR description.
+
+12.0 also includes a fix for EPG issues with the Schedules Direct API, as well as a fix for errors when restructuring media libraries. A long-requested feature, support for multiple versions of episodes in a series library, has also been added. While users may notice some incidental improvements in scanner performance as a result of other changes, scanner optimization itself was not a primary focus of this release. More substantial work in that area is planned for 13.0, which is currently in the early [planning phase](https://github.com/jellyfin/jellyfin-meta/discussions/125).
+
+#### Testing
+
+Before testing the unstable 12.0 build, please note the following:
+
+Unstable builds are not guaranteed to work from one build to another. These builds should only be used for testing or evaluating new features, and running them as a daily driver is at your own risk.
+
+If upgrading from an earlier version, a full backup of the data directory is strongly recommended, as this release includes database changes that prevent rolling back without a full restore.
+
+Installed repository plugins (anything not built-in) should also be removed before migrating. Plugins will likely need time to adapt to the new database changes, so re-adding them afterward is the safest approach for testing.
+
+Official plugins compatible with Jellyfin are available through the unstable plugin repository. To test plugins for 12.0:
+
+- Go to Dashboard -> Plugins -> Manage Repositories
+- Update the Plugin Repository URL to: https://repo.jellyfin.org/files/plugin-unstable/manifest.json
+
+After migrating:
+
+- Perform a full library scan to restore alternative versions
+- Run the "Optimize database" scheduled task
+
+If you run into issues, please prefix bug reports with "[12.0]".
+#### Client Development Changes
+
+As mentioned [before](/blog/2025/10-19-jellyfin-release-10.11.0/index.mdx#client-development-changes), the API will no longer allow deprecated authorization mechanisms by default, so clients and tooling that haven't already migrated will need to update. Any new API changes or breaking modifications not already in progress will now be deferred to 13.0, allowing client developers to begin targeting a stable API surface ahead of release.
+
+That said, we've temporarily reverted the [default enforcement](https://github.com/jellyfin/jellyfin/pull/16754) during the testing phase, since some of our official clients are still in the process of completing the transition.
+
+## Client Corner
+
+### [Jellyfin for Android](https://github.com/jellyfin/jellyfin-android)
+
+#### What's New
+
+The mobile Android app stopped working after the recent 10.11.7 server update and was quickly resolved in 10.11.8. To keep the same problem from recurring, the app itself was also patched in the 2.6.4 release.
+
+#### Notable Changes
+
+- New patches in the 2.6.4 release to make sure a similar problem doesn't happen again.
+- The 2.6.4 build is not available on the Google Play store for technical reasons.
+
+#### What's Next
+
+Work is ongoing for the upcoming 2.7.0 update. Recently we've finished the re-implementation of Android Auto support which was the major blocker for the next release. We'll likely start a beta cycle to collect feedback in the coming weeks/months. This version of the app will be compatible with Jellyfin 10.10 and newer.
+
+*- [Niels van Velzen](https://github.com/nielsvanvelzen)*
+
+### [Jellyfin for Android TV](https://github.com/jellyfin/jellyfin-androidtv)
+
+#### What's New
+
+Three updates to the app went live since our last State of the Fin, version 0.19.7 and 0.19.8 both fix numerous bugs. Most notably is a bug where our progress bar would be incorrect for some users. That's now fixed! In version 0.19.9 we made some improvements to the home screen to make it load faster and solved a long-term issue with the screensaver not working after playing a video.
+
+#### What's Next
+
+Work is still progressing on the next big Android TV release.
+
+Version 0.20 will have a completely revamped look for the settings and also expands them to allow more customization and tweaking playback options. Work also continues on the new video player, with various features also made available to the current one, like support for SubStation Alpha subtitles and better handling of external apps for video playback.
+
+This version of the app will require Jellyfin server 10.11 or newer. Due to community feedback, we have postponed the release until Jellyfin 12.0 is released. However, the beta versions of the app will likely start earlier and the app already notifies people about updating their server to 10.11.
+
+*- [Niels van Velzen](https://github.com/nielsvanvelzen)*
+
+### [Jellyfin for Desktop](https://github.com/jellyfin/jellyfin-desktop)
+
+#### What's New
+Jellyfin Desktop is being completely rewritten to address several performance, feature, and maintainability issues. Qt and its Chromium-based QtWebEngine have been replaced with Chromium Embedded Framework (CEF) to drastically improve responsiveness. The removal of Qt means we are no longer bound to a dependency that has historically been problematic when maintaining this project (Qt5->6, Qt WebEngine memory leaks). As for the audio/video side of things, we've switched from the legacy libmpv pipeline to the same modern pipeline that standalone mpv uses. This enables both better GPU acceleration (`vo=gpu-next`) and native HDR playback (Wayland/macOS/Windows). CEF and mpv are integrated via platform-native mechanisms that seamlessly overlay CEF on top of the video playback performance of standalone mpv. Long term, this should allow us to combine the functionality of Jellyfin MPV Shim into the Jellyfin Desktop codebase.
+
+Although it's not yet ready for a stable v3.0.0 release, development builds are available in the [project's GitHub](https://github.com/jellyfin/jellyfin-desktop/). I actively welcome any bug reports or feature requests as they are incredibly helpful in prioritizing a sustainable, long-term codebase. To all early testers: thank you!
+
+#### Notable Changes
+- Completely rewritten without Qt/QtWebEngine
+- Uses CEF as the browser engine
+- Reworked audio/video pipeline to use the same as standalone mpv
+- Supports mpv.conf and mpv plugins
+- Linux AppImage support added
+- Windows ARM support added
+
+#### Known Issues
+- Some features found in v1.x and v2.x are missing
+
+#### What's Next
+- Stabilize architecture to allow for better programmatic testing
+- Formal v3.0.0 pre-release
+
+*- [Andrew Rabert](https://github.com/andrewrabert)*
+
+### [Jellyfin for Kodi](https://github.com/jellyfin/jellyfin-kodi)
+
+#### What's New
+
+A couple of long-requested features have been completed in this period along with bug fixes and general cleanup.
+
+#### Notable Changes
+
+- Media Segments are now supported.
+- Quick Connect support has been merged and will be included in a future release.
+
+*- [MCarlton00](https://github.com/mcarlton00)*
+
+### [Jellyfin for Roku](https://github.com/jellyfin/jellyfin-roku)
+
+#### Latest Release: 3.1.9
+
+#### Minimum Server Version: 10.9.0
+
+#### Highlights
+
+- New setting allowing you to change the poster orientation in libraries
+- New settings allowing you to change playback speed
+- Choose between 1 or 5 displayed trickplay images
+- OSD seekbar is now fully functional
+- Custom subtitles now support font color tags
+- Subtitle timing offset now available for custom subtitles
+- Many more direct play profiles added
+- Oh so many bug fixes
+- And so much more!
+
+
+#### What's Next
+
+- More custom subtitle enhancements (bold & italic?!?! 😱 )
+- Default subtitle selection improvements
+- Default audio track selection improvements
+
+*- [1hitsong](https://github.com/1hitsong)*
+
+### [Jellyfin for Tizen](https://github.com/jellyfin/jellyfin-tizen)
+
+#### What's New
+
+The [Tizen Jellyfin client](https://github.com/jellyfin/jellyfin-tizen) for Tizen 6 and newer has been released to the Samsung Tizen Store! Tizen 5 and earlier should still be able to side-load the client.
+
+*- [Eric Stacey](https://github.com/ejstacey)*
+
+### [Jellyfin for Xbox](https://github.com/jellyfin/jellyfin-xbox)
+
+#### What's New
+
+Since the last State of the Fin, Jellyfin for Xbox has seen several new PRs for various fixes and improvements. We also checked off a major item from the previous State of the Fin todo list: Jellyfin for Xbox now supports translations!
+
+#### Notable Changes
+
+- **UI Refresh**: Various UX fixes and improvements throughout the app interface.
+
+- **Log File Upload Dialog**: A new dialog allows uploading any of the last 6 log files directly from within the app.
+
+- **Translation Support**: Jellyfin for Xbox now supports localization!
+
+<img src="https://translate.jellyfin.org/widget/jellyfin-for-xbox/multi-auto.svg" alt="Translation support" style={{maxWidth: '300px', width: '100%'}} />
+
+#### What's Next
+
+A new v0.9.5 release incorporating these changes is coming soon!
+
+*- [Jean-Pierre Bachmann](https://github.com/JPVenson)*
+
+## Jellyfin Labs
+
+### [Swiftfin](https://github.com/jellyfin/Swiftfin)
+
+#### What's New
+
+Swiftfin has had a lot of recent development in preparation for 1.5 and our next tvOS release. A lot of our recent work has been focused on utilizing new SwiftUI improvements to better unify work between iOS and tvOS. There is a lot of effort involved in this but this should help improve our release cadence moving forward.
+
+#### Notable Changes
+
+- Many iOS player bug fixes and additional supplement information & customization.
+- Structural changes to better unify iOS and tvOS development moving forward.
+- Lots of work towards our next [tvOS release](https://github.com/jellyfin/Swiftfin/discussions/1294) including the resolution of some [longstanding and high profile issues](https://github.com/jellyfin/Swiftfin/issues/776)!
+
+#### Known Issues
+
+- In the final version of Jellyfin 12.0, Swiftfin tvOS will not be able to authenticate without [enabling legacy authentication](https://gist.github.com/nielsvanvelzen/ea047d9028f676185832e51ffaf12a6f#disabling-deprecated-authorization-methods). This is resolved for iOS/iPadOS and will be resolved in the next tvOS release. _It is **our goal** to have a new tvOS release before 12.0 is out of testing._
+
+#### What's Next
+
+We are working hard on our next release! If you are interested in helping out, please see our [Help Wanted](https://github.com/jellyfin/Swiftfin/discussions/1503) post for details on getting started!
+
+*- [Joe Kribs](https://github.com/JPKribs)*
+
+
+### Jellyfin for Titan OS & Vega OS
+
+Work has started on two new Jellyfin clients!
+
+Currently in the prototype phase is a Jellyfin client for the new **Vega OS** platform from Amazon. This is the operating system used on the newer models of Fire TV Sticks released since 2025. We've seen a lot of requests for this as people buy the devices thinking they can use our Android TV app and end up not finding Jellyfin.
+
+Further into development is our client for **Titan OS**. This smart TV platform is mainly found on Philips televisions. We're currently testing this client and hopefully have some news to share soon!
+
+*- [Niels van Velzen](https://github.com/nielsvanvelzen)*
+
+
+## [Documentation](https://github.com/jellyfin/jellyfin.org)
+
+#### What's New
+
+Documentation is always a work in progress but over this period Jellyfin's documentation has seen some notable changes:
+
+- Improved CI to catch common issues and spelling errors
+- A new feature proposal guideline
+- Fish shell support added to the installer commands
+- Cleanup of reverse proxy documentation
+- The LLM policy made its way into the docs
+
+#### Moving Forward
+
+New contributors have been assisting, which has been a tremendous help! Thank you to everyone who has pitched in so far. If you are interested in getting involved, please feel free to create a PR.
+
+*- [BotBlake](https://github.com/BotBlake)*
+
+## Closing Thoughts
+
+While this post isn't full of new announcements, it's worth posting so you know people are still working on things in the background. Jellyfin was originally forked from Emby, however the projects have different goals and directions. For Jellyfin, this includes some very deep rewrites of core code, which takes a lot of time and effort. It is necessary to help the codebase mature for the future of the project. We hope with the extra details given in this blog, which are public but generally not broadcasted, you can appreciate the scope and size of the Jellyfin work, and the people behind it. Thank you for using and supporting Jellyfin!
+
+\- [Eric Stacey](https://github.com/ejstacey)
