@@ -25,7 +25,7 @@ export default ts.config([
   react.configs.flat.recommended,
   reactHooks.configs.flat.recommended,
   ...ts.configs.recommended,
-  jsxA11yX.flatConfigs.recommended,
+  jsxA11yX.configs.recommended,
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
   {
@@ -54,7 +54,9 @@ export default ts.config([
 
     rules: {
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': 'error'
+      '@typescript-eslint/no-unused-vars': 'error',
+      'import-x/no-named-as-default': 'off',
+      'import-x/no-named-as-default-member': 'off'
     }
   }
 ]);

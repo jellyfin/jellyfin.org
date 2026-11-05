@@ -1,8 +1,18 @@
 {
-  "extends": "@docusaurus/tsconfig",
   "include": ["src/"],
   "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "skipLibCheck": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "types": ["@docusaurus/module-type-aliases", "@docusaurus/types"]
+    "types": ["@docusaurus/module-type-aliases", "@docusaurus/types"],
+    "paths": {
+      "@site/*": ["./*"],
+      "@docusaurus/Link": ["./node_modules/@docusaurus/core/lib/client/exports/Link"],
+      "@docusaurus/router": ["./node_modules/@docusaurus/core/lib/client/exports/router"],
+      "@docusaurus/useIsBrowser": ["./node_modules/@docusaurus/core/lib/client/exports/useIsBrowser"],
+      "@theme/*": ["./src/theme/*", "./node_modules/@docusaurus/theme-classic/lib/theme/*"],
+      "@theme-original/*": ["./node_modules/@docusaurus/theme-classic/lib/theme/*"]
+    }
   }
 }
