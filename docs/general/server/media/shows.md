@@ -65,11 +65,11 @@ import VideoMetadataProviders from './\_video-metadata-providers.md';
 
 import ExternalStreams from './\_video-external-streams.md';
 
-<ExternalStreams />
+<ExternalStreams defaultTab="shows"/>
 
 import ExternalExtras from './\_video-external-extras.md';
 
-<ExternalExtras />
+<ExternalExtras defaultTab="shows"/>
 
 ### Show Specials
 
@@ -89,14 +89,22 @@ Specials can also be shown within a season if so desired. This can be helpful wh
 
 Note that this will show them in both the `Specials` season, as well as the season specified.
 
+import ThemeMedia from './\_video-theme-media.md';
+
+<ThemeMedia defaultTab="movies"/>
+
+import Multiversion from './\_video-multiversion.md';
+
+<Multiversion defaultTab="shows"/>
+
 import Video3D from './\_video-3d.md';
 
-<Video3D />
+<Video3D defaultTab="shows"/>
 
 import Multipart from './\_video-multipart.md';
 
-<Multipart />
+<Multipart defaultTab="shows"/>
 
 import MetadataImages from './\_metadata-images.md';
 
-<MetadataImages />
+<MetadataImages defaultTab="shows"/>

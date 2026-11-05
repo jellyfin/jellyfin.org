@@ -111,7 +111,7 @@ Root permission is required.
 
 :::
 
-1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg7`.
+1. Assuming you have added the jellyfin repository to your apt source list and installed the `jellyfin-server`, `jellyfin-web` and `jellyfin-ffmpeg8`.
 
 2. Make sure `dma_heap`, `dri`, `mpp_service` and `rga` exist in `/dev`. Otherwise upgrade your BSP kernel to 5.10 LTS and newer.
 
@@ -281,7 +281,7 @@ LXC setup idea is a bit similar to docker - you need to pass the **device files*
    ```shell
    ii  clinfo                          3.0.21.02.21-1                          arm64        Query OpenCL system information
    ii  jellyfin                        10.10.1+ubu2204                         all          Jellyfin is the Free Software Media System.
-   ii  jellyfin-ffmpeg7                7.0.2-5-jammy                           arm64        Tools for transcoding, streaming and playing of multimedia files
+   ii  jellyfin-ffmpeg8                8.1.0-5-jammy                           arm64        Tools for transcoding, streaming and playing of multimedia files
    ii  jellyfin-server                 10.10.1+ubu2204                         arm64        Jellyfin is the Free Software Media System.
    ii  jellyfin-web                    10.10.1+ubu2204                         all          Jellyfin is the Free Software Media System.
    ii  libmali-valhall-g610-g13p0-gbm  1.9-1                                   arm64        Mali GPU User-Space Binary Drivers
