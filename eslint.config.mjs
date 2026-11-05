@@ -1,12 +1,12 @@
 import { globalIgnores } from 'eslint/config';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import ts from 'typescript-eslint';
+import { config, configs } from 'typescript-eslint';
 import jsxA11yX from 'eslint-plugin-jsx-a11y-x';
 import globals from 'globals';
-import importX from 'eslint-plugin-import-x';
+import { importX } from 'eslint-plugin-import-x';
 
-export default ts.config([
+export default config([
   globalIgnores([
     'node_modules',
     'build',
@@ -24,7 +24,7 @@ export default ts.config([
   ]),
   react.configs.flat.recommended,
   reactHooks.configs.flat.recommended,
-  ...ts.configs.recommended,
+  ...configs.recommended,
   jsxA11yX.configs.recommended,
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
@@ -54,9 +54,7 @@ export default ts.config([
 
     rules: {
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': 'error',
-      'import-x/no-named-as-default': 'off',
-      'import-x/no-named-as-default-member': 'off'
+      '@typescript-eslint/no-unused-vars': 'error'
     }
   }
 ]);
