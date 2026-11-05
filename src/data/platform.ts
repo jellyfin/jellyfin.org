@@ -3,7 +3,6 @@ enum Platform {
   Android = 'Android',
   AndroidTV = 'Android TV',
   Browser = 'Browser',
-  Desktop = 'Desktop',
   Discord = 'Discord',
   FireOS = 'Fire TV',
   IOS = 'iOS',
@@ -23,7 +22,7 @@ enum Platform {
   DotNet = '.NET Portable',
   Fedora = 'Fedora',
   Gentoo = 'Gentoo',
-  Linux = 'Generic Linux',
+  Linux = 'Linux',
   MacOS = 'macOS',
   Ubuntu = 'Ubuntu',
   Windows = 'Windows'
@@ -38,7 +37,9 @@ export default Platform;
 export const FeaturedClientPlatforms = [
   Platform.Android,
   Platform.AndroidTV,
-  Platform.Desktop,
+  Platform.Linux,
+  Platform.MacOS,
+  Platform.Windows,
   Platform.FireOS,
   Platform.IOS,
   Platform.Kodi,
