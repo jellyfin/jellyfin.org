@@ -232,7 +232,7 @@ Root permission is required.
 
 #### Docker Compose exampe
 
-Root permission is NOT required - Setps 2 ans 3 from Linux Setup above are required
+Root permission is NOT required - Steps 2 and 3 from Linux Setup above are required
 
 docker-compose.yml look like this:
 
@@ -261,12 +261,12 @@ services:
       - 1900:1900/udp   # DLNA
     restart: unless-stopped
     devices:
-     # Rock 5 ITX (RK3588) GPU devices for hardware transcoding
-      - /dev/dri:/dev/dri                 # DRM/KMS for VAAPI
+     # Rockchip VPU and GPU devices for hardware transcoding
+      - /dev/dri:/dev/dri                 # DRM Dumb Buffer allocator
       - /dev/mali0:/dev/mali0             # Mali GPU
-      - /dev/mpp_service:/dev/mpp_service # Rockchip MPP for hw encoding
+      - /dev/mpp_service:/dev/mpp_service # Rockchip MPP for HW transcoding
       - /dev/rga:/dev/rga                 # Rockchip RGA (2D graphics)
-      - /dev/dma_heap:/dev/dma_heap       # CMA Memory - be sure to set at least 256MB of CMA at Kernel-Boot-Parameter
+      - /dev/dma_heap:/dev/dma_heap       # DMA_HEAP allocator
     group_add:
       - "44"   # video group  (adjust if different on your system)
       - "993"  # render group (adjust if different on your system)
