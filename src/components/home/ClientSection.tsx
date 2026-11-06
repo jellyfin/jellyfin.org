@@ -28,7 +28,7 @@ export default function ClientSection() {
             <div className='margin-top--sm'>Web</div>
           </div>
           <Link
-            to='/downloads/clients?platform=Desktop'
+            to='/downloads/clients?type=Desktop'
             className={clsx('col', styles['client-icon'], 'margin-top--md')}
           >
             <Icon path={mdiMonitor} size='48px' className='fill-white' />
