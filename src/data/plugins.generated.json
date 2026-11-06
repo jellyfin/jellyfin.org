@@ -739,12 +739,12 @@
 			"category": "Anime",
 			"imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-anilist.png",
 			"version": {
-				"version": "14.2610.24.0",
+				"version": "14.2611.25.0",
 				"changelog": "- Unstable: Update to latest Jellyfin preview packages (#114) @crobibero, @jellyfin-bot\n- Allow filtering people by role (#110) @HansLehnert, @nielsvanvelzen\n- Add anilist episode provider (#104) @ivanjx, @nielsvanvelzen\n- Change image type for banner images from Backdrop to Banner (#109) @vodkapmp, @nielsvanvelzen",
 				"targetAbi": "13.0.0.0",
-				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/anilist/anilist_14.2610.24.0.zip",
-				"checksum": "ed8452c68bfebcb9eebecd3619edd291",
-				"timestamp": "2026-10-19T15:09:48Z"
+				"sourceUrl": "https://repo.jellyfin.org/files/plugin-unstable/anilist/anilist_14.2611.25.0.zip",
+				"checksum": "08b3a322734d39b1012f0f9a11a6e55c",
+				"timestamp": "2026-11-02T17:36:45Z"
 			}
 		}
 	},
@@ -1405,12 +1405,12 @@
 			"owner": "vosmiic",
 			"overview": "Synchronize anime watch status",
 			"version": {
-				"checksum": "0d398377b33c27840c021779497c72dc",
-				"changelog": "1. Rate limiting improvements 2. Added support for custom Shikimori domains",
-				"targetAbi": "10.11.11.0",
-				"sourceUrl": "https://github.com/vosmiic/jellyfin-ani-sync/releases/download/v4.4/10.11.11.-.ani-sync_4.4.0.0.zip",
-				"timestamp": "2026-06-10T00:00:00Z",
-				"version": "4.4.0.0"
+				"checksum": "9b1b6705e9fe2465a1eb858432cd96bd",
+				"changelog": "1. Strip trailing slash from custom ARM base URL 2. Shoko Server addition, Fix AniDB resolution for sequels, split cours and titlefallbacks 3. Update AniList anime status from 'Plan to watch' to 'Watching' 4. Only check rewatch completed if anime is not on plan to watch list 5. Use shikimori.io for authenticated API calls 6. Sync Shikimori rewatch progress",
+				"targetAbi": "12.4.0.0",
+				"sourceUrl": "https://github.com/vosmiic/jellyfin-ani-sync/releases/download/v4.7/12.4.0.-.ani-sync_4.7.0.0.zip",
+				"timestamp": "2026-10-27T00:00:00Z",
+				"version": "4.7.0.0"
 			}
 		}
 	},
@@ -1565,12 +1565,12 @@
 			"description": "AudioMuse-AI Jellyfin Plugin integrates Jellyfin with the AudioMuse-AI backend. This plugin works only with the AudioMuse-AI side container, which must be installed separately. After installing both, configure the plugin with the side container's endpoint. Learn more: https://github.com/NeptuneHub/AudioMuse-AI",
 			"imageUrl": "https://raw.githubusercontent.com/NeptuneHub/audiomuse-ai-plugin/master/Jellyfin.Plugin.AudioMuseAi/audiomuseai.png",
 			"version": {
-				"version": "0.3.5.0",
-				"changelog": "- code review fix (9f629fa)\n- Uniform distance across the three similarity providers + The re-exposed /AudioMuseAI endpoints no longer follow the configured provider, which now applies only to the Instant Mix and \"More Like This\" + other minor fix (7e839dc)\n- ci: Update manifest.json for release v0.3.4 (6a45f75)",
+				"version": "12.0.0.0",
+				"changelog": "- added song alchemy for randomness (5065eb6)\n- ci: Update manifest.json for release v0.3.6 (5027aef)",
 				"targetAbi": "12.0.0.0",
-				"sourceUrl": "https://github.com/NeptuneHub/audiomuse-ai-plugin/releases/download/v0.3.5/audiomuse-ai_0.3.5.0.zip",
-				"checksum": "0c66823ea17fc939cb0a8dea208ccfa8",
-				"timestamp": "2026-09-01T12:52:25Z"
+				"sourceUrl": "https://github.com/NeptuneHub/audiomuse-ai-plugin/releases/download/v12.0.0/audiomuse-ai_12.0.0.0.zip",
+				"checksum": "029dd8fbb35037d4e08fef44e679b8fb",
+				"timestamp": "2026-11-06T09:01:57Z"
 			}
 		}
 	},
@@ -1605,12 +1605,12 @@
 			"category": "General",
 			"imageUrl": "https://raw.githubusercontent.com/GeiserX/smart-covers/main/docs/images/icon.png",
 			"version": {
-				"version": "7.4.0.0",
-				"changelog": "Audiobooks that are a folder of tracks get a cover: the book identity now comes from the folder (climbing out of disc folders), covers already on disk are found under any name, folder items get a cover, and one lookup serves a whole book. MOBI/AZW covers. A daily scheduled task retries items that never got a cover. Edition and narration tags are stripped before searching. A crafted MOBI header can no longer index past the record.",
+				"version": "7.5.1.0",
+				"changelog": "Google Books can no longer give a book a wrong cover: its \"image not available\" placeholder and thin title-page strips are recognised by their content and rejected, any image more than 1.5 times wider than tall is refused, and a Google result must name the book's author, the same rule Open Library free text follows. When the full-size Google image is rejected, the thumbnail the API listed is tried. A rejected image falls through to the next source or the drawn cover.",
 				"targetAbi": "10.11.0.0",
-				"sourceUrl": "https://github.com/GeiserX/smart-covers/releases/download/v7.4.0.0/smart-covers_7.4.0.0.zip",
-				"checksum": "c10efe880a8ede9d037d86a274307c72",
-				"timestamp": "2026-09-22T09:19:30Z"
+				"sourceUrl": "https://github.com/GeiserX/smart-covers/releases/download/v7.5.1.0/smart-covers_7.5.1.0.zip",
+				"checksum": "806251d527de71f71aced6e7b32dc0d9",
+				"timestamp": "2026-11-03T03:19:21Z"
 			}
 		}
 	},
@@ -1624,12 +1624,12 @@
 			"owner": "GeiserX",
 			"category": "Subtitles",
 			"version": {
-				"version": "4.16.0.0",
+				"version": "4.18.0.0",
 				"changelog": "See https://github.com/GeiserX/whisper-subs/releases",
 				"targetAbi": "10.11.0.0",
-				"sourceUrl": "https://github.com/GeiserX/whisper-subs/releases/download/v4.16.0.0/WhisperSubs_4.16.0.0.zip",
-				"checksum": "c2975459c93fd6a84783eb9b2d72e891",
-				"timestamp": "2026-10-10T01:08:37Z"
+				"sourceUrl": "https://github.com/GeiserX/whisper-subs/releases/download/v4.18.0.0/WhisperSubs_4.18.0.0.zip",
+				"checksum": "3a0d564166a24a3e76d1f692c3d1ec3a",
+				"timestamp": "2026-10-26T01:36:17Z"
 			}
 		}
 	},
