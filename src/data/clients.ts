@@ -657,7 +657,7 @@ const thirdPartyClients: Array<Client> = [
       {
         id: 'github',
         name: 'GitHub',
-        url: 'https://github.com/leinelissen/jellyfin-audio-player'
+        url: 'https://github.com/leinelissen/fintunes'
       },
       {
         id: 'website',
