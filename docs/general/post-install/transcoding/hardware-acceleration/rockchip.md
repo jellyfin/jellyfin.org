@@ -274,9 +274,6 @@ Then start Jellyfin with `docker compose up -d`. This works without `sudo` if yo
 
 If you are switching an existing Jellyfin container to this Compose setup, make sure the configured user has the required access to the config, cache, and media paths before starting it.
 
-
-
-
 #### LXC (Linux Containers)
 
 This setup might be useful for those, who use RK3588/3588S SoC as [Proxmox](https://www.proxmox.com/en/) host, where LXC is the official and the only supported way of doing lightweight virtualization with the help of system containers (LXC) vs application containers (docker). As of today Proxmox team does not support ARM platforms as hosts - and probably will never do - however successful deployments on ARM devices [are possible](https://github.com/jiangcuo/Proxmox-Port?tab=readme-ov-file).
