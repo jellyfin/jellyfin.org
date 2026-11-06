@@ -1,8 +1,8 @@
 import Link from '@docusaurus/Link';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React from 'react';
 import { SiAndroid, SiApple, SiRoku, SiKodi } from '@icons-pack/react-simple-icons';
-import Icon from '@mdi/react';
+import { Icon } from '@mdi/react';
 import { mdiPlusThick, mdiMonitor, mdiWeb } from '@mdi/js';
 
 import landingSectionStyles from './LandingSection.module.scss';

@@ -19,9 +19,9 @@ import {
   SiSailfishos,
   SiUbuntu
 } from '@icons-pack/react-simple-icons';
-import Icon from '@mdi/react';
+import { Icon } from '@mdi/react';
 import { mdiMonitor, mdiWeb } from '@mdi/js';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React from 'react';
 
 import Platform from '../../data/platform';
