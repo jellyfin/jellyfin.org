@@ -230,7 +230,7 @@ Root permission is required.
 
 3. Enable RKMPP in Jellyfin and uncheck the unsupported codecs.
 
-#### Docker Compose exampe
+#### Docker Compose example
 
 Root permission is NOT required - Steps 2 and 3 from Linux Setup above are required
 
@@ -277,8 +277,8 @@ services:
 after saving `docker-compose.yml`, just run: `docker compose up -d`  - and it should work in rootless user mode.
 
 Hint: 
-If you arleardy have a container with docker compose up and running be sure to set all permissions in all your used path to your user before setup.
-Start with a fresh copy of container by reanming it,
+If you already have a container with docker compose up and running be sure to set all permissions in all your used path to your user before setup.
+Start with a fresh copy of container by renaming it,
 
 
 
