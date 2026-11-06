@@ -232,11 +232,9 @@ Root permission is required.
 
 #### Docker Compose example
 
-Root permission is NOT required - Steps 2 and 3 from Linux Setup above are required
+This example runs Jellyfin as a non-root user. Complete steps 2 and 3 in the Debian and Ubuntu Linux host setup above to check the device files and configure their permissions. You may need root privileges for those host changes. Adjust the user and group IDs, paths, and timezone in the example to match your system.
 
-docker-compose.yml look like this:
-
-:::
+Save the following as `docker-compose.yml`:
 
 ```yaml
 services:
@@ -272,11 +270,9 @@ services:
       - "993"  # render group (adjust if different on your system)
  ```
 
-after saving `docker-compose.yml`, just run: `docker compose up -d`  - and it should work in rootless user mode.
+Then start Jellyfin with `docker compose up -d`. This works without `sudo` if your user can run Docker and access the mapped devices.
 
-Hint: 
-If you already have a container with docker compose up and running be sure to set all permissions in all your used path to your user before setup.
-Start with a fresh copy of container by renaming it,
+If you are switching an existing Jellyfin container to this Compose setup, make sure the configured user has the required access to the config, cache, and media paths before starting it.
 
 
 
