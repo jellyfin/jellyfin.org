@@ -126,6 +126,7 @@ failregex
 fanart
 fastcgi
 favorited
+fdroid
 fedor
 ferferga
 FFMPEGDIR
@@ -257,6 +258,7 @@ mirrorlist
 mirrorstats
 mirrorsync
 mkinitcpio
+mmap
 mmdb
 mobi
 modeset

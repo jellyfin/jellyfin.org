@@ -11,24 +11,30 @@ To improve the accuracy of media identification, you can manually specify a meta
 Movies
 ├── Best_Movie_Ever (1994) [tmdbid-680] [imdbid-1234]
 │   ├── Best_Movie_Ever (1994) [tmdbid-680].mp4
+├── Best_Movie_Ever_2 (1994) {tmdb-680}
+│   └── Best_Movie_Ever_2 (1994) {tmdb-680}.mp4
 └── Movie (2021) [imdbid-tt12801262]
     └── Movie (2021) [imdbid-tt12801262].mp4
 Shows
 └── Series Name (2018) [tvdbid-79168]
     ├── Season 01
-    |   ├── Series Name B S01E01.mkv
-    |   └── Series Name B S01E02.mkv
+    |   ├── Series Name S01E01.mkv
+    |   └── Series Name S01E02.mkv
     └── Season 02
-        ├── Series Name B S02E01-E02.mkv
-        └── Series Name B S02E03.mkv
+        ├── Series Name S02E01-E02.mkv
+        └── Series Name S02E03.mkv
 ```
+
+For movies, the provider ID must be added to both the parent folder and file when using [Multiple Versions](/docs/general/server/media/movies.md#multiple-versions).
+
+Metadata identifiers support square brackets `[]`, parentheses `()`, and curly braces `{}`.
 
 ## Supported Metadata Providers
 
 The following metadata providers are supported:
 
 - [The Movie DB (TMDB)](https://www.themoviedb.org/)
-- [The TV Database (TVDB)](https://www.thetvdb.com/) (Shows Only)
+- [The TV Database (TVDB)](https://www.thetvdb.com/)
 - [OMDb API (OMDB)](https://www.omdbapi.com/) (English Only)
 
 ## Finding Metadata Provider Identifiers
@@ -42,6 +48,7 @@ The identifier is found in the URL of the title. For example:
 URL: `https://www.themoviedb.org/movie/569094-spider-man-across-the-spider-verse`
 
 Identifier: `[tmdbid-569094]`
+Alias: `[tmdb-569094]`
 
 ### The TV Database (TVDB)
 
@@ -50,6 +57,7 @@ The identifier is found on the main page of the title. For example:
 ![How to find The TVDB media identifier](/images/docs/tvdb-media-identifier-example.png)
 
 Identifier: `[tvdbid-266189]`
+Alias: `[tvdb-266189]`
 
 ### OMDb API (OMDB)
 
@@ -58,3 +66,4 @@ OMDB provider uses Internet Movie Database (IMDB) IDs as identifiers. The identi
 URL: `https://www.imdb.com/title/tt9362722/`
 
 Identifier: `[imdbid-tt9362722]`
+Alias: `[imdb-tt9362722]`

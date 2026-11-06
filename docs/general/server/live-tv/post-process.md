@@ -50,7 +50,7 @@ In the sample script below:
 
 ### An example `run_post_processor.sh` script
 
-[GitHub Gist link to `run_post_processor.sh`](https://gist.github.com/AndrewBreyen/0fc36c868486d48583a369b657e22c69)
+[GitHub Link to `run_post_processor.sh`](https://github.com/AndrewBreyen/Jellyfin-TV-Post-Process/tree/main/github-gist)
 
 ```bash
 #!/bin/sh

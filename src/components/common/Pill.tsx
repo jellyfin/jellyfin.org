@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React, { FunctionComponent, ReactNode } from 'react';
 
 type PillParams = {
@@ -9,7 +9,7 @@ type PillParams = {
 
 const Pill: FunctionComponent<PillParams> = ({ children, active, onClick }: PillParams) => (
   <li
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+    // eslint-disable-next-line jsx-a11y-x/no-noninteractive-element-to-interactive-role
     role='button'
     tabIndex={0}
     className={clsx('pills__item', { 'pills__item--active': active })}
