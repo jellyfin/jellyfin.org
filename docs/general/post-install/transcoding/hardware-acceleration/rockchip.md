@@ -242,23 +242,23 @@ docker-compose.yml look like this:
 services:
   jellyfin:
     container_name: jellyfin
-    image: jellyfin/jellyfin:latest # ORIGINAL
+    image: jellyfin/jellyfin
     security_opt: # enables full access to /sys and /proc not need privileged: true
       - systempaths=unconfined
       - apparmor=unconfined
-    user: 1000:100   
+    user: 1000:100
     environment:
       TZ: Europe/Berlin # Your timezone
       TMPDIR: /config/temp
     volumes:
-      - /mnt/ssd/jellyfin/config:/config                 # Your config path
-      - /mnt/ssd/jellyfin/cache:/cache                   # Your cache path
-      - /mnt/jellyfin_external_hdd/media:/media          # Your media path
+      - /path/to/config:/config
+      - /path/to/cache:/cache
+      - type: bind
+        source: /path/to/media
+        target: /media
     ports:
-      - 8096:8096       # Web UI - you need this
-      - 8920:8920       # HTTPS
-      - 7359:7359/udp   # DIA
-      - 1900:1900/udp   # DLNA
+      - 8096:8096/tcp
+      - 7359:7359/udp
     restart: unless-stopped
     devices:
      # Rockchip VPU and GPU devices for hardware transcoding
@@ -270,8 +270,6 @@ services:
     group_add:
       - "44"   # video group  (adjust if different on your system)
       - "993"  # render group (adjust if different on your system)
-    networks:
-      - default
  ```
 
 after saving `docker-compose.yml`, just run: `docker compose up -d`  - and it should work in rootless user mode.
