@@ -47,46 +47,40 @@ For other distributions, [containers](/docs/general/installation/container) are 
 
 ## Updating on Linux
 
-It is very important to note your current Jellyfin version before attempting to upgrade.
+Before updating, check your current Jellyfin version:
 
 ```sh
 jellyfin --version
 ```
 
-First, make a backup of your current data. Instructions can be found [here](/docs/general/administration/backup-and-restore.md).
+:::warning
 
-### From version 10.10.7 or above
+Make a [backup of your Jellyfin data](/docs/general/administration/backup-and-restore) and check the release notes for each version you plan to install.
+
+**Do not skip major releases.** Update to the latest patch release of each major release in sequence before moving to the next. For example, an upgrade from 10.10.7 to 12.4 needs to go through 10.11.10 first.
+
+:::
+
+The following instructions apply to Debian, Ubuntu, and their derivatives using the Jellyfin APT repository.
+
+Refresh the package list and check the available versions:
 
 ```sh
-sudo apt upgrade jellyfin
-```
-
-### From version 10.10.6 or below
-
-You must first upgrade to the 10.10.7 release, before upgrading to the 10.11.0 stable version and beyond. Check the relevant release notes for more information.
-
-Check what Jellyfin versions are available:
-```sh
+sudo apt update
 apt-cache madison jellyfin-server
 apt-cache madison jellyfin-web
 ```
 
-Find the full version ID for 10.10.7, and use it below.
-Or find and download the version with `wget` from https://repo.jellyfin.org/archive/server/
+To install a specific release, select the matching server and web package versions from the output and replace the version identifiers below:
 
 ```sh
-sudo apt install jellyfin-server=<version> jellyfin-web=<version>
+sudo apt install jellyfin-server='<server-version>' jellyfin-web='<web-version>'
 ```
 
-For example:
+For example, the following installs Jellyfin 10.10.7 on Ubuntu 22.04, if those package versions are available:
+
 ```sh
 sudo apt install jellyfin-server=10.10.7+ubu2204 jellyfin-web=10.10.7+ubu2204
 ```
 
-### Restart the service
-
-You may need to restart Jellyfin
-
-```sh
-sudo service jellyfin start
-```
+After each major upgrade, ensure Jellyfin starts successfully and completes its migrations before proceeding to the next release.
