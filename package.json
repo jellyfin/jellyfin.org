@@ -16,6 +16,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "lint": "eslint --ext .ts,.js,.json,.jsx,.tsx .",
+    "lint:vale": "vale docs",
     "lint:markdown": "markdownlint **/*.md --ignore node_modules",
     "test:blog-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-blog-urls.json",
     "test:docs-urls": "node ./scripts/check-urls.mjs ./scripts/data/jellyfin-docs-urls.json",
@@ -62,6 +63,7 @@
     "@types/react": "18.3.31",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
+    "@vvago/vale": "3.25.1",
     "caniuse-lite": "1.0.30001820",
     "cspell": "10.4.0",
     "docusaurus-plugin-sass": "0.2.7",
@@ -80,5 +82,8 @@
     "typescript": "6.0.3",
     "typescript-eslint": "8.72.1",
     "typescript-plugin-css-modules": "5.3.0"
+  },
+  "allowScripts": {
+    "@vvago/vale@3.25.1": true
   }
 }
