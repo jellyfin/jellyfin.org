@@ -1,9 +1,9 @@
 import Link from '@docusaurus/Link';
 import { useHistory, useLocation } from '@docusaurus/router';
 import { mdiFilter } from '@mdi/js';
-import Icon from '@mdi/react';
+import { Icon } from '@mdi/react';
 import Layout from '@theme/Layout';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React, { useMemo, useState } from 'react';
 
 import ClientDetails from '../../../components/clients/ClientDetails';

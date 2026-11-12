@@ -17,7 +17,11 @@ Summarized here are the two biggest ones, one for backend devs and another for f
 
 Note that each of the repositories also has its own documentation on how to get started with that project, generally found in the repository README. You can also view the organization [source tree](/docs/general/contributing/source-tree) to see how some of the bigger projects are structured.
 
-The best way to get going on some actual development is to look through the [issues list](https://github.com/jellyfin/jellyfin/issues) of the associated repository, find an issue you would like to work on, and start hacking! Issues are triaged regularly by the administrative team, and labels assigned that should help you find issues within your skill-set. Once you start working on an issue, please comment on it stating your intent to work on the issue, to avoid unnecessary duplication of work.
+The best way to get going on some actual development is to look through the [issues list](https://github.com/jellyfin/jellyfin/issues) of the associated repository, find an issue you would like to work on, and start hacking! Issues are triaged regularly by the administrative team, and labels assigned that should help you find issues within your skill-set.
+
+### Feature Proposals
+
+New features or substantial changes to existing behavior affecting multiple sub-projects should first be proposed as a [Jellyfin Meta discussion](https://github.com/jellyfin/jellyfin-meta/discussions).
 
 ### Major Issue Types
 

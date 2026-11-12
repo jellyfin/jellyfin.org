@@ -13,14 +13,15 @@ import {
   SiIos,
   SiKodi,
   SiLg,
+  SiSamsung,
   SiLinux,
   SiRoku,
   SiSailfishos,
   SiUbuntu
 } from '@icons-pack/react-simple-icons';
-import Icon from '@mdi/react';
+import { Icon } from '@mdi/react';
 import { mdiMonitor, mdiWeb } from '@mdi/js';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React from 'react';
 
 import Platform from '../../data/platform';
@@ -98,6 +99,9 @@ const PlatformIcon = ({
 
     case Platform.SailfishOS:
       return <SiSailfishos size={size} className={className} />;
+    
+    case Platform.Tizen:
+      return <SiSamsung size={size} className={className} />;
 
     case Platform.TVOS:
       return <SiAppletv size={size} className={className} />;

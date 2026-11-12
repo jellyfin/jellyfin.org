@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import landingSectionStyles from './LandingSection.module.scss';
 import styles from './HomepageFeatures.module.scss';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 type Feature = {
   title: string;

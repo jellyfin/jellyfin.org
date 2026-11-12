@@ -1,8 +1,8 @@
 import Link from '@docusaurus/Link';
 import { SiOpensourceinitiative } from '@icons-pack/react-simple-icons';
-import Icon from '@mdi/react';
+import { Icon } from '@mdi/react';
 import { mdiAccountGroup, mdiLock, mdiCurrencyUsdOff } from '@mdi/js';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React from 'react';
 
 import landingSectionStyles from './LandingSection.module.scss';

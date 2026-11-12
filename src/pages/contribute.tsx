@@ -1,7 +1,7 @@
 import Link from '@docusaurus/Link';
 import { SiJetbrains } from '@icons-pack/react-simple-icons';
 import Layout from '@theme/Layout';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React from 'react';
 
 import ContributorGuide from '../components/contribute/ContributorGuide';
