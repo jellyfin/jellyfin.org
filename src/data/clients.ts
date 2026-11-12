@@ -10,7 +10,7 @@ export enum DeviceType {
   Desktop = 'Desktop',
   Mobile = 'Mobile',
   TV = 'TV',
-  Automotove = 'Automotive'
+  Automotive = 'Automotive'
 }
 
 type Link = {
@@ -779,10 +779,9 @@ const thirdPartyClients: Array<Client> = [
   {
     id: 'sharkmarmalade',
     name: 'Shark Marmalade',
-    description: 'A music player for Android Automotive OS',
+    description: 'An open-source music player for Android Automotive OS',
     clientType: ClientType.ThirdParty,
     deviceTypes: [DeviceType.Automotive],
-    licenseType: LicenseType.OpenSource,
     platforms: [Platform.Android],
     primaryLinks: [
       {
