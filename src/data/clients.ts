@@ -774,6 +774,33 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'maer',
+    name: 'Mär',
+    description: 'A free and open source player for music and audiobooks on iOS and iPadOS, with podcasts and internet radio in the same app.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile],
+    platforms: [Platform.IOS],
+    primaryLinks: [
+      {
+        id: 'app-store',
+        name: 'App Store',
+        url: 'https://apps.apple.com/app/id6799687154'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/maer-lzs/maer'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://maer.fm'
+      }
+    ]
   }
 ];
 
