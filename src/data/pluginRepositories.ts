@@ -121,6 +121,14 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
       'YouTube Metadata': 'https://github.com/ankenyr/jellyfin-youtube-metadata-plugin',
       'Smart Playlist': 'https://github.com/ankenyr/jellyfin-smartplaylist-plugin'
     }
+  },
+  {
+    id: 'gh:devpratyushh/Samerow-V2',
+    name: 'SameRow Connect',
+    url: 'https://raw.githubusercontent.com/devpratyushh/Samerow-V2/main/jellyfin-plugin-samerow/manifest.json',
+    includes: {
+      'SameRow Connect': 'https://github.com/devpratyushh/Samerow-V2/tree/main/jellyfin-plugin-samerow'
+    }
   }
 ];
 
