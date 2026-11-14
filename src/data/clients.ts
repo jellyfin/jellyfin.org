@@ -774,6 +774,34 @@ const thirdPartyClients: Array<Client> = [
         url: 'https://jellify.app'
       }
     ]
+  },
+  {
+    id: 'cobalt-wolf',
+    name: 'Cobalt Wolf',
+    description:
+      'A native Jellyfin client for phones, tablets and TV with media requests, release calendar, download monitoring and watch together built in.',
+    clientType: ClientType.ThirdParty,
+    deviceTypes: [DeviceType.Mobile, DeviceType.TV],
+    platforms: [Platform.Android, Platform.AndroidTV, Platform.FireOS],
+    primaryLinks: [
+      {
+        id: 'gh-downloads',
+        name: 'GitHub Downloads',
+        url: 'https://github.com/P-YoungWebServices/cobalt-wolf/releases'
+      }
+    ],
+    secondaryLinks: [
+      {
+        id: 'github',
+        name: 'GitHub',
+        url: 'https://github.com/P-YoungWebServices/cobalt-wolf'
+      },
+      {
+        id: 'website',
+        name: 'Website',
+        url: 'https://p-youngwebservices.github.io/cobalt-wolf/'
+      }
+    ]
   }
 ];
 
