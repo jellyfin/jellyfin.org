@@ -121,6 +121,14 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
       'YouTube Metadata': 'https://github.com/ankenyr/jellyfin-youtube-metadata-plugin',
       'Smart Playlist': 'https://github.com/ankenyr/jellyfin-smartplaylist-plugin'
     }
+  },
+  {
+    id: 'gh:adityas1731/frame.',
+    name: 'Frame',
+    url: 'https://raw.githubusercontent.com/adityas1731/frame./plugin-catalog/manifest.json',
+    includes: {
+      Frame: 'https://github.com/adityas1731/frame.'
+    }
   }
 ];
 
