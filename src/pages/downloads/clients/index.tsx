@@ -106,23 +106,6 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
               </div>
             </div>
 
-            <div className={clsx('col', 'margin-bottom--md', styles['header-pills-middle'])}>
-              <div className='pills'>
-                <Link
-                  to={`/downloads/clients${location.search}`}
-                  className={clsx('pills__item', { 'pills__item--active': filter.recommended })}
-                >
-                  Recommended
-                </Link>
-                <Link
-                  to={`/downloads/clients/all${location.search}`}
-                  className={clsx('pills__item', { 'pills__item--active': !filter.recommended })}
-                >
-                  All
-                </Link>
-              </div>
-            </div>
-
             <div className={clsx('col', 'margin-bottom--md', styles['header-pills-end'])}>
               <button
                 className={clsx(
@@ -146,6 +129,23 @@ export default function ClientsPage({ recommended = true }: { recommended?: bool
           {isFiltersVisible && (
             <div className='card card--outline margin-bottom--md'>
               <div className='card__body'>
+                <div className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
+                  <div className='pills'>
+                    <Link
+                      to={`/downloads/clients/all${location.search}`}
+                      className={clsx('pills__item', { 'pills__item--active': !filter.recommended })}
+                    >
+                      All Clients
+                    </Link>
+                    <Link
+                      to={`/downloads/clients${location.search}`}
+                      className={clsx('pills__item', { 'pills__item--active': filter.recommended })}
+                    >
+                      Recommended
+                    </Link>
+                  </div>
+                </div>
+
                 <ul className={clsx('pills', styles['filter-pills'], 'margin-bottom--md')}>
                   <Pill
                     active={filter.deviceTypes.length === 0}
