@@ -39,7 +39,9 @@ jobs:
         with:
           token: ${{ secrets.JF_BOT_TOKEN }}
           branch: ci/update-plugins
-          add-paths: src/data/plugins.generated.json
+          add-paths: |
+            src/data/plugins.generated.json
+            static/images/plugins/
           commit-message: Update generated plugin data
           committer: jellyfin-bot <team@jellyfin.org>
           author: jellyfin-bot <team@jellyfin.org>

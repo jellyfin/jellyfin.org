@@ -13,7 +13,7 @@ Jellyfin can get metadata for your media through multiple sources. By default, J
 
 [^1]: [OMDb API](https://www.omdbapi.com/) only provides English metadata.
 
-There are more official providers available in our [Plugin Catalog](/docs/general/server/plugins#official-plugins), like TheTVDB, fanart.tv or AniDB. If you still can't find the provider you are looking for, you could even develop your own with our Plugin API.
+There are more official providers available in our [Plugin Catalog](/docs/general/server/plugins#list), like TheTVDB, fanart.tv or AniDB. If you still can't find the provider you are looking for, you could even develop your own with our Plugin API.
 
 :::caution Notice for Users in Mainland China 中国大陆地区用户请注意
 
