@@ -214,6 +214,16 @@ If your active devices section in the dashboard is not showing progress of the c
 timedatectl set-ntp true
 ```
 
+## Shows Or Movies Not Being Identified Correctly
+
+If Jellyfin is mislabeling your shows or movies, try the following process:
+
+1. Move one of the effected shows or movies OUT of the library folder.
+2. Manually initiate a scan of the Library from the server `Dashboard` > `Libraries` > `Libraries` > `context menu` > `Scan library` > `Refresh`.
+3. Rename the files and directories to ensure they comply with the official documention for [shows](https://jellyfin.org/docs/general/server/media/shows) or [movies](https://jellyfin.org/docs/general/server/media/movies).
+4. Move the now renamed directories and folders back into your target library folder. Make sure to follow Jellyfin's expected folder structure and avoid adding extra subfolders between the library root and your media.
+5. Manually initiate a scan of the Library from the server `dashboard` > `Libraries` > `Libraries` > `context menu` > `Scan library` > `Refresh`.
+
 ## Database Locked Errors
 
 When encountering issues with failed scans or inconsistent data, check your log file(s) for errors like "Database Locked". If you encounter those you should first check your parallel scan task limit in your admin dashboard and set that lower. If its set to 0 set it to 1/2 your cores. If that does not help, you can set the locking mode instead (keep the task limit to a reasonable low number too).

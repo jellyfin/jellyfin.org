@@ -1,5 +1,5 @@
 import Link from '@docusaurus/Link';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React, { useState } from 'react';
 
 enum ContributorOption {

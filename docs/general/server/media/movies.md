@@ -57,6 +57,8 @@ import VideoMetadataProviders from './\_video-metadata-providers.md';
 
 <VideoMetadataProviders />
 
+The provider ID must be added to both the parent folder and file when using [Multiple Versions](/docs/general/server/media/movies.md#multiple-versions).
+
 import ExternalStreams from './\_video-external-streams.md';
 
 <ExternalStreams defaultTab="movies"/>

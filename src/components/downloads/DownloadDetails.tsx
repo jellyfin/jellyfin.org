@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 import DetailsCard from '../common/DetailsCard';
 import { Download, DownloadStatus, Feature } from '../../data/downloads';
