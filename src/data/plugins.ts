@@ -40,8 +40,3 @@ export type GeneratedPlugin = {
 export const Plugins: Array<PluginWithRepository> = (GeneratedPlugins as GeneratedPlugin[]).map(
   ({ repository, plugin, thumbnail }) => ({ ...plugin, repository, thumbnail })
 );
-
-export const PluginsForRepository = (repository: string) =>
-  (GeneratedPlugins as GeneratedPlugin[])
-    .filter((plugin) => plugin.repository === repository)
-    .map(({ plugin }) => plugin);

@@ -7,11 +7,6 @@ export type PluginRepository = {
   includes: Record<string, string>;
 };
 
-export type PluginRepositoryIncluded = {
-  name: string;
-  url: string;
-};
-
 export const OfficialPluginRepositories: Array<PluginRepository> = [
   {
     id: 'jellyfin',

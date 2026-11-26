@@ -1,10 +1,9 @@
 import { mdiPuzzle } from '@mdi/js';
 import { Icon } from '@mdi/react';
-import Heading from '@theme/Heading';
 import { clsx } from 'clsx';
 import React, { useState } from 'react';
 
-import { RepositoryById, type PluginRepository } from '../../data/pluginRepositories';
+import { RepositoryById } from '../../data/pluginRepositories';
 import { targetsCurrentJellyfin } from '../../data/pluginVersions';
 import { Plugins, type PluginImage } from '../../data/plugins';
 import styles from './PluginCatalog.module.scss';
@@ -97,18 +96,6 @@ function PluginCard({ selection, onOpen }: { selection: PluginSelection; onOpen:
   );
 }
 
-function RepositoryList({ repositories }: { repositories: PluginRepository[] }) {
-  return (
-    <ul className={styles.repositoryList}>
-      {repositories.map((repository) => (
-        <li key={repository.id}>
-          <a href={repository.url}>{repository.name}</a>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 export default function PluginCatalog() {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('');
@@ -121,8 +108,6 @@ export default function PluginCatalog() {
     ({ repository }) => !repository.official || !!repository.unstable === showUnstable
   );
   const repositories = [...new Set(activePlugins.map(({ repository }) => repository))].sort(byName);
-  const officialRepositories = repositories.filter(({ official }) => official);
-  const thirdPartyRepositories = repositories.filter(({ official }) => !official);
   const activeRepository = repositories.find(({ id, official }) => (official ? 'official' : id) === repositoryFilter);
   const terms = query.trim().toLowerCase().split(/\s+/);
 
@@ -208,29 +193,6 @@ export default function PluginCatalog() {
       ) : (
         <p className={styles.empty}>No plugins match your search and filters.</p>
       )}
-
-      <section className={styles.repositories} aria-labelledby='repositories'>
-        <Heading as='h2' id='repositories'>
-          Plugin repositories
-        </Heading>
-        {!!officialRepositories.length && (
-          <>
-            <Heading as='h3' id='official-plugins'>
-              Official plugins
-            </Heading>
-            <RepositoryList repositories={officialRepositories} />
-          </>
-        )}
-        {!!thirdPartyRepositories.length && (
-          <>
-            <Heading as='h3' id='3rd-party-plugins'>
-              Third-party plugins
-            </Heading>
-            <p>Independent developers make and maintain these plugins. Install and use them at your own risk.</p>
-            <RepositoryList repositories={thirdPartyRepositories} />
-          </>
-        )}
-      </section>
 
       {selected && <PluginDetailsDialog selection={selected} onClose={() => setSelected(undefined)} />}
     </div>

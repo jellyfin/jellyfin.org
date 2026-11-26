@@ -31,10 +31,6 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.875rem;
-  padding: 1rem;
-  border: 1px solid var(--catalog-border);
-  border-radius: 0.75rem;
-  background: var(--ifm-card-background-color);
 
   label {
     display: grid;
@@ -94,8 +90,7 @@
   font-size: 0.875rem;
 }
 
-.grid,
-.repositoryList {
+.grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1.125rem;
@@ -116,7 +111,7 @@
   overflow: hidden;
   padding: 0;
   border: 1px solid var(--catalog-border);
-  border-radius: 0.75rem;
+  border-radius: 0.375rem;
   background: var(--ifm-card-background-color);
   color: inherit;
   font: inherit;
@@ -132,7 +127,7 @@
   position: relative;
   display: none;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2 / 1;
   place-items: center;
   overflow: hidden;
   background: linear-gradient(125deg, var(--jf-gradient-color-primary-dark), var(--jf-gradient-color-secondary-dark));
@@ -202,10 +197,7 @@
 .version {
   flex: 0 0 auto;
   max-width: 46%;
-  padding: 0.15rem 0.45rem;
-  border-radius: 0.375rem;
-  background: var(--ifm-background-color);
-  color: #b0e9ff;
+  color: var(--catalog-muted);
   font-size: 0.875rem;
   text-align: end;
 }
@@ -228,20 +220,6 @@
   padding: 1.25rem;
   border: 1px solid var(--catalog-border);
   border-radius: 0.75rem;
-}
-
-.repositories {
-  margin-top: 2.75rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--catalog-border);
-
-  h3 {
-    margin-top: 1.25rem;
-  }
-}
-
-.repositoryList {
-  gap: 0.25rem 1rem;
 }
 
 .dialog {
@@ -316,8 +294,7 @@
     }
   }
 
-  .grid,
-  .repositoryList {
+  .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -331,8 +308,7 @@
     }
   }
 
-  .grid,
-  .repositoryList {
+  .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
