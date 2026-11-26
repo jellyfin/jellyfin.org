@@ -130,7 +130,7 @@
 
 .artwork {
   position: relative;
-  display: grid;
+  display: none;
   width: 100%;
   aspect-ratio: 16 / 9;
   place-items: center;
@@ -304,6 +304,10 @@
 }
 
 @media (min-width: 36rem) {
+  .artwork {
+    display: grid;
+  }
+
   .filters {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 
