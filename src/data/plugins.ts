@@ -15,7 +15,12 @@ export type Plugin = {
   version: PluginVersion;
 };
 
-export type PluginWithRepository = Plugin & { repository: string };
+export type PluginImage = {
+  file: string;
+  banner: boolean;
+};
+
+export type PluginWithRepository = Plugin & { repository: string; thumbnail?: PluginImage };
 
 export type PluginVersion = {
   changelog?: string;
@@ -26,16 +31,12 @@ export type PluginVersion = {
   version?: string;
 };
 
-type GeneratedPlugin = {
+export type GeneratedPlugin = {
   repository: string;
   plugin: Plugin;
+  thumbnail?: PluginImage;
 };
 
 export const Plugins: Array<PluginWithRepository> = (GeneratedPlugins as GeneratedPlugin[]).map(
-  ({ repository, plugin }) => ({ ...plugin, repository })
+  ({ repository, plugin, thumbnail }) => ({ ...plugin, repository, thumbnail })
 );
-
-export const PluginsForRepository = (repository: string) =>
-  (GeneratedPlugins as GeneratedPlugin[])
-    .filter((plugin) => plugin.repository === repository)
-    .map(({ plugin }) => plugin);
