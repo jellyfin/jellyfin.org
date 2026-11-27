@@ -121,6 +121,14 @@ export const ThirdPartyRepositories: Array<PluginRepository> = [
       'YouTube Metadata': 'https://github.com/ankenyr/jellyfin-youtube-metadata-plugin',
       'Smart Playlist': 'https://github.com/ankenyr/jellyfin-smartplaylist-plugin'
     }
+  },
+  {
+    id: 'gh:Lasikiewicz/jellyfin-plugin-plekt',
+    name: "Plekt's Repo",
+    url: 'https://raw.githubusercontent.com/Lasikiewicz/jellyfin-plugin-plekt/main/manifest.json',
+    includes: {
+      Plekt: 'https://github.com/Lasikiewicz/jellyfin-plugin-plekt'
+    }
   }
 ];
 
